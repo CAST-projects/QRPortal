@@ -19,7 +19,7 @@ const is = ( key, id ) => {
 const getEntries = ( key, arrList ) => arrList.filter( entry => is( key, entry.id ) );
 
 const genGlobURL = ( entriesArray ) => {
-  const urls = entriesArray.map( a => a.href ),
+  const urls = entriesArray.map( a => a.href + '/quality-rules' ),
     globURL = MultiQuery( ...urls );
   return globURL;
 };

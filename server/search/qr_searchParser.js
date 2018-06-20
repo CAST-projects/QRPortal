@@ -4,7 +4,7 @@ const rootMetricsDir  = path.resolve( __dirname, '..','..', 'rest','AIP');
 const rulesDir = path.resolve( __dirname, '..','..', 'rest','AIP', 'quality-rules');
 const search = require('./search');
 const filter = require('../lib/filters');
-const QS = require('../../rest/AIP/quality-standards.json');
+//const QS = require('../../rest/AIP/quality-standards.json');
 const technoMapping = require('../lib/technologies-map');
 const errLogger = require('../logger/error');
 
@@ -40,8 +40,8 @@ function SearchIndex( query, indexDef ){
   switch (indexDef) {
   case 'qualityrules':
     return search( query, index[ indexDef ], ( e ) => e.searchid );
-  case 'qualitystandards':
-    return index.qualitystandards.find( el => el.id == query );
+  /*case 'qualitystandards':
+    return index.qualitystandards.find( el => el.id == query );*/
   default:{
     const err = {
       module: 'search',
@@ -67,12 +67,12 @@ const QRinitializationTest = () =>{
   console.log(SearchIndex(test, 'qualityrules'));
 }; 
 
-const QSinitializationTest = () => {
+/*const QSinitializationTest = () => {
   const testidx = getRandomInt(index.qualitystandards.length),
     test = index.qualitystandards[testidx].id;
   console.log('testquery search : ' + test);
   console.log(SearchIndex(test, 'qualitystandards'));
-};
+};*/
 
 /* initialization */
 (function (){
@@ -85,7 +85,7 @@ const QSinitializationTest = () => {
     console.log('Quality Rules Search Index created');
     if( process.env.NODE_ENV !== 'production' )QRinitializationTest();
   });
-  let qsi = 0;
+  /*let qsi = 0;
   QS.forEach((std) => {
     readJsonFile(path.join(rootMetricsDir, 'quality-standards', std.name, 'items.json'), ( name, content ) => {
       content.forEach( fLink => {
@@ -102,12 +102,12 @@ const QSinitializationTest = () => {
     }, undefined, ( e ) => {
       errLogger.error( e );
     });
-  });
+  });*/
 }());
 
-setTimeout(() => {
+/*setTimeout(() => {
   console.log('Quality Standards Search Index created');
   if( process.env.NODE_ENV !== 'production' )QSinitializationTest();
-}, 1000);
+}, 1000);*/
 
 module.exports = SearchIndex;
