@@ -1,10 +1,10 @@
 const glob = require('../lib/glob');
 const path = require('path');
-const rootMetricsDir  = path.resolve( __dirname, '..','..', 'rest');
-const rulesDir = path.resolve( __dirname, '..','..', 'rest', 'quality-rules');
+const rootMetricsDir  = path.resolve( __dirname, '..','..', 'rest','AIP');
+const rulesDir = path.resolve( __dirname, '..','..', 'rest','AIP', 'quality-rules');
 const search = require('./search');
 const filter = require('../lib/filters');
-const QS = require('../../rest/quality-standards.json');
+const QS = require('../../rest/AIP/quality-standards.json');
 const technoMapping = require('../lib/technologies-map');
 const errLogger = require('../logger/error');
 
@@ -20,7 +20,7 @@ function convertToSearchString ( dataObject, fileName ) {
   return {
     id: dataObject.id,
     name: dataObject.name,
-    href: 'quality-rules/' + fileName,
+    href: 'AIP/quality-rules/' + fileName,
     searchid: `${dataObject.id} - ${dataObject.name}`,
     technologies: technos.map( tech => technoMapping.find( tch => tech.name === tch.name)),
     resString: technos.map( tech => `${tech.name} : ${dataObject.id} - ${dataObject.name}`)
@@ -41,16 +41,18 @@ function SearchIndex( query, indexDef ){
   case 'qualityrules':
     return search( query, index[ indexDef ], ( e ) => e.searchid );
   case 'qualitystandards':
-    return index.qualitystandards.find( e => e.id === query );
-  default:
-    errLogger.error({
+    return index.qualitystandards.find( el => el.id == query );
+  default:{
+    const err = {
       module: 'search',
       index: indexDef,
       query: query,
       errortype: 'index not found',
       errorcode: 404
-    });
-    break;
+    };
+    errLogger.error(err);
+    return err;
+  }
   }
 }
 
@@ -62,7 +64,7 @@ const QRinitializationTest = () =>{
   const testidx = getRandomInt(index.qualityrules.length),
     test = getRandomInt( 2 ) === 0 ? index.qualityrules[testidx].id : index.qualityrules[testidx].name.substring( /:/g, getRandomInt(index.qualityrules[testidx].name.length) );
   console.log('testquery search : ' + test);
-  console.log(SearchIndex(test, 'qualityRules'));
+  console.log(SearchIndex(test, 'qualityrules'));
 }; 
 
 const QSinitializationTest = () => {
@@ -85,9 +87,10 @@ const QSinitializationTest = () => {
   });
   let qsi = 0;
   QS.forEach((std) => {
-    readJsonFile(path.join(rootMetricsDir, std.href), ( name, content ) => {
+    readJsonFile(path.join(rootMetricsDir, 'quality-standards', std.name, 'items.json'), ( name, content ) => {
       content.forEach( fLink => {
-        readJsonFile( path.join(rootMetricsDir, fLink.href), ( n, c ) => {
+        if (fLink.count == 0) return;
+        readJsonFile( path.join(rootMetricsDir, 'quality-standards', std.name, 'items', fLink.id, 'quality-rules.json'), ( n, c ) => {
           c.forEach( o => {
             const indexObj = convertQsToSearchIndex( o, fLink );
             index.qualitystandards[qsi++] = indexObj;

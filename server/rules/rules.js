@@ -2,7 +2,7 @@ const express = require('express');
 const options = require('./options');
 const { main } = require('../routes/routes');
 const technoMapping = require('../lib/technologies-map');
-const extensions = require('../../rest/extensions.json').filter( e => e.qualityModel === true );
+const extensions = require('../../rest/AIP/extensions.json').filter( e => e.qualityModel === true );
 const errLogger = require('../logger/error');
 let rulesRouter = express.Router();
 

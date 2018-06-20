@@ -1,4 +1,4 @@
-const technologies = require('../../rest/technologies.json');
+const technologies = require('../../rest/AIP/technologies.json');
 const technoFilter = require('./filters');
 
 const technoMapping = technoFilter( technologies );

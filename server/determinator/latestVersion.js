@@ -3,7 +3,7 @@ const { extPath, versionTypes } = require('./constants');
 
 function getLatestVersion( analyzerUID ){
   if( !analyzerUID ) return;
-  const versions = require( path.join(extPath, analyzerUID + '.json')),
+  const versions = require( path.join(extPath, analyzerUID, 'versions.json')),
     len = versions ? versions.length : 0;
   
   let latestLTS, funcRelVersion, latestBeta, latestAlpha;

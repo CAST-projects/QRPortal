@@ -11,6 +11,7 @@ searchRouter.get(searchRoute, (req, res) => {
   };
   const ret = searchIndex( searchParams.query, searchParams.index );
   logger.info(searchParams);
+  console.log(ret);
   res.json(ret);
 });
 

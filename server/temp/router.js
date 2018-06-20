@@ -1,8 +1,6 @@
 const express = require('express');
 const options = require('./options');
 const { main } = require('../routes/routes');
-const technoMapping = require('../lib/technologies-map');
-const extensions = require('../../rest/extensions.json').filter( e => e.qualityModel === true );
 let tempRouter = express.Router();
 
 tempRouter.get(main, (req, res) => {
@@ -40,13 +38,5 @@ tempRouter.get('/bundle.js.map', (req, res)=> {
     }
   });
 });*/
-
-tempRouter.get('/technologies.json', (req, res) => {
-  res.json( technoMapping );
-});
-
-tempRouter.get('/extensions.json', (req, res) => {
-  res.json( extensions );
-});
 
 module.exports = tempRouter;

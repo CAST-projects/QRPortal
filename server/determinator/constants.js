@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   queryKey: 'q',
-  extPath: path.resolve(__dirname, '..' , '..', 'rest', 'extensions'),
+  extPath: path.resolve(__dirname, '..' , '..', 'rest', 'AIP', 'extensions'),
   versionTypes:{
     LTS: 'LTS',
     FUNCREL: 'FUNCREL',

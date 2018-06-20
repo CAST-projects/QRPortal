@@ -5,6 +5,7 @@ const errHandler = require('../middleware/errorHandler');
 const concatQueries = require('./concatQueries');
 const QueryParser = require('../lib/queryParser');
 const StatLogger = require('../logger/restStats');
+const normalize = require('../lib/normalize');
 
 const queryKey = 'q';
 
@@ -17,7 +18,7 @@ apiRouter.get(main, ( req, res ) => {
     const ret = concatQueries( ...query );
     res.json(ret);
   } else {
-    res.sendFile(query[0], options, (err) => errHandler(err, res));
+    res.sendFile(normalize(query[0]), options, (err) => errHandler(err, res));
   }
 });
 
