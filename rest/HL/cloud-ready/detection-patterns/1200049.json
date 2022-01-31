@@ -1,0 +1,39 @@
+{
+    "id": 1200049,
+    "name": "Using SEMANTICKEYPHRASETABLE (semantic search) - Unsupported in Azure SQL Database",
+    "href": "HL/cloud-ready/detection-patterns/1200049",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/5",
+        "name": "Code Execution"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/9",
+                "name": "TSQL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Using semantic search (SEMANTICKEYPHRASETABLE) is not a supported function in Azure SQL Database. It should be removed or replaced by an equivalent function or service supported in Azure. When used on on-premise SQL databases, this function returns a table with zero, one, or more rows for key phrases associated with the specified columns in the specified table. This rowset function can be referenced in the FROM clause of a SELECT statement as if it were a regular table name.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en/sql/relational-databases/system-functions/semantickeyphrasetable-transact-sql"
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "id": 1200012,
+    "name": "Avoid using binary data type in mainframes",
+    "href": "HL/cloud-ready/detection-patterns/1200012",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "While modern compilers can emulate binary data type, there might be issues during data movement or comparsions. Using binary data type should be avoided.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.ibm.com/support/knowledgecenter/SS6SGM_5.1.0/com.ibm.cobol51.aix.doc/PGandLR/ref/rlddeusa.html"
+    }
+}

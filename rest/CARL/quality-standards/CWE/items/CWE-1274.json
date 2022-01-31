@@ -1,9 +1,9 @@
 {
     "id": "CWE-1274",
-    "name": "Insufficient Protections on the Volatile Memory Containing Boot Code",
+    "name": "Improper Access Control for Volatile Memory Containing Boot Code",
     "href": "CARL/quality-standards/CWE/items/CWE-1274",
     "url": "https://cwe.mitre.org/data/definitions/1274.html",
-    "description": "The protections on the product's non-volatile memory containing boot code are insufficient to prevent the bypassing of secure boot or the execution of an untrusted, boot code chosen by an adversary.",
+    "description": "The product conducts a secure-boot process that transfers bootloader code from Non-Volatile Memory (NVM) into Volatile Memory (VM), but it does not have sufficient access control or other protections for the Volatile Memory.",
     "isoPatterns": null,
     "count": 0,
     "qualityRules": null

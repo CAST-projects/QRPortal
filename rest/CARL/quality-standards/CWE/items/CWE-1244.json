@@ -1,9 +1,9 @@
 {
     "id": "CWE-1244",
-    "name": "Improper Access to Sensitive Information Using Debug and Test Interfaces",
+    "name": "Internal Asset Exposed to Unsafe Debug Access Level or State",
     "href": "CARL/quality-standards/CWE/items/CWE-1244",
     "url": "https://cwe.mitre.org/data/definitions/1244.html",
-    "description": "The product's physical debug and test interface protection does not block untrusted agents, resulting in unauthorized access to and potentially control of sensitive assets.",
+    "description": "The product uses physical debug or test interfaces with support for multiple access levels, but it assigns the wrong debug access level to an internal asset, providing unintended access to the asset from untrusted debug agents.",
     "isoPatterns": null,
     "count": 0,
     "qualityRules": null

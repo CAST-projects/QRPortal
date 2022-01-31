@@ -1,0 +1,39 @@
+{
+    "id": 1200057,
+    "name": "Use of an unsecured API",
+    "href": "HL/cloud-ready/detection-patterns/1200057",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/15",
+        "name": "Sensitive Data Storage Protection"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "ASP.NET applications translate Active Directory groups into roles which is no longer possible with Azure AD. Regarding AWS, AWS cognito uses its own group and users and a specific library is needed.\n\nRemediation steps:\n\nFor Azure: Assign ASP.NET roles to your Azure AD groups\nFor AWS : Use CognitoAuthentication extension library",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api\nhttps://www.c-sharpcorner.com/article/authorize-asp-net-core-app-by-azure-ad-groups-using-graph-api/\nhttps://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html\nhttps://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/cognito-authentication-extension.html"
+    }
+}

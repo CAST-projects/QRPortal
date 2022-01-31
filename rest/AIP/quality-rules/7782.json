@@ -8,6 +8,8 @@
     "description": "This metric reports all methods with at least one empty finally block (empty or only containing comments). In a try and catch/finally statement, finally blocks should contain code to handle the thrown exception.",
     "output": "This report lists all Artifacts with an empty finally block. It provides the following information: Artifact full name",
     "rationale": "Finally blocks must be used to execute the code that is needed after either the try and/or the catch block have been executed. It is usually the place to code the release of resources used in the try block. As such, an empty finally block is most probably the sign of potential \"resource leaks\" that will jeopardize the application's stability.",
+    "reference": "https://cwe.mitre.org/data/definitions/1069.html",
+    "remediation": "Add code to the finally block, especially the release of resources used in the try block, if any.",
     "remediationSample": "try { ,,, }\ncatch ( MyException e)\n{ ,,, }\nfinally\n{\n  DoSomething();\n}",
     "sample": "try { ... }\ncatch ( MyException e)\n{ ,,, }\nfinally\n{\n  // DO NOTHING <= VIOLATION\n}",
     "total": "Number of artifacts",

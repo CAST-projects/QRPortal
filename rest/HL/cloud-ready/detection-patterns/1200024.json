@@ -1,0 +1,57 @@
+{
+    "id": 1200024,
+    "name": "Using EventLog in System.Diagnostics namespace",
+    "href": "HL/cloud-ready/detection-patterns/1200024",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/2",
+        "name": "Application Logs"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Using EventLog solution from System.Diagnostic could lead to some non compliance, in terms or privilege access or resource, depending on the situation. Logging to the Event Log is not recommended for Cloud native apps. Consider refactoring to use a ConsoleTraceListener with the System.Diagnostics logging system and/or use a Cloud-based logging system.\n\nUsage of Microsoft\u2019s EventLog is detected if specific patterns are detected in the source code or in application configuration files (see pattern details below).",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process?redirectedfrom=MSDN&view=netframework-4.8"
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "id": 1200030,
+    "name": "Avoid using hexadecimal constants in mainframes",
+    "href": "HL/cloud-ready/detection-patterns/1200030",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "EBCDIC which stands for the Extended Binary Coded Decimal Interchange Code, is an 8 bit character encoding used on IBM mainframes and AS/400s. List of all the EBCIDIC characters to be checked is the following link column 2(h):\n\nhttp://ascii-table.com/ebcdic-table.php\n\nEBCIDIC charcters should be detected and converted in order to support Open Source platforms.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "http://ascii-table.com/ebcdic-table.php"
+    }
+}

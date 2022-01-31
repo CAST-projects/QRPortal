@@ -1,0 +1,67 @@
+{
+    "id": 1200038,
+    "name": "Using system DLLs",
+    "href": "HL/cloud-ready/detection-patterns/1200038",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/7",
+        "name": "Execution Environment"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "Cloud/PaaS applications must be OS-agnostic as much as possible and should not rely on OS-specific features (such as system DLLs in a Windows environment), which may not be available on the Cloud environment as the underlying operating system (in this specific case, Windows) may change over time. In some cases, you can remediate this by using compatibility libraries that make one operating system \u201clook\u201d like another. However, avoid the OS-specific dependencies as much as you can, and rely instead on services that are provided by your service providers.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://www.ibm.com/developerworks/websphere/techjournal/1404_brown/1404_brown.html"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "Use the CAST Highlight output listing all your code files declaring dependencies to DLLs. Review the dependencies in each file. Edit the Dockerfile to copy all required and compatible DLLs to the container and execute registration (regsvr32) if needed.\n\nNote: c:\\Windows\\SysWOW64\\msvbvm60.dll might be required to include in the container for the registration to work. For incompatible DLL components, find alternatives and replace.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/4",
+                "name": "Container only"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/visualstudio/install/advanced-build-tools-container?view=vs-2019\n\nhttps://stackoverflow.com/questions/54502335/how-to-register-com-components-inside-docker-as-regsvr32-command-executes-succes\n\nExample command with MSI components\nhttps://github.com/dotnet-architecture/eShopModernizing/wiki/02.-How-to-containerize-the-.NET-Framework-web-apps-with-Windows-Containers-and-Docker\n\nExample command with DLL components\nhttps://forums.docker.com/t/windows-application-32-bit-com-dll-registration/47205/8"
+    }
+}

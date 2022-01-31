@@ -1,0 +1,109 @@
+{
+    "id": 8562,
+    "name": "Avoid server-side request forgery through API requests",
+    "href": "AIP/quality-rules/8562",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Call stack from user input source down to the target method",
+    "description": "Using CAST data-flow engine, this quality rule detects execution paths from methods returning data coming from API requests down to request execution methods, paths which are open vulnerabilities to SSRF flaws.",
+    "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
+    "rationale": "The software does not properly neutralize URLs that are used in an request execution, allowing attackers to access internal services or to launch attacks from your web server.",
+    "reference": "https://cwe.mitre.org/data/definitions/918.html\nhttps://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/\nhttps://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+    "remediation": "Do not accept URLs from users nor any URLs built with user input.\nUse authorized sanitization methods.",
+    "remediationSample": "// JEE\nString constURL = \"https://www.validUrl.com/\";\nvar url = new URL(constURL);\nHttpURLConnection conn = (HttpURLConnection)url.openConnection(); // OK\n\n// .NET\nString constURL = \"https://www.validUrl.com/\";\nvar client = new HttpClient();\nHttpResponseMessage response = await client.GetAsync(constUrl); // OK",
+    "sample": "// JEE\nString taintedURL; // value given by an API request\nvar url = new URL(taintedURL);\nHttpURLConnection conn = (HttpURLConnection)url.openConnection(); // Violation\n\n// .NET\nString taintedURL; // value given by an API request\nvar client = new HttpClient();\nHttpResponseMessage response = await client.GetAsync(taintedUrl); // Violation",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure your application properly neutralize URLs before they are accessed",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-918",
+            "name": "Server-Side Request Forgery (SSRF)",
+            "href": "AIP/quality-standards/CWE/items/CWE-918",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A10-2021",
+            "name": "Server-Side Request Forgery (SSRF)",
+            "href": "AIP/quality-standards/OWASP/items/A10-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222604",
+            "name": "The application must protect from command injection.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222604",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

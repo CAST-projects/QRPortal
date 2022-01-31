@@ -1,0 +1,39 @@
+{
+    "id": 1200062,
+    "name": "Using Oracle WebLogic",
+    "href": "HL/cloud-ready/detection-patterns/1200062",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/7",
+        "name": "Execution Environment"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "If you\u2019re envisioning moving your application to Pivotal CloudFoundry, it is recommended to move away from container-specific APIs to portal APIs such as Spring. This pattern verifies the presence of WebLogic imports or configuration files such as weblogic.xml, weblogic-application.xml, etc.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            }
+        ],
+        "reference": "https://github.com/Pivotal-Field-Engineering/ephemerol/blob/master/ephemerol-react/public/default-rulebase.yml"
+    }
+}

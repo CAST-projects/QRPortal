@@ -1,0 +1,49 @@
+{
+    "id": 1200011,
+    "name": "Using Auto Generated Machine Key",
+    "href": "HL/cloud-ready/detection-patterns/1200011",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/6",
+        "name": "Data Encryption Key"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "From a software engineering standpoint, and especially in the Cloud, applications should be developed like we don\u2019t know what is the underlying infrastructure. Using this configuration setting to encrypt or decrypt keys should be avoided. Instead, it is recommended using a cloud-based encryption mechanism. This CloudReady pattern verifies the presence of validationKey attribute in machineKey tag of .config files, containing \u201cAutoGenerate\u201d.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-3.0/w8h3skw9(v=vs.85)"
+    }
+}

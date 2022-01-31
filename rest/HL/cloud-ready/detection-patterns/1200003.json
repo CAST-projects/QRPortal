@@ -1,0 +1,59 @@
+{
+    "id": 1200003,
+    "name": "Avoid code that can accidentally get skipped",
+    "href": "HL/cloud-ready/detection-patterns/1200003",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/5",
+        "name": "Code Execution"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/4",
+                "name": "JavaScript"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/10",
+                "name": "TypeScript"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "This pattern verifies the presence of the \u2018assert()\u2019 function in source code. assert() is a debugging instruction that should not be found in mature code in production. Moreover, this instruction is aimed to provide information in the console, which doesn\u2019t make sense in a Cloud context.\n\nExample of assert() usage:\n\nfunction assert(condition, message) {\n    if (!condition) {\n        message = message || \"Assertion failed\";\n        if (typeof Error !== \"undefined\") {\n            throw new Error(message);\n        }\n        throw message; // Fallback\n    }\n}\nIn a COBOL context, this pattern verifies the presence of DISPLAY statements and WITH DEBUGGING MODE clauses in source code.\n\nDISPLAY statement is used to the value of a data item on a screen or write it to a file. This is used for debugging purpose. It is not good to have this in production environment.\n\nWITH DEBUGGING MODE activates a compile-time switch for debugging lines written in the source text. A debugging line is a statement that is compiled only when the compile-time switch is activated. Debugging lines allow you, for example, to check the value of a data-name at certain points in a procedure. This is used for debugging purpose. It is not good to have this in production environment.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.w3schools.com/nodejs/ref_assert.asp"
+    }
+}

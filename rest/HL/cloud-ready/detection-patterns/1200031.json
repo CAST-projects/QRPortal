@@ -1,0 +1,36 @@
+{
+    "id": 1200031,
+    "name": "Avoid using hardcoded URLs (HTTP protocol) in source and configuration files",
+    "href": "HL/cloud-ready/detection-patterns/1200031",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": null,
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "This patterns verifies in source (.java, .cs) and configuration (.properties, .conf, .xml) files the presence of hardcoded URLs using the HTTP protocol (HTTP/HTTPS). This URL would need to be replaced by the new resource\u2019s URL during the Cloud migration, if any change occured.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": ""
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "id": 1200044,
+    "name": "Using function CREATE CREDENTIAL - Unsupported in Azure SQL Database",
+    "href": "HL/cloud-ready/detection-patterns/1200044",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/5",
+        "name": "Code Execution"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/9",
+                "name": "TSQL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "The SQL statement \u2018CREATE CREDENTIAL\u2019 is not supported in Azure SQL Database as it creates server-level database credentials. Instead, use database-scoped credentials. When used in on-premise SQL databases, the \u2018CREATE CREDENTIAL\u2019 statement creates a server-level credential. A credential is a record that contains the authentication information that is required to connect to a resource outside SQL Server. Most credentials include a Windows user and password. For example, saving a database backup to some location might require SQL Server to provide special credentials to access that location.\n\nTo make the credential at the database-level use CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL). Use a server-level credential when you need to use the same credential for multiple databases on the server. Use a database-scoped credential to make the database more portable. When a database is moved to a new server, the database scoped credential will move with it. Use database scoped credentials on SQL Database.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-credential-transact-sql\nhttps://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-scoped-credential-transact-sql"
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "id": 1200014,
+    "name": "Using CDI Beans Configuration",
+    "href": "HL/cloud-ready/detection-patterns/1200014",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/5",
+        "name": "Code Execution"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "If you\u2019re envisioning moving your application to Pivotal CloudFoundry, it is recommended to convert CDI beans configuration to Spring-based application configuration. This pattern verifies the presence of a bean tag in beans.xml, having an xmlnx attribute initialized.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://github.com/Pivotal-Field-Engineering/ephemerol/blob/master/ephemerol-react/public/default-rulebase.yml\nhttps://content.pivotal.io/blog/how-do-i-migrate-applications-to-pivotal-cloud-foundry"
+    }
+}

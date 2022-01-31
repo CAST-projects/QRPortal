@@ -3,7 +3,7 @@
     "name": "Sensitive Information in Resource Not Removed Before Reuse",
     "href": "AIP/quality-standards/CWE/items/CWE-226",
     "url": "https://cwe.mitre.org/data/definitions/226.html",
-    "description": "When a device releases a resource such as memory or a file for reuse by other entities, information contained in the resource is not fully cleared prior to reuse of the resource.",
+    "description": "The product releases a resource such as memory or a file so that it can be made available for reuse, but it does not clear or zeroize the information contained in the resource before the product performs a critical state transition or makes the resource available for reuse by other entities.",
     "isoPatterns": null,
     "count": 0,
     "qualityRules": null,

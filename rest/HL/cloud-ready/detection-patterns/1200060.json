@@ -1,0 +1,43 @@
+{
+    "id": 1200060,
+    "name": "Use of WCF (Windows Communication Foundation) services",
+    "href": "HL/cloud-ready/detection-patterns/1200060",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/14",
+        "name": "Security & User Authentication"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "The Windows Communication Foundation (WCF), previously known as Indigo, is a free and open-source runtime and a set of APIs in the .NET Framework for building connected, service-oriented applications.\n\nFor Azure, most ASP.NET websites (Webforms, MVC) and services (Web API, WCF) can move directly to Azure App Service with no changes. Some may need minor changes while others may need some refactoring.\n\nFor AWS, AWS Elastic Beanstalk or AWS Toolkit for Visual Studio can help for WCF projects migration.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/dotnet/framework/wcf/hosting-services#managed-windows-services\nhttps://docs.microsoft.com/en-us/dotnet/framework/wcf/configuring-services-using-configuration-files\nhttps://docs.microsoft.com/en-us/dotnet/azure/migration/app-service\nhttps://forums.aws.amazon.com/thread.jspa?threadID=88264"
+    }
+}

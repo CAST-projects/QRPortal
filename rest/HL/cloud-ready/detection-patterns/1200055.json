@@ -1,0 +1,57 @@
+{
+    "id": 1200055,
+    "name": "Using System.ServiceProcess (Windows services)",
+    "href": "HL/cloud-ready/detection-patterns/1200055",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/13",
+        "name": "Scheduled Services & Tasks"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/0",
+            "name": "None"
+        },
+        "description": "The System.ServiceProcess namespace provides classes that allow to implement, install, and control Windows service applications. In the Cloud, we cannot assume that the underlying Operating System will be Windows. As a result, Windows-specific services should be migrated.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "Coming soon\u2026"
+    }
+}

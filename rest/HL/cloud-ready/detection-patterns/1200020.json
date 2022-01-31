@@ -1,0 +1,71 @@
+{
+    "id": 1200020,
+    "name": "Using direct Database Access through Connection Strings",
+    "href": "HL/cloud-ready/detection-patterns/1200020",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/15",
+        "name": "Sensitive Data Storage Protection"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Database connection strings are very sensitive data in a Cloud application as they protect access to data storage or other application services. As a result, connection strings must be protected to prevent data theft. It is recommended to store this kind of sensitive data in a secured cloud-based storage such (e.g. Azure Key Vault, AWS CloudHSM, etc.)",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://www.hanselman.com/blog/BestPracticesForPrivateConfigDataAndConnectionStringsInConfigurationInASPNETAndAzure.aspx\nhttps://stackoverflow.com/questions/11211007/how-do-you-pass-custom-environment-variable-on-amazon-elastic-beanstalk-aws-ebs"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Connection strings must be protected to prevent data theft. It is recommended to store this kind of sensitive data in a secured cloud-based storage like Azure Key Vault.\n\nUse the CAST Highlight output listing all your code files declaring unsecure connection strings. Review the dependencies in each file.\n\nEnsure the Secrets Store CSI Driver and the Azure Keyvault Provider are installed on your Kubernetes.\n\nCreate a new Azure Key Vault resource or use an existing one.\n\nUpdate your container configuration to include the CSI driver and the ID of your Key Vault resource.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/4",
+                "name": "Container only"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-pod-security#:~:text=You%20can%20integrate%20Azure%20Key,only%20to%20the%20requesting%20pod.\nhttps://github.com/Azure/secrets-store-csi-driver-provider-azure#usage\nhttps://microsoft.github.io/AzureTipsAndTricks/blog/tip245.html"
+    }
+}

@@ -3,7 +3,7 @@
     "name": "Sensitive Information Uncleared Before Debug/Power State Transition",
     "href": "AIP/quality-standards/CWE/items/CWE-1272",
     "url": "https://cwe.mitre.org/data/definitions/1272.html",
-    "description": "Sensitive information may leak as a result of a debug or power state transition when information access restrictions change as a result of the transition.",
+    "description": "The product performs a power or debug state transition, but it does not clear sensitive information that should no longer be accessible due to changes to information access restrictions.",
     "isoPatterns": null,
     "count": 0,
     "qualityRules": null,

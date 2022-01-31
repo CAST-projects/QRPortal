@@ -1,0 +1,121 @@
+{
+    "id": 1200007,
+    "name": "Perform File Manipulation",
+    "href": "HL/cloud-ready/detection-patterns/1200007",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/11",
+        "name": "Persistent Files"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/4",
+                "name": "JavaScript"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/8",
+                "name": "SWIFT"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/10",
+                "name": "TypeScript"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/7",
+                "name": "Python"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Manipulating local files requires specific permissions and usually assumes the file will be persisted over time. In the Cloud, because the underlying infrastructure can be moved or removed, it is not possible to make such assumptions. Instead of using the file system, store your temporary information in a dedicated Cloud-based storage or in a NoSQL database.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://blog.codingoutloud.com/2011/06/12/azure-faq-can-i-write-to-the-file-system-on-windows-azure/"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Container applications should not assume the local file system is accessible, as the directory structure might be different from a traditional desktop or server machine and/or the application may not have sufficient rights to access the local file system. Instead, use relative paths to application resources (e.g. ../../reporting/reportBuilder.xml).\n\nUse the CAST Highlight output listing all your code files declaring dependencies to the filesystem. Review the dependencies in each file.\n\nWhen persistence is needed, the local file system should be created using either volumes (preferred) or bind mounts (for sharing configuration files). Volumes need then to be mounted into the containers that will need it.\n\nNote: When many roadblocks are identified for this blocker, they may be addressed holistically with one remediation.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            }
+        ],
+        "reference": "https://docs.docker.com/storage/\nhttps://www.baeldung.com/ops/docker-container-filesystem\nhttps://medium.com/@BeNitinAgarwal/docker-containers-filesystem-demystified-b6ed8112a04a"
+    }
+}

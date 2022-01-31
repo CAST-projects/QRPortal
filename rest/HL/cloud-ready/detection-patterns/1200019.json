@@ -1,0 +1,39 @@
+{
+    "id": 1200019,
+    "name": "Avoid using DECIMAL POINT IS A COMMA clause in mainframes specific to Z/OS",
+    "href": "HL/cloud-ready/detection-patterns/1200019",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "The DECIMAL-POINT IS COMMA clause exchanges the functions of the period and the comma in PICTURE character-strings and in numeric literals. It is specific to z/OS.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://software.fujitsu.com/jp/manual/manualfiles/m150010/b1wd3365/01enz200/b3365-00-01-15-00.html"
+    }
+}

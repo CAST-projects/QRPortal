@@ -10,7 +10,7 @@
     "rationale": "Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.",
     "reference": "https://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/sqlref/src/tpc/db2z_refs2hostvars.html",
     "remediation": "The PREPARE STMT statement having STRING as a parameter must not contain host variables.",
-    "sample": "For example, the following SQL code could be injected if host variables X, Y or Z come from untrusted inputs:\n\n* Potential SQL injection if X, Y or Z host variables come from untrusted input\nSTRING \"INSERT INTO TBL (a,b,c) VALUES (\" X \",\" Y \",\" Z \")\" INTO MY-SQL.\nEXEC SQL PREPARE STMT FROM :MY-SQL END-EXEC.\nEXEC SQL EXECUTE STMT END-EXEC.",
+    "sample": "For example, the following SQL code could be injected if host variables X, Y or Z come from untrusted inputs:\n\n\nSTRING \"INSERT INTO TBL (a,b,c) VALUES (\" X \",\" Y \",\" Z \")\" INTO MY-SQL.\nEXEC SQL PREPARE STMT FROM :MY-SQL END-EXEC.\nEXEC SQL EXECUTE STMT END-EXEC.",
     "total": "Number of Cobol Programs",
     "alternativeName": "Avoid using PREPARE STMT statement (Dynamic SQL) with STRING containing HOST variables",
     "businessCriteria": [

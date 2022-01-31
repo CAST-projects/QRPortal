@@ -1,0 +1,74 @@
+{
+    "id": 2121052,
+    "name": "Avoid calling API from iOS without being sure you are authenticated",
+    "href": "AIP/quality-templates/2121052",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "isTemplate": true,
+    "download": "https://github.com/CAST-Extend/Quality-Rule-Templates/raw/main/iOSNotAuthenticatedAPICall.CASTRule",
+    "description": "The rule will check if all the iOS API calls are done following the authentication architecture",
+    "output": "Lis ot iOS API call without being authenticated",
+    "rationale": "Part of the unsecured communication checks, to avoid any unauthorized API calls, we must be sure that user has been authenticated before sending requests from mobile application to API services",
+    "reference": "https://owasp.org/www-project-api-security/ - API2:2019",
+    "remediation": "Except for signin and signup API calls, authentication must be checked",
+    "total": "All iOS Web services call",
+    "alternativeName": "iOSNotAuthenticatedAPICall.CASTRule",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-306",
+            "name": "Missing Authentication for Critical Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-306",
+            "standard": "CWE"
+        },
+        {
+            "id": "API2-2019",
+            "name": "Broken User Authentication",
+            "href": "AIP/quality-standards/OWASP/items/API2-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "href": "AIP/quality-standards/OWASP/items/M4-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

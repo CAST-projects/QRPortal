@@ -6,13 +6,13 @@
     "severity": 10,
     "maxWeight": 8,
     "associatedValueName": "Call stack of a method producing insufficiently random numbers",
-    "description": "This rule will check if the library used to generate random number.",
+    "description": "The application uses a Pseudo-Random Number Generator (PRNG), but the PRNG's algorithm is not cryptographically strong.",
     "output": "List all methods that use random numbers insufficiently generated.\n\nIt provides the following information : \n - Method full name. \n - Call stack with bookmarks from the method producing insufficiently random numbers down to the target method.",
     "rationale": "When software generates predictable values in a context requiring unpredictability, it may be possible for an attacker to guess the next value that will be generated, and use this guess to access sensitive information.",
     "reference": "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)\nhttps://cwe.mitre.org/data/definitions/338.html\n\nCWE-330: Use of Insufficiently Random Values\nhttps://cwe.mitre.org/data/definitions/330.html",
     "remediation": "Potential remediations : \n- Use a well-vetted algorithm that is currently considered to be strong by experts in the field, and select well-tested implementations with adequate length seeds.",
-    "remediationSample": "static SecureRandom ranGen = new SecureRandom();\n\nString GenerateReceiptURL(String baseUrl) {\nranGen.setSeed((new Date()).getTime());\nreturn(baseUrl + ranGen.nextInt(400000000) + \".html\");\n}",
-    "sample": "static Random ranGen = new Random();\n\nString GenerateReceiptURL(String baseUrl) {\nranGen.setSeed((new Date()).getTime());\nreturn(baseUrl + ranGen.nextInt(400000000) + \".html\");\n}",
+    "remediationSample": "static SecureRandom ranGen = new SecureRandom();\n\nString GenerateReceiptURL(String baseUrl) {\n    ranGen.setSeed((new Date()).getTime());\n    return(baseUrl + ranGen.nextInt(400000000) + \".html\");\n}",
+    "sample": "static Random ranGen = new Random();\n\nString GenerateReceiptURL(String baseUrl) {\n    ranGen.setSeed((new Date()).getTime());\n    return(baseUrl + ranGen.nextInt(400000000) + \".html\");\n}",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure using sufficient random generator",
     "businessCriteria": [
@@ -91,9 +91,9 @@
     ],
     "qualityStandards": [
         {
-            "id": "CWE-330",
-            "name": "Use of Insufficiently Random Values",
-            "href": "AIP/quality-standards/CWE/items/CWE-330",
+            "id": "CWE-338",
+            "name": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
+            "href": "AIP/quality-standards/CWE/items/CWE-338",
             "standard": "CWE"
         },
         {

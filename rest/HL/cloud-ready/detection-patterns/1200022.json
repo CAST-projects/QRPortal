@@ -1,0 +1,39 @@
+{
+    "id": 1200022,
+    "name": "Avoid using Double Byte character in mainframes",
+    "href": "HL/cloud-ready/detection-patterns/1200022",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Double Byte character set uses more than one byte to represent single charcter. Languages such as Chinese, Japanese, and Korean use DBCS.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_72/rzasb/int23a.htm\nhttps://www.microfocus.com/documentation/visual-cobol/vc50pu3/EclWin/HRLHLHPDF70E.html\nhttps://www.microfocus.com/documentation/visual-cobol/VC23/EclWin/HHNLCHUNIC04.html\nhttps://www.ibm.com/support/knowledgecenter/en/SS6SG3_4.2.0/com.ibm.entcobol.doc_4.2\nhttps://stackoverflow.com/questions/5959709/cobol-question-unicode"
+    }
+}

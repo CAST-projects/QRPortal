@@ -1,0 +1,39 @@
+{
+    "id": 1200018,
+    "name": "Avoid using CURRENCY SIGN clause in mainframes specific to Z/OS",
+    "href": "HL/cloud-ready/detection-patterns/1200018",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "The CURRENCY SIGN clause affects numeric-edited data items whose PICTURE character-strings contain a currency symbol. It is specific to z/OS.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.ibm.com/support/knowledgecenter/SSQ2R2_9.1.1/com.ibm.ent.cbl.zos.doc/PGandLR/tasks/tpari50.html"
+    }
+}

@@ -1,0 +1,123 @@
+{
+    "id": 1200029,
+    "name": "Using hardcoded network IP address (IPV4, IPV6)",
+    "href": "HL/cloud-ready/detection-patterns/1200029",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/14",
+        "name": "Security & User Authentication"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/4",
+                "name": "JavaScript"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/8",
+                "name": "SWIFT"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/10",
+                "name": "TypeScript"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/7",
+                "name": "Python"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/6",
+                "name": "PHP"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "From a software engineering standpoint, and especially in the Cloud, applications should be developed like we don\u2019t know what is the underlying infrastructure. Using, calling or referencing remote resources by using hardcoded IP addresses should be avoided as they can regularly change. Instead, it is recommended using domain names or eventually store IP addresses in a configuration file. This CloudReady pattern verifies the presence of IPV4 or IPV6 addresses in the source code.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.greenhousedata.com/blog/what-to-know-about-ip-addresses-before-your-cloud-migration"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Container applications should not assume the network access will be similar than on-premises, as its structure or firewall rules might be different. Hardcoded IP addresses are to be avoided in general. Use the CAST Highlight output listing all your code files declaring hardcoded IP addresses. Review the dependencies in each file. If these dependencies are internal to your organization and reflect the current layout of your application portfolio, replace the hardcoded IPs with domain-based addressing.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.greenhousedata.com/blog/what-to-know-about-ip-addresses-before-your-cloud-migration"
+    }
+}

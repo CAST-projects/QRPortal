@@ -1,0 +1,39 @@
+{
+    "id": 1200048,
+    "name": "Using functions OPENQUERY, OPENROWSET, OPENDATASOURCE - Unsupported in Azure SQL Database",
+    "href": "HL/cloud-ready/detection-patterns/1200048",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/5",
+        "name": "Code Execution"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/9",
+                "name": "TSQL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "OPEN SQL functions such as \u2018OPENQUERY\u2019, \u2018OPENROWSET\u2019 and \u2018OPENDATASOURCE\u2019 are not supported functions in Azure SQL Database. They should be removed or  replaced by equivalent functions supported in Azure.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/fr-fr/sql/t-sql/functions/openquery-transact-sql\nhttps://docs.microsoft.com/fr-fr/sql/t-sql/functions/openrowset-transact-sql\nhttps://docs.microsoft.com/en-us/sql/t-sql/functions/opendatasource-transact-sql"
+    }
+}

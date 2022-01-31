@@ -7,7 +7,7 @@
     "maxWeight": 9,
     "isTemplate": true,
     "download": "https://github.com/CAST-Extend/Quality-Rule-Templates/raw/main/API5_Authorization%20Check%20at%20Method%20Level.CASTRule",
-    "description": "The rule will raise a violation when it finds functions that are called by APIs to perform actions, if they do not implement any form of authorization check.",
+    "description": "The rule will raise a violation when it finds functions that are called by APIs to perform actions, if they do not implement any form of authorization check. Spring Security and Apache Shiro will be reviewed to ensure your application has been protected.",
     "output": "APIs calling functions that do not impose any authorization checks",
     "rationale": "Exploitation requires the attacker to send legitimate API calls to the API endpoint that they should not have access to. These endpoints might be exposed to anonymous users or regular, non-privileged users. It\u2019s easier to discover these flaws in APIs since APIs are more structured, and the way to access certain functions is more predictable (e.g., replacing the HTTP method from GET to PUT, or changing the \u201cusers\u201d string in the URL to \"admins\").\nWhen defining APIs inside controllers and the methods called on by APIs to perform certain tasks it is important to restrict the user(authenticated or otherwise) based on her role.",
     "reference": "https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa5-broken-function-level-authorization.md",

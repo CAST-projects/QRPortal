@@ -7,7 +7,7 @@
     "maxWeight": 9,
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "The software does not properly neutralize special elements coming from data stored in database that are used in an XQuery expression, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.\n\nUsing CAST data-flow engine, this metric detects execution paths from user input methods down to file creation methods, paths which are open vulnerabilities to operating system injection flaws.",
-    "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
+    "output": "List all methods that make resource calls forged by database content\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
     "rationale": "The software does not properly neutralize special elements that are used in an XQuery expression, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.",
     "reference": "CWE-652: XQuery Injection\nhttps://cwe.mitre.org/data/definitions/652.html",
     "remediation": "Use authorized sanitization methods.",

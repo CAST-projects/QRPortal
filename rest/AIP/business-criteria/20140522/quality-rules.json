@@ -591,7 +591,7 @@
         "name": "Avoid String concatenation in loops",
         "href": "AIP/quality-rules/7200",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -611,7 +611,7 @@
         "name": "Avoid method invocation in a loop termination expression",
         "href": "AIP/quality-rules/7204",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -621,7 +621,7 @@
         "name": "Avoid the use of Instanceof inside loops",
         "href": "AIP/quality-rules/7206",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -2986,6 +2986,16 @@
         ]
     },
     {
+        "id": 8568,
+        "name": "Avoid calculated fields in WHERE-clauses and ON-clauses of CDS views (S4/HANA)",
+        "href": "AIP/quality-rules/8568",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
         "id": 1001104,
         "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
         "href": "AIP/quality-rules/1001104",
@@ -4740,7 +4750,7 @@
         "name": "Avoid using for-in loop",
         "href": "AIP/quality-rules/1020008",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -4750,7 +4760,7 @@
         "name": "Avoid using forEach()",
         "href": "AIP/quality-rules/1020010",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -4780,7 +4790,7 @@
         "name": "Avoid using too much dot notation in loop",
         "href": "AIP/quality-rules/1020016",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -4800,7 +4810,7 @@
         "name": "Avoid defining and calling functions inside loops",
         "href": "AIP/quality-rules/1020038",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -5129,7 +5139,7 @@
         "id": 1020332,
         "name": "Avoid using .append() after() with jQuery 1.4.2 (or older)",
         "href": "AIP/quality-rules/1020332",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "HTML5"
@@ -6200,7 +6210,7 @@
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C#"
         ]
@@ -6907,7 +6917,7 @@
         "id": 1042030,
         "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
         "href": "AIP/quality-rules/1042030",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -6917,7 +6927,7 @@
         "id": 1042036,
         "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
         "href": "AIP/quality-rules/1042036",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -7588,7 +7598,7 @@
         "name": "Avoid using the unbounded functions of <cstring> library",
         "href": "AIP/quality-rules/1065046",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C++"
         ]

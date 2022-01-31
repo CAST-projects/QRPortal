@@ -1,0 +1,81 @@
+{
+    "id": 1200033,
+    "name": "Using a middleware application",
+    "href": "HL/cloud-ready/detection-patterns/1200033",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/9",
+        "name": "Inter Application Messaging"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Existing application may use asynchronous messaging middleware that enables to send data between decoupled systems. Most of the time, these messaging environments are not natively integrated in PaaS services and should be replaced by Cloud-based solutions. Identifying upfront and at the portfolio level the applications using such components is key to anticipate, plan and optimize technical tasks of the migration.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://www.ibm.com/blogs/systems/middleware-in-the-cloud-era-of-it-infrastructure/\nhttps://azure.microsoft.com/en-us/documentation/articles/service-bus-fundamentals-hybrid-solutions/"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Existing application may use asynchronous messaging middleware that enables to send data between decoupled systems. These messaging environments need to be isolated into their own container in order to have a release cycle independent from the applications relying on the messaging queues.\nUse the CAST Highlight output listing all your code files declaring dependencies to messaging middlewares. Review the dependencies in each file.\n\nThe messaging environment needs to be instantiated as part of a dedicated container. Create a docker image based on the publicly available image from the framework of your choice and configure it through a Dockerfile.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            }
+        ],
+        "reference": "https://medium.com/@codescrum/microservices-with-rabbitmq-and-docker-2bbe26c3fc55\nhttps://hub.docker.com/_/rabbitmq\nhttps://hub.docker.com/r/ibmcom/mq/\nhttps://docs.tibco.com/pub/bwce/2.4.1/doc/html/GUID-E1609C4C-BCA4-4D04-8E5B-503FE3166B89.html\nhttps://techcommunity.microsoft.com/t5/containers/hello-world-msmq-from-windows-containers/ba-p/382422"
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "id": 1200061,
+    "name": "Using Webform Authentication",
+    "href": "HL/cloud-ready/detection-patterns/1200061",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/14",
+        "name": "Security & User Authentication"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Using \u201cWeb Forms\u201d authentication requires that user accounts and passwords be created and managed in a storage such as a database. This mechanism does not offer the flexibility of claims-based authentication and should not be used in Cloud applications. Ideally, user authentication should be replaced by a Cloud-based and OS-agnostic identity & access management solution such as Active Directory.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": ""
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Using \u201cWeb Forms\u201d authentication requires that user accounts and passwords be created and managed in a storage such as a database. This mechanism does not offer the flexibility of claims-based authentication and should not be used in Cloud applications.\n\nUse the CAST Highlight output listing all your code files declaring Webform Authentication dependencies. Review the dependencies in each file.\n\nRefactor the app to be AD-integrated and leverage Active Directory domain identities to support your authentication scenario. To achieve this, you can configure a Windows container to run with a group Managed Service Account (gMSA), which is a special type of service account introduced in Windows Server 2012 designed to allow multiple computers to share an identity without needing to know its password.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": ""
+    }
+}

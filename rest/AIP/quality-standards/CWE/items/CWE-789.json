@@ -1,9 +1,9 @@
 {
     "id": "CWE-789",
-    "name": "Uncontrolled Memory Allocation",
+    "name": "Memory Allocation with Excessive Size Value",
     "href": "AIP/quality-standards/CWE/items/CWE-789",
     "url": "https://cwe.mitre.org/data/definitions/789.html",
-    "description": "The product allocates memory based on an untrusted size value, but it does not validate or incorrectly validates the size, allowing arbitrary amounts of memory to be allocated.",
+    "description": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated.",
     "isoPatterns": [
         {
             "name": "ASCQM Check Input of Memory Allocation Primitives"

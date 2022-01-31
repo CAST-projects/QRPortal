@@ -874,7 +874,7 @@
         "name": "Avoid String concatenation in loops",
         "href": "AIP/quality-rules/7200",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -894,7 +894,7 @@
         "name": "Avoid the use of Instanceof inside loops",
         "href": "AIP/quality-rules/7206",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -2504,7 +2504,7 @@
     },
     {
         "id": 8032,
-        "name": "Avoid using a break statement in 'for' loops",
+        "name": "Avoid using break statement in FOR loops",
         "href": "AIP/quality-rules/8032",
         "critical": false,
         "severity": 10,
@@ -3131,7 +3131,7 @@
     },
     {
         "id": 8518,
-        "name": "Avoid Regular expression injection",
+        "name": "Avoid regular expression injection",
         "href": "AIP/quality-rules/8518",
         "critical": true,
         "severity": 30,
@@ -3297,6 +3297,42 @@
         "href": "AIP/quality-rules/8554",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8560,
+        "name": "Avoid server-side request forgery",
+        "href": "AIP/quality-rules/8560",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8562,
+        "name": "Avoid server-side request forgery through API requests",
+        "href": "AIP/quality-rules/8562",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8564,
+        "name": "Avoid second order server-side request forgery",
+        "href": "AIP/quality-rules/8564",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4157,7 +4193,7 @@
         "id": 1042030,
         "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
         "href": "AIP/quality-rules/1042030",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -4167,7 +4203,7 @@
         "id": 1042036,
         "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
         "href": "AIP/quality-rules/1042036",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"

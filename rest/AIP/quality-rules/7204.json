@@ -3,7 +3,7 @@
     "name": "Avoid method invocation in a loop termination expression",
     "href": "AIP/quality-rules/7204",
     "critical": false,
-    "severity": 30,
+    "severity": 10,
     "maxWeight": 8,
     "description": "Finds all loops (for, while, do while) termination that call a method except the following methods coming from Iterator, ListIterator, Enumeration, StringTokenizer, ResultSet classes:\nfor Java language:\n* java.util.Enumeration.hasMoreElements()\n* java.util.Enumeration.nextElement()\n* java.util.Iterator.hasNext() \n* java.util.Iterator.next() \n* java.util.ListIterator.hasNext() \n* java.util.ListIterator.hasPrevious() \n* java.util.ListIterator.next() \n* java.util.ListIterator.nextIndex() \n* java.util.ListIterator.previous() \n* java.util.ListIterator.previousIndex() \n* java.sql.ResultSet.isAfterLast() \n* java.sql.ResultSet.isBeforeFirst() \n* java.sql.ResultSet.isLast() \n* java.sql.ResultSet.isFirst() \n* java.sql.ResultSet.last() \n* java.sql.ResultSet.next() \n* java.sql.ResultSet.previous()\n* java.util.StringTokenizer.hasMoreElements()\n* java.util.StringTokenizer.hasMoreTokens() \n* java.util.StringTokenizer.nextElement()\n* java.util.StringTokenizer.nextToken() \n\n(Note that the filter applies only on the short name of the method: i.e. for example all method next() will not be reported as a violation even if it does not belongs to java.util.Iterator, java.util.ListIterator or java.sql.ResultSet)\n\nfor C# language:\n* ReadLine\n* Read",
     "output": "This report lists all methods that call a method in a loop termination (except methods referenced in the description)\nIt provides the following information:\n Method full name",

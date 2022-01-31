@@ -2,7 +2,7 @@
     "id": 1042030,
     "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
     "href": "AIP/quality-rules/1042030",
-    "critical": false,
+    "critical": true,
     "severity": 30,
     "maxWeight": 5,
     "extension": {
@@ -73,7 +73,7 @@
             "name": "Secure Coding - Weak Security Features",
             "href": "AIP/technical-criteria/66064",
             "weight": 3,
-            "critical": false
+            "critical": true
         }
     ],
     "technologies": [
@@ -125,9 +125,9 @@
         
     ],
     "thresholds": [
-        50.0,
-        90.0,
-        95.0,
-        99.0
+        98.0,
+        99.0,
+        99.5,
+        99.99
     ]
 }

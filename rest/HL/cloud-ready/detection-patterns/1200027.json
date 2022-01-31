@@ -1,0 +1,71 @@
+{
+    "id": 1200027,
+    "name": "Using GetTempPath",
+    "href": "HL/cloud-ready/detection-patterns/1200027",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/18",
+        "name": "Temporary Files"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Manipulating temporary files on the local file-system requires specific permissions which may not be available in a Cloud environment.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://dennymichael.net/2013/07/24/create-local-storage-on-cloud-services-to-store-temporary-files/"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Use the CAST Highlight output listing all your code files declaring dependencies to temporary files mechanisms. Review the dependencies in each file.\n\nConsider mounting a tmpfs volume to increase performance.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/4",
+                "name": "Container only"
+            }
+        ],
+        "reference": "https://stackoverflow.com/questions/52658113/how-to-manage-temporary-files-in-docker"
+    }
+}

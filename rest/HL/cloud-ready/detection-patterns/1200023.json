@@ -1,0 +1,39 @@
+{
+    "id": 1200023,
+    "name": "Avoid using the SYSIBM.SYSDUMMY1 dummy table in mainframes",
+    "href": "HL/cloud-ready/detection-patterns/1200023",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "SYSIBM.SYSDUMMY1 is a dummy table with one row. Normally used to extract current date, timestamp, DB2 Version etc. SYSIBM.SYSDUMMY1 does not exist in Cloud-based relational databases.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/sqlref/src/tpc/db2z_bif_days.html"
+    }
+}

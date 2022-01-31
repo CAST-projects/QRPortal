@@ -1156,7 +1156,7 @@
     },
     {
         "id": 8032,
-        "name": "Avoid using a break statement in 'for' loops",
+        "name": "Avoid using break statement in FOR loops",
         "href": "AIP/quality-rules/8032",
         "critical": false,
         "severity": 10,
@@ -1806,7 +1806,7 @@
     },
     {
         "id": 8518,
-        "name": "Avoid Regular expression injection",
+        "name": "Avoid regular expression injection",
         "href": "AIP/quality-rules/8518",
         "critical": true,
         "severity": 30,
@@ -1949,11 +1949,47 @@
         ]
     },
     {
+        "id": 8560,
+        "name": "Avoid server-side request forgery",
+        "href": "AIP/quality-rules/8560",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8562,
+        "name": "Avoid server-side request forgery through API requests",
+        "href": "AIP/quality-rules/8562",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8564,
+        "name": "Avoid second order server-side request forgery",
+        "href": "AIP/quality-rules/8564",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C#"
         ]

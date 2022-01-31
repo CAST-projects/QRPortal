@@ -1,9 +1,9 @@
 {
     "id": "CWE-1233",
-    "name": "Improper Hardware Lock Protection for Security Sensitive Controls",
+    "name": "Security-Sensitive Hardware Controls with Missing Lock Bit Protection",
     "href": "CARL/quality-standards/CWE/items/CWE-1233",
     "url": "https://cwe.mitre.org/data/definitions/1233.html",
-    "description": "The product implements a register lock bit protection feature that permits security sensitive controls to modify the protected configuration.",
+    "description": "The product uses a register lock bit protection mechanism, but it does not ensure that the lock bit prevents modification of system registers or controls that perform changes to important hardware system configuration.",
     "isoPatterns": null,
     "count": 0,
     "qualityRules": null

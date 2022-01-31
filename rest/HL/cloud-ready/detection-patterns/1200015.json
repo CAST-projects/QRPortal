@@ -1,0 +1,67 @@
+{
+    "id": 1200015,
+    "name": "Using COM Components",
+    "href": "HL/cloud-ready/detection-patterns/1200015",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/5",
+        "name": "Code Execution"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "Use of COM (Component Object Model) components is discouraged in the Cloud because they must be installed on the Cloud platform, thus requiring specific administrator privileges. Additionally, there are several execution modes for COM components which may not all be supported in the Cloud.\n\nApplication services generally don\u2019t configure any web framework settings to restricted modes such as \u201cfull\u201d trust. Web frameworks, including both classic ASP and ASP.NET, can call in-process COM components (but not out of process COM components) like ADO (ActiveX Data Objects) that are registered by default on the Windows operating system.\n\nApplications can spawn and run arbitrary code. It is allowable for an app to do things like spawn a command shell or run a PowerShell script. However, executable programs and scripts are still restricted to the privileges granted to the parent application pool.\n\nIdentified Tasks:\n\n- Validate the application privileges prerequisites\n- Replace unsupported components with in-process equivalent and supported libraries.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://azure.microsoft.com/en-us/documentation/articles/web-sites-available-operating-system-functionality"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "Use the CAST Highlight output listing all your code files declaring dependencies to COM components. Review the dependencies in each file. Edit the Dockerfile to copy all required and compatible COM components to the container and execute registration (regsvr32).\nNote: c:\\Windows\\SysWOW64\\msvbvm60.dll might be required to include in the container for the registration to work. For incompatible COM components, find alternatives and replace.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/4",
+                "name": "Container only"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/visualstudio/install/advanced-build-tools-container?view=vs-2019\n\nhttps://stackoverflow.com/questions/54502335/how-to-register-com-components-inside-docker-as-regsvr32-command-executes-succes\n\nExample command with MSI components\nhttps://github.com/dotnet-architecture/eShopModernizing/wiki/02.-How-to-containerize-the-.NET-Framework-web-apps-with-Windows-Containers-and-Docker\n\nExample command with DLL components\nhttps://forums.docker.com/t/windows-application-32-bit-com-dll-registration/47205/8\u2033"
+    }
+}

@@ -5,9 +5,12 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "description": "Forms should be documented",
+    "description": "This reports lists all Forms that have neither heading comments nor inline comments.\nIt considers only non-empty Forms (having at least 1 code line).",
     "output": "This report lists all undocumented Forms",
-    "total": "Number of forms",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code.\nAbsence of comments in source code can make it more difficult and time-consuming to detect and/or fix vulnerabilities.",
+    "reference": "https://cwe.mitre.org/data/definitions/1053.html",
+    "remediation": "Add comments into the Form to explain what is its goal and how it works.",
+    "total": "Number of Forms",
     "alternativeName": "Avoid undocumented Forms",
     "businessCriteria": [
         {

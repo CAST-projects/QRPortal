@@ -1,0 +1,67 @@
+{
+    "id": 1200032,
+    "name": "Using impersonate Identity",
+    "href": "HL/cloud-ready/detection-patterns/1200032",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/14",
+        "name": "Security & User Authentication"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "The primary reason for impersonation is to cause access checks to be performed against the client\u2019s identity. Using the client\u2019s identity for access checks can cause access to be either restricted or expanded, depending on what the client has permission to do. For example, suppose a file server has files containing confidential information, and each of these files is protected by a DACL. To prevent a client from obtaining unauthorized access to information in these files, the service can impersonate the client before accessing the files.\n\nSome on-premise applications may rely on executing code with the identity of the actual Windows user. This requires a corresponding user account has been created on the platform, which is not possible in a Cloud environment. User authentication should be replaced by a Cloud-based and OS-agnostic identity & access management solution such as Active Directory.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://msdn.microsoft.com/en-us/library/134ec8tc.aspx"
+    }
+}

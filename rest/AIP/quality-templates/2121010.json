@@ -1,0 +1,68 @@
+{
+    "id": 2121010,
+    "name": "Avoid filtering sensitive data using Web Front-end",
+    "href": "AIP/quality-templates/2121010",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "isTemplate": true,
+    "download": "https://github.com/CAST-Extend/Quality-Rule-Templates/raw/main/API3_Avoid%20Filtering%20Sensitive%20Data%20in%20Frontend.CASTRule",
+    "description": "The rule will raise a violation if user-defined sensitive data is called by a API request and uses front-end to filter data",
+    "output": "Front-end filters that are calling data from APIs and in return from Models that may contain sensitive data",
+    "rationale": "APIs rely on clients to perform the data filtering. Since APIs are used as data sources, sometimes developers try to implement them in a generic way without thinking about the sensitivity of the exposed data.\nWhen you rely on front-end for filtering sensitive data there is an underlying API that is returning all the data, which may be more than needed. This helps the attacker to understand the schema or intercept data that they are not intended to know.",
+    "reference": "https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa3-excessive-data-exposure.md",
+    "remediation": "Never rely on the client side to filter sensitive data.",
+    "total": "All the front-end javascript/typescript/jQuery filters",
+    "alternativeName": "API3_Avoid Filtering Sensitive Data in Frontend.CASTRule",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-213",
+            "name": "Exposure of Sensitive Information Due to Incompatible Policies",
+            "href": "AIP/quality-standards/CWE/items/CWE-213",
+            "standard": "CWE"
+        },
+        {
+            "id": "API3-2019",
+            "name": "Excessive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/API3-2019",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

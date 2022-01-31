@@ -7,7 +7,7 @@
     "maxWeight": 9,
     "associatedValueName": "Call stack from user input source down to the target SQL execution method",
     "description": "SQL injection (second order) - The application stores data in a database. At a later time, the data is subsequently read back into the application and included in another SQL query without prior validation and sanitization.",
-    "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target SQL execution method.",
+    "output": "List all methods that make resource calls forged by database content\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
     "rationale": "The software constructs all or part of an SQL command via user-controllable inputs (inputs coming from another database access). These inputs are not neutralized or are incorrectly neutralized. As a consequence, the SQL command may be completely altered.",
     "reference": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')\nhttps://cwe.mitre.org/data/definitions/89.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A1-Injection\n\nCISQ rule: ASCSM-CWE-89.",
     "remediation": "Use authorized sanitization methods.",

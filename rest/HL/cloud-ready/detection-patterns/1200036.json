@@ -1,0 +1,39 @@
+{
+    "id": 1200036,
+    "name": "Avoid using hardcoded URLs (LDAP protocol) in source and configuration files",
+    "href": "HL/cloud-ready/detection-patterns/1200036",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/14",
+        "name": "Security & User Authentication"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "This patterns verifies in source (.java, .cs) and configuration (.properties, .conf, .xml) files the presence of hardcoded URLs using the LDAP protocol (LDAP/LDAPS). This URL would need to be replaced by the new resource\u2019s URL during the Cloud migration, if any change occured.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": ""
+    }
+}

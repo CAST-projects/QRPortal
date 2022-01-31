@@ -1,0 +1,39 @@
+{
+    "id": 1200035,
+    "name": "Using JEE Configuration",
+    "href": "HL/cloud-ready/detection-patterns/1200035",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/7",
+        "name": "Execution Environment"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "If you\u2019re envisioning moving your application to Pivotal CloudFoundry, it is recommended to move away from JEE-specific configurations to Spring-based application configuration. This pattern verifies the presence of JEE configuration files such as application.xml, webservices.xml, etc.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            }
+        ],
+        "reference": "https://github.com/Pivotal-Field-Engineering/ephemerol/blob/master/ephemerol-react/public/default-rulebase.yml\nhttps://content.pivotal.io/blog/how-do-i-migrate-applications-to-pivotal-cloud-foundry"
+    }
+}

@@ -1658,7 +1658,7 @@
         "name": "Avoid String concatenation in loops",
         "href": "AIP/quality-rules/7200",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -1668,7 +1668,7 @@
         "name": "Avoid method invocation in a loop termination expression",
         "href": "AIP/quality-rules/7204",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -1678,7 +1678,7 @@
         "name": "Avoid the use of Instanceof inside loops",
         "href": "AIP/quality-rules/7206",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -3988,7 +3988,7 @@
         "name": "Never use strcat() function (C/C++)",
         "href": "AIP/quality-rules/7968",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -3999,7 +3999,7 @@
         "name": "Never use strcpy() function (C/C++)",
         "href": "AIP/quality-rules/7970",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4010,7 +4010,7 @@
         "name": "Never use sprintf() or vsprintf() functions",
         "href": "AIP/quality-rules/7972",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4021,7 +4021,7 @@
         "name": "Never use gets() function",
         "href": "AIP/quality-rules/7976",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4032,7 +4032,7 @@
         "name": "Avoid using the scanf() function family",
         "href": "AIP/quality-rules/7978",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4043,7 +4043,7 @@
         "name": "Avoid using strtrns() function",
         "href": "AIP/quality-rules/7980",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4054,7 +4054,7 @@
         "name": "Avoid using strlen() function family",
         "href": "AIP/quality-rules/7982",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4065,7 +4065,7 @@
         "name": "Avoid using strecpy() function",
         "href": "AIP/quality-rules/7984",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4076,7 +4076,7 @@
         "name": "Avoid using streadd() function",
         "href": "AIP/quality-rules/7986",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4087,7 +4087,7 @@
         "name": "DEPRECATED: Avoid using snprintf() function family",
         "href": "AIP/quality-rules/7988",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4098,7 +4098,7 @@
         "name": "Avoid using realpath() function",
         "href": "AIP/quality-rules/7990",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4109,7 +4109,7 @@
         "name": "Avoid using getpass() function",
         "href": "AIP/quality-rules/7992",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4120,7 +4120,7 @@
         "name": "Avoid using getopt() function",
         "href": "AIP/quality-rules/7994",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -4226,7 +4226,7 @@
     },
     {
         "id": 8032,
-        "name": "Avoid using a break statement in 'for' loops",
+        "name": "Avoid using break statement in FOR loops",
         "href": "AIP/quality-rules/8032",
         "critical": false,
         "severity": 10,
@@ -5231,7 +5231,7 @@
     },
     {
         "id": 8518,
-        "name": "Avoid Regular expression injection",
+        "name": "Avoid regular expression injection",
         "href": "AIP/quality-rules/8518",
         "critical": true,
         "severity": 30,
@@ -5439,6 +5439,52 @@
         "severity": 20,
         "technologyNames": [
             "Cobol"
+        ]
+    },
+    {
+        "id": 8560,
+        "name": "Avoid server-side request forgery",
+        "href": "AIP/quality-rules/8560",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8562,
+        "name": "Avoid server-side request forgery through API requests",
+        "href": "AIP/quality-rules/8562",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8564,
+        "name": "Avoid second order server-side request forgery",
+        "href": "AIP/quality-rules/8564",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8568,
+        "name": "Avoid calculated fields in WHERE-clauses and ON-clauses of CDS views (S4/HANA)",
+        "href": "AIP/quality-rules/8568",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
         ]
     },
     {
@@ -9416,7 +9462,7 @@
         "name": "Avoid using for-in loop",
         "href": "AIP/quality-rules/1020008",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -9426,7 +9472,7 @@
         "name": "Avoid using forEach()",
         "href": "AIP/quality-rules/1020010",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -9456,7 +9502,7 @@
         "name": "Avoid using too much dot notation in loop",
         "href": "AIP/quality-rules/1020016",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -9556,7 +9602,7 @@
         "name": "Avoid defining and calling functions inside loops",
         "href": "AIP/quality-rules/1020038",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -9643,7 +9689,7 @@
     },
     {
         "id": 1020060,
-        "name": "Avoid using console.log()",
+        "name": "Avoid using console.log() (Javascript)",
         "href": "AIP/quality-rules/1020060",
         "critical": false,
         "severity": 10,
@@ -9986,7 +10032,7 @@
         "name": "Avoid using \"<script>\" tag in HTML template used by React.js components",
         "href": "AIP/quality-rules/1020456",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -10696,7 +10742,7 @@
         "name": "Avoid using \"<script>\" tag into HTML template used by Angular Application",
         "href": "AIP/quality-rules/1020834",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -11416,7 +11462,7 @@
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C#"
         ]
@@ -12461,7 +12507,7 @@
         "name": "Avoid weak encryption algorithm (Objective-C)",
         "href": "AIP/quality-rules/1050046",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "Objective-C"
         ]

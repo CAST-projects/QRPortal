@@ -5,7 +5,7 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 5,
-    "associatedValueName": "Number of classes",
+    "associatedValueName": "Number of children",
     "description": "Avoid Classes with a High Number Of Children (NOC > X)\nNOC is the number of immediate <Sub-Classes> of the Class.\nThe threshold is a parameter and can be changed at will.",
     "output": "This report lists all Classes with a Number Of Children (NOC > X)\nIt provides the following information:\n  * Class full name, NOC",
     "rationale": "Depth is generally better than breadth in class hierarchy, since it promotes reuse of methods through inheritance.\nNOC measures the potential influence a Class has on the design. Classes with large number of children require more intensive testing as through inheritance an implementation error can potentially lead to many regression bugs.\nTechnical or framework classes which are evolving and will not be changed often should not be concerned by this rule.",

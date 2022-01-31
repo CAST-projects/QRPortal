@@ -1,0 +1,39 @@
+{
+    "id": 1200034,
+    "name": "Using JBoss Application Server",
+    "href": "HL/cloud-ready/detection-patterns/1200034",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/7",
+        "name": "Execution Environment"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/3",
+                "name": "CloudFoundry"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "There is no JBoss runtime natively available on CloudFoundry so you cannot push them directly. As JBoss is not available, the app configuration should be converted to a Spring-based application configuration.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            }
+        ],
+        "reference": "https://stackoverflow.com/questions/12634486/cloudfoundry-jboss-support\nhttps://content.pivotal.io/blog/how-do-i-migrate-applications-to-pivotal-cloud-foundry"
+    }
+}

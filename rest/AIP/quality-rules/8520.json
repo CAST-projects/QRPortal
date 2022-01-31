@@ -7,7 +7,7 @@
     "maxWeight": 9,
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "This metric uses CAST data-flow engine to detect a call path where input data from the user is sent to a Regular expression without prior validation and sanitization.",
-    "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
+    "output": "List all methods that make resource calls forged by database content\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
     "rationale": "The application stores data in a database. At a later time, the data is subsequently read back into the application and included in a Regular expression without sanitization.",
     "reference": "Regular expression Denial of Service - ReDoS\nhttps://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS\n\nCWE-400: Uncontrolled Resource Consumption\nhttps://cwe.mitre.org/data/definitions/400.html\n\nWeaknesses in the 2019 CWE Top 25 Most Dangerous Software Errors\nhttps://cwe.mitre.org/data/definitions/1200.html",
     "remediation": "Use authorized sanitization methods, limit the computation time of the Regular expression.",

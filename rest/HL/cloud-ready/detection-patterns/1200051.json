@@ -1,0 +1,39 @@
+{
+    "id": 1200051,
+    "name": "Using USE statement - Unsupported in Azure SQL Database",
+    "href": "HL/cloud-ready/detection-patterns/1200051",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/5",
+        "name": "Code Execution"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/9",
+                "name": "TSQL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "The SQL statement \u2018USE\u2019 is not supported in Azure SQL Database. It should be removed or replaced by equivalent functions supported in Azure. When used in on-premise SQL databases, the \u2018USE\u2019 statement changes the database context to the specified database or database snapshot in SQL Server. In Azure SQL Database, the database parameter can only refer to the current database. If a database other than the current database is provided, the USE statement does not switch between databases, and error code 40508 is returned. To change databases, you must directly connect to the database.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/use-transact-sql"
+    }
+}

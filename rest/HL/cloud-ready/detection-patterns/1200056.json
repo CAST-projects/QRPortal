@@ -1,0 +1,43 @@
+{
+    "id": 1200056,
+    "name": "Use of an unsecured data string",
+    "href": "HL/cloud-ready/detection-patterns/1200056",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/14",
+        "name": "Security & User Authentication"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "This pattern verifies the presence in source code (Java, C#, VB/VB.net) of sensitive data strings:\n\nString variables containing typical keywords like password, pwd, user, username, uid, auth, db, database, account\nStrings containing a private key\nString containing a certificate\nString containing a JWT token",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://security.web.cern.ch/recommendations/en/password_alternatives.shtml\nhttps://www.appmarq.com/public/security,1020104,Avoid-hardcoded-passwords-Javascript"
+    }
+}

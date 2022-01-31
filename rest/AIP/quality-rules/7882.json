@@ -9,6 +9,7 @@
     "description": "This rule checks all Abap code containing Native SQL queries. These queries start with EXEC SQL macro.",
     "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
     "rationale": "Most ABAP programs containing database-specific SQL statements do not run with different databases. If different databases are involved, then use Open SQL. \nOpen SQL (Subset of standard SQL statements), allows you to access all database tables available in the R/3 System, regardless of the manufacturer. Moreover, Open SQL queries are optimized for SAP dictionary. \nUse of Native SQL is highly discouraged by SAP.",
+    "reference": "https://blogs.sap.com/2013/11/20/how-to-protect-your-abap-code-against-sql-injection-attacks/",
     "remediation": "Replace Native SQL queries by corresponding Open SQL queries as much as possible.",
     "total": "Number of Abap artifacts",
     "alternativeName": "Avoid using Native SQL",

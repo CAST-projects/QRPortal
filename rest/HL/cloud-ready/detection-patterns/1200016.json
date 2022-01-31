@@ -1,0 +1,73 @@
+{
+    "id": 1200016,
+    "name": "Using other configuration files than Web configuration",
+    "href": "HL/cloud-ready/detection-patterns/1200016",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/3",
+        "name": "Application Settings Configuration"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Storing application settings in external files other than web.config and that are not manageable in the Cloud platform is not recommended as such settings will not be easily changeable.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://stackoverflow.com/questions/10961862/its-possible-to-have-one-web-config-specific-to-windows-azure"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Storing application settings in external files other than web.config and that are not manageable is not recommended as such settings will not be easily updated. Use the CAST Highlight output listing all your config files. Review each to confirm they are needed as part of the container deployment. Use docker configs to centralize and use configuration templates.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/4",
+                "name": "Container only"
+            }
+        ],
+        "reference": "https://docs.docker.com/engine/swarm/configs/"
+    }
+}

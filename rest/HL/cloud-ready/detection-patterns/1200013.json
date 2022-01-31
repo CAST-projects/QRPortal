@@ -1,0 +1,39 @@
+{
+    "id": 1200013,
+    "name": "Avoid using CA Panvalet Command in mainframes specific of Z/OS",
+    "href": "HL/cloud-ready/detection-patterns/1200013",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "CA-Panvalet is a revision control and source code management system for mainframe computers such as the IBM System z and IBM System/370 running the z/OS and z/VSE operating systems. CA Panvalet commands are specific to z/OS and not applicable to Cloud-base / Open Source platforms.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.ibm.com/support/knowledgecenter/SSPSQF_9.1.0/com.ibm.etools.rdz.language.editors.doc/topics/czdinc.html"
+    }
+}

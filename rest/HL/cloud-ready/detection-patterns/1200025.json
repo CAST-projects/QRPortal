@@ -1,0 +1,111 @@
+{
+    "id": 1200025,
+    "name": "Using file system",
+    "href": "HL/cloud-ready/detection-patterns/1200025",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/7",
+        "name": "Execution Environment"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/7",
+                "name": "Python"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/6",
+                "name": "PHP"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/8",
+                "name": "SWIFT"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Cloud applications should not assume the local file system is accessible, as the directory structure might be different from a traditional desktop or server machine and/or the Cloud application may not have sufficient rights to access the local file system. Instead, use relative paths to application resources (e.g. ../../reporting/reportBuilder.xml). Depending on your application context and the Cloud platform where it is deployed, you could also consider using functions or classes like LocalResources to dynamically resolve file paths.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://en.wikipedia.org/wiki/Distributed_file_system_for_cloud\nhttps://stackoverflow.com/questions/11687903/could-not-find-a-part-of-the-path-on-windows-azure"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Container applications should not assume the local file system is accessible, as the directory structure might be different from a traditional desktop or server machine and/or the application may not have sufficient rights to access the local file system. Instead, use relative paths to application resources (e.g. ../../reporting/reportBuilder.xml). Use the CAST Highlight output listing all your code files declaring dependencies to the filesystem. Review the dependencies in each file. Also assess if this file system dependency for execution will be needed by multiple containers. If it is the case, consider the use of volumes instead of writable layers. Note: When many roadblocks are identified for this blocker, they may be addressed holistically with one remediation.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            }
+        ],
+        "reference": "https://docs.docker.com/storage/\nhttps://www.baeldung.com/ops/docker-container-filesystem\nhttps://medium.com/@BeNitinAgarwal/docker-containers-filesystem-demystified-b6ed8112a04a"
+    }
+}

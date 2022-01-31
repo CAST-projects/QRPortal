@@ -1,0 +1,49 @@
+{
+    "id": 1200045,
+    "name": "Avoid using unsecured database connection strings",
+    "href": "HL/cloud-ready/detection-patterns/1200045",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/15",
+        "name": "Sensitive Data Storage Protection"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/20",
+            "name": "Medium"
+        },
+        "description": "Security is a key factor in the Cloud as the applications are more exposed and inter-connected. This pattern verifies in source code (C# and VB/VB.Net) the presence of SQL database unsecured connection strings.\n\nThis blocker is triggered when a database connection string is found during the code scan without any of the patterns used to secure this connection.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-builders"
+    }
+}

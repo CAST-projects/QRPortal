@@ -1,0 +1,39 @@
+{
+    "id": 1200004,
+    "name": "Avoid using deprecated MySQL commands",
+    "href": "HL/cloud-ready/detection-patterns/1200004",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/7",
+        "name": "Execution Environment"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/6",
+                "name": "PHP"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "This pattern verifies in source code (.php) the presence of deprecated MySQL commands (mysql_connect, mysql_select_db, mysql_close). As deprecated commands might be interrupted in the future, they should be replaced by currenlty supported commands (mysqli or PDO).",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://www.php.net/manual/en/pdo.connections.php\nhttps://stackoverflow.com/questions/21797118/deprecated-mysql-connect\nhttps://dev.mysql.com/doc/apis-php/en/apis-php-function.mysqli-connect.html"
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "id": 1200052,
+    "name": "Using stateful session (Servlet)",
+    "href": "HL/cloud-ready/detection-patterns/1200052",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/1",
+        "name": "Blocker"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/11",
+        "name": "Persistent Files"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "For modern applications running in the Cloud, it is not recommended to be stateful, especially for sessions as they\u2019re not scalable, and are generally harder to replicate and fix bugs (server-side). Ideally, stateful sessions should be replaced by stateless and client-side mechanisms such as cookies, client cache (e.g. Redis, memcache\u2026) or in an external cloud-based storage. This is an important architectural constraint of microservices-style applications, as it enables resiliency, elasticity, and allows any available service instance to execute any task.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/2",
+                "name": "Framework"
+            }
+        ],
+        "reference": "https://nordicapis.com/defining-stateful-vs-stateless-web-services/\nhttps://toddmotto.com/stateful-stateless-components"
+    },
+    "containerization": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/30",
+            "name": "High"
+        },
+        "description": "For modern applications running in the Cloud, it is not recommended to be stateful, especially for sessions as they\u2019re not scalable, and are generally harder to replicate and fix bugs (server-side). Ideally, stateful sessions should be replaced by stateless and client-side mechanisms such as cookies, client cache (e.g. Redis, memcache\u2026) or in an external cloud-based storage.\n\nUse the CAST Highlight output listing all your code files declaring dependencies to stateful sessions. Review the dependencies in each file.\n\nModify the application to support a stateless architecture, which often requires a deep refactoring.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/3",
+                "name": "Architecture"
+            },
+            {
+                "href": "HL/cloud-ready/migration-impacts/1",
+                "name": "Code"
+            }
+        ],
+        "reference": "https://ultimatecourses.com/blog/stateful-stateless-components"
+    }
+}

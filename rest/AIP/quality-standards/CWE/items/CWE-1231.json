@@ -1,9 +1,9 @@
 {
     "id": "CWE-1231",
-    "name": "Improper Implementation of Lock Protection Registers",
+    "name": "Improper Prevention of Lock Bit Modification",
     "href": "AIP/quality-standards/CWE/items/CWE-1231",
     "url": "https://cwe.mitre.org/data/definitions/1231.html",
-    "description": "The product incorrectly implements register lock bit protection features such that protected controls can be programmed even after the lock has been set.",
+    "description": "The product uses a trusted lock bit for restricting access to registers, address regions, or other resources, but the product does not prevent the value of the lock bit from being modified after it has been set.",
     "isoPatterns": null,
     "count": 0,
     "qualityRules": null,

@@ -9,7 +9,7 @@
     "description": "This rule searches for artifacts that contain no 'default' statement in a 'switch' block.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences",
     "rationale": "The keyword 'default' is executed when none of the conditions being tested for in the switch statement are met or executed. Having no default keyword, means that there is no backup. The cases that are \"impossible\" today are those most likely to be the causes of untraceable bugs in the future, when the impossible changes to the standard.",
-    "reference": "CISQ rule: ASCMM-MNT-1.",
+    "reference": "CISQ rule: ASCMM-MNT-1.\n\nMISRA C++ 2008, 6-4-3: A switch statement shall be a well-formed switch statement.",
     "remediation": "Add the 'default' statement with appropriate handling of unexpected values.",
     "remediationSample": "// Sample for C/C++\nswitch(color)\n{\ncase Red:\n    // Handle red case\ncase Black:\n    // Handle black case\ndefault:\n    assert(false && \"Impossible node color\");\n    // Error recovery code\n}",
     "sample": "// Sample for C/C++\nswitch(color)\n{\ncase Red:\n    // Handle red case\ncase Black:\n    // Handle black case\n} // VIOLATION",

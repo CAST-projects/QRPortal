@@ -879,7 +879,7 @@
         "name": "Ensure to create a StringBuilder or StringBuffer before entering the loop",
         "href": "AIP/quality-rules/7200",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -889,7 +889,7 @@
         "name": "Avoid method invocation in a loop termination expression",
         "href": "AIP/quality-rules/7204",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -899,7 +899,7 @@
         "name": "Ensure to have polymorphism over 'is' operator and downcasting",
         "href": "AIP/quality-rules/7206",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -2167,7 +2167,7 @@
         "name": "Never use strcat() function (C/C++)",
         "href": "AIP/quality-rules/7968",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2178,7 +2178,7 @@
         "name": "Never use strcpy() function (C/C++)",
         "href": "AIP/quality-rules/7970",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2189,7 +2189,7 @@
         "name": "Never use sprintf() or vsprintf() functions",
         "href": "AIP/quality-rules/7972",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2200,7 +2200,7 @@
         "name": "Never use gets() function",
         "href": "AIP/quality-rules/7976",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2211,7 +2211,7 @@
         "name": "Avoid using the scanf() function family",
         "href": "AIP/quality-rules/7978",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2222,7 +2222,7 @@
         "name": "Avoid using strtrns() function",
         "href": "AIP/quality-rules/7980",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2233,7 +2233,7 @@
         "name": "Avoid using strlen() function family",
         "href": "AIP/quality-rules/7982",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2244,7 +2244,7 @@
         "name": "Avoid using strecpy() function",
         "href": "AIP/quality-rules/7984",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2255,7 +2255,7 @@
         "name": "Avoid using streadd() function",
         "href": "AIP/quality-rules/7986",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2266,7 +2266,7 @@
         "name": "DEPRECATED: Avoid using snprintf() function family",
         "href": "AIP/quality-rules/7988",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2277,7 +2277,7 @@
         "name": "Avoid using realpath() function",
         "href": "AIP/quality-rules/7990",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2288,7 +2288,7 @@
         "name": "Avoid using getpass() function",
         "href": "AIP/quality-rules/7992",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -2299,7 +2299,7 @@
         "name": "Avoid using getopt() function",
         "href": "AIP/quality-rules/7994",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C",
             "C++"
@@ -3295,6 +3295,42 @@
         ]
     },
     {
+        "id": 8560,
+        "name": "Ensure your application properly neutralize URLs before they are accessed",
+        "href": "AIP/quality-rules/8560",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8562,
+        "name": "Ensure your application properly neutralize URLs before they are accessed",
+        "href": "AIP/quality-rules/8562",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8564,
+        "name": "Ensure your application properly neutralize URLs before they are accessed",
+        "href": "AIP/quality-rules/8564",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1020000,
         "name": "Ensure you keep simple the design of the component/module to reduce number of independent paths",
         "href": "AIP/quality-rules/1020000",
@@ -3329,7 +3365,7 @@
         "name": "Replace for-in loop with a regular for loop with index to avoid slower performance",
         "href": "AIP/quality-rules/1020008",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -3339,7 +3375,7 @@
         "name": "Replace forEach() with a regular loop to ensure better performance",
         "href": "AIP/quality-rules/1020010",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -3369,7 +3405,7 @@
         "name": "Ensure to use intermediate variables for minimizing dot notations for references within a loop so that performance is not adversely impacted",
         "href": "AIP/quality-rules/1020016",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -3469,7 +3505,7 @@
         "name": "Ensure to assign a reference variable to a function output if it has to be used inside a loop to make performance better",
         "href": "AIP/quality-rules/1020038",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -3899,7 +3935,7 @@
         "name": "Ensure you don't inject javascript code into your HTML template.",
         "href": "AIP/quality-rules/1020456",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -4549,7 +4585,7 @@
         "name": "Ensure you don't inject javascript code with  \"<script>\" tag into HTML template",
         "href": "AIP/quality-rules/1020834",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -5039,7 +5075,7 @@
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "C#"
         ]
