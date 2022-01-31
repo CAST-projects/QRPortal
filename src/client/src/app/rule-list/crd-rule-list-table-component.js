@@ -2,7 +2,7 @@ import React, { memo, useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
 import { useRouteMatch, useHistory, useLocation } from 'react-router-dom';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import MuiDataTable from 'lib/material-ui-components/data-table';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from "classnames";
@@ -36,6 +36,50 @@ const useStyles = makeStyles({
   }
 });
 
+const getMuiTheme = () => createTheme({
+  overrides: {
+    MUIDataTable: {
+      responsiveBase: {
+        maxHeight: 'calc(100vh - 318px)',
+        overflow: 'auto',
+        scrollbarWidth: "thin",
+      },
+    },
+    MUIDataTableFilterList: {
+      root: {
+        minHeight: 40,  
+      }
+    },
+    MuiTableCell: {
+      root: {
+        padding: 12,
+      },
+      head: {
+        fontWeight: 'bold',
+      },
+    },
+    MuiTableRow: {
+      root: {
+        cursor: 'pointer',
+
+        '&$selected': {
+          backgroundColor: '#c1e1ec !important',
+        },
+      },
+    },
+    MUIDataTableBodyCell: {
+      root: {
+        fontSize: 13,
+      },
+    },
+    MuiTablePagination: {
+      menuItem: {
+        fontSize: 12,
+      },
+    },
+  },
+});
+
 function getSeverityText(severity){
   switch (severity) {
     case 10:
@@ -60,50 +104,6 @@ const RulesListTable = memo(({ data, selectedRuleId, getRuleDetails }) => {
   const { search: locationParamSearch } = locationParams || {};
 
   const history = useHistory();
-
-  const getMuiTheme = () => createMuiTheme({
-    overrides: {
-      MUIDataTable: {
-        responsiveBase: {
-          maxHeight: 'calc(100vh - 318px)',
-          overflow: 'auto',
-          scrollbarWidth: "thin",
-        },
-      },
-      MUIDataTableFilterList: {
-        root: {
-          minHeight: 40,  
-        }
-      },
-      MuiTableCell: {
-        root: {
-          padding: 12,
-        },
-        head: {
-          fontWeight: 'bold',
-        },
-      },
-      MuiTableRow: {
-        root: {
-          cursor: 'pointer',
-
-          '&$selected': {
-            backgroundColor: '#c1e1ec !important',
-          },
-        },
-      },
-      MUIDataTableBodyCell: {
-        root: {
-          fontSize: 13,
-        },
-      },
-      MuiTablePagination: {
-        menuItem: {
-          fontSize: 12,
-        },
-      },
-    },
-  });
   const theme = useMemo(() => getMuiTheme(), []);
   const [selectedRow, setSelectedRow] = useState([]);
   const [nameFilterList, setNameFilterList] = useState([FILTERS.notDepricated]);
@@ -236,14 +236,14 @@ const RulesListTable = memo(({ data, selectedRuleId, getRuleDetails }) => {
   }, [data]);
 
   return (
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <MuiDataTable
         title={'Rules'}
         columns={columns}
         data={data}
         options={tableOptions}
       />
-    </MuiThemeProvider>
+    </ThemeProvider>
   );
 });
 
