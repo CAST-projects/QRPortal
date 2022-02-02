@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
-import Grid from '@mui/material/Grid';
+import Grid from '@material-ui/core/Grid';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
