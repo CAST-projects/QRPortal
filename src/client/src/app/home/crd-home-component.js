@@ -22,7 +22,7 @@ const drawerWidth = 350;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: 0,
+    padding: 15,
     // display: 'flex',
   },
   contentGrid: {
