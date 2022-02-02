@@ -115,7 +115,7 @@ const Home = (props) => {
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <CssBaseline />
       <AppBar position='fixed' className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
