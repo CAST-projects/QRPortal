@@ -2,7 +2,7 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   treeView: {
-    padding: '15px',
+    // padding: '15px',
     
     '& .MuiTreeItem-label': {
       textTransform: 'capitalize',
