@@ -5,7 +5,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
-import { Link, SvgIcon } from '@material-ui/core';
+import { Link } from '@material-ui/core';
+import Icon from "@material-ui/core/Icon";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
 import classNames from 'classnames';
 
 function parseLinks( text ){
@@ -92,6 +98,9 @@ const useStyles = (heightCalc = 318) => makeStyles((theme) => ({
       margin: theme.spacing(0.5),
     },
   },
+  iconContainer: {
+    width: 60,
+  },
 }));
 
 const RuleDetailsContent = (props) => {
@@ -129,6 +138,25 @@ const RuleDetailsContent = (props) => {
     </div>
   );
 
+  const renderList = (title, content, valueSetter = defaultValueSetter) => 
+  (<div className={classes.marginBottom5}>
+    <Typography gutterBottom variant='button' component='h2'>
+      {title}
+    </Typography>
+    <List dense>
+      {content.map(_ => (
+      <ListItem>
+        {_.iconUrl && <ListItemAvatar>
+          <Avatar src={_.iconUrl} />
+        </ListItemAvatar>}
+        <ListItemText
+          primary={valueSetter(_)}
+        />
+      </ListItem>
+      ))}
+  </List>
+  </div>)
+
   const downloadLink = useMemo(() => {
     return _get(ruleDetails, "download");
   }, [ ruleDetails ]);
@@ -142,7 +170,7 @@ const RuleDetailsContent = (props) => {
         <div className={classes.ruleDetailsContent}>
           <div className={classes.marginBottom20}>
             {isDataValid(_get(ruleDetails, 'businessCriteria')) && renderChipsInfo('Business Criteria', _get(ruleDetails, 'businessCriteria'))}
-            {isDataValid(_get(ruleDetails, 'qualityStandards')) && renderChipsInfo('Quality Standards', _get(ruleDetails, 'qualityStandards'), (item) => `${item.id} - ${item.name}`)}
+            {isDataValid(_get(ruleDetails, 'qualityStandards')) && renderList('Quality Standards', _get(ruleDetails, 'qualityStandards'), (item) => `${item.id} - ${item.name}`)}
             {isDataValid(_get(ruleDetails, 'technologies')) && renderChipsInfo('Technologies', _get(ruleDetails, 'technologies'))}
             {isDataValid(_get(ruleDetails, 'technicalCriteria')) && renderChipsInfo('Technical Criteria', _get(ruleDetails, 'technicalCriteria'))}
           </div>

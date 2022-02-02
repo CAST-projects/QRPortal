@@ -42,6 +42,28 @@ class DataSerializer extends BaseDataSerializer {
   }
 }
 
+class QualityRuleSerializer extends DataSerializer{
+  /**
+   * @param {IconUrlBuilder} iconUrlBuilder 
+   */
+  constructor(iconUrlBuilder){
+    super(iconUrlBuilder, QualityRule);
+
+    this.iconBuilder = iconUrlBuilder;
+  }
+
+  __serialize(data){
+    /** @type {QualityRule} */
+    const Ctor = this.Ctor;
+    const iconBuilder = this.iconBuilder;
+    const model = new Ctor(data);
+
+    model.qualityStandards = model.qualityStandards.map(_ => ({..._, iconUrl: _.standard ? iconBuilder.createIconUrl(_.standard.toLowerCase()) : null }));
+
+    return model;
+  }
+}
+
 class ServiceIndexSerializer extends BaseDataSerializer {
 
   /**
@@ -167,7 +189,7 @@ class DefaultSerializer {
     this.baseExtensionSerializer = new ExtensionDataSerializer(iconUrlBuilder, BaseExtension);
     this.extensionSerializer = new ExtensionDataSerializer(iconUrlBuilder, Extension);
     this.extensionVersionSerializer = new BaseDataSerializer(ExtensionVersion);
-    this.qualityRuleSerializer = new BaseDataSerializer(QualityRule);
+    this.qualityRuleSerializer = new QualityRuleSerializer(iconUrlBuilder, QualityRule);
     this.baseBusinessCriteriaSerializer = new BusinessCriteriaSerializer(iconUrlBuilder, BaseBusinessCriteria);
     this.businessCriteriaSerializer = new BusinessCriteriaSerializer(iconUrlBuilder, BusinessCriteria);
     this.technicalCriteriaReferenceSerializer = new BaseDataSerializer(TechnicalCriteriaReference);
