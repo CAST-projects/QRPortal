@@ -22,6 +22,7 @@ const drawerWidth = 350;
 
 const useStyles = makeStyles(theme => ({
   root: {
+    padding: 0,
     // display: 'flex',
   },
   contentGrid: {
@@ -68,6 +69,7 @@ const useStyles = makeStyles(theme => ({
   },
   searchDetails: {
     marginLeft: '14px',
+    marginTop: 10,
     display: 'flex',
     flexDirection: 'row',
     '& button': {

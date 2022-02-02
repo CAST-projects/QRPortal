@@ -6,7 +6,7 @@ import RuleList from '../rule-list/crd-rule-list-component';
 import RuleDetails from '../rule-details/crd-rule-details-component';
 
 const RulesWrapper = (props) => {
-  const { rulesListInfo, getRuleDetails, ruleDetailsInfo, selectedRuleId } = props;
+  const { rulesListInfo, getRuleDetails, ruleDetailsInfo, selectedRuleId, heightCalc } = props;
 
   return (
     <Grid container={true} justifyContent='center'>
@@ -15,11 +15,12 @@ const RulesWrapper = (props) => {
           qualityRulesList={rulesListInfo}
           getRuleDetails={getRuleDetails}
           selectedRuleId={selectedRuleId}
+          heightCalc={heightCalc}
         />
       </Grid>
       <Grid item={true} xs={6}>
         <Grid container />
-        <RuleDetails ruleDetails={ruleDetailsInfo} />
+        <RuleDetails ruleDetails={ruleDetailsInfo} heightCalc={heightCalc}/>
       </Grid>
     </Grid>
   );

@@ -36,11 +36,11 @@ const useStyles = makeStyles({
   }
 });
 
-const getMuiTheme = () => createTheme({
+const getMuiTheme = (heightCalc = 318) => createTheme({
   overrides: {
     MUIDataTable: {
       responsiveBase: {
-        maxHeight: 'calc(100vh - 318px)',
+        maxHeight: `calc(100vh - ${heightCalc}px)`,
         overflow: 'auto',
         scrollbarWidth: "thin",
       },
@@ -97,14 +97,14 @@ const FILTERS = {
   notDepricated: "Not Deprecated",
 };
 
-const RulesListTable = memo(({ data, selectedRuleId, getRuleDetails }) => {
+const RulesListTable = memo(({ data, selectedRuleId, getRuleDetails, heightCalc }) => {
   const { url } = useRouteMatch();
 
   const locationParams = useLocation();
   const { search: locationParamSearch } = locationParams || {};
 
   const history = useHistory();
-  const theme = useMemo(() => getMuiTheme(), []);
+  const theme = useMemo(() => getMuiTheme(heightCalc), [ heightCalc ]);
   const [selectedRow, setSelectedRow] = useState([]);
   const [nameFilterList, setNameFilterList] = useState([FILTERS.notDepricated]);
   const classes = useStyles();

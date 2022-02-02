@@ -28,7 +28,7 @@ function parseLinks( text ){
   return ml > 0 ? str : text;
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (heightCalc = 318) => makeStyles((theme) => ({
   empty: {
     textAlign: 'center',
     margin: '50px',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   ruleDetailsContainer: {
     padding: '0 24px 0 24px',
     marginTop: 24,
-    maxHeight: 'calc(100vh - 170px)',
+    maxHeight: `calc(100vh - ${heightCalc - 148}px)`,
     overflow: 'hidden auto',
     scrollbarWidth: "thin",
   },
@@ -95,8 +95,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const RuleDetailsContent = (props) => {
-  const { ruleDetails } = props;
-  const classes = useStyles();
+  const { ruleDetails, heightCalc } = props;
+  const classes = useStyles(heightCalc)();
 
   const isDataValid = data => data && !_isEmpty(data);
 

@@ -148,7 +148,7 @@ class QualityRulesController extends Controller {
               if(query.length > 1){
                 for (const splitTerm of splitTerms) {
                   if(splitTerm.length > 2){
-                    _query.push(splitTerm);
+                    _query.push(splitTerm.toLowerCase());
                   }
                 }
               } else {
@@ -160,7 +160,7 @@ class QualityRulesController extends Controller {
             if(splitTerms.length > 1){
               for (const splitTerm of splitTerms) {
                 if(splitTerm.length > 2){
-                  _query.push(splitTerm);
+                  _query.push(splitTerm.toLowerCase());
                 }
               }
             } else {

@@ -74,6 +74,7 @@ const SearchContent = (props) => {
       getRuleDetails={getRuleDetails}
       ruleDetailsInfo={ruleDetailsInfo}
       selectedRuleId={selectedRuleId}
+      heightCalc={355}
     />
   );
 };
