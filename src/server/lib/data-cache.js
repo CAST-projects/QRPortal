@@ -29,9 +29,8 @@ class DataCache {
    */
   setLifeCycle(interval){
     this.clearLifeCycle();
-    this.lifeCycle = setInterval(() => {
+    this.lifeCycle = setTimeout(() => {
       this.data = null;
-      this.lifeCycle = null;
     }, interval);
   }
 
@@ -49,11 +48,23 @@ class DataCache {
    * @param {Promise<any>} asyncFunction 
    * @param {number} interval 
    */
-  async setAutoRenewLifeCycle(asyncFunction, interval){
+  async setAutoRenewLifeCycleAsync(asyncFunction, interval){
     this.renewer = asyncFunction;
     await this.renew();
     this.lifeCycle = setInterval(async () => {
       await this.renew();
+    }, interval);
+  }
+
+    /**
+   * @param {Promise<any>} asyncFunction 
+   * @param {number} interval 
+   */
+  async setAutoRenewLifeCycle(func, interval){
+    this.renewer = func;
+    this.renew();
+    this.lifeCycle = setInterval(async () => {
+      this.renew();
     }, interval);
   }
 

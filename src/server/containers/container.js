@@ -88,10 +88,11 @@ iocBuilder
   .registerFactory(types.urlConverter, (context) => {
     const cntr = context.container;
     const publicUrl = cntr.get(types.publicUrl);
+    const extendUrl = cntr.get(types.extendUrl);
     const qualityStandardReader = cntr.get(types.aipQualityStandardReaderService);
     const businessCriteriaReader = cntr.get(types.aipBusinessCriteriaDataReader);
 
-    return new UrlConverter(publicUrl, businessCriteriaReader, qualityStandardReader);
+    return new UrlConverter(publicUrl, extendUrl, businessCriteriaReader, qualityStandardReader);
   })
 
   // Data Readers

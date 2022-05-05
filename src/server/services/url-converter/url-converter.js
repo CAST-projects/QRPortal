@@ -8,6 +8,12 @@ const SECTIONS = {
   EXTENSION: "srs",
 };
 
+const EXTEND_DOMAINS = {
+  CHANGE_FORECAST: "change-forecast"
+};
+
+const EXTENSION_PREFIX = "com.castsoftware.";
+
 const SERVICES = {
   AIP: "AIP",
   CARL: "CARL",
@@ -21,6 +27,7 @@ const PATH = {
   DETAILS: "details",
   TECHNOLOGIES: "technologies",
   SEARCH: "search_term",
+  PACKAGES: "packages",
 };
 
 class UrlConverter {
@@ -30,8 +37,9 @@ class UrlConverter {
    * @param {import("../business-criteria-reader/reader")} businessCriteriaReader 
    * @param {import("../quality-standard-reader/service")} qualityStandardReader
    */
-  constructor(baseUrl, businessCriteriaReader, qualityStandardReader){
+  constructor(baseUrl, extendUrl, businessCriteriaReader, qualityStandardReader){
     this.baseUrl = baseUrl;
+    this.extendUrl = extendUrl;
     this.businessCriteriaReader = businessCriteriaReader;
     this.qualityStandardReader = qualityStandardReader;
   }
@@ -40,7 +48,7 @@ class UrlConverter {
    * @param {{sec: string, ref: string, echo: bool, s: string}} queryParams 
    */
   async parse(queryParams = {}){
-    const builder = new UrlBuilder(this.baseUrl);
+    let builder = new UrlBuilder(this.baseUrl);
     
     if(queryParams.s){
       const search = this.__parseSearch(queryParams.s);
@@ -53,6 +61,27 @@ class UrlConverter {
     } else {
       const section = this.__parseSection(queryParams.sec);
       const reference = this.__parseReference(queryParams.ref);
+
+      if(section.sectionType === SECTIONS.EXTENSION || queryParams.q === PATH.PACKAGES){
+        builder = new UrlBuilder(this.extendUrl);
+        builder.append(EXTEND_DOMAINS.CHANGE_FORECAST);
+        let qString = null;
+
+        if(section.sectionId){
+          qString = {};
+          qString.compare = EXTENSION_PREFIX + section.sectionId;
+        }
+
+        if(reference.compareVersion && qString){
+          qString.compare += "," + reference.compareVersion + ",";
+        }
+
+        if(qString){
+          builder.setQueryString(qString);
+        }
+
+        return builder.build();
+      }
 
       builder.append(queryParams.echo ? SERVICES.CARL : SERVICES.AIP);
 

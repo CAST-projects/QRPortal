@@ -5,7 +5,8 @@ class SSOCache extends Cache {
   constructor(){
     super();
 
-    this.setLifeCycle(new TimeConverter().addDays(1).toMilliseconds());
+    this.lifeCycleTime = new TimeConverter().addDays(1).toMilliseconds();
+    this.dataLifeCycles = {};
   }
 
   get(uid){
@@ -17,6 +18,10 @@ class SSOCache extends Cache {
   store(uid, data = {}){
     if(!this.isDataSet()) this.setData({});
     if(!this.data[uid]) this.data[uid] = data;
+    dataLifeCycles[uid] = setTimeout(() => {
+      this.data[uid] = null;
+      clearTimeout(dataLifeCycles[uid]);
+    }, this.lifeCycleTime);
   }
 }
 

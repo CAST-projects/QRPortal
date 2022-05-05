@@ -7,8 +7,13 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { TreeView, TreeItem } from '@mui/lab';
-import { StyledEngineProvider } from '@mui/material/styles';
+// import { StyledEngineProvider } from '@mui/material/styles';
+import { StylesProvider, createGenerateClassName } from '@mui/styles';
 import useStyles from './crd-tree-styles';
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'rules-documentation-prod',
+});
 
 const Tree = (props) => {
   const classes = useStyles();
@@ -45,9 +50,9 @@ const Tree = (props) => {
     const nodeLength = nodeSplit.length;
     const maxDepth = [2, 2, 5, 2];
 
-    if(tree[index][nodeId]) {
+    if (tree[index][nodeId]) {
       return true;
-    } else if(nodeLength <= maxDepth[index]){
+    } else if (nodeLength <= maxDepth[index]) {
       return false;
     } else {
       return reverseNodeSearch(nodeSplit.slice(0, nodeLength - 1).join("/"), index, tree);
@@ -57,7 +62,7 @@ const Tree = (props) => {
   const onNodeSelect = (event, nodeId) => {
     const idx = findIndex(nodeId);
 
-    if(!reverseNodeSearch(nodeId, idx, treeDataInfo)){
+    if (!reverseNodeSearch(nodeId, idx, treeDataInfo)) {
       getTreeData(nodeId, idx);
     }
     resetSearch();
@@ -103,10 +108,10 @@ const Tree = (props) => {
       <div>
         {
           description
-           ? <Typography variant='overline' gutterBottom style={{ fontWeight: 'bold', fontSize: '11px', color: '#bebdb6' }}>
-             {title}
-           </Typography>
-           : renderTitle(title)
+            ? <Typography variant='overline' gutterBottom style={{ fontWeight: 'bold', fontSize: '11px', color: '#bebdb6' }}>
+              {title}
+            </Typography>
+            : renderTitle(title)
         }
       </div>
       {description && renderTooltipDescription(description)}
@@ -123,7 +128,7 @@ const Tree = (props) => {
     </Tooltip>
   );
 
-  const handleNavigate = (urlFragment) => 
+  const handleNavigate = (urlFragment) =>
     () => {
       history.replace(urlFragment);
     }
@@ -134,24 +139,24 @@ const Tree = (props) => {
       //   key={node.name}
       //   to={(!isCountNotValid(node)) ? `/${node.href}` : '#'}
       // >
-        <TreeItem
-          key={node.name}
-          disabled={isCountNotValid(node)}
-          nodeId={node.href.toLowerCase()}
-          label={renderLabel((node.displayName || node.name), node.description)}
-          icon={node.iconUrl && renderLabelIcon(node.iconUrl)}
-          onClick={handleNavigate(!isCountNotValid(node) ? `/${node.href}` : '#')}
-        >
-          {
-            Array.isArray(renderNeededData(node.href)[node.href.toLowerCase()])
-              ? renderTreeItem(renderNeededData(node.href)[node.href.toLowerCase()])
-              : [<div key={"void-element"}/>]
-          }
-        </TreeItem>
+      <TreeItem
+        key={node.name}
+        disabled={isCountNotValid(node)}
+        nodeId={node.href.toLowerCase()}
+        label={renderLabel((node.displayName || node.name), node.description)}
+        icon={node.iconUrl && renderLabelIcon(node.iconUrl)}
+        onClick={handleNavigate(!isCountNotValid(node) ? `/${node.href}` : '#')}
+      >
+        {
+          Array.isArray(renderNeededData(node.href)[node.href.toLowerCase()])
+            ? renderTreeItem(renderNeededData(node.href)[node.href.toLowerCase()])
+            : [<div key={"void-element"} />]
+        }
+      </TreeItem>
       // </Link>
     )));
 
-  const renderedTree = useMemo(() => (renderTreeItem(treeDataInfo)), [ JSON.stringify(treeDataInfo) ]);
+  const renderedTree = useMemo(() => (renderTreeItem(treeDataInfo)), [JSON.stringify(treeDataInfo)]);
 
   const isReloadValid = () => mainUrl && !_isEmpty(mainUrl) && !_isEmpty(mainMenu) && !searchTerm;
 
@@ -172,7 +177,8 @@ const Tree = (props) => {
   }, [JSON.stringify(treeData)]);
 
   return (
-    <StyledEngineProvider injectFirst>
+    // <StyledEngineProvider injectFirst>
+    <StylesProvider generateClassName={generateClassName}>
       <TreeView
         className={classes.treeView}
         onNodeSelect={onNodeSelect}
@@ -181,7 +187,8 @@ const Tree = (props) => {
       >
         {renderedTree}
       </TreeView>
-    </StyledEngineProvider>
+    </StylesProvider>
+    // </StyledEngineProvider>
   );
 };
 
