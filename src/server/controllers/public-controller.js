@@ -8,11 +8,11 @@ const fs = require("fs");
 class PublicController extends StaticController{
 
   /**
-   * @param {string} publicUrl
+   * @param {import("../config/configuration").Configuration} configruation
    * @param {import("winston").Logger} logger
    * @param {string} distributionFolder
    */
-  constructor(logger, distributionFolder, publicUrl){
+  constructor(logger, distributionFolder, configruation){
     super("/", {
       dir: distributionFolder,
       ignore: /(\/api)|(\/rules)/i,
@@ -29,7 +29,7 @@ class PublicController extends StaticController{
     });
 
     this._log = logger;
-    this.publicUrl = publicUrl;
+    this.publicUrl = configruation.publicUrl;
     this.indexFilePath = path.join(distributionFolder, "index.html");
   }
 

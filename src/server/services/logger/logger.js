@@ -1,10 +1,11 @@
-const { loggerFactory, logLevel, consoleTransportFactory } = require("../../lib/cnjs-utils/log");
-
+const { loggerFactory, logLevel, consoleTransportFactory, dailyRotationFileTransportFactory } = require("../../lib/cnjs-utils/log");
+const { types } = require("../folder-service");
 /**
- * @param {import("./folder-service/folder-service")} fld 
+ * @param {import("../folder-service/service")} folderService 
  */
-function logFactory(){
+function logFactory(folderService){
   return loggerFactory([
+    dailyRotationFileTransportFactory(logLevel.debug, folderService.from(types.logs, `%DATE%`), true, false),
     consoleTransportFactory(logLevel.debug, true),
   ]);
 }

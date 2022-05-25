@@ -18,9 +18,9 @@ class SSOCache extends Cache {
   store(uid, data = {}){
     if(!this.isDataSet()) this.setData({});
     if(!this.data[uid]) this.data[uid] = data;
-    dataLifeCycles[uid] = setTimeout(() => {
+    this.dataLifeCycles[uid] = setTimeout(() => {
       this.data[uid] = null;
-      clearTimeout(dataLifeCycles[uid]);
+      clearTimeout(this.dataLifeCycles[uid]);
     }, this.lifeCycleTime);
   }
 }

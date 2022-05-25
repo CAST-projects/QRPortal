@@ -11,49 +11,50 @@ const { IconURLBuilder } = require("../services/icon-url-builder");
 const { RulesDocumentationServer } = require("../server");
 const { logFactory } = require("../services/logger");
 const { HttpErrorFactory } = require("../services/http-error-service");
-const { ApiController, QualityRulesController, SwaggerUIController, AIPServiceController, CARLServiceController, TechnologyController, 
+const { ApiController, QualityRulesController, SwaggerUIController, AIPServiceController, CARLServiceController, TechnologyController,
   QualityStandardController, ExtensionController, BusinessCriteriaController, IndexController, TechnicalCriteriaController, SSOController,
-  PublicController, RulesController} = require("../controllers");
+  PublicController, RulesController } = require("../controllers");
 const { BusinessCriteriaDataReader } = require("../services/business-criteria-reader");
 const { TechnicalCriteriaDataReader } = require("../services/technical-criteria-reader");
 const { SSOCache, passportConfigure, ExtendAuthWebClient } = require("../services/extend-authentication-service");
 const { UrlConverter } = require("../services/url-converter");
 const { JsonFileReader } = require("../services/json-file-reader");
-const uuid = require("uuid");
+const { configurationFactory } = require("../config");
 
 const iocBuilder = createIocBuilder();
 
 iocBuilder
+  // server configuration file
+  .registerSingleton(types.configuration, () => configurationFactory())
   // folder service
-  .register(types.folderService, FolderService)
+  .register(types.folderService, FolderService, [types.configuration])
 
   // server version
   .registerConstant(types.serverVersion, "2.0.0")
 
-  // server port
-  .registerConstant(types.serverPort, process.env.PORT || 8080)
-
-  // public url
-  .registerConstant(types.publicUrl, process.env.PUBLIC_URL || "http://localhost:8080")
-
-  // session key
-  .registerConstant(types.sessionKey, uuid.v4())
-
-  // extend url
-  .registerConstant(types.extendUrl, "https://extend.castsoftware.com")
-
   // logger
-  .registerFactory(types.logger, logFactory)
+  .registerSingleton(types.logger, (context) => {
+    /**@type {import("../services/folder-service/folder-service")} */
+    const fldService = context.container.get(types.folderService);
+
+    return logFactory(fldService);
+  })
 
   // http error factory
   .registerConstant(types.httpErrorFactory, HttpErrorFactory)
 
   // iconUrl builder
-  .registerFactory(types.iconUrlBuilder, () => {
-    return new IconURLBuilder("https://raw.githubusercontent.com/CAST-Extend/resources/master", "png");
+  .registerFactory(types.iconUrlBuilder, (context) => {
+    const cntr = context.container;
+    const config = cntr.get(types.configuration);
+
+    return new IconURLBuilder(config.pngIconRepo, "png");
   })
-  .registerFactory(types.iconUrlBuilderLocal, () => {
-    return new IconURLBuilder("https://raw.githubusercontent.com/CAST-Extend/resources/master/techportal", "svg");
+  .registerFactory(types.iconUrlBuilderLocal, (context) => {
+    const cntr = context.container;
+    const config = cntr.get(types.configuration);
+
+    return new IconURLBuilder(config.svgIconRepo, "svg");
   })
 
   // sso cache
@@ -62,8 +63,9 @@ iocBuilder
   // extend web client
   .registerFactory(types.extendWebClient, (context) => {
     const cntr = context.container;
+    const config = cntr.get(types.configuration);
 
-    return new ExtendAuthWebClient(cntr.get(types.extendUrl));
+    return new ExtendAuthWebClient(config.extendUrl);
   })
 
   // public client distribution folder
@@ -77,22 +79,22 @@ iocBuilder
   // passport configure
   .registerFactory(types.passportConfigure, (context) => {
     const cntr = context.container;
+    const config = cntr.get(types.configuration);
     const webClient = cntr.get(types.extendWebClient);
-    const sessionKey = cntr.get(types.sessionKey);
     const ssoCache = cntr.get(types.ssoCache);
 
-    return () => passportConfigure(webClient, sessionKey, ssoCache);
+    return () => passportConfigure(webClient, config.sessionKey, ssoCache);
   })
 
   // url conveter from v1 implementation
   .registerFactory(types.urlConverter, (context) => {
     const cntr = context.container;
-    const publicUrl = cntr.get(types.publicUrl);
-    const extendUrl = cntr.get(types.extendUrl);
+    /**@type {import("../config/configuration").Configuration} */
+    const config = cntr.get(types.configuration);
     const qualityStandardReader = cntr.get(types.aipQualityStandardReaderService);
     const businessCriteriaReader = cntr.get(types.aipBusinessCriteriaDataReader);
 
-    return new UrlConverter(publicUrl, extendUrl, businessCriteriaReader, qualityStandardReader);
+    return new UrlConverter(config.publicUrl, config.extendUrl, businessCriteriaReader, qualityStandardReader);
   })
 
   // Data Readers
@@ -189,13 +191,7 @@ iocBuilder
 
     return new JsonFileReader(folderService.get(fldTypes.mapping));
   })
-  // .registerFactory(types.carlTechnicalCriteriaDataReader, (context) => {
-  //   const cntr = context.container;
-  //   const dataReader = cntr.get(types.carlDataReader);
-  //   const serializer = cntr.get(types.serializer);
 
-  //   return new TechnicalCriteriaDataReader(dataReader, serializer);
-  // })
   // serializers
   .register(types.serializer, Serializer, [types.iconUrlBuilderLocal])
 
@@ -209,20 +205,6 @@ iocBuilder
 
     return new SwaggerUIController(logger, folderService.get(fldTypes.doc));
   })
-  // .registerFactory(types.controllers.staticRest, (context) => {
-  //   const cntr = context.container;
-  //   const folderService = cntr.get(types.folderService);
-  //   const logger = cntr.get(types.logger);
-
-  //   return new StaticRestController(logger, folderService.get(fldTypes.rest));
-  // })
-  // .registerFactory(types.controllers.restUi, (context) => {
-  //   const cntr = context.container;
-  //   const folderService = cntr.get(types.folderService);
-  //   const logger = cntr.get(types.logger);
-
-  //   return new StaticRestUIController(logger, folderService.get(fldTypes.rootStatic));
-  // })
 
   // Quality Rule Search Index
   .registerSingleton(types.searchIndex.public, (context) => {
@@ -285,21 +267,21 @@ iocBuilder
     const cntr = context.container;
     return new RulesController(cntr.get(types.logger), cntr.get(types.urlConverter));
   })
-  .register(types.controllers.sso, SSOController, [types.logger, types.sessionKey, types.ssoCache])
-  .register(types.controllers.public, PublicController, [types.logger, types.distFolder, types.publicUrl])
+  .register(types.controllers.sso, SSOController, [types.logger, types.configuration, types.ssoCache])
+  .register(types.controllers.public, PublicController, [types.logger, types.distFolder, types.configuration])
   .register(types.controllers.carlServiceIndex, CARLServiceController, [types.logger, types.carlDataReader,
-    types.controllers.carl.technology, types.controllers.carl.qualityStandard, types.controllers.carl.businessCriteria, 
-    types.controllers.carl.index])
+  types.controllers.carl.technology, types.controllers.carl.qualityStandard, types.controllers.carl.businessCriteria,
+  types.controllers.carl.index])
   .register(types.controllers.aipServiceIndex, AIPServiceController, [types.logger, types.aipDataReader,
-    types.controllers.aip.technology, types.controllers.aip.qualityStandard, types.controllers.aip.extension,
-    types.controllers.aip.businessCriteria, types.controllers.aip.index, types.controllers.aip.technicalCriteria])
+  types.controllers.aip.technology, types.controllers.aip.qualityStandard, types.controllers.aip.extension,
+  types.controllers.aip.businessCriteria, types.controllers.aip.index, types.controllers.aip.technicalCriteria])
   .register(types.controllers.qualityRules, QualityRulesController, [types.logger, types.qualityRuleDataReader,
-    types.searchIndex.public, types.searchIndex.private])
-  .register(types.controllers.api, ApiController, [types.logger, types.restDataReader,  types.controllers.swaggerui,
-    types.controllers.aipServiceIndex, types.controllers.carlServiceIndex, types.controllers.qualityRules, 
-    types.controllers.sso])
-  
-  .register(types.server, RulesDocumentationServer, [types.logger, types.serverVersion, types.serverPort, 
-    types.httpErrorFactory, types.passportConfigure, types.folderService, types.controllers.api, types.controllers.public, types.controllers.rules]);
+  types.searchIndex.public, types.searchIndex.private])
+  .register(types.controllers.api, ApiController, [types.logger, types.restDataReader, types.controllers.swaggerui,
+  types.controllers.aipServiceIndex, types.controllers.carlServiceIndex, types.controllers.qualityRules,
+  types.controllers.sso])
+
+  .register(types.server, RulesDocumentationServer, [types.logger, types.serverVersion, types.configuration,
+  types.httpErrorFactory, types.passportConfigure, types.folderService, types.controllers.api, types.controllers.public, types.controllers.rules]);
 
 module.exports = iocBuilder.getContainer();

@@ -14,14 +14,14 @@ const { TimeConverter } = require("../lib/cnjs-utils/lib/time-converter");
 class SSOController extends Controller {
   
   /**
-   * @param {string)} sessionKey
+   * @param {import("../config/configuration").Configuration} configuration
    * @param {import("winston".Logger)} logger
    * @param {SSOCache} ssoCache
    */
-  constructor(logger, sessionKey, ssoCache){
+  constructor(logger, configuration, ssoCache){
     super({ logger, baseUrl: "/sso" });
 
-    this.sessionKey = sessionKey;
+    this.sessionKey = configuration.sessionKey;
     this.ssoCache = ssoCache;
   }
 

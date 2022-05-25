@@ -11,6 +11,14 @@ module.exports = {
       [locales.en]: "details for this locale"
     },
   },
+  [ecodes.server.bodyParseError]: {
+    message: {
+      [locales.en]: "Unable to parse request body, {0}"
+    },
+    details: {
+      [locales.en]: "The request body dispatch to the server could not be parsed due to a a syntax error, review the request body and try again"
+    },
+  },
   [ecodes.server.internalServerError]: {
     message: {
       [locales.en]: "Internal Server Error",

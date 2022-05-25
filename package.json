@@ -2,9 +2,6 @@
   "name": "qrportal",
   "version": "1.3.0",
   "description": "CAST Quality Rules Portal",
-  "engines": {
-    "node": "14.18.0"
-  },
   "main": "server/server.js",
   "scripts": {
     "start": "node src/server/index.js",
@@ -33,6 +30,7 @@
     "rotating-file-stream": "^2.1.6",
     "uuid": "^8.3.2",
     "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.6.1",
     "yaml": "^1.10.2"
   },
   "devDependencies": {},

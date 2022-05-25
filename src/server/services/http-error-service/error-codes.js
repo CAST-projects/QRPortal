@@ -4,6 +4,7 @@ module.exports = {
     emptyRequest: "SRV002",
     connectionTimeout: "SRV502",
     internalServerError: "SRV500",
+    bodyParseError: "SVRBRP",
   },
   validation: {
     generic: "VLD001",

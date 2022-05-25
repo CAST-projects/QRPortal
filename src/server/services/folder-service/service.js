@@ -1,8 +1,9 @@
 const { FolderService: BaseFolderService } = require("../../lib/cnjs-utils/services/folder");
+const path = require("path");
 const types = require("./types");
 
 class FolderService extends BaseFolderService {
-  constructor(){
+  constructor(config){
     super(__dirname);
 
     this.add(types.rest,        this.fromRoot("rest"));
@@ -17,7 +18,7 @@ class FolderService extends BaseFolderService {
     this.add(types.temp,        this.fromRoot("temp"));
     this.add(types.client,      this.fromRoot("src", "client"));
     this.add(types.dist,        this.fromRoot("dist"));
-    this.add(types.logs,        this.fromRoot("logs"));
+    this.add(types.logs,        config.logDir ? path.resolve(config.logDir) : this.fromRoot("logs"));
   }
 }
 

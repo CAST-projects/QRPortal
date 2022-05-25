@@ -3,6 +3,8 @@ module.exports = {
   serverVersion: "serverVersion",
   serverPort: "serverPort",
 
+  configuration: "configuration",
+
   sessionKey: "sessionKey",
   extendUrl: "extendUrl",
   publicUrl: "publicUrl",

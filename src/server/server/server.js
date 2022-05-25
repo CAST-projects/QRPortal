@@ -5,17 +5,18 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const helmet = require("helmet");
-const { middleware } = require("../services/http-error-service");
+const { middleware, HttpErrorFactory, codes } = require("../services/http-error-service");
 const passport = require("passport");
 
 class RulesDocumentationServer extends Server {
   
-  constructor(logger, version, port, httpErrorFactory, passportConfigure, folderService, apiController, publicController, rulesController){
+  constructor(logger, version, configuration, httpErrorFactory, passportConfigure, folderService, apiController, publicController, rulesController){
     super({
       logger,
       name: "Rules Documentation",
       bootMessage: (name, _port) => `${name} ${version} Service started on port ${_port}`,
-      port,
+      contextPath: configuration.contextPath,
+      port: configuration.port,
       middleware: [
         accessLogFactory(folderService.get(folderTypes.logs)),
         helmet({
@@ -33,9 +34,9 @@ class RulesDocumentationServer extends Server {
         middleware.setErrorLocale,
         bodyParser.urlencoded({ limit: "5mb", extended: true}),
         bodyParser.json({ limit: "5mb" }),
-        (error, _req, res, next) => {
+        (error, req, res, next) => {
           if (error instanceof SyntaxError) {
-            res.status(400).json(`Unable to parse request body, ${error.message}`);
+            res.status(400).json(httpErrorFactory.createError(req.locale, codes.server.bodyParseError, error.message));
           } else {
             next();
           }
