@@ -90,7 +90,7 @@ if errorlevel 1 goto endclean
 echo.
 echo ========================================================
 echo Getting package
-set CMD=curl.exe %JOBURL%/%BUILDNO%/artifact/*zip*/archive.zip -o %ARTIPATH%
+set CMD=curl.exe %JOBURL%/lastSuccessfulBuild/artifact/*zip*/archive.zip -o %ARTIPATH%
 echo.
 echo Executing:
 echo %CMD%
