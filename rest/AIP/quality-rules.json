@@ -3027,7 +3027,7 @@
         "name": "Avoid instantiations inside loops",
         "href": "AIP/quality-rules/7210",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -3037,7 +3037,7 @@
         "name": "Avoid instantiations inside loops (.NET)",
         "href": "AIP/quality-rules/7212",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -3266,7 +3266,7 @@
         "name": "Avoid GOTO jumps out of PERFORM range",
         "href": "AIP/quality-rules/7274",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -3276,7 +3276,7 @@
         "name": "Avoid cyclic calls with PERFORM statements",
         "href": "AIP/quality-rules/7288",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -3470,7 +3470,7 @@
         "name": "File descriptor block must be defined with 0 record",
         "href": "AIP/quality-rules/7366",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -3698,7 +3698,7 @@
     },
     {
         "id": 7442,
-        "name": "Avoid to use this within Constructor in multi-thread environment",
+        "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "severity": 20,
@@ -4083,7 +4083,7 @@
     },
     {
         "id": 7538,
-        "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+        "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
         "href": "AIP/quality-rules/7538",
         "critical": true,
         "severity": 20,
@@ -4616,7 +4616,7 @@
         "name": "Never truncate data in MOVE statements",
         "href": "AIP/quality-rules/7688",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -6194,6 +6194,7 @@
         "technologyNames": [
             "ABAP",
             "C#",
+            "C++",
             "JEE",
             "VB.NET"
         ]
@@ -6302,7 +6303,7 @@
         "id": 7954,
         "name": "Avoid indirect String concatenation inside loops",
         "href": "AIP/quality-rules/7954",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -7127,7 +7128,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -7440,7 +7441,7 @@
         "name": "Avoid using unsecured cookie",
         "href": "AIP/quality-rules/8240",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -7724,7 +7725,7 @@
         "name": "Program semantic should respect the logic of flow execution",
         "href": "AIP/quality-rules/8468",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -7906,7 +7907,7 @@
         "name": "Avoid XPath injection through API requests",
         "href": "AIP/quality-rules/8504",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -8171,7 +8172,7 @@
         "id": 8550,
         "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
         "href": "AIP/quality-rules/8550",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "ABAP"
@@ -14866,6 +14867,26 @@
         ]
     },
     {
+        "id": 1020106,
+        "name": "Avoid hidden form fields to prevent parameter tampering (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020108,
+        "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020108",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020200,
         "name": "Always have data property as a function that returns an object",
         "href": "AIP/quality-rules/1020200",
@@ -16417,10 +16438,9 @@
     },
     {
         "id": 1020878,
-        "name": "Ensure the express X-XSS-Protection header is enabled (TypeScript)",
+        "name": "DELETED: Ensure the express X-XSS-Protection header is enabled (TypeScript)",
         "href": "AIP/quality-rules/1020878",
-        "critical": true,
-        "severity": 30,
+        "critical": false,
         "technologyNames": [
             "HTML5"
         ]
@@ -16661,6 +16681,16 @@
         "href": "AIP/quality-rules/1020926",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -17069,8 +17099,8 @@
         "id": 1022000,
         "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
         "href": "AIP/quality-rules/1022000",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -17316,6 +17346,294 @@
         ]
     },
     {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025002,
+        "name": "Avoid second order XPath injection",
+        "href": "AIP/quality-rules/1025002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025004,
+        "name": "Avoid second order URL redirection to untrusted site",
+        "href": "AIP/quality-rules/1025004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025010,
+        "name": "Avoid second order LDAP injection",
+        "href": "AIP/quality-rules/1025010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025018,
+        "name": "Avoid cookie injection",
+        "href": "AIP/quality-rules/1025018",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025020,
+        "name": "Avoid data filter injection",
+        "href": "AIP/quality-rules/1025020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025022,
+        "name": "Avoid data filter injection through API requests",
+        "href": "AIP/quality-rules/1025022",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025024,
+        "name": "Avoid disabling the expiration time validation of a JWT token",
+        "href": "AIP/quality-rules/1025024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025026,
+        "name": "Avoid disabling the expiration time requirement of a JWT token",
+        "href": "AIP/quality-rules/1025026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025028,
+        "name": "Avoid disabling the signature requirement of a JWT token",
+        "href": "AIP/quality-rules/1025028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025032,
+        "name": "Avoid insecure parameters for PBKDF2 password encoder",
+        "href": "AIP/quality-rules/1025032",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025034,
+        "name": "Avoid insecure parameters for BCrypt password encoder",
+        "href": "AIP/quality-rules/1025034",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025036,
+        "name": "Avoid insecure parameters for Argon2 password encoder",
+        "href": "AIP/quality-rules/1025036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025038,
+        "name": "Avoid insecure parameters for SCrypt password encoder",
+        "href": "AIP/quality-rules/1025038",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025040,
+        "name": "Avoid external control of system or configuration setting",
+        "href": "AIP/quality-rules/1025040",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025042,
+        "name": "Avoid external control of system or configuration setting through API requests",
+        "href": "AIP/quality-rules/1025042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025044,
+        "name": "Avoid MVC injection",
+        "href": "AIP/quality-rules/1025044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Avoid MVC injection through API requests",
+        "href": "AIP/quality-rules/1025046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025050,
+        "name": "Avoid dangerous file inclusion",
+        "href": "AIP/quality-rules/1025050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025052,
+        "name": "Avoid using unnormalized input strings",
+        "href": "AIP/quality-rules/1025052",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025054,
+        "name": "Avoid plaintext storage of password",
+        "href": "AIP/quality-rules/1025054",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -17404,7 +17722,7 @@
     },
     {
         "id": 1027018,
-        "name": "Avoid throwing exceptions in finally block",
+        "name": "Avoid throwing exceptions from finally block",
         "href": "AIP/quality-rules/1027018",
         "critical": false,
         "severity": 10,
@@ -17700,7 +18018,7 @@
     },
     {
         "id": 1027082,
-        "name": "Avoid using console logging",
+        "name": "Avoid using console logging (.Net)",
         "href": "AIP/quality-rules/1027082",
         "critical": false,
         "severity": 10,
@@ -17792,6 +18110,17 @@
         "href": "AIP/quality-rules/1027098",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027100,
+        "name": "Avoid dangerous File Upload",
+        "href": "AIP/quality-rules/1027100",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -20389,7 +20718,7 @@
         "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
         "href": "AIP/quality-rules/1101002",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -20409,7 +20738,7 @@
         "name": "Avoid non-indexed XXL SQL queries",
         "href": "AIP/quality-rules/1101006",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -20648,7 +20977,7 @@
     },
     {
         "id": 1101052,
-        "name": "Avoid using WHEN OTHERS without exception management (SQL)",
+        "name": "Use WHEN OTHERS in exception management (SQL)",
         "href": "AIP/quality-rules/1101052",
         "critical": true,
         "severity": 20,
@@ -20721,8 +21050,8 @@
         "id": 1101066,
         "name": "Avoid improperly written triangular joins with XXL tables",
         "href": "AIP/quality-rules/1101066",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -20812,7 +21141,7 @@
         "name": "Avoid Cursors inside a loop (SQL)",
         "href": "AIP/quality-rules/1101084",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "SQL"
         ]
@@ -21067,6 +21396,246 @@
             "ASP.NET",
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1104000,
+        "name": "Prefer using associations instead \"left outer join\" in CDS Views (S4/HANA)",
+        "href": "AIP/quality-rules/1104000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104002,
+        "name": "Prefer setting \"many to one\" cardinality for \"left outer join\" in CDS Views (S4/HANA)",
+        "href": "AIP/quality-rules/1104002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104004,
+        "name": "Prefer setting cardinality for CDS view associations (S4/HANA)",
+        "href": "AIP/quality-rules/1104004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104006,
+        "name": "CDS view association name should be defined according to the naming convention (S4/HANA)",
+        "href": "AIP/quality-rules/1104006",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104008,
+        "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' (S4/HANA)",
+        "href": "AIP/quality-rules/1104008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1106000,
+        "name": "Ensure you don't have unsupported PL/SQL packages",
+        "href": "AIP/quality-rules/1106000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106002,
+        "name": "Ensure you replace Oracle Merge",
+        "href": "AIP/quality-rules/1106002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106004,
+        "name": "Ensure CLOB data type is not used",
+        "href": "AIP/quality-rules/1106004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106006,
+        "name": "Ensure you don't have unsupported PL/SQL package UTL_FILE",
+        "href": "AIP/quality-rules/1106006",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106008,
+        "name": "Ensure you don't have unsupported PL/SQL package DBMS_SCHEDULER",
+        "href": "AIP/quality-rules/1106008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106010,
+        "name": "Ensure you don't have unsupported PL/SQL package DBMS_RANDOM",
+        "href": "AIP/quality-rules/1106010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106012,
+        "name": "Ensure you don't have unsupported PL/SQL package DBMS_OUTPUT",
+        "href": "AIP/quality-rules/1106012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106014,
+        "name": "Ensure you don't have unsupported PL/SQL package DBMS_AUTO_INDEX",
+        "href": "AIP/quality-rules/1106014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106016,
+        "name": "Ensure you don't have unsupported PL/SQL packages UTL_HTTP and UTL_SMTP",
+        "href": "AIP/quality-rules/1106016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106018,
+        "name": "Ensure you don't have unsupported PL/SQL procedures DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE",
+        "href": "AIP/quality-rules/1106018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106020,
+        "name": "Ensure LOB data types are not used",
+        "href": "AIP/quality-rules/1106020",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106022,
+        "name": "Ensure you don't have unsupported option GENERATED BY DEFAULT for identity columns",
+        "href": "AIP/quality-rules/1106022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106024,
+        "name": "Ensure you don't have unsupported clause SHARDED in CREATE TABLE statements",
+        "href": "AIP/quality-rules/1106024",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106026,
+        "name": "Ensure you don't have unsupported XMLType columns in tables",
+        "href": "AIP/quality-rules/1106026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106028,
+        "name": "Ensure you don't have unsupported clause CLUSTER in CREATE TABLE statements",
+        "href": "AIP/quality-rules/1106028",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106030,
+        "name": "Ensure INDEX-ORGANIZED TABLEs (IOT) are not used",
+        "href": "AIP/quality-rules/1106030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106032,
+        "name": "Ensure you don't have unsupported ROWID data type and pseudocolumn",
+        "href": "AIP/quality-rules/1106032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106034,
+        "name": "Ensure EXTERNAL TABLEs are not used",
+        "href": "AIP/quality-rules/1106034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106036,
+        "name": "Ensure you don't have unsupported Database Links",
+        "href": "AIP/quality-rules/1106036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     },
     {

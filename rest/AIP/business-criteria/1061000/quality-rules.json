@@ -20,6 +20,16 @@
         ]
     },
     {
+        "id": 592,
+        "name": "Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor",
+        "href": "AIP/quality-rules/592",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
         "id": 610,
         "name": "Avoid circular references between header files",
         "href": "AIP/quality-rules/610",
@@ -252,6 +262,16 @@
         ]
     },
     {
+        "id": 5094,
+        "name": "Avoid using MOVE CORRESPONDING ... TO ...",
+        "href": "AIP/quality-rules/5094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
         "id": 5100,
         "name": "Avoid large Sections - too many Lines of Code",
         "href": "AIP/quality-rules/5100",
@@ -457,7 +477,7 @@
         "name": "Avoid instantiations inside loops",
         "href": "AIP/quality-rules/7210",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -467,7 +487,7 @@
         "name": "Avoid instantiations inside loops (.NET)",
         "href": "AIP/quality-rules/7212",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -532,7 +552,7 @@
         "name": "Avoid GOTO jumps out of PERFORM range",
         "href": "AIP/quality-rules/7274",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -542,7 +562,7 @@
         "name": "Avoid cyclic calls with PERFORM statements",
         "href": "AIP/quality-rules/7288",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -775,6 +795,16 @@
         ]
     },
     {
+        "id": 7526,
+        "name": "Avoid using hard-coded paths",
+        "href": "AIP/quality-rules/7526",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
         "id": 7532,
         "name": "Avoid nested SELECT ... ENDSELECT statements",
         "href": "AIP/quality-rules/7532",
@@ -885,6 +915,16 @@
         ]
     },
     {
+        "id": 7642,
+        "name": "Avoid SQL queries on XXL tables not using the first column of a composite index in the WHERE clause",
+        "href": "AIP/quality-rules/7642",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
         "id": 7650,
         "name": "All types of a serializable Class must be serializable",
         "href": "AIP/quality-rules/7650",
@@ -929,7 +969,7 @@
         "name": "Never truncate data in MOVE statements",
         "href": "AIP/quality-rules/7688",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -948,6 +988,16 @@
         "id": 7692,
         "name": "Each opened file must be closed",
         "href": "AIP/quality-rules/7692",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 7698,
+        "name": "Files should be declared with a FILE-STATUS",
+        "href": "AIP/quality-rules/7698",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -1062,6 +1112,16 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 7756,
+        "name": "Avoid using READ statement without AT END clause or INVALID KEY clause",
+        "href": "AIP/quality-rules/7756",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
         ]
     },
     {
@@ -1488,6 +1548,7 @@
         "technologyNames": [
             "ABAP",
             "C#",
+            "C++",
             "JEE",
             "VB.NET"
         ]
@@ -1496,7 +1557,7 @@
         "id": 7954,
         "name": "Avoid indirect String concatenation inside loops",
         "href": "AIP/quality-rules/7954",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -1808,6 +1869,17 @@
         ]
     },
     {
+        "id": 8086,
+        "name": "Avoid types that own disposable fields and are not disposable",
+        "href": "AIP/quality-rules/8086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8092,
         "name": "Avoid Objects having exposed pointers allowed to access unmanaged memory",
         "href": "AIP/quality-rules/8092",
@@ -1898,7 +1970,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -2391,7 +2463,7 @@
         "name": "Avoid XPath injection through API requests",
         "href": "AIP/quality-rules/8504",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2426,18 +2498,6 @@
         "id": 8514,
         "name": "Avoid NoSQL injection through API requests",
         "href": "AIP/quality-rules/8514",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 8516,
-        "name": "Avoid URL redirection to untrusted site through API requests",
-        "href": "AIP/quality-rules/8516",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -2572,7 +2632,7 @@
         "id": 8550,
         "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
         "href": "AIP/quality-rules/8550",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "ABAP"
@@ -2586,6 +2646,16 @@
         "severity": 30,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 8556,
+        "name": "'XML GENERATE' should be used with 'WITH ENCODING'",
+        "href": "AIP/quality-rules/8556",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
         ]
     },
     {
@@ -3289,6 +3359,16 @@
         ]
     },
     {
+        "id": 1005026,
+        "name": "Avoid Too Many Copy Pasted Artifacts (EGL)",
+        "href": "AIP/quality-rules/1005026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
         "id": 1005028,
         "name": "Avoid Functions with High Cyclomatic Complexity (EGL)",
         "href": "AIP/quality-rules/1005028",
@@ -3309,9 +3389,29 @@
         ]
     },
     {
+        "id": 1005068,
+        "name": "Avoid SQL query outside try-on block (EGL)",
+        "href": "AIP/quality-rules/1005068",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
         "id": 1005070,
         "name": "Avoid Program calls without checking the return code (EGL)",
         "href": "AIP/quality-rules/1005070",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005078,
+        "name": "Avoid program calls outside a try end block (EGL)",
+        "href": "AIP/quality-rules/1005078",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -4109,6 +4209,16 @@
         ]
     },
     {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
         "id": 1018864,
         "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
         "href": "AIP/quality-rules/1018864",
@@ -4189,16 +4299,6 @@
         ]
     },
     {
-        "id": 1020010,
-        "name": "Avoid using forEach()",
-        "href": "AIP/quality-rules/1020010",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1020012,
         "name": "Avoid using a web service with WebSocket inside a loop",
         "href": "AIP/quality-rules/1020012",
@@ -4224,6 +4324,16 @@
         "href": "AIP/quality-rules/1020016",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020018,
+        "name": "Avoid using Web SQL databases",
+        "href": "AIP/quality-rules/1020018",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "HTML5"
         ]
@@ -4829,6 +4939,26 @@
         ]
     },
     {
+        "id": 1020600,
+        "name": "Avoid using namespace \"jQuery.sap.*\" as deprecated ( SAPUI5)",
+        "href": "AIP/quality-rules/1020600",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020602,
+        "name": "Avoid using \"sap.ui.model.odata.ODataModel\" as deprecated in version: SAPUI5 1.48",
+        "href": "AIP/quality-rules/1020602",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020700,
         "name": "Avoid the lack of error handling in the Node.js callbacks",
         "href": "AIP/quality-rules/1020700",
@@ -5169,16 +5299,6 @@
         ]
     },
     {
-        "id": 1020878,
-        "name": "Ensure the express X-XSS-Protection header is enabled (TypeScript)",
-        "href": "AIP/quality-rules/1020878",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1020892,
         "name": "Ensure Node.js filesystem are closed (TypeScript)",
         "href": "AIP/quality-rules/1020892",
@@ -5204,6 +5324,16 @@
         "href": "AIP/quality-rules/1020926",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -5284,6 +5414,16 @@
         "href": "AIP/quality-rules/1021018",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021022,
+        "name": "'Initialize ancestors when overriding __init__'",
+        "href": "AIP/quality-rules/1021022",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "Python"
         ]
@@ -5399,6 +5539,16 @@
         ]
     },
     {
+        "id": 1024030,
+        "name": "Avoid using FingerprintManager as biometric API",
+        "href": "AIP/quality-rules/1024030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1024034,
         "name": "Always check all the BiometricPrompt error options in the onAuthenticationError method",
         "href": "AIP/quality-rules/1024034",
@@ -5419,6 +5569,66 @@
         ]
     },
     {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025002,
+        "name": "Avoid second order XPath injection",
+        "href": "AIP/quality-rules/1025002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025010,
+        "name": "Avoid second order LDAP injection",
+        "href": "AIP/quality-rules/1025010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -5432,6 +5642,17 @@
         "id": 1027004,
         "name": "Avoid using deprecated XmlTextReader .NET API",
         "href": "AIP/quality-rules/1027004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027014,
+        "name": "Avoid using Thread API (Suspend\\Resume) to manage thread state",
+        "href": "AIP/quality-rules/1027014",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5465,6 +5686,17 @@
         "id": 1027032,
         "name": "Avoid hard-coded network resource names (.NET, VB)",
         "href": "AIP/quality-rules/1027032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027038,
+        "name": "Avoid if \u2026 else if constructs not terminated with an else clause (.NET, VB)",
+        "href": "AIP/quality-rules/1027038",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5588,6 +5820,17 @@
         "href": "AIP/quality-rules/1027088",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027100,
+        "name": "Avoid dangerous File Upload",
+        "href": "AIP/quality-rules/1027100",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -5769,6 +6012,16 @@
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042024,
+        "name": "Avoid Unescaped User-controlled Input attribute in Struts 1.x and 2.x",
+        "href": "AIP/quality-rules/1042024",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]
@@ -6203,6 +6456,16 @@
         ]
     },
     {
+        "id": 1060112,
+        "name": "Review APIs not accessed by frontend functions",
+        "href": "AIP/quality-rules/1060112",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1060114,
         "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
         "href": "AIP/quality-rules/1060114",
@@ -6463,7 +6726,7 @@
         "name": "Avoid non-indexed XXL SQL queries",
         "href": "AIP/quality-rules/1101006",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -6503,7 +6766,7 @@
         "name": "Avoid Cursors inside a loop (SQL)",
         "href": "AIP/quality-rules/1101084",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "SQL"
         ]

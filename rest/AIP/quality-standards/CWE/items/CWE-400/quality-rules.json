@@ -1,5 +1,45 @@
 [
     {
+        "id": 7482,
+        "name": "Do not use Cartesian products in Universe properties",
+        "href": "AIP/quality-rules/7482",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Business Object"
+        ]
+    },
+    {
+        "id": 7660,
+        "name": "Never use SQL queries with a cartesian product on XXL Tables",
+        "href": "AIP/quality-rules/7660",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP",
+            "Forms",
+            "Microsoft T-SQL",
+            "PL/SQL",
+            "SQL Server",
+            "Sybase T-SQL"
+        ]
+    },
+    {
+        "id": 7820,
+        "name": "Never use SQL queries with a cartesian product",
+        "href": "AIP/quality-rules/7820",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "Forms",
+            "Microsoft T-SQL",
+            "PL/SQL",
+            "SQL Server",
+            "Sybase T-SQL"
+        ]
+    },
+    {
         "id": 8518,
         "name": "Avoid regular expression injection",
         "href": "AIP/quality-rules/8518",
@@ -84,6 +124,26 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1101000,
+        "name": "Never use SQL queries with a cartesian product (SQL)",
+        "href": "AIP/quality-rules/1101000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101002,
+        "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
+        "href": "AIP/quality-rules/1101002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     }
 ]

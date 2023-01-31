@@ -1,0 +1,89 @@
+{
+    "id": 1200089,
+    "name": "Using cloud specific storage component",
+    "href": "HL/cloud-ready/detection-patterns/1200089",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/2",
+        "name": "Booster"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/12",
+        "name": "Registry Settings"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/4",
+                "name": "Google Cloud"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/1",
+                "name": "AWS"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/4",
+                "name": "Google Cloud"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/1",
+                "name": "AWS"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "This pattern verifies the use of Cloud-based specific storage services:\n\n- Amazon Web Services: AWS Elastic File System (EFS), AWS Backup, S3 Glacier\n- Azure: Azure Files, Archive Storage, Azure Backup\n- Google Cloud: Filestore",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/0",
+                "name": "None"
+            }
+        ],
+        "reference": ""
+    }
+}

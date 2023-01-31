@@ -163,7 +163,7 @@
         "id": 8550,
         "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
         "href": "AIP/quality-rules/8550",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "ABAP"
@@ -195,6 +195,16 @@
         "href": "AIP/quality-rules/1020058",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020080,
+        "name": "Avoid using setInterval() (Javascript)",
+        "href": "AIP/quality-rules/1020080",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "HTML5"
         ]
@@ -237,6 +247,18 @@
         "severity": 20,
         "technologyNames": [
             "Python"
+        ]
+    },
+    {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     }
 ]

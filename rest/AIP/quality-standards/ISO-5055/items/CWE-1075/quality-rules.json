@@ -14,7 +14,7 @@
         "name": "Avoid GOTO jumps out of PERFORM range",
         "href": "AIP/quality-rules/7274",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -73,6 +73,16 @@
         "technologyNames": [
             "C",
             "C++"
+        ]
+    },
+    {
+        "id": 1001150,
+        "name": "Avoid Functions and Procedures having a SELECT without the default OTHERWISE clause (PL1)",
+        "href": "AIP/quality-rules/1001150",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
         ]
     },
     {

@@ -368,6 +368,7 @@
         "technologyNames": [
             "ABAP",
             "C#",
+            "C++",
             "JEE",
             "VB.NET"
         ]
@@ -459,7 +460,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -488,43 +489,13 @@
         ]
     },
     {
-        "id": 1008100,
-        "name": "Avoid using O-spec; use Printer Files instead (RPG400)",
-        "href": "AIP/quality-rules/1008100",
-        "critical": false,
-        "severity": 10,
+        "id": 1020018,
+        "name": "Avoid using Web SQL databases",
+        "href": "AIP/quality-rules/1020018",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
-            "RPG400"
-        ]
-    },
-    {
-        "id": 1008102,
-        "name": "Avoid using I-spec (RPG-IV only)  (RPG400)",
-        "href": "AIP/quality-rules/1008102",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "RPG400"
-        ]
-    },
-    {
-        "id": 1008104,
-        "name": "Avoid obsolete E-spec (RPG400)",
-        "href": "AIP/quality-rules/1008104",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "RPG400"
-        ]
-    },
-    {
-        "id": 1008106,
-        "name": "Avoid obsolete L-spec (RPG400)",
-        "href": "AIP/quality-rules/1008106",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "RPG400"
+            "HTML5"
         ]
     },
     {
@@ -555,6 +526,16 @@
         "severity": 10,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1021022,
+        "name": "'Initialize ancestors when overriding __init__'",
+        "href": "AIP/quality-rules/1021022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
         ]
     },
     {
@@ -682,16 +663,6 @@
         "id": 1050030,
         "name": "Ensure the Objective-C error condition check is not fragile",
         "href": "AIP/quality-rules/1050030",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Objective-C"
-        ]
-    },
-    {
-        "id": 1050040,
-        "name": "Avoid using SecTransform API",
-        "href": "AIP/quality-rules/1050040",
         "critical": true,
         "severity": 20,
         "technologyNames": [

@@ -20,6 +20,16 @@
         ]
     },
     {
+        "id": 1020018,
+        "name": "Make sure that you do not use Web SQL databases",
+        "href": "AIP/quality-rules/1020018",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020318,
         "name": "Ensure you don't use officially jQuery deprecated methods",
         "href": "AIP/quality-rules/1020318",
@@ -73,6 +83,17 @@
         "id": 1027004,
         "name": "Use XmlReader instead of XmlTextReader since it is deprecated and may lead to security issues",
         "href": "AIP/quality-rules/1027004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027014,
+        "name": "Do not use the Thread.resume or Thread.suspend APIs.",
+        "href": "AIP/quality-rules/1027014",
         "critical": false,
         "severity": 10,
         "technologyNames": [

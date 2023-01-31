@@ -20,19 +20,19 @@
             "href": "AIP/business-criteria/66032"
         },
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 60012,
             "name": "Changeability",
             "href": "AIP/business-criteria/60012"
         },
         {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 60013,
@@ -47,6 +47,13 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1062164,
+            "name": "ASCRM-RLB-18 - Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/technical-criteria/1062164",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 61004,
             "name": "Architecture - OS and Platform Independence",
             "href": "AIP/technical-criteria/61004",
@@ -54,16 +61,9 @@
             "critical": false
         },
         {
-            "id": 1062323,
-            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062323",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062342,
-            "name": "OWASP-2021-A02 - Cryptographic Failures",
-            "href": "AIP/technical-criteria/1062342",
+            "id": 1061114,
+            "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/technical-criteria/1061114",
             "weight": 5,
             "critical": false
         }
@@ -77,16 +77,28 @@
     ],
     "qualityStandards": [
         {
-            "id": "A3-2017",
-            "name": "Sensitive Data Exposure",
-            "href": "AIP/quality-standards/OWASP/items/A3-2017",
-            "standard": "OWASP"
+            "id": "ASCRM-RLB-18",
+            "name": "Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-18",
+            "standard": "CISQ"
         },
         {
-            "id": "A02-2021",
-            "name": "Cryptographic Failures",
-            "href": "AIP/quality-standards/OWASP/items/A02-2021",
-            "standard": "OWASP"
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/CWE/items/CWE-1051",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1051",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1051",
+            "standard": "OMG-ASCQM"
         }
     ],
     "parameters": [

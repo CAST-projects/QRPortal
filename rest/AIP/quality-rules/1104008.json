@@ -1,0 +1,61 @@
+{
+    "id": 1104008,
+    "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' (S4/HANA)",
+    "href": "AIP/quality-rules/1104008",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "AccessControl.authorizationCheck defines implicit access control when OpenSQL is used to access the CDS table function\n\nThe possible Value : \n#CHECK:\nIf Open SQL is used to access the table function, access control is applied implicitly if a CDS role is assigned to the table function. If there is no role for the table function, a syntax check warning occurs.\n\n#NOT_REQUIRED:\nLike #CHECK, but there is no syntax check warning.\n\n#NOT_ALLOWED:\nNo access control is performed. This produces a syntax check warning in the DDL source code of a role for the table function.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software does not perform an authorization check when an actor attempts to access a resource or perform an action.",
+    "reference": "https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/index.htm?file=abencds_authorizations.htm",
+    "remediation": "Update @AccessControl.authorizationCheck to something else than #NOT_REQUIRED.",
+    "remediationSample": "@AbapCatalog.sqlViewName: 'ZDEMO_CDS_PFCG'\n@AccessControl.authorizationCheck: #CHECK\n@EndUserText.label: 'Demo access pfcg'\ndefine view Zdemo_Access_Pfcg as select from scarr\n {\n key carrid,\n carrname,\n currcode,\n url\n };",
+    "sample": "@AbapCatalog.sqlViewName: 'ZDEMO_CDS_PFCG'\n@AccessControl.authorizationCheck: #NOT_REQUIRED\n@EndUserText.label: 'Demo access pfcg'\ndefine view Zdemo_Access_Pfcg as select from scarr\n {\n key carrid,\n carrname,\n currcode,\n url\n };",
+    "total": "Number of CDS views",
+    "alternativeName": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' (S4/HANA)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "GreenIT-Index",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -20,
+            "name": "SAP SQL",
+            "href": "AIP/technologies/-20"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

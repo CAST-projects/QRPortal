@@ -1,5 +1,25 @@
 [
     {
+        "id": 4702,
+        "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
+        "href": "AIP/quality-rules/4702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 5072,
+        "name": "Avoid DISPLAY ... UPON CONSOLE",
+        "href": "AIP/quality-rules/5072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
         "id": 8432,
         "name": "Avoid Cross-Client Database Access using Open SQL statements with CLIENT SPECIFIED/USING CLIENT addition",
         "href": "AIP/quality-rules/8432",
@@ -7,6 +27,18 @@
         "severity": 20,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 8446,
+        "name": "Avoid URL redirection to untrusted site",
+        "href": "AIP/quality-rules/8446",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -152,6 +184,52 @@
         ]
     },
     {
+        "id": 1025004,
+        "name": "Avoid second order URL redirection to untrusted site",
+        "href": "AIP/quality-rules/1025004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025044,
+        "name": "Avoid MVC injection",
+        "href": "AIP/quality-rules/1025044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Avoid MVC injection through API requests",
+        "href": "AIP/quality-rules/1025046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1030002,
+        "name": "Avoid using \"Throwable.printStackTrace()\" with no argument (Kotlin)",
+        "href": "AIP/quality-rules/1030002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
         "id": 1039016,
         "name": "Avoid Unvalidated URL Redirect",
         "href": "AIP/quality-rules/1039016",
@@ -207,16 +285,6 @@
         "href": "AIP/quality-rules/1042008",
         "critical": true,
         "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042010,
-        "name": "Avoid using ParametersInterceptor with class parameter for Struts 2.3.16 (and older)",
-        "href": "AIP/quality-rules/1042010",
-        "critical": true,
-        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

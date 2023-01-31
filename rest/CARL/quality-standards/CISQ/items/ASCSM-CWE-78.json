@@ -5,7 +5,7 @@
     "url": null,
     "description": "Objective\nAvoid failure to sanitize user input in use as operating system commands\n\nConsequence\nSoftware unaware of OS command control incurs the risk of unauthorized command execution, possibly used to disable the software, or possibly leading to unauthorized read and modify data access\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the platform action to be executed by the execution environment; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
     "isoPatterns": null,
-    "count": 14,
+    "count": 16,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/quality-standards/CISQ/items/ASCSM-CWE-78/quality-rules"

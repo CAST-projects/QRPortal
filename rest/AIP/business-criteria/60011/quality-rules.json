@@ -1924,7 +1924,7 @@
         "name": "Avoid GOTO jumps out of PERFORM range",
         "href": "AIP/quality-rules/7274",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -1934,7 +1934,7 @@
         "name": "Avoid cyclic calls with PERFORM statements",
         "href": "AIP/quality-rules/7288",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -3065,6 +3065,7 @@
         "technologyNames": [
             "ABAP",
             "C#",
+            "C++",
             "JEE",
             "VB.NET"
         ]
@@ -3278,7 +3279,7 @@
         "name": "Program semantic should respect the logic of flow execution",
         "href": "AIP/quality-rules/8468",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -3287,7 +3288,7 @@
         "id": 8550,
         "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
         "href": "AIP/quality-rules/8550",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "ABAP"
@@ -7787,16 +7788,6 @@
         ]
     },
     {
-        "id": 1101022,
-        "name": "Avoid Tables without Primary Key (SQL)",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 1101042,
         "name": "Table naming convention - character set control (SQL)",
         "href": "AIP/quality-rules/1101042",
@@ -7939,6 +7930,16 @@
             "ASP.NET",
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1104006,
+        "name": "CDS view association name should be defined according to the naming convention (S4/HANA)",
+        "href": "AIP/quality-rules/1104006",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
         ]
     },
     {

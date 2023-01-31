@@ -189,6 +189,13 @@
         "weight": 5
     },
     {
+        "id": 1062142,
+        "name": "ASCPEM-PRF-7 - Large Data Resource ColumnSet with Index Element of Excessive Size",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the existence of overly large indices on very large data tables.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources\n\n",
+        "href": "CARL/technical-criteria/1062142",
+        "weight": 5
+    },
+    {
         "id": 1062143,
         "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
         "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the repeated consumption of resource due to resource consuming operations found directly or indirectly within loops.\n\nConsequence\nSoftware that is coded so as to execute expensive computations repeatedly (such as in loops) requires excessive computational resources when the usage and data volume grow\n\n",
@@ -207,6 +214,13 @@
         "name": "ASCRM-CWE-120 - Buffer Copy without Checking Size of Input",
         "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.\n\n",
         "href": "CARL/technical-criteria/1062145",
+        "weight": 5
+    },
+    {
+        "id": 1062146,
+        "name": "ASCRM-CWE-252-data - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+        "description": "Objective\nAvoid improper processing of the execution status of data handling operations\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a CRUD SQL statement with an action, yet the value of the return parameter from the action is not used by any check control element\n\n",
+        "href": "CARL/technical-criteria/1062146",
         "weight": 5
     },
     {
@@ -417,6 +431,13 @@
         "name": "ASCSM-CWE-22 - Path Traversal Improper Input Neutralization",
         "description": "Objective\nAvoid failure to sanitize user input in use in path manipulation operations\n\nConsequence\nSoftware that is unaware of file path control incurs the risk of exposition of sensitive data, the risk of corruption of critical files, such as programs, libraries, or important data used in protection mechanisms\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the file path creation statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
         "href": "CARL/technical-criteria/1062177",
+        "weight": 5
+    },
+    {
+        "id": 1062178,
+        "name": "ASCSM-CWE-252-resource - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Platform Resource",
+        "description": "Objective\nAvoid improper processing of the execution status of resource handling operations\n\nConsequence\nSoftware unaware of execution status control incurs the risk of bad data being used in operations, possibly leading to a crash or other unintended behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a \u2018Read\u2019, \u2018Write\u2019, or \u2018Manage Access\u2019 action, yet the value of the return parameter from the action is not used by any check control element\n\n",
+        "href": "CARL/technical-criteria/1062178",
         "weight": 5
     },
     {

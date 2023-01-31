@@ -758,6 +758,26 @@
         ]
     },
     {
+        "id": 1020106,
+        "name": "Avoid hidden form fields to prevent parameter tampering (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020108,
+        "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020108",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020200,
         "name": "Always have data property as a function that returns an object",
         "href": "AIP/quality-rules/1020200",
@@ -2309,10 +2329,9 @@
     },
     {
         "id": 1020878,
-        "name": "Ensure the express X-XSS-Protection header is enabled (TypeScript)",
+        "name": "DELETED: Ensure the express X-XSS-Protection header is enabled (TypeScript)",
         "href": "AIP/quality-rules/1020878",
-        "critical": true,
-        "severity": 30,
+        "critical": false,
         "technologyNames": [
             "HTML5"
         ]
@@ -2553,6 +2572,16 @@
         "href": "AIP/quality-rules/1020926",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]

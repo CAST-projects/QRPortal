@@ -1,10 +1,14 @@
 {
     "id": 7538,
-    "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+    "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
     "href": "AIP/quality-rules/7538",
     "critical": true,
     "severity": 20,
     "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
     "associatedValueName": "Number of violation occurrences",
     "description": "This metric retrieves all ABAP Artifacts using SELECT ...  INTO CORRESPONDING FIELDS OF statement on tables and views.",
     "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
@@ -12,7 +16,7 @@
     "reference": "Enhancing the Quality of ABAP Development, \nMeijs-Krouwels-Heulmans-Sommen, SAP Press\nISBN 1-59229-030-2\nPage 302",
     "remediation": "Generally, the preferred option, regarding both performance and maintenance, is to explicitly name the fields to be selected.",
     "total": "Number of ABAP Artifacts using SAP Tables and SAP Views.",
-    "alternativeName": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+    "alternativeName": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
     "businessCriteria": [
         {
             "id": 60014,

@@ -1,6 +1,6 @@
 {
     "id": 1101052,
-    "name": "Avoid using WHEN OTHERS without exception management (SQL)",
+    "name": "Use WHEN OTHERS in exception management (SQL)",
     "href": "AIP/quality-rules/1101052",
     "critical": true,
     "severity": 20,
@@ -57,6 +57,12 @@
         }
     ],
     "qualityStandards": [
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
         {
             "id": "NIST-SI-11",
             "name": "Error Handling",

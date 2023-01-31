@@ -1,5 +1,27 @@
 [
     {
+        "id": 4702,
+        "name": "Ensure to not use default stream(System.Err) for printStackTrace to print throwable and its stack trace in order to protect sensitive information.",
+        "href": "AIP/quality-rules/4702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8446,
+        "name": "Ensure your application does not redirect to an untrusted site",
+        "href": "AIP/quality-rules/8446",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8516,
         "name": "Ensure your application does not redirect to an untrusted site",
         "href": "AIP/quality-rules/8516",
@@ -122,6 +144,42 @@
         ]
     },
     {
+        "id": 1025004,
+        "name": "Ensure you URL redirection always goes to trusted sites",
+        "href": "AIP/quality-rules/1025004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025044,
+        "name": "Ensure you have secured your call to MVC",
+        "href": "AIP/quality-rules/1025044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Ensure you have secured your call to MVC",
+        "href": "AIP/quality-rules/1025046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1039016,
         "name": "Ensure that HTTP request redirections are not performed with user provided data",
         "href": "AIP/quality-rules/1039016",
@@ -177,16 +235,6 @@
         "href": "AIP/quality-rules/1042008",
         "critical": true,
         "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042010,
-        "name": "Ensure excluding class parameter for ParametersInterceptor when using Struts 2.3.16 (and older)",
-        "href": "AIP/quality-rules/1042010",
-        "critical": true,
-        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

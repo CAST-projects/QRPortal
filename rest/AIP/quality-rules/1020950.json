@@ -5,6 +5,10 @@
     "critical": true,
     "severity": 20,
     "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.wbslinker",
+        "href": "AIP/extensions/com.castsoftware.wbslinker"
+    },
     "description": "Lack of transport encryption allows data to be viewed as it travels over local networks or the internet. Lack of transport encryption is prevalent on local networks as it is easy to assume that local network traffic will not be widely visible, however in the case of a local wireless network, misconfiguration of that wireless network can make traffic visible to anyone within range of that wireless network. Many Issues with transport encryption are easy to discover simply by viewing network traffic and searching for readable data. Automated tools can also look for proper implementation of common transport encryption such as SSL and TLS.",
     "output": "Line and column for each violation \nAssociated value => number of violations found",
     "rationale": "Secure password management is essential to prevent attackers from gaining access to sensitive resources or abusing the application functionality. Lack of proper protection can leak account information including the passwords which could severely compromise the application.",
@@ -88,6 +92,18 @@
             "name": "Cleartext Transmission of Sensitive Information",
             "href": "AIP/quality-standards/CWE/items/CWE-319",
             "standard": "CWE"
+        },
+        {
+            "id": "CWE-523",
+            "name": "Unprotected Transport of Credentials",
+            "href": "AIP/quality-standards/CWE/items/CWE-523",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SC-12",

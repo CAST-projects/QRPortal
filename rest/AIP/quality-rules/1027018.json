@@ -1,6 +1,6 @@
 {
     "id": 1027018,
-    "name": "Avoid throwing exceptions in finally block",
+    "name": "Avoid throwing exceptions from finally block",
     "href": "AIP/quality-rules/1027018",
     "critical": false,
     "severity": 10,
@@ -16,7 +16,7 @@
     "reference": "http://cwe.mitre.org/data/definitions/460.html",
     "remediation": "Do not throw exceptions in finally block",
     "remediationSample": "try\n{\n  /* some works */\n  throw new new NotImplementedException();  \n}\nfinally\n{\n  /* some works */\n  /* do not throw exceptions here */\n}",
-    "sample": "try\n{\n  /* some works */\n  throw new new NotImplementedException();  \n}\nfinally\n{\n  /* some works */\n  new NotImplementedException();  \n}",
+    "sample": "try\n{\n  /* some works */\n  throw new new NotImplementedException();  \n}\nfinally\n{\n  /* some works */\n  throw new NotImplementedException();  \n}",
     "total": "Number of methods and fields and properties initialized using a lambda function",
     "alternativeName": "Do not throw the exceptions in finally block",
     "businessCriteria": [
@@ -68,6 +68,12 @@
             "name": "Improper Cleanup on Thrown Exception",
             "href": "AIP/quality-standards/CWE/items/CWE-460",
             "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-11",

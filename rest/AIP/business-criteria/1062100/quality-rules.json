@@ -441,7 +441,7 @@
         "name": "Avoid instantiations inside loops",
         "href": "AIP/quality-rules/7210",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -451,7 +451,7 @@
         "name": "Avoid instantiations inside loops (.NET)",
         "href": "AIP/quality-rules/7212",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -516,7 +516,7 @@
         "name": "Avoid GOTO jumps out of PERFORM range",
         "href": "AIP/quality-rules/7274",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -526,7 +526,7 @@
         "name": "Avoid cyclic calls with PERFORM statements",
         "href": "AIP/quality-rules/7288",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -759,6 +759,26 @@
         ]
     },
     {
+        "id": 7520,
+        "name": "Avoid unchecked return code (SY-SUBRC) after OPEN SQL or READ statement",
+        "href": "AIP/quality-rules/7520",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7526,
+        "name": "Avoid using hard-coded paths",
+        "href": "AIP/quality-rules/7526",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
         "id": 7532,
         "name": "Avoid nested SELECT ... ENDSELECT statements",
         "href": "AIP/quality-rules/7532",
@@ -869,6 +889,16 @@
         ]
     },
     {
+        "id": 7642,
+        "name": "Avoid SQL queries on XXL tables not using the first column of a composite index in the WHERE clause",
+        "href": "AIP/quality-rules/7642",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
         "id": 7650,
         "name": "All types of a serializable Class must be serializable",
         "href": "AIP/quality-rules/7650",
@@ -892,6 +922,16 @@
         "id": 7688,
         "name": "Never truncate data in MOVE statements",
         "href": "AIP/quality-rules/7688",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 7690,
+        "name": "Avoid unchecked return code (SQLCODE) after EXEC SQL query",
+        "href": "AIP/quality-rules/7690",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -1437,6 +1477,7 @@
         "technologyNames": [
             "ABAP",
             "C#",
+            "C++",
             "JEE",
             "VB.NET"
         ]
@@ -1445,7 +1486,7 @@
         "id": 7954,
         "name": "Avoid indirect String concatenation inside loops",
         "href": "AIP/quality-rules/7954",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -1657,6 +1698,26 @@
         ]
     },
     {
+        "id": 8012,
+        "name": "Avoid unchecked return code (SY-SUBRC) after opening and reading dataset",
+        "href": "AIP/quality-rules/8012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8014,
+        "name": "Avoid unchecked return code (SY-SUBRC) after AUTHORITY-CHECK",
+        "href": "AIP/quality-rules/8014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
         "id": 8024,
         "name": "Avoid Classes with a non-empty Destructor and the default assignment operator or copy Constructor",
         "href": "AIP/quality-rules/8024",
@@ -1824,8 +1885,20 @@
         ]
     },
     {
+        "id": 8112,
+        "name": "Avoid improper processing of the execution status of data handling operations",
+        "href": "AIP/quality-rules/8112",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -2321,7 +2394,7 @@
         "id": 8550,
         "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
         "href": "AIP/quality-rules/8550",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "ABAP"
@@ -2335,6 +2408,16 @@
         "severity": 30,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 8556,
+        "name": "'XML GENERATE' should be used with 'WITH ENCODING'",
+        "href": "AIP/quality-rules/8556",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
         ]
     },
     {
@@ -2535,6 +2618,16 @@
         "severity": 10,
         "technologyNames": [
             "PLC"
+        ]
+    },
+    {
+        "id": 1001150,
+        "name": "Avoid Functions and Procedures having a SELECT without the default OTHERWISE clause (PL1)",
+        "href": "AIP/quality-rules/1001150",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
         ]
     },
     {
@@ -2828,6 +2921,86 @@
         ]
     },
     {
+        "id": 1002238,
+        "name": "Avoid untested Return Code variables after Read or Write in Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002238",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002240,
+        "name": "Avoid untested Return Code variables after Read or Write in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002240",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002242,
+        "name": "Avoid untested Return Code variables after Read or Write in Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002242",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002244,
+        "name": "Avoid untested Return Code variables after Read or Write in Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002244",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002246,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002246",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002248,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002248",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002250,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002250",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002252,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
         "id": 1002264,
         "name": "Avoid Programs with a high Fan-out (FORTRAN)",
         "href": "AIP/quality-rules/1002264",
@@ -2931,6 +3104,16 @@
         "id": 1005018,
         "name": "Avoid Programs with High Fan-Out (EGL)",
         "href": "AIP/quality-rules/1005018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005026,
+        "name": "Avoid Too Many Copy Pasted Artifacts (EGL)",
+        "href": "AIP/quality-rules/1005026",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -3623,6 +3806,16 @@
         "href": "AIP/quality-rules/1018304",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "TIBCO"
         ]
@@ -4688,16 +4881,6 @@
         ]
     },
     {
-        "id": 1020878,
-        "name": "Ensure the express X-XSS-Protection header is enabled (TypeScript)",
-        "href": "AIP/quality-rules/1020878",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1020892,
         "name": "Ensure Node.js filesystem are closed (TypeScript)",
         "href": "AIP/quality-rules/1020892",
@@ -4733,6 +4916,16 @@
         "href": "AIP/quality-rules/1020926",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -4823,6 +5016,16 @@
         "href": "AIP/quality-rules/1021018",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021022,
+        "name": "'Initialize ancestors when overriding __init__'",
+        "href": "AIP/quality-rules/1021022",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "Python"
         ]
@@ -4948,6 +5151,42 @@
         ]
     },
     {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -5068,19 +5307,31 @@
         ]
     },
     {
-        "id": 1030000,
-        "name": "Avoid \"when\" statement or expression without an else (Kotlin)",
-        "href": "AIP/quality-rules/1030000",
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
         "critical": false,
         "severity": 10,
         "technologyNames": [
-            "Kotlin"
+            "C#",
+            "VB.NET"
         ]
     },
     {
-        "id": 1030002,
-        "name": "Avoid using \"Throwable.printStackTrace()\" with no argument (Kotlin)",
-        "href": "AIP/quality-rules/1030002",
+        "id": 1027100,
+        "name": "Avoid dangerous File Upload",
+        "href": "AIP/quality-rules/1027100",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1030000,
+        "name": "Avoid \"when\" statement or expression without an else (Kotlin)",
+        "href": "AIP/quality-rules/1030000",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5233,6 +5484,16 @@
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042024,
+        "name": "Avoid Unescaped User-controlled Input attribute in Struts 1.x and 2.x",
+        "href": "AIP/quality-rules/1042024",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]
@@ -5697,6 +5958,16 @@
         ]
     },
     {
+        "id": 1060112,
+        "name": "Review APIs not accessed by frontend functions",
+        "href": "AIP/quality-rules/1060112",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1065008,
         "name": "Avoid use of unvalidated input in array indexing and memory allocation",
         "href": "AIP/quality-rules/1065008",
@@ -5806,7 +6077,7 @@
         "name": "Avoid non-indexed XXL SQL queries",
         "href": "AIP/quality-rules/1101006",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -5846,7 +6117,7 @@
         "name": "Avoid Cursors inside a loop (SQL)",
         "href": "AIP/quality-rules/1101084",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "SQL"
         ]

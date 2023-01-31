@@ -3,7 +3,7 @@
     "name": "File descriptor block must be defined with 0 record",
     "href": "AIP/quality-rules/7366",
     "critical": true,
-    "severity": 20,
+    "severity": 30,
     "maxWeight": 9,
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for Cobol programs in which FD clauses defined in the FILE SECTION of the DATA DIVISION are defined without a BLOCK CONTAINS clause or with a value not equal to 0.\n\nNote: VSAM files (identified by the INDEXED clause) and sort files (SD) are not considered as violating the rule.",

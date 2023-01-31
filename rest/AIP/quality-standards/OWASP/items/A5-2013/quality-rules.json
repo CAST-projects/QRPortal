@@ -100,6 +100,16 @@
         ]
     },
     {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
         "id": 1019004,
         "name": "Avoid to set client credential type other than Certificate or Windows when using message mode",
         "href": "AIP/quality-rules/1019004",
@@ -127,16 +137,6 @@
         "severity": 10,
         "technologyNames": [
             "WCF"
-        ]
-    },
-    {
-        "id": 1020544,
-        "name": "Avoid disabling Strict Contextual Escaping (SCE) when created",
-        "href": "AIP/quality-rules/1020544",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
         ]
     },
     {
@@ -366,6 +366,17 @@
         "href": "AIP/quality-rules/1043018",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043020,
+        "name": "Avoid having applications with the debug mode activated",
+        "href": "AIP/quality-rules/1043020",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "ASP.NET",
             "C#"

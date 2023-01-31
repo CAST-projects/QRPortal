@@ -1394,7 +1394,7 @@
         "name": "Avoid GOTO jumps out of PERFORM range",
         "href": "AIP/quality-rules/7274",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -1404,7 +1404,7 @@
         "name": "Avoid cyclic calls with PERFORM statements",
         "href": "AIP/quality-rules/7288",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -1577,7 +1577,7 @@
     },
     {
         "id": 7442,
-        "name": "Avoid to use this within Constructor in multi-thread environment",
+        "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "severity": 20,
@@ -1971,7 +1971,7 @@
         "name": "Never truncate data in MOVE statements",
         "href": "AIP/quality-rules/7688",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -2781,6 +2781,7 @@
         "technologyNames": [
             "ABAP",
             "C#",
+            "C++",
             "JEE",
             "VB.NET"
         ]
@@ -3236,7 +3237,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -3466,7 +3467,7 @@
         "name": "Program semantic should respect the logic of flow execution",
         "href": "AIP/quality-rules/8468",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -3485,7 +3486,7 @@
         "id": 8550,
         "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
         "href": "AIP/quality-rules/8550",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "ABAP"
@@ -8217,7 +8218,7 @@
     },
     {
         "id": 1027018,
-        "name": "Avoid throwing exceptions in finally block",
+        "name": "Avoid throwing exceptions from finally block",
         "href": "AIP/quality-rules/1027018",
         "critical": false,
         "severity": 10,
@@ -9513,7 +9514,7 @@
     },
     {
         "id": 1101052,
-        "name": "Avoid using WHEN OTHERS without exception management (SQL)",
+        "name": "Use WHEN OTHERS in exception management (SQL)",
         "href": "AIP/quality-rules/1101052",
         "critical": true,
         "severity": 20,

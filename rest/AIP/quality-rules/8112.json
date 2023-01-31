@@ -17,6 +17,11 @@
     "alternativeName": "Ensure data handling operations are properly encapsulated to provide clear status of the execution",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "GreenIT-Index",
             "href": "AIP/business-criteria/20140522"
@@ -44,16 +49,16 @@
     ],
     "technicalCriteria": [
         {
-            "id": 1061040,
-            "name": "CWE-390 - Detection of Error Condition Without Action",
-            "href": "AIP/technical-criteria/1061040",
+            "id": 1062146,
+            "name": "ASCRM-CWE-252-data - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "href": "AIP/technical-criteria/1062146",
             "weight": 5,
             "critical": false
         },
         {
-            "id": 1061043,
-            "name": "CWE-394 - Unexpected Status Code or Return Value",
-            "href": "AIP/technical-criteria/1061043",
+            "id": 1061035,
+            "name": "CWE-252 - Unchecked Return Value",
+            "href": "AIP/technical-criteria/1061035",
             "weight": 5,
             "critical": false
         },
@@ -84,28 +89,28 @@
     ],
     "qualityStandards": [
         {
-            "id": "CWE-390",
-            "name": "Detection of Error Condition Without Action",
-            "href": "AIP/quality-standards/CWE/items/CWE-390",
+            "id": "ASCRM-CWE-252-data",
+            "name": "Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-252-data",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-252",
+            "name": "Unchecked Return Value",
+            "href": "AIP/quality-standards/CWE/items/CWE-252",
             "standard": "CWE"
         },
         {
-            "id": "CWE-394",
-            "name": "Unexpected Status Code or Return Value",
-            "href": "AIP/quality-standards/CWE/items/CWE-394",
-            "standard": "CWE"
-        },
-        {
-            "id": "CWE-390",
-            "name": "Detection of Error Condition Without Action",
-            "href": "AIP/quality-standards/ISO-5055/items/CWE-390",
+            "id": "CWE-252",
+            "name": "Unchecked Return Value",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-252",
             "standard": "ISO-5055"
         },
         {
-            "id": "CWE-394",
-            "name": "Unexpected Status Code or Return Value",
-            "href": "AIP/quality-standards/ISO-5055/items/CWE-394",
-            "standard": "ISO-5055"
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-11",
@@ -114,15 +119,9 @@
             "standard": "NIST-SP-800-53R4"
         },
         {
-            "id": "CWE-390",
-            "name": "Detection of Error Condition Without Action",
-            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-390",
-            "standard": "OMG-ASCQM"
-        },
-        {
-            "id": "CWE-394",
-            "name": "Unexpected Status Code or Return Value",
-            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-394",
+            "id": "CWE-252",
+            "name": "Unchecked Return Value",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-252",
             "standard": "OMG-ASCQM"
         },
         {

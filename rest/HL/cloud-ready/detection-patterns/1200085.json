@@ -1,0 +1,89 @@
+{
+    "id": 1200085,
+    "name": "Using a Cloud-based encryption mechanism",
+    "href": "HL/cloud-ready/detection-patterns/1200085",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/2",
+        "name": "Booster"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/6",
+        "name": "Data Encryption Key"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/5",
+                "name": "Kotlin"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/11",
+                "name": "VB/VB.Net"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/8",
+                "name": "SWIFT"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/1",
+                "name": "C#"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/7",
+                "name": "Python"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/2",
+                "name": "Azure"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/3",
+                "name": "Java"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/0",
+            "name": "None"
+        },
+        "description": "This CloudReady pattern detects in the source code the usage of a Cloud-based encryption mechanism. Encryption is available as a service in the majority of Cloud/PaaS platforms, providing your application with native high security, scalability, elasticity and availability.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/0",
+                "name": "None"
+            }
+        ],
+        "reference": "https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption\nhttps://aws.amazon.com/kms/"
+    }
+}

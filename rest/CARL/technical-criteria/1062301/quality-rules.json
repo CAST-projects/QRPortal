@@ -10,6 +10,26 @@
         ]
     },
     {
+        "id": 7150,
+        "name": "Avoid string interpolations to prevent SQL injections by using  PreparedStatement or CallableStatement",
+        "href": "AIP/quality-rules/7150",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7380,
+        "name": "Struts 1: Avoid unused validation form",
+        "href": "AIP/quality-rules/7380",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7740,
         "name": "Avoid HTTP response splitting",
         "href": "AIP/quality-rules/7740",
@@ -450,6 +470,16 @@
         ]
     },
     {
+        "id": 1020724,
+        "name": "Ensure that marked is sanitized",
+        "href": "AIP/quality-rules/1020724",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020772,
         "name": "Avoid Javascript string interpolations to prevent SQL injections",
         "href": "AIP/quality-rules/1020772",
@@ -500,6 +530,78 @@
         ]
     },
     {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025002,
+        "name": "Avoid second order XPath injection",
+        "href": "AIP/quality-rules/1025002",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025010,
+        "name": "Avoid second order LDAP injection",
+        "href": "AIP/quality-rules/1025010",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025018,
+        "name": "Avoid cookie injection",
+        "href": "AIP/quality-rules/1025018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025020,
+        "name": "Avoid data filter injection",
+        "href": "AIP/quality-rules/1025020",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025022,
+        "name": "Avoid data filter injection through API requests",
+        "href": "AIP/quality-rules/1025022",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1039056,
         "name": "Avoid insecure use of YAML deserialization when using SnakeYaml (JEE)",
         "href": "AIP/quality-rules/1039056",
@@ -523,46 +625,6 @@
         "id": 1039072,
         "name": "Avoid using jYAML to deserialize YAML (JEE)",
         "href": "AIP/quality-rules/1039072",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042026,
-        "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older",
-        "href": "AIP/quality-rules/1042026",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042028,
-        "name": "Avoid activating alwaysSelectFullNamespace when actions configured without namespace or with a wildcard namespace for Struts pre 2.3.34 and pre 2.5.1",
-        "href": "AIP/quality-rules/1042028",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042042,
-        "name": "Avoid using Rest Plugin with XStream handler to deserialise XML requests in Struts 2.1.2 - Struts 2.3.33, Struts 2.5 - Struts 2.5.12",
-        "href": "AIP/quality-rules/1042042",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042052,
-        "name": "Avoid using JSON-lib library for Rest Plugin of Struts 2.5 to 2.5.14",
-        "href": "AIP/quality-rules/1042052",
         "critical": false,
         "weight": 5,
         "technologyNames": [

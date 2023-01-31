@@ -10,6 +10,16 @@
         ]
     },
     {
+        "id": 7382,
+        "name": "Struts1: Avoid Struts Validator field without Form Field",
+        "href": "AIP/quality-rules/7382",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7416,
         "name": "Struts1: Avoid Action Form Field without Validator",
         "href": "AIP/quality-rules/7416",
@@ -182,16 +192,6 @@
         ]
     },
     {
-        "id": 1020544,
-        "name": "Avoid disabling Strict Contextual Escaping (SCE) when created",
-        "href": "AIP/quality-rules/1020544",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1020554,
         "name": "Avoid using unsecured cookie (AngularJS)",
         "href": "AIP/quality-rules/1020554",
@@ -342,13 +342,14 @@
         ]
     },
     {
-        "id": 1027004,
-        "name": "Avoid using deprecated XmlTextReader .NET API",
-        "href": "AIP/quality-rules/1027004",
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
         "critical": false,
         "weight": 5,
         "technologyNames": [
             "C#",
+            "JEE",
             "VB.NET"
         ]
     },
@@ -520,6 +521,17 @@
         "id": 1043018,
         "name": "Avoid storing passwords in the config files",
         "href": "AIP/quality-rules/1043018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043020,
+        "name": "Avoid having applications with the debug mode activated",
+        "href": "AIP/quality-rules/1043020",
         "critical": false,
         "weight": 5,
         "technologyNames": [

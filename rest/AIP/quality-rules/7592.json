@@ -5,8 +5,12 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
     "associatedValueName": "Number of ORDER BY",
-    "description": "This metric retrieves the ABAP artifacts containing queries using the \"ORDER BY\" clause.",
+    "description": "This metric retrieves the ABAP artifacts containing queries using the \"ORDER BY\" clause.\nIt is not computed in case of SAP-HANA database.",
     "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of ORDER BY",
     "rationale": "The ORDER BY clause is executed on the database server while the ABAP SORT statement is executed on the application server. The database server will usually be the bottleneck so, for performance reason, it is often better to move the sort from the database server to the application server.",
     "reference": "http://erpgenie.com\nABAP Syntax performance tuning",

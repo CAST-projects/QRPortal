@@ -375,7 +375,7 @@
     },
     {
         "id": 7538,
-        "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+        "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
         "href": "AIP/quality-rules/7538",
         "critical": true,
         "weight": 8,
@@ -1526,8 +1526,8 @@
         "id": 1101066,
         "name": "Avoid improperly written triangular joins with XXL tables",
         "href": "AIP/quality-rules/1101066",
-        "critical": false,
-        "weight": 4,
+        "critical": true,
+        "weight": 8,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -1696,6 +1696,36 @@
             "ASP.NET",
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1104000,
+        "name": "Prefer using associations instead \"left outer join\" in CDS Views (S4/HANA)",
+        "href": "AIP/quality-rules/1104000",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104002,
+        "name": "Prefer setting \"many to one\" cardinality for \"left outer join\" in CDS Views (S4/HANA)",
+        "href": "AIP/quality-rules/1104002",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104004,
+        "name": "Prefer setting cardinality for CDS view associations (S4/HANA)",
+        "href": "AIP/quality-rules/1104004",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "SAP SQL"
         ]
     },
     {

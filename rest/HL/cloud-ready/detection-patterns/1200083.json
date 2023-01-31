@@ -1,0 +1,39 @@
+{
+    "id": 1200083,
+    "name": "Using CASE statements in mainframes",
+    "href": "HL/cloud-ready/detection-patterns/1200083",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/2",
+        "name": "Booster"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "Case statement are supported in DB2 but also in AWS Redshift.",
+        "migrationImpacts": [
+            {
+                "href": "HL/cloud-ready/migration-impacts/0",
+                "name": "None"
+            }
+        ],
+        "reference": "https://www.ibm.com/support/knowledgecenter/SSEPEK_11.0.0/sqlref/src/tpc/db2z_caseexpression.html\nhttps://docs.aws.amazon.com/fr_fr/redshift/latest/dg/r_CASE_function.html"
+    }
+}

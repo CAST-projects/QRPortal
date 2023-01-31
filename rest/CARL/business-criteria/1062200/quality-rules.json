@@ -159,11 +159,41 @@
         ]
     },
     {
+        "id": 1101000,
+        "name": "Prefer using a Join with a consition when making SQL queries so that performance is not adversely impacted due to cartesian/cross join",
+        "href": "AIP/quality-rules/1101000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101002,
+        "name": "Prefer using a Join with a consition when making SQL queries on XXL tables so that performance is not adversely impacted due to cartesian/cross join",
+        "href": "AIP/quality-rules/1101002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
         "id": 1101004,
         "name": "Ensure to include index in your SQL table so that performance of your app is not adversely impacted",
         "href": "AIP/quality-rules/1101004",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101006,
+        "name": "Ensure to include index in your SQL XXL tables so that performance of your app is not adversely impacted",
+        "href": "AIP/quality-rules/1101006",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -196,6 +226,16 @@
         "severity": 10,
         "technologyNames": [
             "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101018,
+        "name": "Prefer not using GROUP BY clauses in queries as it hampers the performance and is inefficient",
+        "href": "AIP/quality-rules/1101018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
         ]
     },
     {

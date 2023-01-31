@@ -6,7 +6,7 @@
     "severity": 20,
     "maxWeight": 7,
     "associatedValueName": "Header file name",
-    "description": "This rule searches for static variables which are defined in header files (ex: *.h files).  but not in a class definition. \n\nNotes: \n- Static variables which are taken into account are global variables only and, for C++, are outside any class scope.",
+    "description": "This rule searches for static variables which are defined in header files (ex: *.h files).  but not in a class definition. \n\nNotes: \n- Static variables which are taken into account are global variables only and, for C++, are outside any class scope.\n- This applies even if the header file is not referenced by any other .cpp files.",
     "output": "Associated to each C/C++ static variable with violations, the Quality Rule provides:\n- The header file name \n- Bookmarks for violation occurrences found in the source code:\n  - static variable",
     "rationale": "When defining a static variable in a header file, a new instance of the variable is created for each file including the header file. This is often surprising as people often expect to have only one instance of the variable. This leads to errors that are very difficult to track/understand.",
     "remediation": "Do not define the variable in header as static but define it as static in a source file (ex: *.c, *.cpp) and as extern in files using it instead.\nIn the particular case of \"static const variable=value;\", just remove the static, it is redundant with the \"const\" qualifier.",

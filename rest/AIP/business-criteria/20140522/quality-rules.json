@@ -642,7 +642,7 @@
         "name": "Avoid instantiations inside loops",
         "href": "AIP/quality-rules/7210",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -652,7 +652,7 @@
         "name": "Avoid instantiations inside loops (.NET)",
         "href": "AIP/quality-rules/7212",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -830,7 +830,7 @@
         "name": "File descriptor block must be defined with 0 record",
         "href": "AIP/quality-rules/7366",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -934,7 +934,7 @@
     },
     {
         "id": 7442,
-        "name": "Avoid to use this within Constructor in multi-thread environment",
+        "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "severity": 20,
@@ -1218,7 +1218,7 @@
     },
     {
         "id": 7538,
-        "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+        "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
         "href": "AIP/quality-rules/7538",
         "critical": true,
         "severity": 20,
@@ -1531,7 +1531,7 @@
         "name": "Never truncate data in MOVE statements",
         "href": "AIP/quality-rules/7688",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -2175,7 +2175,7 @@
         "id": 7954,
         "name": "Avoid indirect String concatenation inside loops",
         "href": "AIP/quality-rules/7954",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -2603,7 +2603,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -2833,6 +2833,18 @@
         "severity": 10,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 8240,
+        "name": "Avoid using unsecured cookie",
+        "href": "AIP/quality-rules/8240",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -5766,6 +5778,26 @@
         ]
     },
     {
+        "id": 1020862,
+        "name": "Avoid having cookie with an overly broad domain (TypeScript)",
+        "href": "AIP/quality-rules/1020862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020866,
+        "name": "Avoid creating cookie with overly broad path (TypeScript)",
+        "href": "AIP/quality-rules/1020866",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020872,
         "name": "Always use JSON.parse & JSON.stringify with try/catch block (TypeScript)",
         "href": "AIP/quality-rules/1020872",
@@ -5946,6 +5978,16 @@
         ]
     },
     {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1021002,
         "name": "Avoid using a web service with Python httplib HTTPConnection inside a loop",
         "href": "AIP/quality-rules/1021002",
@@ -6099,8 +6141,8 @@
         "id": 1022000,
         "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
         "href": "AIP/quality-rules/1022000",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -6206,6 +6248,78 @@
         ]
     },
     {
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025024,
+        "name": "Avoid disabling the expiration time validation of a JWT token",
+        "href": "AIP/quality-rules/1025024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025026,
+        "name": "Avoid disabling the expiration time requirement of a JWT token",
+        "href": "AIP/quality-rules/1025026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025028,
+        "name": "Avoid disabling the signature requirement of a JWT token",
+        "href": "AIP/quality-rules/1025028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025054,
+        "name": "Avoid plaintext storage of password",
+        "href": "AIP/quality-rules/1025054",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -6272,7 +6386,7 @@
     },
     {
         "id": 1027018,
-        "name": "Avoid throwing exceptions in finally block",
+        "name": "Avoid throwing exceptions from finally block",
         "href": "AIP/quality-rules/1027018",
         "critical": false,
         "severity": 10,
@@ -6458,7 +6572,7 @@
     },
     {
         "id": 1027082,
-        "name": "Avoid using console logging",
+        "name": "Avoid using console logging (.Net)",
         "href": "AIP/quality-rules/1027082",
         "critical": false,
         "severity": 10,
@@ -7898,7 +8012,7 @@
         "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
         "href": "AIP/quality-rules/1101002",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -7918,7 +8032,7 @@
         "name": "Avoid non-indexed XXL SQL queries",
         "href": "AIP/quality-rules/1101006",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -8068,7 +8182,7 @@
     },
     {
         "id": 1101052,
-        "name": "Avoid using WHEN OTHERS without exception management (SQL)",
+        "name": "Use WHEN OTHERS in exception management (SQL)",
         "href": "AIP/quality-rules/1101052",
         "critical": true,
         "severity": 20,
@@ -8110,8 +8224,8 @@
         "id": 1101066,
         "name": "Avoid improperly written triangular joins with XXL tables",
         "href": "AIP/quality-rules/1101066",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -8191,7 +8305,7 @@
         "name": "Avoid Cursors inside a loop (SQL)",
         "href": "AIP/quality-rules/1101084",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "SQL"
         ]
@@ -8370,6 +8484,46 @@
             "ASP.NET",
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1104000,
+        "name": "Prefer using associations instead \"left outer join\" in CDS Views (S4/HANA)",
+        "href": "AIP/quality-rules/1104000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104002,
+        "name": "Prefer setting \"many to one\" cardinality for \"left outer join\" in CDS Views (S4/HANA)",
+        "href": "AIP/quality-rules/1104002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104004,
+        "name": "Prefer setting cardinality for CDS view associations (S4/HANA)",
+        "href": "AIP/quality-rules/1104004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1104008,
+        "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' (S4/HANA)",
+        "href": "AIP/quality-rules/1104008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
         ]
     },
     {

@@ -21,6 +21,16 @@
     "alternativeName": "Ensure activating tags for escaping string in order to sanitize user input and prevent XSS attacks",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 1062300,
             "name": "OWASP-2013-Index",
             "href": "AIP/business-criteria/1062300"
@@ -47,6 +57,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062191,
+            "name": "ASCSM-CWE-79 - Cross-site Scripting Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062191",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061015,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1061015",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062303,
             "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",

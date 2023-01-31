@@ -17,6 +17,11 @@
     "alternativeName": "Ensure your application properly neutralize URLs before they are accessed",
     "businessCriteria": [
         {
+            "id": 1062340,
+            "name": "OWASP-2021-Index",
+            "href": "AIP/business-criteria/1062340"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -28,6 +33,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062350,
+            "name": "OWASP-2021-A10 - Server-Side Request Forgery (SSRF)",
+            "href": "AIP/technical-criteria/1062350",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",
@@ -59,6 +71,12 @@
             "name": "Server-Side Request Forgery (SSRF)",
             "href": "AIP/quality-standards/CWE/items/CWE-918",
             "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-10",

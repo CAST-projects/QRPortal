@@ -62,6 +62,16 @@
         ]
     },
     {
+        "id": 1039020,
+        "name": "Ensure to not use \"javax.crypto.NullCipher\" for anything other than testing",
+        "href": "AIP/quality-rules/1039020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1040014,
         "name": "Ensure desabling Spring Security's debug mode in production code",
         "href": "AIP/quality-rules/1040014",
@@ -106,6 +116,28 @@
         "id": 1043034,
         "name": "Ensure you did not keep the tracing activated in your web config file to not expose sensitive information for the hackers",
         "href": "AIP/quality-rules/1043034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043038,
+        "name": "Ensure you have reviewed the source code file and disable the tracing property",
+        "href": "AIP/quality-rules/1043038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043078,
+        "name": "Avoid debug binaries that include detailed debug information",
+        "href": "AIP/quality-rules/1043078",
         "critical": false,
         "severity": 10,
         "technologyNames": [

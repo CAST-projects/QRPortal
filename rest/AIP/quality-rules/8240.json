@@ -3,8 +3,12 @@
     "name": "Avoid using unsecured cookie",
     "href": "AIP/quality-rules/8240",
     "critical": true,
-    "severity": 20,
+    "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from the \"setSecure\" call to the \"addCookie\" target",
     "description": "This rule will check in the source code if the 'Secure' attribute for sensitive cookies in HTTPS sessions is not set. If not enabled it could cause the user agent to send those cookies in plain text over an HTTP session. \nUsing the method 'setSecure' ensures that the session cookie is not visible to an attacker.\nLimitation: in .Net environment, this rule does not check if the key 'requireSSL' exists in web.config file.",
     "output": "List all methods full name that add cookie to a response object without setting the 'secured' attribute",
@@ -16,6 +20,11 @@
     "total": "Number of methods adding a cookie",
     "alternativeName": "Ensure you have secured your cookie by enabling 'Secure' attribute",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "GreenIT-Index",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 1062300,
             "name": "OWASP-2013-Index",
@@ -70,6 +79,13 @@
             "href": "AIP/technical-criteria/66062",
             "weight": 9,
             "critical": true
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
         }
     ],
     "technologies": [
@@ -95,6 +111,12 @@
             "name": "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
             "href": "AIP/quality-standards/CWE/items/CWE-614",
             "standard": "CWE"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-IA-9",
@@ -143,9 +165,9 @@
         
     ],
     "thresholds": [
-        50.0,
-        90.0,
-        95.0,
-        99.0
+        98.0,
+        99.0,
+        99.5,
+        99.99
     ]
 }

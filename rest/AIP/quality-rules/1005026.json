@@ -23,9 +23,19 @@
             "href": "AIP/business-criteria/66032"
         },
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 60012,
             "name": "Changeability",
             "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 60013,
@@ -35,10 +45,24 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1062120,
+            "name": "ASCMM-MNT-19 - Named Callable and Method Control Element Excessive Similarity",
+            "href": "AIP/technical-criteria/1062120",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 66009,
             "name": "Architecture - Reuse",
             "href": "AIP/technical-criteria/66009",
             "weight": 9,
+            "critical": false
+        },
+        {
+            "id": 1061105,
+            "name": "CWE-1041 - Use of Redundant Code",
+            "href": "AIP/technical-criteria/1061105",
+            "weight": 5,
             "critical": false
         }
     ],
@@ -50,7 +74,30 @@
         }
     ],
     "qualityStandards": [
-        
+        {
+            "id": "ASCMM-MNT-19",
+            "name": "Named Callable and Method Control Element Excessive Similarity",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-19",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1041",
+            "name": "Use of Redundant Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-1041",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1041",
+            "name": "Use of Redundant Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1041",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1041",
+            "name": "Use of Redundant Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1041",
+            "standard": "OMG-ASCQM"
+        }
     ],
     "parameters": [
         {

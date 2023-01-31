@@ -17,6 +17,26 @@
                 "name": "Agnostic"
             },
             "technology": {
+                "href": "HL/cloud-ready/technologies/13",
+                "name": "Scala"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/12",
+                "name": "C/C++"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
                 "href": "HL/cloud-ready/technologies/11",
                 "name": "VB/VB.Net"
             }
@@ -64,8 +84,8 @@
     ],
     "platformMigration": {
         "criticality": {
-            "href": "HL/cloud-ready/criticality/0",
-            "name": "None"
+            "href": "HL/cloud-ready/criticality/40",
+            "name": "Critical"
         },
         "description": "When migrating an application to the Cloud, capabilities offered by PaaS services should be leveraged in order to make your apps more scalable, resilient, available\u2026 This is especially true for systems storing and administrating files that your application may  need to access, create, update, process, etc.\n \nAs Cloud-based file storage services use their own ACL mechanisms (AWS S3, Google Cloud Storage, Azure Storage, etc.), you\u2019ll need to adapt the way your application manages file access & permissions  when designing the targeted architecture and ensure the configuration of accesses in the Cloud corresponds to the same as it was when running on your premise.\n\nThis migration step is quite sensitive from a security standpoint as the application will be running out of your premise. Permissions should be tested in depth in order to detect possible cases of over-exposed of files. As a migration task, you should identify within your application the usage of file access related functions and adapt to the targeted Cloud-based storage service.",
         "migrationImpacts": [

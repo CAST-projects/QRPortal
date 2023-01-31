@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1027038",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.dotnet",
         "href": "AIP/extensions/com.castsoftware.dotnet"
@@ -25,6 +25,11 @@
             "href": "AIP/business-criteria/60012"
         },
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -41,6 +46,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061056,
+            "name": "CWE-478 - Missing Default Case in Switch Statement",
+            "href": "AIP/technical-criteria/1061056",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61024,
             "name": "Programming Practices - Structuredness",
@@ -62,7 +74,24 @@
         }
     ],
     "qualityStandards": [
-        
+        {
+            "id": "CWE-478",
+            "name": "Missing Default Case in Switch Statement",
+            "href": "AIP/quality-standards/CWE/items/CWE-478",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-478",
+            "name": "Missing Default Case in Switch Statement",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-478",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-478",
+            "name": "Missing Default Case in Switch Statement",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-478",
+            "standard": "OMG-ASCQM"
+        }
     ],
     "parameters": [
         

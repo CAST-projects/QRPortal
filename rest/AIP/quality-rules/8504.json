@@ -3,7 +3,7 @@
     "name": "Avoid XPath injection through API requests",
     "href": "AIP/quality-rules/8504",
     "critical": true,
-    "severity": 20,
+    "severity": 30,
     "maxWeight": 9,
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "The software does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.\n\nUsing CAST data-flow engine, this metric detects execution paths from API requests down to file creation methods, paths which are open vulnerabilities to operating system injection flaws.",
@@ -132,6 +132,12 @@
             "name": "Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
             "href": "AIP/quality-standards/ISO-5055/items/CWE-643",
             "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-10",

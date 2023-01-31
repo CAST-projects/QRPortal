@@ -194,7 +194,7 @@
         "name": "Prefer using a Join with a consition when making SQL queries on XXL tables so that performance is not adversely impacted due to cartesian/cross join",
         "href": "AIP/quality-rules/1101002",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -214,7 +214,7 @@
         "name": "Ensure to include index in your SQL XXL tables so that performance of your app is not adversely impacted",
         "href": "AIP/quality-rules/1101006",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -333,8 +333,8 @@
         "id": 1101066,
         "name": "Ensure that when using triangular joins you restrict the results with some extra conditions to avoid severe performance issues",
         "href": "AIP/quality-rules/1101066",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]

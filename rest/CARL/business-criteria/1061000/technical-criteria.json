@@ -105,6 +105,13 @@
         "weight": 5
     },
     {
+        "id": 1061035,
+        "name": "CWE-252 - Unchecked Return Value",
+        "description": "The software does not check the return value from a method or function, which can prevent it from detecting unexpected states and conditions.",
+        "href": "CARL/technical-criteria/1061035",
+        "weight": 5
+    },
+    {
         "id": 1061036,
         "name": "CWE-259 - Use of Hard-coded Password",
         "description": "The software contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
@@ -128,7 +135,7 @@
     {
         "id": 1061041,
         "name": "CWE-391 - Unchecked Error Condition",
-        "description": "[PLANNED FOR DEPRECATION. SEE MAINTENANCE NOTES.] Ignoring exceptions and other error conditions may allow an attacker to induce unexpected behavior unnoticed.",
+        "description": "[PLANNED FOR DEPRECATION. SEE MAINTENANCE NOTES AND CONSIDER CWE-252, CWE-248, OR CWE-1069.] Ignoring exceptions and other error conditions may allow an attacker to induce unexpected behavior unnoticed.",
         "href": "CARL/technical-criteria/1061041",
         "weight": 5
     },
@@ -275,7 +282,7 @@
     {
         "id": 1061068,
         "name": "CWE-597 - Use of Wrong Operator in String Comparison",
-        "description": "The product uses the wrong operator when comparing a string, such as using == when the equals() method should be used instead.",
+        "description": "The product uses the wrong operator when comparing a string, such as using == when the .equals() method should be used instead.",
         "href": "CARL/technical-criteria/1061068",
         "weight": 5
     },
@@ -396,6 +403,13 @@
         "name": "CWE-821 - Incorrect Synchronization",
         "description": "The software utilizes a shared resource in a concurrent manner, but it does not correctly synchronize access to the resource.",
         "href": "CARL/technical-criteria/1061096",
+        "weight": 5
+    },
+    {
+        "id": 1061101,
+        "name": "CWE-833 - Deadlock",
+        "description": "The software contains multiple threads or executable segments that are waiting for each other to release a necessary lock, resulting in deadlock.",
+        "href": "CARL/technical-criteria/1061101",
         "weight": 5
     },
     {
@@ -641,6 +655,13 @@
         "name": "CWE-1091 - Use of Object without Invoking Destructor Method",
         "description": "The software contains a method that accesses an object but does not later invoke the element's associated finalize/destructor method.",
         "href": "CARL/technical-criteria/1061142",
+        "weight": 5
+    },
+    {
+        "id": 1061144,
+        "name": "CWE-1094 - Excessive Index Range Scan for a Data Resource",
+        "description": "The software contains an index range scan for a large data table, but the scan can cover a large number of rows.",
+        "href": "CARL/technical-criteria/1061144",
         "weight": 5
     },
     {

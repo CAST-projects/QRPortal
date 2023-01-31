@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1027090",
     "critical": false,
     "severity": 10,
-    "maxWeight": 4,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.dotnet",
         "href": "AIP/extensions/com.castsoftware.dotnet"
@@ -20,6 +20,11 @@
     "total": "Number of Methods",
     "alternativeName": "Avoid improper instantiation of argument exceptions",
     "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
         {
             "id": 20140522,
             "name": "GreenIT-Index",
@@ -37,6 +42,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062149,
+            "name": "ASCRM-CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1062149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062181,
+            "name": "ASCSM-CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1062181",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",
@@ -58,7 +77,54 @@
         }
     ],
     "qualityStandards": [
-        
+        {
+            "id": "ASCRM-CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-397",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-397",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CWE/items/CWE-397",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-687",
+            "name": "Function Call With Incorrectly Specified Argument Value",
+            "href": "AIP/quality-standards/CWE/items/CWE-687",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        }
     ],
     "parameters": [
         

@@ -16,7 +16,7 @@
     "reference": "CWE-260: Password in Configuration File\nhttps://cwe.mitre.org/data/definitions/260.html\n\nhttps://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration\n\nA6-Security_Misconfiguration",
     "remediation": "Username and password information should not be included in a configuration file in the connection strings as this will allow anyone who can read the file access to the resource. If possible, encrypt this information",
     "remediationSample": "We should not store user information in the connection string. We should either use the trusted connection or use verious available encryption algo to encrypt the connection string \n\nmore details are available about different security @ https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax",
-    "sample": "<connectionStrings>\n<add name=\"ud_DEV\" connectionString=\"connectDB=uDB; uid=db2admin; pwd=password; dbalias=uDB;\" providerName=\"System.Data.Odbc\" />\n</connectionStrings>\n.....\n<appSettings>\n<add key=\"ESBPassword\" value=\"********\"/>\n.....\n<add key=\"UnicelSA.Password\" value=\"********\"/>\n</appSettings>",
+    "sample": "Case 1: Web.config\n------------------\n<connectionStrings>\n<add name=\"ud_DEV\" connectionString=\"connectDB=uDB; uid=db2admin; pwd=password; dbalias=uDB;\" providerName=\"System.Data.Odbc\" />\n</connectionStrings>\n.....\n<appSettings>\n<add key=\"ESBPassword\" value=\"********\"/>\n.....\n<add key=\"UnicelSA.Password\" value=\"********\"/>\n</appSettings>\n\n---------------------------\nCase 2: appsettings.*.json\n---------------------------\n{\n    \"Logging\": {\n        \"IncludeScopes\": false,\n        \"LogLevel\": {\n            \"Default\": \"Warning\"\n        }\n    },\n...\n  \"MailSettings\": {\n      \"Mail\": \"toto@gmail.com\",\n      \"Password\": \"coco\"\n  }\n}",
     "total": "Number of config files",
     "alternativeName": "Ensure you don't store password information in a configuration file or a properties file in plaintext as this will allow anyone who can read the file access to the resource.",
     "businessCriteria": [
@@ -100,6 +100,12 @@
             "name": "Password in Configuration File",
             "href": "AIP/quality-standards/CWE/items/CWE-260",
             "standard": "CWE"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-IA-9",

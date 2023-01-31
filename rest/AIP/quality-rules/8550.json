@@ -2,7 +2,7 @@
     "id": 8550,
     "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
     "href": "AIP/quality-rules/8550",
-    "critical": false,
+    "critical": true,
     "severity": 30,
     "maxWeight": 5,
     "description": "This command can create arbitrary temporary ABAP programs. It must not process input, especially not from a file upload. \n\nGENERATE SUBROUTINE POOL should only be used in exceptional cases in application programs",
@@ -101,7 +101,7 @@
             "name": "Programming Practices - Structuredness",
             "href": "AIP/technical-criteria/61024",
             "weight": 5,
-            "critical": false
+            "critical": true
         }
     ],
     "technologies": [
@@ -129,6 +129,12 @@
             "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
             "href": "AIP/quality-standards/ISO-5055/items/CWE-78",
             "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-10",

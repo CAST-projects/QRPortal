@@ -9,10 +9,10 @@
         "name": "com.castsoftware.dotnet",
         "href": "AIP/extensions/com.castsoftware.dotnet"
     },
-    "description": "Names of Private Fields should not start with an uppercase character and should not include any underscore",
+    "description": "Names of Private Fields should use camelCase preceded or not by a single underscore.",
     "output": "This report lists all Private Fields (that are not const) with first letter starting with an uppercase or having an underscore.\nIt provides the following information:  Field full name",
     "rationale": "For readability aspects, naming conventions must be respected",
-    "reference": "https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members\nhttps://en.wikipedia.org/wiki/Naming_convention_(programming)#C#",
     "remediation": "Change name according to the naming convention",
     "total": "Number of private fields",
     "alternativeName": "Private Fields naming convention - case and character set control",

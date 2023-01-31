@@ -50,7 +50,7 @@
         "name": "Ensure you have secured your cookie by enabling 'Secure' attribute",
         "href": "AIP/quality-rules/8240",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -163,16 +163,6 @@
             "C#",
             "JEE",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1020018,
-        "name": "Make sure that you do not use Web SQL databases",
-        "href": "AIP/quality-rules/1020018",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
         ]
     },
     {
@@ -449,8 +439,8 @@
         "id": 1022000,
         "name": "Ensure to use an advanced encryption algorithm and prefer avoiding DES, 3DES",
         "href": "AIP/quality-rules/1022000",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -493,6 +483,30 @@
         "severity": 30,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1025016,
+        "name": "Ensure you have set the HttpOnly flag for cookies",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025030,
+        "name": "Ensure you don't have hard-coded JWT secret keys in your source code",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -706,17 +720,6 @@
         "href": "AIP/quality-rules/1043012",
         "critical": true,
         "severity": 20,
-        "technologyNames": [
-            "ASP.NET",
-            "C#"
-        ]
-    },
-    {
-        "id": 1043020,
-        "name": "Ensure you have reviewed the web config file and update the value of debug property to false",
-        "href": "AIP/quality-rules/1043020",
-        "critical": false,
-        "severity": 10,
         "technologyNames": [
             "ASP.NET",
             "C#"

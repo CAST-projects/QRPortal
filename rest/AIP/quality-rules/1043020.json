@@ -48,23 +48,23 @@
     ],
     "technicalCriteria": [
         {
-            "id": 1062306,
-            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062306",
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
             "weight": 5,
             "critical": false
         },
         {
-            "id": 1062323,
-            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062323",
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
             "weight": 5,
             "critical": false
         },
         {
-            "id": 1062342,
-            "name": "OWASP-2021-A02 - Cryptographic Failures",
-            "href": "AIP/technical-criteria/1062342",
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
             "weight": 5,
             "critical": false
         },
@@ -90,6 +90,18 @@
     ],
     "qualityStandards": [
         {
+            "id": "CWE-11",
+            "name": "ASP.NET Misconfiguration: Creating Debug Binary",
+            "href": "AIP/quality-standards/CWE/items/CWE-11",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-215",
+            "name": "Insertion of Sensitive Information Into Debugging Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-215",
+            "standard": "CWE"
+        },
+        {
             "id": "CWE-489",
             "name": "Active Debug Code",
             "href": "AIP/quality-standards/CWE/items/CWE-489",
@@ -98,25 +110,37 @@
         {
             "id": "NIST-AC-3",
             "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
             "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
             "standard": "NIST-SP-800-53R4"
         },
         {
-            "id": "A3-2017",
-            "name": "Sensitive Data Exposure",
-            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
             "standard": "OWASP"
         },
         {
-            "id": "A6-2013",
-            "name": "Sensitive Data Exposure",
-            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
             "standard": "OWASP"
         },
         {
-            "id": "A02-2021",
-            "name": "Cryptographic Failures",
-            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
             "standard": "OWASP"
         },
         {

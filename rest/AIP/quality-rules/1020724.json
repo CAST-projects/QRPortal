@@ -21,6 +21,16 @@
     "alternativeName": "Ensure enabling sanitize option for marked component to avoid any security hole",
     "businessCriteria": [
         {
+            "id": 1062300,
+            "name": "OWASP-2013-Index",
+            "href": "AIP/business-criteria/1062300"
+        },
+        {
+            "id": 1062320,
+            "name": "OWASP-2017-Index",
+            "href": "AIP/business-criteria/1062320"
+        },
+        {
             "id": 1062340,
             "name": "OWASP-2021-Index",
             "href": "AIP/business-criteria/1062340"
@@ -37,6 +47,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",

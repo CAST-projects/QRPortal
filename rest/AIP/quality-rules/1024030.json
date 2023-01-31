@@ -20,6 +20,11 @@
     "alternativeName": "Prefer using BiometricPrompt API instead of FingerprintManager as the latter is deprecated",
     "businessCriteria": [
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 1062300,
             "name": "OWASP-2013-Index",
             "href": "AIP/business-criteria/1062300"
@@ -46,6 +51,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062309,
             "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
@@ -94,6 +106,12 @@
             "name": "Use of Obsolete Function",
             "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
             "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-IA-9",

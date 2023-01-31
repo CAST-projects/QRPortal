@@ -1,0 +1,124 @@
+{
+    "id": 2121112,
+    "name": "Ensure Back-end REST APIs are all accessed by Front-end Web App functions",
+    "href": "AIP/quality-templates/2121112",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "isTemplate": true,
+    "download": "https://github.com/CAST-Extend/Quality-Rule-Templates/raw/main/Ensure%20Back-end%20REST%20APIs%20are%20all%20accessed%20by%20Web%20App%20Front-end%20functions.CASTRule",
+    "description": "The rule will raise a violation if it finds any APIs exposed on the server that are not getting called by any call-to-web-service Web App made with AngularJS, Angular, Javascript, Typescript, jQuery, Vue.js.",
+    "output": "All Exposed API not called",
+    "rationale": "APIs tend to expose more endpoints than traditional web applications, making proper and updated documentation highly important. Proper hosts and deployed API version inventory also play an important role to mitigate issues such as deprecated API versions and exposed debug endpoints.\nWhen there is a presence of exposed APIs which are in-fact not getting called by any call-to-web-services there is a chance that some of these APIs are actually meant to be retired, belong to a deprecated version, or are used for debugging. This can lead to an attacker being able to access data/information that is no longer intended to be accessed.\n\nOld API versions are usually unpatched and are an easy way to compromise systems without having to fight state-of-the-art security mechanisms, which might be in place to protect the most recent API versions.",
+    "reference": "https://owasp.org/www-project-api-security/\nhttps://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa9-improper-assets-management.md",
+    "remediation": "Review all the APIs that are not called by web-service-callers",
+    "total": "All Exposed API",
+    "alternativeName": "Ensure Back-end REST APIs are all accessed by Web App Front-end functions.CASTRule",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": -6,
+            "name": "NO LABEL",
+            "href": "AIP/technologies/-6"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-20",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-561",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1059",
+            "name": "Incomplete Documentation",
+            "href": "AIP/quality-standards/CWE/items/CWE-1059",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-561",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-561",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "API9-2019",
+            "name": "Improper Assets Management",
+            "href": "AIP/quality-standards/OWASP/items/API9-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.2.1"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

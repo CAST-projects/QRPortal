@@ -17,6 +17,11 @@
     "alternativeName": "Avoid unchecked return code (SQLCODE) after EXEC SQL query",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "GreenIT-Index",
             "href": "AIP/business-criteria/20140522"
@@ -49,9 +54,30 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1062146,
+            "name": "ASCRM-CWE-252-data - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "href": "AIP/technical-criteria/1062146",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061035,
+            "name": "CWE-252 - Unchecked Return Value",
+            "href": "AIP/technical-criteria/1061035",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1061041,
             "name": "CWE-391 - Unchecked Error Condition",
             "href": "AIP/technical-criteria/1061041",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061087,
+            "name": "CWE-778 - Insufficient Logging",
+            "href": "AIP/technical-criteria/1061087",
             "weight": 5,
             "critical": false
         },
@@ -97,6 +123,12 @@
             "standard": "CWE"
         },
         {
+            "id": "CWE-778",
+            "name": "Insufficient Logging",
+            "href": "AIP/quality-standards/CWE/items/CWE-778",
+            "standard": "CWE"
+        },
+        {
             "id": "CWE-252",
             "name": "Unchecked Return Value",
             "href": "AIP/quality-standards/ISO-5055/items/CWE-252",
@@ -107,6 +139,18 @@
             "name": "Unchecked Error Condition",
             "href": "AIP/quality-standards/ISO-5055/items/CWE-391",
             "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-778",
+            "name": "Insufficient Logging",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-778",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-11",
@@ -124,6 +168,12 @@
             "id": "CWE-391",
             "name": "Unchecked Error Condition",
             "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-391",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-778",
+            "name": "Insufficient Logging",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-778",
             "standard": "OMG-ASCQM"
         },
         {

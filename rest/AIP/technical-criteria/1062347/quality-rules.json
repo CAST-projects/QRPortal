@@ -42,6 +42,16 @@
         ]
     },
     {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
         "id": 1020098,
         "name": "Avoid creating cookie with overly broad path (Javascript)",
         "href": "AIP/quality-rules/1020098",
@@ -232,6 +242,30 @@
         ]
     },
     {
+        "id": 1025024,
+        "name": "Avoid disabling the expiration time validation of a JWT token",
+        "href": "AIP/quality-rules/1025024",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027022,
         "name": "Avoid using \"new Guid()\"",
         "href": "AIP/quality-rules/1027022",
@@ -370,17 +404,6 @@
         "id": 1043050,
         "name": "Avoid having long timeout for HttpCookie (> 5 mn)",
         "href": "AIP/quality-rules/1043050",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "ASP.NET",
-            "C#"
-        ]
-    },
-    {
-        "id": 1043052,
-        "name": "Ensure aspnet:UseLegacyFormsAuthenticationTicketCompatibility is set to true",
-        "href": "AIP/quality-rules/1043052",
         "critical": false,
         "weight": 5,
         "technologyNames": [

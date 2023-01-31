@@ -124,6 +124,16 @@
         ]
     },
     {
+        "id": 1024026,
+        "name": "Avoid using MODE_WORLD_READABLE and MODE_WORLD_WRITEABLE",
+        "href": "AIP/quality-rules/1024026",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1024028,
         "name": "Avoid using \"Android Protected Confirmation\" without User Confirmation",
         "href": "AIP/quality-rules/1024028",
@@ -158,16 +168,6 @@
         "id": 1040010,
         "name": "Always delete the cookies during the logout (Spring)",
         "href": "AIP/quality-rules/1040010",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040012,
-        "name": "HTTP user session must be invalidated during logout",
-        "href": "AIP/quality-rules/1040012",
         "critical": false,
         "weight": 5,
         "technologyNames": [
@@ -215,36 +215,6 @@
         ]
     },
     {
-        "id": 1042010,
-        "name": "Avoid using ParametersInterceptor with class parameter for Struts 2.3.16 (and older)",
-        "href": "AIP/quality-rules/1042010",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042022,
-        "name": "Avoid using CookieInterceptor with Struts 2.3.16 (and Older)",
-        "href": "AIP/quality-rules/1042022",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042026,
-        "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older",
-        "href": "AIP/quality-rules/1042026",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1043036,
         "name": "Avoid using Impersonate identity (ASP.NET)",
         "href": "AIP/quality-rules/1043036",
@@ -256,23 +226,13 @@
         ]
     },
     {
-        "id": 1055014,
-        "name": "Ensure that LAContext evaluatePolicy reply block is not empty (Swift)",
-        "href": "AIP/quality-rules/1055014",
+        "id": 1050032,
+        "name": "Ensure that LAContext evaluatePolicy: reply block success is checked (Objective-C)",
+        "href": "AIP/quality-rules/1050032",
         "critical": false,
         "weight": 5,
         "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055016,
-        "name": "Ensure that LAContext evaluatePolicy reply block success is checked (Swift)",
-        "href": "AIP/quality-rules/1055016",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Swift"
+            "Objective-C"
         ]
     },
     {

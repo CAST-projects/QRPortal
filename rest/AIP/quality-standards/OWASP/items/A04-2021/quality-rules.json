@@ -10,6 +10,16 @@
         ]
     },
     {
+        "id": 4612,
+        "name": "Avoid using native Methods (JNI)",
+        "href": "AIP/quality-rules/4612",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7190,
         "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
         "href": "AIP/quality-rules/7190",
@@ -65,16 +75,6 @@
         "id": 8038,
         "name": "Struts 2: Avoid Struts Validator field without Form Field",
         "href": "AIP/quality-rules/8038",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 8042,
-        "name": "Struts 2: Avoid unused validation form",
-        "href": "AIP/quality-rules/8042",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -138,13 +138,13 @@
         ]
     },
     {
-        "id": 1007264,
-        "name": "DEPRECATED: CWE-434: Avoid unrestricted file upload (PHP)",
-        "href": "AIP/quality-rules/1007264",
+        "id": 1020106,
+        "name": "Avoid hidden form fields to prevent parameter tampering (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020106",
         "critical": false,
         "severity": 10,
         "technologyNames": [
-            "PHP"
+            "HTML5"
         ]
     },
     {
@@ -178,9 +178,104 @@
         ]
     },
     {
+        "id": 1025032,
+        "name": "Avoid insecure parameters for PBKDF2 password encoder",
+        "href": "AIP/quality-rules/1025032",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025034,
+        "name": "Avoid insecure parameters for BCrypt password encoder",
+        "href": "AIP/quality-rules/1025034",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025036,
+        "name": "Avoid insecure parameters for Argon2 password encoder",
+        "href": "AIP/quality-rules/1025036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025038,
+        "name": "Avoid insecure parameters for SCrypt password encoder",
+        "href": "AIP/quality-rules/1025038",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025040,
+        "name": "Avoid external control of system or configuration setting",
+        "href": "AIP/quality-rules/1025040",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025042,
+        "name": "Avoid external control of system or configuration setting through API requests",
+        "href": "AIP/quality-rules/1025042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025054,
+        "name": "Avoid plaintext storage of password",
+        "href": "AIP/quality-rules/1025054",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027012,
         "name": "Avoid storing Non-Serializable Object as HttpSessionState attributes.",
         "href": "AIP/quality-rules/1027012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027100,
+        "name": "Avoid dangerous File Upload",
+        "href": "AIP/quality-rules/1027100",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -224,16 +319,6 @@
         "href": "AIP/quality-rules/1040018",
         "critical": true,
         "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042040,
-        "name": "Avoid using Struts URLValidator with version before 2.5.13",
-        "href": "AIP/quality-rules/1042040",
-        "critical": true,
-        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

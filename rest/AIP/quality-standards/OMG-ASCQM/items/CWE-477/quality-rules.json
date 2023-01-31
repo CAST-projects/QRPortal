@@ -140,6 +140,16 @@
         ]
     },
     {
+        "id": 1020018,
+        "name": "Avoid using Web SQL databases",
+        "href": "AIP/quality-rules/1020018",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020318,
         "name": "Avoid using jQuery deprecated methods",
         "href": "AIP/quality-rules/1020318",
@@ -153,6 +163,26 @@
         "id": 1020320,
         "name": "Avoid using jQuery $.cookie",
         "href": "AIP/quality-rules/1020320",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020600,
+        "name": "Avoid using namespace \"jQuery.sap.*\" as deprecated ( SAPUI5)",
+        "href": "AIP/quality-rules/1020600",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020602,
+        "name": "Avoid using \"sap.ui.model.odata.ODataModel\" as deprecated in version: SAPUI5 1.48",
+        "href": "AIP/quality-rules/1020602",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -193,6 +223,17 @@
         "id": 1027004,
         "name": "Avoid using deprecated XmlTextReader .NET API",
         "href": "AIP/quality-rules/1027004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027014,
+        "name": "Avoid using Thread API (Suspend\\Resume) to manage thread state",
+        "href": "AIP/quality-rules/1027014",
         "critical": false,
         "severity": 10,
         "technologyNames": [

@@ -3,7 +3,7 @@
     "name": "Never truncate data in MOVE statements",
     "href": "AIP/quality-rules/7688",
     "critical": true,
-    "severity": 20,
+    "severity": 30,
     "maxWeight": 9,
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for Cobol programs containing MOVE statements where data are truncated.\n\nData assignments are checked for MOVE and MOVE CORRESPONDING statements. \n\nDecimal part of numeric variables is not taken into account and these variables are considered like variables not having decimal part. \nThe rule will not detect violations related to decimal part and violations related to position:length accesses (in source variables and in target variables).",

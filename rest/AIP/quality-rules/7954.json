@@ -2,7 +2,7 @@
     "id": 7954,
     "name": "Avoid indirect String concatenation inside loops",
     "href": "AIP/quality-rules/7954",
-    "critical": false,
+    "critical": true,
     "severity": 30,
     "maxWeight": 7,
     "extension": {
@@ -62,13 +62,6 @@
             "critical": false
         },
         {
-            "id": 1061107,
-            "name": "CWE-1043 - Data Element Aggregating an Excessively Large Number of Non-Primitive Elements",
-            "href": "AIP/technical-criteria/1061107",
-            "weight": 5,
-            "critical": false
-        },
-        {
             "id": 1061113,
             "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
             "href": "AIP/technical-criteria/1061113",
@@ -80,7 +73,7 @@
             "name": "Efficiency - Expensive Calls in Loops",
             "href": "AIP/technical-criteria/66068",
             "weight": 7,
-            "critical": false
+            "critical": true
         }
     ],
     "technologies": [
@@ -126,9 +119,9 @@
         
     ],
     "thresholds": [
-        50.0,
-        90.0,
-        95.0,
-        99.0
+        98.0,
+        99.0,
+        99.5,
+        99.99
     ]
 }

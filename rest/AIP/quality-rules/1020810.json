@@ -13,7 +13,7 @@
     "description": "Angular includes a DomSanitizer help which prevents Cross Site Scripting Security bugs (XSS) by sanitizing values to be safe to use in the different DOM contexts. But a user can disable the built-in sanitization by calling bypassSecurityTrust... APIs. That's why using these method can introduce a security risk.\n\nthis rule checks that users cannot add unchecked HTML string. It helps detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "XSS flaws occur whenever an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.",
-    "reference": "CISQ OMG ASCSM-CWE-79, OWASP 2013 A3, 2017 A7 recommendations,  https://angular.io/api/platform-browser/DomSanitizer",
+    "reference": "https://angular.io/api/platform-browser/DomSanitizer\nhttps://angular.io/guide/security#trusting-safe-values",
     "remediation": "Avoid using the methods bypassSecurityTrustHtml, bypassSecurityTrustStyle, bypassSecurityTrustScript, bypassSecurityTrustUrl, bypassSecurityTrustResourceUrl .",
     "remediationSample": "@Component({ \n  selector: 'my-app', \n  template: ` \n    <div [innerHtml]=\"html\"></div> \n  `, \n}) \nexport class App { \n  constructor() { \n    this.html = \"<h1>DomSanitizer</h1><script>attackerCode()</script>\" \n  } \n}",
     "sample": "import {BrowserModule, DomSanitizer} from '@angular/platform-browser'\n@Component({ \n  selector: 'my-app', \n  template: ` \n     <div [innerHtml]=\"html\"></div> \n  `, \n}) \nexport class App { \n  constructor(private sanitizer: DomSanitizer) { \n    this.html = sanitizer.bypassSecurityTrustHtml('<h1>DomSanitizer</h1><script>ourSafeCode()</script>') ; \n  } \n}",
@@ -125,6 +125,12 @@
             "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
             "href": "AIP/quality-standards/ISO-5055/items/CWE-79",
             "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-10",

@@ -1,5 +1,27 @@
 [
     {
+        "id": 4702,
+        "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
+        "href": "AIP/quality-rules/4702",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8446,
+        "name": "Avoid URL redirection to untrusted site",
+        "href": "AIP/quality-rules/8446",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8516,
         "name": "Avoid URL redirection to untrusted site through API requests",
         "href": "AIP/quality-rules/8516",
@@ -102,6 +124,16 @@
         ]
     },
     {
+        "id": 1024026,
+        "name": "Avoid using MODE_WORLD_READABLE and MODE_WORLD_WRITEABLE",
+        "href": "AIP/quality-rules/1024026",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1024028,
         "name": "Avoid using \"Android Protected Confirmation\" without User Confirmation",
         "href": "AIP/quality-rules/1024028",
@@ -109,6 +141,42 @@
         "weight": 5,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1025004,
+        "name": "Avoid second order URL redirection to untrusted site",
+        "href": "AIP/quality-rules/1025004",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025044,
+        "name": "Avoid MVC injection",
+        "href": "AIP/quality-rules/1025044",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Avoid MVC injection through API requests",
+        "href": "AIP/quality-rules/1025046",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -172,29 +240,20 @@
         ]
     },
     {
-        "id": 1042010,
-        "name": "Avoid using ParametersInterceptor with class parameter for Struts 2.3.16 (and older)",
-        "href": "AIP/quality-rules/1042010",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042022,
-        "name": "Avoid using CookieInterceptor with Struts 2.3.16 (and Older)",
-        "href": "AIP/quality-rules/1042022",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1043044,
         "name": "Avoid disabling the XSRF/CSRF Protection (ASP.NET MVC)",
         "href": "AIP/quality-rules/1043044",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043052,
+        "name": "Ensure aspnet:UseLegacyFormsAuthenticationTicketCompatibility is set to true",
+        "href": "AIP/quality-rules/1043052",
         "critical": false,
         "weight": 5,
         "technologyNames": [

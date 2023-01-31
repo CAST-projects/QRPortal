@@ -3,7 +3,7 @@
     "name": "Avoid GOTO jumps out of PERFORM range",
     "href": "AIP/quality-rules/7274",
     "critical": false,
-    "severity": 10,
+    "severity": 30,
     "maxWeight": 8,
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for Cobol Programs containing sections or paragraphs that are called by PERFORM statements and that contain a GO TO statement to another section or paragraph that is not in the scope of the initial PERFORM.\n\nThe following situations are considered:\n- The calling section (the GO TO is not in a paragraph but directly in the section) does not contain the called paragraph\n- If the GO TO is in a paragraph belonging to a section called by PERFORM, then the called paragraph does not belong to this section\n- If the calling paragraph belongs to a PERFORM THRU range, then the called paragraph does not belong to this range",

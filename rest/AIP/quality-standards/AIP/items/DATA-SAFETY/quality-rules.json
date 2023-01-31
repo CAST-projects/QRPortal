@@ -10,6 +10,16 @@
         ]
     },
     {
+        "id": 5072,
+        "name": "Avoid DISPLAY ... UPON CONSOLE",
+        "href": "AIP/quality-rules/5072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
         "id": 8044,
         "name": "Avoid log forging",
         "href": "AIP/quality-rules/8044",
@@ -38,7 +48,7 @@
         "name": "Avoid using unsecured cookie",
         "href": "AIP/quality-rules/8240",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -122,11 +132,31 @@
         ]
     },
     {
+        "id": 1020614,
+        "name": "Prefer using sap.base.Log Instead of console.log (SAPUI5)",
+        "href": "AIP/quality-rules/1020614",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020728,
         "name": "Avoid creating cookie without setting httpOnly option (Node.js)",
         "href": "AIP/quality-rules/1020728",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020804,
+        "name": "Avoid using console logging ",
+        "href": "AIP/quality-rules/1020804",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -142,6 +172,30 @@
         ]
     },
     {
+        "id": 1025044,
+        "name": "Avoid MVC injection",
+        "href": "AIP/quality-rules/1025044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Avoid MVC injection through API requests",
+        "href": "AIP/quality-rules/1025046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027046,
         "name": "Avoid storing passwords in Comments",
         "href": "AIP/quality-rules/1027046",
@@ -154,7 +208,7 @@
     },
     {
         "id": 1027082,
-        "name": "Avoid using console logging",
+        "name": "Avoid using console logging (.Net)",
         "href": "AIP/quality-rules/1027082",
         "critical": false,
         "severity": 10,
@@ -164,11 +218,31 @@
         ]
     },
     {
+        "id": 1030002,
+        "name": "Avoid using \"Throwable.printStackTrace()\" with no argument (Kotlin)",
+        "href": "AIP/quality-rules/1030002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
         "id": 1040014,
         "name": "Avoid using Spring Security's debug mode",
         "href": "AIP/quality-rules/1040014",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040024,
+        "name": "Spring Boot Shutdown Actuator Endpoint must be secured from unauthenticated access.",
+        "href": "AIP/quality-rules/1040024",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -209,6 +283,28 @@
         "id": 1043034,
         "name": "Avoid having applications with the tracing activated in the web config file",
         "href": "AIP/quality-rules/1043034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043038,
+        "name": "Avoid having applications with the tracing activated in the source code",
+        "href": "AIP/quality-rules/1043038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043078,
+        "name": "Avoid debug binaries that include detailed debug information",
+        "href": "AIP/quality-rules/1043078",
         "critical": false,
         "severity": 10,
         "technologyNames": [

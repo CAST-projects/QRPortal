@@ -1,10 +1,30 @@
 [
     {
+        "id": 8220,
+        "name": "Prefer not using deprecated methods, constructors, fields, type or packages",
+        "href": "AIP/quality-rules/8220",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1020018,
         "name": "Make sure that you do not use Web SQL databases",
         "href": "AIP/quality-rules/1020018",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020318,
+        "name": "Ensure you don't use officially jQuery deprecated methods",
+        "href": "AIP/quality-rules/1020318",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -330,6 +350,16 @@
         ]
     },
     {
+        "id": 1024000,
+        "name": "Prefer using FrameLayout, RelativeLayout or CustomLayout in place of AbsoluteLayout",
+        "href": "AIP/quality-rules/1024000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1024030,
         "name": "Prefer using BiometricPrompt API instead of FingerprintManager as the latter is deprecated",
         "href": "AIP/quality-rules/1024030",
@@ -519,6 +549,16 @@
         "severity": 30,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1101088,
+        "name": "Ensure that you use CLOB, NCLOB or BLOB datatypes in tables instead of LONG or LONG RAW as the latter are deprecated",
+        "href": "AIP/quality-rules/1101088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
         ]
     },
     {

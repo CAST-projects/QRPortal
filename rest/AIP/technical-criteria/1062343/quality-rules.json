@@ -10,6 +10,16 @@
         ]
     },
     {
+        "id": 7380,
+        "name": "Struts 1: Avoid unused validation form",
+        "href": "AIP/quality-rules/7380",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7448,
         "name": "Always validate user input with Request variables",
         "href": "AIP/quality-rules/7448",
@@ -119,6 +129,16 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 8118,
+        "name": "Avoid using the RFC_ABAP_INSTALL_AND_RUN function",
+        "href": "AIP/quality-rules/8118",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {
@@ -548,6 +568,16 @@
         ]
     },
     {
+        "id": 8556,
+        "name": "'XML GENERATE' should be used with 'WITH ENCODING'",
+        "href": "AIP/quality-rules/8556",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
         "id": 1007156,
         "name": "Avoid using eval expressions (PHP)",
         "href": "AIP/quality-rules/1007156",
@@ -858,6 +888,16 @@
         ]
     },
     {
+        "id": 1020108,
+        "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020108",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020454,
         "name": "Avoid using React dangerouslySetInnerHTML",
         "href": "AIP/quality-rules/1020454",
@@ -1048,16 +1088,6 @@
         ]
     },
     {
-        "id": 1020878,
-        "name": "Ensure the express X-XSS-Protection header is enabled (TypeScript)",
-        "href": "AIP/quality-rules/1020878",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1020926,
         "name": "Avoid string interpolations to prevent SQL injections (TypeScript)",
         "href": "AIP/quality-rules/1020926",
@@ -1098,6 +1128,78 @@
         ]
     },
     {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025002,
+        "name": "Avoid second order XPath injection",
+        "href": "AIP/quality-rules/1025002",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025010,
+        "name": "Avoid second order LDAP injection",
+        "href": "AIP/quality-rules/1025010",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025018,
+        "name": "Avoid cookie injection",
+        "href": "AIP/quality-rules/1025018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025020,
+        "name": "Avoid data filter injection",
+        "href": "AIP/quality-rules/1025020",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025022,
+        "name": "Avoid data filter injection through API requests",
+        "href": "AIP/quality-rules/1025022",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027026,
         "name": "Avoid Connection String Parameter Pollution",
         "href": "AIP/quality-rules/1027026",
@@ -1122,36 +1224,6 @@
         "id": 1042024,
         "name": "Avoid Unescaped User-controlled Input attribute in Struts 1.x and 2.x",
         "href": "AIP/quality-rules/1042024",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042026,
-        "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older",
-        "href": "AIP/quality-rules/1042026",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042028,
-        "name": "Avoid activating alwaysSelectFullNamespace when actions configured without namespace or with a wildcard namespace for Struts pre 2.3.34 and pre 2.5.1",
-        "href": "AIP/quality-rules/1042028",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042046,
-        "name": "Avoid Using Dynamic Method Invocation for Apache Struts 2.x",
-        "href": "AIP/quality-rules/1042046",
         "critical": false,
         "weight": 5,
         "technologyNames": [

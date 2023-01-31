@@ -1,0 +1,179 @@
+{
+    "id": 1025020,
+    "name": "Avoid data filter injection",
+    "href": "AIP/quality-rules/1025020",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Call stack from user input source down to the target method",
+    "description": "This metric uses CAST data-flow engine to detect a call path where input data from the user is sent to a data filter expression without prior validation and sanitization.",
+    "output": "List all methods that miss calling the required input validation calls\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
+    "rationale": "The software constructs all or part of a data filter expression via user-controllable inputs. These inputs are not neutralized or are incorrectly neutralized. As a consequence, the data filter expression command may be completely altered.",
+    "reference": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor\nhttps://cwe.mitre.org/data/definitions/200.html\n\nDataView.RowFilter Property\nhttps://docs.microsoft.com/en-us/dotnet/api/system.data.dataview.rowfilter",
+    "remediation": "Assume all input is malicious. \nAvoid using inputs. If it is not possible, use an \"accept known good\" input validation strategy, i.e., use stringent white-lists that limit the character set based on the expected value of the parameter in the request. This will indirectly limit the scope of an attack.",
+    "remediationSample": "private DataView FilterDataView(DataTable dv, string inputFilter)\n{\n    var dv = new DataView(dt);\n    dv.RowFilter = \"Col LIKE '%\" + SanitizeForRowFiler(inputFilter) + \"%'\";\n    return dv;\n}\n\nprivate string SanitizeForRowFiler(string string inputFilter)\n{\n    // Note: take care of special characters, not just the quote:\n    // ' \" % & # \\ / | ^ ~ = > < + - * ( ) [ ]\n    return inputFilter.Replace(\"'\", \"\");\n}",
+    "sample": "private DataView FilverDataView(DataTable dv, string inputFilter)\n{\n    var dv = new DataView(dt);\n    dv.RowFilter = \"Col LIKE '%\" + inputFilter + \"%'\"; // Possible injection\n    return dv;\n}",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure your application does not run data filter expressions without sanitization",
+    "businessCriteria": [
+        {
+            "id": 1062300,
+            "name": "OWASP-2013-Index",
+            "href": "AIP/business-criteria/1062300"
+        },
+        {
+            "id": 1062320,
+            "name": "OWASP-2017-Index",
+            "href": "AIP/business-criteria/1062320"
+        },
+        {
+            "id": 1062340,
+            "name": "OWASP-2021-Index",
+            "href": "AIP/business-criteria/1062340"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-93",
+            "name": "Improper Neutralization of CRLF Sequences ('CRLF Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-93",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-113",
+            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Response Splitting')",
+            "href": "AIP/quality-standards/CWE/items/CWE-113",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-200",
+            "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+            "href": "AIP/quality-standards/CWE/items/CWE-200",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222609",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

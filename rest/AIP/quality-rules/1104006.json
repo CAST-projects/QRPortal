@@ -1,0 +1,66 @@
+{
+    "id": 1104006,
+    "name": "CDS view association name should be defined according to the naming convention (S4/HANA)",
+    "href": "AIP/quality-rules/1104006",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This rule reports CDS views using ASSOCIATION without defining the name \nand CDS views using ASSOCIATION defining the name not compliant with Association naming convention.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Defines the name _assoc of an association defined using ASSOCIATION of a CDS view. If no name is defined explicitly using AS, _assoc is set implicitly to the name of the target data source. \nAssociation names should start with _.",
+    "reference": "https://blogs.sap.com/2019/10/09/abap-cds-views-development-guidelines-and-naming-conventions/\nhttps://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abencds_f1_association.htm",
+    "remediation": "Association name should start with _.",
+    "remediationSample": "define view sales_order_invoice_header as\n  select from snwd_so_inv_head\n         association [1..1] to snwd_bpa as _buyer\n           on $projection.buyer_guid = _buyer.node_key\n         association [1..*] to snwd_so_inv_item as _invoice_items\n           on $projection.node_key = _invoice_items.parent_key\n         { key snwd_so_inv_head.node_key,      //used in assoc _invoice_items\n               snwd_so_inv_head.buyer_guid,    //used in assoc _buyer\n               _buyer.bp_id as buyer_id,       //from assoc _buyer\n               snwd_so_inv_head.payment_status,\n              @Semantics.currencyCode\n               snwd_so_inv_head.currency_code,\n              @Semantics.amount.currencyCode: 'currency_code'\n               snwd_so_inv_head.gross_amount,\n               _invoice_items                  //publish assoc _invoice_items\n         }\n          where _buyer.bp_role = '001';          //usage of assoc buyer",
+    "sample": "buyer name does not start with \"_\"\n----------------------------------\ndefine view sales_order_invoice_header as\n  select from snwd_so_inv_head\n         association [1..1] to snwd_bpa as buyer\n           on $projection.buyer_guid = buyer.node_key\n         { key snwd_so_inv_head.node_key,      //used in assoc _invoice_items\n               snwd_so_inv_head.buyer_guid,    //used in assoc _buyer\n               buyer.bp_id as buyer_id,       //from assoc _buyer\n               snwd_so_inv_head.payment_status,\n              @Semantics.currencyCode\n               snwd_so_inv_head.currency_code,\n              @Semantics.amount.currencyCode: 'currency_code'\n               snwd_so_inv_head.gross_amount\n         }\n          where buyer.bp_role = '001';buyer name does not start with \"_\"\n\n----------------------------------\nAssociation has no name\n----------------------------------\ndefine view sales_order_invoice_header as\n  select from snwd_so_inv_head\n         association [1..1] to snwd_bpa\n           on $projection.buyer_guid = buyer.node_key\n         { key snwd_so_inv_head.node_key,      //used in assoc _invoice_items\n               snwd_so_inv_head.buyer_guid,    //used in assoc _buyer\n               buyer.bp_id as buyer_id,       //from assoc _buyer\n               snwd_so_inv_head.payment_status,\n              @Semantics.currencyCode\n               snwd_so_inv_head.currency_code,\n              @Semantics.amount.currencyCode: 'currency_code'\n               snwd_so_inv_head.gross_amount\n         }",
+    "total": "Number of CDS views",
+    "alternativeName": "CDS view association name should be defined according to the naming convention (S4/HANA)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -20,
+            "name": "SAP SQL",
+            "href": "AIP/technologies/-20"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -10,6 +10,16 @@
         ]
     },
     {
+        "id": 5072,
+        "name": "Avoid DISPLAY ... UPON CONSOLE",
+        "href": "AIP/quality-rules/5072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
         "id": 7524,
         "name": "Avoid using BREAK or BREAK-POINT statement",
         "href": "AIP/quality-rules/7524",
@@ -70,7 +80,7 @@
         "name": "Avoid using unsecured cookie",
         "href": "AIP/quality-rules/8240",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -273,16 +283,6 @@
         "severity": 10,
         "technologyNames": [
             "WCF"
-        ]
-    },
-    {
-        "id": 1020018,
-        "name": "Avoid using Web SQL databases",
-        "href": "AIP/quality-rules/1020018",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
         ]
     },
     {
@@ -599,8 +599,8 @@
         "id": 1022000,
         "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
         "href": "AIP/quality-rules/1022000",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -646,6 +646,30 @@
         ]
     },
     {
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027010,
         "name": "Avoid weak encryption providing insufficient key size (.NET)",
         "href": "AIP/quality-rules/1027010",
@@ -680,7 +704,7 @@
     },
     {
         "id": 1027082,
-        "name": "Avoid using console logging",
+        "name": "Avoid using console logging (.Net)",
         "href": "AIP/quality-rules/1027082",
         "critical": false,
         "severity": 10,
@@ -896,17 +920,6 @@
         "href": "AIP/quality-rules/1043012",
         "critical": true,
         "severity": 20,
-        "technologyNames": [
-            "ASP.NET",
-            "C#"
-        ]
-    },
-    {
-        "id": 1043020,
-        "name": "Avoid having applications with the debug mode activated",
-        "href": "AIP/quality-rules/1043020",
-        "critical": false,
-        "severity": 10,
         "technologyNames": [
             "ASP.NET",
             "C#"

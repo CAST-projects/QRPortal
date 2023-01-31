@@ -17,6 +17,31 @@
     "alternativeName": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 1062300,
+            "name": "OWASP-2013-Index",
+            "href": "AIP/business-criteria/1062300"
+        },
+        {
+            "id": 1062320,
+            "name": "OWASP-2017-Index",
+            "href": "AIP/business-criteria/1062320"
+        },
+        {
+            "id": 1062340,
+            "name": "OWASP-2021-Index",
+            "href": "AIP/business-criteria/1062340"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -28,6 +53,41 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062192,
+            "name": "ASCSM-CWE-798 - Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/technical-criteria/1062192",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061093,
+            "name": "CWE-798 - Use of Hard-coded Credentials",
+            "href": "AIP/technical-criteria/1061093",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062347,
+            "name": "OWASP-2021-A07 - Identification and Authentication Failures",
+            "href": "AIP/technical-criteria/1062347",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",
@@ -44,7 +104,66 @@
         }
     ],
     "qualityStandards": [
-        
+        {
+            "id": "ASCSM-CWE-798",
+            "name": "Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-798",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/CWE/items/CWE-798",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-798",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-798",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A07-2021",
+            "name": "Identification and Authentication Failures",
+            "href": "AIP/quality-standards/OWASP/items/A07-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222642",
+            "name": "The application must not contain embedded authentication data.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222642",
+            "standard": "STIG-V5"
+        }
     ],
     "parameters": [
         

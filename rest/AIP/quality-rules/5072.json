@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/5072",
     "critical": false,
     "severity": 10,
-    "maxWeight": 3,
+    "maxWeight": 5,
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for COBOL programs using the DISPLAY statements with the \"UPON CONSOLE\" addition.",
     "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - DISPLAY UPON CONSOLE statement",
@@ -19,6 +19,21 @@
             "id": 20140522,
             "name": "GreenIT-Index",
             "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062300,
+            "name": "OWASP-2013-Index",
+            "href": "AIP/business-criteria/1062300"
+        },
+        {
+            "id": 1062320,
+            "name": "OWASP-2017-Index",
+            "href": "AIP/business-criteria/1062320"
+        },
+        {
+            "id": 1062340,
+            "name": "OWASP-2021-Index",
+            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 66031,
@@ -37,6 +52,27 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",
@@ -60,10 +96,40 @@
             "standard": "CWE"
         },
         {
+            "id": "CWE-497",
+            "name": "Exposure of Sensitive System Information to an Unauthorized Control Sphere",
+            "href": "AIP/quality-standards/CWE/items/CWE-497",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
             "id": "NIST-AC-3",
             "name": "Access Enforcement",
             "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
             "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
         },
         {
             "id": "PCI-Requirement-6.3.1",

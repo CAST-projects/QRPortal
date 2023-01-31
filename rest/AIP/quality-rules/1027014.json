@@ -25,6 +25,11 @@
             "href": "AIP/business-criteria/20140522"
         },
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 60013,
             "name": "Robustness",
             "href": "AIP/business-criteria/60013"
@@ -36,6 +41,27 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061076,
+            "name": "CWE-667 - Improper Locking",
+            "href": "AIP/technical-criteria/1061076",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061101,
+            "name": "CWE-833 - Deadlock",
+            "href": "AIP/technical-criteria/1061101",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",
@@ -57,7 +83,78 @@
         }
     ],
     "qualityStandards": [
-        
+        {
+            "id": "ASCSM-CWE-667",
+            "name": "Shared Resource Improper Locking",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-667",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-667",
+            "name": "Improper Locking",
+            "href": "AIP/quality-standards/CWE/items/CWE-667",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-833",
+            "name": "Deadlock",
+            "href": "AIP/quality-standards/CWE/items/CWE-833",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-667",
+            "name": "Improper Locking",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-667",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-833",
+            "name": "Deadlock",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-833",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-667",
+            "name": "Improper Locking",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-667",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-833",
+            "name": "Deadlock",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-833",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor- supplied security patches. Install critical security patches within ...",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor- supplied security patches. Install critical security patches within ...",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        }
     ],
     "parameters": [
         

@@ -16,6 +16,11 @@
     "alternativeName": "Avoid untested Return Code variables after ALLOCATE in Functions (FORTRAN)",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "GreenIT-Index",
             "href": "AIP/business-criteria/20140522"
@@ -42,6 +47,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062147,
+            "name": "ASCRM-CWE-252-resource - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Platform Resource",
+            "href": "AIP/technical-criteria/1062147",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062178,
+            "name": "ASCSM-CWE-252-resource - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Platform Resource",
+            "href": "AIP/technical-criteria/1062178",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1061035,
             "name": "CWE-252 - Unchecked Return Value",
@@ -88,6 +107,12 @@
             "name": "Unchecked Return Value",
             "href": "AIP/quality-standards/ISO-5055/items/CWE-252",
             "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SI-11",

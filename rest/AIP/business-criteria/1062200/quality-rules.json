@@ -144,7 +144,7 @@
         "name": "File descriptor block must be defined with 0 record",
         "href": "AIP/quality-rules/7366",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -227,6 +227,16 @@
         ]
     },
     {
+        "id": 7482,
+        "name": "Do not use Cartesian products in Universe properties",
+        "href": "AIP/quality-rules/7482",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Business Object"
+        ]
+    },
+    {
         "id": 7548,
         "name": "Never use incompatible statements with the CICS environment",
         "href": "AIP/quality-rules/7548",
@@ -301,7 +311,7 @@
         "name": "Never truncate data in MOVE statements",
         "href": "AIP/quality-rules/7688",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "Cobol"
         ]
@@ -536,11 +546,41 @@
         ]
     },
     {
+        "id": 1101000,
+        "name": "Never use SQL queries with a cartesian product (SQL)",
+        "href": "AIP/quality-rules/1101000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101002,
+        "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
+        "href": "AIP/quality-rules/1101002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
         "id": 1101004,
         "name": "Avoid non-indexed SQL queries",
         "href": "AIP/quality-rules/1101004",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101006,
+        "name": "Avoid non-indexed XXL SQL queries",
+        "href": "AIP/quality-rules/1101006",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
         ]
@@ -573,6 +613,17 @@
         "severity": 10,
         "technologyNames": [
             "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101018,
+        "name": "Avoid using the GROUP BY clause",
+        "href": "AIP/quality-rules/1101018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "SQL"
         ]
     },
     {

@@ -1207,7 +1207,7 @@
     },
     {
         "id": 1027018,
-        "name": "Avoid throwing exceptions in finally block",
+        "name": "Avoid throwing exceptions from finally block",
         "href": "AIP/quality-rules/1027018",
         "critical": false,
         "severity": 10,
@@ -1231,6 +1231,17 @@
         "id": 1027036,
         "name": "Avoid rethrowing exception explicitly",
         "href": "AIP/quality-rules/1027036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027048,
+        "name": "Avoid returning null from non-async Task/Task<T> method",
+        "href": "AIP/quality-rules/1027048",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -1275,6 +1286,17 @@
         "id": 1027088,
         "name": "Avoid non-public custom exception types",
         "href": "AIP/quality-rules/1027088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -1509,7 +1531,7 @@
     },
     {
         "id": 1101052,
-        "name": "Avoid using WHEN OTHERS without exception management (SQL)",
+        "name": "Use WHEN OTHERS in exception management (SQL)",
         "href": "AIP/quality-rules/1101052",
         "critical": true,
         "severity": 20,

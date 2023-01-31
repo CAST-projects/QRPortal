@@ -2,8 +2,8 @@
     "id": 1022000,
     "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
     "href": "AIP/quality-rules/1022000",
-    "critical": false,
-    "severity": 10,
+    "critical": true,
+    "severity": 20,
     "maxWeight": 9,
     "extension": {
         "name": "com.castsoftware.jee",
@@ -73,7 +73,7 @@
             "name": "Secure Coding - Weak Security Features",
             "href": "AIP/technical-criteria/66064",
             "weight": 9,
-            "critical": false
+            "critical": true
         }
     ],
     "technologies": [
@@ -95,6 +95,12 @@
             "name": "Use of a Broken or Risky Cryptographic Algorithm",
             "href": "AIP/quality-standards/CWE/items/CWE-327",
             "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
         },
         {
             "id": "NIST-SC-12",

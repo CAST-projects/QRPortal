@@ -1,0 +1,246 @@
+{
+    "id": 1025030,
+    "name": "Avoid hard-coded JWT secret keys",
+    "href": "AIP/quality-rules/1025030",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Call stack from hard-coded string down to the target method",
+    "description": "This rule will detect a call path where a hard-coded JWT secret key is sent to a method.",
+    "output": "Lists all methods that call target methods, passing at least one hard-coded JWT secret key parameter. \n\nIt provides the following information : \n - Method full name. \n - Call stack with bookmarks from hard-coded JWT secret key literal down to the target method.",
+    "rationale": "JWT secret keys should not be stored in the source code but in a secure environment. Indeed, if a user is able to access to the source code, he will be able to create JWTs accepted by the application.",
+    "reference": "CWE-798: Use of hard-coded credentials\nhttps://cwe.mitre.org/data/definitions/798.html",
+    "remediation": "Do not store JWT secret keys in the source code.",
+    "remediationSample": "String jwtSecretKeyBase64 = System.getenv(\"jwt_secret_key_64\");\nbyte[] keyBytes = Decoders.BASE64.decode(jwtSecretKeyBase64);\nKey key = Keys.hmacShaKeyFor(keyBytes);",
+    "sample": "String base64Secret = \"OWZhYzExODNmZGMxZjVlOTdmZDdiYzgxYTM3NWZmMTI=\";\nbyte[] keyBytes = Decoders.BASE64.decode(base64Secret);\nKey key = Keys.hmacShaKeyFor(keyBytes);",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure you don't have hard-coded JWT secret keys in your source code",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 1062300,
+            "name": "OWASP-2013-Index",
+            "href": "AIP/business-criteria/1062300"
+        },
+        {
+            "id": 1062320,
+            "name": "OWASP-2017-Index",
+            "href": "AIP/business-criteria/1062320"
+        },
+        {
+            "id": 1062340,
+            "name": "OWASP-2021-Index",
+            "href": "AIP/business-criteria/1062340"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062192,
+            "name": "ASCSM-CWE-798 - Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/technical-criteria/1062192",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061037,
+            "name": "CWE-321 - Use of Hard-coded Cryptographic Key",
+            "href": "AIP/technical-criteria/1061037",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061093,
+            "name": "CWE-798 - Use of Hard-coded Credentials",
+            "href": "AIP/technical-criteria/1061093",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-798",
+            "name": "Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-798",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-321",
+            "name": "Use of Hard-coded Cryptographic Key",
+            "href": "AIP/quality-standards/CWE/items/CWE-321",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/CWE/items/CWE-798",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-321",
+            "name": "Use of Hard-coded Cryptographic Key",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-321",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-798",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-321",
+            "name": "Use of Hard-coded Cryptographic Key",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-321",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-798",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222642",
+            "name": "The application must not contain embedded authentication data.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222642",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

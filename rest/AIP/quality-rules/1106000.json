@@ -1,0 +1,57 @@
+{
+    "id": 1106000,
+    "name": "Ensure you don't have unsupported PL/SQL packages",
+    "href": "AIP/quality-rules/1106000",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if UTL_TCP, UTL_INADDR, DBMS_LDAP, DBMS_DEBUG, DBMS_DEBUG_JDWP, DBMS_DEBUG_JDWP_CUSTOM PL/SQL packages are used in Oracle Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Autonomous Database supports most of the features present in Oracle Database Enterprise Edition.\nHowever, to ensure the security and the performance of Autonomous Database, Some Oracle Database features, options, and packs are not supported in Autonomous Database like:\n- UTL_TCP\n- UTL_INADDR\n- DBMS_DEBUG\n- DBMS_DEBUG_JDWP\n- DBMS_DEBUG_JDWP_CUSTOM\n- DBMS_LDAP",
+    "reference": "https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbdg/index.html",
+    "remediation": "Check your code and if so, move the functionality on the client side (Java, other)",
+    "remediationSample": "Remove the stored procedure.",
+    "sample": "CREATE OR REPLACE PROCEDURE send_mail (sender    IN VARCHAR2,\n                                       recipient IN VARCHAR2, \n                                       message   IN VARCHAR2)\nIS\nBEGIN\n    mailhost   VARCHAR2(30) := 'mailhost.mydomain.com';\n    mail_conn := utl_tcp.open_connection(remote_host => mailhost,\n                                         remote_port => 25,\n                                         charset     => 'US7ASCII');\n    smtp_command('HELO ' || mailhost);\n    smtp_command('MAIL FROM: ' || sender);\n    smtp_command('RCPT TO: ' || recipient);\n    smtp_command('DATA', '354');\n    smtp_command(message);\n    smtp_command('QUIT', '221');\n    utl_tcp.close_connection(mail_conn);\nEXCEPTION\n    WHEN OTHERS THEN\n        -- Handle the error\nEND;\n/",
+    "total": "Number of Artifacts with SQL code",
+    "alternativeName": "Ensure you don't have unsupported PL/SQL packages",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61033,
+            "name": "Cloud Migration - Oracle Database to Oracle Cloud Database",
+            "href": "AIP/technical-criteria/61033",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

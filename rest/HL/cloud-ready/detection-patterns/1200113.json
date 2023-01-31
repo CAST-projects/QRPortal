@@ -1,0 +1,36 @@
+{
+    "id": 1200113,
+    "name": "Using uncommit read option UR in mainframes",
+    "href": "HL/cloud-ready/detection-patterns/1200113",
+    "contribution": {
+        "href": "HL/cloud-ready/contributions/2",
+        "name": "Booster"
+    },
+    "category": {
+        "href": "HL/cloud-ready/categories/8",
+        "name": "IBM Mainframes"
+    },
+    "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/2",
+                "name": "COBOL"
+            }
+        }
+    ],
+    "platformMigration": {
+        "criticality": {
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
+        },
+        "description": "The ISOLATION (UR) or uncommitted read option allows an application to read while acquiring few locks, at the risk of reading uncommitted data. UR isolation applies only to the following read-only operations: SELECT, SELECT INTO, or FETCH from a read-only result table. This is the commonly found isolation level in DB2 sql queries. Read uncommitted is supported in some Cloud-based relational databases such as Amazon RDS.",
+        "migrationImpacts": [
+            
+        ],
+        "reference": "http://ibmmainframes.com/about7843.html"
+    }
+}

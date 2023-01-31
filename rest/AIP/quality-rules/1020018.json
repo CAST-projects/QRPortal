@@ -30,6 +30,11 @@
             "href": "AIP/business-criteria/60012"
         },
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 1062300,
             "name": "OWASP-2013-Index",
             "href": "AIP/business-criteria/1062300"
@@ -64,9 +69,9 @@
             "critical": true
         },
         {
-            "id": 1062306,
-            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062306",
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
             "weight": 5,
             "critical": false
         },
@@ -78,23 +83,9 @@
             "critical": false
         },
         {
-            "id": 1062323,
-            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062323",
-            "weight": 5,
-            "critical": false
-        },
-        {
             "id": 1062329,
             "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
             "href": "AIP/technical-criteria/1062329",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062342,
-            "name": "OWASP-2021-A02 - Cryptographic Failures",
-            "href": "AIP/technical-criteria/1062342",
             "weight": 5,
             "critical": false
         },
@@ -115,16 +106,22 @@
     ],
     "qualityStandards": [
         {
-            "id": "A3-2017",
-            "name": "Sensitive Data Exposure",
-            "href": "AIP/quality-standards/OWASP/items/A3-2017",
-            "standard": "OWASP"
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
         },
         {
-            "id": "A6-2013",
-            "name": "Sensitive Data Exposure",
-            "href": "AIP/quality-standards/OWASP/items/A6-2013",
-            "standard": "OWASP"
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
         },
         {
             "id": "A9-2013",
@@ -139,15 +136,15 @@
             "standard": "OWASP"
         },
         {
-            "id": "A02-2021",
-            "name": "Cryptographic Failures",
-            "href": "AIP/quality-standards/OWASP/items/A02-2021",
-            "standard": "OWASP"
-        },
-        {
             "id": "A06-2021",
             "name": "Vulnerable and Outdated Components",
             "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
             "standard": "OWASP"
         },
         {

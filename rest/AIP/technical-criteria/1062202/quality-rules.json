@@ -147,6 +147,16 @@
         ]
     },
     {
+        "id": 7482,
+        "name": "Do not use Cartesian products in Universe properties",
+        "href": "AIP/quality-rules/7482",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Business Object"
+        ]
+    },
+    {
         "id": 7642,
         "name": "Avoid SQL queries on XXL tables not using the first column of a composite index in the WHERE clause",
         "href": "AIP/quality-rules/7642",
@@ -376,9 +386,39 @@
         ]
     },
     {
+        "id": 1101000,
+        "name": "Never use SQL queries with a cartesian product (SQL)",
+        "href": "AIP/quality-rules/1101000",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101002,
+        "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
+        "href": "AIP/quality-rules/1101002",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
         "id": 1101004,
         "name": "Avoid non-indexed SQL queries",
         "href": "AIP/quality-rules/1101004",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101006,
+        "name": "Avoid non-indexed XXL SQL queries",
+        "href": "AIP/quality-rules/1101006",
         "critical": false,
         "weight": 5,
         "technologyNames": [
@@ -413,6 +453,17 @@
         "weight": 5,
         "technologyNames": [
             "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101018,
+        "name": "Avoid using the GROUP BY clause",
+        "href": "AIP/quality-rules/1101018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ABAP",
+            "SQL"
         ]
     },
     {

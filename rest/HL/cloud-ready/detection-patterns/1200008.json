@@ -1,16 +1,66 @@
 {
     "id": 1200008,
-    "name": "Use of an unsecured data string",
+    "name": "Avoid launching OS-specific sub-processes from code",
     "href": "HL/cloud-ready/detection-patterns/1200008",
     "contribution": {
         "href": "HL/cloud-ready/contributions/1",
         "name": "Blocker"
     },
     "category": {
-        "href": "HL/cloud-ready/categories/14",
-        "name": "Security & User Authentication"
+        "href": "HL/cloud-ready/categories/7",
+        "name": "Execution Environment"
     },
     "scope": [
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/13",
+                "name": "Scala"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/14",
+                "name": "Clojure"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/8",
+                "name": "SWIFT"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/6",
+                "name": "PHP"
+            }
+        },
+        {
+            "platform": {
+                "href": "HL/cloud-ready/platforms/0",
+                "name": "Agnostic"
+            },
+            "technology": {
+                "href": "HL/cloud-ready/technologies/5",
+                "name": "Kotlin"
+            }
+        },
         {
             "platform": {
                 "href": "HL/cloud-ready/platforms/0",
@@ -24,20 +74,16 @@
     ],
     "platformMigration": {
         "criticality": {
-            "href": "HL/cloud-ready/criticality/30",
-            "name": "High"
+            "href": "HL/cloud-ready/criticality/10",
+            "name": "Low"
         },
-        "description": "This pattern verifies the presence in source code (Java, C#, VB/VB.net) of sensitive data strings:\n\n* String variables containing typical keywords like password, pwd, user, username, uid, auth, db, database, account\n* Strings containing a private key\n* String containing a certificate\n* String containing a JWT token",
+        "description": "Cloud/PaaS applications must be OS-agnostic as much as possible and should not rely on OS-specific features or processes, which may not be available on the Cloud environment as the underlying operating system (in this specific case, Windows) may change over time. Sub-processes that are executed from code are specific to an Operating System.",
         "migrationImpacts": [
-            {
-                "href": "HL/cloud-ready/migration-impacts/3",
-                "name": "Architecture"
-            },
             {
                 "href": "HL/cloud-ready/migration-impacts/1",
                 "name": "Code"
             }
         ],
-        "reference": "https://security.web.cern.ch/recommendations/en/password_alternatives.shtml\nhttps://www.appmarq.com/public/security,1020104,Avoid-hardcoded-passwords-Javascript"
+        "reference": "https://developer.ibm.com/articles/1404-brown/"
     }
 }

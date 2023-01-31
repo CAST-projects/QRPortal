@@ -73,7 +73,7 @@
     },
     {
         "id": 7442,
-        "name": "Prefer not using this within Constructor in multi-thread environment to avoid unpredictable behavior",
+        "name": "Prefer not using keyword 'this' within Constructor in multi-thread environment to avoid unpredictable behavior",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "severity": 20,
@@ -204,6 +204,18 @@
         ]
     },
     {
+        "id": 8108,
+        "name": "Ensure you have released your stream connection after an effective lifetime",
+        "href": "AIP/quality-rules/8108",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8158,
         "name": "Avoid thread creation for application running on application server",
         "href": "AIP/quality-rules/8158",
@@ -238,6 +250,16 @@
         "id": 1020730,
         "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
         "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
+        "href": "AIP/quality-rules/1020892",
         "critical": false,
         "severity": 10,
         "technologyNames": [

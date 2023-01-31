@@ -84,7 +84,7 @@
         "name": "Avoid using unsecured cookie",
         "href": "AIP/quality-rules/8240",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -185,16 +185,6 @@
         "id": 1020458,
         "name": "Avoid using unsecured cookie (React.js)",
         "href": "AIP/quality-rules/1020458",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020544,
-        "name": "Avoid disabling Strict Contextual Escaping (SCE) when created",
-        "href": "AIP/quality-rules/1020544",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -352,13 +342,14 @@
         ]
     },
     {
-        "id": 1027004,
-        "name": "Avoid using deprecated XmlTextReader .NET API",
-        "href": "AIP/quality-rules/1027004",
-        "critical": false,
-        "severity": 10,
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "C#",
+            "JEE",
             "VB.NET"
         ]
     },
@@ -532,6 +523,17 @@
         "href": "AIP/quality-rules/1043018",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043020,
+        "name": "Avoid having applications with the debug mode activated",
+        "href": "AIP/quality-rules/1043020",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "ASP.NET",
             "C#"

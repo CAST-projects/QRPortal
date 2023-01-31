@@ -100,16 +100,6 @@
         ]
     },
     {
-        "id": 1019006,
-        "name": "Avoid wrong suppressAuditFailure and serviceAuthorizationAuditLevel parameters when enabling WCF service security audit feature",
-        "href": "AIP/quality-rules/1019006",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "WCF"
-        ]
-    },
-    {
         "id": 1020552,
         "name": "Avoid enabling dangerous protocols in whitelist APIs",
         "href": "AIP/quality-rules/1020552",
@@ -240,6 +230,18 @@
         ]
     },
     {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027084,
         "name": "Avoid calling CoSetProxyBlanket and CoInitializeSecurity",
         "href": "AIP/quality-rules/1027084",
@@ -326,6 +328,17 @@
         "href": "AIP/quality-rules/1043018",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043020,
+        "name": "Avoid having applications with the debug mode activated",
+        "href": "AIP/quality-rules/1043020",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "ASP.NET",
             "C#"
@@ -436,6 +449,16 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1050040,
+        "name": "Avoid using SecTransform API",
+        "href": "AIP/quality-rules/1050040",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Objective-C"
         ]
     }
 ]
