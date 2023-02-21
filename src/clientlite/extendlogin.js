@@ -1,18 +1,11 @@
-sourcetree=
+extendlogin=
 {
-	initialize: function(originUrl)
+	initialize: function()
 	{
-		/* Setup a list of all available icon */
-		var availableIconIds = $("svg").find("symbol");
-		for(var i = 0; i<availableIconIds.length; i++) {
-			var availableElement = $(availableIconIds[i]);
-			var availableElementStr = availableElement.attr("id").substring(5)
-			constants.availableIconIds.push(availableElementStr);
-		}
+	},
 
-		ruledetails.displayNoSelection();
-
-		/* Get all root nodes */
+	requestLogin: function()
+	{
 		$.ajax({
 			type: 'GET',
 			url: constants.rootUrl + originUrl,
@@ -24,18 +17,13 @@ sourcetree=
 
 					var finalName = element["displayName"];
 
-					// ensure we capitalize the display name
 					if(!finalName)
 					{
 						tmpName = element["name"];
 						finalName = tmpName.charAt(0).toUpperCase()+tmpName.slice(1);
 					}
 
-					var lastIconStr = constants.getIconName(element["iconUrl"]);
-
-					var imageElement = '<svg class="icon icon-'+lastIconStr+' mainfeather"><use xlink:href="#icon-'+lastIconStr+'"></use></svg>';
-
-					listAllItems = listAllItems + '<li class="nav-item"><a class="nav-link" aria-current="page" href="#" sourceid="'+element["name"]+'" sourcehref="'+element["href"]+'">'+imageElement+'<span class="align-text-bottom"></span>'+finalName+'</a></li>';
+					listAllItems = listAllItems + '<li class="nav-item"><a class="nav-link" aria-current="page" href="#" sourceid="'+element["name"]+'" sourcehref="'+element["href"]+'"><img src="'+element["iconUrl"]+'" class="mainfeather"/><span class="align-text-bottom"></span>'+finalName+'</a></li>';
 				});
 
 				$("#sourcetree").html(listAllItems);
@@ -62,7 +50,7 @@ sourcetree=
 
 			var allNewLinks = $("#sourcetree").find("a.nav-link");
 
-			allNewLinks.removeClass("active").removeClass("text-white").find("svg").removeClass("selected");
+			allNewLinks.removeClass("active").removeClass("text-white");
 		}
 		else {
 			/* We should get the children if not already loaded */
@@ -85,7 +73,7 @@ sourcetree=
 
 						/* source tree has new children to be displayed */
 
-						listAllItems = "<ul style='list-style-type:none'>";
+						listAllItems = "<ul>";
 	
 						result["items"].forEach(element => {
 
@@ -110,8 +98,11 @@ sourcetree=
 							console.log(element);*/
 
 							/* Check if we have an iconUrl  to be displayed */
-							var iconName = constants.getIconName(element["iconUrl"]);
-							var imageElement = '<svg class="icon icon-'+iconName+' feather"><use xlink:href="#icon-'+iconName+'"></use></svg>';
+							var imageElement = "";
+
+							if(element["iconUrl"]) {
+								imageElement = '<img src="'+element["iconUrl"]+'" class="feather"/>';
+							}
 
 							listAllItems = listAllItems + '<li class="nav-item"><a class="nav-link" aria-current="page" href="#" sourceid="'+element["name"]+'" sourcehref="'+element["href"]+'">'+imageElement+'<span class="align-text-bottom"></span>'+finalName+'</a></li>';
 
@@ -135,12 +126,12 @@ sourcetree=
 					var allNewLinks = $("#sourcetree").find("a.nav-link");
 	
 					/* clean all a nav-links and especially the click to avoid multiple events */
-					allNewLinks.removeClass("active").removeClass("text-white").find('svg').removeClass("selected");	
+					allNewLinks.removeClass("active",200,"swing").removeClass("text-white",200,"swing");	
 					allNewLinks.off("click");
 					allNewLinks.on("click",sourcetree.itemClicked);
 
 					/* active the latest selected a nav-link */
-					$(clickedelement).addClass("active").addClass("text-white").find("svg").addClass("selected");
+					$(clickedelement).addClass("active").addClass("text-white").find("img").addClass("featherselected");
 				},
 				error: function (xhr, status) { $('#result').addClass("alert-danger").removeClass("alert-success").text("request error to get the types"); }
 			});

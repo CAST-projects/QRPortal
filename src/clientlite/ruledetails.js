@@ -1,5 +1,9 @@
 ruledetails=
 {
+	displayNoSelection: function()
+	{
+		$("#ruledetails").html("<h1>No Rule Selected</h1>");
+	},
 	displayRule: function(ruleId)
 	{
 		console.log("should display rule from: "+ruleId);
