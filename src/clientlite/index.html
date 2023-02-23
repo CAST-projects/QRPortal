@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="rulelist.js"></script>
 	<script type="text/javascript" src="ruledetails.js"></script>
 	<script type="text/javascript" src="extendlogin.js"></script>
+	<script type="text/javascript" src="user.js"></script>
 
 </head>
 
@@ -423,19 +424,53 @@
 			</defs>
 	</svg>
 
+	<!-- Modal Login -->
+	<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h1 class="modal-title fs-5" id="loginModalLabel">Sign In with CAST Extend</h1>
+		  <button type="button" id="loginclose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <p>Using your CAST Extend account, you will be allowed to get all rule details.</p>
+		  <form class="needs-validation" novalidate>
+		  <div class="mb-3">
+			<label for="loginFormControlInput" class="form-label">CAST Extend Account</label>
+			<input type="email" class="form-control" id="loginFormControlInput" placeholder="name@example.com" required>
+			<div class="invalid-feedback">
+				Please enter your email address.
+			</div>
+		  </div>
+		  <div class="mb-3">
+			<label for="pwdFormControlInput" class="form-label">Password</label>
+			<input type="password" class="form-control" id="pwdFormControlInput" placeholder="password" required>
+			<div class="invalid-feedback">
+				Please enter your password.
+			</div>
+		  </div>
+		  <button type="submit" class="btn btn-primary" id="loginaction">Login</button>
+		</form>
+		</div>
+	  </div>
+	</div>
+  	</div>
+
 	<!-- Page structure -->
 	<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-		<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Company name</a>
+		<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">CAST Rules</a>
 		<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
 		</button>
 		<input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
 		<div class="navbar-nav">
 		  <div class="nav-item text-nowrap">
-			<a class="nav-link px-3" href="/login">Log In</a>
-		  </div>
+				<button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">
+				SIGN IN
+			  </button>
+			</div>
 		</div>
-	  </header>
+	</header>
 	<div class="container-fluid">
 		<div class="row">
 			<main class="col-lg-2"> <!-- col-md-9 ms-sm-auto col-lg-10 px-md-4 -->
@@ -448,6 +483,7 @@
 			</nav>
 			</main>		
 			<main class="col-md-6"> <!-- col-md-9 ms-sm-auto col-lg-10 px-md-4 -->
+				<div class="position-sticky pt-3 sidebar-sticky">
 				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h4 class="h4" id="rulestitle">Rules</h4>
 					<div class="btn-toolbar mb-2 mb-md-0">
@@ -479,15 +515,17 @@
 				  	<tbody>
 				  	</tbody>
 					</table>
-			  	<!--/div-->
+			  	</div>
 			</main>
 			<main class="col"> <!-- col-md-9 ms-sm-auto col-lg-10 px-md-4 -->
 
+			<div class="position-sticky pt-3 sidebar-sticky">
+				<div class="card">
+					<div class="card-body" id="ruledetails">
+					</div>
+			  	</div>
+			</div>
 
-			  <div class="card">
-				<div class="card-body" id="ruledetails">
-				</div>
-			  </div>
 			</main>
 		</div>
 		<div class="row">
@@ -506,6 +544,7 @@
 			$("#filtermedium").on("click",rulelist.filterMediumActivated);
 			$("#filterhigh").on("click",rulelist.filterHighActivated);
 			$("#filtercritical").on("click",rulelist.filterCriticalActivated);
+			$("#loginaction").on("click",extendlogin.loginRequested);
 		});
 	</script>
 </body>
