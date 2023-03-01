@@ -48,6 +48,7 @@ extendlogin=
 						user.displayWidget();
 
 						$("#loginclose").click();
+						ruledetails.refresh();
 					},
 					error: function (xhr, status) {
 
