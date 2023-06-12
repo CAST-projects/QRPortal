@@ -1,6 +1,6 @@
 constants=
 {
-	rootUrl: "http://localhost:8080/api/",
+	rootUrl: "api/",
 	originUrl: "",
 	availableIconIds: [],
 	filtermedium: false,

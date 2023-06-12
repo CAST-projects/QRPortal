@@ -17,6 +17,7 @@ class FolderService extends BaseFolderService {
     this.add(types.doc,         this.from(types.static, "doc"));
     this.add(types.temp,        this.fromRoot("temp"));
     this.add(types.client,      this.fromRoot("src", "client"));
+    this.add(types.clientLite,  this.fromRoot("src", "clientlite"));
     this.add(types.dist,        this.fromRoot("dist"));
     this.add(types.logs,        config.logDir ? path.resolve(config.logDir) : this.fromRoot("logs"));
   }

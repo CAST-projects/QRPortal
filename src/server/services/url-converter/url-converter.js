@@ -1,4 +1,4 @@
-const UrlBuilder = require("cnjs-utils/services/web-client/url-builder");
+const UrlBuilder = require("../../lib/cnjs-utils/services/web-client/url-builder");
 
 const SECTIONS = {
   STANDARD: "std",

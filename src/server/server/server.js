@@ -1,11 +1,11 @@
 const { Server } = require("../lib/cnjs-utils/server");
-const { accessLogFactory } = require("cnjs-utils/log");
+const { accessLogFactory } = require("../lib/cnjs-utils/log");
 const { types: folderTypes } = require("../services/folder-service");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const helmet = require("helmet");
-const { middleware, HttpErrorFactory, codes } = require("../services/http-error-service");
+const { middleware, codes } = require("../services/http-error-service");
 const passport = require("passport");
 
 class RulesDocumentationServer extends Server {
@@ -23,7 +23,7 @@ class RulesDocumentationServer extends Server {
           contentSecurityPolicy: {
             useDefaults: true,
             directives: {
-              scriptSrc: ["'self'", "'unsafe-inline'"],
+              scriptSrc: ["'self'", "https://*", "'unsafe-inline'"],
               scriptSrcAttr: null,
               imgSrc: ["'self'","https://*", "data:"],
               styleSrc: ["'self'", "https://*", "'unsafe-inline'"],

@@ -1,4 +1,4 @@
-const { StaticController } = require("cnjs-utils/server");
+const { StaticController } = require("../lib/cnjs-utils/server");
 // const { types: folderTypes } = require("../services/folder-service");
 const path = require("path");
 const fs = require("fs");

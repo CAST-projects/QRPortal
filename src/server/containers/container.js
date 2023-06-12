@@ -73,7 +73,7 @@ iocBuilder
     const cntr = context.container;
     const folderService = cntr.get(types.folderService);
 
-    return folderService.get(fldTypes.dist);
+    return folderService.get(fldTypes.clientLite);
   })
 
   // passport configure

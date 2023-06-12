@@ -9,6 +9,7 @@ module.exports = {
   static: "static",
   mapping: "staticMapping",
   client: "client",
+  clientLite: "clientLite",
   dist: "dist",
   temp: "temp",
   logs: "logs",
