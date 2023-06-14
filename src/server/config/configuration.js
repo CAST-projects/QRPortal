@@ -1,4 +1,16 @@
+class HttpsConfiguration {
+  /**
+   * @param {Object} params 
+   */
+  constructor(params = {}){
+    this.key = params.key;
+    this.cert = params.cert;
+  }
 
+  isValid(){
+    return this.key && this.cert;
+  }
+}
 class Configuration {
   /**
    * @param {Object} params 
@@ -15,6 +27,8 @@ class Configuration {
     this.logDir = params.log_dir;
     this.publicUrl = params.public_url || `http://localhost:${this.port}/`;
     this.contextPath = params.context_path ? params.context_path : undefined;
+
+    this.https = new HttpsConfiguration(params.https);
   }
 }
 

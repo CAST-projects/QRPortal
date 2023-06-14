@@ -7,11 +7,19 @@ const cors = require("cors");
 const helmet = require("helmet");
 const { middleware, codes } = require("../services/http-error-service");
 const passport = require("passport");
+const fs = require("fs");
+const path = require("path");
 
 class RulesDocumentationServer extends Server {
   
   constructor(logger, version, configuration, httpErrorFactory, passportConfigure, folderService, apiController, publicController, rulesController){
     super({
+      https: configuration.https.isValid()
+        ? {
+          key: fs.readFileSync(path.resolve(configuration.https.key)),
+          cert: fs.readFileSync(path.resolve(configuration.https.cert)),
+        }
+        : null,
       logger,
       name: "Rules Documentation",
       bootMessage: (name, _port) => `${name} ${version} Service started on port ${_port}`,
