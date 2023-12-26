@@ -3,7 +3,7 @@
  * @param {string} accessKey
  * @param {import("./sso-data-cache")} dataCache
  */
-function passportConfigure(webClient, accessKey, dataCache){
+function passportConfigure(webClient, accessKey, dataCache) {
   const passport = require("passport");
   const LocalStrategy = require("passport-local").Strategy;
   const { ExtractJwt, Strategy: JwtStrategy } = require("passport-jwt");
@@ -31,9 +31,9 @@ function passportConfigure(webClient, accessKey, dataCache){
         let user;
 
         user = await webClient.signin(username, password);
-        
+
         if (!user) return done(null, false);
-        
+
         return done(null, user);
       } catch (err) {
         return done(err);
@@ -41,19 +41,30 @@ function passportConfigure(webClient, accessKey, dataCache){
     }),
   );
 
+  function cookieExtractor(req) {
+    let token = null;
+    if (req && req.cookies) {
+      token = req.cookies['SESSION'];
+    }
+    return token;
+  }
+
   passport.use("jwt",
     new JwtStrategy({
       secretOrKey: accessKey,
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        ExtractJwt.fromAuthHeaderAsBearerToken(),
+        cookieExtractor,
+      ]),
       passReqToCallback: false,
       algorithms: "HS512",
       jsonWebTokenOptions: {
         maxAge: "1d",
       },
-    }, async(payload, done) => {
+    }, async (payload, done) => {
       try {
         const user = dataCache.get(payload.uid);
-        if(!user) return done(null, false);
+        if (!user) return done(null, false);
         return done(null, user);
       } catch (err) {
         return done(err);

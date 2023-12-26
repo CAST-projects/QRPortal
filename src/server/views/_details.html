@@ -1,0 +1,23 @@
+{% if details %}
+<article class="details">
+  <h2 class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom">{{ details.name }}</h2>
+  <div>
+    <div class="jss2538">
+      <div class="jss2539">
+        <h2 class="MuiTypography-root MuiTypography-button MuiTypography-gutterBottom">Technologies</h2>
+        <div class="jss2546"><span>
+            <div class="MuiChip-root MuiChip-sizeSmall"><span class="MuiChip-label MuiChip-labelSmall">
+                <span class="MuiTypography-root MuiTypography-caption">DB2 Server</span></span></div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <h2 class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom">Rationale</h2>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">{{ details.rationale }}</p>
+      </div>
+    </div>
+  </div>
+</article>
+{% endif %}

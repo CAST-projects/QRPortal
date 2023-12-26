@@ -1,0 +1,5 @@
+{% import 'navbar.html' as nav %}
+
+{% for item in items %}
+{{ nav.navitem(item, loop.index0, isLeaf) }}
+{% endfor %}

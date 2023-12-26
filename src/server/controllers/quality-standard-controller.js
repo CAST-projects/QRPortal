@@ -1,4 +1,5 @@
 const { Controller } = require("../lib/cnjs-utils/server");
+const nunjucks = require("nunjucks");
 
 /**
  * @typedef {import("winston").Logger} Logger
@@ -16,13 +17,13 @@ class QualityStandardController extends Controller {
    * @param {Logger} logger 
    * @param {QualityStandardDataReader} dataReader 
    */
-  constructor(logger, dataReader){
+  constructor(logger, dataReader) {
     super({ logger, baseUrl: "/quality-standards" });
 
     this.dataReader = dataReader;
   }
 
-  $preprocess(){
+  $preprocess() {
     this
       .get("/", this.listQualityStandards(this.dataReader))
       .get("/:id", this.getQualityStandard(this.dataReader))
@@ -30,28 +31,35 @@ class QualityStandardController extends Controller {
       .get("/:id/categories/:categoryId/items/:item", this.getQualityStandardItem(this.dataReader));
   }
 
-  $postprocess(){
+  $postprocess() {
     this.log.info(`${this.constructor.name} Initialized`);
   }
 
   /**
    * @param {QualityStandardDataReader} dataReader
    */
-  listQualityStandards(dataReader){
+  listQualityStandards(dataReader) {
 
     /**
      * @param {Request} req
      * @param {Response} res
      * @param {NextFunction} next
      */
-    async function handler(_req, res, next){
+    async function handler(req, res, next) {
       try {
         const si = await dataReader.dataReader.readServiceIndex();
         const item = si.getItem("quality standards");
-        
+
         item.items = await dataReader.list();
 
-        res.status(200).json(item);
+        if (!req.headers['hx-request']) {
+          res.status(200).json(item);
+        } else {
+          res.send(nunjucks.render('_hx-nav-menu.html', {
+            items: item.items,
+            isLeaf: false,
+          }));
+        }
       } catch (error) {
         next(error);
       }
@@ -63,19 +71,26 @@ class QualityStandardController extends Controller {
   /**
    * @param {QualityStandardDataReader} dataReader 
    */
-  getQualityStandard(dataReader){
+  getQualityStandard(dataReader) {
 
     /**
      * @param {Request} req 
      * @param {Response} res 
      */
-    async function handler(req, res, next){
-      const {id} = req.params;
+    async function handler(req, res, next) {
+      const { id } = req.params;
 
       try {
         const model = await dataReader.read(id);
 
-        res.status(200).json(model);
+        if (!req.headers['hx-request']) {
+          res.status(200).json(model);
+        } else {
+          res.send(nunjucks.render('_hx-nav-menu.html', {
+            items: model.items,
+            isLeaf: false,
+          }));
+        }
       } catch (error) {
         next(error);
       }
@@ -87,19 +102,26 @@ class QualityStandardController extends Controller {
   /**
    * @param {QualityStandardDataReader} dataReader 
    */
-  getQualityStandardCategory(dataReader){
+  getQualityStandardCategory(dataReader) {
 
     /**
      * @param {Request} req 
      * @param {Response} res 
      */
-     async function handler(req, res, next){
-      const {id, categoryId} = req.params;
+    async function handler(req, res, next) {
+      const { id, categoryId } = req.params;
 
       try {
         const model = await dataReader.readQualityStandardCategory(id, categoryId);
 
-        res.status(200).json(model);
+        if (!req.headers['hx-request']) {
+          res.status(200).json(model);
+        } else {
+          res.send(nunjucks.render('_hx-nav-menu.html', {
+            items: model.items,
+            isLeaf: true,
+          }));
+        }
       } catch (error) {
         next(error);
       }
@@ -108,22 +130,28 @@ class QualityStandardController extends Controller {
     return handler
   }
 
-    /**
-   * @param {QualityStandardDataReader} dataReader 
-   */
-  getQualityStandardItem(dataReader){
+  /**
+ * @param {QualityStandardDataReader} dataReader 
+ */
+  getQualityStandardItem(dataReader) {
 
     /**
      * @param {Request} req 
      * @param {Response} res 
      */
-     async function handler(req, res, next){
-      const {id, item, categoryId} = req.params;
+    async function handler(req, res, next) {
+      const { id, item, categoryId } = req.params;
 
       try {
         const model = await dataReader.readQualityStandardItems(id, categoryId, item);
 
-        res.status(200).json(model);
+        if (!req.headers['hx-request']) {
+          res.status(200).json(model);
+        } else {
+          res.setHeader('HX-Replace-Url', '/rules-documentation/' + model.href);
+          res.send(nunjucks.render('_hx_main_list.html', { model }));
+        }
+
       } catch (error) {
         next(error);
       }

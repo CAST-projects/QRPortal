@@ -1,4 +1,5 @@
 const { Controller } = require("../lib/cnjs-utils/server");
+const nunjucks = require("nunjucks");
 
 /**
  * @typedef {import("winston").Logger} Logger
@@ -15,33 +16,33 @@ class TechnologyController extends Controller {
    * @param {Logger} logger 
    * @param {TechnologyDataReader} dataReader 
    */
-  constructor(logger, dataReader){
+  constructor(logger, dataReader) {
     super({ logger, baseUrl: "/technologies" });
 
     this.dataReader = dataReader;
   }
 
-  $preprocess(){
+  $preprocess() {
     this
       .get("/", this.listTechnologies(this.dataReader))
       .get("/:id", this.getTechnology(this.dataReader))
   }
 
-  $postprocess(){
+  $postprocess() {
     this.log.info(`${this.constructor.name} Initialized`);
   }
 
   /**
    * @param {TechnologyDataReader} dataReader 
    */
-  listTechnologies(dataReader){
+  listTechnologies(dataReader) {
 
     /**
      * @param {Request} req
      * @param {Response} res
      * @param {NextFunction} next
      */
-    async function handler(_req, res, next){
+    async function handler(req, res, next) {
       try {
         const si = await dataReader.dataReader.readServiceIndex();
         const item = si.getItem("technologies");
@@ -49,7 +50,14 @@ class TechnologyController extends Controller {
 
         item.items = technologies.sort((a, b) => a.name.localeCompare(b.name));
 
-        res.status(200).json(item);
+        if (!req.headers['hx-request']) {
+          res.status(200).json(item);
+        } else {
+          res.send(nunjucks.render('_hx-nav-menu.html', {
+            items: item.items,
+            isLeaf: true,
+          }));
+        }
       } catch (error) {
         next(error);
       }
@@ -58,23 +66,30 @@ class TechnologyController extends Controller {
     return handler
   }
 
-    /**
-   * @param {TechnologyDataReader} dataReader 
-   */
-  getTechnology(dataReader){
+  /**
+ * @param {TechnologyDataReader} dataReader 
+ */
+  getTechnology(dataReader) {
 
     /**
      * @param {Request} req 
      * @param {Response} res 
      */
-    async function handler(req, res, next){
-      const {id} = req.params;
+    async function handler(req, res, next) {
+      const { id } = req.params;
 
       try {
         const technology = await dataReader.readTechnology(id);
 
-        if(!technology) return res.sendStatus(404)
-        res.status(200).json(technology.toApiOutput());
+        if (!technology) return res.sendStatus(404);
+        const model = technology.toApiOutput();
+
+        if (!req.headers['hx-request']) {
+          res.status(200).json(technology.toApiOutput());
+        } else {
+          res.setHeader('HX-Replace-Url', '/rules-documentation/' + req.originalUrl.replace('/api/', ''));
+          res.send(nunjucks.render('_hx_main_list.html', { model }));
+        }
       } catch (error) {
         next(error);
       }

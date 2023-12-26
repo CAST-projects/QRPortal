@@ -16,4 +16,5 @@ module.exports = {
   SSOController: require("./sso-controller"),
   PublicController: require("./public-controller"),
   RulesController: require("./rules-controller"),
+  RenderController: require("./render-controller"),
 };

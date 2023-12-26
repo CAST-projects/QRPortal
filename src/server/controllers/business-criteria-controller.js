@@ -1,4 +1,5 @@
 const { Controller } = require("../lib/cnjs-utils/server");
+const nunjucks = require("nunjucks");
 
 /**
  * @typedef {import("winston").Logger} Logger
@@ -15,41 +16,48 @@ class BusinessCriteriaController extends Controller {
    * @param {Logger} logger 
    * @param {DataReader} dataReader 
    */
-  constructor(logger, dataReader){
+  constructor(logger, dataReader) {
     super({ logger, baseUrl: "/business-criteria" });
 
     this.dataReader = dataReader;
   }
 
-  async $preprocess(){
+  async $preprocess() {
     this
       .get("/", this.listAll(this.dataReader))
       .get("/:id", this.getInfo(this.dataReader));
   }
 
-  $postprocess(){
+  $postprocess() {
     this.log.info(`${this.constructor.name} Initialized`);
   }
 
   /**
    * @param {DataReader} dataReader 
    */
-   listAll(dataReader){
+  listAll(dataReader) {
 
     /**
      * @param {Request} req
      * @param {Response} res
      * @param {NextFunction} next
      */
-    async function handler(_req, res, next){
+    async function handler(req, res, next) {
       try {
         const si = await dataReader.dataReader.readServiceIndex();
         const item = si.getItem("business criteria");
         const list = await dataReader.list();
 
         item.items = list.filter(_ => _.id < 1000000);
-        
-        res.status(200).json(item);
+
+        if (!req.headers['hx-request']) {
+          res.status(200).json(item);
+        } else {
+          res.send(nunjucks.render('_hx-nav-menu.html', {
+            items: item.items,
+            isLeaf: true,
+          }));
+        }
       } catch (error) {
         next(error);
       }
@@ -61,19 +69,24 @@ class BusinessCriteriaController extends Controller {
   /**
    * @param {DataReader} dataReader 
    */
-  getInfo(dataReader){
+  getInfo(dataReader) {
 
     /**
      * @param {Request} req 
      * @param {Response} res 
      */
-    async function handler(req, res, next){
-      const {id} = req.params;
+    async function handler(req, res, next) {
+      const { id } = req.params;
 
       try {
         const model = await dataReader.read(id);
 
-        res.status(200).json(model);
+        if (!req.headers['hx-request']) {
+          res.status(200).json(model);
+        } else {
+          res.setHeader('HX-Replace-Url', '/rules-documentation/' + model.href);
+          res.send(nunjucks.render('_hx_main_list.html', { model }));
+        }
       } catch (error) {
         next(error);
       }

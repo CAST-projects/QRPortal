@@ -13,11 +13,13 @@ class FolderService extends BaseFolderService {
     this.add(types.rootStatic,  this.fromRoot("static"));
     this.add(types.swaggerUi,   this.fromRoot("swagger-ui"));
     this.add(types.static,      this.fromRoot("src", "static"));
+    this.add(types.staticRes,   this.from(types.static, "resources"));
     this.add(types.mapping,     this.from(types.static, "mappings"));
     this.add(types.doc,         this.from(types.static, "doc"));
     this.add(types.temp,        this.fromRoot("temp"));
     this.add(types.client,      this.fromRoot("src", "client"));
     this.add(types.clientLite,  this.fromRoot("src", "clientlite"));
+    this.add(types.views,       this.fromRoot("src", "server","views"));
     this.add(types.dist,        this.fromRoot("dist"));
     this.add(types.logs,        config.logDir ? path.resolve(config.logDir) : this.fromRoot("logs"));
   }

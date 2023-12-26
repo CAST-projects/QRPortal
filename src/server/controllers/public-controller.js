@@ -5,43 +5,43 @@ const fs = require("fs");
 // const { publicUrl, documentStoreURL } = require("../config");
 // const log = require("../log");
 
-class PublicController extends StaticController{
+class PublicController extends StaticController {
 
   /**
    * @param {import("../config/configuration").Configuration} configruation
    * @param {import("winston").Logger} logger
    * @param {string} distributionFolder
    */
-  constructor(logger, distributionFolder, configruation){
-    super("/", {
+  constructor(endPoint, ignore, spa, logger, distributionFolder, configruation) {
+    super(endPoint, {
       dir: distributionFolder,
-      ignore: /(\/api)|(\/rules)/i,
-      spa: true,
+      ignore: ignore,
+      spa,
     }, {
       dotfiles: "ignore",
       index: false,
       maxAge: "1d",
       redirect: false,
-      setHeaders(res){
+      setHeaders(res) {
         res.set("x-timestamp", Date.now());
         res.set("x-sent", true);
       },
     });
-
+    this._endpoint = endPoint;
     this._log = logger;
     this.publicUrl = configruation.publicUrl;
     this.indexFilePath = path.join(distributionFolder, "index.html");
   }
 
-  $postprocess(){
+  $postprocess() {
     this._log.info(`${this.constructor.name} Initialized`);
   }
 
-  $preprocess(){
+  $preprocess() {
     const log = this._log;
-    const publicUrl = this.publicUrl || "/";
+    const publicUrl = this.publicUrl || this._endpoint;
 
-    if (fs.existsSync(this.indexFilePath)){
+    if (fs.existsSync(this.indexFilePath)) {
       const baseHtml = fs.readFileSync(this.indexFilePath);
 
       fs.writeFileSync(this.indexFilePath, baseHtml

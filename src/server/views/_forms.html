@@ -1,0 +1,19 @@
+{% macro outline_btn(label) %}
+<button type="button" class="btn btn-outline">
+    {{ label }}
+</button>
+{% endmacro %}
+
+{% macro input(name, type, value, label, id=name) %}
+<div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginDense MuiFormControl-fullWidth">
+    <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense"
+        data-shrink="false" for="{{name}}" id="{{name}}-label">{{label}}</label>
+    <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl MuiInputBase-marginDense MuiInput-marginDense">
+        <input aria-invalid="false" id="{{name}}" name="{{name}}" type="{{type}}"
+            class="MuiInputBase-input MuiInput-input MuiInputBase-inputMarginDense MuiInput-inputMarginDense"
+            value="{{value}}" onblur="input_onblur(event)" onfocus="input_onfocus(event)">
+    </div>
+</div>
+{% endmacro %}

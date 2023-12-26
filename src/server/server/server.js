@@ -9,10 +9,11 @@ const { middleware, codes } = require("../services/http-error-service");
 const passport = require("passport");
 const fs = require("fs");
 const path = require("path");
+const nunjucks = require("nunjucks");
 
 class RulesDocumentationServer extends Server {
-  
-  constructor(logger, version, configuration, httpErrorFactory, passportConfigure, folderService, apiController, publicController, rulesController){
+
+  constructor(logger, version, configuration, httpErrorFactory, passportConfigure, folderService, apiController, publicController, rulesController, renderController, publicAssetController) {
     super({
       https: configuration.https.isValid()
         ? {
@@ -33,15 +34,16 @@ class RulesDocumentationServer extends Server {
             directives: {
               scriptSrc: ["'self'", "https://*", "'unsafe-inline'"],
               scriptSrcAttr: null,
-              imgSrc: ["'self'","https://*", "data:"],
+              imgSrc: ["'self'", "https://*", "data:"],
               styleSrc: ["'self'", "https://*", "'unsafe-inline'"],
             }
           },
         }),
         cors(),
         middleware.setErrorLocale,
-        bodyParser.urlencoded({ limit: "5mb", extended: true}),
+        bodyParser.urlencoded({ limit: "5mb", extended: true }),
         bodyParser.json({ limit: "5mb" }),
+        cookieParser(configuration.sessionKey),
         (error, req, res, next) => {
           if (error instanceof SyntaxError) {
             res.status(400).json(httpErrorFactory.createError(req.locale, codes.server.bodyParseError, error.message));
@@ -49,20 +51,26 @@ class RulesDocumentationServer extends Server {
             next();
           }
         },
-        cookieParser(),
         passport.initialize(),
       ],
-    }, apiController, rulesController, publicController);
+    }, apiController, rulesController, publicController, renderController, publicAssetController);
 
     this.httpErrorFactory = httpErrorFactory;
     this.passportConfigure = passportConfigure;
+    /** @type {import("../services/folder-service/service")} */
+    this.folderService = folderService;
   }
 
-  $preprocess(){
+  $preprocess() {
+    nunjucks.configure(this.folderService.get(folderTypes.views), {
+      autoescape: true,
+      express: this.app,
+      noCache: true,
+    })
     this.passportConfigure();
   }
 
-  async $postprocess(){
+  async $postprocess() {
     this.app.use(middleware.errorHandlerMiddleware(this.httpErrorFactory, this.log));
   }
 }

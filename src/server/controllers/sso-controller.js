@@ -12,20 +12,20 @@ const { TimeConverter } = require("../lib/cnjs-utils/lib/time-converter");
  */
 
 class SSOController extends Controller {
-  
+
   /**
    * @param {import("../config/configuration").Configuration} configuration
    * @param {import("winston".Logger)} logger
    * @param {SSOCache} ssoCache
    */
-  constructor(logger, configuration, ssoCache){
+  constructor(logger, configuration, ssoCache) {
     super({ logger, baseUrl: "/sso" });
 
     this.sessionKey = configuration.sessionKey;
     this.ssoCache = ssoCache;
   }
 
-  $preprocess(){
+  $preprocess() {
     this.post("/authenticate", localAuth(), this.authenticate(this.sessionKey, this.ssoCache));
   }
 
@@ -33,13 +33,13 @@ class SSOController extends Controller {
    * @param {string} sessionKey
    * @param {SSOCache} ssoCache
    */
-  authenticate(sessionKey, ssoCache){
+  authenticate(sessionKey, ssoCache) {
 
     /**
      * @param {Request} req
      * @param {Response} res
      */
-    async function handler(req, res){
+    async function handler(req, res) {
       const user = req.user;
       const uid = await createSHA256Hash(user.apikey);
       const userInfo = {
@@ -51,16 +51,32 @@ class SSOController extends Controller {
 
       ssoCache.store(uid, userInfo);
 
-      res.status(200).json({
-        jwt: sign({
-          uid,
-        }, sessionKey, {
-          algorithm: "HS512",
-          expiresIn: "1d",
-        }),
-        expires: new TimeConverter().addDays(1).toDate(),
-        ...userInfo,
+      const jwt = sign({
+        uid,
+      }, sessionKey, {
+        algorithm: "HS512",
+        expiresIn: "1d",
       });
+
+      if (!req.headers['hx-request']) {
+        res.cookie('SESSION', jwt, {
+          path: "/",
+          sameSite: true,
+          expires: new TimeConverter().addDays(1).toDate()
+        })
+        res.sendStatus(200);
+      } else {
+        res.status(200).json({
+          jwt: sign({
+            uid,
+          }, sessionKey, {
+            algorithm: "HS512",
+            expiresIn: "1d",
+          }),
+          expires: new TimeConverter().addDays(1).toDate(),
+          ...userInfo,
+        });
+      }
     }
 
     return handler
