@@ -136,8 +136,13 @@ section.paper {
   justify-content: space-between;
 }
 
+:root {
+  --primary-color: #3f51b5;
+  --white: #fff;
+}
+
 .pc {
-  color: #3f51b5;
+  color: var(--primary-color);
 }
 
 .color-text-secondary {
@@ -219,6 +224,14 @@ section.paper {
 .fx-col {
   display: flex;
   flex-direction: column;
+}
+
+.fx-row.fx-end {
+  justify-content: flex-end;
+}
+
+.fx-col.fx-end {
+  align-items: flex-end;
 }
 
 .fx-center {
@@ -329,10 +342,43 @@ td {
   border-radius: 4px;
 }
 
+.btn-contained {
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-contained.pc {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn {
+  text-transform: uppercase;
+}
+
+.btn-ghost {
+  background-color: transparent;
+}
+
+.btn-ghost:hover,
+.btn-ghost:visited,
+.btn-ghost:focus {
+  background-color: #f7f8fc;
+}
+
 .btn-outline:hover,
 .btn-outline:visited,
-.btn-outline:focus {
-  color: #fff;
+.btn-outline:focus,
+.btn-contained:hover,
+.btn-contained:visited,
+.btn-contained:focus {
+  color: var(--white);
+}
+
+.btn-contained:hover,
+.btn-contained:visited,
+.btn-contained:focus {
+  background-color: #303f9f;
 }
 
 .backdrop {
@@ -349,6 +395,14 @@ td {
 
   opacity: 1;
   transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.backdrop.op0 {
+  opacity: 0;
+}
+
+.backdrop.disn {
+  display: none;
 }
 
 .dialog {

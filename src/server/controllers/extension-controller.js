@@ -56,7 +56,7 @@ class ExtensionController extends Controller {
           res.status(200).json(item);
         } else {
           res.send(nunjucks.render('_hx-nav-menu.html', {
-            items: item.items,
+            items: item.items.map(_ => ({ ..._, ignoreTitleTransform: true })),
             isLeaf: false,
           }));
         }
@@ -88,7 +88,7 @@ class ExtensionController extends Controller {
         } else {
           res.send(nunjucks.render('_hx-nav-menu.html', {
             items: model.items,
-            isLeaf: false,
+            isLeaf: true,
           }));
         }
       } catch (error) {
@@ -117,10 +117,8 @@ class ExtensionController extends Controller {
         if (!req.headers['hx-request']) {
           res.status(200).json(model);
         } else {
-          res.send(nunjucks.render('_hx-nav-menu.html', {
-            items: model.items,
-            isLeaf: true,
-          }));
+          res.setHeader('HX-Replace-Url', '/rules-documentation/' + model.href);
+          res.send(nunjucks.render('_hx_main_list.html', { model }));
         }
       } catch (error) {
         next(error);

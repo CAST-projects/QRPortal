@@ -2,16 +2,15 @@
   "name": "qrportal",
   "version": "1.3.0",
   "description": "CAST Quality Rules Portal",
-  "main": "server/server.js",
+  "main": "src/server/index.js",
   "scripts": {
     "start": "node src/server/index.js",
-    "postinstall": "cd ./src/client && npm install",
     "build": "cd ./src/client && npm run build"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cnjs-utils": "file:src/server/lib/cnjs-utils",
-    "cookie-parser": "^1.4.5",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-winston": "^3.4.0",
@@ -22,6 +21,7 @@
     "lunr": "^2.3.9",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
+    "nunjucks": "^3.2.4",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
@@ -33,7 +33,6 @@
     "winston-daily-rotate-file": "^4.6.1",
     "yaml": "^1.10.2"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/CAST-projects/QRPortal.git"

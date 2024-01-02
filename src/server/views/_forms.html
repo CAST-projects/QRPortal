@@ -1,7 +1,25 @@
-{% macro outline_btn(label) %}
-<button type="button" class="btn btn-outline">
+{% macro btn(label, class, onClick, type="button") %}
+{% if onClick %}
+<button class="btn {{class}}" onclick="{{onClick}}" type="{{type}}">
     {{ label }}
 </button>
+{% else %}
+<button class="btn {{class}}" type="{{type}}">
+    {{ label }}
+</button>
+{% endif %}
+{% endmacro %}
+
+{% macro outline_btn(label, onClick, class, type) %}
+{{btn(label, 'btn-outline' + (' ' + class if class else ''), onClick, type)}}
+{% endmacro %}
+
+{% macro ghost_btn(label, onClick, class, type) %}
+{{btn(label, 'btn-ghost' + (' ' + class if class else ''), onClick, type)}}
+{% endmacro %}
+
+{% macro contained_btn(label, onClick, class, type) %}
+{{btn(label, 'btn-contained' + (' ' + class if class else ''), onClick, type)}}
 {% endmacro %}
 
 {% macro input(name, type, value, label, id=name) %}

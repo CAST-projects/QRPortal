@@ -58,12 +58,12 @@ class SSOController extends Controller {
         expiresIn: "1d",
       });
 
-      if (!req.headers['hx-request']) {
+      if (req.headers['hx-request']) {
         res.cookie('SESSION', jwt, {
           path: "/",
           sameSite: true,
           expires: new TimeConverter().addDays(1).toDate()
-        })
+        });
         res.sendStatus(200);
       } else {
         res.status(200).json({

@@ -29,6 +29,10 @@ class RenderController extends Controller {
     this.get("/", this.index(this.contextDataReader));
     this.makeEndPoints('business-criteria', this.businessCriteriaList);
     this.makeEndPoints('technologies', this.technologiesList);
+    this.get("/:context/quality-standards/:standard/categories/:category/items/:itemId",
+      this.qualityStandardsHandler(this.contextDataReader));
+    this.get("/:context/quality-standards/:standard/categories/:category/items/:itemId/details/:ruleId",
+      this.qualityStandardsHandler(this.contextDataReader));
   }
 
   $postprocess() {
@@ -70,6 +74,49 @@ class RenderController extends Controller {
   }
 
   /**
+  * @param {ContextDataReader} contextDataReader 
+  */
+  qualityStandardsHandler(contextDataReader, transform) {
+    /**
+     * 
+     * @param {Request} req
+     * @param {Response} res
+     */
+    async function handler(req, res, next) {
+      const { standard, category, itemId, ruleId } = req.params;
+      const reader = contextDataReader.qualityStandardDataReader.dataReader;
+      const qrReader = contextDataReader.qualityRuleDataReader;
+
+      try {
+        const si = await reader.readServiceIndex();
+        let details;
+        if (ruleId) {
+          const qualityRule = await qrReader.read(ruleId);
+          details = qualityRule.toPublicOutput();
+        }
+        const item = await contextDataReader.qualityStandardDataReader.readQualityStandardItems(standard, category, itemId)
+
+        if (!item) return res.sendStatus(404);
+
+        const model = transform ? transform(item) : item;
+        const tmpl = nunjucks.render('data_navigation.html', {
+          model,
+          navbar: si.items,
+          details,
+          csrf: 'tokex',
+        });
+
+        res.send(tmpl);
+      } catch (error) {
+        next(error);
+      }
+
+    }
+
+    return handler;
+  }
+
+  /**
    * @param {ContextDataReader} contextDataReader 
    */
   index(contextDataReader) {
@@ -84,6 +131,7 @@ class RenderController extends Controller {
         const si = await reader.readServiceIndex();
         const tmpl = nunjucks.render('welcome.html', {
           navbar: si.items,
+          csrf: 'tokex',
         });
 
         res.send(tmpl);
@@ -149,6 +197,7 @@ class RenderController extends Controller {
           model,
           navbar: si.items,
           details,
+          csrf: 'tokex',
         });
 
         res.send(tmpl);
