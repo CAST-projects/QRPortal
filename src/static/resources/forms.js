@@ -36,6 +36,18 @@ function on_clickaway(event, id) {
         return;
     }
 
+    const inputs = e.getElementsByTagName('input');
+    const err = document.getElementById('frr');
+
+    err.innerHTML = '';
+    err.style = 'display:none;'
+
+    for (const input of inputs) {
+        if (input.name === 'pwd') {
+            input.value = '';
+        }
+    }
+
     e.classList.toggle('op0');
 
     setTimeout(() => {
@@ -56,6 +68,16 @@ function close_auth_dialog(event, id) {
     event.stopPropagation();
     event.preventDefault();
     const e = document.getElementById(id);
+    const inputs = e.getElementsByTagName('input');
+    const err = document.getElementById('frr');
+    err.innerHTML = '';
+    err.style = 'display:none;'
+
+    for (const input of inputs) {
+        if (input.name === 'pwd') {
+            input.value = '';
+        }
+    }
 
     e.classList.toggle('op0');
 

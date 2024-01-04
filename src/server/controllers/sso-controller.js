@@ -4,6 +4,7 @@ const { sign } = require("jsonwebtoken");
 const { localAuth } = require("../services/extend-authentication-service");
 const { createSHA256Hash } = require("../lib/cnjs-utils/services/crypto");
 const { TimeConverter } = require("../lib/cnjs-utils/lib/time-converter");
+const nunjucks = require("nunjucks");
 
 /**
  * @typedef {import("express").Request} Request
@@ -27,6 +28,46 @@ class SSOController extends Controller {
 
   $preprocess() {
     this.post("/authenticate", localAuth(), this.authenticate(this.sessionKey, this.ssoCache));
+    this.post("/signout", this.signout(this.ssoCache));
+  }
+
+  /**
+   * @param {SSOCache} ssoCache
+   */
+  signout(ssoCache) {
+
+    /**
+     * @param {Request} req
+     * @param {Response} res
+     */
+    async function handler(req, res) {
+      try {
+
+      } catch (error) {
+
+      }
+      const user = req.user;
+
+      if (!user) {
+        return res.sendStatus(403);
+      }
+
+      ssoCache.clear(user.uid);
+
+      if (req.headers['hx-request']) {
+        res.clearCookie('SESSION', {
+          path: "/",
+        });
+        res.setHeader('HX-Refresh', 'true');
+
+        res.status(200).send(nunjucks.render('header.html', { user: null }));
+      } else {
+        res.status(204);
+      }
+
+    }
+
+    return handler;
   }
 
   /**
@@ -41,8 +82,18 @@ class SSOController extends Controller {
      */
     async function handler(req, res) {
       const user = req.user;
+
+      if (!user) {
+        if (req.headers['hx-request']) {
+          return res.status(401).send(nunjucks.render('auth_error.html'))
+        } else {
+          return res.sendStatus(401);
+        }
+      }
+
       const uid = await createSHA256Hash(user.apikey);
       const userInfo = {
+        uid,
         fullname: user.fullname,
         firstname: user.firstname,
         lastname: user.lastname,
@@ -59,12 +110,14 @@ class SSOController extends Controller {
       });
 
       if (req.headers['hx-request']) {
+        res.setHeader('HX-Refresh', 'true');
         res.cookie('SESSION', jwt, {
           path: "/",
           sameSite: true,
           expires: new TimeConverter().addDays(1).toDate()
         });
-        res.sendStatus(200);
+
+        res.status(200).send(nunjucks.render('auth_success.html', { user }));
       } else {
         res.status(200).json({
           jwt: sign({

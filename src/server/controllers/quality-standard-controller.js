@@ -5,6 +5,7 @@ const nunjucks = require("nunjucks");
  * @typedef {import("winston").Logger} Logger
  * @typedef {import("../services/quality-standard-reader/service")} QualityStandardDataReader
  * @typedef {import("../services/http-error-service/service")} HttpErrorFactory
+ * @typedef {import("../config/configuration").Configuration} Configuration
  * @typedef {import("express").Request} Request
  * @typedef {import("express").Response} Response
  * @typedef {import("express").NextFunction} NextFunction
@@ -16,11 +17,13 @@ class QualityStandardController extends Controller {
   /**
    * @param {Logger} logger 
    * @param {QualityStandardDataReader} dataReader 
+   * @param {Configuration} configuration
    */
-  constructor(logger, dataReader) {
+  constructor(logger, dataReader, configuration) {
     super({ logger, baseUrl: "/quality-standards" });
 
     this.dataReader = dataReader;
+    this.configuration = configuration;
   }
 
   $preprocess() {
@@ -28,7 +31,7 @@ class QualityStandardController extends Controller {
       .get("/", this.listQualityStandards(this.dataReader))
       .get("/:id", this.getQualityStandard(this.dataReader))
       .get("/:id/categories/:categoryId", this.getQualityStandardCategory(this.dataReader))
-      .get("/:id/categories/:categoryId/items/:item", this.getQualityStandardItem(this.dataReader));
+      .get("/:id/categories/:categoryId/items/:item", this.getQualityStandardItem(this.dataReader, this.configuration.contextPath));
   }
 
   $postprocess() {
@@ -131,9 +134,10 @@ class QualityStandardController extends Controller {
   }
 
   /**
- * @param {QualityStandardDataReader} dataReader 
+ * @param {QualityStandardDataReader} dataReader
+ * @param {string} contextPath 
  */
-  getQualityStandardItem(dataReader) {
+  getQualityStandardItem(dataReader, contextPath = '') {
 
     /**
      * @param {Request} req 
@@ -148,7 +152,7 @@ class QualityStandardController extends Controller {
         if (!req.headers['hx-request']) {
           res.status(200).json(model);
         } else {
-          res.setHeader('HX-Replace-Url', '/rules-documentation/' + model.href);
+          res.setHeader('HX-Replace-Url', contextPath + model.href);
           res.send(nunjucks.render('_hx_main_list.html', { model }));
         }
 

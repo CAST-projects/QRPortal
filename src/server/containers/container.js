@@ -267,61 +267,55 @@ iocBuilder
   // controllers
   .registerFactory(types.controllers.aip.technology, (context) => {
     const cntr = context.container;
-    return new TechnologyController(cntr.get(types.logger), cntr.get(types.aipTechnologyDataReader));
+    return new TechnologyController(cntr.get(types.logger), cntr.get(types.aipTechnologyDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.carl.technology, (context) => {
     const cntr = context.container;
-    return new TechnologyController(cntr.get(types.logger), cntr.get(types.carlTechnologyDataReader));
+    return new TechnologyController(cntr.get(types.logger), cntr.get(types.carlTechnologyDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.aip.qualityStandard, (context) => {
     const cntr = context.container;
-    return new QualityStandardController(cntr.get(types.logger), cntr.get(types.aipQualityStandardReaderService));
+    return new QualityStandardController(cntr.get(types.logger), cntr.get(types.aipQualityStandardReaderService), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.carl.qualityStandard, (context) => {
     const cntr = context.container;
-    return new QualityStandardController(cntr.get(types.logger), cntr.get(types.carlQualityStandardReaderService));
+    return new QualityStandardController(cntr.get(types.logger), cntr.get(types.carlQualityStandardReaderService), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.aip.extension, (context) => {
     const cntr = context.container;
-    return new ExtensionController(cntr.get(types.logger), cntr.get(types.extensionDataReader));
+    return new ExtensionController(cntr.get(types.logger), cntr.get(types.extensionDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.aip.businessCriteria, (context) => {
     const cntr = context.container;
-    return new BusinessCriteriaController(cntr.get(types.logger), cntr.get(types.aipBusinessCriteriaDataReader));
+    return new BusinessCriteriaController(cntr.get(types.logger), cntr.get(types.aipBusinessCriteriaDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.carl.businessCriteria, (context) => {
     const cntr = context.container;
-    return new BusinessCriteriaController(cntr.get(types.logger), cntr.get(types.carlBusinessCriteriaDataReader));
+    return new BusinessCriteriaController(cntr.get(types.logger), cntr.get(types.carlBusinessCriteriaDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.aip.index, (context) => {
     const cntr = context.container;
-    return new IndexController(cntr.get(types.logger), cntr.get(types.aipBusinessCriteriaDataReader));
+    return new IndexController(cntr.get(types.logger), cntr.get(types.aipBusinessCriteriaDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.carl.index, (context) => {
     const cntr = context.container;
-    return new IndexController(cntr.get(types.logger), cntr.get(types.carlBusinessCriteriaDataReader));
+    return new IndexController(cntr.get(types.logger), cntr.get(types.carlBusinessCriteriaDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.aip.technicalCriteria, (context) => {
     const cntr = context.container;
-    return new TechnicalCriteriaController(cntr.get(types.logger), cntr.get(types.aipTechnicalCriteriaDataReader));
+    return new TechnicalCriteriaController(cntr.get(types.logger), cntr.get(types.aipTechnicalCriteriaDataReader), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.rules, (context) => {
     const cntr = context.container;
-    return new RulesController(cntr.get(types.logger), cntr.get(types.urlConverter));
+    return new RulesController(cntr.get(types.logger), cntr.get(types.urlConverter), cntr.get(types.configuration));
   })
   .registerFactory(types.controllers.render, (context) => {
     const cntr = context.container;
     return new RenderController(
       cntr.get(types.aipContextReader),
-      cntr.get(types.logger)
+      cntr.get(types.logger),
+      cntr.get(types.configuration)
     );
-  })
-  .registerFactory(types.controllers.public, (context) => {
-    const cntr = context.container;
-    return new PublicController('/',
-      /(\/api)|(\/rules)|(\/resources)/i,
-      true,
-      cntr.get(types.logger), cntr.get(types.distFolder), cntr.get(types.configuration))
   })
   .registerFactory(types.controllers.publicAssets, (context) => {
     const cntr = context.container;
@@ -340,12 +334,12 @@ iocBuilder
   types.controllers.aip.technology, types.controllers.aip.qualityStandard, types.controllers.aip.extension,
   types.controllers.aip.businessCriteria, types.controllers.aip.index, types.controllers.aip.technicalCriteria])
   .register(types.controllers.qualityRules, QualityRulesController, [types.logger, types.qualityRuleDataReader,
-  types.searchIndex.public, types.searchIndex.private])
+  types.searchIndex.public, types.searchIndex.private, types.configuration])
   .register(types.controllers.api, ApiController, [types.logger, types.restDataReader, types.controllers.swaggerui,
   types.controllers.aipServiceIndex, types.controllers.carlServiceIndex, types.controllers.qualityRules,
   types.controllers.sso])
 
   .register(types.server, RulesDocumentationServer, [types.logger, types.serverVersion, types.configuration,
-  types.httpErrorFactory, types.passportConfigure, types.folderService, types.controllers.api, types.controllers.public, types.controllers.rules, types.controllers.render, types.controllers.publicAssets]);
+  types.httpErrorFactory, types.passportConfigure, types.folderService, types.controllers.api, types.controllers.rules, types.controllers.render, types.controllers.publicAssets]);
 
 module.exports = iocBuilder.getContainer();

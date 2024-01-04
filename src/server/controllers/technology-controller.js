@@ -5,6 +5,7 @@ const nunjucks = require("nunjucks");
  * @typedef {import("winston").Logger} Logger
  * @typedef {import("../services/technology-reader/service")} TechnologyDataReader
  * @typedef {import("../services/http-error-service/service")} HttpErrorFactory
+ * @typedef {import("../config/configuration").Configuration} Configuration
  * @typedef {import("express").Request} Request
  * @typedef {import("express").Response} Response
  * @typedef {import("express").NextFunction} NextFunction
@@ -15,17 +16,19 @@ class TechnologyController extends Controller {
   /**
    * @param {Logger} logger 
    * @param {TechnologyDataReader} dataReader 
+   * @param {Configuration} configuration
    */
-  constructor(logger, dataReader) {
+  constructor(logger, dataReader, configuration) {
     super({ logger, baseUrl: "/technologies" });
 
     this.dataReader = dataReader;
+    this.configuration = configuration;
   }
 
   $preprocess() {
     this
       .get("/", this.listTechnologies(this.dataReader))
-      .get("/:id", this.getTechnology(this.dataReader))
+      .get("/:id", this.getTechnology(this.dataReader, this.configuration.contextPath))
   }
 
   $postprocess() {
@@ -68,8 +71,9 @@ class TechnologyController extends Controller {
 
   /**
  * @param {TechnologyDataReader} dataReader 
+ * @param {string} contextPath
  */
-  getTechnology(dataReader) {
+  getTechnology(dataReader, contextPath = '') {
 
     /**
      * @param {Request} req 
@@ -87,7 +91,7 @@ class TechnologyController extends Controller {
         if (!req.headers['hx-request']) {
           res.status(200).json(technology.toApiOutput());
         } else {
-          res.setHeader('HX-Replace-Url', '/rules-documentation/' + req.originalUrl.replace('/api/', ''));
+          res.setHeader('HX-Replace-Url', contextPath + req.originalUrl.replace('/api/', ''));
           res.send(nunjucks.render('_hx_main_list.html', { model }));
         }
       } catch (error) {

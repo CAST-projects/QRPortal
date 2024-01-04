@@ -1,11 +1,25 @@
 {% import '_forms.html' as forms %}
-<header class="appbar ht64 appbar-container">
+<header id="habp" class="appbar ht64 appbar-container">
   <div class="fx-row ali-c">
     <div class="ico-logo"></div>
     <p id="ht1" class="mr0 tnr tb2 ts2">CAST</p>
     <p class="mr0 tnr tb2 ts2">Rules Documentation</p>
   </div>
-  <div>
+  {% if user %}
+  <div id="si-btn" class="btn-group auth-user-ctnr">
+    <button type="button" class="btn btn-default dropdown-toggle auth-user" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      {{ (user.firstname.charAt(0) | upper) + (user.lastname.charAt(0) | upper) }}
+    </button>
+    <ul class="dropdown-menu" style="left: -50px; min-width: 50px">
+      <li hx-post="/api/sso/signout" hx-target="#habp" hx-swap="outerHTML">
+        <a>Signout</a>
+      </li>
+    </ul>
+  </div>
+  {% else %}
+  <div id="si-btn">
     {{ forms.outline_btn('SIGN IN', "show_auth_dialog(event, 'auth-dialog')") }}
   </div>
+  {% endif %}
 </header>

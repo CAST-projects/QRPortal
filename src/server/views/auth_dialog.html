@@ -1,27 +1,31 @@
 {% import "_forms.html" as forms %}
 
-<div class="backdrop" id="auth-dialog" onclick="on_clickaway(event, 'auth-dialog')">
+<div class="backdrop op0 disn" id="auth-dialog" onclick="on_clickaway(event, 'auth-dialog')" hx-ext="response-targets">
     <div class="dialog">
         <div>
             <h2 class="tb3 auth-title">Sign In</h2>
-            <p class="tb1 color-text-secondary text-center" style="margin-bottom: 12px;width: 80%;">
+            <p class="tb1 tb-upper color-text-secondary text-center" style="margin-bottom: 12px;width: 80%;">
                 Using your CAST Extend will allow you to gain access to additional rule information
             </p>
             <img class="auth-extend-logo" src="/resources/assets/img/com.castsoftware.aip.extendservice.png"
                 alt="extend logo">
         </div>
         <div>
-            <form hx-post="/api/sso/authenticate" style="width: 100%;padding: 0px 24px 24px 24px">
-                <input type="hidden" value="{{csrf}}" />
+            <form hx-post="/api/sso/authenticate" style="width: 100%;padding: 0px 24px 24px 24px"
+                hx-target="#auth-dialog" hx-swap="outerHTML" hx-disabled-elt="#sbm-btn" hx-target-error="#frr">
+                <input type="hidden" name="xtkn" value="{{csrf}}" />
                 {{ forms.input("uid", "email", "", "Email") }}
                 {{ forms.input("pwd", "password", "", "Password") }}
+                <p id="frr" style="display: none;"></p>
                 <p class="tb2" style="padding-top: 8px;">
                     Not yet on Extend?
                     <a href="https://extend.castsoftware.com/#/register" target="_blank" rel="noreferrer">Register</a>
                 </p>
                 <div class="fx-row fx-end fx-gap16">
                     {{forms.btn('Cancel', 'btn-ghost', "close_auth_dialog(event, 'auth-dialog')")}}
-                    {{forms.contained_btn('Submit', null, 'pc', 'submit')}}
+                    <button id="sbm-btn" class="btn btn-contained pc" type="submit">
+                        Submit
+                    </button>
                 </div>
             </form>
         </div>

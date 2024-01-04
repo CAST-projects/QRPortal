@@ -1,10 +1,41 @@
+{% macro map_severity(severity, values = []) %}
+
+{% if severity === 20 %}
+{{values[1]}}
+{% elif severity === 30 %}
+{{values[2]}}
+{% else %}
+{{values[0]}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_severity_cls(severity) %}
+{{map_severity(severity, ['sev-low', 'sev-med', 'sev-crit'])}}
+{% endmacro %}
+
+{% macro severity_tag(severity) %}
+<div class="cellContainer">
+  <span class="cell tb-cap {{get_severity_cls(severity)}}">
+    {{ map_severity(severity, ['medium', 'high', 'critical']) }}
+  </span>
+</div>
+{% endmacro %}
+
 {% macro tls(items)%}
 {% for item in items %}
+{% if user %}
+<tr hx-get="/api/{{item.href}}?filter=technical-criteria!=cast" hx-target="#details" hx-swap="innerHTML">
+  <td>{{item.id}}</td>
+  <td>{{item.name}}</td>
+  <td>{{severity_tag(item.severity)}}</td>
+</tr>
+{% else %}
 <tr hx-get="/api/{{item.href}}" hx-target="#details" hx-swap="innerHTML">
   <td>{{item.id}}</td>
   <td>{{item.name}}</td>
-  <td>{{item.severity}}</td>
+  <td>{{severity_tag(item.severity)}}</td>
 </tr>
+{% endif %}
 {% endfor %}
 {% endmacro %}
 
@@ -14,7 +45,7 @@
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h4 class="h4" id="rulestitle">Rules</h4>
       <div class="btn-toolbar mb-2 mb-md-0">
-        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
         <div class="btn-group">
           <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             Filter
@@ -28,7 +59,7 @@
             </li>
             <li><a class="dropdown-item" id="filterdeprecated" href="#">Show Deprecated</a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
 

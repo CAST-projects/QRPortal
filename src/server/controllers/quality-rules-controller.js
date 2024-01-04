@@ -1,5 +1,4 @@
 const { Controller } = require("../lib/cnjs-utils/server");
-const { jwtAuth } = require("../services/extend-authentication-service");
 const nunjucks = require("nunjucks");
 
 /**
@@ -7,6 +6,7 @@ const nunjucks = require("nunjucks");
  * @typedef {import("../services/quality-rule-reader/service")} DataReader
  * @typedef {import("../services/http-error-service/service")} HttpErrorFactory
  * @typedef {import("../services/quality-rule-reader/search-service")} QualityRuleSearchIndex
+ * @typedef {import("../config/configuration").Configuration} Configuration
  * @typedef {import("express").Request} Request
  * @typedef {import("express").Response} Response
  * @typedef {import("express").NextFunction} NextFunction
@@ -19,13 +19,15 @@ class QualityRulesController extends Controller {
    * @param {DataReader} dataReader 
    * @param {QualityRuleSearchIndex} publicSearchIndex
    * @param {QualityRuleSearchIndex} privateSearchIndex
+   * @param {Configuration} configuration
    */
-  constructor(logger, dataReader, publicSearchIndex, privateSearchIndex) {
+  constructor(logger, dataReader, publicSearchIndex, privateSearchIndex, configuration) {
     super({ logger, baseUrl: "/quality-rules" });
 
     this.dataReader = dataReader;
     this.publicSearchIndex = publicSearchIndex;
     this.privateSearchIndex = privateSearchIndex;
+    this.configuration = configuration;
   }
 
   async $preprocess() {
@@ -35,15 +37,14 @@ class QualityRulesController extends Controller {
     // await this.privateSearchIndex.generate();
     this
       .get("/:id",
-        jwtAuth(),
         this.handleAuthorizationRedirect(
-          this.getQualityRule(this.dataReader),
-          this.getPublicQualityRule(this.dataReader)
+          this.getQualityRule(this.dataReader, this.configuration),
+          this.getPublicQualityRule(this.dataReader, this.configuration)
         )
       )
-      .get("/", jwtAuth(), this.searchQueryBuilderMiddleware(), this.handleAuthorizationRedirect(
-        this.searchQualityRules(this.dataReader, this.privateSearchIndex),
-        this.searchQualityRules(this.dataReader, this.publicSearchIndex)
+      .get("/", this.searchQueryBuilderMiddleware(), this.handleAuthorizationRedirect(
+        this.searchQualityRules(this.dataReader, this.privateSearchIndex, this.configuration),
+        this.searchQualityRules(this.dataReader, this.publicSearchIndex, this.configuration)
       ));
   }
 
@@ -217,8 +218,9 @@ class QualityRulesController extends Controller {
   /**
    * @param {Logger} logger 
    * @param {DataReader} dataReader 
+   * @param {Configuration} config
    */
-  getQualityRule(dataReader) {
+  getQualityRule(dataReader, config) {
 
     /**
      * @param {Request} req 
@@ -244,7 +246,11 @@ class QualityRulesController extends Controller {
         if (!req.headers['hx-request']) {
           res.status(200).json(qualityRule);
         } else {
-          res.setHeader('HX-Replace-Url', req.headers['HX-Current-URL'] + `/details/${id}`);
+          let cUrl = req.headers['hx-current-url'];
+          let currentUrl = cUrl.split(config.publicUrl)[1];
+          currentUrl = currentUrl.split('/details/')[0];
+          res.setHeader('HX-Replace-Url', (config.contextPath || '') + currentUrl + `/details/${id}`);
+
           res.send(nunjucks.render('_details.html', { details: qualityRule }));
         }
       } catch (error) {
@@ -258,8 +264,9 @@ class QualityRulesController extends Controller {
   /**
    * @param {Logger} logger 
    * @param {DataReader} dataReader 
+   * @param {Configuration} config
    */
-  getPublicQualityRule(dataReader) {
+  getPublicQualityRule(dataReader, config) {
 
     /**
      * @param {Request} req 
@@ -267,6 +274,7 @@ class QualityRulesController extends Controller {
      */
     async function handler(req, res, next) {
       const { id } = req.params;
+      let { filter } = req.query;
 
       try {
         const qualityRule = await dataReader.read(id);
@@ -275,9 +283,10 @@ class QualityRulesController extends Controller {
           res.status(206).json(qualityRule.toPublicOutput());
         } else {
           let cUrl = req.headers['hx-current-url'];
-          let currentUrl = cUrl.split('/rules-documentation/')[1];
+          let currentUrl = cUrl.split(config.publicUrl)[1];
           currentUrl = currentUrl.split('/details/')[0];
-          res.setHeader('HX-Replace-Url', '/rules-documentation/' + currentUrl + `/details/${id}`);
+          res.setHeader('HX-Replace-Url', (config.contextPath || '') + currentUrl + `/details/${id}`);
+          if (filter) res.setHeader('HX-Refresh', 'true');
           res.send(nunjucks.render('_details.html', { details: qualityRule.toPublicOutput() }));
         }
       } catch (error) {

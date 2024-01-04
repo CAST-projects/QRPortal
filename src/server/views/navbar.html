@@ -3,7 +3,7 @@
 <li role="treeitem" tabindex="{{ index }}" hx-get="/api/{{ entry.href }}" hx-target="#main" hx-swap="innerHTML"
   hx-trigger="click consume">
   <div class="navitem">
-    <img src="{{ entry.iconUrl }}" onerror="this.src='/assets/img/placeholder.svg'; this.onerror=null;" alt=""
+    <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
       width="26px" height="26px">
     <label class="tb2 tnr tb-cap">{{ entry.displayName or entry.name }}</label>
   </div>
@@ -11,7 +11,7 @@
 {% elif is_leaf and entry.count !== undefined and entry.count === 0 %}
 <li role="treeitem" tabindex="{{ index }}">
   <div class="navitem">
-    <img src="{{ entry.iconUrl }}" onerror="this.src='/assets/img/placeholder.svg'; this.onerror=null;" alt=""
+    <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
       width="26px" height="26px">
     <label class="tb2 tnr tb-cap" style="color:grey;">{{ entry.displayName or entry.name }}</label>
   </div>
@@ -21,7 +21,7 @@
   hx-swap="innerHTML" hx-trigger="click once">
   <div class="navitem" data-toggle="collapse"
     data-target="#navitem-{{ entry.name | replace(' ', '-') | replace('.', '-') }}">
-    <img src="{{ entry.iconUrl }}" onerror="this.src='/assets/img/placeholder.svg'; this.onerror=null;" alt=""
+    <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
       width="26px" height="26px">
     <label
       class="tb2 tnr {{ '' if entry.ignoreTitleTransform else 'tb-cap'}}">{{ entry.displayName or entry.name }}</label>
