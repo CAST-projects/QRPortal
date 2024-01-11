@@ -88,6 +88,7 @@ class RulesDocumentationServer extends Server {
       lstripBlocks: true,
     })
     env.addGlobal('base_url', configuration.publicUrl);
+    env.addGlobal('gbl_year', new Date(Date.now()).getFullYear());
   }
 
   $preprocess() {

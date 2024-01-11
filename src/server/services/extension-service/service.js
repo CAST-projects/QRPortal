@@ -45,10 +45,14 @@ class ExtensionDataReader {
       const id = extension.name;
       const extensionInfo = await this.dataReader.readExtension(id);
       const versions = await this.dataReader.listExtensionVersions(id);
+      extensionInfo.hasRules = false;
 
       for (const version of versions) {
         const verInfo = await this.readVersion(id, version.name);
         version.count = verInfo.qualityRules ? verInfo.qualityRules.length : 0;
+        if (!extensionInfo.hasRules && version.count > 0) {
+          extensionInfo.hasRules = true;
+        }
       }
 
       extensionInfo.title = this.cleaner.clean(extensionInfo.title);

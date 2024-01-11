@@ -1,5 +1,6 @@
 const { Controller } = require("../lib/cnjs-utils/server");
 const nunjucks = require("nunjucks");
+const { stream } = require("../lib/stream");
 
 /**
  * @typedef {import("winston").Logger} Logger
@@ -59,7 +60,10 @@ class ExtensionController extends Controller {
           res.status(200).json(item);
         } else {
           res.send(nunjucks.render('_hx-nav-menu.html', {
-            items: item.items.map(_ => ({ ..._, ignoreTitleTransform: true })),
+            items: stream(item.items)
+              .filter(_ => _.hasRules)
+              .map(_ => ({ ..._, ignoreTitleTransform: true }))
+              .collect(),
             isLeaf: false,
           }));
         }
