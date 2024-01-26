@@ -22,7 +22,7 @@
   </style>
 </head>
 
-<body>
+<body onload="handleApplyFiltersLoad(event)">
   {% include "header.html" %}
   <div class="content">
     {% include 'navbar.html' %}
@@ -36,6 +36,7 @@
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
   <script src="/resources/forms.js"></script>
+  <script src="/resources/table-filters.js"></script>
 </body>
 
 </html>

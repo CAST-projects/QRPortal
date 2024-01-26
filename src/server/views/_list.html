@@ -25,57 +25,38 @@
 {% for item in items %}
 {% if user %}
 <tr hx-get="/api/{{item.href}}?filter=technical-criteria!=cast" hx-target="#details" hx-swap="innerHTML">
-  <td>{{item.id}}</td>
-  <td>{{item.name}}</td>
-  <td>{{severity_tag(item.severity)}}</td>
-</tr>
-{% else %}
+  {% else %}
 <tr hx-get="/api/{{item.href}}" hx-target="#details" hx-swap="innerHTML">
+  {% endif %}
   <td>{{item.id}}</td>
   <td>{{item.name}}</td>
   <td>{{severity_tag(item.severity)}}</td>
 </tr>
-{% endif %}
 {% endfor %}
 {% endmacro %}
 
 <main style="padding: 16px 20px;">
-  <div class="position-sticky pt-3 sidebar-sticky">
-    <div
+  <div class="w-100">
+    <div id="main-header"
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h4 class="h4" id="rulestitle">Rules</h4>
-      <div class="btn-toolbar mb-2 mb-md-0">
-        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            Filter
-          </button>
-          <ul class="dropdown-menu btn-sm">
-            <li><a class="dropdown-item" id="filtermedium" href="#">Hide Medium</a></li>
-            <li><a class="dropdown-item" id="filterhigh" href="#">Hide High</a></li>
-            <li><a class="dropdown-item" id="filtercritical" href="#">Hide Critical</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" id="filterdeprecated" href="#">Show Deprecated</a></li>
-          </ul>
-        </div> -->
-      </div>
     </div>
 
     <!--div class="table-responsive"-->
-    <table class="table table-hover table" id="rulelist">
-      <thead>
-        <tr class="table-sm">
-          <th scope="col table-sm">ID</th>
-          <th scope="col table-sm">Name</th>
-          <th scope="col table-sm">Severity</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{ tls(model.qualityRules) }}
-        {{ tls(model.qualityTemplates) }}
-      </tbody>
-    </table>
+    <div class="position-sticky pt-3 sidebar-sticky">
+      <table class="table table-hover table" id="rulelist">
+        <thead>
+          <tr class="table-sm">
+            <th scope="col table-sm">ID</th>
+            <th scope="col table-sm">Name</th>
+            <th scope="col table-sm">Severity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ tls(model.qualityRules) }}
+          {{ tls(model.qualityTemplates) }}
+        </tbody>
+      </table>
+    </div>
   </div>
 </main>
