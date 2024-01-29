@@ -86,6 +86,11 @@ function close_auth_dialog(event, id) {
     }, 100);
 }
 
+function clearSearch() {
+    const search = document.getElementById("search-box");
+    search.value = "";
+}
+
 (function () {
     const inputs = document.getElementsByClassName('MuiInput-input');
 

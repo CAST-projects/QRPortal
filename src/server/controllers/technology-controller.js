@@ -91,7 +91,7 @@ class TechnologyController extends Controller {
         if (!req.headers['hx-request']) {
           res.status(200).json(technology.toApiOutput());
         } else {
-          res.setHeader('HX-Replace-Url', contextPath + req.originalUrl.replace('/api/', ''));
+          res.setHeader('HX-Replace-Url', (contextPath ? contextPath : '') + req.originalUrl.replace('/api/', ''));
           res.send(nunjucks.render('_hx_main_list.html', { model }));
         }
       } catch (error) {

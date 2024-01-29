@@ -26,7 +26,7 @@ const PATH = {
   ITEMS: "items",
   DETAILS: "details",
   TECHNOLOGIES: "technologies",
-  SEARCH: "search_term",
+  SEARCH: "search",
   PACKAGES: "packages",
 };
 

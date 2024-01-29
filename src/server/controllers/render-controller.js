@@ -1,10 +1,12 @@
 const { Controller } = require("../lib/cnjs-utils/server");
 const nunjucks = require("nunjucks");
+const { parseQuery } = require("../services/quality-rule-reader/lib");
 
 /**
  * @typedef {import("winston").Logger} Logger
  * @typedef {import("../services/context-data-reader/reader")} ContextDataReader
  * @typedef {import("../services/http-error-service/service")} HttpErrorFactory
+ * @typedef {import("./quality-rules-controller").QualityRuleSearchIndex} QualityRuleSearchIndex
  * @typedef {import("express").Request} Request
  * @typedef {import("express").Response} Response
  * @typedef {import("express").NextFunction} NextFunction
@@ -15,18 +17,26 @@ class RenderController extends Controller {
   /**
    * @param {ContextDataReader} contextDataReader
    * @param {Logger} logger 
+   * @param {QualityRuleSearchIndex} publicSearchIndex
+   * @param {QualityRuleSearchIndex} privateSearchIndex
    */
-  constructor(contextDataReader, logger) {
+  constructor(contextDataReader, logger, configuration, publicSearchIndex, privateSearchIndex) {
     super({
       logger: logger,
       baseUrl: "/",
     });
 
+    this.configuration = configuration;
     this.contextDataReader = contextDataReader;
+    this.publicSearchIndex = publicSearchIndex;
+    this.privateSearchIndex = privateSearchIndex;
   }
 
   async $preprocess() {
     this.get("/", this.index(this.contextDataReader));
+    this.get("/s-reset", this.searchReset(this.configuration));
+    this.get("/search/:query", this.searchHandler(this.contextDataReader, this.publicSearchIndex, this.privateSearchIndex));
+    this.get("/search/:query/details/:ruleId", this.searchHandler(this.contextDataReader, this.publicSearchIndex, this.privateSearchIndex));
     this.makeEndPoints('business-criteria', this.businessCriteriaList);
     this.makeEndPoints('technologies', this.technologiesList);
     this.get("/:context/quality-standards/:standard/categories/:category/items/:itemId",
@@ -47,6 +57,82 @@ class RenderController extends Controller {
     this.get(`${base}/details/:ruleId`, handler(this.contextDataReader, this.genericHandler));
   }
 
+  /**
+   * @param {ContextDataReader} contextDataReader 
+   * @param {QualityRuleSearchIndex} publicSI 
+   * @param {QualityRuleSearchIndex} privateSI 
+   */
+  searchHandler(contextDataReader, publicSI, privateSI) {
+
+    /**
+     * @param {Request} req
+     * @param {Response} res
+     * @param {NextFunction} next
+     */
+    async function handler(req, res, next) {
+      const { ruleId, query } = req.params;
+      const { by } = req.query;
+      const user = req.user;
+      const searchIndex = user ? privateSI : publicSI;
+      const dataReader = contextDataReader.qualityRuleDataReader;
+
+      try {
+        let details;
+        if (ruleId) {
+          const qualityRule = await dataReader.read(ruleId);
+
+          details = user ? qualityRule : qualityRule.toPublicOutput();
+        }
+
+        const _query = parseQuery(query);
+        const _by = searchIndex.getSearchBy(by);
+
+        let results = searchIndex.search(_query, _by);
+        if (results.length === 0) results = searchIndex.looseSearch(_query, _by);
+        const ids = results.map(_ => _.ref);
+        const qualityRules = await dataReader.listQualityRuleReferences(ids);
+        const model = { name: "quality rules search", href: "/quality-rules", qualityRules };
+        const si = await dataReader.dataReader.readServiceIndex();
+
+        res.send(nunjucks.render('data_navigation_search.html', {
+          query,
+          searchBy: _by,
+          model,
+          navbar: si.items,
+          details,
+          csrf: 'tokex',
+          user,
+        }));
+
+      } catch (error) {
+        next(error);
+      }
+    }
+
+    return handler
+  }
+
+  /**
+   * @param {Configuration} config 
+   */
+  searchReset(config) {
+
+    /**
+     * @param {Request} _req
+     * @param {Response} res
+     * @param {NextFunction} next
+     */
+    function handler(_req, res, next) {
+      try {
+        res.setHeader('HX-Replace-Url', config.contextPath ? config.contextPath : "/");
+        res.send(nunjucks.render('_welcome.html'));
+      } catch (error) {
+        next(error);
+      }
+    }
+
+    return handler;
+  }
 
   async getQualityStandards() {
     const dataReader = this.contextDataReader.qualityStandardDataReader;
@@ -205,7 +291,7 @@ class RenderController extends Controller {
   businessCriteriaList(contextDataReader, handler) {
     return handler(
       contextDataReader,
-      contextDataReader.businessCriteriaDataReader.read.bind(contextDataReader.businessCriteriaDataReader)
+      contextDataReader.businessCriteriaDataReader.read.bind(contextDataReader.businessCriteriaDataReader),
     );
   }
 
@@ -224,6 +310,15 @@ class RenderController extends Controller {
   /**
   * @param {ContextDataReader} contextDataReader 
   */
+  async bcMenuGenerator(contextDataReader, id) {
+    const reader = contextDataReader.businessCriteriaDataReader.dataReader;
+    const si = await reader.readServiceIndex();
+
+  }
+
+  /**
+  * @param {ContextDataReader} contextDataReader 
+  */
   genericHandler(contextDataReader, findById, transform) {
     /**
      * 
@@ -233,11 +328,10 @@ class RenderController extends Controller {
     async function handler(req, res, next) {
       const user = req.user;
       const { id, ruleId } = req.params;
-      const reader = contextDataReader.businessCriteriaDataReader.dataReader;
       const qrReader = contextDataReader.qualityRuleDataReader;
 
       try {
-        const si = await reader.readServiceIndex();
+        const si = await qrReader.dataReader.readServiceIndex();
         let details;
         if (ruleId) {
           const qualityRule = await qrReader.read(ruleId);

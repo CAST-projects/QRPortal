@@ -109,6 +109,10 @@ section.paper {
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
+.sl {
+  height: calc(100% - 40px);
+}
+
 .appbar {
   width: 100%;
   box-sizing: border-box;
@@ -155,6 +159,10 @@ section.paper {
 
 .ht64 {
   height: 64px;
+}
+
+.ht40 {
+  height: 40px;
 }
 
 .tb0 {
@@ -253,7 +261,7 @@ section.paper {
 }
 
 .bg-p-selected {
-  background-color: rgba(25, 118, 210, 0.08);
+  background-color: #c1e1ec;
 }
 
 .w-100 {
@@ -418,6 +426,16 @@ td {
   margin-top: 24px;
   max-height: calc(100vh - 170px);
   scrollbar-width: thin;
+}
+
+.search-reset-btn {
+  color: rgb(96, 93, 99);
+  border: 1px solid rgb(96, 93, 99) !important;
+}
+
+.search-reset-btn:hover {
+  color: rgb(96, 93, 99) !important;
+  border: 1px solid rgb(96, 93, 99);
 }
 
 .btn-outline {

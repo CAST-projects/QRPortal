@@ -125,7 +125,7 @@ class ExtensionController extends Controller {
         if (!req.headers['hx-request']) {
           res.status(200).json(model);
         } else {
-          res.setHeader('HX-Replace-Url', contextPath + model.href);
+          res.setHeader('HX-Replace-Url', (contextPath ? contextPath : '') + model.href);
           res.send(nunjucks.render('_hx_main_list.html', { model }));
         }
       } catch (error) {

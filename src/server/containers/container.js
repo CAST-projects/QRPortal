@@ -309,13 +309,20 @@ iocBuilder
     const cntr = context.container;
     return new RulesController(cntr.get(types.logger), cntr.get(types.urlConverter), cntr.get(types.configuration));
   })
-  .registerFactory(types.controllers.render, (context) => {
+  // .registerFactory(types.controllers.render, (context) => {
+  //   const cntr = context.container;
+  //   return new RenderController(
+  //     cntr.get(types.aipContextReader),
+  //     cntr.get(types.logger),
+  //     cntr.get(types.configuration),
+  //   );
+  // })
+  .registerFactory(types.controllers.public, (context) => {
     const cntr = context.container;
-    return new RenderController(
-      cntr.get(types.aipContextReader),
-      cntr.get(types.logger),
-      cntr.get(types.configuration)
-    );
+    return new PublicController('/',
+      /(\/api)|(\/rules)|(\/resources)/i,
+      true,
+      cntr.get(types.logger), cntr.get(types.distFolder), cntr.get(types.configuration))
   })
   .registerFactory(types.controllers.publicAssets, (context) => {
     const cntr = context.container;
@@ -326,6 +333,7 @@ iocBuilder
       cntr.get(types.assetFolder),
       cntr.get(types.configuration))
   })
+  .register(types.controllers.render, RenderController, [types.aipContextReader, types.logger, types.configuration, types.searchIndex.public, types.searchIndex.private])
   .register(types.controllers.sso, SSOController, [types.logger, types.configuration, types.ssoCache])
   .register(types.controllers.carlServiceIndex, CARLServiceController, [types.logger, types.carlDataReader,
   types.controllers.carl.technology, types.controllers.carl.qualityStandard, types.controllers.carl.businessCriteria,

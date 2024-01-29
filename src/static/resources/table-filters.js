@@ -64,7 +64,11 @@ function handleSelectRule(evt) {
 
     if (path.includes('/details/')) {
         const parts = path.split('/');
-        const id = parts[parts.length - 1];
+        let id = parts[parts.length - 1];
+        if (id.includes("?")) {
+            const _parts = id.split("?");
+            id = _parts[0];
+        }
 
         updateSelectedRule(id);
     }
@@ -87,9 +91,11 @@ function updateSelectedRule(id, scrollTo = false) {
             if (tr.classList.contains(SELECTED_CLS)) {
                 tr.classList.remove(SELECTED_CLS);
             }
+            console.log(_id, id)
             if (_id === id) {
                 if (!tr.classList.contains(SELECTED_CLS)) {
                     tr.classList.add(SELECTED_CLS);
+                    console.log(tr)
                     if (scrollTo) {
                         scrl.scrollTo({
                             behavior: 'instant',
