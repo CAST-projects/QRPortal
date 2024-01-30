@@ -86,11 +86,6 @@ class RulesDocumentationServer extends Server {
       express: this.app,
       trimBlocks: true,
       lstripBlocks: true,
-      noCache: true,
-      dev: true,
-      web: {
-        useCache: false,
-      }
     })
     env.addGlobal('base_url', configuration.publicUrl);
     env.addGlobal('gbl_year', new Date(Date.now()).getFullYear());
