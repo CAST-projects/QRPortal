@@ -88,14 +88,14 @@ function updateSelectedRule(id, scrollTo = false) {
             const tr = children[index];
             const tds = tr.children;
             const _id = tds[0].innerText;
+
             if (tr.classList.contains(SELECTED_CLS)) {
                 tr.classList.remove(SELECTED_CLS);
             }
-            console.log(_id, id)
+
             if (_id === id) {
                 if (!tr.classList.contains(SELECTED_CLS)) {
                     tr.classList.add(SELECTED_CLS);
-                    console.log(tr)
                     if (scrollTo) {
                         scrl.scrollTo({
                             behavior: 'instant',
