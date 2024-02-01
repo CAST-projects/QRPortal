@@ -182,6 +182,9 @@ class QualityRulesController extends Controller {
             const _qs = currentUrl.split("?");
             qs = '?' + _qs[1];
             currentUrl = _qs[0];
+            if (currentUrl.endsWith("/")) {
+              currentUrl = currentUrl.slice(0, currentUrl.length - 1)
+            }
           }
           currentUrl = currentUrl.split('/details/')[0];
           res.setHeader('HX-Replace-Url', currentUrl + `/details/${id}${qs}`);
@@ -226,6 +229,9 @@ class QualityRulesController extends Controller {
             currentUrl = _qs[0];
           }
           currentUrl = currentUrl.split('/details/')[0];
+          if (currentUrl.endsWith("/")) {
+            currentUrl = currentUrl.slice(0, currentUrl.length - 1)
+          }
           res.setHeader('HX-Replace-Url', currentUrl + `/details/${id}${qs}`);
           if (filter) res.setHeader('HX-Refresh', 'true');
           res.send(nunjucks.render('_details.html', { details: qualityRule.toPublicOutput() }));
