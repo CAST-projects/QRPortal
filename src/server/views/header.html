@@ -1,0 +1,44 @@
+{% import '_forms.html' as forms %}
+<header id="habp" class="appbar ht64 appbar-container">
+  <div class="fx-row ali-c">
+    <div class="ico-logo"></div>
+    <p id="ht1" class="mr0 tnr tb2 ts2">CAST</p>
+    <p class="mr0 tnr tb2 ts2">Rules Documentation</p>
+  </div>
+  <div style="display: flex; flex-direction: row;">
+    <form class="search-container" hx-get="/api/quality-rules" hx-target="#main" hx-swap="innerHTML">
+      <select name="search-by" id="search-by">
+        <option class="hov cursor-pt" value="">None</option>
+        <option class="hov cursor-pt" value="id">Id</option>
+        <option class="hov cursor-pt" value="name">Name</option>
+        <option class="hov cursor-pt" value="rationale">Rationale</option>
+        <option class="hov cursor-pt" value="technologies">Technologies</option>
+        {% if user %}
+        <option class="hov cursor-pt" value="remediation">Remediation</option>
+        <option class="hov cursor-pt" value="sample">Sample</option>
+        <option class="hov cursor-pt" value="technical-criteria">Technical criteria</option>
+        <option class="hov cursor-pt" value="business-criteria">Business criteria</option>
+        <option class="hov cursor-pt" value="quality-standards">Quality standards</option>
+        {% endif %}
+      </select>
+      <input type="search" name="q" id="search-box" placeholder="Search">
+    </form>
+    {% if user %}
+    <div id="si-btn" class="btn-group auth-user-ctnr">
+      <button type="button" class="btn btn-default dropdown-toggle auth-user ht40" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        {{ (user.firstname.charAt(0) | upper) + (user.lastname.charAt(0) | upper) }}
+      </button>
+      <ul class="dropdown-menu" style="left: -50px; min-width: 50px">
+        <li hx-post="/api/sso/signout" hx-target="#habp" hx-swap="outerHTML">
+          <a>Signout</a>
+        </li>
+      </ul>
+    </div>
+    {% else %}
+    <div id="si-btn">
+      {{ forms.outline_btn('SIGN IN', "show_auth_dialog(event, 'auth-dialog')", "ht40") }}
+    </div>
+    {% endif %}
+  </div>
+</header>

@@ -1,7 +1,7 @@
 [
     {
         "id": 7150,
-        "name": "Avoid string interpolations to prevent SQL injections by using  PreparedStatement or CallableStatement",
+        "name": "Favor PreparedStatement or CallableStatement over Statement",
         "href": "AIP/quality-rules/7150",
         "critical": false,
         "severity": 10,
@@ -372,7 +372,7 @@
         "name": "Avoid LDAP injection through API requests",
         "href": "AIP/quality-rules/8492",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -384,7 +384,7 @@
         "name": "Avoid OS command injection through API requests",
         "href": "AIP/quality-rules/8494",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -396,7 +396,7 @@
         "name": "Avoid process control through API requests",
         "href": "AIP/quality-rules/8496",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -420,7 +420,7 @@
         "name": "Avoid code injection through API requests",
         "href": "AIP/quality-rules/8500",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -432,7 +432,7 @@
         "name": "Avoid reflection injection through API requests",
         "href": "AIP/quality-rules/8502",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -456,7 +456,7 @@
         "name": "Avoid file path manipulation through API requests",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -528,7 +528,7 @@
         "name": "Avoid XQuery injection",
         "href": "AIP/quality-rules/8530",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -540,7 +540,7 @@
         "name": "Avoid second order XQuery injection",
         "href": "AIP/quality-rules/8532",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -552,7 +552,7 @@
         "name": "Avoid XQuery injection through API requests",
         "href": "AIP/quality-rules/8534",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -618,7 +618,7 @@
         "name": "Avoid server-side request forgery",
         "href": "AIP/quality-rules/8560",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -630,7 +630,7 @@
         "name": "Avoid server-side request forgery through API requests",
         "href": "AIP/quality-rules/8562",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -642,7 +642,7 @@
         "name": "Avoid second order server-side request forgery",
         "href": "AIP/quality-rules/8564",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1010,6 +1010,46 @@
         ]
     },
     {
+        "id": 1021096,
+        "name": "Avoid second order LDAP injection (Python)",
+        "href": "AIP/quality-rules/1021096",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021098,
+        "name": "Avoid HTTP header injection (Python)",
+        "href": "AIP/quality-rules/1021098",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021104,
+        "name": "Avoid file path manipulation (Python)",
+        "href": "AIP/quality-rules/1021104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021106,
+        "name": "Avoid server-side request forgery (Python)",
+        "href": "AIP/quality-rules/1021106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1025000,
         "name": "Avoid second order OS command injection",
         "href": "AIP/quality-rules/1025000",
@@ -1043,6 +1083,146 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1034000,
+        "name": "Avoid SQL injection (PHP)",
+        "href": "AIP/quality-rules/1034000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034004,
+        "name": "Avoid LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034006,
+        "name": "Avoid OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034012,
+        "name": "Avoid reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034020,
+        "name": "Avoid HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034026,
+        "name": "Avoid second order code injection (PHP)",
+        "href": "AIP/quality-rules/1034026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034028,
+        "name": "Avoid second order LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034030,
+        "name": "Avoid second order OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034036,
+        "name": "Avoid second order file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034042,
+        "name": "Avoid second order HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034046,
+        "name": "Avoid second order reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034050,
+        "name": "Avoid XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034052,
+        "name": "Avoid second order XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034052",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
         ]
     },
     {

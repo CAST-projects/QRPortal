@@ -3,7 +3,7 @@
     "name": "Avoid reflected cross-site scripting (non persistent)",
     "href": "AIP/quality-rules/8408",
     "critical": true,
-    "severity": 20,
+    "severity": 30,
     "maxWeight": 9,
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.\n\nReflected XSS: The server reads data directly from the HTTP request and reflects it back in the HTTP response. Reflected XSS exploits occur when an attacker causes a victim to supply dangerous content to a vulnerable web application, which is then reflected back to the victim and executed by the web browser. The most common mechanism for delivering malicious content is to include it as a parameter in a URL that is posted publicly or e-mailed directly to the victim.\n\nUsing CAST data-flow engine, this metric detects paths from user input methods to HTML user output methods which are open vulnerabilities to Reflected cross-site scripting injection (XSS - Type 1)",
@@ -25,21 +25,6 @@
             "id": 1061000,
             "name": "ISO-5055-Index",
             "href": "AIP/business-criteria/1061000"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 66031,
@@ -68,6 +53,13 @@
             "critical": false
         },
         {
+            "id": 1066179,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1066179",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1062303,
             "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",
             "href": "AIP/technical-criteria/1062303",
@@ -85,6 +77,13 @@
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",
             "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063121,
+            "name": "PCI-Requirement-6.5.7 - Cross-site scripting (XSS)",
+            "href": "AIP/technical-criteria/1063121",
             "weight": 5,
             "critical": false
         },
@@ -170,13 +169,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.7",
-            "name": "  Cross-site scripting (XSS)",
+            "name": "Cross-site scripting (XSS)",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.7",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.7",
-            "name": "  Cross-site scripting (XSS)",
+            "name": "Cross-site scripting (XSS)",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.7",
             "standard": "PCI-DSS-V3.2.1"
         },

@@ -20,21 +20,6 @@
     "alternativeName": "Ensure you have not disable AntiForgery token in Razor Pages (ASP.NET Core MVC)",
     "businessCriteria": [
         {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -46,6 +31,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066452,
+            "name": "CWE-352 - Cross-Site Request Forgery (CSRF)",
+            "href": "AIP/technical-criteria/1066452",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062308,
             "name": "OWASP-2013-A8 - Cross-Site Request Forgery (CSRF)",
@@ -64,6 +56,13 @@
             "id": 1062341,
             "name": "OWASP-2021-A01 - Broken Access Control",
             "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063123,
+            "name": "PCI-Requirement-6.5.9 - Cross-site request forgery (CSRF)",
+            "href": "AIP/technical-criteria/1063123",
             "weight": 5,
             "critical": false
         },

@@ -690,7 +690,7 @@
     },
     {
         "id": 7748,
-        "name": "Ensure your application does not run OS commande without sanitization",
+        "name": "Ensure your application does not run OS command without sanitization",
         "href": "AIP/quality-rules/7748",
         "critical": true,
         "severity": 30,
@@ -1497,7 +1497,7 @@
         "name": "Ensure you don't use user input without validation",
         "href": "AIP/quality-rules/8408",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1509,7 +1509,7 @@
         "name": "Ensure you don't use user input without validation",
         "href": "AIP/quality-rules/8410",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1545,7 +1545,7 @@
         "name": "Ensure not using hard-coded HMAC keys",
         "href": "AIP/quality-rules/8424",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1629,7 +1629,7 @@
         "name": "Ensure you don't use user input without validation",
         "href": "AIP/quality-rules/8482",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1677,7 +1677,7 @@
         "name": "Ensure your application does not run LDAP methods without sanitization",
         "href": "AIP/quality-rules/8492",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1689,7 +1689,7 @@
         "name": "Ensure your application does not run OS commande without sanitization",
         "href": "AIP/quality-rules/8494",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1701,7 +1701,7 @@
         "name": "Ensure you don't use external library given by unsanitized user input",
         "href": "AIP/quality-rules/8496",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1725,7 +1725,7 @@
         "name": "Ensure your application does not evaluate unsanitized code.",
         "href": "AIP/quality-rules/8500",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1737,7 +1737,7 @@
         "name": "Ensure you have sanitized the data received to be reflected in your application",
         "href": "AIP/quality-rules/8502",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1761,7 +1761,7 @@
         "name": "Ensure you do file path manipulation without including untrusted data",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1833,7 +1833,7 @@
         "name": "Ensure your application properly neutralize XML content before it is processed",
         "href": "AIP/quality-rules/8530",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1845,7 +1845,7 @@
         "name": "Ensure your application properly neutralize XML content before it is processed",
         "href": "AIP/quality-rules/8532",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1857,7 +1857,7 @@
         "name": "Ensure your application properly neutralize XML content before it is processed",
         "href": "AIP/quality-rules/8534",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2210,6 +2210,16 @@
         "href": "AIP/quality-rules/1020076",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020080,
+        "name": "Avoid using setInterval with a string as first argument",
+        "href": "AIP/quality-rules/1020080",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "HTML5"
         ]

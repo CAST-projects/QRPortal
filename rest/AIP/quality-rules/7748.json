@@ -14,7 +14,7 @@
     "remediationSample": "Sample 1:\npublic String coordinateTransformLatLonToUTM(String coordinates)\n{\n  String utmCoords = null;\n  try {\n    String latlonCoords = coordinates;\n    Runtime rt = Runtime.getRuntime();\n    // insert a validation code for coordinates\n    Process exec = rt.exec(\"cmd.exe /C latlon2utm.exe -\" + latlonCoords);\n    // process results of coordinate transform \n    // ... \n  } catch(Exception e) {...}\n  return utmCoords;\n}\n\n\nSample 2:\nString script = System.getProperty(\"SCRIPTNAME\");\n// insert a validation code\nif (script != null)\n  System.exec(script);",
     "sample": "Sample 1:\npublic String coordinateTransformLatLonToUTM(String coordinates)\n{\n  String utmCoords = null;\n  try {\n    String latlonCoords = coordinates;\n    Runtime rt = Runtime.getRuntime();\n    Process exec = rt.exec(\"cmd.exe /C latlon2utm.exe -\" + latlonCoords);\n    // process results of coordinate transform \n    // ... \n  } catch(Exception e) {...}\n  return utmCoords;\n}\n\n/*\nIn the example above, a method is used to transform geographic coordinates from latitude and longitude format to UTM format. The method gets the input coordinates from a user through a HTTP request and executes a program local to the application server that performs the transformation. The method passes the latitude and longitude coordinates as a command-line option to the external program and will perform some processing to retrieve the results of the transformation and return the resulting UTM coordinates.\nHowever, the method does not verify that the contents of the coordinates input parameter includes only correctly-formatted latitude and longitude coordinates. If the input coordinates were not validated prior to the call to this method, a malicious user could execute another program local to the application server by appending '&' followed by the command for another program to the end of the coordinate string. The '&' instructs the Windows operating system to execute another program.\n*/\n\nSample 2:\nString script = System.getProperty(\"SCRIPTNAME\");\nif (script != null)\n  System.exec(script);",
     "total": "Number of potentially vulnerable methods",
-    "alternativeName": "Ensure your application does not run OS commande without sanitization",
+    "alternativeName": "Ensure your application does not run OS command without sanitization",
     "businessCriteria": [
         {
             "id": 1062100,
@@ -25,21 +25,6 @@
             "id": 1061000,
             "name": "ISO-5055-Index",
             "href": "AIP/business-criteria/1061000"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 66031,
@@ -68,6 +53,13 @@
             "critical": false
         },
         {
+            "id": 1066178,
+            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/technical-criteria/1066178",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1061016,
             "name": "CWE-88 - Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
             "href": "AIP/technical-criteria/1061016",
@@ -92,6 +84,13 @@
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",
             "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
             "weight": 5,
             "critical": false
         },
@@ -201,13 +200,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
         },

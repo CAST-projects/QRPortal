@@ -1,17 +1,17 @@
 {
     "id": 7856,
-    "name": "Avoid Tables with more than 20 columns on an OLTP system",
+    "name": "Avoid Tables with too many columns on an OLTP system",
     "href": "AIP/quality-rules/7856",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
     "associatedValueName": "Number of columns",
-    "description": "Avoid Tables with more than 20 columns on an OLTP system",
+    "description": "This rule searches for tables with more than X columns. X is a parameter which default value is 20.",
     "output": "This report lists all Tables with more than 20 columns on an OLTP system",
     "rationale": "In an OLTP system, having tables with more than 20 columns can bring performances problem. \nNormalization should be considered.",
     "remediation": "Normalize the tables.",
     "total": "Number of DB tables",
-    "alternativeName": "Avoid Tables with more than 20 columns on an OLTP system",
+    "alternativeName": "Avoid Tables with too many columns on an OLTP system",
     "businessCriteria": [
         {
             "id": 66031,

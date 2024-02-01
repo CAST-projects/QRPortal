@@ -1,0 +1,121 @@
+{
+    "id": 1021120,
+    "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
+    "href": "AIP/quality-rules/1021120",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.python",
+        "href": "AIP/extensions/com.castsoftware.python"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule detects paths from user input methods down to session setter methods, which mix trusted and untrusted data in the same data structure.\nSupported framework: FastAPI with Starlette sessions.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Without well-established and maintained trust boundaries, programmers will inevitably lose track of which pieces of data have been validated and which have not. This confusion will eventually allow some data to be used without first being validated.",
+    "reference": "CWE-501: Trust Boundary Violation\nhttps://cwe.mitre.org/data/definitions/501.html\n\nOpen Web Application Security Project (OWASP)\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
+    "remediation": "Do not use user inputs directly in session data.",
+    "remediationSample": "from fastapi import FastAPI, Request\nfrom starlette.middleware.sessions import SessionMiddleware\n\napp = FastAPI()\napp.add_middleware(SessionMiddleware, secret_key=\"xyz\")\n\n@app.get(\"/set_value/\")\n\nsafe_data = {...}\n\nasync def set_value_in_session(value: str, request: Request):\n    sanitized_value = safe_data.get(value, \"undefined\")   <--- sanitization: whitelisted value\n    request.session[\"key\"] = sanitized_value\n\n    return {\"message\": f\"Value '{value}' set for key '{key}' in session\"}",
+    "sample": "from fastapi import FastAPI, Request\nfrom starlette.middleware.sessions import SessionMiddleware\n\napp = FastAPI()\napp.add_middleware(SessionMiddleware, secret_key=\"xyz\")\n\n@app.get(\"/set_value/\")\nasync def set_value_in_session(value: str, request: Request):\n    request.session[\"key\"] = value     <--- violation\n\n    return {\"message\": f\"Value '{value}' set for key '{key}' in session\"}",
+    "total": "Number of Python artifacts",
+    "alternativeName": "Do not mix untrusted user input with trusted session data",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-501",
+            "name": "Trust Boundary Violation",
+            "href": "AIP/quality-standards/CWE/items/CWE-501",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A04-2021",
+            "name": "Insecure Design",
+            "href": "AIP/quality-standards/OWASP/items/A04-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

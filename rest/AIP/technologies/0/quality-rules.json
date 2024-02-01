@@ -410,7 +410,7 @@
     },
     {
         "id": 1106000,
-        "name": "Ensure you don't have unsupported PL/SQL packages",
+        "name": "Ensure unsupported PL/SQL packages are not used",
         "href": "AIP/quality-rules/1106000",
         "critical": false,
         "severity": 10,
@@ -420,7 +420,7 @@
     },
     {
         "id": 1106002,
-        "name": "Ensure you replace Oracle Merge",
+        "name": "Ensure MERGE statement is not used",
         "href": "AIP/quality-rules/1106002",
         "critical": false,
         "severity": 10,
@@ -440,7 +440,7 @@
     },
     {
         "id": 1106006,
-        "name": "Ensure you don't have unsupported PL/SQL package UTL_FILE",
+        "name": "Ensure PL/SQL package UTL_FILE is not used",
         "href": "AIP/quality-rules/1106006",
         "critical": false,
         "severity": 10,
@@ -450,7 +450,7 @@
     },
     {
         "id": 1106008,
-        "name": "Ensure you don't have unsupported PL/SQL package DBMS_SCHEDULER",
+        "name": "Ensure PL/SQL package DBMS_SCHEDULER is not used",
         "href": "AIP/quality-rules/1106008",
         "critical": false,
         "severity": 10,
@@ -460,7 +460,7 @@
     },
     {
         "id": 1106010,
-        "name": "Ensure you don't have unsupported PL/SQL package DBMS_RANDOM",
+        "name": "Ensure PL/SQL package DBMS_RANDOM is not used",
         "href": "AIP/quality-rules/1106010",
         "critical": false,
         "severity": 10,
@@ -470,7 +470,7 @@
     },
     {
         "id": 1106012,
-        "name": "Ensure you don't have unsupported PL/SQL package DBMS_OUTPUT",
+        "name": "Ensure PL/SQL package DBMS_OUTPUT is not used",
         "href": "AIP/quality-rules/1106012",
         "critical": false,
         "severity": 10,
@@ -480,7 +480,7 @@
     },
     {
         "id": 1106014,
-        "name": "Ensure you don't have unsupported PL/SQL package DBMS_AUTO_INDEX",
+        "name": "Ensure PL/SQL package DBMS_AUTO_INDEX is not used",
         "href": "AIP/quality-rules/1106014",
         "critical": false,
         "severity": 10,
@@ -490,7 +490,7 @@
     },
     {
         "id": 1106016,
-        "name": "Ensure you don't have unsupported PL/SQL packages UTL_HTTP and UTL_SMTP",
+        "name": "Ensure PL/SQL packages UTL_HTTP and UTL_SMTP are not used",
         "href": "AIP/quality-rules/1106016",
         "critical": false,
         "severity": 10,
@@ -500,7 +500,7 @@
     },
     {
         "id": 1106018,
-        "name": "Ensure you don't have unsupported PL/SQL procedures DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE",
+        "name": "Ensure PL/SQL procedures DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE are not used",
         "href": "AIP/quality-rules/1106018",
         "critical": false,
         "severity": 10,
@@ -520,7 +520,7 @@
     },
     {
         "id": 1106032,
-        "name": "Ensure you don't have unsupported ROWID data type and pseudocolumn",
+        "name": "Ensure ROWID data type is not used",
         "href": "AIP/quality-rules/1106032",
         "critical": false,
         "severity": 10,
@@ -540,8 +540,528 @@
     },
     {
         "id": 1106036,
-        "name": "Ensure you don't have unsupported Database Links",
+        "name": "Ensure Database Links are not used",
         "href": "AIP/quality-rules/1106036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106044,
+        "name": "Ensure PL/SQL packages UTL_MAIL and UTL_SMTP are not used",
+        "href": "AIP/quality-rules/1106044",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106052,
+        "name": "Ensure BLOB data type is not used",
+        "href": "AIP/quality-rules/1106052",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106054,
+        "name": "Ensure CLOB data type is not used",
+        "href": "AIP/quality-rules/1106054",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106056,
+        "name": "Ensure DBCLOB data type is not used",
+        "href": "AIP/quality-rules/1106056",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106058,
+        "name": "Ensure VARCHAR(n) FOR BIT DATA data type is not used",
+        "href": "AIP/quality-rules/1106058",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106060,
+        "name": "Ensure NVARCHAR data type is not used",
+        "href": "AIP/quality-rules/1106060",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106062,
+        "name": "Ensure NCHAR data type is not used",
+        "href": "AIP/quality-rules/1106062",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106064,
+        "name": "Ensure NCHAR VARYING data type is not used",
+        "href": "AIP/quality-rules/1106064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106066,
+        "name": "Ensure GRAPHIC data type is not used",
+        "href": "AIP/quality-rules/1106066",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106068,
+        "name": "Ensure FLOAT data type is not used",
+        "href": "AIP/quality-rules/1106068",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106070,
+        "name": "Ensure DECFLOAT data type is not used",
+        "href": "AIP/quality-rules/1106070",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106072,
+        "name": "Ensure DB2 Scalar Function DATE is not used",
+        "href": "AIP/quality-rules/1106072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106074,
+        "name": "Ensure DB2 Scalar Function SMALLINT is not used",
+        "href": "AIP/quality-rules/1106074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106076,
+        "name": "Ensure DB2 Scalar Function LCASE is not used",
+        "href": "AIP/quality-rules/1106076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106078,
+        "name": "Ensure DB2 Scalar Function POSSTR is not used",
+        "href": "AIP/quality-rules/1106078",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106080,
+        "name": "Ensure DB2 Scalar Function RAND is not used",
+        "href": "AIP/quality-rules/1106080",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106082,
+        "name": "Ensure DB2 Scalar Function TIMESTAMP is not used",
+        "href": "AIP/quality-rules/1106082",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106084,
+        "name": "Ensure DB2 Scalar Function CHAR is not used",
+        "href": "AIP/quality-rules/1106084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106086,
+        "name": "Ensure DB2 Scalar Function CONCAT is not used",
+        "href": "AIP/quality-rules/1106086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106088,
+        "name": "Ensure DB2 Scalar Function YEAR is not used",
+        "href": "AIP/quality-rules/1106088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106090,
+        "name": "Ensure DB2 Scalar Function MONTH is not used",
+        "href": "AIP/quality-rules/1106090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106092,
+        "name": "Ensure DB2 Scalar Functions DAY/DAYS are not used",
+        "href": "AIP/quality-rules/1106092",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106094,
+        "name": "Ensure DB2 Scalar Functions DECIMAL/DEC are not used",
+        "href": "AIP/quality-rules/1106094",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106098,
+        "name": "Ensure CASE Expression is not used",
+        "href": "AIP/quality-rules/1106098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106100,
+        "name": "Ensure DECLARE cursor is not used",
+        "href": "AIP/quality-rules/1106100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106102,
+        "name": "Ensure DB2 DECLARE variable is not used",
+        "href": "AIP/quality-rules/1106102",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106104,
+        "name": "Ensure SYSIBM.SYSDUMMY1 table is not used",
+        "href": "AIP/quality-rules/1106104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106106,
+        "name": "Ensure VALUES statement is not used",
+        "href": "AIP/quality-rules/1106106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106108,
+        "name": "Ensure DB2 SET variable is not used",
+        "href": "AIP/quality-rules/1106108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106110,
+        "name": "Ensure MERGE statement is not used",
+        "href": "AIP/quality-rules/1106110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106112,
+        "name": "Ensure FROM keyword is used in DELETE Statement",
+        "href": "AIP/quality-rules/1106112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106114,
+        "name": "Ensure VARBINARY data type is not used",
+        "href": "AIP/quality-rules/1106114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106116,
+        "name": "Ensure TINYINT data type is not used",
+        "href": "AIP/quality-rules/1106116",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106118,
+        "name": "Ensure TIMESTAMP data type is not used",
+        "href": "AIP/quality-rules/1106118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106120,
+        "name": "Ensure SMALLMONEY data type is not used",
+        "href": "AIP/quality-rules/1106120",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106122,
+        "name": "Ensure ROWVERSION data type is not used",
+        "href": "AIP/quality-rules/1106122",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106124,
+        "name": "Ensure NVARCHAR data type is not used",
+        "href": "AIP/quality-rules/1106124",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106126,
+        "name": "Ensure NTEXT data type is not used",
+        "href": "AIP/quality-rules/1106126",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106128,
+        "name": "Ensure NCHAR data type is not used",
+        "href": "AIP/quality-rules/1106128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106130,
+        "name": "Ensure DATETIMEOFFSET data type is not used",
+        "href": "AIP/quality-rules/1106130",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106132,
+        "name": "Ensure SQL server Scalar Function CONVERT is not used",
+        "href": "AIP/quality-rules/1106132",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106134,
+        "name": "Ensure SQL server Scalar Function DATEADD is not used",
+        "href": "AIP/quality-rules/1106134",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106136,
+        "name": "Ensure SQL server Scalar Function DATEDIFF is not used",
+        "href": "AIP/quality-rules/1106136",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106138,
+        "name": "Ensure SQL server Scalar Function GETDATE is not used",
+        "href": "AIP/quality-rules/1106138",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106140,
+        "name": "Ensure SQL server Scalar Function ISNULL is not used",
+        "href": "AIP/quality-rules/1106140",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106142,
+        "name": "Ensure IDENTITY Columns is not used",
+        "href": "AIP/quality-rules/1106142",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106144,
+        "name": "Ensure SQL Server SET/SELECT variable is not used",
+        "href": "AIP/quality-rules/1106144",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106146,
+        "name": "Ensure SQL Server DECLARE variable is not used",
+        "href": "AIP/quality-rules/1106146",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106148,
+        "name": "Ensure VALUES statement is not used",
+        "href": "AIP/quality-rules/1106148",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106150,
+        "name": "Ensure SYSIBM.SYSDUMMY1 table is not used",
+        "href": "AIP/quality-rules/1106150",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106152,
+        "name": "Ensure TIMESTAMP data type is not used",
+        "href": "AIP/quality-rules/1106152",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106176,
+        "name": "Ensure DB2 Built-in Function CURRENT DATE is not used",
+        "href": "AIP/quality-rules/1106176",
         "critical": false,
         "severity": 10,
         "technologyNames": [

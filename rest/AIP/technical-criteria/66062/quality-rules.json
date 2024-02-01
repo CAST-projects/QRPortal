@@ -1,7 +1,7 @@
 [
     {
         "id": 7150,
-        "name": "Avoid string interpolations to prevent SQL injections by using  PreparedStatement or CallableStatement",
+        "name": "Favor PreparedStatement or CallableStatement over Statement",
         "href": "AIP/quality-rules/7150",
         "critical": false,
         "weight": 9,
@@ -1730,6 +1730,196 @@
         ]
     },
     {
+        "id": 1021078,
+        "name": "Avoid unsafe deserialization (Python)",
+        "href": "AIP/quality-rules/1021078",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021080,
+        "name": "Avoid resource injection (Python)",
+        "href": "AIP/quality-rules/1021080",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021082,
+        "name": "Avoid LDAP injection (Python)",
+        "href": "AIP/quality-rules/1021082",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021084,
+        "name": "Avoid XPath injection (Python)",
+        "href": "AIP/quality-rules/1021084",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021088,
+        "name": "Avoid uncontrolled sleep calls (Python)",
+        "href": "AIP/quality-rules/1021088",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021092,
+        "name": "Avoid reflected cross-site scripting (Python)",
+        "href": "AIP/quality-rules/1021092",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021094,
+        "name": "Avoid cross-site scripting (persistent) (Python)",
+        "href": "AIP/quality-rules/1021094",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021096,
+        "name": "Avoid second order LDAP injection (Python)",
+        "href": "AIP/quality-rules/1021096",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021098,
+        "name": "Avoid HTTP header injection (Python)",
+        "href": "AIP/quality-rules/1021098",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021100,
+        "name": "Avoid URL redirection to untrusted site (Python)",
+        "href": "AIP/quality-rules/1021100",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021102,
+        "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (Python)",
+        "href": "AIP/quality-rules/1021102",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021104,
+        "name": "Avoid file path manipulation (Python)",
+        "href": "AIP/quality-rules/1021104",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021106,
+        "name": "Avoid server-side request forgery (Python)",
+        "href": "AIP/quality-rules/1021106",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021108,
+        "name": "Avoid unsafe access to object attributes",
+        "href": "AIP/quality-rules/1021108",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021112,
+        "name": "Avoid OS command injection (Python)",
+        "href": "AIP/quality-rules/1021112",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021118,
+        "name": "Avoid disabling CSRF Protection in fastapi_jwt_auth",
+        "href": "AIP/quality-rules/1021118",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021120,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
+        "href": "AIP/quality-rules/1021120",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021122,
+        "name": "Avoid cookie poisoning",
+        "href": "AIP/quality-rules/1021122",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021124,
+        "name": "Avoid uncontrolled format string (Python)",
+        "href": "AIP/quality-rules/1021124",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1024002,
         "name": "Always have read permission to read data of Content Provider",
         "href": "AIP/quality-rules/1024002",
@@ -2078,6 +2268,286 @@
         ]
     },
     {
+        "id": 1034000,
+        "name": "Avoid SQL injection (PHP)",
+        "href": "AIP/quality-rules/1034000",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034002,
+        "name": "Avoid cookie injection (PHP)",
+        "href": "AIP/quality-rules/1034002",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034004,
+        "name": "Avoid LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034004",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034006,
+        "name": "Avoid OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034006",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034008,
+        "name": "Avoid PHP Remote File Inclusion",
+        "href": "AIP/quality-rules/1034008",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034010,
+        "name": "Avoid code injection (PHP)",
+        "href": "AIP/quality-rules/1034010",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034012,
+        "name": "Avoid reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034012",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034016,
+        "name": "Avoid reflected cross-site scripting (non persistent) (PHP)",
+        "href": "AIP/quality-rules/1034016",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034018,
+        "name": "Avoid deserialization injection (PHP)",
+        "href": "AIP/quality-rules/1034018",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034020,
+        "name": "Avoid HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034020",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034022,
+        "name": "Avoid server-side request forgery (PHP)",
+        "href": "AIP/quality-rules/1034022",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034024,
+        "name": "Avoid second order SQL injection (PHP)",
+        "href": "AIP/quality-rules/1034024",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034026,
+        "name": "Avoid second order code injection (PHP)",
+        "href": "AIP/quality-rules/1034026",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034028,
+        "name": "Avoid second order LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034028",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034030,
+        "name": "Avoid second order OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034030",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034032,
+        "name": "Avoid second order PHP Remote File Inclusion",
+        "href": "AIP/quality-rules/1034032",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034034,
+        "name": "Avoid second order cookie injection (PHP)",
+        "href": "AIP/quality-rules/1034034",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034036,
+        "name": "Avoid second order file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034036",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034038,
+        "name": "Avoid cross-site scripting (persistent) (PHP)",
+        "href": "AIP/quality-rules/1034038",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034040,
+        "name": "Avoid second order deserialization injection (PHP)",
+        "href": "AIP/quality-rules/1034040",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034042,
+        "name": "Avoid second order HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034042",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034044,
+        "name": "Avoid second order server-side request forgery (PHP)",
+        "href": "AIP/quality-rules/1034044",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034046,
+        "name": "Avoid second order reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034046",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034050,
+        "name": "Avoid XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034050",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034052,
+        "name": "Avoid second order XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034052",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034054,
+        "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (PHP)",
+        "href": "AIP/quality-rules/1034054",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034058,
+        "name": "Avoid uncontrolled sleep calls (PHP)",
+        "href": "AIP/quality-rules/1034058",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1039012,
         "name": "Avoid using referer header field in HTTP request",
         "href": "AIP/quality-rules/1039012",
@@ -2139,7 +2609,7 @@
     },
     {
         "id": 1039040,
-        "name": "Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)",
+        "name": "Avoid using XMLInputFactory without restriction of XML External Entity Reference (XXE)",
         "href": "AIP/quality-rules/1039040",
         "critical": true,
         "weight": 9,
@@ -2153,6 +2623,96 @@
         "href": "AIP/quality-rules/1039074",
         "critical": true,
         "weight": 8,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039078,
+        "name": "Avoid using SchemaFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039078",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039080,
+        "name": "Avoid using TransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039080",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039082,
+        "name": "Avoid using SAXTransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039082",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039084,
+        "name": "Avoid using SAXBuilder without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039084",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039086,
+        "name": "Avoid using DOMParser without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039086",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039088,
+        "name": "Avoid using Validator without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039088",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039090,
+        "name": "Avoid using java.beans.XMLDecoder (XXE)",
+        "href": "AIP/quality-rules/1039090",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039092,
+        "name": "Avoid using JAXB Unmarshaller without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039092",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039094,
+        "name": "Avoid using XPathExpression without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "weight": 9,
         "technologyNames": [
             "JEE"
         ]
@@ -2243,6 +2803,16 @@
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040048,
+        "name": "Avoid unsafe object binding (Spring)",
+        "href": "AIP/quality-rules/1040048",
+        "critical": true,
+        "weight": 9,
         "technologyNames": [
             "JEE"
         ]
@@ -2411,6 +2981,17 @@
         "critical": true,
         "weight": 7,
         "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1043086,
+        "name": "Avoid using Html.Raw() or HtmlHelper.Raw()",
+        "href": "AIP/quality-rules/1043086",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "ASP.NET",
             "C#"
         ]
     },

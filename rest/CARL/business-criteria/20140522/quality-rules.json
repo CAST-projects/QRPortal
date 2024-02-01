@@ -1580,7 +1580,7 @@
     },
     {
         "id": 8240,
-        "name": "Ensure you have secured your cookie by enabling 'Secure' attribute",
+        "name": "Ensure you have secured your cookie by enabling the 'Secure' attribute",
         "href": "AIP/quality-rules/8240",
         "critical": true,
         "severity": 30,
@@ -1641,7 +1641,7 @@
         "name": "Ensure not using hard-coded HMAC keys",
         "href": "AIP/quality-rules/8424",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -1653,7 +1653,7 @@
         "name": "Ensure using sufficient random generator",
         "href": "AIP/quality-rules/8554",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3544,6 +3544,16 @@
         "id": 1039072,
         "name": "jYAML project is abandonned and muts not be used to deserialize YAML",
         "href": "AIP/quality-rules/1039072",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039076,
+        "name": "Prefer using HTTPS protocol",
+        "href": "AIP/quality-rules/1039076",
         "critical": true,
         "severity": 20,
         "technologyNames": [

@@ -1,6 +1,6 @@
 {
     "id": 7150,
-    "name": "Avoid string interpolations to prevent SQL injections by using  PreparedStatement or CallableStatement",
+    "name": "Favor PreparedStatement or CallableStatement over Statement",
     "href": "AIP/quality-rules/7150",
     "critical": false,
     "severity": 10,
@@ -10,26 +10,16 @@
         "href": "AIP/extensions/com.castsoftware.jee"
     },
     "associatedValueName": "Full Name of createStatement method called",
-    "description": "This rule will check the use of the method java.sql.Connection.createStatement() with interpolated string query.",
+    "description": "This rule will check the use of the method java.sql.Connection.createStatement()",
     "output": "This report lists all methods that reference java.sql.Connection.Statement interface instances (or its sub-interface or sub-class).\nIt provides the following information: \n - Method Full Name\n - The Full Name of createStatement method that has been called",
     "rationale": "There are two benefits to use PreparedStatement or CallableStatement over Statement:\n- Performance: PreparedStatement gives better performance when compared to Statement because it is pre-parsed. CallableStatement is even more efficient but as it uses a stored procedure in the database, it is less portable,\n- Security: to prevent SQL Injection Attacks.",
     "reference": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
-    "remediation": "use java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall() instead.",
+    "remediation": "Use java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall() instead.",
     "remediationSample": "PreparedStatement stmt = connection.prepareStatement(\"SELECT * FROM users WHERE userid=? AND password=?\");\nstmt.setString(1, userid);\nstmt.setString(2, password);\nResultSet rs = stmt.executeQuery();",
-    "sample": "String query = \"SELECT * FROM users WHERE userid ='\"+ userid + \"'\" + \" AND password='\" + password + \"'\";\nStatement stmt = connection.createStatement();//violation\nResultSet rs = stmt.executeQuery(query);",
+    "sample": "String query = \"SELECT * FROM users WHERE userid ='\"+ userid + \"'\" + \" AND password='\" + password + \"'\";\nStatement stmt = connection.createStatement(); //violation\nResultSet rs = stmt.executeQuery(query);",
     "total": "Number of methods that call java.sql.Connection.createStatement() or java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall()",
     "alternativeName": "Prefer using PreparedStatement or CallableStatement over CreateStatement to prevent SQL Injection Attacks",
     "businessCriteria": [
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -53,6 +43,13 @@
             "id": 1062321,
             "name": "OWASP-2017-A1 - Injection",
             "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
             "weight": 5,
             "critical": false
         },
@@ -92,13 +89,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
         }

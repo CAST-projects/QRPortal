@@ -2039,7 +2039,7 @@
         "name": "Avoid reflected cross-site scripting (non persistent)",
         "href": "AIP/quality-rules/8408",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2051,7 +2051,7 @@
         "name": "Avoid cross-site scripting (persistent)",
         "href": "AIP/quality-rules/8410",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2231,7 +2231,7 @@
         "name": "Avoid cross-site scripting through API requests",
         "href": "AIP/quality-rules/8482",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2279,7 +2279,7 @@
         "name": "Avoid OS command injection through API requests",
         "href": "AIP/quality-rules/8494",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2291,7 +2291,7 @@
         "name": "Avoid process control through API requests",
         "href": "AIP/quality-rules/8496",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2315,7 +2315,7 @@
         "name": "Avoid code injection through API requests",
         "href": "AIP/quality-rules/8500",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2327,7 +2327,7 @@
         "name": "Avoid reflection injection through API requests",
         "href": "AIP/quality-rules/8502",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2339,7 +2339,7 @@
         "name": "Avoid file path manipulation through API requests",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4171,6 +4171,16 @@
         ]
     },
     {
+        "id": 1020080,
+        "name": "Avoid using setInterval() (Javascript)",
+        "href": "AIP/quality-rules/1020080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020084,
         "name": "Avoid unreferenced Functions (Javascript/HTML5)",
         "href": "AIP/quality-rules/1020084",
@@ -5121,6 +5131,16 @@
         ]
     },
     {
+        "id": 1021080,
+        "name": "Avoid resource injection (Python)",
+        "href": "AIP/quality-rules/1021080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1022002,
         "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding)",
         "href": "AIP/quality-rules/1022002",
@@ -5202,6 +5222,17 @@
         "href": "AIP/quality-rules/1027010",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027014,
+        "name": "Avoid using Thread API (Suspend\\Resume) to manage thread state",
+        "href": "AIP/quality-rules/1027014",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -5419,6 +5450,66 @@
         ]
     },
     {
+        "id": 1034000,
+        "name": "Avoid SQL injection (PHP)",
+        "href": "AIP/quality-rules/1034000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034006,
+        "name": "Avoid OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034012,
+        "name": "Avoid reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034016,
+        "name": "Avoid reflected cross-site scripting (non persistent) (PHP)",
+        "href": "AIP/quality-rules/1034016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034022,
+        "name": "Avoid server-side request forgery (PHP)",
+        "href": "AIP/quality-rules/1034022",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1039010,
         "name": "Avoid using risky cryptographic hash (JEE)",
         "href": "AIP/quality-rules/1039010",
@@ -5484,6 +5575,16 @@
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Avoid weak encryption algorithm (Spring)",
+        "href": "AIP/quality-rules/1040046",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]
@@ -5560,6 +5661,17 @@
         "severity": 10,
         "technologyNames": [
             "ASP.NET"
+        ]
+    },
+    {
+        "id": 1043086,
+        "name": "Avoid using Html.Raw() or HtmlHelper.Raw()",
+        "href": "AIP/quality-rules/1043086",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
         ]
     },
     {
@@ -5897,7 +6009,7 @@
         "name": "Avoid Empty Finally Block When Calling Resource",
         "href": "AIP/quality-rules/1060004",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -5927,7 +6039,7 @@
         "name": "Avoid String concatenation in loops for artifacts with high fan in",
         "href": "AIP/quality-rules/1060018",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -5962,7 +6074,7 @@
         "name": "Review APIs not accessed by frontend functions",
         "href": "AIP/quality-rules/1060112",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]

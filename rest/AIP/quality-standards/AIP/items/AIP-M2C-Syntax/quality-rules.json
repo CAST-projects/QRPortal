@@ -1,7 +1,47 @@
 [
     {
+        "id": 5062,
+        "name": "Avoid using ALTER",
+        "href": "AIP/quality-rules/5062",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 5072,
+        "name": "Avoid DISPLAY ... UPON CONSOLE",
+        "href": "AIP/quality-rules/5072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 5144,
+        "name": "Avoid using GOTO statement (COBOL)",
+        "href": "AIP/quality-rules/5144",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 8480,
+        "name": "Avoid using PREPARE STMT statement (Dynamic SQL) with STRING containing HOST variables",
+        "href": "AIP/quality-rules/8480",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
         "id": 1106002,
-        "name": "Ensure you replace Oracle Merge",
+        "name": "Ensure MERGE statement is not used",
         "href": "AIP/quality-rules/1106002",
         "critical": false,
         "severity": 10,
@@ -11,12 +51,332 @@
     },
     {
         "id": 1106028,
-        "name": "Ensure you don't have unsupported clause CLUSTER in CREATE TABLE statements",
+        "name": "Ensure CLUSTER clause in CREATE TABLE statements is not used",
         "href": "AIP/quality-rules/1106028",
         "critical": false,
         "severity": 10,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1106046,
+        "name": "Ensure CREATE FUNCTION is not used",
+        "href": "AIP/quality-rules/1106046",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106048,
+        "name": "Ensure CREATE PROCEDURE is not used",
+        "href": "AIP/quality-rules/1106048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106050,
+        "name": "Ensure CREATE TRIGGER is not used",
+        "href": "AIP/quality-rules/1106050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106072,
+        "name": "Ensure DB2 Scalar Function DATE is not used",
+        "href": "AIP/quality-rules/1106072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106074,
+        "name": "Ensure DB2 Scalar Function SMALLINT is not used",
+        "href": "AIP/quality-rules/1106074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106076,
+        "name": "Ensure DB2 Scalar Function LCASE is not used",
+        "href": "AIP/quality-rules/1106076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106078,
+        "name": "Ensure DB2 Scalar Function POSSTR is not used",
+        "href": "AIP/quality-rules/1106078",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106080,
+        "name": "Ensure DB2 Scalar Function RAND is not used",
+        "href": "AIP/quality-rules/1106080",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106082,
+        "name": "Ensure DB2 Scalar Function TIMESTAMP is not used",
+        "href": "AIP/quality-rules/1106082",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106084,
+        "name": "Ensure DB2 Scalar Function CHAR is not used",
+        "href": "AIP/quality-rules/1106084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106086,
+        "name": "Ensure DB2 Scalar Function CONCAT is not used",
+        "href": "AIP/quality-rules/1106086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106088,
+        "name": "Ensure DB2 Scalar Function YEAR is not used",
+        "href": "AIP/quality-rules/1106088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106090,
+        "name": "Ensure DB2 Scalar Function MONTH is not used",
+        "href": "AIP/quality-rules/1106090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106092,
+        "name": "Ensure DB2 Scalar Functions DAY/DAYS are not used",
+        "href": "AIP/quality-rules/1106092",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106094,
+        "name": "Ensure DB2 Scalar Functions DECIMAL/DEC are not used",
+        "href": "AIP/quality-rules/1106094",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106096,
+        "name": "Ensure PARTITION is not used in ALTER TABLE statements",
+        "href": "AIP/quality-rules/1106096",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106098,
+        "name": "Ensure CASE Expression is not used",
+        "href": "AIP/quality-rules/1106098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106100,
+        "name": "Ensure DECLARE cursor is not used",
+        "href": "AIP/quality-rules/1106100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106102,
+        "name": "Ensure DB2 DECLARE variable is not used",
+        "href": "AIP/quality-rules/1106102",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106104,
+        "name": "Ensure SYSIBM.SYSDUMMY1 table is not used",
+        "href": "AIP/quality-rules/1106104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106106,
+        "name": "Ensure VALUES statement is not used",
+        "href": "AIP/quality-rules/1106106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106108,
+        "name": "Ensure DB2 SET variable is not used",
+        "href": "AIP/quality-rules/1106108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106110,
+        "name": "Ensure MERGE statement is not used",
+        "href": "AIP/quality-rules/1106110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106112,
+        "name": "Ensure FROM keyword is used in DELETE Statement",
+        "href": "AIP/quality-rules/1106112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106148,
+        "name": "Ensure VALUES statement is not used",
+        "href": "AIP/quality-rules/1106148",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106162,
+        "name": "Ensure DATE with implicit default values is not used",
+        "href": "AIP/quality-rules/1106162",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106166,
+        "name": "Ensure FOR BIT DATA column clause is not used",
+        "href": "AIP/quality-rules/1106166",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106168,
+        "name": "Ensure FOR SBCS | MIXED DATA column clause is not used",
+        "href": "AIP/quality-rules/1106168",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106170,
+        "name": "Ensure CCSID ASCII | UNICODE | EBCDIC column clause is not used",
+        "href": "AIP/quality-rules/1106170",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106172,
+        "name": "Ensure CCSID num column clause is not used",
+        "href": "AIP/quality-rules/1106172",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106174,
+        "name": "Ensure GENERATED AS IDENTITY is not used",
+        "href": "AIP/quality-rules/1106174",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106176,
+        "name": "Ensure DB2 Built-in Function CURRENT DATE is not used",
+        "href": "AIP/quality-rules/1106176",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     }
 ]

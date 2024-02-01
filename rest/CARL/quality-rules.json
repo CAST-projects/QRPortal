@@ -1471,7 +1471,7 @@
     },
     {
         "id": 7150,
-        "name": "Avoid string interpolations to prevent SQL injections by using  PreparedStatement or CallableStatement",
+        "name": "Favor PreparedStatement or CallableStatement over Statement",
         "href": "AIP/quality-rules/7150",
         "critical": false,
         "severity": 10,
@@ -3243,7 +3243,7 @@
     },
     {
         "id": 7856,
-        "name": "Avoid Tables with more than 20 columns on an OLTP system",
+        "name": "Avoid Tables with too many columns on an OLTP system",
         "href": "AIP/quality-rules/7856",
         "critical": false,
         "severity": 10,
@@ -4375,7 +4375,7 @@
         "name": "Avoid reflected cross-site scripting (non persistent)",
         "href": "AIP/quality-rules/8408",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4387,7 +4387,7 @@
         "name": "Avoid cross-site scripting (persistent)",
         "href": "AIP/quality-rules/8410",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4447,7 +4447,7 @@
         "name": "Avoid using hard-coded HMAC keys",
         "href": "AIP/quality-rules/8424",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4531,7 +4531,7 @@
         "name": "Avoid URL redirection to untrusted site",
         "href": "AIP/quality-rules/8446",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4543,7 +4543,7 @@
         "name": "Avoid cross-site scripting through API requests",
         "href": "AIP/quality-rules/8482",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4603,7 +4603,7 @@
         "name": "Avoid LDAP injection through API requests",
         "href": "AIP/quality-rules/8492",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4615,7 +4615,7 @@
         "name": "Avoid OS command injection through API requests",
         "href": "AIP/quality-rules/8494",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4627,7 +4627,7 @@
         "name": "Avoid process control through API requests",
         "href": "AIP/quality-rules/8496",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4651,7 +4651,7 @@
         "name": "Avoid code injection through API requests",
         "href": "AIP/quality-rules/8500",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4663,7 +4663,7 @@
         "name": "Avoid reflection injection through API requests",
         "href": "AIP/quality-rules/8502",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4687,7 +4687,7 @@
         "name": "Avoid file path manipulation through API requests",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4723,7 +4723,7 @@
         "name": "Avoid mixing trusted and untrusted data in HTTP requests through API requests",
         "href": "AIP/quality-rules/8512",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4831,7 +4831,7 @@
         "name": "Avoid XQuery injection",
         "href": "AIP/quality-rules/8530",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4843,7 +4843,7 @@
         "name": "Avoid second order XQuery injection",
         "href": "AIP/quality-rules/8532",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4855,7 +4855,7 @@
         "name": "Avoid XQuery injection through API requests",
         "href": "AIP/quality-rules/8534",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4921,7 +4921,7 @@
         "name": "Avoid using insufficient random generator",
         "href": "AIP/quality-rules/8554",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4933,7 +4933,7 @@
         "name": "Avoid server-side request forgery",
         "href": "AIP/quality-rules/8560",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4945,7 +4945,7 @@
         "name": "Avoid server-side request forgery through API requests",
         "href": "AIP/quality-rules/8562",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -4957,7 +4957,7 @@
         "name": "Avoid second order server-side request forgery",
         "href": "AIP/quality-rules/8564",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -8385,7 +8385,7 @@
     },
     {
         "id": 1039040,
-        "name": "Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)",
+        "name": "Avoid using XMLInputFactory without restriction of XML External Entity Reference (XXE)",
         "href": "AIP/quality-rules/1039040",
         "critical": true,
         "severity": 20,
@@ -8519,6 +8519,106 @@
         "href": "AIP/quality-rules/1039074",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039076,
+        "name": "Avoid using HttpURLConnection with HTTP protocol",
+        "href": "AIP/quality-rules/1039076",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039078,
+        "name": "Avoid using SchemaFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039078",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039080,
+        "name": "Avoid using TransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039082,
+        "name": "Avoid using SAXTransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039082",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039084,
+        "name": "Avoid using SAXBuilder without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039084",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039086,
+        "name": "Avoid using DOMParser without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039086",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039088,
+        "name": "Avoid using Validator without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039088",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039090,
+        "name": "Avoid using java.beans.XMLDecoder (XXE)",
+        "href": "AIP/quality-rules/1039090",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039092,
+        "name": "Avoid using JAXB Unmarshaller without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039094,
+        "name": "Avoid using XPathExpression without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -8689,6 +8789,16 @@
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Avoid weak encryption algorithm (Spring)",
+        "href": "AIP/quality-rules/1040046",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

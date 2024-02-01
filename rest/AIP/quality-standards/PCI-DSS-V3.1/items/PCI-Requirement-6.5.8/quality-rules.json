@@ -36,7 +36,7 @@
         "name": "Avoid file path manipulation through API requests",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -61,6 +61,26 @@
         "severity": 10,
         "technologyNames": [
             "PHP"
+        ]
+    },
+    {
+        "id": 1021104,
+        "name": "Avoid file path manipulation (Python)",
+        "href": "AIP/quality-rules/1021104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021108,
+        "name": "Avoid unsafe access to object attributes",
+        "href": "AIP/quality-rules/1021108",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
         ]
     },
     {
@@ -202,6 +222,26 @@
         ]
     },
     {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034036,
+        "name": "Avoid second order file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1040042,
         "name": "Avoid using Spring Security in combination with Spring Framework 5.0.5",
         "href": "AIP/quality-rules/1040042",
@@ -215,6 +255,16 @@
         "id": 1040044,
         "name": "Avoid using UnZipTransformer of spring-integration-zip prior to version 1.0.1",
         "href": "AIP/quality-rules/1040044",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040048,
+        "name": "Avoid unsafe object binding (Spring)",
+        "href": "AIP/quality-rules/1040048",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -236,7 +286,7 @@
         "name": "Review APIs returning sensitive data fields",
         "href": "AIP/quality-rules/1060104",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -246,7 +296,7 @@
         "name": "Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
         "href": "AIP/quality-rules/1060106",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -256,7 +306,7 @@
         "name": "Avoid data fields binded to columns to return sensitive data via APIs",
         "href": "AIP/quality-rules/1060108",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -266,7 +316,7 @@
         "name": "Avoid filtering sensitive data using front-end",
         "href": "AIP/quality-rules/1060110",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -276,7 +326,7 @@
         "name": "Review APIs not accessed by frontend functions",
         "href": "AIP/quality-rules/1060112",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -286,7 +336,7 @@
         "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
         "href": "AIP/quality-rules/1060114",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]

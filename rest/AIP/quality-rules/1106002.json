@@ -1,6 +1,6 @@
 {
     "id": 1106002,
-    "name": "Ensure you replace Oracle Merge",
+    "name": "Ensure MERGE statement is not used",
     "href": "AIP/quality-rules/1106002",
     "critical": false,
     "severity": 10,
@@ -13,8 +13,8 @@
     "description": "This rule checks if Oracle MERGE Statement is used.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "MERGE statement is not supported and it cannot be automatically converted by AWS SCT. Manual conversion is straight-forward in most cases.",
-    "reference": "https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/chap-oracle-aurora-pg.sql.merge.html",
-    "remediation": "Aurora MySQL version doesn\u2019t support the MERGE statement. AWS SCT can\u2019t automatically convert \nMERGE statements. Manual conversion is straightforward in most cases.\n\nAurora with PostgreSQL version does not support the use of the MERGE SQL command. \nAs an alternative, consider using the INSERT\u2026 ON CONFLICT clause, which can handle cases where insert clauses might cause a conflict, and then redirect the operation as an update.",
+    "reference": "https://www.postgresql.org/docs/14/unsupported-features-sql-standard.html",
+    "remediation": "PostgreSQL does not support the usage of MERGE SQL statement. \nAs an alternative, consider using the INSERT\u2026 ON CONFLICT clause, which can handle cases where insert clauses might cause a conflict, and then redirect the operation as an update.",
     "remediationSample": "CREATE TABLE EMP_BONUS(EMPLOYEE_ID NUMERIC,\nBONUS_YEAR VARCHAR2(4),\nSALARY NUMERIC,\nBONUS NUMERIC,\nPRIMARY KEY (EMPLOYEE_ID, BONUS_YEAR));\n\nUPDATE EMP_BONUS E1\nSET E1.BONUS = E2.SALARY * 0.5\nFROM EMPLOYEES E2\nWHERE E1.EMPLOYEE_ID = E2.EMPLOYEE_ID;\n\nDELETE EMP_BONUS USING EMPLOYEES E2\nWHERE EMP_BONUS.EMPLOYEE_ID = E2.EMPLOYEE_ID\nWHERE EMP_BONUS.SALARY >= 10000;\n\nINSERT into EMP_BONUS(EMPLOYEE_ID, BONUS_YEAR, SALARY , BONUS)\nSELECT E2.EMPLOYEE_ID, EXTRACT(YEAR FROM SYSDATE), E2.SALARY, E2.SALARY * 0.5\nFROM FROM EMPLOYEES E2\nWHERE E2.SALARY < 10000\nON CONFLICT (EMPLOYEE_ID) DO NOTHING;",
     "sample": "CREATE TABLE EMP_BONUS(EMPLOYEE_ID NUMERIC,\nBONUS_YEAR VARCHAR2(4),\nSALARY NUMERIC,\nBONUS NUMERIC,\nPRIMARY KEY (EMPLOYEE_ID, BONUS_YEAR));\n\nMERGE INTO EMP_BONUS E1\nUSING (SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID\nFROM EMPLOYEES) E2 ON (E1.EMPLOYEE_ID = E2.EMPLOYEE_ID) WHEN MATCHED THEN\nUPDATE SET E1.BONUS = E2.SALARY * 0.5\nDELETE WHERE (E1.SALARY >= 10000)\nWHEN NOT MATCHED THEN\nINSERT (E1.EMPLOYEE_ID, E1.BONUS_YEAR, E1.SALARY , E1.BONUS)\nVALUES (E2.EMPLOYEE_ID, EXTRACT(YEAR FROM SYSDATE), E2.SALARY,\nE2.SALARY * 0.5)\nWHERE (E2.SALARY < 10000);",
     "total": "Number of Artifacts with SQL code except Views",
@@ -28,9 +28,9 @@
     ],
     "technicalCriteria": [
         {
-            "id": 61034,
-            "name": "Cloud Migration - Oracle Database to Amazon Aurora",
-            "href": "AIP/technical-criteria/61034",
+            "id": 61045,
+            "name": "Database Migration - Oracle Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61045",
             "weight": 1,
             "critical": false
         }

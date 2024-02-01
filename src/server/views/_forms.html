@@ -1,0 +1,37 @@
+{% macro btn(label, class, onClick, type="button") %}
+{% if onClick %}
+<button class="btn {{class}}" onclick="{{onClick}}" type="{{type}}">
+    {{ label }}
+</button>
+{% else %}
+<button class="btn {{class}}" type="{{type}}">
+    {{ label }}
+</button>
+{% endif %}
+{% endmacro %}
+
+{% macro outline_btn(label, onClick, class, type) %}
+{{btn(label, 'btn-outline' + (' ' + class if class else ''), onClick, type)}}
+{% endmacro %}
+
+{% macro ghost_btn(label, onClick, class, type) %}
+{{btn(label, 'btn-ghost' + (' ' + class if class else ''), onClick, type)}}
+{% endmacro %}
+
+{% macro contained_btn(label, onClick, class, type) %}
+{{btn(label, 'btn-contained' + (' ' + class if class else ''), onClick, type)}}
+{% endmacro %}
+
+{% macro input(name, type, value, label, id=name) %}
+<div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginDense MuiFormControl-fullWidth">
+    <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense"
+        data-shrink="false" for="{{name}}" id="{{name}}-label">{{label}}</label>
+    <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl MuiInputBase-marginDense MuiInput-marginDense">
+        <input aria-invalid="false" id="{{name}}" name="{{name}}" type="{{type}}"
+            class="MuiInputBase-input MuiInput-input MuiInputBase-inputMarginDense MuiInput-inputMarginDense"
+            value="{{value}}" onblur="input_onblur(event)" onfocus="input_onfocus(event)">
+    </div>
+</div>
+{% endmacro %}

@@ -20,21 +20,6 @@
     "alternativeName": "Use sufficient SSL\\TLS context (PHP)",
     "businessCriteria": [
         {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -46,6 +31,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066411,
+            "name": "CWE-311 - Missing Encryption of Sensitive Data",
+            "href": "AIP/technical-criteria/1066411",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062306,
             "name": "OWASP-2013-A6 - Sensitive Data Exposure",
@@ -64,6 +56,20 @@
             "id": 1062342,
             "name": "OWASP-2021-A02 - Cryptographic Failures",
             "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063118,
+            "name": "PCI-Requirement-6.5.4 - Insecure communications",
+            "href": "AIP/technical-criteria/1063118",
             "weight": 5,
             "critical": false
         },

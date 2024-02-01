@@ -1,15 +1,15 @@
 {
     "id": 3060,
-    "name": "Pages with less than 3 levels of inclusion",
+    "name": "Pages should not have too many levels of inclusion",
     "href": "AIP/quality-rules/3060",
     "critical": false,
     "severity": 10,
     "maxWeight": 5,
     "associatedValueName": "Associated Value",
-    "description": "Pages should not have more than 3 levels of includes. E.g.: page A that includes page B that includes page C. The threshold is a parameter and can be changed at will.",
+    "description": "This rule searches for pages with more than X levels of includes: page A that includes page B that includes page C. X is a parameter which default value is 3.",
     "output": "This report lists all pages with more than 3 levels of inclusion. It provides the following information: Page name, number of levels",
     "total": "Number of pages",
-    "alternativeName": "Pages with less than 3 levels of inclusion",
+    "alternativeName": "Pages should not have too many levels of inclusion",
     "businessCriteria": [
         {
             "id": 66031,

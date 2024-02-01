@@ -3,7 +3,7 @@
     "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
     "href": "AIP/quality-rules/1060114",
     "critical": true,
-    "severity": 30,
+    "severity": 20,
     "maxWeight": 9,
     "extension": {
         "name": "com.castsoftware.systemlevelrules",
@@ -19,28 +19,13 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 1061000,
             "name": "ISO-5055-Index",
             "href": "AIP/business-criteria/1061000"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 60016,
@@ -50,9 +35,23 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1066369,
+            "name": "CWE-269 - Improper Privilege Management",
+            "href": "AIP/technical-criteria/1066369",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1061049,
             "name": "CWE-424 - Improper Protection of Alternate Path",
             "href": "AIP/technical-criteria/1061049",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066962,
+            "name": "CWE-862 - Missing Authorization",
+            "href": "AIP/technical-criteria/1066962",
             "weight": 5,
             "critical": false
         },
@@ -74,6 +73,13 @@
             "id": 1062344,
             "name": "OWASP-2021-A04 - Insecure Design",
             "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063122,
+            "name": "PCI-Requirement-6.5.8 - Improper access control",
+            "href": "AIP/technical-criteria/1063122",
             "weight": 5,
             "critical": false
         },
@@ -167,13 +173,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.8",
-            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "name": "Improper access control",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.8",
-            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "name": "Improper access control",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
             "standard": "PCI-DSS-V3.2.1"
         }

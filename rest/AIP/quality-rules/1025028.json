@@ -22,7 +22,7 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
@@ -32,6 +32,41 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066387,
+            "name": "CWE-287 - Improper Authentication",
+            "href": "AIP/technical-criteria/1066387",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062302,
+            "name": "OWASP-2013-A2 - Broken Authentication and Session Management",
+            "href": "AIP/technical-criteria/1062302",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062322,
+            "name": "OWASP-2017-A2 - Broken Authentication",
+            "href": "AIP/technical-criteria/1062322",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062347,
+            "name": "OWASP-2021-A07 - Identification and Authentication Failures",
+            "href": "AIP/technical-criteria/1062347",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",
@@ -63,6 +98,24 @@
             "name": "Improper Authentication",
             "href": "AIP/quality-standards/CWE/items/CWE-287",
             "standard": "CWE"
+        },
+        {
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "href": "AIP/quality-standards/OWASP/items/A2-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/A2-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A07-2021",
+            "name": "Identification and Authentication Failures",
+            "href": "AIP/quality-standards/OWASP/items/A07-2021",
+            "standard": "OWASP"
         },
         {
             "id": "M4-2016",

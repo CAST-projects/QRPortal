@@ -1,0 +1,62 @@
+{% macro map_severity(severity, values = []) %}
+
+{% if severity === 20 %}
+{{values[1]}}
+{% elif severity === 30 %}
+{{values[2]}}
+{% else %}
+{{values[0]}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_severity_cls(severity) %}
+{{map_severity(severity, ['sev-low', 'sev-med', 'sev-crit'])}}
+{% endmacro %}
+
+{% macro severity_tag(severity) %}
+<div class="cellContainer">
+  <span class="cell tb-cap {{get_severity_cls(severity)}}">
+    {{ map_severity(severity, ['medium', 'high', 'critical']) }}
+  </span>
+</div>
+{% endmacro %}
+
+{% macro tls(items)%}
+{% for item in items %}
+{% if user %}
+<tr hx-get="/api/{{item.href}}?filter=technical-criteria!=cast" hx-target="#details" hx-swap="innerHTML">
+  {% else %}
+<tr hx-get="/api/{{item.href}}" hx-target="#details" hx-swap="innerHTML">
+  {% endif %}
+  <td>{{item.id}}</td>
+  <td>{{item.name}}</td>
+  <td>{{severity_tag(item.severity)}}</td>
+</tr>
+{% endfor %}
+{% endmacro %}
+
+<main style="padding: 16px 20px;">
+  <div class="w-100">
+    <div id="main-header"
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h4 class="h4" id="rulestitle">Rules</h4>
+    </div>
+
+    <!--div class="table-responsive"-->
+    <div class="position-sticky pt-3 sidebar-sticky">
+      <table class="table table-hover table" id="rulelist">
+        <thead>
+          <tr class="table-sm">
+            <th scope="col table-sm">ID</th>
+            <th scope="col table-sm">Name</th>
+            <th scope="col table-sm">Severity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ tls(model.qualityRules) }}
+          {{ tls(model.qualityTemplates) }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

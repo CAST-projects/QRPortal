@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1002002",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.fortran",
         "href": "AIP/extensions/com.castsoftware.fortran"
@@ -38,6 +38,13 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 61024,
             "name": "Programming Practices - Structuredness",
             "href": "AIP/technical-criteria/61024",
@@ -55,13 +62,13 @@
     "qualityStandards": [
         {
             "id": "PCI-Requirement-6.2",
-            "name": "Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor- supplied security patches. Install critical security patches within ...",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.2",
-            "name": "Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor- supplied security patches. Install critical security patches within ...",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
             "standard": "PCI-DSS-V3.2.1"
         }

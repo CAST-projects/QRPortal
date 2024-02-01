@@ -1636,7 +1636,7 @@
     },
     {
         "id": 7748,
-        "name": "Ensure your application does not run OS commande without sanitization",
+        "name": "Ensure your application does not run OS command without sanitization",
         "href": "AIP/quality-rules/7748",
         "critical": true,
         "severity": 30,
@@ -1977,7 +1977,7 @@
     },
     {
         "id": 7856,
-        "name": "Avoid Tables with more than 20 columns on an OLTP system",
+        "name": "Avoid Tables with too many columns on an OLTP system",
         "href": "AIP/quality-rules/7856",
         "critical": false,
         "severity": 10,
@@ -2763,7 +2763,7 @@
     },
     {
         "id": 8240,
-        "name": "Ensure you have secured your cookie by enabling 'Secure' attribute",
+        "name": "Ensure you have secured your cookie by enabling the 'Secure' attribute",
         "href": "AIP/quality-rules/8240",
         "critical": true,
         "severity": 30,
@@ -2790,7 +2790,7 @@
         "name": "Ensure you don't use user input without validation",
         "href": "AIP/quality-rules/8408",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2802,7 +2802,7 @@
         "name": "Ensure you don't use user input without validation",
         "href": "AIP/quality-rules/8410",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2910,7 +2910,7 @@
         "name": "Ensure your application does not redirect to an untrusted site",
         "href": "AIP/quality-rules/8446",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2922,7 +2922,7 @@
         "name": "Ensure you don't use user input without validation",
         "href": "AIP/quality-rules/8482",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2982,7 +2982,7 @@
         "name": "Ensure your application does not run LDAP methods without sanitization",
         "href": "AIP/quality-rules/8492",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -2994,7 +2994,7 @@
         "name": "Ensure your application does not run OS commande without sanitization",
         "href": "AIP/quality-rules/8494",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3006,7 +3006,7 @@
         "name": "Ensure you don't use external library given by unsanitized user input",
         "href": "AIP/quality-rules/8496",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3030,7 +3030,7 @@
         "name": "Ensure your application does not evaluate unsanitized code.",
         "href": "AIP/quality-rules/8500",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3042,7 +3042,7 @@
         "name": "Ensure you have sanitized the data received to be reflected in your application",
         "href": "AIP/quality-rules/8502",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3066,7 +3066,7 @@
         "name": "Ensure you do file path manipulation without including untrusted data",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3102,7 +3102,7 @@
         "name": "Avoid mixing trusted and untrusted data in HTTP requests through API requests",
         "href": "AIP/quality-rules/8512",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3210,7 +3210,7 @@
         "name": "Ensure your application properly neutralize XML content before it is processed",
         "href": "AIP/quality-rules/8530",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3222,7 +3222,7 @@
         "name": "Ensure your application properly neutralize XML content before it is processed",
         "href": "AIP/quality-rules/8532",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3234,7 +3234,7 @@
         "name": "Ensure your application properly neutralize XML content before it is processed",
         "href": "AIP/quality-rules/8534",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3300,7 +3300,7 @@
         "name": "Ensure your application properly neutralize URLs before they are accessed",
         "href": "AIP/quality-rules/8560",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3312,7 +3312,7 @@
         "name": "Ensure your application properly neutralize URLs before they are accessed",
         "href": "AIP/quality-rules/8562",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -3324,7 +3324,7 @@
         "name": "Ensure your application properly neutralize URLs before they are accessed",
         "href": "AIP/quality-rules/8564",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -5671,6 +5671,96 @@
         ]
     },
     {
+        "id": 1039078,
+        "name": "Ensure to preceed the call of SchemaFactory by a call to the secure mode of the parser",
+        "href": "AIP/quality-rules/1039078",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039080,
+        "name": "Ensure to preceed the call of TransformerFactory by a call to the secure mode of the parser",
+        "href": "AIP/quality-rules/1039080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039082,
+        "name": "Ensure to preceed the call of SAXTransformerFactory by a call to the secure mode of the parser",
+        "href": "AIP/quality-rules/1039082",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039084,
+        "name": "Ensure to preceed the call of SAXBuilder by a call to the secure mode of the parser",
+        "href": "AIP/quality-rules/1039084",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039086,
+        "name": "Ensure to preceed the call of DOMParser by a call to the secure mode of the parser",
+        "href": "AIP/quality-rules/1039086",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039088,
+        "name": "Ensure to preceed the call of Validator by a call to the secure mode of the parser",
+        "href": "AIP/quality-rules/1039088",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039090,
+        "name": "Ensure using a safe or properly configured XML parser",
+        "href": "AIP/quality-rules/1039090",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039092,
+        "name": "Ensure to use JAXB Unmarshaller with a configurable secure parser",
+        "href": "AIP/quality-rules/1039092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039094,
+        "name": "Ensure to use XPathExpression with a configurable secure parser",
+        "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1040002,
         "name": "Ensure you have enable CSRF Protection in your spring security project.",
         "href": "AIP/quality-rules/1040002",
@@ -5786,6 +5876,16 @@
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Ensure you use SHA256, SHA384, and SHA512 algorithms.",
+        "href": "AIP/quality-rules/1040046",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

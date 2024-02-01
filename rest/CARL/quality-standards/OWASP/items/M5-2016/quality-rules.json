@@ -16,7 +16,7 @@
         "name": "Ensure not using hard-coded HMAC keys",
         "href": "AIP/quality-rules/8424",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -178,6 +178,16 @@
         "id": 1039030,
         "name": "Prefer using SystemDefaultHttpClient Constructor to ensure better transport layer security",
         "href": "AIP/quality-rules/1039030",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039076,
+        "name": "Prefer using HTTPS protocol",
+        "href": "AIP/quality-rules/1039076",
         "critical": true,
         "severity": 20,
         "technologyNames": [

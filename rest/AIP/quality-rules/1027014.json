@@ -20,8 +20,13 @@
     "alternativeName": "Do not use the Thread.resume or Thread.suspend APIs.",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
@@ -42,6 +47,13 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1062185,
+            "name": "ASCSM-CWE-667 - Shared Resource Improper Locking",
+            "href": "AIP/technical-criteria/1062185",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1061055,
             "name": "CWE-477 - Use of Obsolete Function",
             "href": "AIP/technical-criteria/1061055",
@@ -59,6 +71,13 @@
             "id": 1061101,
             "name": "CWE-833 - Deadlock",
             "href": "AIP/technical-criteria/1061101",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
             "weight": 5,
             "critical": false
         },
@@ -145,13 +164,13 @@
         },
         {
             "id": "PCI-Requirement-6.2",
-            "name": "Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor- supplied security patches. Install critical security patches within ...",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.2",
-            "name": "Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor- supplied security patches. Install critical security patches within ...",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
             "standard": "PCI-DSS-V3.2.1"
         }

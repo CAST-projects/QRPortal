@@ -1,0 +1,57 @@
+{
+    "id": 1106048,
+    "name": "Ensure CREATE PROCEDURE is not used",
+    "href": "AIP/quality-rules/1106048",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if CREATE PROCEDURE statement exist into DB2 SQL files.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "As you decide to migrate from DB2 to PostgreSQL, it is important to note the changes to be taken care of during the migration process. Without adaptation, the SQL script won\u2019t compile on Postgresql, leading to error.",
+    "reference": "https://www.sqlines.com/db2-to-postgresql",
+    "remediation": "CREATE OR REPLACE PROCEDURE statement should be replaced by CREATE OR REPLACE FUNCTION when migrating to Postgres.",
+    "remediationSample": "Must be rewritten as follows \n\nCREATE OR REPLACE FUNCTION\n<function_name> (\nIN para1 VARCHAR(5),\nIN para2 INTEGER\n)\nRETURNS REFCURSOR\nLANGUAGE PLPGSQL\nAS\n$$\nDECLARE <cursor_name> CURSOR\nFOR <sql_statement>;\nBEGIN\n....\nOPEN <cursor_name>;\nRETURN <cursor_name>;\nEND;\n$$\n;",
+    "sample": "In IBM DB2 \nCREATE PROCEDURE <procedure_name>\n(\nIN para1 VARCHAR(5),\nIN para2 INTEGER\n)\nSPECIFIC <procedure_name>\nDYNAMIC RESULT SETS <number>\nLANGUAGE SQL\nBEGIN\nDECLARE <cursor_name>\nCURSOR WITH RETURN TO CLIENT FOR\n<sql_statement>;\nOPEN <cursor_name>;\nEND\n;",
+    "total": "Number of DB2 SQL Artifacts",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61044,
+            "name": "Database Migration - DB2 Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61044",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

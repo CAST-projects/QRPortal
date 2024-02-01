@@ -22,7 +22,7 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
@@ -32,6 +32,48 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062302,
+            "name": "OWASP-2013-A2 - Broken Authentication and Session Management",
+            "href": "AIP/technical-criteria/1062302",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062322,
+            "name": "OWASP-2017-A2 - Broken Authentication",
+            "href": "AIP/technical-criteria/1062322",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063113,
+            "name": "PCI-Requirement-6.3.1 - Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/technical-criteria/1063113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",
@@ -108,7 +150,7 @@
         },
         {
             "id": "PCI-Requirement-6.3.1",
-            "name": "Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers.",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.3.1",
             "standard": "PCI-DSS-V3.1"
         },
@@ -126,7 +168,7 @@
         },
         {
             "id": "PCI-Requirement-6.3.1",
-            "name": "Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers.",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.3.1",
             "standard": "PCI-DSS-V3.2.1"
         },

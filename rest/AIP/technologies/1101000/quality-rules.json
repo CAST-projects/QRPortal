@@ -413,7 +413,7 @@
     },
     {
         "id": 7856,
-        "name": "Avoid Tables with more than 20 columns on an OLTP system",
+        "name": "Avoid Tables with too many columns on an OLTP system",
         "href": "AIP/quality-rules/7856",
         "critical": false,
         "severity": 10,
@@ -831,7 +831,7 @@
     },
     {
         "id": 1106024,
-        "name": "Ensure you don't have unsupported clause SHARDED in CREATE TABLE statements",
+        "name": "Ensure SHARDED tables are not used",
         "href": "AIP/quality-rules/1106024",
         "critical": false,
         "severity": 10,
@@ -841,7 +841,7 @@
     },
     {
         "id": 1106026,
-        "name": "Ensure you don't have unsupported XMLType columns in tables",
+        "name": "Ensure XMLType columns are not used",
         "href": "AIP/quality-rules/1106026",
         "critical": false,
         "severity": 10,
@@ -851,7 +851,7 @@
     },
     {
         "id": 1106028,
-        "name": "Ensure you don't have unsupported clause CLUSTER in CREATE TABLE statements",
+        "name": "Ensure CLUSTER clause in CREATE TABLE statements is not used",
         "href": "AIP/quality-rules/1106028",
         "critical": false,
         "severity": 10,
@@ -863,6 +863,186 @@
         "id": 1106030,
         "name": "Ensure INDEX-ORGANIZED TABLEs (IOT) are not used",
         "href": "AIP/quality-rules/1106030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106038,
+        "name": "Ensure Unused Column is not used",
+        "href": "AIP/quality-rules/1106038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106040,
+        "name": "Ensure READ ONLY Table is not used",
+        "href": "AIP/quality-rules/1106040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106042,
+        "name": "Ensure Invisible Index is not used",
+        "href": "AIP/quality-rules/1106042",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106046,
+        "name": "Ensure CREATE FUNCTION is not used",
+        "href": "AIP/quality-rules/1106046",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106048,
+        "name": "Ensure CREATE PROCEDURE is not used",
+        "href": "AIP/quality-rules/1106048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106050,
+        "name": "Ensure CREATE TRIGGER is not used",
+        "href": "AIP/quality-rules/1106050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106096,
+        "name": "Ensure PARTITION is not used in ALTER TABLE statements",
+        "href": "AIP/quality-rules/1106096",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106154,
+        "name": "Ensure VARCHAR(n) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106154",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106156,
+        "name": "Ensure NUMERIC(p, s) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106156",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106158,
+        "name": "Ensure INTEGER with implicit default values is not used",
+        "href": "AIP/quality-rules/1106158",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106160,
+        "name": "Ensure DECIMAL(p, s) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106160",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106162,
+        "name": "Ensure DATE with implicit default values is not used",
+        "href": "AIP/quality-rules/1106162",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106164,
+        "name": "Ensure CHAR(n) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106164",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106166,
+        "name": "Ensure FOR BIT DATA column clause is not used",
+        "href": "AIP/quality-rules/1106166",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106168,
+        "name": "Ensure FOR SBCS | MIXED DATA column clause is not used",
+        "href": "AIP/quality-rules/1106168",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106170,
+        "name": "Ensure CCSID ASCII | UNICODE | EBCDIC column clause is not used",
+        "href": "AIP/quality-rules/1106170",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106172,
+        "name": "Ensure CCSID num column clause is not used",
+        "href": "AIP/quality-rules/1106172",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106174,
+        "name": "Ensure GENERATED AS IDENTITY is not used",
+        "href": "AIP/quality-rules/1106174",
         "critical": false,
         "severity": 10,
         "technologyNames": [

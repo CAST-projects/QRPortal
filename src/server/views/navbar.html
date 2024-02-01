@@ -1,0 +1,71 @@
+{% macro nitem(entry, idx, is_leaf) %}
+{% if is_leaf and (entry.count === undefined or entry.count > 0) %}
+<li role="treeitem" tabindex="{{ index }}" hx-get="/api/{{ entry.href }}" hx-target="#main" hx-swap="innerHTML"
+  hx-trigger="click consume">
+  {% elif is_leaf and entry.count !== undefined and entry.count === 0 %}
+<li role="treeitem" tabindex="{{ index }}">
+  {% else %}
+<li role="treeitem" tabindex="{{ index }}" hx-get="/api/{{ entry.href }}" hx-target="find ul.navitem-content"
+  hx-swap="innerHTML" hx-trigger="click once">
+  {% endif %}
+  <div class="navitem">
+    <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
+      width="26px" height="26px">
+    {% if is_leaf and (entry.count === undefined or entry.count > 0) %}
+    <label class="tb2 tnr tb-cap">{{ entry.displayName or entry.name }}</label>
+    {% elif is_leaf and entry.count !== undefined and entry.count === 0 %}
+    <label class="tb2 tnr tb-cap" style="color:grey;">{{ entry.displayName or entry.name }}</label>
+    {% else %}
+    <label
+      class="tb2 tnr {{ '' if entry.ignoreTitleTransform else 'tb-cap' }}">{{ entry.displayName or entry.name }}</label>
+    {% endif %}
+  </div>
+  {% if not is_leaf %}
+  <ul id="navitem-{{ entry.name | replace(' ', '-') | replace('.', '-') }}" class="navitem-content" role="group">
+    {% for child in item.items %}
+    {{ nitem(child, loop.index0, child.is_leaf) }}
+    {% endfor %}
+  </ul>
+  {% endif%}
+</li>
+{% endmacro %}
+
+
+{% macro navitem(entry, index, is_leaf) %}
+{% if is_leaf and (entry.count === undefined or entry.count > 0) %}
+<li role="treeitem" tabindex="{{ index }}" hx-get="/api/{{ entry.href }}" hx-target="#main" hx-swap="innerHTML"
+  hx-trigger="click consume">
+  <div class="navitem">
+    <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
+      width="26px" height="26px">
+    <label class="tb2 tnr tb-cap">{{ entry.displayName or entry.name }}</label>
+  </div>
+</li>
+{% elif is_leaf and entry.count !== undefined and entry.count === 0 %}
+<li role="treeitem" tabindex="{{ index }}">
+  <div class="navitem">
+    <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
+      width="26px" height="26px">
+    <label class="tb2 tnr tb-cap" style="color:grey;">{{ entry.displayName or entry.name }}</label>
+  </div>
+</li>
+{% else %}
+<li role="treeitem" tabindex="{{ index }}" hx-get="/api/{{ entry.href }}" hx-target="find ul.navitem-content"
+  hx-swap="innerHTML" hx-trigger="click once">
+  <div class="navitem" data-toggle="collapse"
+    data-target="#navitem-{{ entry.name | replace(' ', '-') | replace('.', '-') }}">
+    <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
+      width="26px" height="26px">
+    <label
+      class="tb2 tnr {{ '' if entry.ignoreTitleTransform else 'tb-cap'}}">{{ entry.displayName or entry.name }}</label>
+  </div>
+  <ul id="navitem-{{ entry.name | replace(' ', '-') | replace('.', '-') }}" class="navitem-content" role="group"></ul>
+</li>
+{% endif %}
+{% endmacro %}
+
+<nav>
+  {% for item in navbar %}
+  {{ navitem(item, loop.index0, false) }}
+  {% endfor %}
+</nav>

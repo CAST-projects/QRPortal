@@ -21,21 +21,6 @@
     "alternativeName": "Ensure retaining the settings of aspnet:UseLegacyFormsAuthenticationTicketCompatibility to True.",
     "businessCriteria": [
         {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -47,6 +32,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066963,
+            "name": "CWE-863 - Incorrect Authorization",
+            "href": "AIP/technical-criteria/1066963",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062302,
             "name": "OWASP-2013-A2 - Broken Authentication and Session Management",
@@ -65,6 +57,13 @@
             "id": 1062341,
             "name": "OWASP-2021-A01 - Broken Access Control",
             "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
             "weight": 5,
             "critical": false
         },

@@ -327,6 +327,16 @@
         ]
     },
     {
+        "id": 1021110,
+        "name": "Avoid using regular expression vulnerable to ReDoS (Python)",
+        "href": "AIP/quality-rules/1021110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1024022,
         "name": "Always released Media Resources",
         "href": "AIP/quality-rules/1024022",
@@ -396,6 +406,17 @@
         "href": "AIP/quality-rules/1027094",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027102,
+        "name": "Avoid using Regex constructor or static method without timeout",
+        "href": "AIP/quality-rules/1027102",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -564,6 +585,26 @@
         "technologyNames": [
             "C",
             "C++"
+        ]
+    },
+    {
+        "id": 1101000,
+        "name": "Never use SQL queries with a cartesian product (SQL)",
+        "href": "AIP/quality-rules/1101000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101002,
+        "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
+        "href": "AIP/quality-rules/1101002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     }
 ]

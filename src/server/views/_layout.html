@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>CAST Rules</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  {% if base_url %}
+  <base href="{{base_url}}" target="_blank">
+  {% endif %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel='stylesheet' type='text/css' media='screen' href='/resources/roboto-fontface.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/resources/dashboard.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/resources/main.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/resources/navbar.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/resources/forms.css'>
+  <link rel="icon" type="image/x-icon" href="/resources/favicon.png">
+  <style>
+  </style>
+</head>
+
+<body onload="handleApplyFiltersLoad(event)">
+  {% include "header.html" %}
+  <div class="content">
+    {% include 'navbar.html' %}
+    <main id="main">
+      {% block body %}
+      {% endblock %}
+    </main>
+  </div>
+  {% include "auth_dialog.html" %}
+  {% include "footer.html" %}
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
+  <script src="/resources/forms.js"></script>
+  <script src="/resources/table-filters.js"></script>
+</body>
+
+</html>

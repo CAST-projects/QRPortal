@@ -30,11 +30,23 @@
         ]
     },
     {
+        "id": 8442,
+        "name": "Avoid resource injection",
+        "href": "AIP/quality-rules/8442",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8446,
         "name": "Avoid URL redirection to untrusted site",
         "href": "AIP/quality-rules/8446",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -91,6 +103,36 @@
         "severity": 30,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1021100,
+        "name": "Avoid URL redirection to untrusted site (Python)",
+        "href": "AIP/quality-rules/1021100",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021116,
+        "name": "Avoid logging sensitive data (Python)",
+        "href": "AIP/quality-rules/1021116",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021118,
+        "name": "Avoid disabling CSRF Protection in fastapi_jwt_auth",
+        "href": "AIP/quality-rules/1021118",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
         ]
     },
     {
@@ -366,7 +408,7 @@
         "name": "Review APIs returning sensitive data fields",
         "href": "AIP/quality-rules/1060104",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -376,7 +418,7 @@
         "name": "Avoid data fields binded to columns to return sensitive data via APIs",
         "href": "AIP/quality-rules/1060108",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -386,7 +428,7 @@
         "name": "Avoid filtering sensitive data using front-end",
         "href": "AIP/quality-rules/1060110",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -396,7 +438,7 @@
         "name": "Always avoid http redirects to unknown or untrusted URLs",
         "href": "AIP/quality-rules/1060116",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE",
             "JavaScript",

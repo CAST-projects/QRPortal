@@ -108,7 +108,7 @@
         "name": "Avoid file path manipulation through API requests",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -120,7 +120,7 @@
         "name": "Avoid mixing trusted and untrusted data in HTTP requests through API requests",
         "href": "AIP/quality-rules/8512",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -165,6 +165,26 @@
         "severity": 20,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1021104,
+        "name": "Avoid file path manipulation (Python)",
+        "href": "AIP/quality-rules/1021104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021120,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
+        "href": "AIP/quality-rules/1021120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
         ]
     },
     {
@@ -284,6 +304,26 @@
         ]
     },
     {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034036,
+        "name": "Avoid second order file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1039004,
         "name": "Avoid using HttpServletRequest.getRequestedSessionId()",
         "href": "AIP/quality-rules/1039004",
@@ -346,11 +386,22 @@
         ]
     },
     {
+        "id": 1043084,
+        "name": "Avoid XML schemas with unbounded occurrences",
+        "href": "AIP/quality-rules/1043084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
         "id": 1060114,
         "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
         "href": "AIP/quality-rules/1060114",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]

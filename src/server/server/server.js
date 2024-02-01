@@ -1,6 +1,7 @@
 const { Server } = require("../lib/cnjs-utils/server");
 const { accessLogFactory } = require("../lib/cnjs-utils/log");
 const { types: folderTypes } = require("../services/folder-service");
+const { jwtAuth } = require("../services/extend-authentication-service");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
@@ -9,10 +10,23 @@ const { middleware, codes } = require("../services/http-error-service");
 const passport = require("passport");
 const fs = require("fs");
 const path = require("path");
+const nunjucks = require("nunjucks");
 
 class RulesDocumentationServer extends Server {
-  
-  constructor(logger, version, configuration, httpErrorFactory, passportConfigure, folderService, apiController, publicController, rulesController){
+
+  /**
+   * @param {*} logger 
+   * @param {*} version 
+   * @param {import("../config/configuration").Configuration} configuration 
+   * @param {*} httpErrorFactory 
+   * @param {*} passportConfigure 
+   * @param {*} folderService 
+   * @param {*} apiController 
+   * @param {*} rulesController 
+   * @param {*} renderController 
+   * @param {*} publicAssetController 
+   */
+  constructor(logger, version, configuration, httpErrorFactory, passportConfigure, folderService, apiController, rulesController, renderController, publicAssetController) {
     super({
       https: configuration.https.isValid()
         ? {
@@ -28,20 +42,29 @@ class RulesDocumentationServer extends Server {
       middleware: [
         accessLogFactory(folderService.get(folderTypes.logs)),
         helmet({
+          hidePoweredBy: true,
+          hsts: false,
           contentSecurityPolicy: {
-            useDefaults: true,
+            useDefaults: false,
             directives: {
+              defaultSrc: ["'self'", "https://*"],
+              baseUri: ["'self'"],
+              fontSrc: ["'self'", "https://*", "data:"],
+              formAction: ["'self'"],
+              frameAncestors: ["'self'"],
               scriptSrc: ["'self'", "https://*", "'unsafe-inline'"],
               scriptSrcAttr: null,
-              imgSrc: ["'self'","https://*", "data:"],
+              objectSrc: ["'none'"],
+              imgSrc: ["'self'", "https://*", "data:"],
               styleSrc: ["'self'", "https://*", "'unsafe-inline'"],
             }
           },
         }),
         cors(),
         middleware.setErrorLocale,
-        bodyParser.urlencoded({ limit: "5mb", extended: true}),
+        bodyParser.urlencoded({ limit: "5mb", extended: true }),
         bodyParser.json({ limit: "5mb" }),
+        cookieParser(configuration.sessionKey),
         (error, req, res, next) => {
           if (error instanceof SyntaxError) {
             res.status(400).json(httpErrorFactory.createError(req.locale, codes.server.bodyParseError, error.message));
@@ -49,20 +72,30 @@ class RulesDocumentationServer extends Server {
             next();
           }
         },
-        cookieParser(),
         passport.initialize(),
+        jwtAuth(),
       ],
-    }, apiController, rulesController, publicController);
+    }, apiController, rulesController, renderController, publicAssetController);
 
     this.httpErrorFactory = httpErrorFactory;
     this.passportConfigure = passportConfigure;
+    /** @type {import("../services/folder-service/service")} */
+    this.folderService = folderService;
+    const env = nunjucks.configure(this.folderService.get(folderTypes.views), {
+      autoescape: true,
+      express: this.app,
+      trimBlocks: true,
+      lstripBlocks: true,
+    })
+    env.addGlobal('base_url', configuration.publicUrl);
+    env.addGlobal('gbl_year', new Date(Date.now()).getFullYear());
   }
 
-  $preprocess(){
+  $preprocess() {
     this.passportConfigure();
   }
 
-  async $postprocess(){
+  async $postprocess() {
     this.app.use(middleware.errorHandlerMiddleware(this.httpErrorFactory, this.log));
   }
 }

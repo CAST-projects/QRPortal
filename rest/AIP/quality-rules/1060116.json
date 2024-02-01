@@ -3,7 +3,7 @@
     "name": "Always avoid http redirects to unknown or untrusted URLs",
     "href": "AIP/quality-rules/1060116",
     "critical": false,
-    "severity": 30,
+    "severity": 10,
     "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.systemlevelrules",
@@ -19,18 +19,13 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 1061000,
             "name": "ISO-5055-Index",
             "href": "AIP/business-criteria/1061000"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 60016,
@@ -50,6 +45,13 @@
             "id": 1062341,
             "name": "OWASP-2021-A01 - Broken Access Control",
             "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
             "weight": 5,
             "critical": false
         },

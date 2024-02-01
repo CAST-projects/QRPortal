@@ -3,7 +3,7 @@
     "name": "Avoid Empty Finally Block When Calling Resource",
     "href": "AIP/quality-rules/1060004",
     "critical": true,
-    "severity": 30,
+    "severity": 20,
     "maxWeight": 9,
     "extension": {
         "name": "com.castsoftware.systemlevelrules",
@@ -23,7 +23,7 @@
         },
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
@@ -47,6 +47,13 @@
             "id": 1062155,
             "name": "ASCRM-RLB-1 - Empty Exception Block",
             "href": "AIP/technical-criteria/1062155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
             "weight": 5,
             "critical": false
         },

@@ -9,7 +9,7 @@
         "name": "com.castsoftware.cpp",
         "href": "AIP/extensions/com.castsoftware.cpp"
     },
-    "description": "The identifiers atof, atoi, atol and, for C99 only atoll, shall not be used and no macro with one of these\nnames shall be expanded.",
+    "description": "The identifiers atof, atoi, atol and, for C99 only atoll, shall not be used and no macro with one of these names shall be expanded.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "These functions have undefined behavior associated with them when the string cannot be converted.",
     "reference": "MISRA C 2012, 21.7: The atof, atoi, atol and atoll functions of <stdlib.h> shall not be used",
@@ -20,7 +20,7 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {

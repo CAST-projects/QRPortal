@@ -21,7 +21,7 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
@@ -31,6 +31,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066290,
+            "name": "CWE-190 - Integer Overflow or Wraparound",
+            "href": "AIP/technical-criteria/1066290",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",
@@ -60,13 +74,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.6",
-            "name": "All high risk vulnerabilities identified in the vulnerability identification process (as defined in PCI DSS Requirement 6.1).",
+            "name": "All high risk vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.6",
-            "name": "All high risk vulnerabilities identified in the vulnerability identification process (as defined in PCI DSS Requirement 6.1).",
+            "name": "All high risk vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
             "standard": "PCI-DSS-V3.2.1"
         }

@@ -12,6 +12,7 @@ module.exports = {
   ssoCache: "ssoCache",
 
   distFolder: "distFolder",
+  assetFolder: "assetFolder",
 
   passportConfigure: "passportConfigure",
   extendWebClient: "extendWebClient",
@@ -27,6 +28,8 @@ module.exports = {
   aipDataReader: "aipDataReader",
   carlDataReader: "carlDataReader",
   restDataReader: "restDataReader",
+  aipContextReader: "aipContextReader",
+  carlContextReader: "carlContextReader",
 
   qualityRuleDataReader: "qualityRuleDataReader",
   extensionDataReader: "extensionDataReader",
@@ -72,7 +75,9 @@ module.exports = {
     carlServiceIndex: "CARLServiceController",
     sso: "ssoController",
     public: "PublicController",
+    publicAssets: "PublicAssetsController",
     rules: "RulesController",
+    render: "RenderController",
     aip: {
       extension: "AIPExtensionController",
       technology: "AIPTechnologyController",

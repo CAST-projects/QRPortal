@@ -3,7 +3,7 @@
     "name": "Avoid using insufficient random generator",
     "href": "AIP/quality-rules/8554",
     "critical": false,
-    "severity": 10,
+    "severity": 30,
     "maxWeight": 8,
     "associatedValueName": "Call stack of a method producing insufficiently random numbers",
     "description": "The application uses a Pseudo-Random Number Generator (PRNG), but the PRNG's algorithm is not cryptographically strong.",
@@ -18,23 +18,8 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 60016,
@@ -61,6 +46,13 @@
             "id": 1062342,
             "name": "OWASP-2021-A02 - Cryptographic Failures",
             "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063108,
+            "name": "PCI-Requirement-3.6.1 - Generation of strong cryptographic keys",
+            "href": "AIP/technical-criteria/1063108",
             "weight": 5,
             "critical": false
         },

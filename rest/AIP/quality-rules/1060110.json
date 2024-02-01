@@ -3,7 +3,7 @@
     "name": "Avoid filtering sensitive data using front-end",
     "href": "AIP/quality-rules/1060110",
     "critical": false,
-    "severity": 30,
+    "severity": 10,
     "maxWeight": 7,
     "extension": {
         "name": "com.castsoftware.systemlevelrules",
@@ -17,21 +17,6 @@
     "total": "All Jquery selectors and HTML functions with name like %filter%",
     "alternativeName": "Avoid filtering sensitive data using front-end",
     "businessCriteria": [
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -62,6 +47,13 @@
             "id": 1062341,
             "name": "OWASP-2021-A01 - Broken Access Control",
             "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063122,
+            "name": "PCI-Requirement-6.5.8 - Improper access control",
+            "href": "AIP/technical-criteria/1063122",
             "weight": 5,
             "critical": false
         },
@@ -125,13 +117,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.8",
-            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "name": "Improper access control",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.8",
-            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "name": "Improper access control",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
             "standard": "PCI-DSS-V3.2.1"
         }

@@ -22,23 +22,8 @@
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 60013,
@@ -52,6 +37,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066387,
+            "name": "CWE-287 - Improper Authentication",
+            "href": "AIP/technical-criteria/1066387",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062306,
             "name": "OWASP-2013-A6 - Sensitive Data Exposure",
@@ -70,6 +62,13 @@
             "id": 1062347,
             "name": "OWASP-2021-A07 - Identification and Authentication Failures",
             "href": "AIP/technical-criteria/1062347",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
             "weight": 5,
             "critical": false
         },
@@ -117,6 +116,18 @@
             "name": "Identification and Authentication Failures",
             "href": "AIP/quality-standards/OWASP/items/A07-2021",
             "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
         }
     ],
     "parameters": [

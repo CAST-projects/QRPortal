@@ -1,0 +1,161 @@
+{
+    "id": 1021098,
+    "name": "Avoid HTTP header injection (Python)",
+    "href": "AIP/quality-rules/1021098",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.python",
+        "href": "AIP/extensions/com.castsoftware.python"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The application uses HTTP headers, but it does not properly neutralize CR and LF characters as well as web script syntaxbefore the data is included in outgoing HTTP headers.\n\nThis metric detects paths from user input methods down to HTTP headers usage, paths which are open vulnerabilities.\n\nSupported frameworks are: FastAPI, Flask, aiohttp (with limitations)",
+    "output": "List all methods that make resource calls potentially forged by user input.\n\nAssociated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences of user input source",
+    "rationale": "CR and LF characters in an HTTP header may give attackers control of the remaining headers and body of the response the application intends to send, as well as allowing them to create additional responses entirely under their control.\nThis can lead to: cookie injection, open redirect, proxy cache poisoning, log corruption, or rewriting the body of the response.",
+    "reference": "CWE-113: Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Response Splitting')\nhttps://cwe.mitre.org/data/definitions/113.html\n\nCWE-644: Improper Neutralization of HTTP Headers for Scripting Syntax\nhttps://cwe.mitre.org/data/definitions/644.html\n\nOpen Web Application Security Project (OWASP)\nhttps://www.owasp.org/index.php/Top_10_2007",
+    "remediation": "Use authorized sanitization methods of the framework, if available.\nRemove CR, LF characters for values coming from user inputs and used in HTTP headers",
+    "remediationSample": "app = FastAPI()\n\n@app.get(\"/sample/\")\ndef sample(req):\n    content = {\"message\": \"Hello World\"}\n    tainted= req.query_params.get(\"my_param\")\n\n    param_safe = re.sub('[\\n\\r]', '', tainted)  # the data is sanitized against CR/LF\n    param_safe = html.escape(param_safe)  # the data is sanitized against \"<script>\"\n\n    headers = {\"X-whatever\": param_safe, \"Content-Language\": \"en-US\"}\n    return JSONResponse(content=content, headers=headers)",
+    "sample": "app = FastAPI()\n\n@app.get(\"/sample/\")\ndef sample(req):\n    content = {\"message\": \"Hello World\"}\n\n    tainted= req.query_params.get(\"my_param\")\n\n    headers = {\"X-whatever\": tainted, \"Content-Language\": \"en-US\"}\n    return JSONResponse(content=content, headers=headers)  # violation",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure your application does not execute HTTP requests without sanitization",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-93",
+            "name": "Improper Neutralization of CRLF Sequences ('CRLF Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-93",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-113",
+            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Response Splitting')",
+            "href": "AIP/quality-standards/CWE/items/CWE-113",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-644",
+            "name": "Improper Neutralization of HTTP Headers for Scripting Syntax",
+            "href": "AIP/quality-standards/CWE/items/CWE-644",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222609",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

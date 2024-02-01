@@ -10,18 +10,8 @@
         ]
     },
     {
-        "id": 1106016,
-        "name": "Ensure you don't have unsupported PL/SQL packages UTL_HTTP and UTL_SMTP",
-        "href": "AIP/quality-rules/1106016",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
         "id": 1106018,
-        "name": "Ensure you don't have unsupported PL/SQL procedures DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE",
+        "name": "Ensure PL/SQL procedures DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE are not used",
         "href": "AIP/quality-rules/1106018",
         "critical": false,
         "severity": 10,
@@ -31,7 +21,7 @@
     },
     {
         "id": 1106026,
-        "name": "Ensure you don't have unsupported XMLType columns in tables",
+        "name": "Ensure XMLType columns are not used",
         "href": "AIP/quality-rules/1106026",
         "critical": false,
         "severity": 10,
@@ -41,12 +31,262 @@
     },
     {
         "id": 1106032,
-        "name": "Ensure you don't have unsupported ROWID data type and pseudocolumn",
+        "name": "Ensure ROWID data type is not used",
         "href": "AIP/quality-rules/1106032",
         "critical": false,
         "severity": 10,
         "technologyNames": [
             "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106052,
+        "name": "Ensure BLOB data type is not used",
+        "href": "AIP/quality-rules/1106052",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106054,
+        "name": "Ensure CLOB data type is not used",
+        "href": "AIP/quality-rules/1106054",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106056,
+        "name": "Ensure DBCLOB data type is not used",
+        "href": "AIP/quality-rules/1106056",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106058,
+        "name": "Ensure VARCHAR(n) FOR BIT DATA data type is not used",
+        "href": "AIP/quality-rules/1106058",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106060,
+        "name": "Ensure NVARCHAR data type is not used",
+        "href": "AIP/quality-rules/1106060",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106062,
+        "name": "Ensure NCHAR data type is not used",
+        "href": "AIP/quality-rules/1106062",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106064,
+        "name": "Ensure NCHAR VARYING data type is not used",
+        "href": "AIP/quality-rules/1106064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106066,
+        "name": "Ensure GRAPHIC data type is not used",
+        "href": "AIP/quality-rules/1106066",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106068,
+        "name": "Ensure FLOAT data type is not used",
+        "href": "AIP/quality-rules/1106068",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106070,
+        "name": "Ensure DECFLOAT data type is not used",
+        "href": "AIP/quality-rules/1106070",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106114,
+        "name": "Ensure VARBINARY data type is not used",
+        "href": "AIP/quality-rules/1106114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106116,
+        "name": "Ensure TINYINT data type is not used",
+        "href": "AIP/quality-rules/1106116",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106118,
+        "name": "Ensure TIMESTAMP data type is not used",
+        "href": "AIP/quality-rules/1106118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106120,
+        "name": "Ensure SMALLMONEY data type is not used",
+        "href": "AIP/quality-rules/1106120",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106122,
+        "name": "Ensure ROWVERSION data type is not used",
+        "href": "AIP/quality-rules/1106122",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106124,
+        "name": "Ensure NVARCHAR data type is not used",
+        "href": "AIP/quality-rules/1106124",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106126,
+        "name": "Ensure NTEXT data type is not used",
+        "href": "AIP/quality-rules/1106126",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106128,
+        "name": "Ensure NCHAR data type is not used",
+        "href": "AIP/quality-rules/1106128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106130,
+        "name": "Ensure DATETIMEOFFSET data type is not used",
+        "href": "AIP/quality-rules/1106130",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106152,
+        "name": "Ensure TIMESTAMP data type is not used",
+        "href": "AIP/quality-rules/1106152",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106154,
+        "name": "Ensure VARCHAR(n) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106154",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106156,
+        "name": "Ensure NUMERIC(p, s) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106156",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106158,
+        "name": "Ensure INTEGER with implicit default values is not used",
+        "href": "AIP/quality-rules/1106158",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106160,
+        "name": "Ensure DECIMAL(p, s) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106160",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1106164,
+        "name": "Ensure CHAR(n) with implicit default values is not used",
+        "href": "AIP/quality-rules/1106164",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
         ]
     }
 ]

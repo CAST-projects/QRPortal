@@ -128,7 +128,7 @@
         "name": "Avoid using hard-coded HMAC keys",
         "href": "AIP/quality-rules/8424",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -162,7 +162,7 @@
         "name": "Avoid mixing trusted and untrusted data in HTTP requests through API requests",
         "href": "AIP/quality-rules/8512",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -198,7 +198,7 @@
         "name": "Avoid using insufficient random generator",
         "href": "AIP/quality-rules/8554",
         "critical": false,
-        "severity": 10,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -596,6 +596,46 @@
         ]
     },
     {
+        "id": 1021090,
+        "name": "Avoid using insufficient random generator (Python)",
+        "href": "AIP/quality-rules/1021090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021114,
+        "name": "Ensure the Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
+        "href": "AIP/quality-rules/1021114",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021116,
+        "name": "Avoid logging sensitive data (Python)",
+        "href": "AIP/quality-rules/1021116",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021120,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
+        "href": "AIP/quality-rules/1021120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1022000,
         "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
         "href": "AIP/quality-rules/1022000",
@@ -754,6 +794,26 @@
         ]
     },
     {
+        "id": 1034048,
+        "name": "Avoid using insufficient random generator (PHP)",
+        "href": "AIP/quality-rules/1034048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034056,
+        "name": "Avoid using hard-coded HMAC keys (PHP)",
+        "href": "AIP/quality-rules/1034056",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1039002,
         "name": "Avoid using deprecated SSL protocols to secure connection",
         "href": "AIP/quality-rules/1039002",
@@ -894,11 +954,31 @@
         ]
     },
     {
+        "id": 1039076,
+        "name": "Avoid using HttpURLConnection with HTTP protocol",
+        "href": "AIP/quality-rules/1039076",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1040014,
         "name": "Avoid using Spring Security's debug mode",
         "href": "AIP/quality-rules/1040014",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Avoid weak encryption algorithm (Spring)",
+        "href": "AIP/quality-rules/1040046",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]
@@ -1136,7 +1216,7 @@
         "name": "Review APIs returning sensitive data fields",
         "href": "AIP/quality-rules/1060104",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -1146,7 +1226,7 @@
         "name": "Avoid data fields binded to columns to return sensitive data via APIs",
         "href": "AIP/quality-rules/1060108",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -1156,7 +1236,7 @@
         "name": "Avoid filtering sensitive data using front-end",
         "href": "AIP/quality-rules/1060110",
         "critical": false,
-        "severity": 30,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]

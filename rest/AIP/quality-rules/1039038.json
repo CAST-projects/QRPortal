@@ -15,8 +15,8 @@
     "rationale": "XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.\n\nBy submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as \"file:///c:/winnt/win.ini\" designates (in Windows) the file C:\\Winnt\\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.\n\nOnce the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.",
     "reference": "https://cwe.mitre.org/data/definitions/611.html\nhttps://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)\nhttp://blog.bdoughan.com/2011/03/preventing-entity-expansion-attacks-in.html",
     "remediation": "Add restriction before calling parser",
-    "remediationSample": "DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();\ndf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);\nDocumentBuilder builder = df.newDocumentBuilder();\n\n[...]\n\nxPathExpr.evaluate( builder.parse(inputStream) );",
-    "sample": "DocumentBuilder builder = df.newDocumentBuilder();\n\nXPathFactory xPathFactory = XPathFactory.newInstance();\nXPath xpath = xPathFactory.newXPath();\nXPathExpression xPathExpr = xpath.compile(\"/somepath/text()\");\n\nxPathExpr.evaluate(new InputSource(inputStream));",
+    "remediationSample": "XPathFactory xPathFactory = XPathFactory.newInstance();\nxPathFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);\nXPath xpath = xPathFactory.newXPath();\nXPathExpression xPathExpr = xpath.compile(\"/somepath/text()\");",
+    "sample": "XPathFactory xPathFactory = XPathFactory.newInstance();\nXPath xpath = xPathFactory.newXPath();\nXPathExpression xPathExpr = xpath.compile(\"/somepath/text()\");",
     "total": "Number of Java artifacts",
     "alternativeName": "Ensure to preceed the call of XPathFactory by a call to the secure mode of the parser",
     "businessCriteria": [
@@ -24,16 +24,6 @@
             "id": 1061000,
             "name": "ISO-5055-Index",
             "href": "AIP/business-criteria/1061000"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 66031,
@@ -55,6 +45,13 @@
             "critical": false
         },
         {
+            "id": 1066711,
+            "name": "CWE-611 - Improper Restriction of XML External Entity Reference",
+            "href": "AIP/technical-criteria/1066711",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1062324,
             "name": "OWASP-2017-A4 - XML External Entities (XXE)",
             "href": "AIP/technical-criteria/1062324",
@@ -65,6 +62,13 @@
             "id": 1062345,
             "name": "OWASP-2021-A05 - Security Misconfiguration",
             "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
             "weight": 5,
             "critical": false
         },
@@ -134,13 +138,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
         },

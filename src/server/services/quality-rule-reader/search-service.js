@@ -8,7 +8,7 @@ class QualityRuleSearchIndex extends IndexService {
    * @param {import("../folder-service/service")} folderService
    * @param {import("./service")} qualityRuleReader
    */
-  constructor(folderService, qualityRuleReader, name, fields, entryBuilder){
+  constructor(folderService, qualityRuleReader, name, fields, entryBuilder) {
     super();
 
     this.fields = fields;
@@ -19,16 +19,23 @@ class QualityRuleSearchIndex extends IndexService {
     this.folderPath = this.folderService.from(folderTypes.temp, this.indexFileName);
   }
 
-  async generate(){
+  async generate() {
     const qualityRules = await this.qualityRuleReader.readAll();
     this.generateIndex(qualityRules, this.fields, this.entryBuilder);
+  }
+
+  /**
+   * @param {string} value 
+   */
+  getSearchBy(value = '') {
+
   }
 
   /**
    * @param {string} queryString 
    * @param {string} searchBy 
    */
-  query(queryString, searchBy){
+  query(queryString, searchBy) {
     const sqs = queryString && this.sanitize(queryString);
 
     return this.rawQuery(sqs, searchBy);
@@ -37,12 +44,12 @@ class QualityRuleSearchIndex extends IndexService {
   /**
    * @param {string} queryString 
    */
-  sanitize(queryString){
+  sanitize(queryString) {
     return queryString.replace(/[:*^~+-]/gi, (match, offset, str) => {
       switch (match) {
         case "-":
-        case "+": 
-          if(str.charCodeAt(offset - 1) !== 32) return match;
+        case "+":
+          if (str.charCodeAt(offset - 1) !== 32) return match;
         case "*":
         case "~":
         case "^":
@@ -54,7 +61,7 @@ class QualityRuleSearchIndex extends IndexService {
     }).trim();
   }
 
-  searchByQueryString(queryString, searchBy){
+  searchByQueryString(queryString, searchBy) {
     return searchBy ? `${searchBy}:${queryString}` : queryString;
   }
 
@@ -62,11 +69,11 @@ class QualityRuleSearchIndex extends IndexService {
    * @param {string} queryString 
    * @returns {string[]}
    */
-  rawQuery(queryString, searchBy){
+  rawQuery(queryString, searchBy) {
     const results = [];
     const uniqueResults = {};
 
-    if (queryString){
+    if (queryString) {
       results.push(...this.index.search(this.searchByQueryString(`*${queryString}*`, searchBy)));
       results.push(...this.index.search(this.searchByQueryString(`*${queryString}`, searchBy)));
       results.push(...this.index.search(this.searchByQueryString(`${queryString}*`, searchBy)));
@@ -75,7 +82,7 @@ class QualityRuleSearchIndex extends IndexService {
 
     for (let i = 0; i < results.length; i++) {
       const res = results[i].ref;
-      if(!uniqueResults[res]) uniqueResults[res] = true;
+      if (!uniqueResults[res]) uniqueResults[res] = true;
     }
 
     return Object.keys(uniqueResults);
@@ -84,13 +91,13 @@ class QualityRuleSearchIndex extends IndexService {
   /**
    * @param {import("../data-serializer/models/quality-rule")[]} qualityRules
    */
-  generateIndex(qualityRules = [], fields = [],  entryBuilder){
+  generateIndex(qualityRules = [], fields = [], entryBuilder) {
     const customTrimmer = this.customTrimmer;
     const defaultPipelineFn = this.defaultPipelineFunction;
 
-    return super.generateIndex(function(){
+    return super.generateIndex(function () {
       this.use(customTrimmer(defaultPipelineFn));
-      
+
       this.ref("ref");
 
       for (const field of fields) {
@@ -103,13 +110,13 @@ class QualityRuleSearchIndex extends IndexService {
     });
   }
 
-  import(){
-    if(fs.existsSync(this.folderPath)){
+  import() {
+    if (fs.existsSync(this.folderPath)) {
       return super.import(this.folderPath);
     }
   }
 
-  export(){
+  export() {
     return super.export(this.folderPath);
   }
 

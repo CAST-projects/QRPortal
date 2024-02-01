@@ -1,0 +1,57 @@
+{
+    "id": 1106146,
+    "name": "Ensure SQL Server DECLARE variable is not used",
+    "href": "AIP/quality-rules/1106146",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks the variable declaration in SQL server Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "As you decide to migrate from SQL Server to PostgreSQL, it is important to note the changes to be taken care of during the migration process. Without adaptation, the SQL script won\u2019t compile on Postgresql, leading to error.",
+    "reference": "https://www.sqlines.com/sql-server-to-postgresql#transact-sql-statements",
+    "remediation": "Variable declarations statements used in DML files, stored procedures, functions and triggers should be converted before re-platforming your SQL Server Database to PostgreSQL:\n\nDECLARE @var [AS] type [= default_value] should be replaced with DECLARE var type [= | := | DEFAULT default_value]\nDECLARE @tab [AS] TABLE (\u2026) should be replaced with CREATE TEMPORARY TABLE tab (\u2026).",
+    "remediationSample": "DECLARE var type [= | := | DEFAULT default_value]\n\nCREATE TEMPORARY TABLE tab (\u2026)",
+    "sample": "DECLARE @var [AS] type [= default_value]\n\nDECLARE @tab [AS] TABLE (\u2026)",
+    "total": "Number of Artifacts with SQL code except Views.",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61046,
+            "name": "Database Migration - SQL Server Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61046",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

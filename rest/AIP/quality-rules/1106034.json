@@ -13,9 +13,9 @@
     "description": "This rule checks the usage of the EXTERNAL TABLEs in the Oracle Database(s).",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "PostgreSQL doesn\u2019t support EXTERNAL TABLEs.",
-    "reference": "https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/chap-oracle-aurora-pg.special.external.html\nhttps://docs.aws.amazon.com/pdfs/dms/latest/oracle-to-aurora-postgresql-migration-playbook/dms-mpb-oracle-to-aurora-postgresql.pdf",
-    "remediation": "Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data.\n\nThis is the most relevant capability for the Oracle\u2019s External Tables in Aurora for PostgreSQL, but requires a significant amount of syntax modifications. The main difference is that there is no open link to files and the data must be transferred from and to PostgreSQL (if all data is needed).\n\nThere are two important operations for Aurora for PostgreSQL and Amazon S3 integration:\n1. Saving data to an Amazon S3 file : https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/postgresql-s3-export.html\n2. Loading data from an Amazon S3 file : https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html",
-    "remediationSample": "You have two choices : \n1. remove Oracle EXTERNAL tables\n2. save Oracle data to Amazon S3 file (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/postgresql-s3-export.html) and then import into a PostgreSQL table https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)",
+    "reference": "https://www.dbi-services.com/blog/external-tables-in-postgresql/#:~:text=In%20Oracle%20you%20can%20use,use%20of%20foreign%20data%20wrappers.\nhttps://www.postgresql.org/docs/15/ddl-foreign-data.html",
+    "remediation": "The remediation is to remove EXTERNAL TABLEs and all references to them and try to replace them with a PostgreSQL solution",
+    "remediationSample": "You need to remove Oracle EXTERNAL tables and all references to them.",
     "sample": "CREATE TABLE emp_load (\n  id CHAR(5), \n  emp_dob CHAR(20), \n  emp_lname CHAR(30), \n  emp_fname CHAR(30), \n  emp_start_date DATE\n) ORGANIZATION EXTERNAL (\n  TYPE ORACLE_LOADER DEFAULT DIRECTORY data_dir ACCESS PARAMETERS (\n    RECORDS DELIMITED BY NEWLINE FIELDS (\n      id CHAR(2), \n      emp_dob CHAR(20), \n      emp_lname CHAR(18), \n      emp_fname CHAR(11), \n      emp_start_date CHAR(10) date_format DATE mask \"mm/dd/yyyy\"\n    )\n  ) LOCATION ('info.dat')\n);\n/\n\nSELECT * \nFROM \n  EXTERNAL (\n    (i NUMBER, d DATE) TYPE ORACLE_LOADER DEFAULT DIRECTORY data_dir ACCESS PARAMETERS (\n      RECORDS DELIMITED BY NEWLINE FIELDS TERMINATED BY '|'\n    ) LOCATION ('test.csv') REJECT \n    LIMIT \n      UNLIMITED\n  ) tst_external;\n/",
     "total": "Number of SQL Tables and Artifacts with SQL code",
     "alternativeName": "",
@@ -28,9 +28,9 @@
     ],
     "technicalCriteria": [
         {
-            "id": 61034,
-            "name": "Cloud Migration - Oracle Database to Amazon Aurora",
-            "href": "AIP/technical-criteria/61034",
+            "id": 61045,
+            "name": "Database Migration - Oracle Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61045",
             "weight": 1,
             "critical": false
         }

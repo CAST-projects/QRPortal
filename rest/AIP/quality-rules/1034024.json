@@ -1,0 +1,211 @@
+{
+    "id": 1034024,
+    "name": "Avoid second order SQL injection (PHP)",
+    "href": "AIP/quality-rules/1034024",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.php.security",
+        "href": "AIP/extensions/com.castsoftware.php.security"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric uses Psalm data-flow engine to detect a call path where result from database query is sent to SQL database without prior validation and sanitization.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software constructs all or part of an SQL command via user-controllable inputs (inputs coming from another database access). These inputs are not neutralized or are incorrectly neutralized. As a consequence, the SQL command may be completely altered.",
+    "reference": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')\nhttps://cwe.mitre.org/data/definitions/89.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A1-Injection\n\nCISQ rule: ASCSM-CWE-89.",
+    "remediation": "Use authorized sanitization methods.",
+    "remediationSample": "public function deleteUser(PDO $pdo, string $userName) : void {\n    $pdo->exec(\"select user_id from users where user_name = \" . $userName);\n    $userId = self::getUserId();\n    $userId = $pdo->quote($userId);\n    $pdo->exec(\"delete from users where user_id = \" . $userId);  // VIOLATION\n}",
+    "sample": "public function deleteUser(PDO $pdo, string $userName) : void {\n    $pdo->exec(\"select user_id from users where user_name = \" . $userName);\n    $userId = self::getUserId();\n    $pdo->exec(\"delete from users where user_id = \" . $userId);  // VIOLATION\n}",
+    "total": "Number of PHP artifacts",
+    "alternativeName": "Ensure you sanitize queries to SQL databases constructed from database query",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061063,
+            "name": "CWE-564 - SQL Injection: Hibernate",
+            "href": "AIP/technical-criteria/1061063",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061017,
+            "name": "CWE-89 - Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/technical-criteria/1061017",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066189,
+            "name": "CWE-89 - Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/technical-criteria/1066189",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-89",
+            "name": "SQL Injection Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-89",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-89",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-564",
+            "name": "SQL Injection: Hibernate",
+            "href": "AIP/quality-standards/CWE/items/CWE-564",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-89",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-564",
+            "name": "SQL Injection: Hibernate",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-564",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-89",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-564",
+            "name": "SQL Injection: Hibernate",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-564",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222607",
+            "name": "The application must not be vulnerable to SQL Injection.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222607",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

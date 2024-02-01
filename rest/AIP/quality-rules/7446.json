@@ -10,19 +10,19 @@
         "href": "AIP/extensions/com.castsoftware.jee"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "Double checked locking is a software design pattern used to reduce locking overhead when implementing lazy initialization in a multi-thread environment. This avoid to initializing a value until the first time it is accessed.\nThis pattern is unsafe because there is no guarantee it will work on single or multi-processor machines.\n\n\n\nFor JSE 4.x and previous version, all methods that are not synchronized and that check a value of one of its field before using synchronized and then check this field again and then assign a value to this field will be reported.\n\n\nNote also that even if this issue as been fixed in JSE 5.0 it doesn't provide performance optimization.",
+    "description": "Double checked locking is a software design pattern used to reduce locking overhead when implementing lazy initialization in a multi-thread environment. This avoids initializing a value until the first time it is accessed.\nThis pattern is unsafe because there is no guarantee it will work on single or multi-processor machines.\n\nFor JSE 4.x and previous versions, all methods that are not synchronized and that use double checked locking will be reported.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "Double-checked locking refers to the situation where a programmer checks to see if a resource has been initialized, grabs a lock, checks again to see if the resource has been initialized, and then performs the initialization if it has not occurred yet. This should not be done, as is not guaranteed to work in all languages and on all architectures. In summary, other threads may not be operating inside the synchronous block and are not guaranteed to see the operations execute in the same order as they would appear inside the synchronous block.",
-    "reference": "https://cwe.mitre.org/data/definitions/609.html\nhttp://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html\nhttp://www.artima.com/designtechniques/threadsafety.html\nhttp://www-128.ibm.com/developerworks/java/library/j-dcl.html\nhttp://www-128.ibm.com/developerworks/java/library/j-jtp03304/",
-    "remediation": "To remediate, there are two solutions depending on performance choice:\n1/ synchronize the method: each call to this method will cost but the initialization will be made when needed\n2/ make the field static  (Initialize-On-Demand Holder Class idiom): the field will be initialized during the initialization of the class even if not required, but each call to the method that return this field will not cost.",
-    "remediationSample": "1/ synchronized the method getHelper()\n class Foo { \n   private Helper helper = null;\n   public synchronized Helper getHelper() {\n     if (helper == null) \n         helper = new Helper();\n     return helper;\n   }\n2/ declare the field as static\n class Foo { \n   private static Helper helper = new Helper();\n   public Helper getHelper() {\n     return helper;\n   }",
-    "sample": "class Foo { \n  private Helper helper = null;\n  public Helper getHelper() {\n    if (helper == null) {\n      synchronized(this) {\n        if (helper == null) {\n          helper = new Helper();\n        }    \n      }    \n    }    \n    return helper;\n  }\n}",
+    "reference": "https://cwe.mitre.org/data/definitions/609.html\nhttp://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html\nhttp://www.artima.com/designtechniques/threadsafety.html\nhttp://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html#dcl",
+    "remediation": "To remediate, there are three solutions depending on performance considerations:\n1/ synchronize the method: each call to this method will cost more but the initialization will be made when needed\n2/ use Initialize-On-Demand Holder Class idiom: the field will be initialized during the initialization of the class even if is not required, but each call to the method that returns this field will not.\n3/ make the field volatile - Java 5 and above",
+    "remediationSample": "1/ synchronized the method getUnsafeResource()\npublic class UserClass {\n    private UnsafeResource unsafeResource = null;\n\n    // make getUnsafeResource() synchronized\n    public synchronized UnsafeResource getUnsafeResource() {\n        if (unsafeResource == null)\n            unsafeResource = new UnsafeResource();\n        return unsafeResource;\n    }\n}\n\n2/ use Initialize-On-Demand Holder Class idiom\npublic class UserClass {\n// Use initialize-on-demand holder class idiom\n    private static class HolderClass {\n        public static UnsafeResource unsafeResource = new UnsafeResource();\n    }\n\n    public static UnsafeResource getUnsafeResource() {\n        return HolderClass.unsafeResource;\n    }\n}\n\n3/ make the field volatile\npublic class UserClass {\n    private volatile UnsafeResource unsafeResource = null; // field is volatile\n\n    public UnsafeResource getUnsafeResource() {\n        if (unsafeResource == null) { //Double checked locking used\n            synchronized (this) {\n                if (unsafeResource == null) {\n                    unsafeResource = new UnsafeResource();\n                }\n            }\n        }\n        return unsafeResource;\n    }\n}",
+    "sample": "public class UserClass {\n    private UnsafeResource unsafeResource = null;\n\n    public UnsafeResource getUnsafeResource() {\n        //Double checked locking used for unsafeResource\n        if (unsafeResource == null) {\n            synchronized (this) {\n                if (unsafeResource == null) {\n                    unsafeResource = new UnsafeResource();\n                }\n            }\n        }\n        return unsafeResource;\n    }\n}",
     "total": "Number of methods that are synchronized or use the synchronized keyword",
     "alternativeName": "Prefer not using Double checked locking for JSE 4.x and previous version",
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
@@ -42,6 +42,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66065,
             "name": "Secure Coding - Time and State",
@@ -78,13 +85,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.6",
-            "name": "All high risk vulnerabilities identified in the vulnerability identification process (as defined in PCI DSS Requirement 6.1).",
+            "name": "All high risk vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.6",
-            "name": "All high risk vulnerabilities identified in the vulnerability identification process (as defined in PCI DSS Requirement 6.1).",
+            "name": "All high risk vulnerabilities",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
             "standard": "PCI-DSS-V3.2.1"
         }

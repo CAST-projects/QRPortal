@@ -6,7 +6,7 @@
     "severity": 10,
     "maxWeight": 8,
     "associatedValueName": "Number of \"SELECT *\" statements",
-    "description": "This metric retrieves the artifacts containing queries using the \"SELECT *\" statement.",
+    "description": "This metric retrieves the SQL artifacts containing queries using the \"SELECT *\" statement. This means DDL (CREATE TABLE, CREATE VIEW,...) source code must be provided and analyzed by the SQL Analyzer, and links from methods, functions or programs down to DB objects must have been created.",
     "output": "Associated to each artifact with violations, the Quality Rule provides: \n- The Number of \"SELECT *\" statements.",
     "rationale": "A query that retrieves all columns of a table with a SELECT * can potentially be the source of important changeability problems. One cannot control how the columns will be ordered and returned to the client. This can lead to important data inconsistencies and thus stability issues.\n\nAlso performance problems may arise when the execution of the query returns a large result sets (many row with all the columns may then become a huge amount of data to transport over the network). Thus optimizer module can't provide a correct execution.",
     "remediation": "Review the design of the query to select only useful Columns",
@@ -20,7 +20,7 @@
         },
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {

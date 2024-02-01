@@ -26,7 +26,7 @@
         "name": "Avoid file path manipulation through API requests",
         "href": "AIP/quality-rules/8506",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "C#",
             "JEE",
@@ -41,6 +41,16 @@
         "severity": 10,
         "technologyNames": [
             "WCF"
+        ]
+    },
+    {
+        "id": 1021104,
+        "name": "Avoid file path manipulation (Python)",
+        "href": "AIP/quality-rules/1021104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
         ]
     },
     {
@@ -155,6 +165,26 @@
         ]
     },
     {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034036,
+        "name": "Avoid second order file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1040016,
         "name": "PermitAll or user role should be specified to access URL(s) of the application",
         "href": "AIP/quality-rules/1040016",
@@ -200,7 +230,7 @@
         "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
         "href": "AIP/quality-rules/1060114",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
