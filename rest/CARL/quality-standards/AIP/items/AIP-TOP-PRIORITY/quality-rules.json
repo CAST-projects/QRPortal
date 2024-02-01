@@ -79,7 +79,7 @@
     },
     {
         "id": 7748,
-        "name": "Ensure your application does not run OS commande without sanitization",
+        "name": "Ensure your application does not run OS command without sanitization",
         "href": "AIP/quality-rules/7748",
         "critical": true,
         "severity": 30,
@@ -190,8 +190,32 @@
     },
     {
         "id": 8240,
-        "name": "Ensure you have secured your cookie by enabling 'Secure' attribute",
+        "name": "Ensure you have secured your cookie by enabling the 'Secure' attribute",
         "href": "AIP/quality-rules/8240",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8408,
+        "name": "Ensure you don't use user input without validation",
+        "href": "AIP/quality-rules/8408",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8410,
+        "name": "Ensure you don't use user input without validation",
+        "href": "AIP/quality-rules/8410",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -216,6 +240,18 @@
         "id": 8420,
         "name": "Ensure you don't unsanitized queries to SQL databases",
         "href": "AIP/quality-rules/8420",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8424,
+        "name": "Ensure not using hard-coded HMAC keys",
+        "href": "AIP/quality-rules/8424",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -297,6 +333,30 @@
         ]
     },
     {
+        "id": 8446,
+        "name": "Ensure your application does not redirect to an untrusted site",
+        "href": "AIP/quality-rules/8446",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8482,
+        "name": "Ensure you don't use user input without validation",
+        "href": "AIP/quality-rules/8482",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8484,
         "name": "Avoid HTTP response splitting through API requests",
         "href": "AIP/quality-rules/8484",
@@ -345,9 +405,69 @@
         ]
     },
     {
+        "id": 8492,
+        "name": "Ensure your application does not run LDAP methods without sanitization",
+        "href": "AIP/quality-rules/8492",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8494,
+        "name": "Ensure your application does not run OS commande without sanitization",
+        "href": "AIP/quality-rules/8494",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8496,
+        "name": "Ensure you don't use external library given by unsanitized user input",
+        "href": "AIP/quality-rules/8496",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8498,
         "name": "Ensure your application does not process thread with unsanitized stream",
         "href": "AIP/quality-rules/8498",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8500,
+        "name": "Ensure your application does not evaluate unsanitized code.",
+        "href": "AIP/quality-rules/8500",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8502,
+        "name": "Ensure you have sanitized the data received to be reflected in your application",
+        "href": "AIP/quality-rules/8502",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -369,9 +489,33 @@
         ]
     },
     {
+        "id": 8506,
+        "name": "Ensure you do file path manipulation without including untrusted data",
+        "href": "AIP/quality-rules/8506",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8510,
         "name": "Ensure when you use a function that accepts a format string as an argument, the argument has been sanitized when it originates from an external source.",
         "href": "AIP/quality-rules/8510",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8512,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests through API requests",
+        "href": "AIP/quality-rules/8512",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -477,6 +621,42 @@
         ]
     },
     {
+        "id": 8530,
+        "name": "Ensure your application properly neutralize XML content before it is processed",
+        "href": "AIP/quality-rules/8530",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8532,
+        "name": "Ensure your application properly neutralize XML content before it is processed",
+        "href": "AIP/quality-rules/8532",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8534,
+        "name": "Ensure your application properly neutralize XML content before it is processed",
+        "href": "AIP/quality-rules/8534",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8536,
         "name": "Ensure your application properly neutralize expression language content before it is processed",
         "href": "AIP/quality-rules/8536",
@@ -504,6 +684,54 @@
         "severity": 30,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 8554,
+        "name": "Ensure using sufficient random generator",
+        "href": "AIP/quality-rules/8554",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8560,
+        "name": "Ensure your application properly neutralize URLs before they are accessed",
+        "href": "AIP/quality-rules/8560",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8562,
+        "name": "Ensure your application properly neutralize URLs before they are accessed",
+        "href": "AIP/quality-rules/8562",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8564,
+        "name": "Ensure your application properly neutralize URLs before they are accessed",
+        "href": "AIP/quality-rules/8564",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -1540,6 +1768,16 @@
         "id": 1040036,
         "name": "Using STOMP Spring messaging module before Spring 5.0.5 and 4.3.16 is vulnerable to remote code execution attack",
         "href": "AIP/quality-rules/1040036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Ensure you use SHA256, SHA384, and SHA512 algorithms.",
+        "href": "AIP/quality-rules/1040046",
         "critical": true,
         "severity": 30,
         "technologyNames": [

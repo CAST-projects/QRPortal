@@ -1,6 +1,6 @@
 {
     "id": 1106016,
-    "name": "Ensure you don't have unsupported PL/SQL packages UTL_HTTP and UTL_SMTP",
+    "name": "Ensure PL/SQL packages UTL_HTTP and UTL_SMTP are not used",
     "href": "AIP/quality-rules/1106016",
     "critical": false,
     "severity": 10,
@@ -18,7 +18,7 @@
     "remediationSample": "You should contact Oracle Support.",
     "sample": "DECLARE\nsmtpconn utl_smtp.connection;\nBEGIN\nsmtpconn := UTL_SMTP.OPEN_CONNECTION('smtp.mailserver.com', 25);\nUTL_SMTP.HELO(smtpconn, 'smtp.mailserver.com');\nUTL_SMTP.MAIL(smtpconn, 'sender@mailserver.com');\nUTL_SMTP.RCPT(smtpconn, 'recipient@mailserver.com');\nUTL_SMTP.DATA(smtpconn,'Message body');\nUTL_SMTP.QUIT(smtpconn);\nEND;\n/",
     "total": "Number of Artifacts with SQL code",
-    "alternativeName": "Ensure you don't have unsupported PL/SQL packages UTL_HTTP and UTL_SMTP",
+    "alternativeName": "Ensure PL/SQL packages UTL_HTTP and UTL_SMTP are not used",
     "businessCriteria": [
         {
             "id": 60018,

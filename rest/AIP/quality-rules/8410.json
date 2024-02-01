@@ -3,7 +3,7 @@
     "name": "Avoid cross-site scripting (persistent)",
     "href": "AIP/quality-rules/8410",
     "critical": true,
-    "severity": 20,
+    "severity": 30,
     "maxWeight": 9,
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "Stored XSS (or Persistent) - The application stores dangerous data in a database, message forum, visitor log, or other trusted data store. At a later time, the dangerous data is subsequently read back into the application and included in dynamic content. From an attacker's perspective, the optimal place to inject malicious content is in an area that is displayed to either many users or particularly interesting users. Interesting users typically have elevated privileges in the application or interact with sensitive data that is valuable to the attacker. If one of these users executes malicious content, the attacker may be able to perform privileged operations on behalf of the user or gain access to sensitive data belonging to the user. \n\nFor example, the attacker might inject XSS into a log message, which might not be handled properly when an administrator views the logs.",
@@ -25,21 +25,6 @@
             "id": 1061000,
             "name": "ISO-5055-Index",
             "href": "AIP/business-criteria/1061000"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 66031,
@@ -68,6 +53,13 @@
             "critical": false
         },
         {
+            "id": 1066179,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1066179",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1062303,
             "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",
             "href": "AIP/technical-criteria/1062303",
@@ -85,6 +77,13 @@
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",
             "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063121,
+            "name": "PCI-Requirement-6.5.7 - Cross-site scripting (XSS)",
+            "href": "AIP/technical-criteria/1063121",
             "weight": 5,
             "critical": false
         },
@@ -170,13 +169,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.7",
-            "name": "  Cross-site scripting (XSS)",
+            "name": "Cross-site scripting (XSS)",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.7",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.7",
-            "name": "  Cross-site scripting (XSS)",
+            "name": "Cross-site scripting (XSS)",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.7",
             "standard": "PCI-DSS-V3.2.1"
         },

@@ -1,0 +1,174 @@
+{
+    "id": 1034018,
+    "name": "Avoid deserialization injection (PHP)",
+    "href": "AIP/quality-rules/1034018",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.php.security",
+        "href": "AIP/extensions/com.castsoftware.php.security"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric uses Psalm data-flow engine to detect a call path where input data from the user is deserialized without prior validation and sanitization.\n\nVetted user input validations can be specified to Psalm data-flow engine using the \"@psalm-taint-escape unserialize\" annotation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Insecure deserialization often leads to remote code execution. Even if deserialization flaws do not result in remote code execution, they can be used to perform attacks, including replay attacks, injection attacks, and privilege escalation attacks.\nThe business impact depends on the protection needs of the application and data.",
+    "reference": "CWE-502: Deserialization of Untrusted Data\nhttps://cwe.mitre.org/data/definitions/502.html\n\nOpen Web Application Security Project (OWASP) Top Ten 2017 - Category A8\nhttps://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization",
+    "remediation": "Avoid serialising and deserialising objects. \nIf you need to unserialize externally-stored serialized data, consider using hash_hmac() for data validation. Make sure data is not modified by anyone but you. \nUse a safe, standard data interchange format such as JSON (via json_decode() and json_encode()) if you need to pass serialized data to the user.\nAs a last resort, restrict deserialization to be possible only to specific, whitelisted classes.\nCheck out the OWASP Deserialisation Cheat Sheet",
+    "remediationSample": "<?php\n\n/**\n* @psalm-taint-escape unserialize\n*/\nfunction my_escaping_function_for_serialized_data(string input) : string {\n    hash = hash_hmac('ripemd160', input, 'secret');\n    // Check that hash is the expected result\n    return input;\n};\n\n$command = $_GET[\"data\"];\n$command = my_escaping_function_for_serialized_data($command);  // USE A FUNCTION ANNOTATED WITH @psalm-taint-escape unserialize\ngetObject($command);\n\nfunction getObject(string $data) : $command {\n    return unserialize($data);                                  // FIXED",
+    "sample": "<?php\n\n$command = $_GET[\"data\"];\n\ngetObject($command);\n\nfunction getObject(string $data) : object {\n    return unserialize($data);    // VIOLATION\n}",
+    "total": "Number of PHP artifacts",
+    "alternativeName": "Ensure you sanitize serialized data constructed from user input",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061059,
+            "name": "CWE-502 - Deserialization of Untrusted Data",
+            "href": "AIP/technical-criteria/1061059",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066602,
+            "name": "CWE-502 - Deserialization of Untrusted Data",
+            "href": "AIP/technical-criteria/1066602",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062328,
+            "name": "OWASP-2017-A8 - Insecure Deserialization",
+            "href": "AIP/technical-criteria/1062328",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062348,
+            "name": "OWASP-2021-A08 - Software and Data Integrity Failures",
+            "href": "AIP/technical-criteria/1062348",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "href": "AIP/quality-standards/CWE/items/CWE-502",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-502",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-502",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A8-2017",
+            "name": "Insecure Deserialization",
+            "href": "AIP/quality-standards/OWASP/items/A8-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A08-2021",
+            "name": "Software and Data Integrity Failures",
+            "href": "AIP/quality-standards/OWASP/items/A08-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

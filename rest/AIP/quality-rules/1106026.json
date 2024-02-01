@@ -1,6 +1,6 @@
 {
     "id": 1106026,
-    "name": "Ensure you don't have unsupported XMLType columns in tables",
+    "name": "Ensure XMLType columns are not used",
     "href": "AIP/quality-rules/1106026",
     "critical": false,
     "severity": 10,
@@ -18,7 +18,7 @@
     "remediationSample": "You should contact the Oracle Support.",
     "sample": "CREATE TABLE tab1 (\n  col1  SYS.XMLTYPE\n);\n/",
     "total": "Number of Tables",
-    "alternativeName": "Ensure you don't have unsupported XMLType columns in tables",
+    "alternativeName": "Ensure XMLType columns are not used",
     "businessCriteria": [
         {
             "id": 60018,

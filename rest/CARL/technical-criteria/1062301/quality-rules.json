@@ -11,7 +11,7 @@
     },
     {
         "id": 7150,
-        "name": "Avoid string interpolations to prevent SQL injections by using  PreparedStatement or CallableStatement",
+        "name": "Favor PreparedStatement or CallableStatement over Statement",
         "href": "AIP/quality-rules/7150",
         "critical": false,
         "weight": 5,
@@ -328,6 +328,18 @@
         ]
     },
     {
+        "id": 8522,
+        "name": "Avoid regular expression injection through API requests",
+        "href": "AIP/quality-rules/8522",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8524,
         "name": "Avoid deserialization injection",
         "href": "AIP/quality-rules/8524",
@@ -593,6 +605,30 @@
         "id": 1025022,
         "name": "Avoid data filter injection through API requests",
         "href": "AIP/quality-rules/1025022",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025050,
+        "name": "Avoid dangerous file inclusion",
+        "href": "AIP/quality-rules/1025050",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025052,
+        "name": "Avoid using unnormalized input strings",
+        "href": "AIP/quality-rules/1025052",
         "critical": false,
         "weight": 5,
         "technologyNames": [

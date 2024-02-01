@@ -3,7 +3,7 @@
     "name": "Avoid server-side request forgery through API requests",
     "href": "AIP/quality-rules/8562",
     "critical": true,
-    "severity": 20,
+    "severity": 30,
     "maxWeight": 9,
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "Using CAST data-flow engine, this quality rule detects execution paths from methods returning data coming from API requests down to request execution methods, paths which are open vulnerabilities to SSRF flaws.",
@@ -17,11 +17,6 @@
     "alternativeName": "Ensure your application properly neutralize URLs before they are accessed",
     "businessCriteria": [
         {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -34,9 +29,23 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1067018,
+            "name": "CWE-918 - Server-Side Request Forgery (SSRF)",
+            "href": "AIP/technical-criteria/1067018",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1062350,
             "name": "OWASP-2021-A10 - Server-Side Request Forgery (SSRF)",
             "href": "AIP/technical-criteria/1062350",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
             "weight": 5,
             "critical": false
         },
@@ -98,13 +107,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
         },

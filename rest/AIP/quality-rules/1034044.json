@@ -1,0 +1,180 @@
+{
+    "id": 1034044,
+    "name": "Avoid second order server-side request forgery (PHP)",
+    "href": "AIP/quality-rules/1034044",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.php.security",
+        "href": "AIP/extensions/com.castsoftware.php.security"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric uses Psalm data-flow engine to detect a call path where result from database query is used to create a network request prior validation and sanitization.\n\nVetted database query validations can be specified to Psalm data-flow engine using the \"@psalm-taint-escape ssrf\" annotation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Passing untrusted user input to network requests could be dangerous.\n\nIf an attacker can fully control a HTTP request they could connect to internal services. Depending on the nature of these, this can pose a security risk. (e.g. backend services, admin interfaces, AWS metadata, ...)",
+    "reference": "CWE-918: Server-Side Request Forgery (SSRF)\nhttps://cwe.mitre.org/data/definitions/918\n\nOWASP Wiki for Server Side Request Forgery\nhttps://owasp.org/www-community/attacks/Server_Side_Request_Forgery",
+    "remediation": "Mitigating SSRF vulnerabilities can be tricky. Disallowing IPs would likely not work as an attacker could create a malicious domain that points to an internal DNS name. Consider:\n\n   - Having an allow list of domains that can be connected to.\n   - Pointing cURL to a proxy that has no access to internal resources.",
+    "remediationSample": "<?php\n\n/**\n* @psalm-taint-escape ssrf\n*/\nfunction my_escaping_function_for_urls(string input) : string {\n    // Check that input is part of a hard-coded white-list of permitted domains\n};\n\nfunction executeCurl(PDOStatement $stmt) {\n\n    $stmt->execute();\n    $row = $stmt->fetch();\n    $url = $row[\"url\"];    \n    $url = my_escaping_function_for_urls($url);  // FUNCTION ANNOTATED WITH \"@psalm-taint-escape ssrf\"\n\n    $ch = curl_init();\n    curl_setopt($ch, CURLOPT_URL, $url);         // FIXED\n    curl_exec($ch);\n    curl_close($ch);\n\n}",
+    "sample": "<?php\n\nfunction executeCurl(PDOStatement $stmt) {\n\n    $stmt->execute();\n    $row = $stmt->fetch();\n    $url = $row[\"url\"];    \n\n    $ch = curl_init();\n    curl_setopt($ch, CURLOPT_URL, $url);         // VIOLATION\n    curl_exec($ch);\n    curl_close($ch);\n\n}",
+    "total": "Number of PHP artifacts",
+    "alternativeName": "Ensure you sanitize network request constructed from database query",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061015,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1061015",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066179,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1066179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062303,
+            "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",
+            "href": "AIP/technical-criteria/1062303",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062327,
+            "name": "OWASP-2017-A7 - Cross-Site Scripting (XSS)",
+            "href": "AIP/technical-criteria/1062327",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063121,
+            "name": "PCI-Requirement-6.5.7 - Cross-site scripting (XSS)",
+            "href": "AIP/technical-criteria/1063121",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-79",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/CWE/items/CWE-79",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-79",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-79",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "href": "AIP/quality-standards/OWASP/items/A3-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "href": "AIP/quality-standards/OWASP/items/A7-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.7",
+            "name": "Cross-site scripting (XSS)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.7",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.7",
+            "name": "Cross-site scripting (XSS)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.7",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222602",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222602",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

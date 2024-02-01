@@ -13,6 +13,7 @@
     "description": "A violation is raised when detected the usage of MD5 and SHA1 algorithms to hash a password or a passphrase.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "The RSA's MD5 hashing algorithm is commonly used in different contexts such as checking data-integrity or simple indexing. However these algorithms should not be used for data encryption. The use of a non security-standard algorithm for hashing a password is dangerous because a determined attacker may be able to break the algorithm with well-known techniques and compromise whatever data has been protected.",
+    "reference": "CWE-326: Inadequate Encryption Strength\nhttps://cwe.mitre.org/data/definitions/326.html",
     "remediation": "Avoid using MD5 and SHA1 hashes as input to cryptographic functions or to store passwords. Python offers the following hashing algorithms: SHA224, SHA256, SHA384, and SHA512. Make sure you choose the most appropriate one, depending on your use case, security requirements and runtime constraints.",
     "remediationSample": ">>> import hashlib\n>>> secure_hash = hashlib.sha512()\n>>> md5_hash.update(password)  # This hash is secure\n>>> md5_hash.digest()",
     "sample": ">>> import hashlib\n>>> md5_hash = hashlib.md5()\n>>> md5_hash.update(password)  # \"This hash can be exploited\"\n>>> md5_hash.digest()",
@@ -23,21 +24,6 @@
             "id": 1062100,
             "name": "CISQ-Index",
             "href": "AIP/business-criteria/1062100"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 66031,
@@ -59,6 +45,13 @@
             "critical": false
         },
         {
+            "id": 1066427,
+            "name": "CWE-327 - Use of a Broken or Risky Cryptographic Algorithm",
+            "href": "AIP/technical-criteria/1066427",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1062306,
             "name": "OWASP-2013-A6 - Sensitive Data Exposure",
             "href": "AIP/technical-criteria/1062306",
@@ -76,6 +69,20 @@
             "id": 1062342,
             "name": "OWASP-2021-A02 - Cryptographic Failures",
             "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063126,
+            "name": "PCI-Requirement-8.2.1 - Using strong cryptography",
+            "href": "AIP/technical-criteria/1063126",
             "weight": 5,
             "critical": false
         },
@@ -151,7 +158,7 @@
         },
         {
             "id": "PCI-Requirement-8.2.1",
-            "name": "Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components.",
+            "name": "Using strong cryptography",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-8.2.1",
             "standard": "PCI-DSS-V3.1"
         },
@@ -163,7 +170,7 @@
         },
         {
             "id": "PCI-Requirement-8.2.1",
-            "name": "Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components.",
+            "name": "Using strong cryptography",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-8.2.1",
             "standard": "PCI-DSS-V3.2.1"
         },

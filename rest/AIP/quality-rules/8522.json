@@ -29,6 +29,34 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 66062,
             "name": "Secure Coding - Input Validation",
             "href": "AIP/technical-criteria/66062",
@@ -61,9 +89,9 @@
             "standard": "CWE"
         },
         {
-            "id": "NIST-AU-7",
-            "name": "Audit Record Reduction and Report Generation",
-            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AU-7",
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-5",
             "standard": "NIST-SP-800-53"
         },
         {
@@ -73,9 +101,9 @@
             "standard": "NIST-SP-800-53"
         },
         {
-            "id": "NIST-AU-7",
-            "name": "Audit Record Reduction and Report Generation",
-            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AU-7",
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-5",
             "standard": "NIST-SP-800-53R4"
         },
         {
@@ -85,6 +113,18 @@
             "standard": "NIST-SP-800-53R4"
         },
         {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
             "id": "API8-2019",
             "name": "Injection",
             "href": "AIP/quality-standards/OWASP/items/API8-2019",
@@ -92,13 +132,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
         }

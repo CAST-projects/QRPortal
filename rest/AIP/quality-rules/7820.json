@@ -21,7 +21,7 @@
         },
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
         },
         {
@@ -36,6 +36,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61019,
             "name": "Efficiency - SQL and Data Handling Performance",
@@ -89,6 +96,18 @@
             "name": "Uncontrolled Resource Consumption",
             "href": "AIP/quality-standards/CWE/items/CWE-400",
             "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53R4"
         }
     ],
     "parameters": [

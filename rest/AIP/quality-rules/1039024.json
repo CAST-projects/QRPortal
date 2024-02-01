@@ -12,33 +12,18 @@
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule will check if JEE libraries managing cookie are enabling secured option.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
-    "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. \nThis is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie. \nThe Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.",
-    "reference": "https://cwe.mitre.org/data/definitions/614.html \nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\nThis rule is compliant with OWASP 2013 A6 and 2017 A3 - Sensitive Data Exposure",
+    "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens.\nThis is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie.\nThe Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.",
+    "reference": "https://cwe.mitre.org/data/definitions/614.html\nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\nThis rule is compliant with OWASP 2013 A6 and 2017 A3 - Sensitive Data Exposure",
     "remediation": "Always setting secure option when creating a cookie.",
-    "remediationSample": "Cookie c = new Cookie(ACCOUNT_ID, acctID); \nc.setSecure(true); // Compliant Code with secure cookies \nresponse.addCookie(c);",
-    "sample": "Cookie c = new Cookie(ACCOUNT_ID, acctID); // Violation - cookie is not secure \nresponse.addCookie(c);",
+    "remediationSample": "# Remediation directly inside code\n\nCookie cookie = new Cookie(\"userName\",userName);  // FIXED\ncookie.setSecure(true);     // Secure flag\ncookie.setHttpOnly(true);\nresponse.addCookie(cookie);\n\n\n# OR Remediation inside web.xml file\n_________________________________________\nSolution (Servlet 3.0 configuration):\n<web-app xmlns=\"http://java.sun.com/xml/ns/javaee\" version=\"3.0\" >\n[...]\n<session-config >\n <cookie-config >\n  <http-only>true</http-only>\n  <secure>true</secure>\n </cookie-config>\n</session-config>\n</web-app>",
+    "sample": "Cookie cookie = new Cookie(\"userName\",userName); // VIOLATION\ncookie.setHttpOnly(true);\n// Missing Secure flag\nresponse.addCookie(cookie);",
     "total": "Number of Java Methods",
     "alternativeName": "Ensure using only secured cookie to avoid Cross-site scripting attacks (JEE)",
     "businessCriteria": [
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 60016,
@@ -65,6 +50,13 @@
             "id": 1062345,
             "name": "OWASP-2021-A05 - Security Misconfiguration",
             "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
             "weight": 5,
             "critical": false
         },

@@ -1,6 +1,6 @@
 {
     "id": 1106028,
-    "name": "Ensure you don't have unsupported clause CLUSTER in CREATE TABLE statements",
+    "name": "Ensure CLUSTER clause in CREATE TABLE statements is not used",
     "href": "AIP/quality-rules/1106028",
     "critical": false,
     "severity": 10,
@@ -18,7 +18,7 @@
     "remediationSample": "The remediation is to re-create the table or to contact the Oracle Support for a better remediation.",
     "sample": "The emp and dept tables can be created in the emp_dept cluster using the following statements:\n\nCREATE TABLE emp (\n   empno NUMBER(5) PRIMARY KEY,\n   ename VARCHAR2(15) NOT NULL,\n   . . .\n   deptno NUMBER(3) REFERENCES dept)\n   CLUSTER emp_dept (deptno);  \n\nCREATE TABLE dept (\n   deptno NUMBER(3) PRIMARY KEY, . . . )\n   CLUSTER emp_dept (deptno);",
     "total": "Number of Tables",
-    "alternativeName": "Ensure you don't have unsupported clause CLUSTER in CREATE TABLE statements",
+    "alternativeName": "Ensure CLUSTER clause in CREATE TABLE statements is not used",
     "businessCriteria": [
         {
             "id": 60018,

@@ -26,23 +26,8 @@
         },
         {
             "id": 20140522,
-            "name": "GreenIT-Index",
+            "name": "Green",
             "href": "AIP/business-criteria/20140522"
-        },
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
         },
         {
             "id": 66031,
@@ -56,6 +41,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61018,
             "name": "Efficiency - Memory, Network and Disk Space Management",
@@ -83,6 +75,13 @@
             "href": "AIP/technical-criteria/1062345",
             "weight": 5,
             "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
         }
     ],
     "technologies": [
@@ -104,6 +103,18 @@
             "name": "Allocation of Resources Without Limits or Throttling",
             "href": "AIP/quality-standards/CWE/items/CWE-770",
             "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53R4"
         },
         {
             "id": "A5-2013",

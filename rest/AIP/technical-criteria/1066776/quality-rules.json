@@ -1,0 +1,667 @@
+[
+    {
+        "id": 7886,
+        "name": "Avoid using SYSTEM-CALL",
+        "href": "AIP/quality-rules/7886",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7968,
+        "name": "Never use strcat() function (C/C++)",
+        "href": "AIP/quality-rules/7968",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7970,
+        "name": "Never use strcpy() function (C/C++)",
+        "href": "AIP/quality-rules/7970",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7972,
+        "name": "Never use sprintf() or vsprintf() functions",
+        "href": "AIP/quality-rules/7972",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7976,
+        "name": "Never use gets() function",
+        "href": "AIP/quality-rules/7976",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7978,
+        "name": "Avoid using the scanf() function family",
+        "href": "AIP/quality-rules/7978",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7980,
+        "name": "Avoid using strtrns() function",
+        "href": "AIP/quality-rules/7980",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7982,
+        "name": "Avoid using strlen() function family",
+        "href": "AIP/quality-rules/7982",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7984,
+        "name": "Avoid using strecpy() function",
+        "href": "AIP/quality-rules/7984",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7986,
+        "name": "Avoid using streadd() function",
+        "href": "AIP/quality-rules/7986",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7988,
+        "name": "DEPRECATED: Avoid using snprintf() function family",
+        "href": "AIP/quality-rules/7988",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7990,
+        "name": "Avoid using realpath() function",
+        "href": "AIP/quality-rules/7990",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7992,
+        "name": "Avoid using getpass() function",
+        "href": "AIP/quality-rules/7992",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 7994,
+        "name": "Avoid using getopt() function",
+        "href": "AIP/quality-rules/7994",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 8116,
+        "name": "Avoid calling system function (CALL 'cfunc')",
+        "href": "AIP/quality-rules/8116",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8476,
+        "name": "Avoid calling unsafe C library functions from COBOL",
+        "href": "AIP/quality-rules/8476",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 1007286,
+        "name": "DEPRECATED: CWE-242: Avoid PHP Dangerous Feature (PHP)",
+        "href": "AIP/quality-rules/1007286",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1020322,
+        "name": "Avoid using Ajax method without dataType with jQuery version older than 3.0.0",
+        "href": "AIP/quality-rules/1020322",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020324,
+        "name": "Avoid using dialog with closeText parameter with jQuery UI version older than 1.12",
+        "href": "AIP/quality-rules/1020324",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020328,
+        "name": "Avoid using html() with jQuery 1.9.0 (or older)",
+        "href": "AIP/quality-rules/1020328",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020330,
+        "name": "Avoid using $(location.hash) with jQuery version older than 1.6.3",
+        "href": "AIP/quality-rules/1020330",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020332,
+        "name": "Avoid using .append() after() with jQuery 1.4.2 (or older)",
+        "href": "AIP/quality-rules/1020332",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020334,
+        "name": "Avoid using attr() with jQuery 3.0.0-rc1",
+        "href": "AIP/quality-rules/1020334",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020336,
+        "name": "Avoid using Dialog Widget with jQuery UI version older than 1.10.0",
+        "href": "AIP/quality-rules/1020336",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020338,
+        "name": "Avoid using Tooltip widget with jQuery UI version older than 1.10.0",
+        "href": "AIP/quality-rules/1020338",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020552,
+        "name": "Avoid enabling dangerous protocols in whitelist APIs",
+        "href": "AIP/quality-rules/1020552",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020744,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1",
+        "href": "AIP/quality-rules/1020744",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020746,
+        "name": "Avoid using HTTP/2 library with vulnerable versions",
+        "href": "AIP/quality-rules/1020746",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020750,
+        "name": "Avoid using the file path validation with Node.js 8.5.0",
+        "href": "AIP/quality-rules/1020750",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020758,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable versions",
+        "href": "AIP/quality-rules/1020758",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020760,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions",
+        "href": "AIP/quality-rules/1020760",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020762,
+        "name": "Avoid using url.parse() with vulnerable versions",
+        "href": "AIP/quality-rules/1020762",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020764,
+        "name": "Avoid using path library parsing functions with vulnerable versions",
+        "href": "AIP/quality-rules/1020764",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020766,
+        "name": "Avoid using Node.js ps library with vulnerable versions",
+        "href": "AIP/quality-rules/1020766",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020768,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js",
+        "href": "AIP/quality-rules/1020768",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020770,
+        "name": "Avoid using Node.js query-mysql third-party before 0.0.3",
+        "href": "AIP/quality-rules/1020770",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020782,
+        "name": "Avoid using Buffer deprecated APIs",
+        "href": "AIP/quality-rules/1020782",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020784,
+        "name": "Avoid using node-serialize 0.0.4 with Node.js",
+        "href": "AIP/quality-rules/1020784",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020786,
+        "name": "Avoid using serialize-to-js 0.5.0 with Node.js",
+        "href": "AIP/quality-rules/1020786",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020788,
+        "name": "Avoid using moment before 2.19.3 with Node.js",
+        "href": "AIP/quality-rules/1020788",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020904,
+        "name": "Avoid using url.parse() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020904",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020906,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1 (TypeScript)",
+        "href": "AIP/quality-rules/1020906",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020908,
+        "name": "Avoid using the file path validation with Node.js 8.5.0 (TypeScript)",
+        "href": "AIP/quality-rules/1020908",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020910,
+        "name": "Avoid using path library parsing functions with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020910",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020912,
+        "name": "Avoid using HTTP/2 library with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020912",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020914,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020914",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020916,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions (TypeScript)",
+        "href": "AIP/quality-rules/1020916",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020918,
+        "name": "Avoid using Node.js query-mysql third-party (TypeScript)",
+        "href": "AIP/quality-rules/1020918",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020924,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020924",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1039044,
+        "name": "Avoid usage of BannedAPI when using ESAPI library",
+        "href": "AIP/quality-rules/1039044",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039074,
+        "name": "Avoid using Apache ActiveMQ 5.x before 5.13.0",
+        "href": "AIP/quality-rules/1039074",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042010,
+        "name": "Avoid using ParametersInterceptor with class parameter for Struts 2.3.16 (and older)",
+        "href": "AIP/quality-rules/1042010",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042022,
+        "name": "Avoid using CookieInterceptor with Struts 2.3.16 (and Older)",
+        "href": "AIP/quality-rules/1042022",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042028,
+        "name": "Avoid activating alwaysSelectFullNamespace when actions configured without namespace or with a wildcard namespace for Struts pre 2.3.34 and pre 2.5.1",
+        "href": "AIP/quality-rules/1042028",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042030,
+        "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
+        "href": "AIP/quality-rules/1042030",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042036,
+        "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
+        "href": "AIP/quality-rules/1042036",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042040,
+        "name": "Avoid using Struts URLValidator with version before 2.5.13",
+        "href": "AIP/quality-rules/1042040",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042042,
+        "name": "Avoid using Rest Plugin with XStream handler to deserialise XML requests in Struts 2.1.2 - Struts 2.3.33, Struts 2.5 - Struts 2.5.12",
+        "href": "AIP/quality-rules/1042042",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042046,
+        "name": "Avoid Using Dynamic Method Invocation for Apache Struts 2.x",
+        "href": "AIP/quality-rules/1042046",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042050,
+        "name": "Avoid using special top object in struts 2.0.0 - struts 2.3.24",
+        "href": "AIP/quality-rules/1042050",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042052,
+        "name": "Avoid using JSON-lib library for Rest Plugin of Struts 2.5 to 2.5.14",
+        "href": "AIP/quality-rules/1042052",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1050016,
+        "name": "Never use strcat() function (Objective-C)",
+        "href": "AIP/quality-rules/1050016",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1050018,
+        "name": "Never use strcpy() function (Objective-C)",
+        "href": "AIP/quality-rules/1050018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1065046,
+        "name": "Avoid using the unbounded functions of <cstring> library",
+        "href": "AIP/quality-rules/1065046",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1101958,
+        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
+        "href": "AIP/quality-rules/1101958",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ASP.NET",
+            "C#",
+            "VB.NET"
+        ]
+    }
+]

@@ -21,21 +21,6 @@
     "alternativeName": "Ensure disabling X-Powered-By header in your express instance or use third-party helmet package to prevent specifically-targeted attacks on running applications",
     "businessCriteria": [
         {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -47,6 +32,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066300,
+            "name": "CWE-200 - Exposure of Sensitive Information to an Unauthorized Actor",
+            "href": "AIP/technical-criteria/1066300",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062305,
             "name": "OWASP-2013-A5 - Security Misconfiguration",
@@ -65,6 +57,13 @@
             "id": 1062345,
             "name": "OWASP-2021-A05 - Security Misconfiguration",
             "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
             "weight": 5,
             "critical": false
         },

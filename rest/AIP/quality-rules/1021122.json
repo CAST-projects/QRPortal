@@ -1,0 +1,67 @@
+{
+    "id": 1021122,
+    "name": "Avoid cookie poisoning",
+    "href": "AIP/quality-rules/1021122",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.python",
+        "href": "AIP/extensions/com.castsoftware.python"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The application writes a cookie using an input that is assumed to be immutable but is actually externally controllable by the user.\nThis metric detects paths from user input methods to cookie writing, paths which are open vulnerabilities.\nSupported frameworks are: FastAPI.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software constructs all or part of cookie via user-controllable inputs. These inputs are not neutralized. As a consequence, the cookie value may be completely altered.",
+    "reference": "CWE-472: External Control of Assumed-Immutable Web Parameter\nhttps://cwe.mitre.org/data/definitions/472.html\n\nOpen Web Application Security Project (OWASP)\nhttps://owasp.org/Top10/A04_2021-Insecure_Design/",
+    "remediation": "Assume all input is malicious. Use an \"accept known good\" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does.",
+    "remediationSample": "from fastapi import FastAPI, Response\n\napp = FastAPI()\n\ndef db_price(id):\n    ...\n\n@app.get('/items')\ndef func(item_id, response: Response):\n    price = db_price(item_id)\n    response.set_cookie(key=\"xxx\", value=price)\n    return response",
+    "sample": "from fastapi import FastAPI, Response\n\napp = FastAPI()\n\n@app.get('/items')\ndef func(price, response: Response):\n    response.set_cookie(key=\"xxx\", value=price)\n    return response",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure you sanitize cookie values constructed from user input",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-472",
+            "name": "External Control of Assumed-Immutable Web Parameter",
+            "href": "AIP/quality-standards/CWE/items/CWE-472",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

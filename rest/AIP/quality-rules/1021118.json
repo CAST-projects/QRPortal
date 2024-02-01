@@ -1,0 +1,115 @@
+{
+    "id": 1021118,
+    "name": "Avoid disabling CSRF Protection in fastapi_jwt_auth",
+    "href": "AIP/quality-rules/1021118",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.python",
+        "href": "AIP/extensions/com.castsoftware.python"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule detects if CSRF protection is disabled in fastapi_jwt_auth.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When a web server is designed to receive a request from a client without any mechanism for verifying that it was intentionally sent, then it might be possible for an attacker to trick a client into making an unintentional request to the web server which will be treated as an authentic request. This can be done via a URL, image load, XMLHttpRequest, etc. and can result in exposure of data or unintended code execution.",
+    "reference": "CWE-352: Cross-Site Request Forgery (CSRF)\nhttps://cwe.mitre.org/data/definitions/352.html\n\nOWASP Top 10:2021 - A01:2021 \u2013 Broken Access Control\nhttps://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+    "remediation": "CSRF protection is enabled by default in fastapi_jwt_auth, do not disable it with the configuration parameter authjwt_cookie_csrf_protect.",
+    "remediationSample": "from fastapi import FastAPI\nfrom fastapi_jwt_auth import AuthJWT\nfrom pydantic import BaseModel\n\n\nclass Settings(BaseModel):\n    # By default, authjwt_cookie_csrf_protect is True\n    authjwt_secret_key: str = \"xyz\"\n    ...\n\n\n# callback to get your configuration\n@AuthJWT.load_config\ndef get_config():\n    return Settings()\n\n\napp = FastAPI()\n\n...",
+    "sample": "from fastapi import FastAPI\nfrom fastapi_jwt_auth import AuthJWT\nfrom pydantic import BaseModel\n\n\nclass Settings(BaseModel):\n    authjwt_cookie_csrf_protect: bool = False  <--- violation\n    authjwt_secret_key: str = \"xyz\"\n    ...\n\n\n# callback to get your configuration\n@AuthJWT.load_config\ndef get_config():\n    return Settings()\n\n\napp = FastAPI()\n\n...",
+    "total": "Number of Python static initializers configuring the FastAPI JWT Auth extension",
+    "alternativeName": "Ensure CSRF protection is enabled in your FastAPI application when using fastapi_jwt_auth.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-352",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "href": "AIP/quality-standards/CWE/items/CWE-352",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/A2-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A8-2013",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "href": "AIP/quality-standards/OWASP/items/A8-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.9",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.9",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "STIG-V-222603",
+            "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222603",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

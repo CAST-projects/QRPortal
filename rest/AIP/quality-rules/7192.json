@@ -9,31 +9,16 @@
         "name": "com.castsoftware.jee",
         "href": "AIP/extensions/com.castsoftware.jee"
     },
-    "description": "Bypassing the validation framework for a form exposes the application to numerous types of attacks. \nForms derived from 'ActionForm' or 'DynaActionForm' classes cannot use the Struts Validator. This rule reports all classes that inherit from:\n- org.apache.struts.action.ActionForm\n- org.apache.struts.action.DynaActionForm",
+    "description": "List all classes that inherit from:\norg.apache.struts.action.ActionForm\norg.apache.struts.action.DynaActionForm",
     "output": "This report lists all classes that violate this rule.\nIt provides the following information:\n Class Full Name",
     "rationale": "Struts validation framework allows preventing the application from any type of attacks based on invalid field input. To enable this framework on Struts Form, Struts Form must extend Struts Validation class. Unchecked input is the root cause of vulnerabilities like cross-site scripting, process control, and SQL injection. Although J2EE applications are not generally susceptible to memory corruption attacks, if a J2EE application interfaces with native code that does not perform array bounds checking, an attacker may be able to use an input validation mistake in the J2EE application to launch a buffer overflow attack.",
-    "reference": "https://www.owasp.org/index.php/Struts:_Form_Does_Not_Extend_Validation_Class",
+    "reference": "http://cwe.mitre.org/documents/sources/SevenPerniciousKingdoms.pdf\nhttp://cwe.mitre.org/data/definitions/104.html",
     "remediation": "Extend these classes with one of these classes:\norg.apache.struts.validator.ValidatorForm\norg.apache.struts.validator.ValidatorActionForm\norg.apache.struts.validator.DynaValidatorForm\norg.apache.struts.validator.DynaValidatorActionForm",
     "remediationSample": "public class MyClassForm extends ValidatorForm {\n\n   public void validate() {  // NO VIOLATION because you subclass ValidatorForm and you override validate method\n   }\n\n}",
-    "sample": "public class MyClassForm extends ActionForm {    // VIOLATION validate not overriden \n\n\n\n}",
+    "sample": "public class MyClassForm extends ActionForm {    // VIOLATION validate not overriden\n\n\n\n}",
     "total": "Number of Java classes in the Struts application",
     "alternativeName": "Ensure that Struts Forms extend a Validator Class",
     "businessCriteria": [
-        {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -64,6 +49,13 @@
             "id": 1062344,
             "name": "OWASP-2021-A04 - Insecure Design",
             "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
             "weight": 5,
             "critical": false
         },

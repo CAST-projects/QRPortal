@@ -3,7 +3,7 @@
     "name": "Review APIs not accessed by frontend functions",
     "href": "AIP/quality-rules/1060112",
     "critical": false,
-    "severity": 30,
+    "severity": 10,
     "maxWeight": 7,
     "extension": {
         "name": "com.castsoftware.systemlevelrules",
@@ -50,6 +50,13 @@
             "id": 1061061,
             "name": "CWE-561 - Dead Code",
             "href": "AIP/technical-criteria/1061061",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063122,
+            "name": "PCI-Requirement-6.5.8 - Improper access control",
+            "href": "AIP/technical-criteria/1063122",
             "weight": 5,
             "critical": false
         },
@@ -101,13 +108,13 @@
         },
         {
             "id": "PCI-Requirement-6.5.8",
-            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "name": "Improper access control",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.5.8",
-            "name": "Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).",
+            "name": "Improper access control",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
             "standard": "PCI-DSS-V3.2.1"
         }

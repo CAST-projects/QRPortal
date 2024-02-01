@@ -15,21 +15,6 @@
     "alternativeName": "Avoid testing specific values for SY-UNAME",
     "businessCriteria": [
         {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -59,6 +44,13 @@
             "id": 1062342,
             "name": "OWASP-2021-A02 - Cryptographic Failures",
             "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063113,
+            "name": "PCI-Requirement-6.3.1 - Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/technical-criteria/1063113",
             "weight": 5,
             "critical": false
         },
@@ -116,13 +108,13 @@
         },
         {
             "id": "PCI-Requirement-6.3.1",
-            "name": "Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers.",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.3.1",
             "standard": "PCI-DSS-V3.1"
         },
         {
             "id": "PCI-Requirement-6.3.1",
-            "name": "Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers.",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.3.1",
             "standard": "PCI-DSS-V3.2.1"
         }

@@ -27,21 +27,6 @@
             "href": "AIP/business-criteria/1061000"
         },
         {
-            "id": 1062300,
-            "name": "OWASP-2013-Index",
-            "href": "AIP/business-criteria/1062300"
-        },
-        {
-            "id": 1062320,
-            "name": "OWASP-2017-Index",
-            "href": "AIP/business-criteria/1062320"
-        },
-        {
-            "id": 1062340,
-            "name": "OWASP-2021-Index",
-            "href": "AIP/business-criteria/1062340"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -54,23 +39,9 @@
     ],
     "technicalCriteria": [
         {
-            "id": 1062191,
-            "name": "ASCSM-CWE-79 - Cross-site Scripting Improper Input Neutralization",
-            "href": "AIP/technical-criteria/1062191",
-            "weight": 5,
-            "critical": false
-        },
-        {
             "id": 1062195,
             "name": "ASCSM-CWE-99 - Name or Reference Resolution Improper Input Neutralization",
             "href": "AIP/technical-criteria/1062195",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1061015,
-            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-            "href": "AIP/technical-criteria/1061015",
             "weight": 5,
             "critical": false
         },
@@ -82,23 +53,30 @@
             "critical": false
         },
         {
-            "id": 1062303,
-            "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",
-            "href": "AIP/technical-criteria/1062303",
+            "id": 1062304,
+            "name": "OWASP-2013-A4 - Insecure Direct Object References",
+            "href": "AIP/technical-criteria/1062304",
             "weight": 5,
             "critical": false
         },
         {
-            "id": 1062327,
-            "name": "OWASP-2017-A7 - Cross-Site Scripting (XSS)",
-            "href": "AIP/technical-criteria/1062327",
+            "id": 1062325,
+            "name": "OWASP-2017-A5 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062325",
             "weight": 5,
             "critical": false
         },
         {
-            "id": 1062343,
-            "name": "OWASP-2021-A03 - Injection",
-            "href": "AIP/technical-criteria/1062343",
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
             "weight": 5,
             "critical": false
         },
@@ -129,34 +107,16 @@
     ],
     "qualityStandards": [
         {
-            "id": "ASCSM-CWE-79",
-            "name": "Cross-site Scripting Improper Input Neutralization",
-            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-79",
-            "standard": "CISQ"
-        },
-        {
             "id": "ASCSM-CWE-99",
             "name": "Name or Reference Resolution Improper Input Neutralization",
             "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-99",
             "standard": "CISQ"
         },
         {
-            "id": "CWE-79",
-            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-            "href": "AIP/quality-standards/CWE/items/CWE-79",
-            "standard": "CWE"
-        },
-        {
             "id": "CWE-99",
             "name": "Improper Control of Resource Identifiers ('Resource Injection')",
             "href": "AIP/quality-standards/CWE/items/CWE-99",
             "standard": "CWE"
-        },
-        {
-            "id": "CWE-79",
-            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-            "href": "AIP/quality-standards/ISO-5055/items/CWE-79",
-            "standard": "ISO-5055"
         },
         {
             "id": "CWE-99",
@@ -177,33 +137,27 @@
             "standard": "NIST-SP-800-53R4"
         },
         {
-            "id": "CWE-79",
-            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-79",
-            "standard": "OMG-ASCQM"
-        },
-        {
             "id": "CWE-99",
             "name": "Improper Control of Resource Identifiers ('Resource Injection')",
             "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-99",
             "standard": "OMG-ASCQM"
         },
         {
-            "id": "A3-2013",
-            "name": "Cross-Site Scripting (XSS)",
-            "href": "AIP/quality-standards/OWASP/items/A3-2013",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "href": "AIP/quality-standards/OWASP/items/A4-2013",
             "standard": "OWASP"
         },
         {
-            "id": "A7-2017",
-            "name": "Cross-Site Scripting (XSS)",
-            "href": "AIP/quality-standards/OWASP/items/A7-2017",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A5-2017",
             "standard": "OWASP"
         },
         {
-            "id": "A03-2021",
-            "name": "Injection",
-            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
             "standard": "OWASP"
         },
         {
@@ -214,33 +168,15 @@
         },
         {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.1"
         },
         {
-            "id": "PCI-Requirement-6.5.7",
-            "name": "  Cross-site scripting (XSS)",
-            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.7",
-            "standard": "PCI-DSS-V3.1"
-        },
-        {
             "id": "PCI-Requirement-6.5.1",
-            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
-        },
-        {
-            "id": "PCI-Requirement-6.5.7",
-            "name": "  Cross-site scripting (XSS)",
-            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.7",
-            "standard": "PCI-DSS-V3.2.1"
-        },
-        {
-            "id": "STIG-V-222602",
-            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
-            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222602",
-            "standard": "STIG-V5"
         },
         {
             "id": "STIG-V-222604",

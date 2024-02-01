@@ -1,6 +1,6 @@
 {
     "id": 1106010,
-    "name": "Ensure you don't have unsupported PL/SQL package DBMS_RANDOM",
+    "name": "Ensure PL/SQL package DBMS_RANDOM is not used",
     "href": "AIP/quality-rules/1106010",
     "critical": false,
     "severity": 10,
@@ -13,8 +13,8 @@
     "description": "This rule checks the usage of the DBMS_RANDOM package in the Oracle Database(s).",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "Oracle\u2019s DBMS_RANDOM package provides functionality for generating random numbers or strings as part of an SQL statement or PL/SQL procedure. PostgreSQL does not provide a dedicated package equivalent to Oracle DBMS_RANDOM : Migration is not possible. However, other PostgreSQL functions can be used as workarounds under certain conditions.",
-    "reference": "https://docs.aws.amazon.com/pdfs/dms/latest/oracle-to-aurora-postgresql-migration-playbook/dms-mpb-oracle-to-aurora-postgresql.pdf\nhttps://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/DBMS_RANDOM.html#GUID-BEC1A703-44C0-42AC-9015-C487D02DAA8F\nhttps://github.com/orafce/orafce",
-    "remediation": "PostgreSQL: Generating random numbers can be performed using the random() function. For generating random strings, you can use the value returned from the random() function coupled with an md5() function.\n\n\nThe MySQL RAND function is not fully equivalent to Oracle DBMS_RANDOM because it does not generate string values. However, there are other functions that can be used in combination to achieve full functionality.\nRAND function returns a random floating-point value v in the range 0 \u2192 v < 1.0. You can use the RAND function with a seed value to reset the seed. If an integer argument N is specified, it is used as the seed value:",
+    "reference": "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/DBMS_RANDOM.html#GUID-BEC1A703-44C0-42AC-9015-C487D02DAA8F\nhttps://github.com/orafce/orafce",
+    "remediation": "PostgreSQL: Generating random numbers can be performed using the random() function. \nFor generating random strings, you can use the value returned from the random() function coupled with an md5() function.",
     "remediationSample": "The remediation is to remove all references to DBMS_RANDOM.\nIn PostgreSQL you can try to use the random() function for generated random numbers.\n\nHave a look to github \"orafce\" project, maybe you can find a better remediation.",
     "sample": "select dbms_random.string('p',10) from dual;\n\nselect dbms_random.value() from dual;",
     "total": "Number of Artifacts with SQL code",
@@ -28,9 +28,9 @@
     ],
     "technicalCriteria": [
         {
-            "id": 61034,
-            "name": "Cloud Migration - Oracle Database to Amazon Aurora",
-            "href": "AIP/technical-criteria/61034",
+            "id": 61045,
+            "name": "Database Migration - Oracle Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61045",
             "weight": 1,
             "critical": false
         }

@@ -1,6 +1,6 @@
 {
     "id": 7094,
-    "name": "Avoid Programs with more than 3 levels of inclusion",
+    "name": "Avoid Programs with too many levels of inclusion",
     "href": "AIP/quality-rules/7094",
     "critical": false,
     "severity": 10,
@@ -11,7 +11,7 @@
     "rationale": "ABAP programs should not include includes with includes. High levels of inclusion decreases performance.",
     "remediation": "Try to avoid calling includes in includes. The required include files should be explicitly included in the calling programs.",
     "total": "Number of  ABAP Programs",
-    "alternativeName": "Avoid Programs with more than 3 levels of inclusion",
+    "alternativeName": "Avoid Programs with too many levels of inclusion",
     "businessCriteria": [
         {
             "id": 66031,

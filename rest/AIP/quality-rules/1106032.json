@@ -1,6 +1,6 @@
 {
     "id": 1106032,
-    "name": "Ensure you don't have unsupported ROWID data type and pseudocolumn",
+    "name": "Ensure ROWID data type is not used",
     "href": "AIP/quality-rules/1106032",
     "critical": false,
     "severity": 10,
@@ -18,7 +18,7 @@
     "remediationSample": "You should contact Oracle Support.",
     "sample": "create table test_rowid\n(in rowid,\n out rowid\n);\n/\nSELECT ROWID, last_name  \n   FROM employees\n   WHERE department_id = 20;\n/",
     "total": "Number of SQL Tables and Artifacts with SQL code",
-    "alternativeName": "Ensure you don't have unsupported ROWID data type and pseudocolumn",
+    "alternativeName": "Ensure ROWID data type is not used",
     "businessCriteria": [
         {
             "id": 60018,
