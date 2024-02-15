@@ -5,14 +5,18 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "Stored XSS (or Persistent) - The application stores dangerous data in a database, message forum, visitor log, or other trusted data store. At a later time, the dangerous data is subsequently read back into the application and included in dynamic content. From an attacker's perspective, the optimal place to inject malicious content is in an area that is displayed to either many users or particularly interesting users. Interesting users typically have elevated privileges in the application or interact with sensitive data that is valuable to the attacker. If one of these users executes malicious content, the attacker may be able to perform privileged operations on behalf of the user or gain access to sensitive data belonging to the user. \n\nFor example, the attacker might inject XSS into a log message, which might not be handled properly when an administrator views the logs.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
     "rationale": "User Input Data entering a web application through an untrusted source and resulting for executing of untrusted code. \nOnly when the untrusted source is a database or any other back-end datastore.\n\nOnce the malicious script is injected, the attacker can perform a variety of malicious activities. The attacker could transfer private information, such as cookies that may include session information, from the victim's machine to the attacker. The attacker could send malicious requests to a web site on behalf of the victim, which could be especially dangerous to the site if the victim has administrator privileges to manage that site. Phishing attacks could be used to emulate trusted web sites and trick the victim into entering a password, allowing the attacker to compromise the victim's account on that web site. Finally, the script could exploit a vulnerability in the web browser itself possibly taking over the victim's machine, sometimes referred to as \"drive-by hacking.\"\n\nIn many cases, the attack can be launched without the victim even being aware of it. Even with careful users, attackers frequently use a variety of methods to encode the malicious portion of the attack, such as URL encoding or Unicode, so the request looks less suspicious.",
     "reference": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')\nhttps://cwe.mitre.org/data/definitions/79.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)\n\nCISQ rule: ASCSM-CWE-79.",
     "remediation": "Use a standard vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.\n\nExamples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft's Anti-XSS library, the OWASP ESAPI Encoding module, etc.\n\nEncoding should be performed whenever user input is included in the web page.\n\nFew cases, Encoding has to be replaced with Input validation.\n\nSecure input handling has to take into account which context of a page the user input is inserted into.\n\nBest approach of remediation is: performing secure input handling in both client-side and server-side code.\n\nSafely validating untrusted HTML input",
-    "remediationSample": "<%Statement stmt = conn.createStatement();\nResultSet rs = stmt.executeQuery(\"select * from emp where id=\"+eid);\nif (rs != null) {\nrs.next();\nString name = rs.getString(\"name\");\n}%>\n\n... //Input validation is mandatory (Use Authorized Santization)\n\nEmployee Name: <%= name %>",
-    "sample": "1) JSP code segment queries a database for an employee with a given ID and prints the corresponding employee's name.\n\n<%Statement stmt = conn.createStatement();\nResultSet rs = stmt.executeQuery(\"select * from emp where id=\"+eid);\nif (rs != null) {\nrs.next();\nString name = rs.getString(\"name\");\n}%>\n\nEmployee Name: <%= name %>\n\n2) ASP.NET code segment queries a database for an employee with a given employee ID and prints the name corresponding with the ID.\n\n<%\nprotected System.Web.UI.WebControls.Label EmployeeName;\n...\nstring query = \"select * from emp where id=\" + eid;\nsda = new SqlDataAdapter(query, conn);\nsda.Fill(dt);\nstring name = dt.Rows[0][\"Name\"];\n...\nEmployeeName.Text = name;%>\n<p><asp:label id=\"EmployeeName\" runat=\"server\" /></p>\n\nThis code can appear less dangerous because the value of name is read from a database, whose contents are apparently managed by the application. However, if the value of name originates from user-supplied data, then the database can be a conduit for malicious content. Without proper input validation on all data stored in the database, an attacker can execute malicious commands in the user's web browser.\n\n3) Dot Net example\nstring str = System.IO.File.ReadAllText(filePath);\nreturn Content(str);",
+    "remediationSample": "1) JSP code\n<%Statement stmt = conn.createStatement();\nResultSet rs = stmt.executeQuery(\"select * from emp where id=\"+eid);\nif (rs != null) {\nrs.next();\nString name = rs.getString(\"name\");\n}%>\n\n... //Input validation is mandatory (Use Authorized Santization)\n\nEmployee Name: <%= name %>\n\n2) .NET code\npublic void XssInjection(string currentUsername)\n{\n    DbAccess conn = new DbAccess();\n    SqlCommand command = new SqlCommand(\"Select address from Users where User_Name=@user_name\", conn.getConnection());\n    command.Parameters.AddWithValue(\"@user_name\", currentUsername);\n    using (SqlDataReader reader = command.ExecuteReader())\n    {\n        if (reader.Read())\n        { \n            // Escape data before displaying them\n            ViewBag.Address = HttpUtility.HtmlEncode(reader[\"address\"].ToString());\n        }\n    }\n}",
+    "sample": "1) JSP code segment queries a database for an employee with a given ID and prints the corresponding employee's name.\n\n<%Statement stmt = conn.createStatement();\nResultSet rs = stmt.executeQuery(\"select * from emp where id=\"+eid);\nif (rs != null) {\nrs.next();\nString name = rs.getString(\"name\");\n}%>\n\nEmployee Name: <%= name %>\n\n2) .NET code\n\npublic void XssInjection(string currentUsername)\n{\n    DbAccess conn = new DbAccess();\n    SqlCommand command = new SqlCommand(\"Select address from Users where User_Name=@user_name\", conn.getConnection());\n    command.Parameters.AddWithValue(\"@user_name\", currentUsername);\n    using (SqlDataReader reader = command.ExecuteReader())\n    {\n        if (reader.Read())\n        {\n            ViewBag.Address = reader[\"address\"];\n        }\n    }\n}",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure you don't use user input without validation",
     "businessCriteria": [
@@ -77,6 +81,13 @@
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",
             "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
             "weight": 5,
             "critical": false
         },
@@ -178,6 +189,12 @@
             "name": "Cross-site scripting (XSS)",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.7",
             "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
         },
         {
             "id": "STIG-V-222602",

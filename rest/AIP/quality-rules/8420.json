@@ -5,14 +5,18 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from user input source down to the target SQL execution method",
     "description": "SQL injection (second order) - The application stores data in a database. At a later time, the data is subsequently read back into the application and included in another SQL query without prior validation and sanitization.",
     "output": "List all methods that make resource calls forged by database content\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
     "rationale": "The software constructs all or part of an SQL command via user-controllable inputs (inputs coming from another database access). These inputs are not neutralized or are incorrectly neutralized. As a consequence, the SQL command may be completely altered.",
     "reference": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')\nhttps://cwe.mitre.org/data/definitions/89.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A1-Injection\n\nCISQ rule: ASCSM-CWE-89.",
     "remediation": "Use authorized sanitization methods.",
-    "remediationSample": "string query = \"UPDATE users SET password=? WHERE username=? and password=?\";\n\nPreparedStatement preparedStatement = conn.prepareStatement(query) ;\npreparedStatement.setString(1, newPassword );\npreparedStatement.setString(2, userName);\npreparedStatement.setString(3, oldPassword);",
-    "sample": "...\nstring oldPassword = ...\nstring newPassword = ...\nstring userName = ... // Get the userName from the database\nstring query = \"UPDATE users SET password=? WHERE username=\" + userName + \" and password=?\";\n\nPreparedStatement preparedStatement = conn.prepareStatement(query) ;\npreparedStatement.setString(1, newPassword );\npreparedStatement.setString(2, oldPassword);\n\nint i = preparedStatement.executeUpdate();\n...",
+    "remediationSample": "private string GetUserName(int userId)\n{\n    string userName = \"\";\n    string sql = \"SELECT [UserID] FROM [AppUsers] WHERE [UserId] = @userId\";\n    using (SqlConnection connexion = new SqlConnection(\"connexionString\"))\n    {\n        connexion.Open();\n        using (SqlCommand command = new SqlCommand(sql, connexion))\n        {\n            command.Parameters.AddWithValue(\"@userId\", userId);\n            using (SqlDataReader reader = command.ExecuteReader())\n            {\n                if (reader.Read())\n                {\n                    userName = reader.GetString(0);\n                }\n            }\n        }\n    }\n    return userName;\n}\n\nprivate string GetUserAddress(int userId)\n{\n    string userAddress = \"\";\n    string userName = GetUserName(userId);\n    string sql = \"SELECT [UserAddress] FROM [AppUsers] WHERE [UserName] = @userName\";\n    using (SqlConnection connexion = new SqlConnection())\n    {\n        connexion.Open();\n        using (SqlCommand command = new SqlCommand(sql, connexion))\n        {\n            command.Parameters.AddWithValue(\"@userName\", userName);\n            using (SqlDataReader reader = command.ExecuteReader())\n            {\n                if (reader.Read())\n                {\n                    userAddress = reader.GetString(0);\n                }\n            }\n        }\n    }\n    return userAddress;\n}",
+    "sample": "private string GetUserName(int userId)\n{\n    string userName = \"\";\n    string sql = \"SELECT [UserID] FROM [AppUsers] WHERE [UserId] = @userId\";\n    using (SqlConnection connexion = new SqlConnection(\"connexionString\"))\n    {\n        connexion.Open();\n        using (SqlCommand command = new SqlCommand(sql, connexion))\n        {\n            command.Parameters.AddWithValue(\"@userId\", userId);\n            using (SqlDataReader reader = command.ExecuteReader())\n            {\n                if (reader.Read())\n                {\n                    userName = reader.GetString(0);\n                }\n            }\n        }\n    }\n    return userName;\n}\n\nprivate string GetUserAddress(int userId)\n{\n    string userAddress = \"\";\n    string userName = GetUserName(userId);\n    string sql = \"SELECT [UserAddress] FROM [AppUsers] WHERE [UserName] = '\" + userName + \"' \";\n    using (SqlConnection connexion = new SqlConnection())\n    {\n        connexion.Open();\n        using (SqlCommand command = new SqlCommand(sql, connexion))\n        {\n            using (SqlDataReader reader = command.ExecuteReader())\n            {\n                if (reader.Read())\n                {\n                    userAddress = reader.GetString(0);\n                }\n            }\n        }\n    }\n    return userAddress;\n}",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure you don't unsanitized queries to SQL databases",
     "businessCriteria": [
@@ -84,6 +88,13 @@
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",
             "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
             "weight": 5,
             "critical": false
         },
@@ -209,6 +220,12 @@
             "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
         },
         {
             "id": "STIG-V-222607",

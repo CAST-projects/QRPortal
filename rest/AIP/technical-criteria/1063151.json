@@ -1,0 +1,14 @@
+{
+    "id": 1063151,
+    "name": "PCI-DSS4-Requirement-2.2.2 - Vendor default accounts are managed",
+    "href": "AIP/technical-criteria/1063151",
+    "description": "Purpose\nMalicious individuals often use vendor default account names and passwords to compromise operating systems, applications, and the systems on which they are installed. Because these default settings are often published and are well known, changing these settings will make systems less vulnerable to attack.\n\nGood Practice\nAll vendor default accounts should be identified, and their purpose and use understood. It is important to establish controls for application and system accounts, including those used to deploy and maintain cloud services so that they do not use default passwords and are not usable by unauthorized individuals.\nWhere a default account is not intended to be used, changing the default password to a unique password that meets PCI DSS Requirement 8.3.6, removing any access to the default account, and then disabling the account, will prevent a malicious individual from re-enabling the account and gaining access with the default password.\nUsing an isolated staging network to install and configure new systems is recommended and can also be used to confirm that default credentials have not been introduced into production environments.\n\nExamples\nDefaults to be considered include user IDs, passwords, and other authentication credentials commonly used by vendors in their products.",
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/technical-criteria/1063151/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/technical-criteria/1063151/quality-templates"
+    }
+}

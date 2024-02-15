@@ -15,8 +15,8 @@
     "rationale": "The software constructs all or part of a cookie via user-controllable inputs. These inputs are not neutralized or are incorrectly neutralized. These inputs in cookies  may give attackers control of the remaining headers the application intends to send.",
     "reference": "CWE-113: Improper Neutralization of CRLF Sequences in HTTP Headers\nhttps://cwe.mitre.org/data/definitions/113.html",
     "remediation": "Assume all input is malicious. \nAvoid using inputs. If it is not possible, use an \"accept known good\" input validation strategy, i.e., use stringent white-lists that limit the character set based on the expected value of the parameter in the request. This will indirectly limit the scope of an attack.",
-    "remediationSample": "System.Net.Cookie cookie = new System.Net.Cookie(ESAPI.encoder().encodeForHTML(taintedValue1), ESAPI.encoder().encodeForHTML(taintedValue2));\ncookie.Domain = \"contoso.com\";\nnew CookieContainer().Add(cookie);",
-    "sample": "System.Net.Cookie cookie = new System.Net.Cookie(taintedValue1, taintedValue2);\ncookie.Domain = \"contoso.com\";\nnew CookieContainer().Add(cookie);",
+    "remediationSample": "1) C#\nvar cookieName = HttpUtility.HtmlEncode(Request.Params[\"cookieName\"]);\nvar cookieValue = HttpUtility.HtmlEncode(Request.Params[\"cookieValue\"]);\nHttpCookie cookie = new HttpCookie(cookieName, cookieValue);\ncookie.HttpOnly = true;\ncookie.Secure = true;\nResponse.Cookies.Add(cookie);\n\n\n2) Java\nString cookieName = ESAPI.encoder().encodeForHTML(request.Form[\"cookieName\"]);\nString cookieValue = ESAPI.encoder().encodeForHTML(request.Form[\"cookieName\"]);\nCookie c = new Cookie(cookieName, cookieValue);\nc.setHttpOnly(true);\nc.setSecure(true);\nresponse.addCookie(c);",
+    "sample": "1) C#\nvar cookieName = Request.Params[\"cookieName\"];\nvar cookieValue = Request.Params[\"cookieValue\"];\nHttpCookie cookie = new HttpCookie(cookieName, cookieValue);\ncookie.HttpOnly = true;\ncookie.Secure = true;\nResponse.Cookies.Add(cookie);\n\n2) Java\nString cookieName = request.Form[\"cookieName\"];\nString cookieValue = request.Form[\"cookieName\"];\nCookie c = new Cookie(cookieName, cookieValue);\nc.setHttpOnly(true);\nc.setSecure(true);\nresponse.addCookie(c);",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure you have secured your cookie",
     "businessCriteria": [
@@ -50,6 +50,13 @@
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",
             "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
             "weight": 5,
             "critical": false
         },
@@ -145,6 +152,12 @@
             "name": "Injection flaws, particularly SQL injection",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
             "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
         },
         {
             "id": "STIG-V-222609",

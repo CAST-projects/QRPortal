@@ -15,8 +15,8 @@
     "rationale": "Passwords that are stored in plaintext outside of a secure container would be trivial to read, if retrieved by an attacker. Leaked passwords could then be used to authenticate to other sensitive resources, to perform actions and retrieve additional information.",
     "reference": "CWE-256: Plaintext Storage of a Password\nhttp://cwe.mitre.org/data/definitions/256.html",
     "remediation": "Always use strong, modern algorithms for encryption, hashing to store password in configuration files.\nAlternatively, store secrets in a dedicated secrets management system (Azure Key Vault, Amazon KMS, Google KMS, HashiCorp Vault, ...) separate from the application or service consuming the secret values.",
-    "remediationSample": "Properties prop = new Properties();\nprop.load(new FileInputStream(\"config.properties\"));\nString passEnc = prop.getProperty(\"password\");\nString password = decrypt(passEnc);                    // Proof of the FIX\nDriverManager.getConnection(url, usr, password);       // FIXED",
-    "sample": "Properties prop = new Properties();\nprop.load(new FileInputStream(\"config.properties\"));\nString password = prop.getProperty(\"password\");\nDriverManager.getConnection(url, usr, password);    // VIOLATION: direct usage of the password denotes it has been stored unencrypted",
+    "remediationSample": "// Do not store the password in plain text using recent and proven encryption algorithms.",
+    "sample": "public Connection createConnection(Properties connectionProperties) throws SQLException\n{\n    String user = connectionProperties.getProperty(\"user\");\n    String password = connectionProperties.getProperty(\"password\");\n    Connection conn = DriverManager.getConnection(\"Connexion string\", user, password);        \n    return conn; \n}",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure you don't have hard-coded passwords in configuration files : password retrieved and delivered as is to the sendCredential method",
     "businessCriteria": [
@@ -50,6 +50,27 @@
             "id": 1062344,
             "name": "OWASP-2021-A04 - Insecure Design",
             "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063151,
+            "name": "PCI-DSS4-Requirement-2.2.2 - Vendor default accounts are managed",
+            "href": "AIP/technical-criteria/1063151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
             "weight": 5,
             "critical": false
         },
@@ -177,6 +198,24 @@
             "name": "Broken authentication and session management",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
             "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.2",
+            "name": "Vendor default accounts are managed",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.2",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
         },
         {
             "id": "STIG-V-222642",

@@ -2781,6 +2781,36 @@
             ]
         }
     ],
+    "com.castsoftware.go": [
+        {
+            "version": "1.0.0-alpha1",
+            "addedRules": [
+                {
+                    "id": 1046008,
+                    "name": "Avoid Methods having a very low Comment/Code ratio (Go)"
+                },
+                {
+                    "id": 1046006,
+                    "name": "Avoid undocumented Methods (Go)"
+                },
+                {
+                    "id": 1046004,
+                    "name": "Avoid Functions having a very low Comment/Code ratio (Go)"
+                },
+                {
+                    "id": 1046002,
+                    "name": "Avoid undocumented Functions (Go)"
+                },
+                {
+                    "id": 1046000,
+                    "name": "Avoid Artifacts with High Cyclomatic Complexity (Go)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        }
+    ],
     "com.castsoftware.html5": [
         {
             "version": "2.1.16-funcrel",
@@ -8618,6 +8648,258 @@
         }
     ],
     "com.castsoftware.securityanalyzer": [
+        {
+            "version": "1.0.10-funcrel",
+            "addedRules": [
+                {
+                    "id": 8564,
+                    "name": "Avoid second order server-side request forgery"
+                },
+                {
+                    "id": 8562,
+                    "name": "Avoid server-side request forgery through API requests"
+                },
+                {
+                    "id": 8560,
+                    "name": "Avoid server-side request forgery"
+                },
+                {
+                    "id": 8554,
+                    "name": "Avoid using insufficient random generator"
+                },
+                {
+                    "id": 8544,
+                    "name": "Avoid debug forging through API requests"
+                },
+                {
+                    "id": 8542,
+                    "name": "Avoid debug forging"
+                },
+                {
+                    "id": 8540,
+                    "name": "Avoid expression language injection through API requests"
+                },
+                {
+                    "id": 8538,
+                    "name": "Avoid second order expression language injection"
+                },
+                {
+                    "id": 8536,
+                    "name": "Avoid expression language injection"
+                },
+                {
+                    "id": 8534,
+                    "name": "Avoid XQuery injection through API requests"
+                },
+                {
+                    "id": 8532,
+                    "name": "Avoid second order XQuery injection"
+                },
+                {
+                    "id": 8530,
+                    "name": "Avoid XQuery injection"
+                },
+                {
+                    "id": 8528,
+                    "name": "Avoid deserialization injection through API requests"
+                },
+                {
+                    "id": 8526,
+                    "name": "Avoid second order deserialization injection"
+                },
+                {
+                    "id": 8524,
+                    "name": "Avoid deserialization injection"
+                },
+                {
+                    "id": 8522,
+                    "name": "Avoid regular expression injection through API requests"
+                },
+                {
+                    "id": 8520,
+                    "name": "Avoid second order regular expression injection"
+                },
+                {
+                    "id": 8518,
+                    "name": "Avoid regular expression injection"
+                },
+                {
+                    "id": 8516,
+                    "name": "Avoid URL redirection to untrusted site through API requests"
+                },
+                {
+                    "id": 8514,
+                    "name": "Avoid NoSQL injection through API requests"
+                },
+                {
+                    "id": 8512,
+                    "name": "Avoid mixing trusted and untrusted data in HTTP requests through API requests"
+                },
+                {
+                    "id": 8510,
+                    "name": "Avoid uncontrolled format string through API requests"
+                },
+                {
+                    "id": 8508,
+                    "name": "Avoid log forging through API requests"
+                },
+                {
+                    "id": 8506,
+                    "name": "Avoid file path manipulation through API requests"
+                },
+                {
+                    "id": 8504,
+                    "name": "Avoid XPath injection through API requests"
+                },
+                {
+                    "id": 8502,
+                    "name": "Avoid reflection injection through API requests"
+                },
+                {
+                    "id": 8500,
+                    "name": "Avoid code injection through API requests"
+                },
+                {
+                    "id": 8498,
+                    "name": "Avoid thread injection through API requests"
+                },
+                {
+                    "id": 8496,
+                    "name": "Avoid process control through API requests"
+                },
+                {
+                    "id": 8494,
+                    "name": "Avoid OS command injection through API requests"
+                },
+                {
+                    "id": 8492,
+                    "name": "Avoid LDAP injection through API requests"
+                },
+                {
+                    "id": 8490,
+                    "name": "Avoid SQL injection through API requests"
+                },
+                {
+                    "id": 8488,
+                    "name": "Avoid resource URL manipulation through API requests"
+                },
+                {
+                    "id": 8486,
+                    "name": "Avoid resource injection through API requests"
+                },
+                {
+                    "id": 8484,
+                    "name": "Avoid HTTP response splitting through API requests"
+                },
+                {
+                    "id": 8482,
+                    "name": "Avoid cross-site scripting through API requests"
+                },
+                {
+                    "id": 8446,
+                    "name": "Avoid URL redirection to untrusted site"
+                },
+                {
+                    "id": 8444,
+                    "name": "Avoid resource URL manipulation"
+                },
+                {
+                    "id": 8442,
+                    "name": "Avoid resource injection"
+                },
+                {
+                    "id": 8440,
+                    "name": "Avoid reflection injection"
+                },
+                {
+                    "id": 8438,
+                    "name": "Avoid code injection"
+                },
+                {
+                    "id": 8436,
+                    "name": "Avoid thread injection"
+                },
+                {
+                    "id": 8434,
+                    "name": "Avoid process control"
+                },
+                {
+                    "id": 8424,
+                    "name": "Avoid using hard-coded HMAC keys"
+                },
+                {
+                    "id": 8420,
+                    "name": "Avoid second order SQL injection"
+                },
+                {
+                    "id": 8418,
+                    "name": "Avoid NoSQL injection"
+                },
+                {
+                    "id": 8416,
+                    "name": "Avoid use of a reversible one-way hash"
+                },
+                {
+                    "id": 8414,
+                    "name": "Avoid weak cryptographic algorithm"
+                },
+                {
+                    "id": 8410,
+                    "name": "Avoid cross-site scripting (persistent)"
+                },
+                {
+                    "id": 8408,
+                    "name": "Avoid reflected cross-site scripting (non persistent)"
+                },
+                {
+                    "id": 8242,
+                    "name": "Avoid using insufficient random values for cookies"
+                },
+                {
+                    "id": 8238,
+                    "name": "Avoid mixing trusted and untrusted data in HTTP requests"
+                },
+                {
+                    "id": 8222,
+                    "name": "Avoid hard-coded credentials"
+                },
+                {
+                    "id": 8098,
+                    "name": "Avoid uncontrolled format string"
+                },
+                {
+                    "id": 8044,
+                    "name": "Avoid log forging"
+                },
+                {
+                    "id": 7752,
+                    "name": "Avoid file path manipulation"
+                },
+                {
+                    "id": 7750,
+                    "name": "Avoid XPath injection"
+                },
+                {
+                    "id": 7748,
+                    "name": "Avoid OS command injection"
+                },
+                {
+                    "id": 7746,
+                    "name": "Avoid LDAP injection"
+                },
+                {
+                    "id": 7742,
+                    "name": "Avoid SQL injection"
+                },
+                {
+                    "id": 7740,
+                    "name": "Avoid HTTP response splitting"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
         {
             "version": "1.0.5-funcrel",
             "addedRules": [

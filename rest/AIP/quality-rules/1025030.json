@@ -15,8 +15,8 @@
     "rationale": "JWT secret keys should not be stored in the source code but in a secure environment. Indeed, if a user is able to access to the source code, he will be able to create JWTs accepted by the application.",
     "reference": "CWE-798: Use of hard-coded credentials\nhttps://cwe.mitre.org/data/definitions/798.html",
     "remediation": "Do not store JWT secret keys in the source code.",
-    "remediationSample": "String jwtSecretKeyBase64 = System.getenv(\"jwt_secret_key_64\");\nbyte[] keyBytes = Decoders.BASE64.decode(jwtSecretKeyBase64);\nKey key = Keys.hmacShaKeyFor(keyBytes);",
-    "sample": "String base64Secret = \"OWZhYzExODNmZGMxZjVlOTdmZDdiYzgxYTM3NWZmMTI=\";\nbyte[] keyBytes = Decoders.BASE64.decode(base64Secret);\nKey key = Keys.hmacShaKeyFor(keyBytes);",
+    "remediationSample": "public String JWT_Use_Of_Loaded_Secret(Authentication authentication, boolean rememberMe) {\n    String authorities = authentication.getAuthorities()\n                    .stream()\n                    .map(GrantedAuthority::getAuthority)\n                    .collect(Collectors.joining(\",\"));\n\n\n    String base64Secret = System.getenv(\"MY_SECRET_KEY\");\n\n    if(base64Secret == null) {\n        System.err.println(\"La cl\u00e9 secrete n'est pas d\u00e9finie\");\n        System.exit(1);\n    }\n      \n    byte[] keyBytes = Decoders.BASE64.decode(base64Secret);\n    Key key = (Key)Keys.hmacShaKeyFor(keyBytes);\n    \n    long now = (new Date()).getTime();\n    Date validity;\n    if (rememberMe) {\n        validity = new Date(now + this.tokenValidityInMillisecondsForRememberMe);\n    } else {\n        validity = new Date(now + this.tokenValidityInMilliseconds);\n    }\n    return Jwts.builder()\n            .setSubject(authentication.getName())\n            .claim(AUTHORITIES_KEY, authorities)\n            .setExpiration(validity)\n                .signWith(key)\n                .compact();\n}",
+    "sample": "public String JWT_Use_Of_Hardcoded_Secret(Authentication authentication, boolean rememberMe) {\n    String authorities = authentication.getAuthorities()\n                    .stream()\n                    .map(GrantedAuthority::getAuthority)\n                    .collect(Collectors.joining(\",\"));\n    \n    String base64Secret = \"NWViZTIyOTRlY2QwZTBmMDhlYWI3NjkwZDJhNmVlNjk=\";\n    byte[] keyBytes = Decoders.BASE64.decode(base64Secret);\n    Key key = (Key)Keys.hmacShaKeyFor(keyBytes);\n    \n    long now = (new Date()).getTime();\n    Date validity;\n    if (rememberMe) {\n        validity = new Date(now + this.tokenValidityInMillisecondsForRememberMe);\n    } else {\n        validity = new Date(now + this.tokenValidityInMilliseconds);\n    }\n\n    return Jwts.builder()\n        .setSubject(authentication.getName())\n        .claim(AUTHORITIES_KEY, authorities)\n        .setExpiration(validity)\n        .signWith(key)\n        .compact();\n}",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure you don't have hard-coded JWT secret keys in your source code",
     "businessCriteria": [
@@ -88,6 +88,20 @@
             "id": 1062342,
             "name": "OWASP-2021-A02 - Cryptographic Failures",
             "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
             "weight": 5,
             "critical": false
         },
@@ -232,6 +246,18 @@
             "name": "Use strong cryptography and security protocols",
             "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
             "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
         },
         {
             "id": "STIG-V-222642",
