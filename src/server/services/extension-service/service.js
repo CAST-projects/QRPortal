@@ -48,9 +48,14 @@ class ExtensionDataReader {
       extensionInfo.hasRules = false;
 
       for (const version of versions) {
-        const verInfo = await this.readVersion(id, version.name);
-        version.count = verInfo.qualityRules ? verInfo.qualityRules.length : 0;
-        if (!extensionInfo.hasRules && version.count > 0) {
+        try {
+          const verInfo = await this.readVersion(id, version.name);
+          version.count = verInfo.qualityRules ? verInfo.qualityRules.length : 0;
+        } catch (error) {
+          console.error('Unexpected Error: ', error.message);
+        }
+
+        if (!extensionInfo.hasRules && version && version.count > 0) {
           extensionInfo.hasRules = true;
         }
       }
