@@ -39,7 +39,16 @@
   <div class="w-100">
     <div id="main-header"
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h4 class="h4" id="rulestitle">Rules</h4>
+      <h4 class="h4" id="rulestitle">
+        {% set total_rules = model.qualityRules|length + model.qualityTemplates|length %}
+        {% if total_rules == 0 %}
+        No Rules
+        {% elif total_rules == 1 %}
+        1 Rule
+        {% else %}
+        {{ total_rules }} Rules
+        {% endif %}
+      </h4>
     </div>
 
     <!--div class="table-responsive"-->
