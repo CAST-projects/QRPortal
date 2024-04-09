@@ -35,7 +35,7 @@ class QualityRuleSearchIndex extends IndexService {
    * @param {string} queryString 
    * @param {string} searchBy 
    */
-  query(queryString, searchBy) {
+  query(queryString = '', searchBy) {
     const sqs = queryString && this.sanitize(queryString);
 
     return this.rawQuery(sqs, searchBy);
@@ -48,6 +48,7 @@ class QualityRuleSearchIndex extends IndexService {
     return queryString.replace(/[:*^~+-]/gi, (match, offset, str) => {
       switch (match) {
         case "-":
+          return " ";
         case "+":
           if (str.charCodeAt(offset - 1) !== 32) return match;
         case "*":

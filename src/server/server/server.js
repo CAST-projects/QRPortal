@@ -1,7 +1,7 @@
 const { Server } = require("../lib/cnjs-utils/server");
 const { accessLogFactory } = require("../lib/cnjs-utils/log");
 const { types: folderTypes } = require("../services/folder-service");
-const { jwtAuth } = require("../services/extend-authentication-service");
+const { jwtAuth, extendAuth } = require("../services/extend-authentication-service");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
@@ -73,7 +73,7 @@ class RulesDocumentationServer extends Server {
           }
         },
         passport.initialize(),
-        jwtAuth(),
+        extendAuth(),
       ],
     }, apiController, rulesController, renderController, publicAssetController);
 
@@ -86,6 +86,12 @@ class RulesDocumentationServer extends Server {
       express: this.app,
       trimBlocks: true,
       lstripBlocks: true,
+      dev: true,
+      noCache: true,
+      watch: true,
+      web: {
+        useCache: false
+      }
     })
     env.addGlobal('base_url', configuration.publicUrl);
     env.addGlobal('gbl_year', new Date(Date.now()).getFullYear());

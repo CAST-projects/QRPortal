@@ -5,6 +5,7 @@ const { localAuth } = require("../services/extend-authentication-service");
 const { createSHA256Hash } = require("../lib/cnjs-utils/services/crypto");
 const { TimeConverter } = require("../lib/cnjs-utils/lib/time-converter");
 const nunjucks = require("nunjucks");
+const { first } = require("../lib/str");
 
 /**
  * @typedef {import("express").Request} Request
@@ -98,6 +99,7 @@ class SSOController extends Controller {
         firstname: user.firstname,
         lastname: user.lastname,
         iconUrl: user.iconurl,
+        initials: first(user.firstname).toUpperCase() + first(user.lastname).toUpperCase()
       };
 
       ssoCache.store(uid, userInfo);

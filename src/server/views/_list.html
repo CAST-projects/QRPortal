@@ -52,7 +52,11 @@
     </div>
 
     <!--div class="table-responsive"-->
+    {% if not is_search %}
+    <div class="position-sticky pt-3 sidebar-sticky sh">
+    {% else %}
     <div class="position-sticky pt-3 sidebar-sticky">
+    {% endif %}
       <table class="table table-hover table" id="rulelist">
         <thead>
           <tr class="table-sm">

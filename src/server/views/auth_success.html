@@ -3,7 +3,7 @@
 <div id="si-btn" class="btn-group auth-user-ctnr" hx-swap-oob="true">
     <button type="button" class="btn btn-default dropdown-toggle auth-user" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-        {{ (user.firstname.charAt(0) | upper) + (user.lastname.charAt(0) | upper) }}
+        {{ user.initials }}
     </button>
     <ul class="dropdown-menu" style="left: -50px; min-width: 50px">
         <li hx-post="/api/sso/signout" hx-target="#habp" hx-swap="outerHTML">

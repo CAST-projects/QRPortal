@@ -27,16 +27,18 @@ class ExtensionController extends Controller {
   }
 
   async $preprocess() {
-    await this.dataReader.initMapping();
-
     this
       .get("/", this.listExtensions(this.dataReader))
       .get("/:id", this.getExtension(this.dataReader))
       .get("/:id/versions/:version", this.getExtensionVersion(this.dataReader, this.configuration.contextPath));
   }
 
-  $postprocess() {
+  async $postprocess() {
     this.log.info(`${this.constructor.name} Initialized`);
+    this.log.info(`${this.constructor.name} Extension mapping generation starting`);
+    this.dataReader.initMapping().then(() => {
+      this.log.info(`${this.constructor.name} Extension mapping generation complete`);
+    });
   }
 
   /**

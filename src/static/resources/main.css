@@ -113,6 +113,10 @@ section.paper {
   height: calc(100% - 40px);
 }
 
+.sh {
+  height: calc(100vh - 260px);
+}
+
 .appbar {
   width: 100%;
   box-sizing: border-box;
@@ -312,6 +316,10 @@ section.paper {
 
 .fx-col.fx-end {
   align-items: flex-end;
+}
+
+.fx-btw {
+  justify-content: space-between;
 }
 
 .fx-center {
@@ -577,7 +585,6 @@ td {
 }
 
 .tag {
-  height: 24px;
   margin: 4px 0;
 
   color: rgba(0, 0, 0, 0.87);
@@ -599,7 +606,8 @@ td {
 }
 
 .tag>span {
-  padding: 0 8px;
+  padding: 2px 8px;
+  white-space: normal;
 }
 
 .qs-tag-container {

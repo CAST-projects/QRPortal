@@ -1,14 +1,14 @@
 {% import '_forms.html' as forms %}
+{% set is_search = true %}
 
 <div style="width: 48%;">
-    <div style="padding-bottom: 8px;">
+    <div class="fx-row fx-btw" style="padding-bottom: 8px;">
         {% if searchBy %}
-        <h6 style="display: inline-block; letter-spacing: 1.25px;">Displaying results for search term <b>"{{query}}"</b>
-            in the criterion
-            <b>"{{searchBy}}"</b>.
+        <h6 style="display: inline-block; letter-spacing: 1.25px;">Results from <b>"{{query}}"</b> as
+            <b>"{{searchBy}}"</b>
         </h6>
         {% else %}
-        <h6 style="display: inline-block; letter-spacing: 1.25px;">Displaying results for search term <b>"{{query}}"</b>
+        <h6 style="display: inline-block; letter-spacing: 1.25px;">Results from <b>"{{query}}"</b>
         </h6>
         {% endif %}
         <span hx-get="{{base_url}}/s-reset" hx-swap="innerHTML" hx-target="#main" hx-trigger="click consume">

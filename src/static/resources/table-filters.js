@@ -10,6 +10,8 @@ let filters = {
 const HIDE_CLS = 'disn';
 const SELECTED_CLS = 'bg-p-selected';
 
+let selectedEle = null;
+
 function appendfilters() {
     const target = document.getElementById('main-header');
     if (!target) return;
@@ -48,13 +50,36 @@ function handleApplyFiltersLoad() {
     }
 }
 
+function setSelectedNavElement() {
+    const items = document.getElementsByClassName('navitem');
+    const locv = '/api' + location.pathname.toLowerCase();
+    const il = items.length;
+    const acls = 'nav-active';
+
+    for (let index = 0; index < il; index++) {
+        const ele = items[index];
+        const hxg = ele.parentElement.attributes['hx-get'];
+
+        if (hxg && hxg.value.toLowerCase() === locv) {
+            if (selectedEle) {
+                selectedEle.classList.remove(acls);
+            }
+
+            ele.classList.add(acls)
+            selectedEle = ele;
+        }
+    }
+}
+
 function handleApplyFilters(evt) {
+    /** @type {Element} */
     const target = evt.target;
     const id = target.id;
 
     if (id === 'main') {
         appendfilters();
         toggleVisible(target);
+        setSelectedNavElement();
     }
 }
 

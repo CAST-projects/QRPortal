@@ -35,7 +35,11 @@
 {% if is_leaf and (entry.count === undefined or entry.count > 0) %}
 <li role="treeitem" tabindex="{{ index }}" hx-get="/api/{{ entry.href }}" hx-target="#main" hx-swap="innerHTML"
   hx-trigger="click consume">
-  <div class="navitem">
+  {% if entry.selected %}
+    <div class="navitem nav-active">
+  {% else %}
+    <div class="navitem">
+  {% endif %}
     <img src="{{ entry.iconUrl }}" onerror="this.src='/resources/assets/img/placeholder.svg'; this.onerror=null;" alt=""
       width="26px" height="26px">
     <label class="tb2 tnr tb-cap">{{ entry.displayName or entry.name }}</label>

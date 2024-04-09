@@ -15,7 +15,7 @@ function parseQuery(query) {
                     }
                 }
             } else {
-                _query.push(...splitTerms);
+                _query.push(...splitTerms.map(_ => _.toLowerCase()));
             }
         }
     } else {
@@ -27,13 +27,53 @@ function parseQuery(query) {
                 }
             }
         } else {
-            _query.push(...splitTerms);
+            _query.push(...splitTerms.map(_ => _.toLowerCase()));
         }
     }
 
     return _query;
 }
 
+function getSearchLabel(criteria = "") {
+    switch (criteria.toLowerCase()) {
+        case "id":
+            return "Id";
+        case "name":
+            return "Name";
+        case "rationale":
+            return "Rationale";
+        case "technologies":
+            return "Technologies";
+        case "severity":
+            return "Severity";
+        case "critical":
+            return "Critical";
+        case "max-weight":
+            return "Max Weight";
+        case "associated-value-name":
+            return "Associated Value Name";
+        case "output":
+            return "Output";
+        case "remediation":
+            return "Remediation";
+        case "sample":
+            return "Sample";
+        case "total":
+            return "Total";
+        case "alternative-name":
+            return "Alternative Name";
+        case "technical-criteria":
+            return "Technical Criteria";
+        case "business-criteria":
+            return "Business Criteria";
+        case "quality-standards":
+            return "Quality Standards";
+        default:
+            return;
+    }
+}
+
 module.exports = {
     parseQuery,
+    getSearchLabel,
 }

@@ -1,6 +1,6 @@
 const { Controller } = require("../lib/cnjs-utils/server");
 const nunjucks = require("nunjucks");
-const { parseQuery } = require("../services/quality-rule-reader/lib");
+const { parseQuery, getSearchLabel } = require("../services/quality-rule-reader/lib");
 
 /**
  * @typedef {import("winston").Logger} Logger
@@ -31,11 +31,7 @@ class QualityRulesController extends Controller {
     this.configuration = configuration;
   }
 
-  async $preprocess() {
-    this.log.info(`Initiating ${this.publicSearchIndex.constructor.name}`);
-    await this.publicSearchIndex.generate();
-    this.log.info(`Initiating ${this.privateSearchIndex.constructor.name}`);
-    await this.privateSearchIndex.generate();
+  $preprocess() {
     this
       .get("/:id",
         this.handleAuthorizationRedirect(
@@ -52,6 +48,13 @@ class QualityRulesController extends Controller {
 
   $postprocess() {
     this.log.info(`${this.constructor.name} Initialized`);
+    this.log.info(`Initiating ${this.publicSearchIndex.constructor.name}`);
+    this.publicSearchIndex.generate().then(() => {
+      this.log.info(`${this.publicSearchIndex.constructor.name} generation complete`);
+    });
+    this.privateSearchIndex.generate().then(() => {
+      this.log.info(`${this.privateSearchIndex.constructor.name} generation complete`);
+    });
   }
 
   handleAuthorizationRedirect(onSuccess, onFail) {
@@ -133,7 +136,7 @@ class QualityRulesController extends Controller {
           res.status(200).json(model);
         } else {
           res.setHeader('HX-Replace-Url', (config.contextPath ? config.contextPath : '') + `search/${query}${searchBy ? `?by=${searchBy}` : ''}`);
-          res.send(nunjucks.render('_search-results.html', { model, query, searchBy }));
+          res.send(nunjucks.render('_search-results.html', { model, query: query.join(" "), searchBy: getSearchLabel(searchBy) }));
         }
       } catch (error) {
         next(error);
