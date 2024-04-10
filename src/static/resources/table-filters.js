@@ -11,6 +11,15 @@ const HIDE_CLS = 'disn';
 const SELECTED_CLS = 'bg-p-selected';
 
 let selectedEle = null;
+setSelectedNavElement();
+
+if (selectedEle) {
+    const nav = document.getElementById('nav-main');
+    nav.scrollTo({
+        behavior: 'instant',
+        top: selectedEle.offsetTop - selectedEle.scrollHeight - 100,
+    });
+}
 
 function appendfilters() {
     const target = document.getElementById('main-header');
@@ -50,9 +59,19 @@ function handleApplyFiltersLoad() {
     }
 }
 
+function getNavPath(uriStr = '') {
+    const dstr = '/details/';
+    const didx = uriStr.indexOf(dstr);
+    if (didx !== -1) {
+        return uriStr.slice(0, didx);
+    }
+
+    return uriStr;
+}
+
 function setSelectedNavElement() {
     const items = document.getElementsByClassName('navitem');
-    const locv = '/api' + location.pathname.toLowerCase();
+    const locv = getNavPath('/api' + location.pathname.toLowerCase());
     const il = items.length;
     const acls = 'nav-active';
 

@@ -1,6 +1,7 @@
 const { Controller } = require("../lib/cnjs-utils/server");
 const nunjucks = require("nunjucks");
 const { parseQuery } = require("../services/quality-rule-reader/lib");
+const { stream } = require("../lib/stream");
 
 /**
  * @typedef {import("winston").Logger} Logger
@@ -53,8 +54,8 @@ class RenderController extends Controller {
 
   makeEndPoints(type, handler) {
     const base = `/:context/${type}/:id`;
-    this.get(base, handler(this.contextDataReader, this.genericHandler));
-    this.get(`${base}/details/:ruleId`, handler(this.contextDataReader, this.genericHandler));
+    this.get(base, handler(this.contextDataReader));
+    this.get(`${base}/details/:ruleId`, handler(this.contextDataReader));
   }
 
   /**
@@ -179,6 +180,8 @@ class RenderController extends Controller {
 
       try {
         const si = await reader.readServiceIndex();
+        const items = si.items.slice();
+
         let details;
         if (ruleId) {
           const qualityRule = await qrReader.read(ruleId);
@@ -188,11 +191,31 @@ class RenderController extends Controller {
         const item = await contextDataReader.extensionDataReader.readVersion(id, version);
 
         if (!item) return res.sendStatus(404);
+        const nav = si.getItem('extensions');
+        const ext = await contextDataReader.extensionDataReader.read(id);
+        const extItems = stream(ext.items)
+          .map(_ => ({ ..._, isLeaf: true }))
+          .collect()
+
+        nav.items = stream(await contextDataReader.extensionDataReader.list())
+          .filter(_ => _.hasRules)
+          .map(_ => {
+            const sattrs = { ignoreTitleTransform: true, isLeaf: false };
+            return _.name === ext.name ? { ...ext, ...sattrs, items: extItems } : { ..._, ...sattrs };
+          })
+          .collect()
+
+        for (let index = 0; index < items.length; index++) {
+          const idxItem = items[index];
+          if (idxItem.name === nav.name) {
+            items[index] = nav;
+          }
+        }
 
         const model = transform ? transform(item) : item;
         const tmpl = nunjucks.render('data_navigation.html', {
           model,
-          navbar: si.items,
+          navbar: items,
           details,
           csrf: 'tokex',
           user,
@@ -202,7 +225,6 @@ class RenderController extends Controller {
       } catch (error) {
         next(error);
       }
-
     }
 
     return handler;
@@ -286,25 +308,123 @@ class RenderController extends Controller {
 
   /**
    * @param {ContextDataReader} contextDataReader 
-   * @param {Any[]} navbar 
    */
-  businessCriteriaList(contextDataReader, handler) {
-    return handler(
-      contextDataReader,
-      contextDataReader.businessCriteriaDataReader.read.bind(contextDataReader.businessCriteriaDataReader),
-    );
+  businessCriteriaList(contextDataReader) {
+    /**
+     * 
+     * @param {Request} req
+     * @param {Response} res
+     */
+    async function handler(req, res, next) {
+      const user = req.user;
+      const { id, ruleId } = req.params;
+      const reader = contextDataReader.businessCriteriaDataReader;
+      const qrReader = contextDataReader.qualityRuleDataReader;
+      const isIndex = parseInt(id) > 1000000;
+
+      try {
+        const si = await reader.dataReader.readServiceIndex();
+        const items = si.items.slice();
+
+        let details;
+        if (ruleId) {
+          const qualityRule = await qrReader.read(ruleId);
+
+          details = user ? qualityRule : qualityRule.toPublicOutput();
+        }
+        const item = await reader.read(id);
+
+        if (!item) return res.sendStatus(404);
+        const nav = si.getItem(isIndex ? "indexes" : "business criteria");
+        nav.items = stream(await reader.list())
+          .filter(_ => isIndex ? (_.id > 1000000) : (_.id < 1000000))
+          .map(_ => ({ ..._, isLeaf: true }))
+          .collect()
+
+        for (let index = 0; index < items.length; index++) {
+          const idxItem = items[index];
+          if (idxItem.name === nav.name) {
+            items[index] = nav;
+            break;
+          }
+        }
+
+        const tmpl = nunjucks.render('data_navigation.html', {
+          model: item,
+          navbar: items,
+          details,
+          csrf: 'tokex',
+          user,
+        });
+
+        res.send(tmpl);
+      } catch (error) {
+        next(error);
+      }
+
+    }
+
+    return handler;
   }
 
   /**
    * @param {ContextDataReader} contextDataReader 
-   * @param {Any[]} navbar 
    */
-  technologiesList(contextDataReader, handler) {
-    return handler(
-      contextDataReader,
-      contextDataReader.technologyDataReader.readTechnology.bind(contextDataReader.technologyDataReader),
-      _ => _.toApiOutput(),
-    );
+  technologiesList(contextDataReader) {
+    /**
+     * 
+     * @param {Request} req
+     * @param {Response} res
+     */
+    async function handler(req, res, next) {
+      const user = req.user;
+      const { id, ruleId } = req.params;
+      const reader = contextDataReader.technologyDataReader;
+      const qrReader = contextDataReader.qualityRuleDataReader;
+
+      try {
+        const si = await reader.dataReader.readServiceIndex();
+        const items = si.items.slice();
+
+        let details;
+        if (ruleId) {
+          const qualityRule = await qrReader.read(ruleId);
+
+          details = user ? qualityRule : qualityRule.toPublicOutput();
+        }
+        const item = await reader.readTechnology(id);
+
+        if (!item) return res.sendStatus(404);
+        const nav = si.getItem('technologies');
+        nav.items = stream(await reader.readConsolidatedTechnologies())
+          .map(_ => ({ ..._, isLeaf: true }))
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .collect();
+
+        for (let index = 0; index < items.length; index++) {
+          const idxItem = items[index];
+          if (idxItem.name === nav.name) {
+            items[index] = nav;
+            break;
+          }
+        }
+
+        const tmpl = nunjucks.render('data_navigation.html', {
+          model: item.toApiOutput(),
+          navbar: items,
+          details,
+          csrf: 'tokex',
+          user,
+        });
+
+        res.send(tmpl);
+      } catch (error) {
+        next(error);
+      }
+
+    }
+
+    return handler;
   }
 
   /**
