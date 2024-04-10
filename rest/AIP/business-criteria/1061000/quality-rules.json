@@ -5958,7 +5958,7 @@
     },
     {
         "id": 1030000,
-        "name": "Avoid \"when\" statement or expression without an else (Kotlin)",
+        "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
         "href": "AIP/quality-rules/1030000",
         "critical": false,
         "severity": 10,
@@ -7187,7 +7187,7 @@
         "name": "Avoid Cursors inside a loop (SQL)",
         "href": "AIP/quality-rules/1101084",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "SQL"
         ]
@@ -7686,16 +7686,6 @@
         "severity": 10,
         "technologyNames": [
             "PeopleSoft"
-        ]
-    },
-    {
-        "id": 1677000,
-        "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)",
-        "href": "AIP/quality-rules/1677000",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
         ]
     }
 ]

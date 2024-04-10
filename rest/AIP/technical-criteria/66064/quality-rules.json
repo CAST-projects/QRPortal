@@ -671,7 +671,7 @@
     },
     {
         "id": 1021114,
-        "name": "Ensure the Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
         "href": "AIP/quality-rules/1021114",
         "critical": true,
         "weight": 9,
@@ -683,6 +683,36 @@
         "id": 1021116,
         "name": "Avoid logging sensitive data (Python)",
         "href": "AIP/quality-rules/1021116",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021126,
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for Flask (Python)",
+        "href": "AIP/quality-rules/1021126",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021130,
+        "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)",
+        "href": "AIP/quality-rules/1021130",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021132,
+        "name": "Avoid observable authentication response discrepancy (Python)",
+        "href": "AIP/quality-rules/1021132",
         "critical": true,
         "weight": 9,
         "technologyNames": [

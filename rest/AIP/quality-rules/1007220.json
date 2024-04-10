@@ -14,7 +14,7 @@
     "rationale": "A query that retrieves all columns of a table with a SELECT * can potentially be the source of performance problems:\n      \nSuch performance problems may arise when the execution of the query returns a large result sets.\n\nAlso, when using such queries, one cannot control how columns will be ordered and returned to the client. This can lead to important data inconsistencies and thus stability issues.",
     "remediation": "Use column names instead of \"select *\".",
     "remediationSample": "<?php\n$query = \"select name, family_name, age from employee;\";\n      ?>",
-    "sample": "<?php\n$query = \"select name, family_name, age from employee;\";\n?>",
+    "sample": "<?php\n$query = \"select * from employee;\";\n?>",
     "total": "Number of Artifacts",
     "alternativeName": "Avoid artifacts with \"select *\" Sql statement (PHP)",
     "businessCriteria": [

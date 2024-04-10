@@ -4358,26 +4358,6 @@
         ]
     },
     {
-        "id": 1007168,
-        "name": "Avoid using function or method return value that do not have return (PHP)",
-        "href": "AIP/quality-rules/1007168",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007170,
-        "name": "Avoid function return value ignored (PHP)",
-        "href": "AIP/quality-rules/1007170",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
         "id": 1007172,
         "name": "Avoid having constructors with return value (PHP)",
         "href": "AIP/quality-rules/1007172",
@@ -6149,7 +6129,7 @@
     },
     {
         "id": 1021114,
-        "name": "Ensure the Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
         "href": "AIP/quality-rules/1021114",
         "critical": true,
         "severity": 20,
@@ -6161,6 +6141,36 @@
         "id": 1021116,
         "name": "Avoid logging sensitive data (Python)",
         "href": "AIP/quality-rules/1021116",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021126,
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for Flask (Python)",
+        "href": "AIP/quality-rules/1021126",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021130,
+        "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)",
+        "href": "AIP/quality-rules/1021130",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021132,
+        "name": "Avoid observable authentication response discrepancy (Python)",
+        "href": "AIP/quality-rules/1021132",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -6343,6 +6353,18 @@
         "href": "AIP/quality-rules/1025054",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025056,
+        "name": "Avoid running SQL queries inside a loop",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "JEE",
@@ -6690,7 +6712,7 @@
     },
     {
         "id": 1030000,
-        "name": "Avoid \"when\" statement or expression without an else (Kotlin)",
+        "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
         "href": "AIP/quality-rules/1030000",
         "critical": false,
         "severity": 10,
@@ -8376,7 +8398,7 @@
         "name": "Avoid Cursors inside a loop (SQL)",
         "href": "AIP/quality-rules/1101084",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "SQL"
         ]

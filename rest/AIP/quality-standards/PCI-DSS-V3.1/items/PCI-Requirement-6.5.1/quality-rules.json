@@ -864,6 +864,16 @@
         ]
     },
     {
+        "id": 1020106,
+        "name": "Avoid hidden form fields to prevent parameter tampering (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020108,
         "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
         "href": "AIP/quality-rules/1020108",
@@ -1047,6 +1057,16 @@
         "id": 1021120,
         "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
         "href": "AIP/quality-rules/1021120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021122,
+        "name": "Avoid cookie poisoning",
+        "href": "AIP/quality-rules/1021122",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -1743,16 +1763,6 @@
         "severity": 30,
         "technologyNames": [
             "SQL"
-        ]
-    },
-    {
-        "id": 1677000,
-        "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)",
-        "href": "AIP/quality-rules/1677000",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
         ]
     }
 ]

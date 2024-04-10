@@ -14,7 +14,7 @@
     "rationale": "For maintainability reasons, empty style definitions should be avoided.",
     "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Squiz_Sniffs_CSS_EmptyStyleDefinitionSniff.html",
     "remediation": "Modify the source code to reduce the number of files containing an empty style definition.",
-    "sample": "<?php echo \"Title\"; ?>\n\n<html>\n   <head>\n   <title>...</title>\n   <style type=\"text/css\"/> <!-- violation -->\n   </style>\n   <style/> <!-- violation -->\n   <style> \n   /*violation*/\n   </style>\n   </head>\n<body>\n\n</body>\n</html>",
+    "sample": "<?php echo \"Title\"; ?>\n\n<html>\n   <head>\n   <title>...</title>\n   <style type=\"text/css\"/> <!-- violation -->\n   <style/> <!-- violation -->\n   <style> \n   /*violation*/\n   </style>\n   </head>\n<body>\n\n</body>\n</html>",
     "total": "Number of PHP Files",
     "alternativeName": "Avoid empty style definition (PHP)",
     "businessCriteria": [

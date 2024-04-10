@@ -128,16 +128,6 @@
         ]
     },
     {
-        "id": 1007262,
-        "name": "Avoid file name or path controlled by raw user input (PHP)",
-        "href": "AIP/quality-rules/1007262",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
         "id": 1020106,
         "name": "Avoid hidden form fields to prevent parameter tampering (Javascript/HTML5)",
         "href": "AIP/quality-rules/1020106",
@@ -181,6 +171,16 @@
         "id": 1021120,
         "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
         "href": "AIP/quality-rules/1021120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021122,
+        "name": "Avoid cookie poisoning",
+        "href": "AIP/quality-rules/1021122",
         "critical": true,
         "severity": 20,
         "technologyNames": [

@@ -1065,7 +1065,7 @@
     },
     {
         "id": 1021114,
-        "name": "Ensure the Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
         "href": "AIP/quality-rules/1021114",
         "critical": true,
         "severity": 20,
@@ -1089,6 +1089,36 @@
         "href": "AIP/quality-rules/1021120",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021126,
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for Flask (Python)",
+        "href": "AIP/quality-rules/1021126",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021128,
+        "name": "Always protect against CSRF in Flask application",
+        "href": "AIP/quality-rules/1021128",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021136,
+        "name": "Always protect against CSRF in FastAPI application",
+        "href": "AIP/quality-rules/1021136",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "Python"
         ]

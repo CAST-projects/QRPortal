@@ -1,6 +1,6 @@
 {
     "id": 1030000,
-    "name": "Avoid \"when\" statement or expression without an else (Kotlin)",
+    "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
     "href": "AIP/quality-rules/1030000",
     "critical": false,
     "severity": 10,
@@ -15,7 +15,7 @@
     "remediation": "Add else block to every when statement or expression",
     "remediationSample": "fun  main(args: Array<String>){\n    println(\"hello\")\n    val x = 20\n    when (x) {\n        1 -> print(\"x == 1\")\n        2 -> print(\"x == 2\")\n        else -> println(\"x is neither 1 not 2\")\n        }\n    }",
     "sample": "fun  main(args: Array<String>){\n    println(\"hello\")\n    val x = 20\n    when (x) {\n        1 -> print(\"x == 1\")\n        2 -> print(\"x == 2\")\n\n        }\n    }",
-    "alternativeName": "Avoid \"when\" statement or expression without an else (Kotlin)",
+    "alternativeName": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
     "businessCriteria": [
         {
             "id": 1062100,

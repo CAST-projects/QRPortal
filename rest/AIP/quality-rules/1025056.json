@@ -1,0 +1,77 @@
+{
+    "id": 1025056,
+    "name": "Avoid running SQL queries inside a loop",
+    "href": "AIP/quality-rules/1025056",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Call stack from the database query down to the embedded loop",
+    "description": "The analyzer detects SQL queries inside a loop in the same method (intra-procedural search).\nThe considered loops are loops like for / while / do-while / enhanced for.\nThe considered SQL queries are actions on the database like ExecuteQuery, ExecuteScalar, etc.\n\"LINQ to SQL\" is not considered.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences from the database query to the embedded loop",
+    "rationale": "Running SQL queries inside a loop is considered a bad practice due to performance inefficiencies and increased strain on the database server. Each iteration of the loop initiates a separate query execution, leading to a high volume of database requests that can degrade system performance, increase network traffic, and potentially cause resource contention. This approach significantly impacts the overall efficiency and scalability of the application, especially when dealing with large datasets or frequent iterations.",
+    "reference": "CWE-1050: Excessive Platform Resource Consumption within a Loop\nhttps://cwe.mitre.org/data/definitions/1050.html\n\nOMG ASCPEM ASCPEM-PRF-8\nhttps://www.omg.org/spec/ASCPEM/1.0/PDF  page 31",
+    "remediation": "It is generally possible to remediate this issue, using more complex SQL queries, like using JOIN  or using subqueries to retrieve some information that are used in the global SQL query.",
+    "remediationSample": "using System;\nusing System.Data;\nusing System.Data.SqlClient;\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        string[] userIds = { \"user1\", \"user2\", \"user3\" };\n        string connectionString = \"Your_DB_Connection_String\";\n\n        using (SqlConnection connection = new SqlConnection(connectionString))\n        {\n            connection.Open();\n\n            string query = $\"SELECT * FROM Users WHERE UserID IN ('{string.Join(\"','\", userIds)}')\";\n            SqlCommand command = new SqlCommand(query, connection);\n            SqlDataReader reader = command.ExecuteReader();\n\n            while (reader.Read())\n            {\n                // Process the retrieved data\n                Console.WriteLine($\"User ID: {reader[\"UserID\"]}, Name: {reader[\"Name\"]}\");\n            }\n\n            reader.Close();\n            connection.Close();\n        }\n    }\n}",
+    "sample": "using System;\nusing System.Data.SqlClient;\n\nclass Program\n{\n    static void Main(string[] args)\n    {\n        string[] userIds = { \"user1\", \"user2\", \"user3\" };\n        string connectionString = \"Your_DB_Connection_String\";\n\n        using (var connection = new SqlConnection(connectionString))\n        {\n            connection.Open();\n\n            foreach (var userId in userIds)\n            {\n                string query = $\"SELECT * FROM Users WHERE UserID = '{userId}'\";\n                SqlCommand command = new SqlCommand(query, connection);\n                SqlDataReader reader = command.ExecuteReader();\n\n                while (reader.Read())\n                {\n                    // Process the retrieved data\n                    Console.WriteLine($\"User ID: {reader[\"UserID\"]}, Name: {reader[\"Name\"]}\");\n                }\n\n                reader.Close();\n            }\n\n            connection.Close();\n        }\n    }\n}",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": null,
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "href": "AIP/technical-criteria/66068",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

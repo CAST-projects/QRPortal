@@ -3165,13 +3165,13 @@
         {
             "version": "1.1.0-alpha1",
             "addedRules": [
+                
+            ],
+            "detachedRules": [
                 {
                     "id": 1677000,
                     "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)"
                 }
-            ],
-            "detachedRules": [
-                
             ]
         }
     ],
@@ -6120,10 +6120,6 @@
                     "name": "CWE-434: Avoid unrestricted file upload (PHP)"
                 },
                 {
-                    "id": 1007262,
-                    "name": "CWE-73: Avoid file name or path controlled by raw user input (PHP)"
-                },
-                {
                     "id": 1007260,
                     "name": "CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)"
                 },
@@ -6137,7 +6133,10 @@
                 }
             ],
             "detachedRules": [
-                
+                {
+                    "id": 1007262,
+                    "name": "CWE-73: Avoid file name or path controlled by raw user input (PHP)"
+                }
             ]
         },
         {
@@ -6273,14 +6272,6 @@
                 {
                     "id": 1007172,
                     "name": "Avoid having constructors with a return value (PHP)"
-                },
-                {
-                    "id": 1007170,
-                    "name": "Avoid having call function return ignored (PHP)"
-                },
-                {
-                    "id": 1007168,
-                    "name": "Avoid having functions with no return (PHP)"
                 },
                 {
                     "id": 1007166,
@@ -6591,6 +6582,14 @@
                 {
                     "id": 1007174,
                     "name": "Avoid having the assignment to \"$this\" (PHP)"
+                },
+                {
+                    "id": 1007170,
+                    "name": "Avoid having call function return ignored (PHP)"
+                },
+                {
+                    "id": 1007168,
+                    "name": "Avoid having functions with no return (PHP)"
                 },
                 {
                     "id": 1007164,
@@ -7147,6 +7146,46 @@
         }
     ],
     "com.castsoftware.python": [
+        {
+            "version": "1.6.0-alpha9",
+            "addedRules": [
+                {
+                    "id": 1021136,
+                    "name": "Always protect against CSRF in FastAPI application"
+                },
+                {
+                    "id": 1021134,
+                    "name": "Avoid Unchecked Input for Loop Condition (Python)"
+                },
+                {
+                    "id": 1021132,
+                    "name": "Avoid observable authentication response discrepancy (Python)"
+                },
+                {
+                    "id": 1021130,
+                    "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
+            "version": "1.6.0-alpha8",
+            "addedRules": [
+                {
+                    "id": 1021128,
+                    "name": "Always protect against CSRF in Flask application"
+                },
+                {
+                    "id": 1021126,
+                    "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for Flask (Python)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
         {
             "version": "1.6.0-alpha6",
             "addedRules": [
@@ -8648,6 +8687,18 @@
         }
     ],
     "com.castsoftware.securityanalyzer": [
+        {
+            "version": "1.0.11-funcrel",
+            "addedRules": [
+                {
+                    "id": 1025056,
+                    "name": "Avoid running SQL queries inside a loop"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
         {
             "version": "1.0.10-funcrel",
             "addedRules": [

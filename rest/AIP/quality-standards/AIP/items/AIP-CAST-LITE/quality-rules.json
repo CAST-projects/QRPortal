@@ -7056,16 +7056,6 @@
         ]
     },
     {
-        "id": 1007262,
-        "name": "Avoid file name or path controlled by raw user input (PHP)",
-        "href": "AIP/quality-rules/1007262",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
         "id": 1019000,
         "name": "Always separate service contracts from service implementation.",
         "href": "AIP/quality-rules/1019000",
@@ -9866,6 +9856,36 @@
         ]
     },
     {
+        "id": 1021128,
+        "name": "Always protect against CSRF in Flask application",
+        "href": "AIP/quality-rules/1021128",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021130,
+        "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)",
+        "href": "AIP/quality-rules/1021130",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021136,
+        "name": "Always protect against CSRF in FastAPI application",
+        "href": "AIP/quality-rules/1021136",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1022000,
         "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
         "href": "AIP/quality-rules/1022000",
@@ -10876,7 +10896,7 @@
     },
     {
         "id": 1030000,
-        "name": "Avoid \"when\" statement or expression without an else (Kotlin)",
+        "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
         "href": "AIP/quality-rules/1030000",
         "critical": false,
         "severity": 10,
@@ -14122,7 +14142,7 @@
         "name": "Avoid Cursors inside a loop (SQL)",
         "href": "AIP/quality-rules/1101084",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "SQL"
         ]
@@ -14355,16 +14375,6 @@
             "ASP.NET",
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1677000,
-        "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)",
-        "href": "AIP/quality-rules/1677000",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
         ]
     }
 ]
