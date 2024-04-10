@@ -209,6 +209,7 @@ class RenderController extends Controller {
           const idxItem = items[index];
           if (idxItem.name === nav.name) {
             items[index] = nav;
+            break;
           }
         }
 
@@ -233,7 +234,7 @@ class RenderController extends Controller {
   /**
   * @param {ContextDataReader} contextDataReader 
   */
-  qualityStandardsHandler(contextDataReader, transform) {
+  qualityStandardsHandler(contextDataReader) {
     /**
      * 
      * @param {Request} req
@@ -242,25 +243,51 @@ class RenderController extends Controller {
     async function handler(req, res, next) {
       const { standard, category, itemId, ruleId } = req.params;
       const user = req.user;
-      const reader = contextDataReader.qualityStandardDataReader.dataReader;
+      const reader = contextDataReader.qualityStandardDataReader;
       const qrReader = contextDataReader.qualityRuleDataReader;
 
       try {
-        const si = await reader.readServiceIndex();
+        const si = await reader.dataReader.readServiceIndex();
+        const items = si.items.slice();
+
         let details;
         if (ruleId) {
           const qualityRule = await qrReader.read(ruleId);
 
           details = user ? qualityRule : qualityRule.toPublicOutput();
         }
-        const item = await contextDataReader.qualityStandardDataReader.readQualityStandardItems(standard, category, itemId)
+        const item = await reader.readQualityStandardItems(standard, category, itemId);
 
         if (!item) return res.sendStatus(404);
+        const nav = si.getItem('quality standards');
+        const [cat, std, nitems] = await Promise.all([
+          reader.readQualityStandardCategory(standard, category),
+          reader.read(standard),
+          reader.list(),
+        ]);
+        const catItems = stream(cat.items).map(_ => ({ ..._, isLeaf: true })).collect();
+        const stdItems = stream(std.items)
+          .map(_ => _.name === cat.name
+            ? { ...cat, isLeaf: false, items: catItems }
+            : { ..._, isLeaf: false })
+          .collect();
+        nav.items = stream(nitems)
+          .map(_ => _.name === std.name
+            ? { ...std, isLeaf: false, items: stdItems }
+            : { ..._, isLeaf: false })
+          .collect();
 
-        const model = transform ? transform(item) : item;
+        for (let index = 0; index < items.length; index++) {
+          const idxItem = items[index];
+          if (idxItem.name === nav.name) {
+            items[index] = nav;
+            break;
+          }
+        }
+
         const tmpl = nunjucks.render('data_navigation.html', {
-          model,
-          navbar: si.items,
+          model: item,
+          navbar: items,
           details,
           csrf: 'tokex',
           user,
@@ -412,60 +439,6 @@ class RenderController extends Controller {
         const tmpl = nunjucks.render('data_navigation.html', {
           model: item.toApiOutput(),
           navbar: items,
-          details,
-          csrf: 'tokex',
-          user,
-        });
-
-        res.send(tmpl);
-      } catch (error) {
-        next(error);
-      }
-
-    }
-
-    return handler;
-  }
-
-  /**
-  * @param {ContextDataReader} contextDataReader 
-  */
-  async bcMenuGenerator(contextDataReader, id) {
-    const reader = contextDataReader.businessCriteriaDataReader.dataReader;
-    const si = await reader.readServiceIndex();
-
-  }
-
-  /**
-  * @param {ContextDataReader} contextDataReader 
-  */
-  genericHandler(contextDataReader, findById, transform) {
-    /**
-     * 
-     * @param {Request} req
-     * @param {Response} res
-     */
-    async function handler(req, res, next) {
-      const user = req.user;
-      const { id, ruleId } = req.params;
-      const qrReader = contextDataReader.qualityRuleDataReader;
-
-      try {
-        const si = await qrReader.dataReader.readServiceIndex();
-        let details;
-        if (ruleId) {
-          const qualityRule = await qrReader.read(ruleId);
-
-          details = user ? qualityRule : qualityRule.toPublicOutput();
-        }
-        const item = await findById(id);
-
-        if (!item) return res.sendStatus(404);
-
-        const model = transform ? transform(item) : item;
-        const tmpl = nunjucks.render('data_navigation.html', {
-          model,
-          navbar: si.items,
           details,
           csrf: 'tokex',
           user,

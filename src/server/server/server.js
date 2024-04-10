@@ -1,12 +1,13 @@
 const { Server } = require("../lib/cnjs-utils/server");
 const { accessLogFactory } = require("../lib/cnjs-utils/log");
 const { types: folderTypes } = require("../services/folder-service");
-const { jwtAuth, extendAuth } = require("../services/extend-authentication-service");
+const { extendAuth } = require("../services/extend-authentication-service");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const { middleware, codes } = require("../services/http-error-service");
+const { cacheControl, TIME } = require("./middleware");
 const passport = require("passport");
 const fs = require("fs");
 const path = require("path");
@@ -57,7 +58,7 @@ class RulesDocumentationServer extends Server {
               objectSrc: ["'none'"],
               imgSrc: ["'self'", "https://*", "data:"],
               styleSrc: ["'self'", "https://*", "'unsafe-inline'"],
-            }
+            },
           },
         }),
         cors(),
@@ -74,6 +75,7 @@ class RulesDocumentationServer extends Server {
         },
         passport.initialize(),
         extendAuth(),
+        cacheControl(TIME.HOUR * 6),
       ],
     }, apiController, rulesController, renderController, publicAssetController);
 
@@ -86,12 +88,6 @@ class RulesDocumentationServer extends Server {
       express: this.app,
       trimBlocks: true,
       lstripBlocks: true,
-      dev: true,
-      noCache: true,
-      watch: true,
-      web: {
-        useCache: false
-      }
     })
     env.addGlobal('base_url', configuration.publicUrl);
     env.addGlobal('gbl_year', new Date(Date.now()).getFullYear());
