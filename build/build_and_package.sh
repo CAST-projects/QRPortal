@@ -109,22 +109,6 @@ echo "=============================================="
 echo "Installing ...."
 npm install --loglevel verbose --registry http://jnk-maven:8081/artifactory/api/npm/npm || exit 1
 
-echo "=============================================="
-echo "=============================================="
-echo "Build service ...."
-npm run build --loglevel verbose || exit 1
-
-if [ $MODE != "notest" ]; then
-    echo "=============================================="
-    echo "=============================================="
-    echo "Test ...."
-    npm test --loglevel verbose || exit 1
-fi
-
-echo "=============================================="
-echo "=============================================="
-echo "Clean build service ...."
-npm prune --production --loglevel verbose || exit 1
 
 cd $WORKSPACE
 echo "=============================================="
