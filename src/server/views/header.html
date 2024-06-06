@@ -7,6 +7,11 @@
   </div>
   <div style="display: flex; flex-direction: row;">
     <form class="search-container" hx-get="/api/quality-rules" hx-target="#main" hx-swap="innerHTML">
+      <svg xmlns="<http://www.w3.org/2000/svg>" width="16" height="16" fill="white" class="bi bi-search"
+        viewBox="0 0 16 16" style="margin-left: 10px; ">
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.442 1.104a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z" />
+      </svg>
       <select name="search-by" id="search-by">
         <option class="hov cursor-pt" value=""></option>
         <option class="hov cursor-pt" value="id">Id</option>
