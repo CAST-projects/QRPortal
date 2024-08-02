@@ -482,6 +482,16 @@
         ]
     },
     {
+        "id": 1034070,
+        "name": "Ensure strict mode is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034070",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1039004,
         "name": "Avoid using HttpServletRequest.getRequestedSessionId()",
         "href": "AIP/quality-rules/1039004",
@@ -535,6 +545,16 @@
         "id": 1039066,
         "name": "Avoid creating cookie with an overly broad path (JEE)",
         "href": "AIP/quality-rules/1039066",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Ensure secure option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039098",
         "critical": true,
         "severity": 20,
         "technologyNames": [

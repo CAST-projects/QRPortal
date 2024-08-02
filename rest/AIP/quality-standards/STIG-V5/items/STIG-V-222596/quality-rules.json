@@ -330,8 +330,8 @@
         "id": 1034048,
         "name": "Avoid using insufficient random generator (PHP)",
         "href": "AIP/quality-rules/1034048",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -340,8 +340,18 @@
         "id": 1034056,
         "name": "Avoid using hard-coded HMAC keys (PHP)",
         "href": "AIP/quality-rules/1034056",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034072,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)",
+        "href": "AIP/quality-rules/1034072",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]

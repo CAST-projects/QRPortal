@@ -5,7 +5,7 @@
     "url": null,
     "description": "Objective\nAvoid failure to sanitize user input in use in SQL compilation operations\n\nConsequence\nSoftware unaware of SQL command control incurs the risk of unauthorized read, modify, and delete access to sensitive data\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the SQL compilation statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
     "isoPatterns": null,
-    "count": 8,
+    "count": 9,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/quality-standards/CISQ/items/ASCSM-CWE-89/quality-rules"

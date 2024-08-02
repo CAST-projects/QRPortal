@@ -2460,7 +2460,7 @@
     },
     {
         "id": 8238,
-        "name": "Avoid mixing trusted and untrusted data in HTTP requests",
+        "name": "Ensure input data is validated before storing it in a session",
         "href": "AIP/quality-rules/8238",
         "critical": true,
         "severity": 20,
@@ -3627,6 +3627,54 @@
         ]
     },
     {
+        "id": 1025056,
+        "name": "Ensure you don't have SQL queries inside loops",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025058,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025060,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025062,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1039002,
         "name": "Ensure you are not using deprecated SSL protocols to secure your connection",
         "href": "AIP/quality-rules/1039002",
@@ -3888,7 +3936,7 @@
     },
     {
         "id": 1039062,
-        "name": "Ensure the readObject() has been implemented for class instantiated by ObjectInputStream to prevent untrusted deserialization",
+        "name": "Ensure the readObject() has been implemented for class instantiated by ObjectInputStream",
         "href": "AIP/quality-rules/1039062",
         "critical": true,
         "severity": 20,
@@ -4050,6 +4098,26 @@
         "id": 1039094,
         "name": "Ensure to use XPathExpression with a configurable secure parser",
         "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039096,
+        "name": "Avoid disabling http-only option in configuration file",
+        "href": "AIP/quality-rules/1039096",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Avoid disabling secure option in configuration file",
+        "href": "AIP/quality-rules/1039098",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -4456,6 +4524,16 @@
         "href": "AIP/quality-rules/1101926",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Prefer using MyBatis query statementto prevent SQL Injection Attacks",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

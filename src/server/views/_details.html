@@ -46,6 +46,17 @@
 {% endif %}
 {% endmacro %}
 
+{% macro code_section(title, description) %}
+{% if description %}
+<h3 class="tb3 tb-w2-500">{{ title }}</h3>
+<p class="tb1 color-text-secondary tb-w2-400">
+<pre style="white-space: pre-wrap;">
+    <code>{{ description }}</code>
+  </pre>
+</p>
+{% endif %}
+{% endmacro %}
+
 {% if details %}
 <article class="details">
   <h2 class="tb4">{{ details.name }}</h2>
@@ -68,9 +79,8 @@
       {{ section("Description", details.description) }}
       {{ section("Rationale", details.rationale) }}
       {{ section("Remediation", details.remediation) }}
-      {% if details.sample %}
-      {{ section("Sample", code_block(details.sample)) }}
-      {% endif %}
+      {{ code_section("Remediation Sample", details.remediationSample) }}
+      {{ code_section("Sample", details.sample) }}
     </div>
   </div>
 </article>

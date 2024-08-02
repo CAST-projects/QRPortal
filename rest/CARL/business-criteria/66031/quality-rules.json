@@ -2751,7 +2751,7 @@
     },
     {
         "id": 8238,
-        "name": "Avoid mixing trusted and untrusted data in HTTP requests",
+        "name": "Ensure input data is validated before storing it in a session",
         "href": "AIP/quality-rules/8238",
         "critical": true,
         "severity": 20,
@@ -5258,6 +5258,54 @@
         ]
     },
     {
+        "id": 1025056,
+        "name": "Ensure you don't have SQL queries inside loops",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025058,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025060,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025062,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -6838,6 +6886,16 @@
         ]
     },
     {
+        "id": 1101114,
+        "name": "Avoid \"SELECT *\" queries (SQL)",
+        "href": "AIP/quality-rules/1101114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
         "id": 1101920,
         "name": "Ensure to not use explain() method in production code so that performance is not reduced",
         "href": "AIP/quality-rules/1101920",
@@ -6923,6 +6981,16 @@
             "ASP.NET",
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Prefer using MyBatis query statementto prevent SQL Injection Attacks",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

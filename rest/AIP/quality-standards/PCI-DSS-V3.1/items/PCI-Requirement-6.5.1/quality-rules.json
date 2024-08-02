@@ -1269,7 +1269,7 @@
         "name": "Avoid PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034008",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1279,7 +1279,7 @@
         "name": "Avoid code injection (PHP)",
         "href": "AIP/quality-rules/1034010",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1359,7 +1359,7 @@
         "name": "Avoid second order PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034032",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1429,7 +1429,7 @@
         "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (PHP)",
         "href": "AIP/quality-rules/1034054",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1439,7 +1439,17 @@
         "name": "Avoid uncontrolled sleep calls (PHP)",
         "href": "AIP/quality-rules/1034058",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034072,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)",
+        "href": "AIP/quality-rules/1034072",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1763,6 +1773,16 @@
         "severity": 30,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

@@ -1327,7 +1327,7 @@
         "name": "Avoid PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034008",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1337,7 +1337,7 @@
         "name": "Avoid code injection (PHP)",
         "href": "AIP/quality-rules/1034010",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1357,7 +1357,7 @@
         "name": "Avoid reflected cross-site scripting (non persistent) (PHP)",
         "href": "AIP/quality-rules/1034016",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1377,7 +1377,7 @@
         "name": "Avoid server-side request forgery (PHP)",
         "href": "AIP/quality-rules/1034022",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1427,7 +1427,7 @@
         "name": "Avoid second order PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034032",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1447,7 +1447,7 @@
         "name": "Avoid cross-site scripting (persistent) (PHP)",
         "href": "AIP/quality-rules/1034038",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1467,7 +1467,7 @@
         "name": "Avoid second order server-side request forgery (PHP)",
         "href": "AIP/quality-rules/1034044",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1507,7 +1507,7 @@
         "name": "Avoid uncontrolled sleep calls (PHP)",
         "href": "AIP/quality-rules/1034058",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1619,6 +1619,36 @@
         ]
     },
     {
+        "id": 1050002,
+        "name": "Avoid using NSString stringWithFormat on behalf of NSURL instance",
+        "href": "AIP/quality-rules/1050002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1050004,
+        "name": "Avoid using NSPredicate predicateWithFormat",
+        "href": "AIP/quality-rules/1050004",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1055032,
+        "name": "Avoid using NSPredicate(format:) (Swift)",
+        "href": "AIP/quality-rules/1055032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
         "id": 1055046,
         "name": "Avoid dynamic code injection in WKWebView (Swift)",
         "href": "AIP/quality-rules/1055046",
@@ -1636,6 +1666,16 @@
         "severity": 30,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

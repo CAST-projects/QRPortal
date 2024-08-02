@@ -1,0 +1,121 @@
+{
+    "id": 1039096,
+    "name": "Ensure httpOnly option is enabled when creating session (JEE)",
+    "href": "AIP/quality-rules/1039096",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks all the calls to HttpServlet.getSession() without enabling http-only option.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens.\nThis is why all major browsers support the HttpOnly cookie property that prevents client-side scripts from accessing the cookie.\nWhen HttpOnly is not enabled, attackers may more easily access user cookies.",
+    "reference": "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag\nhttps://cwe.mitre.org/data/definitions/1004.html\n\nOWASP Top Ten 2017 - A3:2017-Sensitive Data Exposure\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\n\nOWASP Top Ten 2021 Category A05:2021 - Security Misconfiguration\nhttps://owasp.org/Top10/A05_2021-Security_Misconfiguration/\n\nSession Management Cheat Sheet - Session Management Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#httponly-attribute",
+    "remediation": "In web.xml configuration file, set option http-only to true for session cookie.",
+    "remediationSample": "# web.xml configuration file with http-only for the session cookie\n\n<session-config>\n    <cookie-config>\n        <http-only>true</http-only>    // FIXED\n        <secure>true</secure>\n    </cookie-config>\n</session-config>\n\n# AND creating a session in the source code\n\nHttpSession session = request.getSession();",
+    "sample": "# web.xml configuration file without http-only for the session cookie\n\n<session-config>\n    <cookie-config>\n        <!--http-only>true</http-only-->\n        <secure>true</secure>\n    </cookie-config>\n</session-config>\n\n# AND creating a session in the source code\n\nHttpSession session = request.getSession();   // VIOLATION",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Avoid disabling http-only option in configuration file",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1004",
+            "name": "Sensitive Cookie Without 'HttpOnly' Flag",
+            "href": "AIP/quality-standards/CWE/items/CWE-1004",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222575",
+            "name": "The application must set the HTTPOnly flag on session cookies.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222575",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

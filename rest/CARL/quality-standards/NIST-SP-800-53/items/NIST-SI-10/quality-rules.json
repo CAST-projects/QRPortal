@@ -105,7 +105,7 @@
     },
     {
         "id": 8238,
-        "name": "Avoid mixing trusted and untrusted data in HTTP requests",
+        "name": "Ensure input data is validated before storing it in a session",
         "href": "AIP/quality-rules/8238",
         "critical": true,
         "severity": 20,
@@ -1036,6 +1036,42 @@
         ]
     },
     {
+        "id": 1025058,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025060,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025062,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1039016,
         "name": "Ensure that HTTP request redirections are not performed with user provided data",
         "href": "AIP/quality-rules/1039016",
@@ -1107,7 +1143,7 @@
     },
     {
         "id": 1039062,
-        "name": "Ensure the readObject() has been implemented for class instantiated by ObjectInputStream to prevent untrusted deserialization",
+        "name": "Ensure the readObject() has been implemented for class instantiated by ObjectInputStream",
         "href": "AIP/quality-rules/1039062",
         "critical": true,
         "severity": 20,
@@ -1328,6 +1364,16 @@
         "severity": 30,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Prefer using MyBatis query statementto prevent SQL Injection Attacks",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

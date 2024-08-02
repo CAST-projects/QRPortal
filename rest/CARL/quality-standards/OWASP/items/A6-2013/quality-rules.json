@@ -35,7 +35,7 @@
     },
     {
         "id": 8238,
-        "name": "Avoid mixing trusted and untrusted data in HTTP requests",
+        "name": "Ensure input data is validated before storing it in a session",
         "href": "AIP/quality-rules/8238",
         "critical": true,
         "severity": 20,
@@ -697,6 +697,26 @@
         "id": 1039076,
         "name": "Prefer using HTTPS protocol",
         "href": "AIP/quality-rules/1039076",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039096,
+        "name": "Avoid disabling http-only option in configuration file",
+        "href": "AIP/quality-rules/1039096",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Avoid disabling secure option in configuration file",
+        "href": "AIP/quality-rules/1039098",
         "critical": true,
         "severity": 20,
         "technologyNames": [

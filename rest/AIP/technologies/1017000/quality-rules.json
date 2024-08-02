@@ -1174,7 +1174,7 @@
         "name": "Avoid PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034008",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1184,7 +1184,7 @@
         "name": "Avoid code injection (PHP)",
         "href": "AIP/quality-rules/1034010",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1204,7 +1204,7 @@
         "name": "Avoid file path manipulation (PHP)",
         "href": "AIP/quality-rules/1034014",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1214,7 +1214,7 @@
         "name": "Avoid reflected cross-site scripting (non persistent) (PHP)",
         "href": "AIP/quality-rules/1034016",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1244,7 +1244,7 @@
         "name": "Avoid server-side request forgery (PHP)",
         "href": "AIP/quality-rules/1034022",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1294,7 +1294,7 @@
         "name": "Avoid second order PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034032",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1314,7 +1314,7 @@
         "name": "Avoid second order file path manipulation (PHP)",
         "href": "AIP/quality-rules/1034036",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1324,7 +1324,7 @@
         "name": "Avoid cross-site scripting (persistent) (PHP)",
         "href": "AIP/quality-rules/1034038",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1354,7 +1354,7 @@
         "name": "Avoid second order server-side request forgery (PHP)",
         "href": "AIP/quality-rules/1034044",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1373,8 +1373,8 @@
         "id": 1034048,
         "name": "Avoid using insufficient random generator (PHP)",
         "href": "AIP/quality-rules/1034048",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1404,7 +1404,7 @@
         "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (PHP)",
         "href": "AIP/quality-rules/1034054",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1413,8 +1413,8 @@
         "id": 1034056,
         "name": "Avoid using hard-coded HMAC keys (PHP)",
         "href": "AIP/quality-rules/1034056",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1424,7 +1424,77 @@
         "name": "Avoid uncontrolled sleep calls (PHP)",
         "href": "AIP/quality-rules/1034058",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034060,
+        "name": "Avoid uncontrolled import into the current symbol table (PHP)",
+        "href": "AIP/quality-rules/1034060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034062,
+        "name": "Avoid creating cookie without setting httpOnly option (PHP)",
+        "href": "AIP/quality-rules/1034062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034064,
+        "name": "Ensure httpOnly option is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034064",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034066,
+        "name": "Avoid creating application cookie without SameSite option (PHP)",
+        "href": "AIP/quality-rules/1034066",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034068,
+        "name": "Ensure SameSite option is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034068",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034070,
+        "name": "Ensure strict mode is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034070",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034072,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)",
+        "href": "AIP/quality-rules/1034072",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]

@@ -3165,13 +3165,13 @@
         {
             "version": "1.1.0-alpha1",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1677000,
                     "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         }
     ],
@@ -4078,6 +4078,22 @@
         }
     ],
     "com.castsoftware.jeerules": [
+        {
+            "version": "1.5.0-funcrel",
+            "addedRules": [
+                {
+                    "id": 1039098,
+                    "name": "Ensure secure option is enabled when creating session (JEE)"
+                },
+                {
+                    "id": 1039096,
+                    "name": "Ensure httpOnly option is enabled when creating session (JEE)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
         {
             "version": "1.5.0-beta3",
             "addedRules": [
@@ -6628,6 +6644,50 @@
     ],
     "com.castsoftware.php.security": [
         {
+            "version": "1.1.0-beta1",
+            "addedRules": [
+                {
+                    "id": 1034072,
+                    "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)"
+                },
+                {
+                    "id": 1034070,
+                    "name": "Ensure strict mode is enabled when creating session (PHP)"
+                },
+                {
+                    "id": 1034068,
+                    "name": "Ensure SameSite option is enabled when creating session (PHP)"
+                },
+                {
+                    "id": 1034066,
+                    "name": "Avoid creating application cookie without SameSite option (PHP)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
+            "version": "1.1.0-alpha3",
+            "addedRules": [
+                {
+                    "id": 1034064,
+                    "name": "Ensure httpOnly option is enabled when creating session (PHP)"
+                },
+                {
+                    "id": 1034062,
+                    "name": "Avoid creating cookie without setting httpOnly option (PHP)"
+                },
+                {
+                    "id": 1034060,
+                    "name": "Avoid uncontrolled import into the current symbol table (PHP)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
             "version": "1.1.0-alpha2",
             "addedRules": [
                 {
@@ -8688,6 +8748,26 @@
     ],
     "com.castsoftware.securityanalyzer": [
         {
+            "version": "1.0.12-funcrel",
+            "addedRules": [
+                {
+                    "id": 1025062,
+                    "name": "Avoid numeric user inputs in SQL queries through API requests"
+                },
+                {
+                    "id": 1025060,
+                    "name": "Avoid second order numeric user inputs in SQL queries"
+                },
+                {
+                    "id": 1025058,
+                    "name": "Avoid numeric user inputs in SQL queries"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
             "version": "1.0.11-funcrel",
             "addedRules": [
                 {
@@ -10138,6 +10218,18 @@
         }
     ],
     "com.castsoftware.sqlanalyzer": [
+        {
+            "version": "3.7.4-funcrel",
+            "addedRules": [
+                {
+                    "id": 1101114,
+                    "name": "Avoid \"SELECT *\" queries (SQL)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
         {
             "version": "3.5.0-beta2",
             "addedRules": [

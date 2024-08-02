@@ -970,7 +970,7 @@
         "name": "Avoid PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034008",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1050,7 +1050,7 @@
         "name": "Avoid second order PHP Remote File Inclusion",
         "href": "AIP/quality-rules/1034032",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1120,7 +1120,17 @@
         "name": "Avoid uncontrolled sleep calls (PHP)",
         "href": "AIP/quality-rules/1034058",
         "critical": true,
-        "severity": 20,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034072,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)",
+        "href": "AIP/quality-rules/1034072",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "PHP"
         ]
@@ -1216,6 +1226,36 @@
         ]
     },
     {
+        "id": 1050002,
+        "name": "Avoid using NSString stringWithFormat on behalf of NSURL instance",
+        "href": "AIP/quality-rules/1050002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1050004,
+        "name": "Avoid using NSPredicate predicateWithFormat",
+        "href": "AIP/quality-rules/1050004",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1055032,
+        "name": "Avoid using NSPredicate(format:) (Swift)",
+        "href": "AIP/quality-rules/1055032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
         "id": 1055040,
         "name": "Avoid using XMLDocument without restriction of XML External Entity Reference (XXE) (Swift)",
         "href": "AIP/quality-rules/1055040",
@@ -1233,6 +1273,16 @@
         "severity": 10,
         "technologyNames": [
             "Swift"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

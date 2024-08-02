@@ -5,7 +5,7 @@
     "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222576",
     "description": "Many web development frameworks such as PHP, .NET, ASP as well as application servers include their own mechanisms for session management. Whenever possible it is recommended to utilize the provided session management framework.\n\nSetting the secure bit on session cookie ensures the session cookie is only sent via TLS/SSL HTTPS connections.  This helps to ensure confidentiality as the session cookie is not able to be viewed by unauthorized parties as it transits the network.\n\nSetting the secure flag on all cookies may also be warranted depending upon application design but at a minimum, the session cookie must always be secured.",
     "isoPatterns": null,
-    "count": 15,
+    "count": 16,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222576/quality-rules"

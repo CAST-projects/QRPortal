@@ -3023,6 +3023,18 @@
         ]
     },
     {
+        "id": 1025056,
+        "name": "Ensure you don't have SQL queries inside loops",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -3502,7 +3514,7 @@
     },
     {
         "id": 1039062,
-        "name": "Ensure the readObject() has been implemented for class instantiated by ObjectInputStream to prevent untrusted deserialization",
+        "name": "Ensure the readObject() has been implemented for class instantiated by ObjectInputStream",
         "href": "AIP/quality-rules/1039062",
         "critical": true,
         "severity": 20,
@@ -3554,6 +3566,26 @@
         "id": 1039076,
         "name": "Prefer using HTTPS protocol",
         "href": "AIP/quality-rules/1039076",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039096,
+        "name": "Avoid disabling http-only option in configuration file",
+        "href": "AIP/quality-rules/1039096",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Avoid disabling secure option in configuration file",
+        "href": "AIP/quality-rules/1039098",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -4801,6 +4833,16 @@
         "severity": 20,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1101114,
+        "name": "Avoid \"SELECT *\" queries (SQL)",
+        "href": "AIP/quality-rules/1101114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     },
     {
