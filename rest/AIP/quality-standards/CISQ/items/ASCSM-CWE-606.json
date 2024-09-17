@@ -5,7 +5,13 @@
     "url": null,
     "description": "Objective\nAvoid failure to check range of user input in use in iteration control\n\nConsequence\nSoftware unaware of iteration control incurs the risk of unexpected consumption of resources, such as CPU cycles or memory, possibly leading to a crash or program exit due to exhaustion of resources\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the loop condition statement; none of the callable or method control element of the transformation sequence being a range check control element.\n\n",
     "isoPatterns": null,
-    "count": 0,
-    "qualityRules": null,
-    "qualityTemplates": null
+    "count": 1,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-606/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-606/quality-templates"
+    }
 }
