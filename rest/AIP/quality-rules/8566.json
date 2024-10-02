@@ -12,7 +12,7 @@
     "remediation": "If there are circular relationships among CDS VIEWS, the partitioning is not clear and should be redesigned.",
     "sample": "@AbapCatalog.sqlViewName: 'TEST1'\ndefine view test_view1 as\n       select from\n       test_view2\n       { * }\n@AbapCatalog.sqlViewName: 'TEST2'\ndefine view test_view2 as\n          select from\n          test_view1\n          { * }\n-----------------------------------\n@AbapCatalog.sqlViewName: 'TEST1'\ndefine view test_view1 as\n       select from\n       table1\n       association to test_view2 as _assoc1\n                      on table1.field =  _assoc1.field\n       { _assoc1,\n         field }\n\n@AbapCatalog.sqlViewName: 'TEST2'\ndefine view test_view2 as\n       select from\n       table2\n       association to test_view3 as _assoc2\n                      on table2.field =  _assoc2.field\n       { _assoc2,\n         field }\n\n@AbapCatalog.sqlViewName: 'TEST3'\ndefine view test_view3 as\n       select from\n       test_view1\n       { _assoc1.field }",
     "total": "Number of CDS views",
-    "alternativeName": "Avoid cyclic references in the definition of CDS views (S4/HAHA)",
+    "alternativeName": "Avoid cyclic references in the definition of CDS views (S4/HANA)",
     "businessCriteria": [
         {
             "id": 66032,

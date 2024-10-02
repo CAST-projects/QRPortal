@@ -9,14 +9,15 @@
         "name": "com.castsoftware.jee",
         "href": "AIP/extensions/com.castsoftware.jee"
     },
-    "description": "Reports all entities or column defined through annotation or XML that define a table or column name length greater than 30. \nThe table and column name length are parameters that can be changed at will.",
-    "output": "This report lists all entities or property defined through annotation or XML that define a table or column name length greater than 30.\nIt provides the following information:\nPersistent Entity name or Persistent Property name",
-    "rationale": "If you specify table name too long you won't be able to create it on some database. This will prevent you to use these table name unless you use a Naming Strategy to reduce the length of the table name.\n\nTo ease portability, choose table name with a length accepted by the majority of database you want to support.",
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all entities or columns defined through annotations or XML, that define a table or column name whose length is greater than 30.\nThe table and column name length are parameters that can be changed at will.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If you specify table name that is too long you won't be able to create it on some databases. This will prevent you from using these table names unless you use a Naming Strategy to reduce the length of the table name.\n\nTo ease portability, choose table names with a length accepted by the majority of databases you want to support.",
     "remediation": "Change the table name size or use a Naming Strategy to reduce the table name length.\n\nSome facts from http://www.mssqlcity.com/Articles/Compare\n\n                                table name length     column name length\nSQL Server 2000   128                            128\nASE 12.5                  30                              30\nMYSQL 4.1               64                              64\nDB2 8.1                  128                            128\nOracle 9i                  30                              30",
     "remediationSample": "<class name=\"cast.core.InputFieldValueResource\" table=\"input_field_value_resource\">\n   ...\n</class>",
     "sample": "<class name=\"cast.core.InputFieldValueResource\" table=\"cast_core_input_field_value_resource\">\n   ...\n</class>",
     "total": "Number of persistent entities and properties",
-    "alternativeName": "Ensure that table and column names are ,not too long (portability)",
+    "alternativeName": "Ensure that table and column names are not too long (portability)",
     "businessCriteria": [
         {
             "id": 66032,

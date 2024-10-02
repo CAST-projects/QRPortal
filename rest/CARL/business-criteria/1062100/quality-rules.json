@@ -2036,7 +2036,7 @@
     },
     {
         "id": 1020066,
-        "name": "Ensure to not use Javascript Function constructor calling a string represented source code to prevent impaired performance",
+        "name": "Ensure to not use Javascript Function constructor calling a string represented source code to prevent impaired performance and code injection.",
         "href": "AIP/quality-rules/1020066",
         "critical": false,
         "severity": 10,
@@ -2903,6 +2903,18 @@
         "name": "Ensure you don't have hard-coded passwords used for connection strings",
         "href": "AIP/quality-rules/1025048",
         "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025056,
+        "name": "Ensure you don't have SQL queries inside loops",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "C#",

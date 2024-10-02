@@ -315,6 +315,13 @@
         "weight": 5
     },
     {
+        "id": 1061069,
+        "name": "CWE-606 - Unchecked Input for Loop Condition",
+        "description": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping.",
+        "href": "AIP/technical-criteria/1061069",
+        "weight": 5
+    },
+    {
         "id": 1061070,
         "name": "CWE-611 - Improper Restriction of XML External Entity Reference",
         "description": "The software processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output.",
@@ -445,6 +452,13 @@
         "name": "CWE-833 - Deadlock",
         "description": "The software contains multiple threads or executable segments that are waiting for each other to release a necessary lock, resulting in deadlock.",
         "href": "AIP/technical-criteria/1061101",
+        "weight": 5
+    },
+    {
+        "id": 1061102,
+        "name": "CWE-835 - Loop with Unreachable Exit Condition ('Infinite Loop')",
+        "description": "The program contains an iteration or loop with an exit condition that cannot be reached, i.e., an infinite loop.",
+        "href": "AIP/technical-criteria/1061102",
         "weight": 5
     },
     {

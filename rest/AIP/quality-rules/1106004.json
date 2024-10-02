@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1106004",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.sql.movetocloud",
         "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
@@ -24,9 +24,21 @@
             "id": 60018,
             "name": "Cloud Migration",
             "href": "AIP/business-criteria/60018"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061113,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1061113",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61033,
             "name": "Cloud Migration - Oracle Database to Oracle Cloud Database",

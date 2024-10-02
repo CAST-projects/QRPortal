@@ -1,6 +1,6 @@
 {
     "id": 1020082,
-    "name": "Avoid undocumented Functions (Javascript)",
+    "name": "Avoid undocumented Functions and Methods (Javascript/Typescript)",
     "href": "AIP/quality-rules/1020082",
     "critical": false,
     "severity": 10,
@@ -9,11 +9,11 @@
         "name": "com.castsoftware.html5",
         "href": "AIP/extensions/com.castsoftware.html5"
     },
-    "description": "Functions should be documented. This reports shows all functions with no comments.",
-    "output": "This rule lists all undocumented Functions.\nIt provides following information:\n- Function full name",
+    "description": "Functions and methods should be documented. This reports shows all functions, methods and constructors with no comments as soon as these objects contain at least one line of code.",
+    "output": "This rule lists all undocumented Functions, Methods and Constructors.\nIt provides following information:\n- Object full name",
     "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact.",
-    "remediation": "Add comments into functions to explain what is their goal and how they work.",
-    "total": "Number of Functions",
+    "remediation": "Add comments into functions and methods to explain what is their goal and how they work.",
+    "total": "Number of Functions, Methods and Constructors",
     "alternativeName": "Make sure to explain the goal, objective that a function achieves to improve its maintainability",
     "businessCriteria": [
         {

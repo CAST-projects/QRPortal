@@ -21,6 +21,11 @@
     "alternativeName": "Avoid Unchecked Input for Loop Condition (Python)",
     "businessCriteria": [
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -32,6 +37,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061069,
+            "name": "CWE-606 - Unchecked Input for Loop Condition",
+            "href": "AIP/technical-criteria/1061069",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061102,
+            "name": "CWE-835 - Loop with Unreachable Exit Condition ('Infinite Loop')",
+            "href": "AIP/technical-criteria/1061102",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",
@@ -48,6 +67,12 @@
         }
     ],
     "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-606",
+            "name": "Unchecked Input for Loop Condition",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-606",
+            "standard": "CISQ"
+        },
         {
             "id": "CWE-606",
             "name": "Unchecked Input for Loop Condition",
@@ -83,6 +108,24 @@
             "name": "Loop with Unreachable Exit Condition ('Infinite Loop')",
             "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-835",
             "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
         }
     ],
     "parameters": [

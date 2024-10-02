@@ -18,6 +18,11 @@
     "alternativeName": "Avoid using size functions inside loops (PHP)",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
@@ -26,6 +31,11 @@
             "id": 20140522,
             "name": "Green",
             "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 66031,
@@ -39,6 +49,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062143,
+            "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/technical-criteria/1062143",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061113,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1061113",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61018,
             "name": "Efficiency - Memory, Network and Disk Space Management",

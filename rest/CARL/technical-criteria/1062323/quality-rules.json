@@ -664,16 +664,6 @@
         ]
     },
     {
-        "id": 1039058,
-        "name": "Avoid generating key with insufficient random generator in cookies",
-        "href": "AIP/quality-rules/1039058",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039064,
         "name": "Avoid having cookie with an overly broad domain (JEE)",
         "href": "AIP/quality-rules/1039064",
@@ -697,6 +687,26 @@
         "id": 1039076,
         "name": "Avoid using HttpURLConnection with HTTP protocol",
         "href": "AIP/quality-rules/1039076",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039096,
+        "name": "Ensure httpOnly option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039096",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Ensure secure option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039098",
         "critical": false,
         "weight": 5,
         "technologyNames": [
