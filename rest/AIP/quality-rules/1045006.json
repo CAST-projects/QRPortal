@@ -18,7 +18,7 @@
     "remediationSample": "<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    // FIXED with a list (it could have been set, map, idbag or bag)\n    <list name=\"Bitems\" cascade=\"all\" fetch=\"join\"> \n      <key column=\"B_ID\"/>\n      <list-index column=\"ID\"/>\n      <one-to-many class=\"B\"/>\n    </list>\n  </class>\n\n  <class name=\"B\" table=\"B\" lazy=\"true\">\n    <id name=\"id\" column=\"B_ID\">\n      <generator class=\"increment\"/>\n    </id>\n  </class>\n\n</hibernate-mapping>\n\n\n---> sample.java\n@Entity\npublic class A{\n    // ...\n\n    @OneToMany()\n    private List<B> Bitems;\n}\n\n@Entity\npublic class B{\n    // ...\n\n}",
     "sample": "---> sample.hbm.xml\n<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\">\n    <id name=\"id\" column=\"A_ID\">\n      <generator class=\"increment\"/>\n    </id>\n     <array name=\"Bitems\" cascade=\"all\" fetch=\"join\"> // VIOLATION\n      <key column=\"A_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n  <class name=\"B\" table=\"B\" lazy=\"true\">\n    <id name=\"id\" column=\"B_ID\">\n      <generator class=\"increment\"/>\n    </id>\n  </class>\n\n</hibernate-mapping\n\n\n---> sample.java\n@Entity\npublic class A{\n    // ...\n\n    @OneToMany()\n    private Array<B> Bitems;\n}\n\n@Entity\npublic class B{\n    // ...\n\n}",
     "total": "Number of Hibernate entities",
-    "alternativeName": null,
+    "alternativeName": "Ensure to use  lists, maps, bags, idbags and sets depending on your case to map a collection instead of using array to Map Collection",
     "businessCriteria": [
         {
             "id": 60014,

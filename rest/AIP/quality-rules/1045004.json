@@ -18,7 +18,7 @@
     "remediationSample": "SAMPLE is a table managed by an UPDATE trigger\n---> sample.hbm.xml\n// VIOLATION\n<class name=\"Sample\" table=\"SAMPLE\" select-before-update=\"true\">\n...\n</class>\n\n\n\n---> sample.java\n@Entity\n@org.hibernate.annotations.Entity(\n        selectBeforeUpdate = true, ...)\n@org.hibernate.annotations.Table(name=\"SAMPLE\")\npublic class Sample{ ... }",
     "sample": "SAMPLE is a table managed by an UPDATE trigger\n---> sample.hbm.xml\n// VIOLATION\n<class name=\"Sample\" table=\"SAMPLE\">\n...\n</class>\n\n\n\n---> sample.java\n@Entity\n@org.hibernate.annotations.Table(name=\"SAMPLE\")\npublic class Sample{ ... }",
     "total": "Number of Hibernate Entities having an update to a table managed by a trigger",
-    "alternativeName": null,
+    "alternativeName": "Ensure to use the attribute select-before-update for the persistent class associated to a table that have the UPDATE trigger in order to not have UPDATE trigger when not necessary",
     "businessCriteria": [
         {
             "id": 60014,

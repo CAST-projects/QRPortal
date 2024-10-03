@@ -18,7 +18,7 @@
     "remediationSample": "---> sample.hbm.xml\n// VIOLATION\n<class name=\"Sample\" table=\"SAMPLE\">\n...\n</class>\n\n\n\n---> sample.java\n@Entity\n@org.hibernate.annotations.Table(name=\"SAMPLE\")\npublic class Sample{ ... }",
     "sample": "SAMPLE is a table not managed by an UPDATE trigger\n---> sample.hbm.xml\n// VIOLATION\n<class name=\"Sample\" table=\"SAMPLE\" select-before-update=\"true\">\n...\n</class>\n\n\n\n---> sample.java\n\n@org.hibernate.annotations.Entity(\n        selectBeforeUpdate = true, ...)\n@org.hibernate.annotations.Table(name=\"SAMPLE\")\npublic class Sample{ ... }\n\n---> sample2.java\n\n@Entity(name = \"SAMPLE\")\n@Table(name = \"SAMPLE\")\n@SelectBeforeUpdate\npublic class Sample{\n //...\n}",
     "total": "Number of entities having an update to a table not managed by an update trigger",
-    "alternativeName": null,
+    "alternativeName": "Ensure setting 'select-before-update' to true only for Hibernate Entity associated to table that fires an UPDATE trigger.",
     "businessCriteria": [
         {
             "id": 60014,

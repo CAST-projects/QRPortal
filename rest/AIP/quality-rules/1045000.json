@@ -18,7 +18,7 @@
     "remediationSample": "<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    // FIXED\n    <set name=\"b_items\" lazy=\"true\" table =\"B\"> \n      <key column=\"B_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n</hibernate-mapping>\n\nRemediation sample for Sample-2 (annotation)\n\n@Entity\n@Table(name = \"USER\")\npublic class UserLazy implements Serializable { \n    @Id\n    @GeneratedValue\n    @Column(name = \"USER_ID\")\n    private Long userId;\n \n    @OneToMany(fetch = FetchType.LAZY, mappedBy = \"user\")  //FIXED\n    private Set<OrderDetail> orderDetail = new HashSet();\n    //standard getters and setters\n}",
     "sample": "<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    // VIOLATION \n    <set name=\"b_items\" lazy=\"false\" table =\"B\"> \n      <key column=\"B_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n</hibernate-mapping>\n\nSample-2 Using annotations\n\n@Entity\n@Table(name = \"USER\")\npublic class UserLazy implements Serializable { \n    @Id\n    @GeneratedValue\n    @Column(name = \"USER_ID\")\n    private Long userId;\n \n    @OneToMany(fetch = FetchType.EAGER, mappedBy = \"user\")  //VIOLATION\n    private Set<OrderDetail> orderDetail = new HashSet();\n    //standard getters and setters\n}",
     "total": "Number of JPA Entities having persistent collection fields",
-    "alternativeName": null,
+    "alternativeName": "Lazy fetching should be used for Hibernate collection",
     "businessCriteria": [
         {
             "id": 60014,

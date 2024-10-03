@@ -18,7 +18,7 @@
     "remediationSample": "------> Sample.java:\npublic class Sample {\n   private long id;\n...\n\n  private void setId(long id) { // FIXED\n     this.id = id;\n  }\n\n   public Long getId() {\n      return id;\n   }\n}",
     "sample": "------> sample.hbm.xml:\n...\n<class name=\"Sample\" table=\"SAMPLE\">\n           <id name=\"id\" column=\"id\" type=\"long\">\n                  <generator class=\"sequence\"/>\n           </id>\n           ...\n</class>\n\n------> Sample.java:\npublic class Sample {\n   private long id;\n...\n\n  public void setId(long id) { // VIOLATION\n     this.id = id;\n  }\n\n   public Long getId() {\n      return id;\n   }\n}",
     "total": "Number of setter methods of a persistent class that set the primary key",
-    "alternativeName": null,
+    "alternativeName": "Usually declare the setId() method private and let Hibernate/JPA generate and set the identifier value",
     "businessCriteria": [
         {
             "id": 20140522,
