@@ -3175,6 +3175,44 @@
             ]
         }
     ],
+    "com.castsoftware.java.hibernate": [
+        {
+            "version": "1.1.0-alpha1",
+            "addedRules": [
+                {
+                    "id": 1045012,
+                    "name": "Avoid public/protected setter for the generated identifier field"
+                },
+                {
+                    "id": 1045010,
+                    "name": "Prefer using version number instead of timestamp for Hibernate Entity"
+                },
+                {
+                    "id": 1045008,
+                    "name": "Avoid non serializable Entity beans"
+                },
+                {
+                    "id": 1045006,
+                    "name": "Never use an array to map Hibernate collection"
+                },
+                {
+                    "id": 1045004,
+                    "name": "Avoid UPDATE trigger firing when not necessary"
+                },
+                {
+                    "id": 1045002,
+                    "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger"
+                },
+                {
+                    "id": 1045000,
+                    "name": "Lazy fetching should be used for Hibernate collection"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        }
+    ],
     "com.castsoftware.jee": [
         {
             "version": "1.3.0-beta2",
