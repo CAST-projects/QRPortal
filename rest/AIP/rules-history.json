@@ -4244,16 +4244,15 @@
                     "name": "Avoid Explicitly not \"define final readObject()\" to prevent un-trusted deserialization"
                 },
                 {
-                    "id": 1039058,
-                    "name": "Avoid Use of Insufficiently Random Generated keys in cookies"
-                },
-                {
                     "id": 1039056,
                     "name": "Avoid insecure use of YAML deserilization (java)"
                 }
             ],
             "detachedRules": [
-                
+                {
+                    "id": 1039058,
+                    "name": "Avoid Use of Insufficiently Random Generated keys in cookies"
+                }
             ]
         },
         {
@@ -4379,10 +4378,6 @@
                     "name": "Avoid using cryptography hash with hardcoded salt"
                 },
                 {
-                    "id": 1039016,
-                    "name": "Avoid Unvalidated Redirect"
-                },
-                {
                     "id": 1039014,
                     "name": "Avoid using Cipher with no HMAC to ensure data integrity"
                 },
@@ -4412,7 +4407,10 @@
                 }
             ],
             "detachedRules": [
-                
+                {
+                    "id": 1039016,
+                    "name": "Avoid Unvalidated Redirect"
+                }
             ]
         }
     ],
