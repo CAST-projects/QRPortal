@@ -18997,16 +18997,6 @@
         ]
     },
     {
-        "id": 1039016,
-        "name": "Avoid Unvalidated URL Redirect",
-        "href": "AIP/quality-rules/1039016",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039018,
         "name": "Avoid using cryptography hash with hard-coded salt",
         "href": "AIP/quality-rules/1039018",
@@ -19170,16 +19160,6 @@
         "id": 1039056,
         "name": "Avoid insecure use of YAML deserialization when using SnakeYaml (JEE)",
         "href": "AIP/quality-rules/1039056",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039058,
-        "name": "Avoid generating key with insufficient random generator in cookies",
-        "href": "AIP/quality-rules/1039058",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -20131,6 +20111,76 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1045000,
+        "name": "Lazy fetching should be used for Hibernate collection",
+        "href": "AIP/quality-rules/1045000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045002,
+        "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger",
+        "href": "AIP/quality-rules/1045002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045004,
+        "name": "Avoid UPDATE trigger firing when not necessary",
+        "href": "AIP/quality-rules/1045004",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045006,
+        "name": "Never use an array to map Hibernate collection",
+        "href": "AIP/quality-rules/1045006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045008,
+        "name": "Avoid non serializable Entity beans",
+        "href": "AIP/quality-rules/1045008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045010,
+        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "href": "AIP/quality-rules/1045010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045012,
+        "name": "Avoid public/protected setter for the generated identifier field",
+        "href": "AIP/quality-rules/1045012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
