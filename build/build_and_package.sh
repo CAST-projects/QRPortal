@@ -139,6 +139,19 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
+echo "=============================================="
+echo "=============================================="
+echo "Tag & push to castsoftware org"
+docker tag technologies:$PACKVERS castsoftware/technologies:$PACKVERS 
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+
+docker push castsoftware/technologies:$PACKVERS 
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+
 echo
 echo "Docker Image path is: $OUTDIR/$PACKNAME"
 echo "End of build with success."
