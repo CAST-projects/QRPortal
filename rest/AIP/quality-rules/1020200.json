@@ -10,14 +10,14 @@
         "href": "AIP/extensions/com.castsoftware.vuejs"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "The rule will raise a violation when a data property is not a function and does not return an object.\n\nException:\nThe root instance data property is not a violation",
+    "description": "The rule will raise a violation when a data property returns an object.\n\nException:\nThe root instance data property is not a violation",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "When the value of data is an object, it\u2019s shared across all instances of a component.\nWe might want to reuse this component, allowing users to maintain multiple lists (e.g. for shopping, wishlists, daily chores, etc). Since every instance of the component references the same data object, changing the title of one list will also change the title of every other list. The same is true for adding/editing/deleting a todo.\n\nInstead, we want each component instance to only manage its own data. For that to happen, each instance must generate a unique data object.",
     "reference": "https://vuejs.org/v2/style-guide/#Component-data-essential",
     "remediation": "Ensure to return objects from data properties",
     "remediationSample": "Vue.component('some-comp', {\n  data: function () {\n    return {\n      foo: 'bar'\n    }\n  }\n})",
     "sample": "Vue.component('some-comp', {\n  data: {\n    foo: 'bar'\n  }\n})",
-    "total": "Number of VueJS source code using data property",
+    "total": "Number of VueJS source code defining a vuejs component using data property",
     "alternativeName": "Ensure the data property to return objects from a function",
     "businessCriteria": [
         {

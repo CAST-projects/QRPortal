@@ -13,11 +13,11 @@
     "description": "This rule will check the use of vue-cookies module and especially  set cookie method and will check the parameters",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. This is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie. The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.\n\nThe Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.",
-    "reference": "https://www.npmjs.com/package/vue-cookies\n\nhttps://cwe.mitre.org/data/definitions/614.html \nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
+    "reference": "https://www.npmjs.com/package/vue-cookies\n\nhttps://cwe.mitre.org/data/definitions/614.html\nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
     "remediation": "Always setting secure option when creating a cookie.",
     "remediationSample": "// require\nvar Vue = require('vue')\nVue.use(require('vue-cookies'))\n\n// es2015 module\nimport Vue from 'vue'\nimport VueCookies from 'vue-cookies'\nVue.use(VueCookies)\n\n// set global cookie\nVue.$cookies.set('hover-time','1s');\n\n// set local cookie\n\n// name, time, path, domain, secure\nthis.$cookies.set(\"token\",\"1s\",\"/path\",\"sub.domain.com\",true); // no violation",
     "sample": "// require\nvar Vue = require('vue')\nVue.use(require('vue-cookies'))\n\n// es2015 module\nimport Vue from 'vue'\nimport VueCookies from 'vue-cookies'\nVue.use(VueCookies)\n\n// set global cookie\nVue.$cookies.set('hover-time','1s');\n\n// set local cookie\n\n// name, time, path, domain, secure\nthis.$cookies.set(\"token\",\"1s\",\"/\",\".domain.com\",false); //violation\n\n// or\n\nthis.$cookies.set(\"token\",\"1s\",\"/\",\".domain.com\"); //violation because no attribute",
-    "total": "Number of VueJS source code setting cookies with 'vue-cookies' package",
+    "total": "Number of VueJS callables using the set method of the 'vue-cookies' package",
     "alternativeName": "Ensure using only secured cookie to avoid Cross-site scripting attacks (Vue.js)",
     "businessCriteria": [
         {
