@@ -18,7 +18,7 @@
     "remediationSample": "# Remediation directly inside code\n\nCookie cookie = new Cookie(\"userName\",userName);  // FIXED\ncookie.setSecure(true);     // Secure flag\ncookie.setHttpOnly(true);\nresponse.addCookie(cookie);",
     "sample": "Cookie cookie = new Cookie(\"userName\",userName); // VIOLATION\ncookie.setHttpOnly(true);\n// Missing Secure flag\nresponse.addCookie(cookie);",
     "total": "Number of Java Methods",
-    "alternativeName": "Ensure using only secured cookie to avoid Cross-site scripting attacks (JEE)",
+    "alternativeName": "Ensure setting secured attribute to true when creating a cookie",
     "businessCriteria": [
         {
             "id": 20140522,
