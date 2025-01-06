@@ -19211,8 +19211,8 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -19351,6 +19351,57 @@
         "id": 1039098,
         "name": "Ensure secure option is enabled when creating session (JEE)",
         "href": "AIP/quality-rules/1039098",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039104,
+        "name": "Avoid creation of temporary file with insecure permissions (JEE)",
+        "href": "AIP/quality-rules/1039104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039106,
+        "name": "Avoid disabling the automatic HTML escaping for Spring",
+        "href": "AIP/quality-rules/1039106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5",
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
         "critical": true,
         "severity": 20,
         "technologyNames": [

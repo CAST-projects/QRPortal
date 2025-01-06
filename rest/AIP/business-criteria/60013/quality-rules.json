@@ -8555,8 +8555,18 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]

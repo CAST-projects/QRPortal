@@ -1,0 +1,85 @@
+{
+    "id": 1039104,
+    "name": "Avoid creation of temporary file with insecure permissions (JEE)",
+    "href": "AIP/quality-rules/1039104",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules reports calls to java.io.File.createTempFile()",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Opening temporary files without appropriate measures or controls can leave the file, its contents and any function that it impacts vulnerable to attack.",
+    "reference": "CWE-378: Creation of Temporary File With Insecure Permissions\nhttps://cwe.mitre.org/data/definitions/378.html\n\nCWE-379: Creation of Temporary File in Directory with Insecure Permissions\nhttps://cwe.mitre.org/data/definitions/379.html",
+    "remediation": "Use an API that creates temporary files with restricted access such as java.nio.file.Files.createTempFile().",
+    "remediationSample": "import java.nio.file.Files;\n\n// ...\n\nPath temp = Files.createTempFile(\"pattern\", \".suffix\");  // FIXED",
+    "sample": "import java.io.File;\n\n// ...\n\nFile temp = File.createTempFile(\"pattern\", \".suffix\");  // VIOLATION",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure temporary files have restricited access",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-378",
+            "name": "Creation of Temporary File With Insecure Permissions",
+            "href": "AIP/quality-standards/CWE/items/CWE-378",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-379",
+            "name": "Creation of Temporary File in Directory with Insecure Permissions",
+            "href": "AIP/quality-standards/CWE/items/CWE-379",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-4",
+            "name": "Information in Shared System Resources",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-4",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-4",
+            "name": "Information in Shared System Resources",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-4",
+            "standard": "NIST-SP-800-53R4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

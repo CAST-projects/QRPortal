@@ -12659,16 +12659,6 @@
         ]
     },
     {
-        "id": 1039028,
-        "name": "Avoid weak encryption providing not sufficient key size (JEE)",
-        "href": "AIP/quality-rules/1039028",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039032,
         "name": "Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)",
         "href": "AIP/quality-rules/1039032",
@@ -12739,16 +12729,6 @@
         ]
     },
     {
-        "id": 1039064,
-        "name": "Avoid having cookie with an overly broad domain (JEE)",
-        "href": "AIP/quality-rules/1039064",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039068,
         "name": "Avoid using the Non-Serializable Object Stored in Session",
         "href": "AIP/quality-rules/1039068",
@@ -12762,8 +12742,8 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -12862,6 +12842,27 @@
         "id": 1039094,
         "name": "Avoid using XPathExpression without a configurable secure parser (XXE)",
         "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039106,
+        "name": "Avoid disabling the automatic HTML escaping for Spring",
+        "href": "AIP/quality-rules/1039106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5",
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
         "critical": true,
         "severity": 20,
         "technologyNames": [

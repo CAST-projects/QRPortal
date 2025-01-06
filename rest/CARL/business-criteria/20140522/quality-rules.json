@@ -3473,6 +3473,16 @@
         ]
     },
     {
+        "id": 1039028,
+        "name": "Perefer using encryption providing sufficient key size to ensure enough entropy against attacks",
+        "href": "AIP/quality-rules/1039028",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1039030,
         "name": "Prefer using SystemDefaultHttpClient Constructor to ensure better transport layer security",
         "href": "AIP/quality-rules/1039030",
@@ -3513,6 +3523,16 @@
         ]
     },
     {
+        "id": 1039064,
+        "name": "Ensure you do not allow access to all domain when defining cookie domain (JEE)",
+        "href": "AIP/quality-rules/1039064",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1039066,
         "name": "Ensure you do not allow access to all domain when defining cookie path (JEE)",
         "href": "AIP/quality-rules/1039066",
@@ -3536,8 +3556,8 @@
         "id": 1039070,
         "name": "Prefer using java.net.URI instead of java.net.URL",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
