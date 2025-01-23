@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1521712",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.siebel",
         "href": "AIP/extensions/com.castsoftware.siebel"
@@ -33,6 +33,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61017,
             "name": "Documentation - Naming Convention Conformity",

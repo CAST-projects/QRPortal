@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1002228",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.fortran",
         "href": "AIP/extensions/com.castsoftware.fortran"
@@ -34,6 +34,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067224,
+            "name": "CWE-1124 - Excessively Deep Nesting",
+            "href": "AIP/technical-criteria/1067224",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61024,
             "name": "Programming Practices - Structuredness",

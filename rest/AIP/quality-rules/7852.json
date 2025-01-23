@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/7852",
     "critical": false,
     "severity": 10,
-    "maxWeight": 3,
+    "maxWeight": 5,
     "description": "Names of Views should start with X or by 'ZV' for SAP database views.\nThis reports shows all the database views not starting with the prefix. \nThe prefix value is a parameter and can be changed at will.",
     "output": "This report lists all views that does not respect the naming conventions.\nIt provides the following information:\nView full name",
     "rationale": "For readability aspects, naming conventions must be respected.",
@@ -32,6 +32,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61017,
             "name": "Documentation - Naming Convention Conformity",
