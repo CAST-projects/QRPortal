@@ -1,0 +1,61 @@
+{
+    "id": 8572,
+    "name": "Avoid using SUBMIT statement with another user permission",
+    "href": "AIP/quality-rules/8572",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This rule reports violations where the 'SUBMIT' statement is used to execute reports with another user permission.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Users might execute sensitive reports for which they lack authorization.",
+    "reference": "https://cwe.mitre.org/data/definitions/862.html\nhttps://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abapsubmit.htm\nhttps://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abendyn_call_scrty.htm",
+    "remediation": "Add explicit checks for the 'S_PROGRAM' authorization object",
+    "remediationSample": "AUTHORITY-CHECK OBJECT 'S_PROGRAM'\n   ID 'P_GROUP' FIELD 'Z'.\nIF sy-subrc = 0.\n   SUBMIT z_sensitive_report.\nELSE.\n   MESSAGE 'Unauthorized report execution' TYPE 'E'.\nENDIF.",
+    "sample": "SUBMIT z_sensitive_report USER gv_user.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "SUBMIT with another user permission",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

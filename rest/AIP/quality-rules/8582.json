@@ -1,0 +1,61 @@
+{
+    "id": 8582,
+    "name": "Avoid Dynamic Function/Method call without Authorization Check",
+    "href": "AIP/quality-rules/8582",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This rule reports violations for all ABAP artifacts where dynamic calls to function modules or methods are executed without validating the user\u2019s authorization.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Dynamic calls bypass standard authorization checks, potentially allowing unauthorized users to execute restricted functions.",
+    "reference": "https://cwe.mitre.org/data/definitions/862.html\nhttps://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abendyn_call_scrty.htm",
+    "remediation": "Add explicit checks for the 'S_RFC' authorization object",
+    "remediationSample": "AUTHORITY-CHECK OBJECT 'S_RFC' ID 'RFC_NAME' FIELD lv_func.\nIF sy-subrc = 0.\n   CALL FUNCTION (lv_func).\nENDIF.",
+    "sample": "CALL FUNCTION (lv_func).",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "DYNAMIC CALL Function/Method Without Authorization",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "id": 8584,
+    "name": "Prefer using OPEN DATASET statement with file Path instead of file name",
+    "href": "AIP/quality-rules/8584",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "The OPEN DATASET statement is commonly used to open a file for reading, writing, or appending\nThis rule reports violations for all ABAP artifacts where OPEN DATASET statement is used with file name instead of a full file path.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Using the File name instead of a full file path in ABAP's OPEN DATASET statement can pose potential security issues, primarily due to unintended File Access (Path Traversal Vulnerability):\nIf only a file name is used, and the system uses a default or current directory, there's a risk that an attacker could manipulate file paths to access files outside the intended directory. This is known as a path traversal attack.\n\nFor example, if an input like ../../etc/passwd is used as a file name, it could potentially access sensitive files on the server, depending on the system's configuration and permissions.",
+    "reference": "https://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abendyn_file_scrty.htm",
+    "remediation": "Use OPEN DATASET with path instead of the file name.",
+    "remediationSample": "DATA: lv_file TYPE string.\n\nlv_file = '/usr/sap/host/data/my_file.txt'. \n\nOPEN DATASET lv_file FOR INPUT.",
+    "sample": "DATA: lv_file TYPE string.\n\nlv_file = 'my_file.txt'. \n\nOPEN DATASET lv_file FOR INPUT.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Potential file name manipulation in the statement OPEN DATASET",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ]
+}

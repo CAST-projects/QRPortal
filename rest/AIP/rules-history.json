@@ -8664,6 +8664,49 @@
     ],
     "com.castsoftware.sap": [
         {
+            "version": "1.0.16-funcrel",
+            "addedRules": [
+                {
+                    "id": 8584,
+                    "name": "Prefer using OPEN DATASET statement with file Path instead of file name"
+                },
+                {
+                    "id": 8582,
+                    "name": "Avoid Dynamic Function/Method call without Authorization Check"
+                },
+                {
+                    "id": 8580,
+                    "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check"
+                },
+                {
+                    "id": 8578,
+                    "name": "Avoid using MODIFY without Authorization Check"
+                },
+                {
+                    "id": 8576,
+                    "name": "Avoid using OPEN DATASET without Authorization Check"
+                },
+                {
+                    "id": 8574,
+                    "name": "Avoid using statement CALL TRANSACTION through variable P_TCODE"
+                },
+                {
+                    "id": 8572,
+                    "name": "Avoid using SUBMIT statement with another user permission"
+                },
+                {
+                    "id": 8570,
+                    "name": "Avoid Calling RFC Function Module without Authorization Check"
+                }
+            ],
+            "detachedRules": [
+                {
+                    "id": 8586,
+                    "name": "Avoid Insecure dynamic call of a function module through variable P_NAME"
+                }
+            ]
+        },
+        {
             "version": "1.0.15-funcrel",
             "addedRules": [
                 {

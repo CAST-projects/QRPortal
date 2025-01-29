@@ -1,0 +1,61 @@
+{
+    "id": 8580,
+    "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+    "href": "AIP/quality-rules/8580",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "Flags the use of `GENERATE SUBROUTINE POOL` for dynamic code execution without verifying authorization.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Dynamic execution of unverified code can lead to unauthorized actions or privilege escalation.",
+    "reference": "https://cwe.mitre.org/data/definitions/862.html\nhttps://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abengeneric_prog_scrty.htm",
+    "remediation": "Add explicit checks for the 'S_DEVELOP' authorization object",
+    "remediationSample": "AUTHORITY-CHECK OBJECT 'S_DEVELOP'\n   ID 'ACTVT' FIELD '03'.\nIF sy-subrc = 0.\n   GENERATE SUBROUTINE POOL lt_code NAME lv_name.\nELSE.\n   MESSAGE 'Unauthorized code generation' TYPE 'E'.\nENDIF.",
+    "sample": "GENERATE SUBROUTINE POOL lt_code NAME lv_name.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

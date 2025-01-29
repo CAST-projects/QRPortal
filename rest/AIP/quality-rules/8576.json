@@ -1,0 +1,61 @@
+{
+    "id": 8576,
+    "name": "Avoid using OPEN DATASET without Authorization Check",
+    "href": "AIP/quality-rules/8576",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This rule identifies the use of 'OPEN DATASET' to read/write files on the application server without authorization checks.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Unrestricted file access could allow unauthorized users to read sensitive data or write malicious files.",
+    "reference": "https://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abendyn_file_scrty.htm",
+    "remediation": "Add explicit checks for the 'S_DATASET' authorization object",
+    "remediationSample": "AUTHORITY-CHECK OBJECT 'S_DATASET'\n   ID 'ACTVT' FIELD '33' \"Write access\n   ID 'FILENAME' FIELD file.\nIF sy-subrc = 0.\n   OPEN DATASET file FOR OUTPUT IN TEXT MODE.\nELSE.\n   MESSAGE 'Unauthorized file access' TYPE 'E'.\nENDIF.",
+    "sample": "OPEN DATASET file FOR OUTPUT IN TEXT MODE.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using OPEN DATASET without Authorization Check",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}
