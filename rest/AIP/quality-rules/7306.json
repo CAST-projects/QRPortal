@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/7306",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.jee",
         "href": "AIP/extensions/com.castsoftware.jee"
@@ -37,6 +37,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066592,
+            "name": "CWE-492 - Use of Inner Class Containing Sensitive Data",
+            "href": "AIP/technical-criteria/1066592",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61020,
             "name": "Programming Practices - Modularity and OO Encapsulation Conformity",

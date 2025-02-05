@@ -110,6 +110,36 @@
         ]
     },
     {
+        "id": 8572,
+        "name": "Avoid using SUBMIT statement with another user permission",
+        "href": "AIP/quality-rules/8572",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8580,
+        "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+        "href": "AIP/quality-rules/8580",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8584,
+        "name": "Prefer using OPEN DATASET statement with file Path instead of file name",
+        "href": "AIP/quality-rules/8584",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
         "id": 1007276,
         "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
         "href": "AIP/quality-rules/1007276",
@@ -1071,7 +1101,7 @@
         "name": "Avoid using Cipher with no HMAC to ensure data integrity",
         "href": "AIP/quality-rules/1039014",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1081,7 +1111,7 @@
         "name": "Avoid using cryptography hash with hard-coded salt",
         "href": "AIP/quality-rules/1039018",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1091,7 +1121,7 @@
         "name": "Avoid using javax.crypto.NullCipher",
         "href": "AIP/quality-rules/1039020",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1101,7 +1131,7 @@
         "name": "Avoid using Insecure PBE Iteration Count",
         "href": "AIP/quality-rules/1039022",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1111,7 +1141,7 @@
         "name": "Avoid using unsecured cookie (JEE)",
         "href": "AIP/quality-rules/1039024",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1121,7 +1151,17 @@
         "name": "Avoid creating cookie without setting httpOnly option (JEE)",
         "href": "AIP/quality-rules/1039026",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039028,
+        "name": "Avoid weak encryption providing not sufficient key size (JEE)",
+        "href": "AIP/quality-rules/1039028",
+        "critical": true,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1161,7 +1201,17 @@
         "name": "Always implement readObject() to prevent untrusted deserialization when loading from ObjectInputStream",
         "href": "AIP/quality-rules/1039062",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039064,
+        "name": "Avoid having cookie with an overly broad domain (JEE)",
+        "href": "AIP/quality-rules/1039064",
+        "critical": true,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1201,7 +1251,7 @@
         "name": "Ensure httpOnly option is enabled when creating session (JEE)",
         "href": "AIP/quality-rules/1039096",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1211,7 +1261,37 @@
         "name": "Ensure secure option is enabled when creating session (JEE)",
         "href": "AIP/quality-rules/1039098",
         "critical": true,
-        "weight": 8,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039104,
+        "name": "Avoid creation of temporary file with insecure permissions (JEE)",
+        "href": "AIP/quality-rules/1039104",
+        "critical": true,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -1646,7 +1726,7 @@
     },
     {
         "id": 1104008,
-        "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' (S4/HANA)",
+        "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' or '#NOT_ALLOWED' (S4/HANA)",
         "href": "AIP/quality-rules/1104008",
         "critical": false,
         "weight": 7,

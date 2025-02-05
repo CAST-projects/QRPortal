@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1520220",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.siebel",
         "href": "AIP/extensions/com.castsoftware.siebel"
@@ -34,6 +34,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067171,
+            "name": "CWE-1071 - Empty Code Block",
+            "href": "AIP/technical-criteria/1067171",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61031,
             "name": "Complexity - Empty Code",

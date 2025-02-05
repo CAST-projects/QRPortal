@@ -1,0 +1,120 @@
+{
+    "id": 8578,
+    "name": "Avoid using MODIFY without Authorization Check",
+    "href": "AIP/quality-rules/8578",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "where direct table modification is performed without validating user permissions.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Direct table modification without authorization exposes critical data to tampering.",
+    "reference": "https://cwe.mitre.org/data/definitions/862.html\nhttps://www.sapsecuritypages.com/authority-check/",
+    "remediation": "Validate user permissions using the 'S_TABU_DIS' or 'S_TABU_NAM' authorization objects before modification",
+    "remediationSample": "AUTHORITY-CHECK OBJECT 'S_TABU_DIS'\n   ID 'DICBERCLS' FIELD z_sensitive_table-cclas.\nIF sy-subrc = 0.\n   MODIFY z_sensitive_table FROM ls_data.\nELSE.\n   MESSAGE 'Unauthorized table modification' TYPE 'E'.\nENDIF.",
+    "sample": "MODIFY z_sensitive_table FROM ls_data.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using MODIFY without Authorization Check",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-862",
+            "name": "Missing Authorization",
+            "href": "AIP/quality-standards/CWE/items/CWE-862",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A5-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A7-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222425",
+            "name": "The application must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222425",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

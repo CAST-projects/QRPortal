@@ -1,0 +1,96 @@
+{
+    "id": 1039108,
+    "name": "Avoid leaving temporary files in directory (JEE)",
+    "href": "AIP/quality-rules/1039108",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules reports calls to createTempFile() without a matching call to delete() or deleteOnExit().",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Too many temporary files can consume valuable storage space or overflow the number of temporary files because directories typically have limits on the number of files allowed.\nThis could create a denial of service problem.\nAlso, temporary files can be the source of sensitive information leakage.",
+    "reference": "CWE-459: Incomplete Cleanup\nhttps://cwe.mitre.org/data/definitions/459.html",
+    "remediation": "Delete temporary files once you no longer need them.",
+    "remediationSample": "Path tempFile = null;\ntry {\n    // Create a temporary file\n    tempFile = Files.createTempFile(\"example\", \".tmp\");\n\n    // Perform operations on the temporary file\n    System.out.println(\"Performing operations on the temporary file: \" + tempFile.toAbsolutePath());\n\n} catch (Exception e) {\n    \n} finally {\n    // Explicitly delete the temporary file\n    if (tempFile != null) {\n        try {\n            Files.delete(tempFile);    // FIXED\n            System.out.println(\"Temporary file deleted successfully.\");\n        } catch (IOException e) {\n            System.err.println(\"Failed to delete the temporary file: \" + e.getMessage());\n            e.printStackTrace();\n        }\n    }\n}",
+    "sample": "Path tempFile = null;\ntry {\n    // Create a temporary file\n    tempFile = Files.createTempFile(\"example\", \".tmp\");   // VIOLATION\n\n    // Perform operations on the temporary file\n    System.out.println(\"Performing operations on the temporary file: \" + tempFile.toAbsolutePath());\n\n} catch (Exception e) {\n    \n}",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure deleting temporary files",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066559,
+            "name": "CWE-459 - Incomplete Cleanup",
+            "href": "AIP/technical-criteria/1066559",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "href": "AIP/technical-criteria/66065",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-459",
+            "name": "Incomplete Cleanup",
+            "href": "AIP/quality-standards/CWE/items/CWE-459",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-459",
+            "name": "Incomplete Cleanup",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-459",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-459",
+            "name": "Incomplete Cleanup",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-459",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

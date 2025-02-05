@@ -107,6 +107,7 @@ section.paper {
   box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
   border-radius: 2px;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  min-width: 600px;
 }
 
 .sl {
@@ -689,4 +690,14 @@ div.logo>div>img {
 
 .sev-crit {
   background-color: #e50202;
+}
+
+@media screen and (max-width: 1300px) {
+  main {
+    width: 100%;
+    padding: 0;
+  }
+  section {
+    width: 100%;
+  }
 }

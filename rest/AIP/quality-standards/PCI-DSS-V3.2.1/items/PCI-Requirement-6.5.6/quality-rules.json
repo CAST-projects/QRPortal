@@ -133,7 +133,7 @@
     },
     {
         "id": 7636,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -244,6 +244,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 8578,
+        "name": "Avoid using MODIFY without Authorization Check",
+        "href": "AIP/quality-rules/8578",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {
@@ -446,8 +456,8 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]

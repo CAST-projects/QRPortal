@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1522000",
     "critical": false,
     "severity": 10,
-    "maxWeight": 4,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.siebel",
         "href": "AIP/extensions/com.castsoftware.siebel"
@@ -33,6 +33,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067153,
+            "name": "CWE-1053 - Missing Documentation for Design",
+            "href": "AIP/technical-criteria/1067153",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61028,
             "name": "Documentation - Volume of Comments",

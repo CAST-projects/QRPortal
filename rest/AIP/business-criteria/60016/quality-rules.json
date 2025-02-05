@@ -1208,7 +1208,7 @@
     },
     {
         "id": 7492,
-        "name": "Avoid Hibernate and JPA Entities using many-to-many association.",
+        "name": "DEPRECATED: Avoid Hibernate and JPA Entities using many-to-many association.",
         "href": "AIP/quality-rules/7492",
         "critical": false,
         "severity": 10,
@@ -1248,7 +1248,7 @@
     },
     {
         "id": 7508,
-        "name": "Getter of collection-typed persistent attributes should return the correct interface type",
+        "name": "DEPRECATED: Getter of collection-typed persistent attributes should return the correct interface type",
         "href": "AIP/quality-rules/7508",
         "critical": false,
         "severity": 10,
@@ -1378,7 +1378,7 @@
     },
     {
         "id": 7636,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -1438,7 +1438,7 @@
     },
     {
         "id": 7654,
-        "name": "Avoid database tables associated to more than one Hibernate Entity",
+        "name": "DEPRECATED: Avoid database tables associated to more than one Hibernate Entity",
         "href": "AIP/quality-rules/7654",
         "critical": false,
         "severity": 10,
@@ -1518,7 +1518,7 @@
     },
     {
         "id": 7706,
-        "name": "Avoid table and column names that are too long (portability)",
+        "name": "DEPRECATED: Avoid table and column names that are too long (portability)",
         "href": "AIP/quality-rules/7706",
         "critical": false,
         "severity": 10,
@@ -1528,7 +1528,7 @@
     },
     {
         "id": 7708,
-        "name": "Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
+        "name": "DEPRECATED: Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
         "href": "AIP/quality-rules/7708",
         "critical": false,
         "severity": 10,
@@ -1538,7 +1538,7 @@
     },
     {
         "id": 7710,
-        "name": "Avoid non serializable Entity beans",
+        "name": "DEPRECATED: Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/7710",
         "critical": false,
         "severity": 10,
@@ -1548,7 +1548,7 @@
     },
     {
         "id": 7712,
-        "name": "Avoid public/protected setter for the generated identifier field",
+        "name": "DEPRECATED: Avoid public/protected setter for the generated identifier field",
         "href": "AIP/quality-rules/7712",
         "critical": false,
         "severity": 10,
@@ -2533,7 +2533,7 @@
     },
     {
         "id": 8102,
-        "name": "Avoid hardcoded network resource names (JEE)",
+        "name": "Avoid hard-coded network resource names (JEE)",
         "href": "AIP/quality-rules/8102",
         "critical": true,
         "severity": 20,
@@ -3605,12 +3605,92 @@
     },
     {
         "id": 8566,
-        "name": "Avoid cyclic references in the definition of CDS views (S4/HAHA)",
+        "name": "Avoid cyclic references in the definition of CDS views (S4/HANA)",
         "href": "AIP/quality-rules/8566",
         "critical": false,
         "severity": 10,
         "technologyNames": [
             "SAP SQL"
+        ]
+    },
+    {
+        "id": 8570,
+        "name": "Avoid Calling RFC Function Module without Authorization Check",
+        "href": "AIP/quality-rules/8570",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8572,
+        "name": "Avoid using SUBMIT statement with another user permission",
+        "href": "AIP/quality-rules/8572",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8574,
+        "name": "Avoid using statement CALL TRANSACTION through variable P_TCODE",
+        "href": "AIP/quality-rules/8574",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8576,
+        "name": "Avoid using OPEN DATASET without Authorization Check",
+        "href": "AIP/quality-rules/8576",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8578,
+        "name": "Avoid using MODIFY without Authorization Check",
+        "href": "AIP/quality-rules/8578",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8580,
+        "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+        "href": "AIP/quality-rules/8580",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8582,
+        "name": "Avoid Dynamic Function/Method call without Authorization Check",
+        "href": "AIP/quality-rules/8582",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8584,
+        "name": "Prefer using OPEN DATASET statement with file Path instead of file name",
+        "href": "AIP/quality-rules/8584",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {
@@ -5817,6 +5897,16 @@
         "id": 1020108,
         "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
         "href": "AIP/quality-rules/1020108",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020110,
+        "name": "Avoid cross-site scripting within events such as onclick, onmouseover ... events (Razor)",
+        "href": "AIP/quality-rules/1020110",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -9328,8 +9418,8 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -9468,6 +9558,57 @@
         "id": 1039098,
         "name": "Ensure secure option is enabled when creating session (JEE)",
         "href": "AIP/quality-rules/1039098",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039104,
+        "name": "Avoid creation of temporary file with insecure permissions (JEE)",
+        "href": "AIP/quality-rules/1039104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039106,
+        "name": "Avoid disabling the automatic HTML escaping for Spring",
+        "href": "AIP/quality-rules/1039106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5",
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -11467,7 +11608,7 @@
     },
     {
         "id": 1104008,
-        "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' (S4/HANA)",
+        "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' or '#NOT_ALLOWED' (S4/HANA)",
         "href": "AIP/quality-rules/1104008",
         "critical": false,
         "severity": 10,

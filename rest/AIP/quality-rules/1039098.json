@@ -4,19 +4,19 @@
     "href": "AIP/quality-rules/1039098",
     "critical": true,
     "severity": 20,
-    "maxWeight": 8,
+    "maxWeight": 7,
     "extension": {
         "name": "com.castsoftware.jeerules",
         "href": "AIP/extensions/com.castsoftware.jeerules"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This rule checks all the calls to HttpServlet.getSession() without enabling secure option.",
+    "description": "This rule checks all the calls to HttpServletRequest.getSession() without enabling secure option.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
-    "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens.\nThis is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie.\nThe Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.",
-    "reference": "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute\nhttps://cwe.mitre.org/data/definitions/614.html\n\nOWASP Top Ten 2017 - A3:2017-Sensitive Data Exposure\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\n\nOWASP Top Ten 2013 - A6:2013-Sensitive Data Exposure\nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure\n\nSession Management Cheat Sheet - Session Management Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#secure-attribute",
-    "remediation": "In web.xml configuration file, set option secure to true for session cookie.",
-    "remediationSample": "# web.xml configuration file with secure option for the session cookie\n\n<session-config>\n    <cookie-config>\n        <http-only>true</http-only>\n        <secure>true</secure>             // FIXED\n    </cookie-config>\n</session-config>\n\n# AND creating a session in the source code\n\nHttpSession session = request.getSession();",
-    "sample": "# web.xml configuration file without secure option for the session cookie\n\n<session-config>\n    <cookie-config>\n        <http-only>true</http-only>\n        <!--secure>true</secure-->\n    </cookie-config>\n</session-config>\n\n# AND creating a session in the source code\n\nHttpSession session = request.getSession();   // VIOLATION",
+    "rationale": "The purpose of the secure attribute is to prevent cookies from being observed by unauthorized parties due to the transmission of the cookie in clear text. By setting the secure attribute, the browser will prevent the transmission of a cookie over an unencrypted channel.",
+    "reference": "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute\nhttps://cwe.mitre.org/data/definitions/614.html \n\nOWASP Top Ten 2017 - A3:2017-Sensitive Data Exposure\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\n\nOWASP Top Ten 2013 - A6:2013-Sensitive Data Exposure\nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure\n\nSession Management Cheat Sheet - Session Management Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#secure-attribute",
+    "remediation": "Set option secure to true for session cookie.",
+    "remediationSample": "# Set Secure in the source code\n\nSessionCookieConfig sessionCookieConfig = getServletContext().getSessionCookieConfig();\nsessionCookieConfig.setHttpOnly(true);\nsessionCookieConfig.setSecure(true);    // FIXED\nsessionCookieConfig.setAttribute(\"SameSite\", \"Strict\");\nHttpSession session = request.getSession();\n\n# OR set Secure in the web.xml configuration file\n\n<session-config>\n    <cookie-config>\n        <http-only>true</http-only>\n        <secure>true</secure>           // FIXED      \n    </cookie-config>\n</session-config>",
+    "sample": "SessionCookieConfig sessionCookieConfig = getServletContext().getSessionCookieConfig();\nsessionCookieConfig.setHttpOnly(true);\n// Missing call to sessionCookieConfig.setSecure(true);\nsessionCookieConfig.setAttribute(\"SameSite\", \"Strict\");\nHttpSession session = request.getSession();   // VIOLATION",
     "total": "Number of Java artifacts",
     "alternativeName": "Avoid disabling secure option in configuration file",
     "businessCriteria": [
@@ -32,6 +32,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066714,
+            "name": "CWE-614 - Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
+            "href": "AIP/technical-criteria/1066714",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062306,
             "name": "OWASP-2013-A6 - Sensitive Data Exposure",
@@ -71,7 +78,7 @@
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",
             "href": "AIP/technical-criteria/66064",
-            "weight": 8,
+            "weight": 7,
             "critical": true
         }
     ],

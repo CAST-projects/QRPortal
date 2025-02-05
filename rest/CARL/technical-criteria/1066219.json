@@ -2,7 +2,7 @@
     "id": 1066219,
     "name": "CWE-119 - Improper Restriction of Operations within the Bounds of a Memory Buffer",
     "href": "CARL/technical-criteria/1066219",
-    "description": "The software performs operations on a memory buffer, but it can read from or write to a memory location that is outside of the intended boundary of the buffer.",
+    "description": "The product performs operations on a memory buffer, but it reads from or writes to a memory location outside the buffer's intended boundary. This may result in read or write operations on unexpected memory locations that could be linked to other variables, data structures, or internal program data.",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/technical-criteria/1066219/quality-rules"

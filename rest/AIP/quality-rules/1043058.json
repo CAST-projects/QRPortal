@@ -33,6 +33,13 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1066213,
+            "name": "CWE-113 - Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
+            "href": "AIP/technical-criteria/1066213",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1062305,
             "name": "OWASP-2013-A5 - Security Misconfiguration",
             "href": "AIP/technical-criteria/1062305",
@@ -104,7 +111,7 @@
     "qualityStandards": [
         {
             "id": "CWE-113",
-            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Response Splitting')",
+            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
             "href": "AIP/quality-standards/CWE/items/CWE-113",
             "standard": "CWE"
         },

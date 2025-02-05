@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/7252",
     "critical": false,
     "severity": 10,
-    "maxWeight": 4,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.jee",
         "href": "AIP/extensions/com.castsoftware.jee"
@@ -41,6 +41,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066668,
+            "name": "CWE-568 - finalize() Method Without super.finalize()",
+            "href": "AIP/technical-criteria/1066668",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61018,
             "name": "Efficiency - Memory, Network and Disk Space Management",

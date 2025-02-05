@@ -1,9 +1,9 @@
 {
     "id": "CWE-444",
-    "name": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling')",
+    "name": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')",
     "href": "AIP/quality-standards/CWE/items/CWE-444",
     "url": "https://cwe.mitre.org/data/definitions/444.html",
-    "description": "When malformed or abnormal HTTP requests are interpreted by one or more entities in the data flow between the user and the web server, such as a proxy or firewall, they can be interpreted inconsistently, allowing the attacker to smuggle a request to one device without the other device being aware of it.",
+    "description": "The product acts as an intermediary HTTP agent (such as a proxy or firewall) in the data flow between two entities such as a client and server, but it does not interpret malformed HTTP requests or responses in ways that are consistent with how the messages will be processed by those entities that are at the ultimate destination.",
     "isoPatterns": null,
     "count": 0,
     "qualityRules": null,
