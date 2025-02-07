@@ -126,8 +126,7 @@ class QualityRulesController extends Controller {
       const { query, searchBy } = req.searchParams;
 
       try {
-        let results = searchIndex.search(query, searchBy);
-        if (results.length === 0) results = searchIndex.looseSearch(query, searchBy);
+        const results = searchIndex.wideSearch(query, searchBy);
         const ids = results.map(_ => _.ref);
         const qualityRules = await dataReader.listQualityRuleReferences(ids);
         const model = { name: "quality rules search", href: "/quality-rules", qualityRules };
