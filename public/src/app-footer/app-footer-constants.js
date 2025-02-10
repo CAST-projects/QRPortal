@@ -8,7 +8,8 @@ export const CLASSES = {
   api: 'qrp_xplapi',
   copyRight: 'qrp_lp_flt_cpr',
   floatingFooter: 'qrp_lp_flt_foot',
-  links: 'qrp_lp_flt_lnkx'
+  links: 'qrp_lp_flt_lnkx',
+  logoAnchor: 'qrp_lplogo_ancr'
 };
 
 export const CONTACTUS = 'https://help.castsoftware.com/hc/en-us';

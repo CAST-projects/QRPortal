@@ -4,8 +4,8 @@ import { COMMON_CLASSES, createClassName, setLocalStorage, readLocalStorage } fr
 import About from 'about/';
 import './style.css';
 
-export default class AppFooter extends React.PureComponent{
-  constructor(props){
+export default class AppFooter extends React.PureComponent {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -17,9 +17,9 @@ export default class AppFooter extends React.PureComponent{
     this.toggleOverlay = this.toggleOverlay.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch('/about')
-      .then( res => res.json())
+      .then(res => res.json())
       .then(data => {
         const lastViewedVersion = readLocalStorage(versionKey);
         setLocalStorage(versionKey, data.version);
@@ -29,14 +29,15 @@ export default class AppFooter extends React.PureComponent{
           loading: false,
           info: data,
           infoVisible: false,
-          licenseVisible: false });
+          licenseVisible: false
+        });
       })
-      .catch( () => {
+      .catch(() => {
         setLocalStorage(versionKey, undefined);
       });
   }
 
-  toggleNewsLicense(){
+  toggleNewsLicense() {
     this.setState(_state => {
       return {
         ..._state,
@@ -45,7 +46,7 @@ export default class AppFooter extends React.PureComponent{
     });
   }
 
-  toggleOverlay(){
+  toggleOverlay() {
     return this.setState(_state => {
       return {
         MAILTO: _state.MAILTO,
@@ -73,7 +74,7 @@ export default class AppFooter extends React.PureComponent{
           </div>
           <div className={CLASSES.copyRight}>{COPY_RIGHT}</div>
           <div className={CLASSES.logoContainer}>
-            <a href={CASTSOFTWARE}><div className={CLASSES.castLogo}></div></a>
+            <a href={CASTSOFTWARE} className={CLASSES.logoAnchor}><div className={CLASSES.castLogo}></div></a>
           </div>
         </div>
         {this.state.loading ?
@@ -86,7 +87,7 @@ export default class AppFooter extends React.PureComponent{
             isVisible={this.state.infoVisible}
             news={info.news}
             showLicense={this.state.licenseVisible}
-            onLicenceClick={this.toggleNewsLicense.bind(this)}/>}
+            onLicenceClick={this.toggleNewsLicense.bind(this)} />}
       </React.Fragment>
     );
   }
