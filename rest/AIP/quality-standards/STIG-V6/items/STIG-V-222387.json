@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222387",
+    "name": "The application must provide a capability to limit the number of logon sessions per user.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222387",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222387",
+    "description": "Application management includes the ability to control the number of users and user sessions that utilize an application. Limiting the number of allowed users and sessions per user is helpful in limiting risks related to DoS attacks.\n\nThis requirement may be met via the application or by utilizing information system session control provided by a web server or other underlying solution that provides specialized session management capabilities.\n\nIf it has been specified that this requirement will be handled by the application, the capability to limit the maximum number of concurrent single user sessions must be designed and built into the application.\n\nThis requirement addresses concurrent sessions for individual system accounts and does not address concurrent sessions by single users via multiple system accounts.\n\nThe maximum number of concurrent sessions should be defined based upon mission needs and the operational environment for each system.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

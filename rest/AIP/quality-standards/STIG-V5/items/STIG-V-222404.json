@@ -2,7 +2,7 @@
     "id": "STIG-V-222404",
     "name": "The application must use both the NotBefore and NotOnOrAfter elements or OneTimeUse element when using the Conditions element in a SAML assertion.",
     "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222404",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222404",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222404",
     "description": "SAML is a standard for exchanging authentication and authorization data between security domains.  SAML uses security tokens containing assertions to pass information about a principal (usually an end user) between a SAML authority, (identity provider), and a SAML consumer, (service provider).  SAML assertions are usually made about a subject, (user) represented by the <Subject> element.\n\nWhen a SAML assertion is used with a <Conditions> element, a begin and end time for the <Conditions> element should be set in order to specify a timeframe in which the assertion is valid. Not setting a specific time period for the <Conditions> element, the possibility exists of granting immediate access or elevated privileges to an attacker which results in an immediate loss of confidentiality.",
     "isoPatterns": null,
     "count": 0,

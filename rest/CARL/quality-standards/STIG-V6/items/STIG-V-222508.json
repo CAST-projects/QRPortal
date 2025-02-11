@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222508",
+    "name": "Application audit tools must be cryptographically hashed.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222508",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222508",
+    "description": "Protecting the integrity of the tools used for auditing purposes is a critical step to ensuring the integrity of audit data. Audit data includes all information (e.g., audit records, audit settings, and audit reports) needed to successfully audit information system activity.\n\nAudit tools include, but are not limited to, vendor provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.\n\nIt is not uncommon for attackers to replace the audit tools or inject code into the existing tools with the purpose of providing the capability to hide or erase system activity from the audit logs.\n\nTo address this risk, audit tools must be cryptographically signed/hashed and the resulting value securely stored in order to provide the capability to identify when the audit tools have been modified, manipulated or replaced.\n\nSome OSs provide a native command line tool capable of extracting or creating a hash value. Care must be taken to ensure any hashing algorithm strength used is acceptable.  An example is UNIX OS variants that provide the \"shasum\" utility with SHA256 capabilities.  Windows is not known to provide a native cryptographic tool that utilizes an acceptable hashing algorithm.  The Windows fciv.exe checksum tool currently only utilizes MD5 and SHA1 which are not acceptable hashing algorithms.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

@@ -2,7 +2,7 @@
     "id": "STIG-V-222607",
     "name": "The application must not be vulnerable to SQL Injection.",
     "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222607",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222607",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222607",
     "description": "SQL Injection is a code injection attack against database applications. Malicious SQL statements are inserted into an application data entry field where they are submitted to the database and executed. This is a direct result of not validating input that is used by the application to perform a command or execute an action.\n\nSuccessful attacks can read data, write data, execute administrative functions within the database, shutdown the DBMS, and in some cases execute OS commands.\n\nBest practices to reduce the potential for SQL Injection vulnerabilities include:\n\nNot using concatenation or replacement to build SQL queries.\n\nUsing prepared statements with parameterized queries that have been tested and validated not to be vulnerable to SQL Injection.\n\nUsing stored procedures that have been tested and validated not to be vulnerable to SQL Injection.\n\nEscaping all user supplied input.\n\nAdditional steps to prevent SQL Injection can be found at the OWASP website:\n\nhttps://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet",
     "isoPatterns": null,
     "count": 17,

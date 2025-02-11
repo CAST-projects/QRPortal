@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222409",
+    "name": "The application must automatically remove or disable temporary user accounts 72 hours after account creation.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222409",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222409",
+    "description": "If temporary user accounts remain active when no longer needed or for an excessive period, these accounts may be used to gain unauthorized access. To mitigate this risk, automated termination of all temporary accounts must be set upon account creation.\n\nTemporary accounts are established as part of normal account activation procedures when there is a need for short-term accounts without the demand for immediacy in account activation.\n\nIf temporary accounts are used, the application must be configured to automatically terminate these types of accounts after a DoD-defined time period of 72 hours starting from the point of account creation.\n\nTo address access requirements, many application developers choose to integrate their applications with enterprise-level authentication/access mechanisms meeting or exceeding access control policy requirements. Such integration allows the application developer to off-load those access control functions and focus on core application features and functionality.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

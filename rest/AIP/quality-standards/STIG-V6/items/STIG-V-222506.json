@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222506",
+    "name": "The application must back up audit records at least every seven days onto a different system or system component than the system or component being audited.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222506",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222506",
+    "description": "Protection of log data includes assuring log data is not accidentally lost or deleted. Backing up audit records to a different system or onto separate media than the system being audited on an organizationally defined frequency helps to assure in the event of a catastrophic system failure, the audit records will be retained.\n\nThis helps to ensure a compromise of the information system being audited does not also result in a compromise of the audit records.\n\nThis requirement only applies to applications that have a native backup capability for audit records. Operating system backup requirements cover applications that do not provide native backup functions.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

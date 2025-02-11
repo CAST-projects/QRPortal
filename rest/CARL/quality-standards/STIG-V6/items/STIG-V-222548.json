@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222548",
+    "name": "The application password must not be changeable by users other than the administrator or the user with which the password is associated.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222548",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222548",
+    "description": "If the application allows user A to change user B's password,  user B can be locked out of the application, and user A is provided the ability to grant themselves access to the application as user B.  This violates application integrity and availability principles.\n\nMany applications provide a password reset capability that allows the user to reset their password if they forget it.\n\nProtections must be utilized when establishing a password change or reset capability to prevent user A from changing user B's password.\n\nProtection is usually accomplished by having each user provide an out of bounds (OOB) communication address such as a separate email address or SMS/text address (mobile phone) that can be used to transmit password reset/change information.\n\nThis  OOB information is usually provided by the user when the user account is created.   The OOB information is validated as part of the user account creation process by sending an account validation request to the OOB address and having the user respond to the request.\n\nApplications must prevent users other than the administrator or the user associated with the account from changing the account password.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

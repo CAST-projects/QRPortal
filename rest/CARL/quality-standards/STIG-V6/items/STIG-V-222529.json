@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222529",
+    "name": "The application must ensure users are authenticated with an individual authenticator prior to using a group authenticator.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222529",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222529",
+    "description": "To ensure individual accountability and prevent unauthorized access, application users must be individually identified and authenticated. Individual accountability mandates that each user is uniquely identified.\n\nA group authenticator is a shared account or some other form of authentication that allows multiple unique individuals to access the application using a single account.\n\nIf an application allows or provides for group authenticators, it must first individually authenticate users prior to implementing group authenticator functionality.\n\nSome applications may not have the need to provide a group authenticator; this is considered a matter of application design. In those instances where the application design includes the use of a group authenticator, this requirement will apply.\n\nThere may also be instances when specific user actions need to be performed on the information system without unique user identification or authentication. An example of this type of access is a web server which contains publicly releasable information.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

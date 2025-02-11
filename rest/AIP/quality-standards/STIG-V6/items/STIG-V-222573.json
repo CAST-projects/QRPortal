@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222573",
+    "name": "Applications making SAML assertions must use FIPS-approved random numbers in the generation of SessionIndex in the SAML element AuthnStatement.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222573",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222573",
+    "description": "A predictable SessionIndex could lead to an attacker computing a future SessionIndex, thereby, possibly compromising the application.\n\nUse of weak or untested encryption algorithms undermines the purposes of utilizing encryption to protect data. The application must implement cryptographic modules adhering to the higher standards approved by the federal government since this provides assurance they have been tested and validated.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

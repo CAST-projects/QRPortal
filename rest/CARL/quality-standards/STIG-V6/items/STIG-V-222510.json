@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222510",
+    "name": "The application must prohibit user installation of software without explicit privileged status.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222510",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222510",
+    "description": "Allowing regular users to install software without explicit privileges creates the risk that untested or potentially malicious software will be installed on the system. Explicit privileges (escalated or administrative privileges) provide the regular user with explicit capabilities and control that exceeds the rights of a regular user.\n\nApplication functionality will vary, and while users are not permitted to install unapproved applications, there may be instances where the organization allows the user to install approved software packages such as from an approved software repository.\n\nThe application must enforce software installation by users based upon what types of software installations are permitted (e.g., updates and security patches to existing software) and what types of installations are prohibited (e.g., software whose pedigree with regard to being potentially malicious is unknown or suspect) by the organization.\n\nFor example, this requirement applies to applications that provide the ability to extend application functionality (e.g., plug-ins, add-ons) and software management applications.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

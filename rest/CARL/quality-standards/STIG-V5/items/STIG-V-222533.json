@@ -2,7 +2,7 @@
     "id": "STIG-V-222533",
     "name": "The application must authenticate all network connected endpoint devices before establishing any connection.",
     "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222533",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222533",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222533",
     "description": "Without authenticating devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.\n\nFor distributed architectures (e.g., service-oriented architectures), the decisions regarding the validation of authentication claims may be made by services separate from the services acting on those decisions.\n\nIn such situations, it is necessary to provide authentication decisions (as opposed to the actual authenticators) to the services that need to act on those decisions.\n\nThis requirement applies to applications that connect either locally, remotely, or through a network to an endpoint device (including but not limited to: workstations, printers, servers (outside a datacenter), VoIP Phones, VTC CODECs).\n\nGateways and SOA applications are examples of where this requirement would apply.\n\nEnd point devices are not:\nClient desktop workstations only offer browser-based web application access where the user authenticates at the app layer.\n\nDevice authentication is a solution enabling an organization to manage devices. It is an additional layer of authentication ensuring only specific pre-authorized devices can access the system.",
     "isoPatterns": null,
     "count": 0,

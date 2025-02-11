@@ -2,7 +2,7 @@
     "id": "STIG-V-222551",
     "name": "The application, when using PKI-based authentication, must enforce authorized access to the corresponding private key.",
     "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222551",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222551",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222551",
     "description": "If the private key is discovered, an attacker can use the key to authenticate as an authorized user and gain access to the network infrastructure.\n\nThe cornerstone of the PKI is the private key used to encrypt or digitally sign information.\n\nIf the private key is stolen, this will lead to the compromise of the authentication and non-repudiation gained through PKI because the attacker can use the private key to digitally sign documents and pretend to be the authorized user.\n\nBoth the holders of a digital certificate and the issuing authority must protect the computers, storage devices, or whatever they use to keep the private keys.",
     "isoPatterns": null,
     "count": 0,

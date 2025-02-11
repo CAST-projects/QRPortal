@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222591",
+    "name": "The application must maintain a separate execution domain for each executing process.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222591",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222591",
+    "description": "Applications can maintain separate execution domains for each executing process by assigning each process a separate address space. Each process has a distinct address space so that communication between processes is performed in a manner controlled through the security functions, and one process cannot modify the executing code of another process. Maintaining separate execution domains for executing processes can be achieved, for example, by implementing separate address spaces.\n\nAn example is a web browser with process isolation that provides tabs that are separate processes using separate address spaces to prevent one tab crashing the entire browser.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

@@ -2,7 +2,7 @@
     "id": "STIG-V-222475",
     "name": "When using centralized logging; the application must include a unique identifier in order to distinguish itself from other application logs.",
     "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222475",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222475",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222475",
     "description": "Without establishing the source, it is impossible to establish, correlate, and investigate the events leading up to an outage or attack.\n\nIn the case of centralized logging, or other instances where log files are consolidated, there is risk that the application's log data could be co-mingled with other log data.  To address this issue, the application itself must be identified as well as the application host or client name. \n\nIn order to compile an accurate risk assessment, and provide forensic analysis, it is essential for security personnel to know the source of the event, particularly in the case of centralized logging.\n\nAssociating information about the source of the event within the application provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured application.",
     "isoPatterns": null,
     "count": 0,
