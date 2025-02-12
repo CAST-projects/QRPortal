@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-265634",
+    "name": "The application must implement NSA-approved cryptography to protect classified information in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and stan...",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-265634",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-265634",
+    "description": "Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to protect classified data. The application must implement cryptographic modules adhering to the higher standards approved by the federal government since this provides assurance they have been tested and validated.\n \nAdvanced Encryption Standard (AES)\nSymmetric block cipher used for information protection\nFIPS Pub 197\nUse 256 bit keys to protect up to TOP SECRET\n\nElliptic Curve Diffie-Hellman (ECDH) Key Exchange\nAsymmetric algorithm used for key establishment\nNIST SP 800-56A\nUse Curve P-384 to protect up to TOP SECRET.\n\nElliptic Curve Digital Signature Algorithm (ECDSA)\nAsymmetric algorithm used for digital signatures\nFIPS Pub 186-4\nUse Curve P-384 to protect up to TOP SECRET.\n\nSecure Hash Algorithm (SHA)\nAlgorithm used for computing a condensed representation of information\nFIPS Pub 180-4\n\nUse SHA-384 to protect up to TOP SECRET.\n \nDiffie-Hellman (DH) Key Exchange\nAsymmetric algorithm used for key establishment\nIETF RFC 3526 \nMinimum 3072-bit modulus to protect up to TOP SECRET\n\nRSA\nAsymmetric algorithm used for key establishment\nNIST SP 800-56B rev 1\nMinimum 3072-bit modulus to protect up to TOP SECRET\n\nRSA \nAsymmetric algorithm used for digital signatures\nFIPS PUB 186-4\nMinimum 3072 bit-modulus to protect up to TOP SECRET.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

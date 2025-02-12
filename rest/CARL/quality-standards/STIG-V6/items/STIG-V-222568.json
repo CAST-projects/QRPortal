@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222568",
+    "name": "The application must terminate all network connections associated with a communications session at the end of the session.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222568",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222568",
+    "description": "Networked applications routinely open connections to and from other systems as part of their design and function.  When connections are opened by the application, system resources are consumed.  Terminating the network connection at the end of the application session frees up these resources for later use and aids in maintaining system stability. \n\nTerminating network connections associated with communications sessions includes, for example, de-allocating associated TCP/IP address/port pairs at the operating system level, or de-allocating networking assignments at the application level if multiple application sessions are using a single, operating system level network connection. \n\nThis does not mean that the application terminates all sessions or network access; it only ends the inactive session and releases the resources associated with that session.\n\nMany applications rely on the underlying OS to control the network connection aspect of the application which is perfectly acceptable.\n\nAdditionally, application specific operational issues may occasionally be encountered which dictate exceptions be granted to this requirement in order to ensure continuity of operations and application availability.\n\nWhen the aforementioned type of situation occurs, the root cause of the issue as well as the mitigations implemented in order to prevent a loss of availability must be documented.   Common mitigation procedures include but are not limited to stopping and restarting application or system services in order to manually release system resources.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

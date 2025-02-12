@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222497",
+    "name": "The applications must use internal system clocks to generate time stamps for audit records.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222497",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222497",
+    "description": "Without an internal clock used as the reference for the time stored on each event to provide a trusted common reference for the time, forensic analysis would be impeded. Determining the correct time a particular event occurred on a system is critical when conducting forensic analysis and investigating system events.\n\nIf the internal clock is not used, the system may not be able to provide time stamps for log messages. Additionally, externally generated time stamps may not be accurate. Applications can use the capability of an operating system or purpose-built module for this purpose.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

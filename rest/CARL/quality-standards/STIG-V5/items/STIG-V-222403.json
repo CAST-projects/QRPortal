@@ -2,7 +2,7 @@
     "id": "STIG-V-222403",
     "name": "The application must use the NotOnOrAfter condition when using the SubjectConfirmation element in a SAML assertion.",
     "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222403",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222403",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222403",
     "description": "SAML is a standard for exchanging authentication and authorization data between security domains.  SAML uses security tokens containing assertions to pass information about a principal (usually an end user) between a SAML authority, (identity provider), and a SAML consumer, (service provider).  SAML assertions are usually made about a subject, (user) represented by the <Subject> element.\n\nWhen a SAML assertion is used with a <SubjectConfirmation> element, a begin and end time for the <SubjectConfirmation> should be set to prevent reuse of the message at a later time. Not setting a specific time period for the <SubjectConfirmation>, may grant immediate access to an attacker and result in an immediate loss of confidentiality.",
     "isoPatterns": null,
     "count": 0,

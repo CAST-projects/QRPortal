@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222666",
+    "name": "Production database exports must have database administration credentials and sensitive data removed before releasing the export.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222666",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222666",
+    "description": "Production database exports are often used to populate development databases. Test and development environments do not typically have the same rigid security protections that production environments do. When production data is used in test and development, the production database exports will need to be scrubbed to prevent information like passwords and other sensitive data from becoming available to development and test staff that may not have a need to know. Sensitive data should not be included in database exports because of classification, privacy, and other types of data protection requirement issues. Not all application developers have need-to-know sensitive information such as HIPAA data, Privacy Act Data, production admin passwords or classified data.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

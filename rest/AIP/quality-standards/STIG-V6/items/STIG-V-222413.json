@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222413",
+    "name": "The application must automatically audit account creation.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222413",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222413",
+    "description": "Once an attacker establishes initial access to a system, the attacker often attempts to create a persistent method of re-establishing access. One way to accomplish this is for the attacker to simply create a new account. Auditing of account creation is one method for mitigating this risk. A comprehensive account management process will ensure an audit trail documents the creation of application user accounts and, as required, notifies administrators and/or application owners exists. Such a process greatly reduces the risk that accounts will be surreptitiously created and provides logging that can be used for forensic purposes.\n\nTo address access requirements, many application developers choose to integrate their applications with enterprise-level authentication/access/auditing mechanisms meeting or exceeding access control policy requirements. Such integration allows the application developer to off-load those access control functions and focus on core application features and functionality.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

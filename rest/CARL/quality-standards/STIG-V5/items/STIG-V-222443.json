@@ -2,7 +2,7 @@
     "id": "STIG-V-222443",
     "name": "The application must provide audit record generation capability for the renewal of session IDs.",
     "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222443",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222443",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222443",
     "description": "Application design sometimes requires the renewal of session IDs in order to continue approved user access to the application.\n\nSession renewal is done on a case by case basis under circumstances defined by the application architecture. The following are some examples of when session renewal must be done; whenever there is a change in user privilege such as transitioning from a user to an admin role or when a user changes from an anonymous user to an authenticated user or when a user's permissions have changed.\n\nFor these types of critical application functionalities, the previous session ID needs to be destroyed or otherwise invalidated and a new session ID must be created.\n\nIt is important to log when session IDs are renewed for forensic purposes.\n\nWeb based applications will often utilize an application server that creates, manages and logs session IDs.  It is acceptable for the application to delegate this requirement to the application server.",
     "isoPatterns": null,
     "count": 0,

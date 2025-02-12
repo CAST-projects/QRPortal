@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222618",
+    "name": "Unsigned Category 1A mobile code must not be used in the application in accordance with DoD policy.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222618",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222618",
+    "description": "Use of un-trusted Level 1A mobile code technologies can introduce security vulnerabilities and malicious code into the client system.\n\n1A code is defined as:\n\n- ActiveX controls\n- Mobile code script (JavaScript, VBScript)\n- Windows Scripting Host (WSH) (downloaded via URL or email)\n\nWhen JavaScript and VBScript execute within the browser they are Category 3, however, when they execute in WSH, they are 1A.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

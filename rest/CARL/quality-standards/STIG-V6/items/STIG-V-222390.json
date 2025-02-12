@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222390",
+    "name": "The application must automatically terminate the admin user session and log off admin users after a 10 minute idle time period is exceeded.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222390",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222390",
+    "description": "Leaving an admin user's application session established for an indefinite period of time increases the risk of session hijacking.\n\nSession termination terminates an individual user's logical application session after 10 minutes of application inactivity at which time the user must re-authenticate and a new session must be established if the user desires to continue work in the application.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

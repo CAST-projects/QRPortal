@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222442",
+    "name": "The application must provide audit record generation capability for the destruction of session IDs.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222442",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222442",
+    "description": "Applications should destroy session IDs at the end of a user session in order to terminate user access to the application session and to reduce the possibility of an unauthorized attacker high jacking the session and impersonating the user. It is important to log when session IDs are destroyed for forensic purposes.\n\nWeb based applications will often utilize an application server that creates, manages and logs session IDs.  It is acceptable for the application to delegate this requirement to the application server.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

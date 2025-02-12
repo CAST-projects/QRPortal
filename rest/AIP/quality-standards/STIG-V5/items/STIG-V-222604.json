@@ -2,7 +2,7 @@
     "id": "STIG-V-222604",
     "name": "The application must protect from command injection.",
     "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222604",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222604",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222604",
     "description": "A command injection attack is an attack on a vulnerable application where improperly validated input is passed to a command shell setup in the application. The result is the ability of an attacker to execute OS commands via the application.\n\nA command injection allows an attacker to execute their own commands with the same privileges as the application executing.\n\nThe following is an example of a URL based command injection attack.\n\nBefore alteration:\nhttp://sitename/cgi-bin/userData.pl?doc=user1.txt\n\nExample URL modified: \nhttp://sitename/cgi-bin/userData.pl?doc=/bin/ls|\n\nThe result is the execution of the command \u201c/bin/ls\u201d which could allow the attacker to list contents of the directory via the browser.\n\nThe following is a list of functions vulnerable to command injection sorted according to language.  \n\nLanguage Functions/Characters\n- C/C++  - system(), popen(), execlp(), execvp(), ShellExecute(), ShellExecuteEx(), _wsystem()\n- Perl - system, exec, `,open, |, eval, /e\n- Python - exec, eval, os.system, os.popen, execfile, input, compile\n- Java - Class.forName(), Class.newInstance(), Runtime.exec()",
     "isoPatterns": null,
     "count": 72,

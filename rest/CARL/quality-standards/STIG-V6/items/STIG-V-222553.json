@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222553",
+    "name": "The application, for PKI-based authentication, must implement a local cache of revocation data to support path discovery and validation in case of the inability to access revocation information vi...",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222553",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222553",
+    "description": "A local cache of revocation data is also known as a CRL list. This list contains a list of revoked certificates and can be periodically downloaded to ensure certificates can still be checked for revocation when network access is not available or access to the Online Certificate Status Protocol (OCSP) server is not available.\n\nWithout configuring a local cache of revocation data, there is the potential to allow access to users who are no longer authorized (users with revoked certificates).",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}

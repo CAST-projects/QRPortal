@@ -1,0 +1,17 @@
+{
+    "id": "STIG-V-222578",
+    "name": "The application must destroy the session ID value and/or cookie on logoff or browser close.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222578",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222578",
+    "description": "Many web development frameworks such as PHP, .NET, and ASP include their own mechanisms for session management. Whenever possible it is recommended to utilize the provided session management framework.\n\nSession cookies contain application session information that can be used to impersonate the web application user or hijack their application session. Once the user's session has terminated, these session IDs must be destroyed and not reused.",
+    "isoPatterns": null,
+    "count": 2,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222578/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222578/quality-templates"
+    }
+}

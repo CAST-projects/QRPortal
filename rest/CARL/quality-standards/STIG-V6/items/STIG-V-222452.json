@@ -1,0 +1,10 @@
+{
+    "id": "STIG-V-222452",
+    "name": "The application must generate audit records when successful/unsuccessful attempts to access security levels occur.",
+    "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222452",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222452",
+    "description": "A security level denotes a permissions or authorization capability within the application. This is most often associated with a user role. Attempts to access a security level can occur when a user attempts an action such as escalating their privilege from within the application itself. Attempts to access a security level can be construed as an attempt to change your user role from within the application. \n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident, or identify those responsible for one. Audit records can be generated from various components within the information system (e.g., module or policy filter).",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null
+}
