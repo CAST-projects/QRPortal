@@ -14,49 +14,53 @@ const mapDispatchToProps = (dispatch) => {
   return {
     tileClick: (link, currentTitle) => {
       switch (currentTitle.toLowerCase()) {
-      case SECTIONS.technologies:
-        historyPushState();
-        dispatch(setListCount(1));
-        dispatch(showContentView());
-        dispatch(fetchApiData(link.href));
-        break;
-      case SECTIONS.standards:
-        dispatch(fetchNavigationData(link.name, link.href, link.icon ));
-        break;
-      case SECTIONS.cisq:
-      case SECTIONS.owasp:
-      case SECTIONS.cwe:
-      case SECTIONS.pci:
-      case SECTIONS.stig:
-      case SECTIONS.stigv5:
-      case SECTIONS.nist:
-      case SECTIONS.omg:
-      case SECTIONS.cpp:
-      case SECTIONS.iso:
-        historyPushState();
-        dispatch(setListCount(2));
-        dispatch(showContentView());
-        dispatch(clearListData());
-        dispatch(fetchStandardsListData(link.href));
-        break;
-      case SECTIONS.extensions:
-        fetch(link.href)
-          .then(res => res.json())
-          .then(data => {
-            historyPushState();
-            dispatch(setListCount(1));
-            dispatch(showContentView());
-            dispatch(fetchWebData(data[0].href));
-            dispatch(appendToHeaderPath(data));
-          });
-        break;
-      default:
-        historyPushState();
-        dispatch(clearStandardsListData());
-        dispatch(setListCount(1));
-        dispatch(showContentView());
-        dispatch(fetchWebData(link.href));
-        break;
+        case SECTIONS.technologies:
+          historyPushState();
+          dispatch(setListCount(1));
+          dispatch(showContentView());
+          dispatch(fetchApiData(link.href));
+          break;
+        case SECTIONS.standards:
+          dispatch(fetchNavigationData(link.name, link.href, link.icon));
+          break;
+        case SECTIONS.cisq:
+        case SECTIONS.owasp:
+        case SECTIONS.cwe:
+        case SECTIONS.pci:
+        case SECTIONS.pciv4:
+        case SECTIONS.stig:
+        case SECTIONS.stigv5:
+        case SECTIONS.stigv6:
+        case SECTIONS.nist:
+        case SECTIONS.nist53:
+        case SECTIONS.omg:
+        case SECTIONS.cpp:
+        case SECTIONS.iso:
+        case SECTIONS.aipStructuralFlaw:
+          historyPushState();
+          dispatch(setListCount(2));
+          dispatch(showContentView());
+          dispatch(clearListData());
+          dispatch(fetchStandardsListData(link.href));
+          break;
+        case SECTIONS.extensions:
+          fetch(link.href)
+            .then(res => res.json())
+            .then(data => {
+              historyPushState();
+              dispatch(setListCount(1));
+              dispatch(showContentView());
+              dispatch(fetchWebData(data[0].href));
+              dispatch(appendToHeaderPath(data));
+            });
+          break;
+        default:
+          historyPushState();
+          dispatch(clearStandardsListData());
+          dispatch(setListCount(1));
+          dispatch(showContentView());
+          dispatch(fetchWebData(link.href));
+          break;
       }
       dispatch(appendToHeaderPath(link));
       dispatch(clearDetailsData());
@@ -74,4 +78,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(BodyNavigation);
+export default connect(mapStateToProps, mapDispatchToProps)(BodyNavigation);
