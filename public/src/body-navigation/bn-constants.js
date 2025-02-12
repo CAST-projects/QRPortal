@@ -1,7 +1,7 @@
 export const ERROR_PREFIX = 'Error: Failed to get ';
 
 export const CLASSES = {
-  bodyContainer:'qrp_bn-container',
+  bodyContainer: 'qrp_bn-container',
   titleContainer: 'qrp_bnt-container',
   title: 'qrp_bnt',
   childContainer: 'qrp_bnch-container',
@@ -16,10 +16,14 @@ export const SECTIONS = {
   owasp: 'owasp',
   cast: 'cast',
   cwe: 'cwe',
+  aipStructuralFlaw: 'aip-structural-flaw',
   nist: 'nist-sp-800-53r4',
+  nist53: 'nist-sp-800-53',
   pci: 'pci-dss-v3.2.1',
+  pciv4: 'pci-dss-v4',
   stig: 'stig-v4r8',
   stigv5: 'stig-v5',
+  stigv6: 'stig-v6',
   omg: 'omg-ascqm',
   cpp: 'c-cpp',
   iso: 'iso-5055',
