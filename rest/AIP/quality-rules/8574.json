@@ -1,0 +1,61 @@
+{
+    "id": 8574,
+    "name": "Avoid using statement CALL TRANSACTION through variable P_TCODE",
+    "href": "AIP/quality-rules/8574",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This rule reports violations for all ABAP artifacts where a TRANSACTION is called through variable P_TCODE.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Dynamic Execution Risk: Using a variable like P_TCODE in a CALL TRANSACTION statement allows arbitrary transaction codes to be executed, which might bypass security checks.\nInjection Attack Risk: If P_TCODE is derived from user input or another unvalidated source, it could allow attackers to input a malicious transaction code.",
+    "reference": "https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-us/abapcall_transaction.htm\nhttps://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/c6c3ffd90792427a9fee1a19df5b0925/d1cf702a575146e6b5eefc44c5962d00.html",
+    "remediation": "Ensure the transaction code stored in P_TCODE is valid and authorized for the user executing it.",
+    "remediationSample": "Authorization Check: Before calling the transaction, check the user's authorization for that transaction.\n\nAUTHORITY-CHECK OBJECT 'S_TCODE' ID 'TCD' FIELD P_TCODE.\nIF sy-subrc = 0.\n  CALL TRANSACTION P_TCODE.\nELSE.\n  MESSAGE 'Unauthorized Transaction Code' TYPE 'E'.\nENDIF.",
+    "sample": "CALL TRANSACTION P_TCODE.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using statement CALL TRANSACTION through variable P_TCODE",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

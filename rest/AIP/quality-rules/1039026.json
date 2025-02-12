@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1039026",
     "critical": true,
     "severity": 20,
-    "maxWeight": 8,
+    "maxWeight": 7,
     "extension": {
         "name": "com.castsoftware.jeerules",
         "href": "AIP/extensions/com.castsoftware.jeerules"
@@ -12,11 +12,11 @@
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule raises a violation when a newly created JEE cookie has not the httpOnly attribute. The absence of the httpOnly attribute being set to true will be flagged at the point of cookie creation.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
-    "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens.\nThis is why all major browsers support the HttpOnly cookie property that prevents client-side scripts from accessing the cookie.\nWhen HttpOnly is not enabled, attackers may more easily access user cookies.",
-    "reference": "https://cwe.mitre.org/data/definitions/1004.html\nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\nThis rule is compliant with CWE-1004, OWASP 2013 A6 and 2017 A3 - Sensitive Data Exposure",
+    "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. \nThis is why all major browsers support the HttpOnly cookie property that prevents client-side scripts from accessing the cookie. \nWhen HttpOnly is not enabled, attackers may more easily access user cookies.",
+    "reference": "https://cwe.mitre.org/data/definitions/1004.html \nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\nThis rule is compliant with CWE-1004, OWASP 2013 A6 and 2017 A3 - Sensitive Data Exposure",
     "remediation": "Always set httpOnly option when creating a cookie",
     "remediationSample": "# Remediation directly inside code\n\nCookie cookie = new Cookie(\"userName\",userName);  // FIXED\ncookie.setSecure(true);\ncookie.setHttpOnly(true);   // HttpOnly flag\nresponse.addCookie(cookie);",
-    "sample": "Cookie cookie = new Cookie(\"userName\",userName);\ncookie.setSecure(true);\n// Missing HttpOnly flag\nresponse.addCookie(cookie);",
+    "sample": "Cookie cookie = new Cookie(\"userName\",userName);  \ncookie.setSecure(true);\n// Missing HttpOnly flag\nresponse.addCookie(cookie);",
     "total": "Number of Java Methods",
     "alternativeName": "Always enable HttpOnly when creating cookies to avoid Cross-site scripting attacks",
     "businessCriteria": [
@@ -32,6 +32,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067104,
+            "name": "CWE-1004 - Sensitive Cookie Without 'HttpOnly' Flag",
+            "href": "AIP/technical-criteria/1067104",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1062306,
             "name": "OWASP-2013-A6 - Sensitive Data Exposure",
@@ -71,7 +78,7 @@
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",
             "href": "AIP/technical-criteria/66064",
-            "weight": 8,
+            "weight": 7,
             "critical": true
         }
     ],

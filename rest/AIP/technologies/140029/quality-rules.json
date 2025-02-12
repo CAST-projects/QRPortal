@@ -1161,7 +1161,7 @@
     },
     {
         "id": 7488,
-        "name": "Lazy fetching should be used for Hibernate collection",
+        "name": "DEPRECATED: Lazy fetching should be used for Hibernate collection",
         "href": "AIP/quality-rules/7488",
         "critical": true,
         "severity": 20,
@@ -1171,7 +1171,7 @@
     },
     {
         "id": 7490,
-        "name": "Avoid UPDATE trigger firing when not necessary",
+        "name": "DEPRECATED: Avoid UPDATE trigger firing when not necessary",
         "href": "AIP/quality-rules/7490",
         "critical": true,
         "severity": 20,
@@ -1181,7 +1181,7 @@
     },
     {
         "id": 7492,
-        "name": "Avoid Hibernate and JPA Entities using many-to-many association.",
+        "name": "DEPRECATED: Avoid Hibernate and JPA Entities using many-to-many association.",
         "href": "AIP/quality-rules/7492",
         "critical": false,
         "severity": 10,
@@ -1201,7 +1201,7 @@
     },
     {
         "id": 7496,
-        "name": "Use table-per-subclass strategy when subclasses have many properties",
+        "name": "DEPRECATED: Use table-per-subclass strategy when subclasses have many properties",
         "href": "AIP/quality-rules/7496",
         "critical": false,
         "severity": 10,
@@ -1211,7 +1211,7 @@
     },
     {
         "id": 7498,
-        "name": "Avoid Incorrect implementation of getters and setters for Collection Type",
+        "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
         "href": "AIP/quality-rules/7498",
         "critical": false,
         "severity": 10,
@@ -1221,7 +1221,7 @@
     },
     {
         "id": 7500,
-        "name": "Use table-per-class-hierarchy when subclasses have few properties",
+        "name": "DEPRECATED: Use table-per-class-hierarchy when subclasses have few properties",
         "href": "AIP/quality-rules/7500",
         "critical": false,
         "severity": 10,
@@ -1231,7 +1231,7 @@
     },
     {
         "id": 7502,
-        "name": "Never use an array to map Hibernate collection",
+        "name": "DEPRECATED: Never use an array to map Hibernate collection",
         "href": "AIP/quality-rules/7502",
         "critical": true,
         "severity": 20,
@@ -1261,7 +1261,7 @@
     },
     {
         "id": 7508,
-        "name": "Getter of collection-typed persistent attributes should return the correct interface type",
+        "name": "DEPRECATED: Getter of collection-typed persistent attributes should return the correct interface type",
         "href": "AIP/quality-rules/7508",
         "critical": false,
         "severity": 10,
@@ -1301,7 +1301,7 @@
     },
     {
         "id": 7634,
-        "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
+        "name": "DEPRECATED: Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
         "href": "AIP/quality-rules/7634",
         "critical": true,
         "severity": 20,
@@ -1311,7 +1311,7 @@
     },
     {
         "id": 7636,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -1371,7 +1371,7 @@
     },
     {
         "id": 7654,
-        "name": "Avoid database tables associated to more than one Hibernate Entity",
+        "name": "DEPRECATED: Avoid database tables associated to more than one Hibernate Entity",
         "href": "AIP/quality-rules/7654",
         "critical": false,
         "severity": 10,
@@ -1451,7 +1451,7 @@
     },
     {
         "id": 7706,
-        "name": "Avoid table and column names that are too long (portability)",
+        "name": "DEPRECATED: Avoid table and column names that are too long (portability)",
         "href": "AIP/quality-rules/7706",
         "critical": false,
         "severity": 10,
@@ -1461,7 +1461,7 @@
     },
     {
         "id": 7708,
-        "name": "Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
+        "name": "DEPRECATED: Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
         "href": "AIP/quality-rules/7708",
         "critical": false,
         "severity": 10,
@@ -1471,7 +1471,7 @@
     },
     {
         "id": 7710,
-        "name": "Avoid non serializable Entity beans",
+        "name": "DEPRECATED: Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/7710",
         "critical": false,
         "severity": 10,
@@ -1481,7 +1481,7 @@
     },
     {
         "id": 7712,
-        "name": "Avoid public/protected setter for the generated identifier field",
+        "name": "DEPRECATED: Avoid public/protected setter for the generated identifier field",
         "href": "AIP/quality-rules/7712",
         "critical": false,
         "severity": 10,
@@ -2431,7 +2431,7 @@
         "name": "Avoid indirect String concatenation inside loops",
         "href": "AIP/quality-rules/7954",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -2594,7 +2594,7 @@
     },
     {
         "id": 8102,
-        "name": "Avoid hardcoded network resource names (JEE)",
+        "name": "Avoid hard-coded network resource names (JEE)",
         "href": "AIP/quality-rules/8102",
         "critical": true,
         "severity": 20,
@@ -4210,8 +4210,8 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -4350,6 +4350,57 @@
         "id": 1039098,
         "name": "Ensure secure option is enabled when creating session (JEE)",
         "href": "AIP/quality-rules/1039098",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039104,
+        "name": "Avoid creation of temporary file with insecure permissions (JEE)",
+        "href": "AIP/quality-rules/1039104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039106,
+        "name": "Avoid disabling the automatic HTML escaping for Spring",
+        "href": "AIP/quality-rules/1039106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5",
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
         "critical": true,
         "severity": 20,
         "technologyNames": [

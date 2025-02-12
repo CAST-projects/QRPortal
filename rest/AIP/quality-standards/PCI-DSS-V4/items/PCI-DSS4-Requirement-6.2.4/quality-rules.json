@@ -428,7 +428,7 @@
     },
     {
         "id": 7636,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -1838,6 +1838,76 @@
         ]
     },
     {
+        "id": 8570,
+        "name": "Avoid Calling RFC Function Module without Authorization Check",
+        "href": "AIP/quality-rules/8570",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8572,
+        "name": "Avoid using SUBMIT statement with another user permission",
+        "href": "AIP/quality-rules/8572",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8576,
+        "name": "Avoid using OPEN DATASET without Authorization Check",
+        "href": "AIP/quality-rules/8576",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8578,
+        "name": "Avoid using MODIFY without Authorization Check",
+        "href": "AIP/quality-rules/8578",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8580,
+        "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+        "href": "AIP/quality-rules/8580",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8582,
+        "name": "Avoid Dynamic Function/Method call without Authorization Check",
+        "href": "AIP/quality-rules/8582",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8584,
+        "name": "Prefer using OPEN DATASET statement with file Path instead of file name",
+        "href": "AIP/quality-rules/8584",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
         "id": 1001104,
         "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
         "href": "AIP/quality-rules/1001104",
@@ -2761,6 +2831,16 @@
         "id": 1020108,
         "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
         "href": "AIP/quality-rules/1020108",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020110,
+        "name": "Avoid cross-site scripting within events such as onclick, onmouseover ... events (Razor)",
+        "href": "AIP/quality-rules/1020110",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -5065,8 +5145,8 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -5187,6 +5267,26 @@
         "href": "AIP/quality-rules/1039098",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

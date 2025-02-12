@@ -17,7 +17,7 @@
     "remediation": "Do not provide a domain with wildcard access",
     "remediationSample": "// require\nvar Vue = require('vue')\nVue.use(require('vue-cookies'))\n\n// es2015 module\nimport Vue from 'vue'\nimport VueCookies from 'vue-cookies'\nVue.use(VueCookies)\n\n// set global cookie\nVue.$cookies.set('hover-time','1s');\n\n// set local cookie\n\n// name, time, path, domain, secure\nthis.$cookies.set(\"token\",\"1s\",\"/path\",\"sub.domain.com\",true); // no violation",
     "sample": "// require\nvar Vue = require('vue')\nVue.use(require('vue-cookies'))\n\n// es2015 module\nimport Vue from 'vue'\nimport VueCookies from 'vue-cookies'\nVue.use(VueCookies)\n\n// set global cookie\nVue.$cookies.set('hover-time','1s');\n\n// set local cookie\n\n// name, time, path, domain, secure\nthis.$cookies.set(\"token\",\"1s\",\"/\",\".domain.com\",false); //violation\n\n// or\n\nthis.$cookies.set(\"token\",\"1s\",\"/\",\".domain.com\"); //violation",
-    "total": "Number of VueJS source code setting cookies with 'vue-cookies' package",
+    "total": "Number of VueJS callables using the set method of the 'vue-cookies' package",
     "alternativeName": "Avoid creating cookie with overly broad domain (Vue.js)",
     "businessCriteria": [
         {

@@ -428,7 +428,7 @@
     },
     {
         "id": 7636,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "weight": 5,
@@ -2761,6 +2761,16 @@
         "id": 1020108,
         "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
         "href": "AIP/quality-rules/1020108",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020110,
+        "name": "Avoid cross-site scripting within events such as onclick, onmouseover ... events (Razor)",
+        "href": "AIP/quality-rules/1020110",
         "critical": false,
         "weight": 5,
         "technologyNames": [
@@ -5192,6 +5202,26 @@
         ]
     },
     {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1040002,
         "name": "Avoid disabling CSRF Protection (Spring Security)",
         "href": "AIP/quality-rules/1040002",
@@ -5668,6 +5698,16 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1045010,
+        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "href": "AIP/quality-rules/1045010",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

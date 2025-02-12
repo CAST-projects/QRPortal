@@ -1,6 +1,6 @@
 nav {
   width: 350px;
-  height: 100%;
+  height: calc(100vh - 118px);
 
   flex-shrink: 0;
   flex: 0 0 auto;
@@ -61,4 +61,67 @@ li {
   overflow: hidden; */
   /* transition: height 0.2s linear; */
   /* background-color: rgba(25, 118, 210, 0.08); */
+}
+
+.nav-tab img {
+  display: none;
+}
+
+@media screen and (max-width: 1600px) {
+  nav {
+    width: 244px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  nav {
+    width: 244px;
+    position: absolute;
+    left: -244px;
+    transition: 200ms;
+    z-index: 200;
+  }
+
+  .nav-tab:hover+nav {
+    left: 0px;
+    transition: 200ms;
+  }
+
+  .nav-tab+nav:hover {
+    left: 0px;
+    transition: 200ms;
+  }
+
+  .nav-tab {
+    width: 50px;
+    height: 50px;
+    background-color: #e1e7f0;
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    border-radius: 0 0 10px 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-tab img {
+    display: block;
+    width: 30px;
+  }
+
+  .nav-tab:hover {
+    left: -50px;
+    transition: left 200ms 100ms;
+  }
+
+  .nav-tab:has(+ nav) {
+    left: 0px;
+    transition: left 200ms 200ms;
+  }
+
+  .nav-tab:has(+ nav:hover) {
+    left: -50px;
+  }
 }

@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1002160",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.fortran",
         "href": "AIP/extensions/com.castsoftware.fortran"
@@ -30,6 +30,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067153,
+            "name": "CWE-1053 - Missing Documentation for Design",
+            "href": "AIP/technical-criteria/1067153",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61028,
             "name": "Documentation - Volume of Comments",

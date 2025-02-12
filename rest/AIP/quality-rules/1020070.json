@@ -10,10 +10,11 @@
         "href": "AIP/extensions/com.castsoftware.html5"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This quality rule reports all artifacts that contain hard-coded \n- IP addresses (IPv4 and IPv6)",
+    "description": "This quality rule reports all artifacts that contain hardcoded \n- IP addresses (IPv4 and IPv6)\n- URLs (of the form file:///c:/Tmp/Folder/ or http://host.com/folder) \n- Paths (Windows absolute paths of the form c:\\Tmp\\Folder) \n- JDBC URL (of the form jdbc:oracle:thin:@//myhost:1521/orcl) \n- JNDI lookup path",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "Built-in remote addresses cause problems when the target is moved. Avoid hard-coded network resources (e.g., IP addresses, etc.)",
     "reference": "ASCRM 1.0, Automated Source Code Reliability Measure, Object Management Group.",
+    "remediation": "It is recommended to make resources configurable.",
     "remediationSample": "const config = {\n  host: process.env.HOST,\n  post: process.env.PORT\n}",
     "sample": "const config = {\n  host: '127.0.0.1', // or  'fe80:0000:0000:0000:0204:61ff:fe9d:f156/0'\n  port: 5432\n}",
     "total": "Number of Javascript Functions",
@@ -52,6 +53,13 @@
             "id": 1061114,
             "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data",
             "href": "AIP/technical-criteria/1061114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067151,
+            "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/technical-criteria/1067151",
             "weight": 5,
             "critical": false
         },

@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1039028",
     "critical": true,
     "severity": 20,
-    "maxWeight": 8,
+    "maxWeight": 7,
     "extension": {
         "name": "com.castsoftware.jeerules",
         "href": "AIP/extensions/com.castsoftware.jeerules"
@@ -26,9 +26,9 @@
             "href": "AIP/business-criteria/1062100"
         },
         {
-            "id": 66031,
-            "name": "Programming Practices",
-            "href": "AIP/business-criteria/66031"
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 60016,
@@ -41,6 +41,13 @@
             "id": 1062179,
             "name": "ASCSM-CWE-327 - Broken or Risky Cryptographic Algorithm Usage",
             "href": "AIP/technical-criteria/1062179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066426,
+            "name": "CWE-326 - Inadequate Encryption Strength",
+            "href": "AIP/technical-criteria/1066426",
             "weight": 5,
             "critical": false
         },
@@ -94,10 +101,10 @@
             "critical": false
         },
         {
-            "id": 66063,
-            "name": "Secure Coding - API Abuse",
-            "href": "AIP/technical-criteria/66063",
-            "weight": 8,
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
             "critical": true
         }
     ],

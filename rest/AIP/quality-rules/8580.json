@@ -1,0 +1,120 @@
+{
+    "id": 8580,
+    "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+    "href": "AIP/quality-rules/8580",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "Flags the use of `GENERATE SUBROUTINE POOL` for dynamic code execution without verifying authorization.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Dynamic execution of unverified code can lead to unauthorized actions or privilege escalation.",
+    "reference": "https://cwe.mitre.org/data/definitions/862.html\nhttps://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abengeneric_prog_scrty.htm",
+    "remediation": "Add explicit checks for the 'S_DEVELOP' authorization object",
+    "remediationSample": "AUTHORITY-CHECK OBJECT 'S_DEVELOP'\n   ID 'ACTVT' FIELD '03'.\nIF sy-subrc = 0.\n   GENERATE SUBROUTINE POOL lt_code NAME lv_name.\nELSE.\n   MESSAGE 'Unauthorized code generation' TYPE 'E'.\nENDIF.",
+    "sample": "GENERATE SUBROUTINE POOL lt_code NAME lv_name.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-862",
+            "name": "Missing Authorization",
+            "href": "AIP/quality-standards/CWE/items/CWE-862",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A5-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A7-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222425",
+            "name": "The application must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222425",
+            "standard": "STIG-V5"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -3,7 +3,7 @@
     "name": "Avoid indirect String concatenation inside loops",
     "href": "AIP/quality-rules/7954",
     "critical": true,
-    "severity": 30,
+    "severity": 20,
     "maxWeight": 7,
     "extension": {
         "name": "com.castsoftware.jee",
@@ -65,6 +65,13 @@
             "id": 1061113,
             "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
             "href": "AIP/technical-criteria/1061113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067150,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1067150",
             "weight": 5,
             "critical": false
         },

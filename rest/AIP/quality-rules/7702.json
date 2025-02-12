@@ -13,7 +13,7 @@
     "output": "This report list the XML or .properties file that doesn't define a third party pool.\nIt provides the following information:\n File Full Name",
     "rationale": "It is very important to define a connection pool to increase database access performances.\nHibernate's own connection pooling algorithm is quite rudimentary. It is intended to help you get started and is not intended for use in a production system, or even for performance testing. You should use a third party pool for best performance and stability. \n\nJust replace the hibernate.connection.pool_size property with connection pool specific settings. This will turn off Hibernate's internal pool. For example, you might like to use c3p0.",
     "reference": "https://docs.jboss.org/hibernate/orm/6.0/userguide/html_single/Hibernate_User_Guide.html#configurations\nhttps://docs.jboss.org/hibernate/orm/6.0/userguide/html_single/Hibernate_User_Guide.html#database\n\n\nHibernate in Action (ISBN 1932394-15-X) p 45",
-    "remediation": "Use a third party connection pool like as : \n\n- Hibernate.connection.datasource is set \n- Hibernate.c3p0 \n- Hibernate.proxool \n- Hibernate.hikari\n- Hibernate.vibur  \n- Hibernate.agroal\n\nPlease see references for more details about configuration setting",
+    "remediation": "Modern Recommendation\n\nFor new projects:\nHikariCP: Preferred choice due to its modern design, high performance, and efficiency. It is the default pool in Spring Boot.\nAgroal: A good alternative for Jakarta EE environments (high performance and lightweight).\nTomcat JDBC: Lightweight and easy to configure in Tomcat-based environments.\n\nFor legacy projects:\nConsider Apache Commons DBCP or C3P0 if already in use, but migrate to HikariCP when possible.",
     "remediationSample": "---> hibernate.cfg.xml\n...\n<hibernate-configuration>\n    <!-- a SessionFactory instance listed as /jndi/name -->\n    <session-factory\n        name=\"java:comp/env/hibernate/SessionFactory\">\n        <!-- properties -->\n        <property name=\"connection.datasource\">my/first/datasource</property> // FIXED\n     ...\n    </session-factory>\n</hibernate-configuration>\n\n---> or in hibernate.properties\n...\nhibernate.connection.datasource = my/first/datasource\n...",
     "sample": "---> hibernate.cfg.xml\n...\n<hibernate-configuration>\n    <session-factory name=\"java:comp/env/hibernate/SessionFactory\">\n       ...\n        <property name=\"connection.pool_size\">10</property> // VIOLATION\n...\n\n---> or in hibernate.properties\nhibernate.connection.pool_size = 10 // VIOLATION",
     "total": "Number of Hibernate configuration fields (including hibernate.properties)",
@@ -57,6 +57,20 @@
             "id": 1061126,
             "name": "CWE-1072 - Data Resource Access without Use of Connection Pooling",
             "href": "AIP/technical-criteria/1061126",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067172,
+            "name": "CWE-1072 - Data Resource Access without Use of Connection Pooling",
+            "href": "AIP/technical-criteria/1067172",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066505,
+            "name": "CWE-405 - Asymmetric Resource Consumption (Amplification)",
+            "href": "AIP/technical-criteria/1066505",
             "weight": 5,
             "critical": false
         },

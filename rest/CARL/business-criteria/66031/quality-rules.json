@@ -2137,7 +2137,7 @@
         "name": "Ensure not having indirect String concatenation inside loops to avoid making your software performance slowly.",
         "href": "AIP/quality-rules/7954",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -5589,16 +5589,6 @@
         ]
     },
     {
-        "id": 1039028,
-        "name": "Perefer using encryption providing sufficient key size to ensure enough entropy against attacks",
-        "href": "AIP/quality-rules/1039028",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039032,
         "name": "Ensure to preceed the call of DocumentBuilder by a call to the secure mode of the parser",
         "href": "AIP/quality-rules/1039032",
@@ -5669,16 +5659,6 @@
         ]
     },
     {
-        "id": 1039064,
-        "name": "Ensure you do not allow access to all domain when defining cookie domain (JEE)",
-        "href": "AIP/quality-rules/1039064",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039068,
         "name": "Ensure to declare the object as serializable if you are using it as a httpsession attribute",
         "href": "AIP/quality-rules/1039068",
@@ -5692,8 +5672,8 @@
         "id": 1039070,
         "name": "Prefer using java.net.URI instead of java.net.URL",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]

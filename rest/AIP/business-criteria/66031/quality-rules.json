@@ -2371,7 +2371,7 @@
     },
     {
         "id": 7488,
-        "name": "Lazy fetching should be used for Hibernate collection",
+        "name": "DEPRECATED: Lazy fetching should be used for Hibernate collection",
         "href": "AIP/quality-rules/7488",
         "critical": true,
         "severity": 20,
@@ -2381,7 +2381,7 @@
     },
     {
         "id": 7490,
-        "name": "Avoid UPDATE trigger firing when not necessary",
+        "name": "DEPRECATED: Avoid UPDATE trigger firing when not necessary",
         "href": "AIP/quality-rules/7490",
         "critical": true,
         "severity": 20,
@@ -2391,7 +2391,7 @@
     },
     {
         "id": 7496,
-        "name": "Use table-per-subclass strategy when subclasses have many properties",
+        "name": "DEPRECATED: Use table-per-subclass strategy when subclasses have many properties",
         "href": "AIP/quality-rules/7496",
         "critical": false,
         "severity": 10,
@@ -2401,7 +2401,7 @@
     },
     {
         "id": 7498,
-        "name": "Avoid Incorrect implementation of getters and setters for Collection Type",
+        "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
         "href": "AIP/quality-rules/7498",
         "critical": false,
         "severity": 10,
@@ -2411,7 +2411,7 @@
     },
     {
         "id": 7500,
-        "name": "Use table-per-class-hierarchy when subclasses have few properties",
+        "name": "DEPRECATED: Use table-per-class-hierarchy when subclasses have few properties",
         "href": "AIP/quality-rules/7500",
         "critical": false,
         "severity": 10,
@@ -2421,7 +2421,7 @@
     },
     {
         "id": 7502,
-        "name": "Never use an array to map Hibernate collection",
+        "name": "DEPRECATED: Never use an array to map Hibernate collection",
         "href": "AIP/quality-rules/7502",
         "critical": true,
         "severity": 20,
@@ -2731,7 +2731,7 @@
     },
     {
         "id": 7634,
-        "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
+        "name": "DEPRECATED: Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
         "href": "AIP/quality-rules/7634",
         "critical": true,
         "severity": 20,
@@ -2741,7 +2741,7 @@
     },
     {
         "id": 7636,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -3937,7 +3937,7 @@
         "name": "Avoid indirect String concatenation inside loops",
         "href": "AIP/quality-rules/7954",
         "critical": true,
-        "severity": 30,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -4506,7 +4506,7 @@
     },
     {
         "id": 8102,
-        "name": "Avoid hardcoded network resource names (JEE)",
+        "name": "Avoid hard-coded network resource names (JEE)",
         "href": "AIP/quality-rules/8102",
         "critical": true,
         "severity": 20,
@@ -5486,6 +5486,56 @@
         "severity": 10,
         "technologyNames": [
             "SAP SQL"
+        ]
+    },
+    {
+        "id": 8570,
+        "name": "Avoid Calling RFC Function Module without Authorization Check",
+        "href": "AIP/quality-rules/8570",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8574,
+        "name": "Avoid using statement CALL TRANSACTION through variable P_TCODE",
+        "href": "AIP/quality-rules/8574",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8576,
+        "name": "Avoid using OPEN DATASET without Authorization Check",
+        "href": "AIP/quality-rules/8576",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8578,
+        "name": "Avoid using MODIFY without Authorization Check",
+        "href": "AIP/quality-rules/8578",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8582,
+        "name": "Avoid Dynamic Function/Method call without Authorization Check",
+        "href": "AIP/quality-rules/8582",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {
@@ -9829,6 +9879,16 @@
         ]
     },
     {
+        "id": 1020110,
+        "name": "Avoid cross-site scripting within events such as onclick, onmouseover ... events (Razor)",
+        "href": "AIP/quality-rules/1020110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020200,
         "name": "Always have data property as a function that returns an object",
         "href": "AIP/quality-rules/1020200",
@@ -12649,16 +12709,6 @@
         ]
     },
     {
-        "id": 1039028,
-        "name": "Avoid weak encryption providing not sufficient key size (JEE)",
-        "href": "AIP/quality-rules/1039028",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039032,
         "name": "Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)",
         "href": "AIP/quality-rules/1039032",
@@ -12729,16 +12779,6 @@
         ]
     },
     {
-        "id": 1039064,
-        "name": "Avoid having cookie with an overly broad domain (JEE)",
-        "href": "AIP/quality-rules/1039064",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1039068,
         "name": "Avoid using the Non-Serializable Object Stored in Session",
         "href": "AIP/quality-rules/1039068",
@@ -12752,8 +12792,8 @@
         "id": 1039070,
         "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
         "href": "AIP/quality-rules/1039070",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -12852,6 +12892,27 @@
         "id": 1039094,
         "name": "Avoid using XPathExpression without a configurable secure parser (XXE)",
         "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039106,
+        "name": "Avoid disabling the automatic HTML escaping for Spring",
+        "href": "AIP/quality-rules/1039106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5",
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
         "critical": true,
         "severity": 20,
         "technologyNames": [

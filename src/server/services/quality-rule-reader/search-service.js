@@ -93,11 +93,11 @@ class QualityRuleSearchIndex extends IndexService {
    * @param {import("../data-serializer/models/quality-rule")[]} qualityRules
    */
   generateIndex(qualityRules = [], fields = [], entryBuilder) {
-    const customTrimmer = this.customTrimmer;
-    const defaultPipelineFn = this.defaultPipelineFunction;
+    // const customTrimmer = this.customTrimmer;
+    // const defaultPipelineFn = this.defaultPipelineFunction;
 
     return super.generateIndex(function () {
-      this.use(customTrimmer(defaultPipelineFn));
+      // this.use(customTrimmer(defaultPipelineFn));
 
       this.ref("ref");
 

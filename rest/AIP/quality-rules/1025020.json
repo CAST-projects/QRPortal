@@ -33,9 +33,23 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1066213,
+            "name": "CWE-113 - Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
+            "href": "AIP/technical-criteria/1066213",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1066300,
             "name": "CWE-200 - Exposure of Sensitive Information to an Unauthorized Actor",
             "href": "AIP/technical-criteria/1066300",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066193,
+            "name": "CWE-93 - Improper Neutralization of CRLF Sequences ('CRLF Injection')",
+            "href": "AIP/technical-criteria/1066193",
             "weight": 5,
             "critical": false
         },
@@ -108,7 +122,7 @@
         },
         {
             "id": "CWE-113",
-            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Response Splitting')",
+            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
             "href": "AIP/quality-standards/CWE/items/CWE-113",
             "standard": "CWE"
         },

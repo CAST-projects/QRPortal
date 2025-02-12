@@ -88,7 +88,7 @@ class RulesDocumentationServer extends Server {
       express: this.app,
       trimBlocks: true,
       lstripBlocks: true,
-    })
+    });
     env.addGlobal('base_url', configuration.publicUrl);
     env.addGlobal('gbl_year', new Date(Date.now()).getFullYear());
   }

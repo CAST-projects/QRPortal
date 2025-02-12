@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1039092",
     "critical": true,
     "severity": 20,
-    "maxWeight": 9,
+    "maxWeight": 8,
     "extension": {
         "name": "com.castsoftware.jeerules",
         "href": "AIP/extensions/com.castsoftware.jeerules"
@@ -15,7 +15,7 @@
     "rationale": "XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.\n\nBy submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as \"file:///c:/winnt/win.ini\" designates (in Windows) the file C:\\Winnt\\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.\n\nOnce the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.",
     "reference": "CWE-611: Improper Restriction of XML External Entity Reference\nhttps://cwe.mitre.org/data/definitions/611.html\n\nOWASP Top Ten 2017 - A4:2017-XML External Entities (XXE)\nhttps://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)\n\nOWASP Top Ten 2021 Category A05:2021 - Security Misconfiguration\nhttps://owasp.org/Top10/A05_2021-Security_Misconfiguration/\n\nOWASP XML External Entity Prevention Cheat Sheet - XML External Entity Prevention Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html\n\nOWASP XML External Entity Prevention Cheat Sheet - JAXB Unmarshaller\nhttps://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html#jaxb-unmarshaller",
     "remediation": "Configure a secure parser first. Then, generate a source object as a result. Finally, pass the source object to the Unmarshaller.",
-    "remediationSample": "/* REMEDIATION SAMPLE 1: USE A Document */\n\n// Configure a secure parser\nDocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();\ndbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);\n\n// Generate a document object as a result\nDocumentBuilder db = dbf.newDocumentBuilder();\nDocument doc = db.parse(new InputSource(\"http://beaker.east/nosferatu.xml\"));\n\n// Pass the document object to the Unmarshaller\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(doc);  // FIXED\n\n\n/* REMEDIATION SAMPLE 2: USE A SAXSource */\n\n// Configure a secure parser\nSAXParserFactory spf = SAXParserFactory.newInstance();\nspf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);\n\n// Generate a source object as a result\nInputSource inputSource = new InputSource(\"http://beaker.east/nosferatu.xml\");\nSAXSource source = new SAXSource(spf.newSAXParser().getXMLReader(), inputSource);\n\n// Pass the source object to the Unmarshaller\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(source);  // FIXED\n\n\n/* REMEDIATION SAMPLE 3: USE A StAX XMLStreamReader */\n\nXMLInputFactory factory = XMLInputFactory.newFactory();\nfactory.setProperty(XMLInputFactory.SUPPORT_DTD, false);\nXMLStreamReader xmlStreamReader = factory.createXMLStreamReader(...);\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(xmlStreamReader);  // FIXED\n\n\n/* REMEDIATION SAMPLE 4: USE A StAX XMLEventReader */\n\nXMLInputFactory factory = XMLInputFactory.newFactory();\nfactory.setProperty(XMLInputFactory.SUPPORT_DTD, false);\nXMLEventReader xmlEventReader = factory.createXMLEventReader(...);\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(xmlEventReader);  // FIXED",
+    "remediationSample": "/* REMEDIATION SAMPLE 1: USE A Document */\n\n// Configure a secure parser\nDocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();\ndbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);\n\n// Generate a document object as a result\nDocumentBuilder db = dbf.newDocumentBuilder();\nDocument doc = db.parse(new InputSource(\"http://beaker.east/nosferatu.xml\"));\n\n// Pass the document object to the Unmarshaller\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(doc);  // FIXED\n\n\n/* REMEDIATION SAMPLE 2: USE A SAXSource */\n\n// Configure a secure parser\nSAXParserFactory spf = SAXParserFactory.newInstance();\nspf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);\n\n// Generate a source object as a result\nInputSource inputSource = new InputSource(\"http://beaker.east/nosferatu.xml\");\nSAXSource source = new SAXSource(spf.newSAXParser().getXMLReader(), inputSource);\n\n// Pass the source object to the Unmarshaller\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(source);  // FIXED\n\n\n/* REMEDIATION SAMPLE 3: USE A StAX XMLStreamReader */\n\nXMLInputFactory factory = XMLInputFactory.newFactory();\nfactory.setProperty(XMLInputFactory.SUPPORT_DTD, false);\nXMLStreamReader xmlStreamReader = factory.createXMLStreamReader(...);\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(xmlStreamReader);  // FIXED\n        \n\n/* REMEDIATION SAMPLE 4: USE A StAX XMLEventReader */\n\nXMLInputFactory factory = XMLInputFactory.newFactory();\nfactory.setProperty(XMLInputFactory.SUPPORT_DTD, false);\nXMLEventReader xmlEventReader = factory.createXMLEventReader(...);\nJAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nObject o = u.unmarshal(xmlEventReader);  // FIXED",
     "sample": "JAXBContext jc = JAXBContext.newInstance(\"com.acme.foo\");\nUnmarshaller u = jc.createUnmarshaller();\nURL url = new URL(\"http://beaker.east/nosferatu.xml\");\nObject o = u.unmarshal(url);   // VIOLATION",
     "total": "Number of Java artifacts",
     "alternativeName": "Ensure to use JAXB Unmarshaller with a configurable secure parser",
@@ -52,6 +52,13 @@
             "critical": false
         },
         {
+            "id": 1066927,
+            "name": "CWE-827 - Improper Control of Document Type Definition",
+            "href": "AIP/technical-criteria/1066927",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1062324,
             "name": "OWASP-2017-A4 - XML External Entities (XXE)",
             "href": "AIP/technical-criteria/1062324",
@@ -83,7 +90,7 @@
             "id": 66062,
             "name": "Secure Coding - Input Validation",
             "href": "AIP/technical-criteria/66062",
-            "weight": 9,
+            "weight": 8,
             "critical": true
         }
     ],

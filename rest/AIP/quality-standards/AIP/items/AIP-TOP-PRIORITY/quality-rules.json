@@ -217,16 +217,6 @@
         ]
     },
     {
-        "id": 7954,
-        "name": "Avoid indirect String concatenation inside loops",
-        "href": "AIP/quality-rules/7954",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 7962,
         "name": "Avoid direct or indirect remote calls inside a loop",
         "href": "AIP/quality-rules/7962",
@@ -2551,6 +2541,26 @@
         "id": 1039074,
         "name": "Avoid using Apache ActiveMQ 5.x before 5.13.0",
         "href": "AIP/quality-rules/1039074",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
         "critical": true,
         "severity": 30,
         "technologyNames": [
