@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222645",
+    "name": "Application files must be cryptographically hashed prior to deploying to DoD operational networks.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222645",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222645",
+    "description": "When application code and binaries are transferred from one environment to another, there is the potential for malware to be introduced into either the application code or even the application binaries themselves. Care must be taken to ensure that application code and binaries are validated for integrity prior to deployment into a production environment.\n\nTo ensure file integrity, application files and/or application packages are cryptographically hashed using a strong hashing algorithm. Comparing hashes after transferring the files makes it possible to detect changes in files that could indicate potential integrity issues with the application.\n\nCurrently, SHA256 is the DoD approved standard for cryptographic hash functions. DoD application developers must use SHA256 when creating cryptographic hashes; however, some non-DoD vendors might still use MD5 or SHA1 when generating a checksum hash for their application packages. It is important to use the same algorithms when validating the hash. If a non DoD vendor uses SHA1 when hashing their files, you must use SHA1 to validate the hash. Otherwise, the hashes will not match and a false positive indication of tampering will result.\n\nPrior to release of the application receiving an ATO/IATO for deployment into a DoD operational network, the application must be validated for integrity to ensure no tampering of source code or binaries has occurred. Failure to validate the integrity of application code and/or application binaries prior to deploying an application into a production environment may compromise the operational network.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

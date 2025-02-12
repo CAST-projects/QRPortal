@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222545",
+    "name": "The application must enforce a 60-day maximum password lifetime restriction.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222545",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222545",
+    "description": "Use of passwords for application authentication is intended only for limited situations and should not be used as a replacement for two-factor CAC-enabled authentication.\n\nExamples of situations where a user ID and password might be used include but are not limited to:\n\n- When the application user base does not have a CAC and is not a current DOD employee, member of the military, or a DOD contractor.\n- When an application user has been officially designated as a Temporary Exception User; one who is temporarily unable to present a CAC for some reason (lost, damaged, not yet issued, broken card reader) and to satisfy urgent organizational needs must be temporarily permitted to use user ID/password authentication until the problem with CAC use has been remedied.\n- When the application is publicly available and or hosting publicly releasable data requiring some degree of need-to-know protection.\n\nAny password, no matter how complex, can eventually be cracked. Therefore, passwords need to be changed at specific intervals.\n\nOne method of minimizing this risk is to use complex passwords and periodically change them. If the application does not limit the lifetime of passwords and force users to change their passwords, there is the risk that the system and/or application passwords could be compromised.\n\nThis requirement does not include emergency administration accounts which are meant for access to the application in case of failure. These accounts are not required to have maximum password lifetime restrictions.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

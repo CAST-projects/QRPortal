@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222416",
+    "name": "The application must automatically audit account removal actions.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222416",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222416",
+    "description": "When application accounts are removed, user accessibility is affected. Accounts are utilized for identifying individual application users or for identifying the application processes themselves. In order to detect and respond to events affecting user accessibility and application processing, applications must audit account removal actions and, as required, notify the appropriate individuals, so they can investigate the event. Such a capability greatly reduces the risk that application accessibility will be negatively affected for extended periods of time and provides logging that can be used for forensic purposes.\n\nApplication developers are encouraged to integrate their applications with enterprise-level authentication/access/audit mechanisms such as Syslog, Active Directory or LDAP.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

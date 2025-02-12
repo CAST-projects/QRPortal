@@ -1,0 +1,17 @@
+{
+    "id": "STIG-V-222543",
+    "name": "The application must transmit only cryptographically-protected passwords.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222543",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222543",
+    "description": "Use of passwords for application authentication is intended only for limited situations and should not be used as a replacement for two-factor CAC-enabled authentication.\n\nExamples of situations where a user ID and password might be used include but are not limited to:\n\n- When the application user base does not have a CAC and is not a current DoD employee, member of the military, or a DoD contractor.\n\n- When an application user has been officially designated as a Temporary Exception User; one who is temporarily unable to present a CAC for some reason (lost, damaged, not yet issued, broken card reader) and to satisfy urgent organizational needs must be temporarily permitted to use user ID/password authentication until the problem with CAC use has been remedied.\n\nand\n\n- When the application is publicly available and or hosting publicly releasable data requiring some degree of need-to-know protection.\n\nPasswords need to be protected at all times and encryption is the standard method for protecting passwords. If passwords are not encrypted, they can be plainly read (i.e., clear text) and easily compromised.\n\nApplications can accomplish this by making direct function calls to encryption modules or by leveraging operating system encryption capabilities.",
+    "isoPatterns": null,
+    "count": 2,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222543/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222543/quality-templates"
+    }
+}

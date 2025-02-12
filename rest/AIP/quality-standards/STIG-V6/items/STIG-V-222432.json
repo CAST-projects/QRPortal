@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222432",
+    "name": "The application must enforce the limit of three consecutive invalid logon attempts by a user during a 15 minute time period.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222432",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222432",
+    "description": "By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute forcing, is reduced.\n\nLimits are imposed by locking the account.\n\nUser notification when three failed logon attempts are exceeded is an operational consideration determined by the application owner. In some instances the operational situation may dictate that no notice is to be provided to the user when their account is locked. In other situations, the user may be notified their account is now locked. This decision is left to the application owner based upon their operational scenarios.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

@@ -2,7 +2,7 @@
     "id": "STIG-V-222441",
     "name": "The application must provide audit record generation capability for the creation of session IDs.",
     "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222441",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222441",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222441",
     "description": "Applications create session IDs at the onset of a user session in order to manage user access to the application and differentiate between different user sessions. It is important to log the creation of these session ID creation events for forensic purposes.\n\nIt is equally important to not log the session ID itself. Logging the session ID puts active sessions at risk if log data is compromised. Specific session ID information should be removed, masked, sanitized, or encrypted.\n\nA hash value of the session ID that can be mapped to the session ID is an acceptable method for assuring active session protection when logging session ID information. Alternatively, logging protections that protect the logs and defend from unauthorized access are means to assure log confidentiality and protect session integrity.\n\nWeb based applications will often utilize an application server that creates, manages and logs user session IDs.  It is acceptable for the application to delegate this requirement to the application server.",
     "isoPatterns": null,
     "count": 0,

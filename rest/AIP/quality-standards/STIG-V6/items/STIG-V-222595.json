@@ -1,0 +1,11 @@
+{
+    "id": "STIG-V-222595",
+    "name": "The web service design must include redundancy mechanisms when used with high-availability systems.",
+    "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222595",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222595",
+    "description": "DoS is a condition when a resource is not available for legitimate users. When this occurs, the organization either cannot accomplish its mission or must operate at degraded capacity.\n\nIn the case of application DoS attacks, care must be taken when designing the application to ensure the application makes the best use of system resources. SQL queries have the potential to consume large amounts of CPU cycles if they are not tuned for optimal performance. Web services containing complex calculations requiring large amounts of time to complete can bog down if too many requests for the service are encountered within a short period of time.\n\nThe methods employed to meet this requirement will vary depending upon the technology the application utilizes. However, a variety of technologies exist to limit or, in some cases, eliminate the effects of application related DoS attacks. Employing increased capacity and bandwidth combined with specialized application layer protection devices and service redundancy may reduce the susceptibility to some DoS attacks.",
+    "isoPatterns": null,
+    "count": 0,
+    "qualityRules": null,
+    "qualityTemplates": null
+}

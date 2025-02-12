@@ -2,7 +2,7 @@
     "id": "STIG-V-222579",
     "name": "Applications must use system-generated session identifiers that protect against session fixation.",
     "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222579",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222579",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222579",
     "description": "Session fixation allows an attacker to hijack a valid user\u2019s application session. The attack focuses on the manner in which a web application manages the user\u2019s session ID. Applications become vulnerable when they do not assign a new session ID when authenticating users thereby using the existing session ID.\n\nMany web development frameworks such as PHP, .NET, and ASP include their own mechanisms for session management. Whenever possible it is recommended to utilize the provided session management framework.\n\nIn many cases, creating a new session ID cookie containing a new unique value whenever authentication is performed will address the issue of session fixation.\n\nAllowing the user to submit a session ID also introduces the risk that the application could be subject to a session fixation attack.",
     "isoPatterns": null,
     "count": 0,

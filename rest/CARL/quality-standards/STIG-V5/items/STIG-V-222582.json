@@ -2,7 +2,7 @@
     "id": "STIG-V-222582",
     "name": "The application must not re-use or recycle session IDs.",
     "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222582",
-    "url": "https://www.stigviewer.com/stig/application_security_and_development/2020-09-30/finding/V-222582",
+    "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222582",
     "description": "Many web development frameworks such as PHP, .NET, and ASP include their own mechanisms for session management. Whenever possible it is recommended to utilize the provided session management framework.\n\nSession identifiers are assigned to application users so they can be uniquely identified. This allows the user to customize their web application experience and also allows the developer to differentiate between users thereby providing the opportunity to customize the user\u2019s features and functions.\n\nOnce a user has logged out of the application or had their session terminated, their session IDs should not be re-used. Session IDs should also not be used for other purposes such as creating unique file names and they should also not be re-assigned to other users once the original user has logged out or otherwise quit the application.\n\nAllowing session ID reuse increases the risk of replay attacks.\n\nSession testing is a detailed undertaking and is usually done in the course of a web application vulnerability or penetration assessment.",
     "isoPatterns": null,
     "count": 0,
