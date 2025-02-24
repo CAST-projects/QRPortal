@@ -20,6 +20,11 @@
     "alternativeName": "Potential file name manipulation in the statement OPEN DATASET",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "Green",
             "href": "AIP/business-criteria/20140522"
@@ -31,6 +36,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062177,
+            "name": "ASCSM-CWE-22 - Path Traversal Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062177",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1066122,
             "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",

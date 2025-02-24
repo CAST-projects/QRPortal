@@ -483,6 +483,13 @@
         "weight": 5
     },
     {
+        "id": 1062184,
+        "name": "ASCSM-CWE-606 - Unchecked Input for Loop Condition",
+        "description": "Objective\nAvoid failure to check range of user input in use in iteration control\n\nConsequence\nSoftware unaware of iteration control incurs the risk of unexpected consumption of resources, such as CPU cycles or memory, possibly leading to a crash or program exit due to exhaustion of resources\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the loop condition statement; none of the callable or method control element of the transformation sequence being a range check control element.\n\n",
+        "href": "AIP/technical-criteria/1062184",
+        "weight": 5
+    },
+    {
         "id": 1062185,
         "name": "ASCSM-CWE-667 - Shared Resource Improper Locking",
         "description": "Objective\nAvoid data corruption during concurrent access\n\nConsequence\nSoftware featuring inconsistent locking discipline incurs the risk of deadlock\n\nMeasure Element\nNumber of instances where the shared storable data element or member data element, declared with the Create action, is accessed outside a critical section of the application via the Read or Write action.\n\n",
