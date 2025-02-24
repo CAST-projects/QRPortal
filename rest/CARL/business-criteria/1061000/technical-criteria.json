@@ -2,91 +2,91 @@
     {
         "id": 1061010,
         "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
-        "description": "The software uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the software does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+        "description": "The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
         "href": "CARL/technical-criteria/1061010",
         "weight": 5
     },
     {
         "id": 1061011,
         "name": "CWE-23 - Relative Path Traversal",
-        "description": "The software uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that directory.",
+        "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that directory.",
         "href": "CARL/technical-criteria/1061011",
         "weight": 5
     },
     {
         "id": 1061012,
         "name": "CWE-36 - Absolute Path Traversal",
-        "description": "The software uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory.",
+        "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory.",
         "href": "CARL/technical-criteria/1061012",
         "weight": 5
     },
     {
         "id": 1061013,
         "name": "CWE-77 - Improper Neutralization of Special Elements used in a Command ('Command Injection')",
-        "description": "The software constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.",
+        "description": "The product constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.",
         "href": "CARL/technical-criteria/1061013",
         "weight": 5
     },
     {
         "id": 1061014,
         "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-        "description": "The software constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.",
+        "description": "The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.",
         "href": "CARL/technical-criteria/1061014",
         "weight": 5
     },
     {
         "id": 1061015,
         "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-        "description": "The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+        "description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
         "href": "CARL/technical-criteria/1061015",
         "weight": 5
     },
     {
         "id": 1061016,
         "name": "CWE-88 - Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
-        "description": "The software constructs a string for a command to executed by a separate component in another control sphere, but it does not properly delimit the intended arguments, options, or switches within that command string.",
+        "description": "The product constructs a string for a command to be executed by a separate component in another control sphere, but it does not properly delimit the intended arguments, options, or switches within that command string.",
         "href": "CARL/technical-criteria/1061016",
         "weight": 5
     },
     {
         "id": 1061017,
         "name": "CWE-89 - Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
-        "description": "The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.",
+        "description": "The product constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component. Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data.",
         "href": "CARL/technical-criteria/1061017",
         "weight": 5
     },
     {
         "id": 1061018,
         "name": "CWE-90 - Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')",
-        "description": "The software constructs all or part of an LDAP query using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended LDAP query when it is sent to a downstream component.",
+        "description": "The product constructs all or part of an LDAP query using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended LDAP query when it is sent to a downstream component.",
         "href": "CARL/technical-criteria/1061018",
         "weight": 5
     },
     {
         "id": 1061019,
         "name": "CWE-91 - XML Injection (aka Blind XPath Injection)",
-        "description": "The software does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.",
+        "description": "The product does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.",
         "href": "CARL/technical-criteria/1061019",
         "weight": 5
     },
     {
         "id": 1061020,
         "name": "CWE-99 - Improper Control of Resource Identifiers ('Resource Injection')",
-        "description": "The software receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
+        "description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
         "href": "CARL/technical-criteria/1061020",
         "weight": 5
     },
     {
         "id": 1061021,
         "name": "CWE-119 - Improper Restriction of Operations within the Bounds of a Memory Buffer",
-        "description": "The software performs operations on a memory buffer, but it can read from or write to a memory location that is outside of the intended boundary of the buffer.",
+        "description": "The product performs operations on a memory buffer, but it reads from or writes to a memory location outside the buffer's intended boundary. This may result in read or write operations on unexpected memory locations that could be linked to other variables, data structures, or internal program data.",
         "href": "CARL/technical-criteria/1061021",
         "weight": 5
     },
     {
         "id": 1061022,
         "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
-        "description": "The program copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer, leading to a buffer overflow.",
+        "description": "The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer, leading to a buffer overflow.",
         "href": "CARL/technical-criteria/1061022",
         "weight": 5
     },
@@ -100,21 +100,21 @@
     {
         "id": 1061028,
         "name": "CWE-134 - Use of Externally-Controlled Format String",
-        "description": "The software uses a function that accepts a format string as an argument, but the format string originates from an external source.",
+        "description": "The product uses a function that accepts a format string as an argument, but the format string originates from an external source.",
         "href": "CARL/technical-criteria/1061028",
         "weight": 5
     },
     {
         "id": 1061035,
         "name": "CWE-252 - Unchecked Return Value",
-        "description": "The software does not check the return value from a method or function, which can prevent it from detecting unexpected states and conditions.",
+        "description": "The product does not check the return value from a method or function, which can prevent it from detecting unexpected states and conditions.",
         "href": "CARL/technical-criteria/1061035",
         "weight": 5
     },
     {
         "id": 1061036,
         "name": "CWE-259 - Use of Hard-coded Password",
-        "description": "The software contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+        "description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
         "href": "CARL/technical-criteria/1061036",
         "weight": 5
     },
@@ -128,7 +128,7 @@
     {
         "id": 1061040,
         "name": "CWE-390 - Detection of Error Condition Without Action",
-        "description": "The software detects a specific error, but takes no actions to handle the error.",
+        "description": "The product detects a specific error, but takes no actions to handle the error.",
         "href": "CARL/technical-criteria/1061040",
         "weight": 5
     },
@@ -142,28 +142,28 @@
     {
         "id": 1061042,
         "name": "CWE-392 - Missing Report of Error Condition",
-        "description": "The software encounters an error but does not provide a status code or return value to indicate that an error has occurred.",
+        "description": "The product encounters an error but does not provide a status code or return value to indicate that an error has occurred.",
         "href": "CARL/technical-criteria/1061042",
         "weight": 5
     },
     {
         "id": 1061043,
         "name": "CWE-394 - Unexpected Status Code or Return Value",
-        "description": "The software does not properly check when a function or operation returns a value that is legitimate for the function, but is not expected by the software.",
+        "description": "The product does not properly check when a function or operation returns a value that is legitimate for the function, but is not expected by the product.",
         "href": "CARL/technical-criteria/1061043",
         "weight": 5
     },
     {
         "id": 1061044,
         "name": "CWE-401 - Missing Release of Memory after Effective Lifetime",
-        "description": "The software does not sufficiently track and release allocated memory after it has been used, which slowly consumes remaining memory.",
+        "description": "The product does not sufficiently track and release allocated memory after it has been used, which slowly consumes remaining memory.",
         "href": "CARL/technical-criteria/1061044",
         "weight": 5
     },
     {
         "id": 1061045,
         "name": "CWE-404 - Improper Resource Shutdown or Release",
-        "description": "The program does not release or incorrectly releases a resource before it is made available for re-use.",
+        "description": "The product does not release or incorrectly releases a resource before it is made available for re-use.",
         "href": "CARL/technical-criteria/1061045",
         "weight": 5
     },
@@ -177,21 +177,21 @@
     {
         "id": 1061050,
         "name": "CWE-434 - Unrestricted Upload of File with Dangerous Type",
-        "description": "The software allows the attacker to upload or transfer files of dangerous types that can be automatically processed within the product's environment.",
+        "description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
         "href": "CARL/technical-criteria/1061050",
         "weight": 5
     },
     {
         "id": 1061051,
         "name": "CWE-456 - Missing Initialization of a Variable",
-        "description": "The software does not initialize critical variables, which causes the execution environment to use unexpected values.",
+        "description": "The product does not initialize critical variables, which causes the execution environment to use unexpected values.",
         "href": "CARL/technical-criteria/1061051",
         "weight": 5
     },
     {
         "id": 1061054,
         "name": "CWE-476 - NULL Pointer Dereference",
-        "description": "A NULL pointer dereference occurs when the application dereferences a pointer that it expects to be valid, but is NULL, typically causing a crash or exit.",
+        "description": "The product dereferences a pointer that it expects to be valid but is NULL.",
         "href": "CARL/technical-criteria/1061054",
         "weight": 5
     },
@@ -204,44 +204,51 @@
     },
     {
         "id": 1061056,
-        "name": "CWE-478 - Missing Default Case in Switch Statement",
-        "description": "The code does not have a default case in a switch statement, which might lead to complex logical errors and resultant weaknesses.",
+        "name": "CWE-478 - Missing Default Case in Multiple Condition Expression",
+        "description": "The code does not have a default case in an expression with multiple conditions, such as a switch statement.",
         "href": "CARL/technical-criteria/1061056",
         "weight": 5
     },
     {
         "id": 1061057,
         "name": "CWE-480 - Use of Incorrect Operator",
-        "description": "The programmer accidentally uses the wrong operator, which changes the application logic in security-relevant ways.",
+        "description": "The product accidentally uses the wrong operator, which changes the logic in security-relevant ways.",
         "href": "CARL/technical-criteria/1061057",
         "weight": 5
     },
     {
         "id": 1061058,
         "name": "CWE-484 - Omitted Break Statement in Switch",
-        "description": "The program omits a break statement within a switch or similar construct, causing code associated with multiple conditions to execute. This can cause problems when the programmer only intended to execute code associated with one condition.",
+        "description": "The product omits a break statement within a switch or similar construct, causing code associated with multiple conditions to execute. This can cause problems when the programmer only intended to execute code associated with one condition.",
         "href": "CARL/technical-criteria/1061058",
         "weight": 5
     },
     {
         "id": 1061059,
         "name": "CWE-502 - Deserialization of Untrusted Data",
-        "description": "The application deserializes untrusted data without sufficiently verifying that the resulting data will be valid.",
+        "description": "The product deserializes untrusted data without sufficiently ensuring that the resulting data will be valid.",
         "href": "CARL/technical-criteria/1061059",
         "weight": 5
     },
     {
         "id": 1061060,
         "name": "CWE-543 - Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
-        "description": "The software uses the singleton pattern when creating a resource within a multithreaded environment.",
+        "description": "The product uses the singleton pattern when creating a resource within a multithreaded environment.",
         "href": "CARL/technical-criteria/1061060",
         "weight": 5
     },
     {
         "id": 1061061,
         "name": "CWE-561 - Dead Code",
-        "description": "The software contains dead code, which can never be executed.",
+        "description": "The product contains dead code, which can never be executed.",
         "href": "CARL/technical-criteria/1061061",
+        "weight": 5
+    },
+    {
+        "id": 1061062,
+        "name": "CWE-562 - Return of Stack Variable Address",
+        "description": "A function returns the address of a stack variable, which will cause unintended program behavior, typically in the form of a crash.",
+        "href": "CARL/technical-criteria/1061062",
         "weight": 5
     },
     {
@@ -261,21 +268,21 @@
     {
         "id": 1061065,
         "name": "CWE-570 - Expression is Always False",
-        "description": "The software contains an expression that will always evaluate to false.",
+        "description": "The product contains an expression that will always evaluate to false.",
         "href": "CARL/technical-criteria/1061065",
         "weight": 5
     },
     {
         "id": 1061066,
         "name": "CWE-571 - Expression is Always True",
-        "description": "The software contains an expression that will always evaluate to true.",
+        "description": "The product contains an expression that will always evaluate to true.",
         "href": "CARL/technical-criteria/1061066",
         "weight": 5
     },
     {
         "id": 1061067,
         "name": "CWE-595 - Comparison of Object References Instead of Object Contents",
-        "description": "The program compares object references instead of the contents of the objects themselves, preventing it from detecting equivalent objects.",
+        "description": "The product compares object references instead of the contents of the objects themselves, preventing it from detecting equivalent objects.",
         "href": "CARL/technical-criteria/1061067",
         "weight": 5
     },
@@ -289,42 +296,42 @@
     {
         "id": 1061070,
         "name": "CWE-611 - Improper Restriction of XML External Entity Reference",
-        "description": "The software processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output.",
+        "description": "The product processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output.",
         "href": "CARL/technical-criteria/1061070",
         "weight": 5
     },
     {
         "id": 1061072,
         "name": "CWE-643 - Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
-        "description": "The software uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
+        "description": "The product uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
         "href": "CARL/technical-criteria/1061072",
         "weight": 5
     },
     {
         "id": 1061073,
         "name": "CWE-652 - Improper Neutralization of Data within XQuery Expressions ('XQuery Injection')",
-        "description": "The software uses external input to dynamically construct an XQuery expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
+        "description": "The product uses external input to dynamically construct an XQuery expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
         "href": "CARL/technical-criteria/1061073",
         "weight": 5
     },
     {
         "id": 1061075,
         "name": "CWE-665 - Improper Initialization",
-        "description": "The software does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
+        "description": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
         "href": "CARL/technical-criteria/1061075",
         "weight": 5
     },
     {
         "id": 1061076,
         "name": "CWE-667 - Improper Locking",
-        "description": "The software does not properly acquire or release a lock on a resource, leading to unexpected resource state changes and behaviors.",
+        "description": "The product does not properly acquire or release a lock on a resource, leading to unexpected resource state changes and behaviors.",
         "href": "CARL/technical-criteria/1061076",
         "weight": 5
     },
     {
         "id": 1061077,
         "name": "CWE-672 - Operation on a Resource after Expiration or Release",
-        "description": "The software uses, accesses, or otherwise operates on a resource after that resource has been expired, released, or revoked.",
+        "description": "The product uses, accesses, or otherwise operates on a resource after that resource has been expired, released, or revoked.",
         "href": "CARL/technical-criteria/1061077",
         "weight": 5
     },
@@ -338,7 +345,7 @@
     {
         "id": 1061081,
         "name": "CWE-704 - Incorrect Type Conversion or Cast",
-        "description": "The software does not correctly convert an object, resource, or structure from one type to a different type.",
+        "description": "The product does not correctly convert an object, resource, or structure from one type to a different type.",
         "href": "CARL/technical-criteria/1061081",
         "weight": 5
     },
@@ -352,84 +359,84 @@
     {
         "id": 1061083,
         "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
-        "description": "The software uses an API function, data structure, or other entity in a way that relies on properties that are not always guaranteed to hold for that entity.",
+        "description": "The product uses an API function, data structure, or other entity in a way that relies on properties that are not always guaranteed to hold for that entity.",
         "href": "CARL/technical-criteria/1061083",
         "weight": 5
     },
     {
         "id": 1061085,
         "name": "CWE-772 - Missing Release of Resource after Effective Lifetime",
-        "description": "The software does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+        "description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
         "href": "CARL/technical-criteria/1061085",
         "weight": 5
     },
     {
         "id": 1061086,
         "name": "CWE-775 - Missing Release of File Descriptor or Handle after Effective Lifetime",
-        "description": "The software does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.",
+        "description": "The product does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.",
         "href": "CARL/technical-criteria/1061086",
         "weight": 5
     },
     {
         "id": 1061087,
         "name": "CWE-778 - Insufficient Logging",
-        "description": "When a security-critical event occurs, the software either does not record the event or omits important details about the event when logging it.",
+        "description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
         "href": "CARL/technical-criteria/1061087",
         "weight": 5
     },
     {
         "id": 1061090,
         "name": "CWE-787 - Out-of-bounds Write",
-        "description": "The software writes data past the end, or before the beginning, of the intended buffer.",
+        "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
         "href": "CARL/technical-criteria/1061090",
         "weight": 5
     },
     {
         "id": 1061091,
         "name": "CWE-788 - Access of Memory Location After End of Buffer",
-        "description": "The software reads or writes to a buffer using an index or pointer that references a memory location after the end of the buffer.",
+        "description": "The product reads or writes to a buffer using an index or pointer that references a memory location after the end of the buffer.",
         "href": "CARL/technical-criteria/1061091",
         "weight": 5
     },
     {
         "id": 1061093,
         "name": "CWE-798 - Use of Hard-coded Credentials",
-        "description": "The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data.",
+        "description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
         "href": "CARL/technical-criteria/1061093",
         "weight": 5
     },
     {
         "id": 1061096,
         "name": "CWE-821 - Incorrect Synchronization",
-        "description": "The software utilizes a shared resource in a concurrent manner, but it does not correctly synchronize access to the resource.",
+        "description": "The product utilizes a shared resource in a concurrent manner, but it does not correctly synchronize access to the resource.",
         "href": "CARL/technical-criteria/1061096",
         "weight": 5
     },
     {
         "id": 1061101,
         "name": "CWE-833 - Deadlock",
-        "description": "The software contains multiple threads or executable segments that are waiting for each other to release a necessary lock, resulting in deadlock.",
+        "description": "The product contains multiple threads or executable segments that are waiting for each other to release a necessary lock, resulting in deadlock.",
         "href": "CARL/technical-criteria/1061101",
         "weight": 5
     },
     {
         "id": 1061104,
         "name": "CWE-917 - Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')",
-        "description": "The software constructs all or part of an expression language (EL) statement in a Java Server Page (JSP) using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended EL statement before it is executed.",
+        "description": "The product constructs all or part of an expression language (EL) statement in a framework such as a Java Server Page (JSP) using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended EL statement before it is executed.",
         "href": "CARL/technical-criteria/1061104",
         "weight": 5
     },
     {
         "id": 1061105,
         "name": "CWE-1041 - Use of Redundant Code",
-        "description": "The software has multiple functions, methods, procedures, macros, etc. that contain the same code.",
+        "description": "The product has multiple functions, methods, procedures, macros, etc. that contain the same code.",
         "href": "CARL/technical-criteria/1061105",
         "weight": 5
     },
     {
         "id": 1061107,
         "name": "CWE-1043 - Data Element Aggregating an Excessively Large Number of Non-Primitive Elements",
-        "description": "The software uses a data element that has an excessively large number of sub-elements with non-primitive data types such as structures or aggregated objects.",
+        "description": "The product uses a data element that has an excessively large number of sub-elements with non-primitive data types such as structures or aggregated objects.",
         "href": "CARL/technical-criteria/1061107",
         "weight": 5
     },
@@ -443,14 +450,14 @@
     {
         "id": 1061109,
         "name": "CWE-1046 - Creation of Immutable Text Using String Concatenation",
-        "description": "The software creates an immutable text string using string concatenation operations.",
+        "description": "The product creates an immutable text string using string concatenation operations.",
         "href": "CARL/technical-criteria/1061109",
         "weight": 5
     },
     {
         "id": 1061110,
         "name": "CWE-1047 - Modules with Circular Dependencies",
-        "description": "The software contains modules in which one module has references that cycle back to itself, i.e., there are circular dependencies.",
+        "description": "The product contains modules in which one module has references that cycle back to itself, i.e., there are circular dependencies.",
         "href": "CARL/technical-criteria/1061110",
         "weight": 5
     },
@@ -464,21 +471,21 @@
     {
         "id": 1061112,
         "name": "CWE-1049 - Excessive Data Query Operations in a Large Data Table",
-        "description": "The software performs a data query with a large number of joins and sub-queries on a large data table.",
+        "description": "The product performs a data query with a large number of joins and sub-queries on a large data table.",
         "href": "CARL/technical-criteria/1061112",
         "weight": 5
     },
     {
         "id": 1061113,
         "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
-        "description": "The software has a loop body or loop condition that contains a control element that directly or indirectly consumes platform resources, e.g. messaging, sessions, locks, or file descriptors.",
+        "description": "The product has a loop body or loop condition that contains a control element that directly or indirectly consumes platform resources, e.g. messaging, sessions, locks, or file descriptors.",
         "href": "CARL/technical-criteria/1061113",
         "weight": 5
     },
     {
         "id": 1061114,
         "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data",
-        "description": "The software initializes data using hard-coded values that act as network resource identifiers.",
+        "description": "The product initializes data using hard-coded values that act as network resource identifiers.",
         "href": "CARL/technical-criteria/1061114",
         "weight": 5
     },
@@ -492,7 +499,7 @@
     {
         "id": 1061117,
         "name": "CWE-1055 - Multiple Inheritance from Concrete Classes",
-        "description": "The software contains a class with inheritance from more than one concrete class.",
+        "description": "The product contains a class with inheritance from more than one concrete class.",
         "href": "CARL/technical-criteria/1061117",
         "weight": 5
     },
@@ -506,7 +513,7 @@
     {
         "id": 1061120,
         "name": "CWE-1060 - Excessive Number of Inefficient Server-Side Data Accesses",
-        "description": "The software performs too many data queries without using efficient data processing functionality such as stored procedures.",
+        "description": "The product performs too many data queries without using efficient data processing functionality such as stored procedures.",
         "href": "CARL/technical-criteria/1061120",
         "weight": 5
     },
@@ -520,42 +527,42 @@
     {
         "id": 1061122,
         "name": "CWE-1064 - Invokable Control Element with Signature Containing an Excessive Number of Parameters",
-        "description": "The software contains a function, subroutine, or method whose signature has an unnecessarily large number of parameters/arguments.",
+        "description": "The product contains a function, subroutine, or method whose signature has an unnecessarily large number of parameters/arguments.",
         "href": "CARL/technical-criteria/1061122",
         "weight": 5
     },
     {
         "id": 1061123,
         "name": "CWE-1066 - Missing Serialization Control Element",
-        "description": "The software contains a serializable data element that does not have an associated serialization method.",
+        "description": "The product contains a serializable data element that does not have an associated serialization method.",
         "href": "CARL/technical-criteria/1061123",
         "weight": 5
     },
     {
         "id": 1061124,
         "name": "CWE-1067 - Excessive Execution of Sequential Searches of Data Resource",
-        "description": "The software contains a data query against an SQL table or view that is configured in a way that does not utilize an index and may cause sequential searches to be performed.",
+        "description": "The product contains a data query against an SQL table or view that is configured in a way that does not utilize an index and may cause sequential searches to be performed.",
         "href": "CARL/technical-criteria/1061124",
         "weight": 5
     },
     {
         "id": 1061125,
         "name": "CWE-1070 - Serializable Data Element Containing non-Serializable Item Elements",
-        "description": "The software contains a serializable, storable data element such as a field or member, but the data element contains member elements that are not serializable.",
+        "description": "The product contains a serializable, storable data element such as a field or member, but the data element contains member elements that are not serializable.",
         "href": "CARL/technical-criteria/1061125",
         "weight": 5
     },
     {
         "id": 1061126,
         "name": "CWE-1072 - Data Resource Access without Use of Connection Pooling",
-        "description": "The software accesses a data resource through a database without using a connection pooling capability.",
+        "description": "The product accesses a data resource through a database without using a connection pooling capability.",
         "href": "CARL/technical-criteria/1061126",
         "weight": 5
     },
     {
         "id": 1061127,
         "name": "CWE-1073 - Non-SQL Invokable Control Element with Excessive Number of Data Resource Accesses",
-        "description": "The software contains a client with a function or method that contains a large number of data accesses/queries that are sent through a data manager, i.e., does not use efficient database capabilities.",
+        "description": "The product contains a client with a function or method that contains a large number of data accesses/queries that are sent through a data manager, i.e., does not use efficient database capabilities.",
         "href": "CARL/technical-criteria/1061127",
         "weight": 5
     },
@@ -569,7 +576,7 @@
     {
         "id": 1061129,
         "name": "CWE-1075 - Unconditional Control Flow Transfer outside of Switch Block",
-        "description": "The software performs unconditional control transfer (such as a goto) in code outside of a branching structure such as a switch block.",
+        "description": "The product performs unconditional control transfer (such as a goto) in code outside of a branching structure such as a switch block.",
         "href": "CARL/technical-criteria/1061129",
         "weight": 5
     },
@@ -639,7 +646,7 @@
     {
         "id": 1061140,
         "name": "CWE-1089 - Large Data Table with Excessive Number of Indices",
-        "description": "The software uses a large data table that contains an excessively large number of indices.",
+        "description": "The product uses a large data table that contains an excessively large number of indices.",
         "href": "CARL/technical-criteria/1061140",
         "weight": 5
     },
@@ -653,35 +660,35 @@
     {
         "id": 1061142,
         "name": "CWE-1091 - Use of Object without Invoking Destructor Method",
-        "description": "The software contains a method that accesses an object but does not later invoke the element's associated finalize/destructor method.",
+        "description": "The product contains a method that accesses an object but does not later invoke the element's associated finalize/destructor method.",
         "href": "CARL/technical-criteria/1061142",
         "weight": 5
     },
     {
         "id": 1061144,
         "name": "CWE-1094 - Excessive Index Range Scan for a Data Resource",
-        "description": "The software contains an index range scan for a large data table, but the scan can cover a large number of rows.",
+        "description": "The product contains an index range scan for a large data table, but the scan can cover a large number of rows.",
         "href": "CARL/technical-criteria/1061144",
         "weight": 5
     },
     {
         "id": 1061145,
         "name": "CWE-1095 - Loop Condition Value Update within the Loop",
-        "description": "The software uses a loop with a control flow condition based on a value that is updated within the body of the loop.",
+        "description": "The product uses a loop with a control flow condition based on a value that is updated within the body of the loop.",
         "href": "CARL/technical-criteria/1061145",
         "weight": 5
     },
     {
         "id": 1061146,
         "name": "CWE-1096 - Singleton Class Instance Creation without Proper Locking or Synchronization",
-        "description": "The software implements a Singleton design pattern but does not use appropriate locking or other synchronization mechanism to ensure that the singleton class is only instantiated once.",
+        "description": "The product implements a Singleton design pattern but does not use appropriate locking or other synchronization mechanism to ensure that the singleton class is only instantiated once.",
         "href": "CARL/technical-criteria/1061146",
         "weight": 5
     },
     {
         "id": 1061147,
         "name": "CWE-1097 - Persistent Storable Data Element without Associated Comparison Control Element",
-        "description": "The software uses a storable data element that does not have all of the associated functions or methods that are necessary to support comparison.",
+        "description": "The product uses a storable data element that does not have all of the associated functions or methods that are necessary to support comparison.",
         "href": "CARL/technical-criteria/1061147",
         "weight": 5
     },
