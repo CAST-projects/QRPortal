@@ -1,0 +1,80 @@
+{
+    "id": 1107008,
+    "name": "Oracle Forms Control Blocks naming convention - prefix control",
+    "href": "AIP/quality-rules/1107008",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.formsreport",
+        "href": "AIP/extensions/com.castsoftware.formsreport"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The name of an Oracle Forms Control Block, aka Not a Table Based Oracle Forms Data Block, should start with X. \nThe prefix value is a parameter that can be changed at will.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "For readability aspects, naming conventions must be respected.",
+    "reference": "Oracle Forms objects Naming Standards : https://docs.oracle.com/cd/E18727_01/doc.121/e12897/T302934T458266.htm#I_devnameform.",
+    "remediation": "Change name according to the naming convention.",
+    "remediationSample": "<Block Name=\"CTRL_BLOCK\" NextNavigationBlockName=\"CTRL_NEXT\" ...\nor\n<Block Name=\"CTRL\" NextNavigationBlockName=\"CTRL_NEXT\" ...",
+    "sample": "<Block Name=\"BLOCK\" NextNavigationBlockName=\"CTRL_NEXT\" ...",
+    "total": "Number of Not Table Based Oracle Forms Data Blocks",
+    "alternativeName": "Oracle Forms Control Blocks naming convention - prefix control",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1107000,
+            "name": "FormsReportAnalyzer",
+            "href": "AIP/technologies/1107000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Control Block Name Prefix",
+            "description": "Control Block Name Prefix",
+            "technologies": [
+                {
+                    "id": 1107000,
+                    "name": "FormsReportAnalyzer",
+                    "href": "AIP/technologies/1107000",
+                    "values": [
+                        "CTRL"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
