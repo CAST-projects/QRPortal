@@ -1,0 +1,258 @@
+{
+    "id": 1065112,
+    "name": "Avoid passing empty container iterators to std algorithms as destinations",
+    "href": "AIP/quality-rules/1065112",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "The rule will raise a violation when empty containers are passed to following STL algorithms:\nstd::copy()\nstd::copy_n\nstd::fill()\nstd::fill_n()\nstd::transform()",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Copying data into a container that is not large enough to hold that data results in a buffer overflow.\nThe following STL algorithms assume sufficient size in the destination:\n\nstd::copy()\nstd::copy_n\nstd::fill()\nstd::fill_n()\nstd::transform()",
+    "reference": "https://cwe.mitre.org/data/definitions/119.html\nhttps://cwe.mitre.org/data/definitions/120.html\nhttps://cwe.mitre.org/data/definitions/805.html",
+    "remediation": "To prevent buffer overflow, either the destinations' size should be guaranteed to hold the data copied or the data must be restricted in size.",
+    "remediationSample": "1.\n#include <algorithm>\n#include <vector>\nvoid f(const std::vector<int> &src) {\n\n  // Initialize dest with src.size() or construct dest from src directly\n\n  std::vector<int> dest(src.size()); OR  std::vector<int> dest(src);\n  std::copy(src.begin(), src.end(), dest.begin());\n  // ...\n}\n\nOR\n\n\n#include <algorithm>\n#include <iterator>\n#include <vector>\n \nvoid f(const std::vector<int> &src) {\n  std::vector<int> dest;\n\n//This iterator expands the destination container by one element for each element supplied by the algorithm\n  std::copy(src.begin(), src.end(), std::back_inserter(dest));\n  // ...\n}\n\n\n2. \n//Sufficient Initial Capacity\n#include <algorithm>\n#include <vector>\n \nvoid f() {\n  std::vector<int> v(10);\n  std::fill_n(v.begin(), 10, 0x42);\n}\n\nOR\n//Full Initialisation\n#include <algorithm>\n#include <vector>\n \nvoid f() {\n  std::vector<int> v(10, 0x42);\n}",
+    "sample": "1.\n#include <algorithm>\n#include <vector>\n \nvoid f(const std::vector<int> &src) {\n  std::vector<int> dest;\n  std::copy(src.begin(), src.end(), dest.begin());\n  // ...\n}\n\n2. \n\n#include <algorithm>\n#include <vector>\n \nvoid f() {\n  std::vector<int> v;\n  std::fill_n(v.begin(), 10, 0x42);\n}",
+    "total": "Number of C++ methods and Functions",
+    "alternativeName": "Avoid passing empty container iterators to std algorithms as destinations",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062145,
+            "name": "ASCRM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062145",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062174,
+            "name": "ASCSM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062174",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061021,
+            "name": "CWE-119 - Improper Restriction of Operations within the Bounds of a Memory Buffer",
+            "href": "AIP/technical-criteria/1061021",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066219,
+            "name": "CWE-119 - Improper Restriction of Operations within the Bounds of a Memory Buffer",
+            "href": "AIP/technical-criteria/1066219",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061022,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1061022",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066220,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1066220",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061094,
+            "name": "CWE-805 - Buffer Access with Incorrect Length Value",
+            "href": "AIP/technical-criteria/1061094",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066905,
+            "name": "CWE-805 - Buffer Access with Incorrect Length Value",
+            "href": "AIP/technical-criteria/1066905",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 8,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063116,
+            "name": "PCI-Requirement-6.5.2 - Buffer overflows",
+            "href": "AIP/technical-criteria/1063116",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-120",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-120",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-119",
+            "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+            "href": "AIP/quality-standards/CWE/items/CWE-119",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/CWE/items/CWE-120",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-805",
+            "name": "Buffer Access with Incorrect Length Value",
+            "href": "AIP/quality-standards/CWE/items/CWE-805",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-119",
+            "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-119",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-120",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-805",
+            "name": "Buffer Access with Incorrect Length Value",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-805",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-119",
+            "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-119",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-120",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-805",
+            "name": "Buffer Access with Incorrect Length Value",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-805",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222612",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222612",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}
