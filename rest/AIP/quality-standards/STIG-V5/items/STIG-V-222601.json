@@ -5,7 +5,13 @@
     "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222601",
     "description": "Hidden fields allow developers to process application data without having to display it on the screen.  Using hidden fields to pass data in forms is a common practice among web applications and by itself is not a security risk.  \n\nHowever, hidden fields are not secure and can be easily manipulated by users.  Information requiring confidentiality or integrity protections must not be placed in a hidden field.   If data that is sensitive must be stored in a hidden field, it must be encrypted.\n\nFurthermore, hidden fields used to control access decisions can lead to a complete compromise of access control mechanisms allowing immediate compromise of the user's application session.",
     "isoPatterns": null,
-    "count": 0,
-    "qualityRules": null,
-    "qualityTemplates": null
+    "count": 1,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222601/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222601/quality-templates"
+    }
 }
