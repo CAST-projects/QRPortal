@@ -13,7 +13,7 @@
     "description": "Using CAST data-flow engine, this metric detects the use of a broken or risky cryptographic algorithm.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "The use of a non-standard algorithm is dangerous because a determined attacker may be able to break the algorithm and compromise whatever data has been protected. Well-known techniques may exist to break the algorithm.",
-    "reference": "CWE-327: Use of a Broken or Risky Cryptographic Algorithm\nhttps://cwe.mitre.org/data/definitions/327.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
+    "reference": "CWE-327: Use of a Broken or Risky Cryptographic Algorithm\nhttps://cwe.mitre.org/data/definitions/327.html\n\nCWE-780: Use of RSA Algorithm without OAEP\nhttps://cwe.mitre.org/data/definitions/780.html\n\nOWASP Top 10:2021 - A02:2021 \u2013 Cryptographic Failures\nhttps://owasp.org/Top10/A02_2021-Cryptographic_Failures/",
     "remediation": "Use a recommended algorithm. Example: Advanced Encryption Standard (AES).",
     "remediationSample": "Cipher des=Cipher.getInstance(\"AES/CBC/PKCS5PADDING\");\ndes.initEncrypt(key2);",
     "sample": "Cipher des=Cipher.getInstance(\"DES/CBC/PKCS5PADDING\");\ndes.initEncrypt(key2);",
