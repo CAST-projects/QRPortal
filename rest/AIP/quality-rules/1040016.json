@@ -3,32 +3,37 @@
     "name": "PermitAll or user role should be specified to access URL(s) of the application",
     "href": "AIP/quality-rules/1040016",
     "critical": true,
-    "severity": 30,
+    "severity": 20,
     "maxWeight": 7,
     "extension": {
         "name": "com.castsoftware.springsecurity",
         "href": "AIP/extensions/com.castsoftware.springsecurity"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This rule will check if a permitAll or a user role is specified for accessing any URL path when the URL is specified with .antMatchers() or .loginPage(). If not it gives the violation.",
+    "description": "This rule checks if authorization is set for URLs specified with .requestMatchers(), .antMatchers() or .loginPage(). It will trigger a violation if none of the following function is called:\n - permitAll\n - hasAuthority\n - hasRole\n - hasAnyAuthority\n - hasAnyRole\n - access",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
-    "rationale": "The access to any URL in your application should be secured by using permitAll() to avoid anonymous access or by specifying the role of the user allowed to get access.\nThese expressions are responsible for defining the access control or authorization to specific URLs or methods in your application.\nLet\u2019s look at the example:\n@Override\nprotected void configure(final HttpSecurity http) throws Exception {\n    ...\n    .antMatchers(\"/ForumPage/*\").permittAll()\n    .antMatchers(\"/auth/admin/*\").hasRole(\"ADMIN\")\n    .antMatchers(\"/auth/*\").hasAnyRole(\"ADMIN\",\"USER\")\n\n    ...\n}\n\nIn this example we specify access to all links starting with /auth/ restricted to users that are logged in with role USER or role ADMIN. Moreover, to access links starting with /auth/admin/ we need to have ADMIN role in the system.\nHowever for \"/ForumPage/*\" : all requests are allowed on that particular path ( not anonymous one).Setting the access=\u201dpermitAll\u201d will configure the authorization so that all requests are allowed on that particular path. This is achieved without disabling the security filters \u2013 these still run, so any Spring Security related functionality will still be available.\nThis check is also available for the login page, we should at least specify a .permitAll() for the path login as follow\n  .formLogin()\n            .loginPage(\"/login\")\n            .permitAll()",
-    "reference": "https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control",
+    "rationale": "If you forget to use permitAll() when configuring your filter chain with authorizeRequests, Spring Security will treat those endpoints as protected and require authentication, which can block access to public pages, static resources, or unauthenticated API calls.",
+    "reference": "Spring Security - Authorize HttpServletRequests\nhttps://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html",
     "remediation": "Add .permitAll() for the .loginPage(\"/login\") or .antMatchers(\"/xxx/**\") if access is allowed to anyone.\nor Specify the role with .hasRole(\"ROLE\")",
     "remediationSample": "You need to add .permitAll() for the .loginPage(\"/login\") or .antMatchers(\"/xxx/**\") if access is allowed to anyone.\nor you have to specify the role with .hasRole(\"ROLE\")\n\nJAVA CONFIGURATION\n-----------------------------------------\nprotected void configure(HttpSecurity http) throws Exception {\nhttp\n.authorizeRequests()\n.antMatchers(\"/resources/**\", \"/signup\", \"/about\").permitAll()\n.antMatchers(\"/admin/**\").hasRole(\"ADMIN\") //here the permitall is not specified but the role is specified.\n.antMatchers(\"/db/**\").access(\"hasRole('ADMIN') and hasRole('DBA')\") //here the permitall is not specified but the role is specified.\n.anyRequest().authenticated()\n.and()\n\n.loginPage(\"/login\").permitAll()\n}\n\nXML CONFIGURATION\n-----------------------------------------\nintercept-url pattern=\"/login*\" access=\"permitAll\"",
     "sample": "JAVA CONFIGURATION\n-----------------------------------------\nprotected void configure(HttpSecurity http) throws Exception {\nhttp\n.authorizeRequests()\n.anyRequest().authenticated()\n.and()\n\n.loginPage(\"/login\")\n\n\nXML CONFIGURATION\n-----------------------------------------\nintercept-url pattern=\"/login*\"",
     "total": "Number of Java Methods and XML Files",
-    "alternativeName": "Ensure specifying \"PermitAll\" or \"user role\" for URL(s) access to enforce security",
+    "alternativeName": "Avoid blocking access to public ressources",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 1061000,
             "name": "ISO-5055-Index",
             "href": "AIP/business-criteria/1061000"
         },
         {
-            "id": 66031,
-            "name": "Programming Practices",
-            "href": "AIP/business-criteria/66031"
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
         },
         {
             "id": 60016,
@@ -101,9 +106,9 @@
             "critical": false
         },
         {
-            "id": 66062,
-            "name": "Secure Coding - Input Validation",
-            "href": "AIP/technical-criteria/66062",
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
             "weight": 7,
             "critical": true
         }
@@ -117,27 +122,21 @@
     ],
     "qualityStandards": [
         {
-            "id": "CWE-269",
-            "name": "Improper Privilege Management",
-            "href": "AIP/quality-standards/CWE/items/CWE-269",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-20",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-561",
             "standard": "CWE"
         },
         {
-            "id": "CWE-285",
-            "name": "Improper Authorization",
-            "href": "AIP/quality-standards/CWE/items/CWE-285",
-            "standard": "CWE"
-        },
-        {
-            "id": "CWE-424",
-            "name": "Improper Protection of Alternate Path",
-            "href": "AIP/quality-standards/CWE/items/CWE-424",
-            "standard": "CWE"
-        },
-        {
-            "id": "CWE-424",
-            "name": "Improper Protection of Alternate Path",
-            "href": "AIP/quality-standards/ISO-5055/items/CWE-424",
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-561",
             "standard": "ISO-5055"
         },
         {
@@ -153,34 +152,10 @@
             "standard": "NIST-SP-800-53R4"
         },
         {
-            "id": "CWE-424",
-            "name": "Improper Protection of Alternate Path",
-            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-424",
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-561",
             "standard": "OMG-ASCQM"
-        },
-        {
-            "id": "A5-2017",
-            "name": "Broken Access Control",
-            "href": "AIP/quality-standards/OWASP/items/A5-2017",
-            "standard": "OWASP"
-        },
-        {
-            "id": "A7-2013",
-            "name": "Missing Function Level Access Control",
-            "href": "AIP/quality-standards/OWASP/items/A7-2013",
-            "standard": "OWASP"
-        },
-        {
-            "id": "A04-2021",
-            "name": "Insecure Design",
-            "href": "AIP/quality-standards/OWASP/items/A04-2021",
-            "standard": "OWASP"
-        },
-        {
-            "id": "API1-2019",
-            "name": "Broken Object Level Authorization",
-            "href": "AIP/quality-standards/OWASP/items/API1-2019",
-            "standard": "OWASP"
         },
         {
             "id": "PCI-Requirement-6.5.10",
