@@ -7,9 +7,14 @@ const filterDeprecated = ( req, res, errorHandler, echo ) => {
     if (err) {
       return errorHandler(err, res);
     }
-    const json = JSON.parse(data),
-      clean = json.filter( e => e.status !== 'deprecated');
-    res.send(clean);
+
+    try {
+      const json = JSON.parse(data),
+        clean = json.filter( e => e.status !== 'deprecated');
+      res.send(clean);
+    } catch (error) {
+      res.sendStatus(502);
+    }
   });
 };
 
