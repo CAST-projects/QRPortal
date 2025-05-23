@@ -9,12 +9,13 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
-    "description": "This rule searches all the programs having obsolete \"Date Operations\" statements.",
+    "description": "This rule identifies the usage of obsolete date-related operation codes in RPG IV programs.\nThese operations originate from older versions of RPG and should be replaced with modern alternatives, especially in free-format code.\n\nThe rule flags the following opcodes as obsolete:\n\n- ADDDUR\n--- Purpose: Add duration to a date/time value\n--- Replaced By: `%ADDdur` or direct date arithmetic with `%DAYS`, `%MONTHS`, `%YEARS`\n\n- SUBDUR\n--- Purpose: Subtract duration from a date/time value\n--- Replaced By: `%SUBdur` or direct date arithmetic\n\n- TIME\n--- Purpose: Retrieve current system time\n--- Replaced By: `%TIME`, `%DATE`, or `%TIMESTAMP`\n\n- EXTRCT\n--- Purpose: Extract date/time components\n--- Replaced By: `%SUBDT` or `%CHAR(%DATE)`, `%CHAR(%TIME)`",
     "output": "This report lists RPG400 programs using obsolete \"Date Operations\" statements in RPG Programs (RPG-IV only)\nIt provides the following information:\nRPG400 Program full name",
-    "rationale": "During the upgrade of the different RPG versions (V2 / V3 / ILE V4) some statements are no longer supported. Where ever in the code these statements the artifact is reported as a violation.",
-    "remediation": "Try to replace these statements with some other non obsolete.",
-    "remediationSample": "Please use the other date operations mentioned in the below link.\nhttps://publib.boulder.ibm.com/iseries/v5r2/ic2924/books/c092508427.htm#HDRYYDATE",
-    "sample": "Date operations like , ADDDUR , EXTRCT, SUBDUR and TIME should be avoided.",
+    "rationale": "In RPG IV and ILE, modern date and time handling capabilities are available, including built-in functions and free-format expressions.\nContinued use of outdated date operations such as ADDDUR, SUBDUR, TIME, and EXTRCT reduces code clarity and maintainability.\nReplacing them ensures better alignment with modern RPG coding standards and future-proofing.",
+    "reference": "IBM ILE RPG Programmer's Guide IBM i 7.6 - \u00a7What's New in V5R1? page 64\nhttps://www.ibm.com/docs/fr/ssw_ibm_i_76/pdf/sc092507.pdf",
+    "remediation": "Use free-format equivalents, built-in functions, or %BIF operations (e.g., %date, %diff, %timestamp, %subdt, etc.) instead of fixed-format date operations.",
+    "remediationSample": "Here an example of remediation:\n\n\n\"\"\"\ndcl-s curTime time;\ndcl-s year int(4);\ndcl-s newDate date;\ndcl-s date1 date;\ndcl-s date2 date;\n\ncurTime = %time();\nyear = %subdt(%date(): *years);\nnewDate = START + %months(1);\ndate2 = date1 - %days(5);\n\"\"\"",
+    "sample": "Here an example of Obsolete usage:\n\n\n\"\"\"\n       C     TIME                    CURTIME\n       C     EXTRCT    CURDATE       *YEAR     YEAR\n       C     ADDDUR    1:*MONTH      START     NEWDATE\n       C     SUBDUR    5:*DAYS       DATE1     DATE2\n\"\"\"",
     "total": "Total number of RPG400 Programs",
     "alternativeName": "Avoid using obsolete \"Date Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
     "businessCriteria": [

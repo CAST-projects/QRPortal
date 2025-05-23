@@ -9,12 +9,13 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
-    "description": "This rule searches all the programs having obsolete \"String Operations\" statements.",
+    "description": "This rule flags the use of obsolete fixed-format string operation codes in RPG IV programs.\nThese operations should be replaced with modern built-in functions or free-format equivalents.\n\nThe rule flags the following opcodes:\n- CAT\n--- Purpose: Concatenate strings\n--- Replaced By: `+` operator for string concatenation or `%TRIM` + `+`\n\n- CHECKR\n--- Purpose: Check characters from the right\n--- Replaced By: `%CHECKR` built-in function\n\n- SCAN\n--- Purpose: Scan for a character within a string\n--- Replaced By: `%SCAN` built-in function\n\n- SUBST\n--- Purpose: Extract a substring\n--- Replaced By: `%SUBST` built-in function\n\n- XLATE\n--- Purpose: Translate characters\n--- Replaced By: `%XLATE` built-in function",
     "output": "This report lists RPG400 programsusing obsolete \"String Operations\" statements in RPG Programs (RPG-IV only).\nIt provides the following information:\nRPG400 Program full name",
-    "rationale": "During the upgrade of the different RPG versions (V2 / V3 / ILE V4) some statements are no longer supported. Where ever in the code these statements the artifact is reported as a violation.",
-    "remediation": "Try to replace these statements with some other non obsolete.",
-    "remediationSample": "Please refer the link below for the supported string operations,\nhttp://www.ibm.com/support/knowledgecenter/SSAE4W_9.1.1/com.ibm.etools.iseries.langref.doc/evferlsh254.htm",
-    "sample": "Please refer the link below for the supported string operations,\nhttp://www.ibm.com/support/knowledgecenter/SSAE4W_9.1.1/com.ibm.etools.iseries.langref.doc/evferlsh254.htm",
+    "rationale": "RPG IV introduced powerful string-handling capabilities via free-format syntax and built-in functions (BIFs).\nLegacy fixed-format string operations like CAT, CHECKR, SCAN, SUBST, and XLATE are harder to read, maintain, and integrate with newer RPG features.\nMigrating to modern syntax ensures better maintainability and aligns with best practices in ILE RPG development.",
+    "reference": "IBM ILE RPG Programmer's Guide IBM i 7.6 - \u00a7What's New in V5R1? page 64\nhttps://www.ibm.com/docs/fr/ssw_ibm_i_76/pdf/sc092507.pdf",
+    "remediation": "Use free-format RPG and %BIFs like %trim, %scan, %subst, %xlate, and concatenation (+ operator) instead of these legacy opcodes.",
+    "remediationSample": "Here an example of remediation:\n\n\n\"\"\"\ndcl-s fullName varchar(100);\ndcl-s pos int(5);\ndcl-s substr varchar(20);\ndcl-s output varchar(50);\n\nfullName = name + ' ';\npos = %scan('A': str1);\nsubstr = %subst(str2: 3: 5);\noutput = %xlate('aeiou': '*': text);\n\"\"\"",
+    "sample": "Here an example of Obsolete usage:\n\n\"\"\"\n       C     CAT       NAME:1        FULLNAME\n       C     SCAN      'A'           STR1        POS\n       C     SUBST     STR2:3:5      SUBSTR\n       C     XLATE     'aeiou':'*'   TEXT        OUTPUT\n\"\"\"",
     "total": "Total number of RPG400 Programs",
     "alternativeName": "Avoid using obsolete \"String Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
     "businessCriteria": [

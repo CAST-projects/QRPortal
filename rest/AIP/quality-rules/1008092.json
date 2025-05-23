@@ -9,12 +9,13 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
-    "description": "This rule searches all the programs having obsolete \"Call Operations\" statements.",
+    "description": "This rule detects obsolete CALL operation usage in RPG IV programs.\nIt specifically targets programs that use the fixed-format CALL opcode to invoke external programs or procedures, which is discouraged in favor of modern alternatives like CALLP.",
     "output": "This report lists RPG400 programs using obsolete \"Call Operations\" statements in RPG Programs (RPG-IV only)\nIt provides the following information:\nRPG400 Program full name",
-    "rationale": "During the upgrade of the different RPG versions (V2 / V3 / ILE V4) some statements are no longer supported. Where ever in the code these statements the artifact is reported as a violation.",
-    "remediation": "Try to replace these statements with some other non obsolete.",
-    "remediationSample": "Please use the other date operations mentioned in the below link.\nhttps://publib.boulder.ibm.com/iseries/v5r2/ic2924/books/c092508427.htm#HDRYYCALL",
-    "sample": "Date operations like , CALL , CALLP, PARM and PLIST should be avoided.",
+    "rationale": "With the introduction of ILE RPG (RPG IV), structured and type-safe program invocation became available via the CALLP opcode and later via free-format procedure calls.\nContinuing to use the traditional CALL opcode compromises readability, maintainability, and integration with modern ILE programming concepts such as prototypes and parameter typing.",
+    "reference": "IBM ILE RPG Programmer's Guide IBM i 7.6 - \u00a7What's New in V5R1? page 64\nhttps://www.ibm.com/docs/fr/ssw_ibm_i_76/pdf/sc092507.pdf",
+    "remediation": "Replace CALL with CALLP, or better yet, use modern free-format procedure calls with properly defined prototypes.",
+    "remediationSample": "Two examples of remediation:\n\nFree-Format:\n\n\"\"\"\nDcl-pr MyPgm ExtPgm('MYPGM');\n  VAR1 int(10);\n  VAR2 char(20);\nEnd-Pr;\n\nMyPgm(VAR1: VAR2);\n\"\"\"\n\nor New Fixed-Format:\n\n\"\"\"\n       C     CALLP     MyPgm(VAR1: VAR2)\n\"\"\"",
+    "sample": "Here an example of Obsolete fixed-format call usage:\n\n\n\"\"\"\n       C     CALL      'MYPGM'\n       C     PARM      VAR1\n       C     PARM      VAR2\n\"\"\"",
     "total": "Total number of RPG400 Programs",
     "alternativeName": "Avoid using obsolete \"Call Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
     "businessCriteria": [
