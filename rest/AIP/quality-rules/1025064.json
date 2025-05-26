@@ -18,7 +18,7 @@
     "remediationSample": "// ----------------------------------------------------------------------------\n(C#)\nstring value = regKey.GetValue(passKey).ToString();\nstring decryptedPassword = DecryptPassword(value);\nvar netCred = new NetworkCredential(username, decryptedPassword, domain);\n\n\nstatic string DecryptPassword(string encryptedPassword)\n{\n\u00a0\u00a0\u00a0 // Example decryption logic using AES\n\u00a0\u00a0\u00a0 byte[] key = Encoding.UTF8.GetBytes(\"YourEncryptionKey123\");\n\u00a0\u00a0\u00a0 byte[] iv = Encoding.UTF8.GetBytes(\"YourInitializationVector\");\n\n\u00a0\u00a0\u00a0 using (Aes aesAlg = Aes.Create());\n\u00a0\u00a0\u00a0 aesAlg.Key = key;\n\u00a0\u00a0\u00a0 aesAlg.IV = iv;\n\u00a0\u00a0\u00a0 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);\n\u00a0\u00a0\u00a0 byte[] encryptedBytes = Convert.FromBase64String(encryptedPassword);\n\u00a0\u00a0\u00a0 using (var msDecrypt = new System.IO.MemoryStream(encryptedBytes));\n\u00a0\u00a0\u00a0 using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read));\n\u00a0\u00a0\u00a0 using (var reader = new System.IO.StreamReader(csDecrypt));\n \u00a0\u00a0 byte[] decryptedBytes = Encoding.UTF8.GetBytes(reader.ReadToEnd());\n\n\u00a0\u00a0\u00a0 return Encoding.UTF8.GetString(decryptedBytes);\n}",
     "sample": "// ----------------------------------------------------------------------------\n(C#)\nstring value = regKey.GetValue(passKey).ToString();\nbyte[] decVal = Convert.FromBase64String(value);\nstring decodedPassword = Encoding.UTF8.GetString(decVal);\nvar netCred = new NetworkCredential(username, decodedPassword, domain);",
     "total": "Number of potentially vulnerable methods",
-    "alternativeName": null,
+    "alternativeName": "Ensure you don't use weak encoding",
     "businessCriteria": [
         {
             "id": 66031,
@@ -58,7 +58,36 @@
         }
     ],
     "qualityStandards": [
-        
+        {
+            "id": "CWE-261",
+            "name": "Weak Encoding for Password",
+            "href": "AIP/quality-standards/CWE/items/CWE-261",
+            "standard": "CWE"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.3",
+            "name": "Insecure cryptographic storage",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.3",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.3",
+            "name": "Insecure cryptographic storage",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.3",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
     ],
     "parameters": [
         
