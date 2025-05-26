@@ -1,0 +1,72 @@
+{
+    "id": 1025064,
+    "name": "Avoid weak encoding",
+    "href": "AIP/quality-rules/1025064",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Call stack from source down to the target method",
+    "description": "This quality rule identifies instances where passwords are obscured using trivial encoding methods, such as base64 encoding, which do not provide adequate protection.\nPasswords are identified when they are used in a sendCredential method, re-using the same definitions as the ones used for the rule 8222 - Avoid hard-coded credentials.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The problem with weak encoding is that it gives a false sense of security. Encoding methods like base64 are easily reversible, meaning that encoded passwords can be quickly decoded by attackers. This vulnerability can lead to unauthorized access and potential data breaches, as attackers can easily retrieve and exploit the encoded passwords.",
+    "reference": "CWE-261: Weak Encoding for Password\nhttps://cwe.mitre.org/data/definitions/261.html\n\nOWASP Top Ten 2021 Category A02:2021 - Cryptographic Failures\nhttps://owasp.org/Top10/A02_2021-Cryptographic_Failures/",
+    "remediation": "To address violations of this quality rule, it is essential to use strong encryption algorithms instead of simple encoding methods. Passwords should be encrypted with keys that are at least 128 bits in length to ensure adequate security. Additionally, it is important to follow best practices for password management, such as using salt and hash functions, to further enhance password protection.",
+    "remediationSample": "// ----------------------------------------------------------------------------\n(C#)\nstring value = regKey.GetValue(passKey).ToString();\nstring decryptedPassword = DecryptPassword(value);\nvar netCred = new NetworkCredential(username, decryptedPassword, domain);\n\n\nstatic string DecryptPassword(string encryptedPassword)\n{\n\u00a0\u00a0\u00a0 // Example decryption logic using AES\n\u00a0\u00a0\u00a0 byte[] key = Encoding.UTF8.GetBytes(\"YourEncryptionKey123\");\n\u00a0\u00a0\u00a0 byte[] iv = Encoding.UTF8.GetBytes(\"YourInitializationVector\");\n\n\u00a0\u00a0\u00a0 using (Aes aesAlg = Aes.Create());\n\u00a0\u00a0\u00a0 aesAlg.Key = key;\n\u00a0\u00a0\u00a0 aesAlg.IV = iv;\n\u00a0\u00a0\u00a0 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);\n\u00a0\u00a0\u00a0 byte[] encryptedBytes = Convert.FromBase64String(encryptedPassword);\n\u00a0\u00a0\u00a0 using (var msDecrypt = new System.IO.MemoryStream(encryptedBytes));\n\u00a0\u00a0\u00a0 using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read));\n\u00a0\u00a0\u00a0 using (var reader = new System.IO.StreamReader(csDecrypt));\n \u00a0\u00a0 byte[] decryptedBytes = Encoding.UTF8.GetBytes(reader.ReadToEnd());\n\n\u00a0\u00a0\u00a0 return Encoding.UTF8.GetString(decryptedBytes);\n}",
+    "sample": "// ----------------------------------------------------------------------------\n(C#)\nstring value = regKey.GetValue(passKey).ToString();\nbyte[] decVal = Convert.FromBase64String(value);\nstring decodedPassword = Encoding.UTF8.GetString(decVal);\nvar netCred = new NetworkCredential(username, decodedPassword, domain);",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": null,
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}
