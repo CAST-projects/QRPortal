@@ -10022,6 +10022,210 @@
     ],
     "com.castsoftware.sql.movetocloud": [
         {
+            "version": "1.0.3-funcrel",
+            "addedRules": [
+                {
+                    "id": 1106274,
+                    "name": "Ensure Converting numeric function INT(string) is not used"
+                },
+                {
+                    "id": 1106272,
+                    "name": "Ensure Converting numeric function SMALLINT(expr) is not used"
+                },
+                {
+                    "id": 1106270,
+                    "name": "Ensure Db2 Scalar Function GREATEST is not used"
+                },
+                {
+                    "id": 1106268,
+                    "name": "Ensure Db2 Scalar Function LEAST is not used"
+                },
+                {
+                    "id": 1106266,
+                    "name": "Ensure NUM data type is not used"
+                },
+                {
+                    "id": 1106264,
+                    "name": "Ensure SYSIBM.SYSDUMMY1 table is not used"
+                },
+                {
+                    "id": 1106262,
+                    "name": "Ensure Db2 Scalar Function LCASE is not used"
+                },
+                {
+                    "id": 1106260,
+                    "name": "Ensure Db2 Scalar Function CURRENT DATE is not used"
+                },
+                {
+                    "id": 1106258,
+                    "name": "Ensure TIMESTAMP data type is not used"
+                },
+                {
+                    "id": 1106256,
+                    "name": "Ensure FOR BIT DATA statement is not used"
+                },
+                {
+                    "id": 1106254,
+                    "name": "Ensure GRAPHIC data type is not used"
+                },
+                {
+                    "id": 1106252,
+                    "name": "Ensure DBCLOB data type is not used"
+                },
+                {
+                    "id": 1106250,
+                    "name": "Ensure NCLOB data type is not used"
+                },
+                {
+                    "id": 1106248,
+                    "name": "Ensure BLOB data type is not used"
+                },
+                {
+                    "id": 1106246,
+                    "name": "Ensure Db2 Data Type CHARACTER VARYING(n) is not used"
+                },
+                {
+                    "id": 1106244,
+                    "name": "Ensure Db2 Data Type DECFLOAT(16 | 34) is not used"
+                },
+                {
+                    "id": 1106242,
+                    "name": "Ensure Db2 Data Type DECIMAL(p,s) | DEC(p,s) is not used"
+                },
+                {
+                    "id": 1106240,
+                    "name": "Ensure Db2 Data Type DOUBLE [PRECISION] is not used"
+                },
+                {
+                    "id": 1106238,
+                    "name": "Ensure Db2 Data Type INTEGER, INT is not used"
+                },
+                {
+                    "id": 1106236,
+                    "name": "Ensure Db2 Data Type NUMERIC(p,s) | NUM(p,s) is not used"
+                },
+                {
+                    "id": 1106234,
+                    "name": "Ensure Db2 Data Type VARCHAR(n) is not used"
+                },
+                {
+                    "id": 1106232,
+                    "name": "Ensure Db2 Data Type CHAR(n) FOR BIT DATA is not used"
+                },
+                {
+                    "id": 1106230,
+                    "name": "Ensure Db2 Data Type VARGRAPHIC(n) is not used"
+                },
+                {
+                    "id": 1106228,
+                    "name": "Ensure Db2 Data Type NVARCHAR(n) is not used"
+                },
+                {
+                    "id": 1106226,
+                    "name": "Ensure Db2 Data Type VARCHAR(n) FOR BIT DATA is not used"
+                },
+                {
+                    "id": 1106224,
+                    "name": "Ensure Db2 Data Type NCHAR VARYING(n) is not used"
+                },
+                {
+                    "id": 1106222,
+                    "name": "Ensure Db2 Data Type GRAPHIC(n) is not used"
+                },
+                {
+                    "id": 1106220,
+                    "name": "Ensure Db2 Data Type FLOAT(p) is not used"
+                },
+                {
+                    "id": 1106218,
+                    "name": "Ensure Db2 Data Type NCLOB(n) is not used"
+                },
+                {
+                    "id": 1106216,
+                    "name": "Ensure Db2 Data Type DBCLOB(n) is not used"
+                },
+                {
+                    "id": 1106214,
+                    "name": "Ensure Db2 Data Type CLOB(n) is not used"
+                },
+                {
+                    "id": 1106212,
+                    "name": "Ensure Db2 Data Type TIME is not used"
+                },
+                {
+                    "id": 1106210,
+                    "name": "Ensure Db2 Data Type SMALLINT is not used"
+                },
+                {
+                    "id": 1106208,
+                    "name": "Ensure Db2 Data Type REAL is not used"
+                },
+                {
+                    "id": 1106206,
+                    "name": "Ensure Db2 Data Type XML is not used"
+                },
+                {
+                    "id": 1106204,
+                    "name": "Ensure Db2 Data Type BIGINT is not used"
+                },
+                {
+                    "id": 1106202,
+                    "name": "Ensure Db2 Scalar Function CONCAT is not used"
+                },
+                {
+                    "id": 1106200,
+                    "name": "Ensure Db2 Data Type RESULT_SET_LOCATOR is not used"
+                },
+                {
+                    "id": 1106198,
+                    "name": "Ensure Db2 NEXTVAL | NEXT VALUE FOR seq_name is not used"
+                },
+                {
+                    "id": 1106196,
+                    "name": "Ensure Db2 Built-in Function CURRENT DATE is not used"
+                },
+                {
+                    "id": 1106194,
+                    "name": "Ensure Db2 Built-in Function CHAR_LENGTH(string) is not used"
+                },
+                {
+                    "id": 1106192,
+                    "name": "Ensure Db2 Built-in Function CHARACTER_LENGTH(string) is not used"
+                },
+                {
+                    "id": 1106190,
+                    "name": "Ensure Db2 Built-in Function CHAR(string, num) is not used"
+                },
+                {
+                    "id": 1106188,
+                    "name": "Ensure Db2 Built-in Function CHAR(date, USA) is not used"
+                },
+                {
+                    "id": 1106186,
+                    "name": "Ensure Db2 Built-in Function CEILING(num) is not used"
+                },
+                {
+                    "id": 1106184,
+                    "name": "Ensure Db2 Built-in Function BLOB(exp [,size]) is not used"
+                },
+                {
+                    "id": 1106182,
+                    "name": "Ensure Db2 Built-in Function BIGINT(exp) is not used"
+                },
+                {
+                    "id": 1106180,
+                    "name": "Ensure Db2 Built-in Function ATANH(exp) is not used"
+                },
+                {
+                    "id": 1106178,
+                    "name": "Ensure Db2 Built-in Function ABSVAL is not used"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
             "version": "1.0.0-beta8",
             "addedRules": [
                 {
