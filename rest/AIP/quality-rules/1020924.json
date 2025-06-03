@@ -1,0 +1,150 @@
+{
+    "id": 1020924,
+    "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js (TypeScript)",
+    "href": "AIP/quality-rules/1020924",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.typescript",
+        "href": "AIP/extensions/com.castsoftware.typescript"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the instance of net.Socket service (net.createConnection or net.connect) and the Node.js version used by the application.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Versions 9.7.0 and later are vulnerable and the severity is MEDIUM. A bug introduced in 9.7.0 increases the memory consumed when reading from the network into JavaScript using the net.Socket object directly as a stream. This rule has been listed as CVE-2018-7164 in the CVE registry.\n\nAll versions before Node.js 9.11.2 and 10.4.1 are vulnerable.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7164",
+    "remediation": "Update the Node.js library.",
+    "sample": "import * as net from 'net';\n\nconst client = net.createConnection({ port: 8124 }, () => {\n  // 'connect' listener\n  console.log('connected to server!');\n  client.write('world!\\r\\n');\n});",
+    "total": "Number of source codes using net.createConnection()",
+    "alternativeName": "Ensure you don't reference net.createConnection method of net.Socket service with NodeJS versions from 9.7.0 to  9.11.2 and from 10.0.0 to 10.4.1",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066776,
+            "name": "CWE-676 - Use of Potentially Dangerous Function",
+            "href": "AIP/technical-criteria/1066776",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062309,
+            "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062309",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062329,
+            "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062329",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062346,
+            "name": "OWASP-2021-A06 - Vulnerable and Outdated Components",
+            "href": "AIP/technical-criteria/1062346",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063156,
+            "name": "PCI-DSS4-Requirement-6.3.2 - An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/technical-criteria/1063156",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AIP-CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/AIP-STRUCTURAL-FLAW/items/AIP-CWE-676",
+            "standard": "AIP-STRUCTURAL-FLAW"
+        },
+        {
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-676",
+            "standard": "CWE"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.3.2",
+            "name": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.3.2",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

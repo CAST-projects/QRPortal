@@ -1,0 +1,69 @@
+{
+    "id": 1520722,
+    "name": "Siebel: Defining Ancestry of Custom Business Components",
+    "href": "AIP/quality-rules/1520722",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "description": "Reports the Custom Business Components that do not have \"Upgrade Ancestor\" property or have it switched to off",
+    "output": "This rule reports Business Components not defining the Ancestry",
+    "rationale": "The Upgrade Ancestor property allows copied objects (of types Applet, Business Component, Report, and Integration Object) to inherit properties of the original objects from which they were copied. During an upgrade, changes applied to the original objects are also applied to copied objects.\nWithout this property set, new functionalities will not be added to the custom Business Component.",
+    "reference": "https://docs.oracle.com/cd/B40099_02/books/UPG/UPG_HowItWorks13.html",
+    "remediation": "The Upgrade Ancestor property should be configured for custom objects that are clones of existing objects.\nThe best time to do this is immediately upon copying the object.",
+    "total": "Number of added Business Components",
+    "alternativeName": "Siebel: Defining Ancestry of Custom Business Components",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

@@ -96,6 +96,86 @@
         ]
     },
     {
+        "id": 1020720,
+        "name": "Ensure setting the Strict-Transport-Security HTTP header to secure and encrypt communications to the Node.js server",
+        "href": "AIP/quality-rules/1020720",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020722,
+        "name": "Ensure building secured HTTPS server using certificate to avoid connection to unsecured source.",
+        "href": "AIP/quality-rules/1020722",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020732,
+        "name": "Ensure not using MD5/SHA1 hashes for cryptographic functions of NodeJs to avoid sensitive data being compromised",
+        "href": "AIP/quality-rules/1020732",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020888,
+        "name": "Ensure setting the Strict-Transport-Security HTTP header to secure and encrypt communications to the Node.js server",
+        "href": "AIP/quality-rules/1020888",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020896,
+        "name": "Ensure not using MD5/SHA1 hashes for cryptographic functions of NodeJs to avoid sensitive data being compromised",
+        "href": "AIP/quality-rules/1020896",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020900,
+        "name": "Ensure building secured HTTPS server using certificate to avoid connection to unsecured source.",
+        "href": "AIP/quality-rules/1020900",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020950,
+        "name": "Avoid providing password in Web Service URL",
+        "href": "AIP/quality-rules/1020950",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1022002,
+        "name": "Ensure to use Optimal Asymmetric Encryption Padding(OAEP) scheme with RSA encryption to avoid sensitive information exposure.",
+        "href": "AIP/quality-rules/1022002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1024024,
         "name": "Ensure you use HTTPS protocol for traffic to particular domains with Android 8.1 and older",
         "href": "AIP/quality-rules/1024024",
@@ -134,6 +214,126 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1039002,
+        "name": "Ensure you are not using deprecated SSL protocols to secure your connection",
+        "href": "AIP/quality-rules/1039002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039006,
+        "name": "Ensure that you are not using predictable SecureRandom Seeds",
+        "href": "AIP/quality-rules/1039006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039008,
+        "name": "Ensure to manage an exception in servlet method using a try catch block to prevent exposing system vulnerabilities",
+        "href": "AIP/quality-rules/1039008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039014,
+        "name": "Prefer using cipher including Hash based Message Authentication Code (HMAC) to ensure data integrity",
+        "href": "AIP/quality-rules/1039014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039018,
+        "name": "Ensure that Hard-coded salt is not used with cryptography function so that sensitive data is protected",
+        "href": "AIP/quality-rules/1039018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039020,
+        "name": "Ensure to not use \"javax.crypto.NullCipher\" for anything other than testing",
+        "href": "AIP/quality-rules/1039020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039022,
+        "name": "Prefer using long PBE Iteration Count to to decrease attack possibilities",
+        "href": "AIP/quality-rules/1039022",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039028,
+        "name": "Perefer using encryption providing sufficient key size to ensure enough entropy against attacks",
+        "href": "AIP/quality-rules/1039028",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039030,
+        "name": "Prefer using SystemDefaultHttpClient Constructor to ensure better transport layer security",
+        "href": "AIP/quality-rules/1039030",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039076,
+        "name": "Prefer using HTTPS protocol",
+        "href": "AIP/quality-rules/1039076",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040034,
+        "name": "Ensure setting \"StrictHttpFirewall\" as Http Firewall before Spring Security 5.0.1, 4.2.4, and 4.1.5 to reject requests that appear to be malicious.",
+        "href": "AIP/quality-rules/1040034",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Ensure you use SHA256, SHA384, and SHA512 algorithms.",
+        "href": "AIP/quality-rules/1040046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

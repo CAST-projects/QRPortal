@@ -1,18 +1,22 @@
 {
     "id": 8038,
-    "name": "Avoid Struts 2 Validator field not referencing a java class field",
+    "name": "Struts 2: Avoid Struts Validator field without Form Field",
     "href": "AIP/quality-rules/8038",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "description": "This metric reports validator form with all their validator form field that do not reference a java class field.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Validation fields that do not appear in forms they are associated with indicate that the validation logic is out of date.\n\nThis rule reports validator form with all their validator form field that does not reference a Java class field.",
     "output": "This report lists all validator form fields that do not reference a java class field. It provides the following information:\n  Validation Form Field",
-    "rationale": "When a validation form field is not associated to java class field, this indicate that the validation logic is not properly maintained and can result in a weakness.\nInput validation is required to secure an application. Moreover, the web interface is exposed to anyone. Non validating input may allow injecting arbitrary web script, HTML, SQL... Consequences can be severe, like erasing the content of a database.",
+    "rationale": "When a validation form field is not associated to java class field, this indicate that the validation logic is not properly maintained and can result in a weakness.\n\nIt is easy for developers to forget to update validation logic when they make changes to an ActionForm class. One indication that validation logic is not being properly maintained is inconsistencies between the action form and the validation form.\n\nAlthough J2EE applications are not generally susceptible to memory corruption attacks, if a J2EE application interfaces with native code that does not perform array bounds checking, an attacker may be able to use an input validation mistake in the J2EE application to launch a buffer overflow attack.",
     "reference": "http://cwe.mitre.org/data/definitions/110.html",
     "remediation": "Update the \"ActionClass\"-validation.xml's entries according to java classes used in your application and review the validation logic of the validation form.",
     "remediationSample": "Register-validation.xml\n<validators>\n  <field name=\"username\">\n      <field-validator type=\"requiredstring\">\n           <message >Username is required.</message>\n      </field-validator>\n      <field-validator type=\"stringlength\">\n         <param name=\"maxLength\">8</param>\n         <param name=\"minLength\">5</param>\n         <message>While ${username} is a nice name, a valid username must be between ${minLength} and ${maxLength} characters long. </message>\n     </field-validator>\n  </field> /* FIXED: remove the validator field portfolioName */\n   <field name=\"email\">\n      <field-validator type=\"requiredstring\">\n          <message>You must enter a value for email.</message>\n      </field-validator>\n       <field-validator type=\"email\">\n         <message key=\"email.invalid\"/>\n      </field-validator>\n   </field>\n  <validator type=\"expression\">\n      <param name=\"expression\">username != password</param>\n      <message>Username and password can't be the same.</message>\n  </validator>\n</validators>",
     "sample": "public class Register extends ActionSupport {\n  private String username;\n  private String password; \n  private String firstName;\n  private String lastName;\n  private String email;\n  private boolean receiveJunkMail;\n\n  public String execute(){\n    User user = new User();\n    user.setPassword( getPassword() );\n    user.setUsername( getUsername() );\n    user.setFirstName( getFirstName());\n    user.setLastName( getLastName() );\n    user.setEmail(getEmail());\n\n    System.out.println(\"junkmail = \" + isReceiveJunkMail());\n\n    return SUCCESS;\n  }\n}\n\nRegister-validation.xml\n<validators>\n  <field name=\"username\">\n      <field-validator type=\"requiredstring\">\n           <message >Username is required.</message>\n      </field-validator>\n      <field-validator type=\"stringlength\">\n         <param name=\"maxLength\">8</param>\n         <param name=\"minLength\">5</param>\n         <message>While ${username} is a nice name, a valid username must be between ${minLength} and ${maxLength} characters long. </message>\n     </field-validator>\n  </field> /* VIOLATION: the portfolioName is not associated to any Register class field */\n  <field name=\"portfolioName\">\n      <field-validator type=\"requiredstring\">\n         <message key=\"portfolioName.required\"/>\n     </field-validator>\n  </field>\n   <field name=\"email\">\n      <field-validator type=\"requiredstring\">\n          <message>You must enter a value for email.</message>\n      </field-validator>\n       <field-validator type=\"email\">\n         <message key=\"email.invalid\"/>\n      </field-validator>\n   </field>\n  <validator type=\"expression\">\n      <param name=\"expression\">username != password</param>\n      <message>Username and password can't be the same.</message>\n  </validator>\n</validators>",
-    "total": "Number of Validator Form Fields",
+    "total": "Total Number of Validation Form Fields",
     "alternativeName": "Ensure that Struts 2 Validator field not referencing a java class field is not used as it leads to security weakness",
     "businessCriteria": [
         {
@@ -27,6 +31,41 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066210,
+            "name": "CWE-110 - Struts: Validator Without Form Field",
+            "href": "AIP/technical-criteria/1066210",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067273,
+            "name": "CWE-1173 - Improper Use of Validation Framework",
+            "href": "AIP/technical-criteria/1067273",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

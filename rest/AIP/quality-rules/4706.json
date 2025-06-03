@@ -5,11 +5,18 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of violation occurrences",
-    "description": "Avoid using Hashtable. Its use can lead to performance problems.",
+    "description": "Hashtable is synchronized, whereas HashMap is not. This makes HashMap better for non-threaded applications, as unsynchronized Objects typically perform better than synchronized ones.\nIn additional, Hashtable does not allow null keys or values. HashMap allows one null key and any number of null values.\n\nAlso when it comes to threaded applications both thread safety and Performance is better in ConcurrentHashMap when compared to Hashtable.\n\nThis rule reports java artifacts using the Hashtable type, either as a parameter, or as a local variable.",
     "output": "This report lists all java artifacts using the Hashtable type, either as a parameter, or as a local variable.\nIt provides the following information:\n - Artifact full name",
-    "rationale": "Since Hashtables are all synchronized - yet synchronization is usually not needed -, they are much slower than the various List and Map implementations",
-    "remediation": "When synchronization is not need, prefer List and Map implementations",
+    "rationale": "Since Hashtables are all synchronized - yet synchronization is usually not needed -, they are much slower than the various List and Map implementations.\nEven if Synchronization is necessary, there is a better alternative to Hashtable - ConcurrentHashMap.",
+    "reference": "https://www.javatpoint.com/difference-between-hashmap-and-hashtable\nhttps://medium.com/@mr.anmolsehgal/hashtable-vs-hashmap-vs-concurrenthashmap-4aa0ff1eecc4",
+    "remediation": "When synchronization is not needed, prefer using new unsynchronized replacement: HashMap instead of Hashtable\nWe can also use ConcurrentHashmap instead, but just note that ConcurrentHashmap is only available from java 1.5",
+    "remediationSample": "import java.util.*; \nimport java.lang.*; \nimport java.io.*; \nclass Ideone \n{ \n    public static void main(String args[]) \n    { \n          \n        //----------------hashmap-------------------------------- \n        HashMap<Integer,String> hm=new HashMap<Integer,String>(); \n        hm.put(100,\"Amit\"); \n        hm.put(104,\"Amit\");  // hash map allows duplicate values \n        hm.put(101,\"Vijay\"); \n        hm.put(102,\"Rahul\"); \n        System.out.println(\"-----------Hash map-----------\"); \n        for (Map.Entry m:hm.entrySet()) { \n            System.out.println(m.getKey()+\" \"+m.getValue()); \n        } \n    } \n}",
+    "sample": "import java.util.*; \nimport java.lang.*; \nimport java.io.*; \n\nclass Ideone \n{ \n    public static void main(String args[]) \n    { \n        //----------hashtable ------------------------- \n        Hashtable<Integer,String> ht=new Hashtable<Integer,String>(); \n        ht.put(101,\" ajay\"); \n        ht.put(101,\"Vijay\"); \n        ht.put(102,\"Ravi\"); \n        ht.put(103,\"Rahul\"); \n        System.out.println(\"-------------Hash table--------------\"); \n        for (Map.Entry m:ht.entrySet()) { \n            System.out.println(m.getKey()+\" \"+m.getValue()); \n        } \n  \n        \n    } \n}",
     "total": "Number of Java artifacts",
     "alternativeName": "Prefer using HashMap instead of HashTable",
     "businessCriteria": [
@@ -17,6 +24,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

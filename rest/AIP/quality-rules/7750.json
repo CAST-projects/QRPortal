@@ -5,8 +5,12 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from user input source down to the target XPath execution method",
-    "description": "The software does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.\n\nUsing CAST data-flow engine, this metric detects execution paths from user input methods down to file creation methods, paths which are open vulnerabilities to operating system injection flaws.",
+    "description": "The software does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.\n\nUsing CAST data-flow engine, this metric detects execution paths from user input methods down to file creation methods, paths which are open vulnerabilities to Xpath injection flaws.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target XPath execution method.",
     "rationale": "The software does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.",
     "reference": "CWE-91: XML Injection (aka Blind XPath Injection)\nhttps://cwe.mitre.org/data/definitions/91.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A1-Injection",
@@ -16,6 +20,11 @@
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure your application properly neutralize XML content before it is processed",
     "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -28,6 +37,69 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061072,
+            "name": "CWE-643 - Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+            "href": "AIP/technical-criteria/1061072",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066743,
+            "name": "CWE-643 - Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+            "href": "AIP/technical-criteria/1066743",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061019,
+            "name": "CWE-91 - XML Injection (aka Blind XPath Injection)",
+            "href": "AIP/technical-criteria/1061019",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066191,
+            "name": "CWE-91 - XML Injection (aka Blind XPath Injection)",
+            "href": "AIP/technical-criteria/1066191",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

@@ -1,0 +1,175 @@
+{
+    "id": 1020218,
+    "name": "Avoid using unsecured cookie (Vue.js)",
+    "href": "AIP/quality-rules/1020218",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.vuejs",
+        "href": "AIP/extensions/com.castsoftware.vuejs"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of vue-cookies module and especially  set cookie method and will check the parameters",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. This is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie. The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.\n\nThe Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.",
+    "reference": "https://www.npmjs.com/package/vue-cookies\n\nhttps://cwe.mitre.org/data/definitions/614.html\nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
+    "remediation": "Always setting secure option when creating a cookie.",
+    "remediationSample": "// require\nvar Vue = require('vue')\nVue.use(require('vue-cookies'))\n\n// es2015 module\nimport Vue from 'vue'\nimport VueCookies from 'vue-cookies'\nVue.use(VueCookies)\n\n// set global cookie\nVue.$cookies.set('hover-time','1s');\n\n// set local cookie\n\n// name, time, path, domain, secure\nthis.$cookies.set(\"token\",\"1s\",\"/path\",\"sub.domain.com\",true); // no violation",
+    "sample": "// require\nvar Vue = require('vue')\nVue.use(require('vue-cookies'))\n\n// es2015 module\nimport Vue from 'vue'\nimport VueCookies from 'vue-cookies'\nVue.use(VueCookies)\n\n// set global cookie\nVue.$cookies.set('hover-time','1s');\n\n// set local cookie\n\n// name, time, path, domain, secure\nthis.$cookies.set(\"token\",\"1s\",\"/\",\".domain.com\",false); //violation\n\n// or\n\nthis.$cookies.set(\"token\",\"1s\",\"/\",\".domain.com\"); //violation because no attribute",
+    "total": "Number of VueJS callables using the set method of the 'vue-cookies' package",
+    "alternativeName": "Ensure using only secured cookie to avoid Cross-site scripting attacks (Vue.js)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066714,
+            "name": "CWE-614 - Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
+            "href": "AIP/technical-criteria/1066714",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "href": "AIP/technical-criteria/66066",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-614",
+            "name": "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
+            "href": "AIP/quality-standards/CWE/items/CWE-614",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "href": "AIP/quality-standards/OWASP/items/M4-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222576",
+            "name": "The application must set the secure flag on session cookies.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222576",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222576",
+            "name": "The application must set the secure flag on session cookies.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222576",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

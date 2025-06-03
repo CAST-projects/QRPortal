@@ -1,0 +1,72 @@
+{
+    "id": 1020894,
+    "name": "Avoid using string concatenation when using nodejs __dirname and __filename variables (TypeScript)",
+    "href": "AIP/quality-rules/1020894",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.typescript",
+        "href": "AIP/extensions/com.castsoftware.typescript"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Global variables should be properly used to avoid any misuse when running your Node.js application on different platforms.\n\nThis rule checks that the __dirname and __filename global variables are not used in a string concatenation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "In Node.js, the __dirname and __filename global variables contain the directory path and the file path of the currently executing script file, respectively. Using these variables directly you can create an invalid path using string concatenation and assuming Unix-style separators.",
+    "reference": "http://eslint.org/docs/rules/no-path-concat",
+    "remediation": "You can use path.join.",
+    "remediationSample": "var fullPath = path.join(__dirname,\"/foo.js\"); \nvar fullPath = path.resolve( __filename,\"/foo.js\");",
+    "sample": "var fullPath = __dirname + \"/foo.js\"; \nvar fullPath = __filename + \"/foo.js\";",
+    "total": "Number of TypeScript artifacts",
+    "alternativeName": "The variables \"__dirname\" and \"__filename\" should not be used in string concatenation to avoid having an invalid path",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

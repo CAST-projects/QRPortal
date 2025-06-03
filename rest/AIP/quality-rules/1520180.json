@@ -1,0 +1,130 @@
+{
+    "id": 1520180,
+    "name": "Siebel eScript: Avoid Functions with High Cyclomatic Complexity",
+    "href": "AIP/quality-rules/1520180",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Review the design of the Artifact to reduce number of independent paths. E.g.: Reduce the number of conditional statements.",
+    "description": "Retrieves all Functions having a Cyclomatic Complexity greater than the specified threshold . Cyclomatic Complexity is a measure of the complexity of the control structure of an Artifact. It is the number of linearly independent paths and therefore, the minimum number of independent paths when executing the software. \nThe threshold is a parameter and can be changed at will.\nDefault value for \"Siebel: Max CC\" is 15.",
+    "output": "This rule reports Functions with a High Cyclomatic complexity. It displays:\n- function full name\n- associated value is the value of Cyclomatic Complexity",
+    "rationale": "The effort and time for diagnosis of deficiencies or causes of failures, or for identification of parts to be modified is directly related to the number of execution paths, i.e. the complexity of the control flow. \nAnalyzability declines with increasing Cyclomatic Complexity. \nEach modification must be correct for all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. \nChangeability declines with increasing Cyclomatic Complexity. \nComplete testing requires coverage of all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. \nTestability declines with increasing Cyclomatic Complexity.",
+    "remediation": "Review the design of the Function to reduce number of independent paths. E.g.: Reduce the number of conditional statements.",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Avoid Functions with High Cyclomatic Complexity",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062112,
+            "name": "ASCMM-MNT-11 - Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/technical-criteria/1062112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061149,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1061149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067221,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1067221",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/CWE/items/CWE-1121",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1121",
+            "standard": "ISO-5055"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max CC",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        15
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

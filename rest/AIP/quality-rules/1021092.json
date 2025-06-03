@@ -1,0 +1,98 @@
+{
+    "id": 1021092,
+    "name": "Avoid reflected cross-site scripting (Python)",
+    "href": "AIP/quality-rules/1021092",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.python",
+        "href": "AIP/extensions/com.castsoftware.python"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in a web page that is served to other users.\n\nThis metric detects paths from user input methods to HTML response of supported frameworks which are open vulnerabilities to Reflected cross-site scripting injection (XSS - Type 1).\nSupported frameworks are: FastAPI, Flask.",
+    "output": "List all methods that make resource calls potentially forged by user input.\n\nAssociated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences of user input source",
+    "rationale": "Reflected XSS: The server reads data directly from the HTTP request and reflects it back in the HTTP response. Reflected XSS exploits occur when an attacker causes a victim to supply dangerous content to a vulnerable web application, which is then reflected back to the victim and executed by the web browser.\nOnce the malicious script is injected, the attacker can perform a variety of malicious activities, such as: get private information, send malicious requests to a web site on behalf of the victim.\n\nThe most common mechanism for delivering malicious content is to include it as a parameter in a URL that is posted publicly or e-mailed directly to the victim.",
+    "reference": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')\nhttps://cwe.mitre.org/data/definitions/79.html\n\nOpen Web Application Security Project (OWASP)\nhttps://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)\n\nCISQ rule: ASCSM-CWE-79.\n\nCross Site Scripting Prevention Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+    "remediation": "Depending on the context: use the framework's sanitization methods, markupsafe module, or html.escape(), use the framework's recommended way of sending JSON and HTML (Jinja template with default escaping).",
+    "remediationSample": "from flask import Flask, make_response, render_template\nfrom html import escape\n\napp = Flask(__name__)\n\n@app.route('/q/<query>')\ndef func(query):\n    response = make_response(\"<h1>Results for: %s</h1> ...\" % escape(query))  # sanitization\n    # or\n    response = render_template('query_db.html',  template_param_query=query)  # sanitization\n    # ...\n    return response",
+    "sample": "from flask import Flask, make_response\n\napp = Flask(__name__)\n\n@app.route('/q/<query>')\ndef func(query):\n    response = make_response(\"<h1>Results for: %s</h1> ...\" % query)  # violation\n    # ...\n    return response",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure you don't use user input without validation",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061015,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1061015",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066179,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1066179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/CWE/items/CWE-79",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-79",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-79",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

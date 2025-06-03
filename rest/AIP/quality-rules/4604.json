@@ -4,13 +4,26 @@
     "href": "AIP/quality-rules/4604",
     "critical": false,
     "severity": 10,
-    "maxWeight": 2,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "description": "Java artifacts should not use 'java.lang.Error()'",
-    "output": "This report lists all java artifacts using 'java.lang.Error()'. It provides the following information: Artifact full name",
+    "output": "This report lists all java Objects using 'java.lang.Error()'. It provides the following information: Object full name",
     "rationale": "Using 'java.lang.Error()' is not recommended since it goes against the Exception error handling model. An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most of these errors are abnormal conditions.",
-    "total": "Number of Java objects",
+    "reference": "https://docs.oracle.com/javase/7/docs/api/java/lang/Error.html\nhttps://www.geeksforgeeks.org/errors-v-s-exceptions-in-java/\nhttps://www.cis.upenn.edu/~bcpierce/courses/629/jdkdocs/api/java.lang.Error.html",
+    "remediation": "Prefer using the exception error handling model instead of 'java.lang.Error'",
+    "remediationSample": "static private final class LookaheadSuccess extends java.lang.Exception { } //Fixed",
+    "sample": "Sample#1:\nstatic private final class LookaheadSuccess extends java.lang.Error { }   //VIOLATION\n\nSample#2:\nprivate void parseAndRun(String[] args)\n    {\n        debugLog(\"Start of parseAndRun(args)\");\n        boolean optionParsed;\n        try\n        {\n            debugLog(\"Before parseOptions(args)\");\n            optionParsed = parseOptions(args);\n            debugLog(\"After parseOptions(args)\");\n        }\n   \n        catch (Error e)   //VIOLATION\n        {\n            setErrorCode(ERROR_CODE_OPTION_PARSE_EXCEPTION);\n            throw Logging.fatal(e, \"cast.commandLine.exceptionDuringOptionCheck\");\n        }\n}\n\nSample#3:\n\n/** Constructor. */\npublic DataParserTokenManager(SimpleCharStream stream){\n   if (SimpleCharStream.staticFlag)\n      throw new Error(\"ERROR: Cannot use a static CharStream class with a non-static lexical analyzer.\"); //VIOLATION\n   input_stream = stream;\n}\n\nSample#4:\n\n//Error Field\nError err = new Error();  //VIOLATION",
+    "total": "Number of Java Objects",
     "alternativeName": "Prefer using the exception error handling model instead of 'java.lang.Error'",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -28,6 +41,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",

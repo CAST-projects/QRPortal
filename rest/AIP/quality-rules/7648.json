@@ -1,24 +1,33 @@
 {
     "id": 7648,
-    "name": "Avoid calling finalize()",
+    "name": "Avoid an explicit call to finalize()",
     "href": "AIP/quality-rules/7648",
     "critical": false,
     "severity": 10,
-    "maxWeight": 4,
-    "description": "Report all explicit call to finalize() except call to super.finalize() from a finalize() method.",
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "finalize() method in Java should be only called by garbage collector thread before reclaiming the memory allocated to the object.\n\nThis rule reports violation when detecting an explicit call to finalize() except call to super.finalize() from a finalize() method.",
     "output": "The metric will list all methods that call a finalize method (filter by method signature void finalise() ) \n\nIt provides the following information:\n Method full name",
-    "rationale": "Object.finalize() method are supposed to be invoked at most one time by the garbage collector on Objects which are no longer referenced. This method can be invoked by another thread in parallel. Explicit invocation of a finalizer ignores the current state of the object and does not change the state of the object from unfinalized or finalizable to finalized.",
-    "reference": "https://cwe.mitre.org/data/definitions/586.html",
-    "remediation": "If an explicit call to finalize method is required, there is two possible remediation: \n- if finalize method is used to release non-memory resources like file handles, sockets, database connections etc: you must not use this method to release these resources but create a specific method or release these resource in a finally block. Finalize() method is used only to release memory resources.\n- if it is used for memory resources, the Garbage collector will handle the invocation, so just remove the explicit call.",
+    "rationale": "While the Java Language Specification allows an object's finalize() method to be called from outside the finalizer, doing so is usually a bad idea. For example, calling finalize() explicitly means that finalize() will be called more than once: the first time will be the explicit call and the last time will be the call that is made after the object is garbage collected.",
+    "reference": "https://cwe.mitre.org/data/definitions/586.html\nhttps://howtodoinjava.com/java/basics/why-not-to-use-finalize-method-in-java/",
+    "remediation": "If an explicit call to finalize method is required, there is two possible remediation: \n- If finalize method is used to release non-memory resources like file handles, sockets, database connections etc: you must not use this method to release these resources but create a specific method or release these resource in a finally block. Finalize() method is used only to release memory resources.\n- If it is used for memory resources, the Garbage collector will handle the invocation, so just remove the explicit call.",
     "remediationSample": "public class InvokeFinalize {\n    private MyClass mine = new MyClass();\n    ...\n    public meth () {\n       ... \n/ FIXED\n    }\n}",
     "sample": "public class MyClass  {\n     ...\n      protected void finalize() throws Throwable {\n          // some code here\n         ......\n          super.finalize();\n     }\n} \n\npublic class InvokeFinalize {\n    private MyClass mine = new MyClass();\n    ...\n    public meth () {\n       ...\n        mine.finalize();  // VIOLATION\n    }\n}",
-    "total": "Number of calls to finalize methods",
+    "total": "Number of calls to finalize methods and super.finalize()",
     "alternativeName": "Ensure not explicitly invoking the finalize() method.",
     "businessCriteria": [
         {
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,
@@ -33,10 +42,17 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1066686,
+            "name": "CWE-586 - Explicit Call to Finalize()",
+            "href": "AIP/technical-criteria/1066686",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 61018,
             "name": "Efficiency - Memory, Network and Disk Space Management",
             "href": "AIP/technical-criteria/61018",
-            "weight": 4,
+            "weight": 8,
             "critical": false
         }
     ],

@@ -1,17 +1,21 @@
 {
     "id": 7940,
-    "name": "Avoid Stateful Beans not removed",
+    "name": "Avoid accumulating Stateful Beans",
     "href": "AIP/quality-rules/7940",
     "critical": true,
     "severity": 20,
     "maxWeight": 7,
-    "description": "Reports all classes that define an instance variable or local variable whose type is a local or remote business interface of a Stateful Session and that don't invoke the remove method in any of its methods. \nIt will also report these classes when the Stateful Session Bean doesn't implement the remove method.\n\nThe remove method is defined by means of the @Remove annotation or remove-method deployment descriptor element on the Sateful Session Bean.\n\nNote that in the case of several EJB instance there is not grantee that all EJB instance will be removed. \nWe only check there is at least one call to remove method for the concerned class",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "The @Remove annotation is used with a method to inform the container that the client no longer needs a session and that the session should be destroyed. This annotation is important, as it is the only way to request the container that the session should end. If the remove method is not used, every stateful bean instance ever created would always have to be timed out to be passivated (if the container implementation supports passivation) and timed out again to be finally destroyed.\n\n\n\nThis rule reports a violation for :\n- Class that defines an instance variable or local variable whose type is a local or remote business interface of a Stateful Session but doesn't invoke the remove method in any of its methods. \n- Class when the Stateful Session Bean doesn't implement the remove method.\n\nNotes\n1- The remove method is defined by the @Remove annotation or remove-method deployment descriptor element on the Stateful Session Bean.\n2- In the case of several EJB instances, there is no guarantee that all EJB instances will be removed. \nWe only check there is at least one call to remove method for the concerned class",
     "output": "This report lists all classes that define a variable whose type is a remote or local business interface of a stateful bean and that don't call the remove method.\n\nIt provides the following information:\n     Class Full Name",
-    "rationale": "Since stateful session beans cannot be pooled and reused like stateless\nbeans, there is a real danger of accumulating too many of them if the remove method is not implemented or if this method is not called.",
+    "rationale": "Since stateful session beans cannot be pooled and reused like stateless beans, there is a real danger of accumulating too many of them if we don\u2019t have a way to destroy them. Therefore, we have to define a business method for removing the bean instance by the client using the @Remove annotation.\nif not done, and especially in a highly concurrent system, this could have a drastic performance impact. There would be wasted CPU cycles and disk space used in the unnecessary activation/passivation process. This is why it is critical that you remove stateful bean instances when the client is finished with its work instead of relying on the container to destroy them when they time out.",
     "reference": "EJB 3 in Action (ISBN 1-933988-34-7) page 94\nhttp://what-when-how.com/enterprise-javabeans-3/stateful-session-beans-ejb-3/",
-    "remediation": "Call this method from the client side",
-    "remediationSample": "@Remote\npublic interface MyRemoteBean {\n    public int aMethod();\n    public void removeMethod();\n}\n\n@Stateful\npublic class MyBean implements MyRemoteBean {\n    ...\n    public int aMethod() {\n        ...\n    }\n\n    @Remove\n    public void removeMethod() {\n        ...\n    }\n}\n\npublic class Client {\n\n    private static @EJB MyRemoteBean myClientBean;\n\n    public static void main(String[] args) {\n        Client client = new Client(args);\n        client.callServer();\n    }\n\n    public Client(String[] args) {}\n\n    public void callServer() {\n\n        try {\n            int res=myClientBean.aMethod();\n            myClientBean.removeMethod(); // FIXED\n        }catch(Exception e){\n            e.printStackTrace();\n        }\n    }\n}",
-    "sample": "@Remote\npublic interface MyRemoteBean {\n    public int aMethod();\n    public void removeMethod();\n}\n\n@Stateful\npublic class MyBean implements MyRemoteBean {\n    ...\n    public int aMethod() {\n        ...\n    }\n\n    @Remove\n    public void removeMethod() {\n        ...\n    }\n}\n\npublic class Client { // VIOLATION\n\n    private static @EJB MyRemoteBean myClientBean;\n\n    public static void main(String[] args) {\n        Client client = new Client(args);\n        client.callServer();\n    }\n\n    public Client(String[] args) {}\n\n    public void callServer() {\n        try {\n            int res=myClientBean.aMethod();\n        }catch(Exception e){\n            e.printStackTrace();\n        }\n    }\n}",
+    "remediation": "The client should remove the Stateful session bean instance by invoking the method annotated with @Remove.",
+    "remediationSample": "@Remote\npublic interface MyRemoteBean {\n    public int aMethod();\n    public void removeMethod();\n}\n\n@Stateful\npublic class MyBean implements MyRemoteBean {\n    ...\n    public int aMethod() {\n        ...\n    }\n\n    @Remove // defining the remove method\n    public void removeMethod() {\n        ...\n    }\n}\n\npublic class Client {\n\n    private static @EJB MyRemoteBean myClientBean;\n\n    public static void main(String[] args) {\n        Client client = new Client(args);\n        client.callServer();\n    }\n\n    public Client(String[] args) {}\n\n    public void callServer() {\n\n        try {\n            int res=myClientBean.aMethod();\n            myClientBean.removeMethod(); // FIXED : Calling the remove method\n        }catch(Exception e){\n            e.printStackTrace();\n        }\n    }\n}",
+    "sample": "@Remote\npublic interface MyRemoteBean {\n    public int aMethod();\n    public void removeMethod();\n}\n\n@Stateful\npublic class MyBean implements MyRemoteBean {\n    ...\n    public int aMethod() {\n        ...\n    }\n\n    @Remove // defining the remove method\n    public void removeMethod() {\n        ...\n    }\n}\n\npublic class Client { // VIOLATION : NOT Calling the remove method\n    \n    @EJB\n    private static MyRemoteBean myClientBean;\n\n    public static void main(String[] args) {\n        Client client = new Client(args);\n        client.callServer();\n    }\n\n    public Client(String[] args) {}\n\n    public void callServer() {\n        try {\n            int res=myClientBean.aMethod();\n        }catch(Exception e){\n            e.printStackTrace();\n        }\n    }\n}",
     "total": "Number of classes that define a variable whose type is a remote or local business interface of a stateful bean",
     "alternativeName": "Ensure defining a business method for removing the Stateful bean instance and call it from the client side",
     "businessCriteria": [
@@ -19,6 +23,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,
@@ -38,6 +47,20 @@
             "href": "AIP/technical-criteria/61018",
             "weight": 7,
             "critical": true
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
         }
     ],
     "technologies": [

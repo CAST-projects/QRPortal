@@ -1,0 +1,69 @@
+{
+    "id": 1520324,
+    "name": "Siebel: Avoid inactive elements in an Applet",
+    "href": "AIP/quality-rules/1520324",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Name of the inactive elements",
+    "description": "This rule reports Applets containing inactive elements",
+    "output": "This rule reports Applets containing inactive elements. It reports:\n- Applet full name\n- the associated values are the references to the elements set to inactive",
+    "rationale": "Inactive elements may be the symptom of Dead Code. And dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance.",
+    "remediation": "Check if the inactive element is truly unnecessary.\nRemove it if so.",
+    "total": "Number of added or modified applets",
+    "alternativeName": "Siebel: Avoid inactive elements in an Applet",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "href": "AIP/technical-criteria/61027",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

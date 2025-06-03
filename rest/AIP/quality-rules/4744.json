@@ -1,13 +1,21 @@
 {
     "id": 4744,
-    "name": "EJB Entity access through their local Interface",
+    "name": "DEPRECATED: EJB Entity access through their local Interface",
     "href": "AIP/quality-rules/4744",
     "critical": true,
     "severity": 20,
     "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Entity Java Bean Name",
-    "description": "Since EJB 2.0, EJB Entities should be accessed through their local  Interface instead of their remote Interface. This avoids the need for the JNDI lookup, which improves the performance.",
+    "description": "For application using EJB 2.0, EJB Entities should be accessed through their local Interface instead of their remote Interface\nIn EJB 2.0, a bean that is destined to be remote extends EJBObject in its remote interface and EJBHome in its home interface.\n\nFor application using EJB 2.0, EJB Entities should be accessed through their local Interface instead of their remote Interface\", \n\n>> All application using EJB 2.0 should use local interface?? what if the client is not in the same JVM? In that case EJB has to use remote interface (if not using session facade pattern)\n>> If we are to check this condition only when the session facade pattern is used then total needs to be changed.",
     "output": "This report lists all the Methods using the EJB Entity remote Interfaces.\nIt provides the following information:\n - Method full name\n - Entity Java Bean Name",
+    "rationale": "Best practices recommend that Entity beans only use Local Interface methods to expose their functions. So since, EJB 2.0, remote interface should not be used. Instead, opt for local interface as part of session fa\u00e7ade implementation. \nThis avoids the need for the JNDI lookup, which improves the performance",
+    "reference": "Enterprise Java Programming with IBM WebSphere - page 508",
+    "remediation": "Review the source code and have the EJB Entities accessed through their local  Interface instead of their remote Interface.",
+    "sample": "package employee;\n\nimport employee.EmpRecord;\nimport javax.ejb.EJBObject;\nimport java.rmi.RemoteException;\n\npublic interface Employee extends EJBObject  {\n  public EmpRecord getEmployee (int empNumber)\n       throws java.sql.SQLException, RemoteException;\n}",
     "total": "Number of Methods accessing Java EJB Entity",
     "alternativeName": "Ensure that EJB Entities are accessed through their local  Interface instead of their remote interface.",
     "businessCriteria": [
@@ -15,6 +23,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

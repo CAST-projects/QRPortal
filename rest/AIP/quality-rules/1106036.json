@@ -1,0 +1,57 @@
+{
+    "id": 1106036,
+    "name": "Ensure Database Links are not used",
+    "href": "AIP/quality-rules/1106036",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if database links objects exists or are referenced in Oracle Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Migrating database links from Oracle to PostgreSQL requires a full rewrite the mechanism that managed the database links.",
+    "reference": "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-a-distributed-database.html#GUID-7B0C4627-4473-4313-88D5-FD03CA42D9EA\n\n\nhttps://www.postgresql.org/docs/current/contrib.html\nhttps://www.postgresql.org/docs/current/contrib-dblink-function.html",
+    "remediation": "PostgreSQL Usage\nQuerying data in remote databases in PostgreSQL is available via two primary options:\n1. dblink database link function.\n2. postgresql_fdw (Foreign Data Wrapper, FDW) extension.\n\nThe Postgres foreign data wrapper extension is new to PostgreSQL and offers functionality that is similar to dblink. However, the Postgres foreign data wrapper aligns closer with the SQL standard and can provide improved performance.",
+    "remediationSample": "Load the dblink extension into PostgreSQL:\nCREATE EXTENSION dblink;\n\nCreate a persistent connection to a remote PostgreSQL database using the dblink_connect function specifying a connection name (myconn), database name (postgresql), port (5432), host (hostname), user (username) and password (password):\nSELECT dblink_connect\n('myconn', 'dbname=postgres port=5432\nhost=hostname user=username password=password');\n\nThe connection can be used to run queries against the remote database.\nRun a query using the previously created connection (myconn) using the dblink function.\nThe query returns the id and name columns from the employees table. On the remote database, you must specify the connection name and the SQL query to execute as well as parameters and datatypes for selected columns (id and name in this example).\nSELECT * from dblink\n('myconn', 'SELECT id, name FROM EMPLOYEES')\nAS p(id int,fullname text);\n\nIf you need a better remediation you should contact the AWS Support.",
+    "sample": "CREATE DATABASE LINK remote_db CONNECT TO username IDENTIFIED BY password USING 'remote';\n\n\nCREATE DATABASE LINK remotenoTNS CONNECT TO username IDENTIFIED BY password USING '\n(DESCRIPTION=(ADDRESS_LIST=(ADDRESS = (PROTOCOL = TCP)(HOST =192.168.1.1)(PORT =\n1521)))(CONNECT_DATA =(SERVICE_NAME = orcl)))';\n\nCREATE PUBLIC SYNONYM emp_table \n   FOR hr.employees@remote.us.example.com;\n\nSELECT id, name FROM employees@remote_db;\n\nINSERT INTO employees@remote_db (employee_id, last_name, email, hire_date, job_id) VALUES (999, 'Claus', 'sclaus@example.com', SYSDATE, 'SH_CLERK');\n\nUPDATE jobs@remote_db SET min_salary = 3000 WHERE job_id = 'SH_CLERK';\n\nDELETE FROM employees@remote_db WHERE employee_id = 999;\n\nEXEC delete_emp@scott_remote(p_empno => 7788);",
+    "total": "Number of Database Links, Synonyms and Artifacts with SQL code",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61045,
+            "name": "Database Migration - Oracle Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61045",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

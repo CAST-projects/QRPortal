@@ -1,0 +1,63 @@
+{
+    "id": 1520382,
+    "name": "Siebel: View's name should have an initial capitalized letter and no special characters",
+    "href": "AIP/quality-rules/1520382",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "description": "The quality rule reports the Views not compliant with the following naming convention:\ninitial capitalized letter\nabsence of any of the following sepecial characters : @ # % *",
+    "output": "This rule reports Views with an invalid name",
+    "rationale": "Naming conventions improve readability and understanding of a program",
+    "remediation": "Change name according to the naming convention",
+    "total": "Number of added Views",
+    "alternativeName": "Siebel: View's name should have an initial capitalized letter and no special characters",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

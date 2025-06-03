@@ -5,10 +5,14 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of Methods",
     "description": "Classes should have less than X Methods.\nThe threshold is a parameter and can be changed at will.",
     "output": "This report lists all the Classes having more than X Methods.\nIt provides the following information:\n - Class full name\n - Number of Methods",
-    "rationale": "For maintainability and readability reasons, Classes should not have too many Methods.",
+    "rationale": "A class contains an unnecessarily large number of methods. This issue makes it more difficult to understand and maintain the software, which indirectly affects security by making it more difficult or time-consuming to find and/or fix vulnerabilities. It also might make it easier to introduce vulnerabilities.",
     "remediation": "Review the Class design to reduce the number of Methods",
     "total": "Number of methods",
     "alternativeName": "Ensure you review the Class design to reduce the number of Methods",

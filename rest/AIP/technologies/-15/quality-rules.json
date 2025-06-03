@@ -286,7 +286,7 @@
     },
     {
         "id": 7538,
-        "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+        "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
         "href": "AIP/quality-rules/7538",
         "critical": true,
         "severity": 20,
@@ -608,11 +608,13 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -633,11 +635,13 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -658,11 +662,13 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -683,10 +689,12 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -707,12 +715,15 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "Python",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -733,12 +744,15 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "Python",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -788,6 +802,7 @@
             "HTML5",
             "JEE",
             "PowerBuilder",
+            "Python",
             "VB.NET",
             "Visual Basic"
         ]
@@ -873,9 +888,11 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "Visual Basic"
@@ -966,10 +983,12 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "Visual Basic"
@@ -1060,10 +1079,12 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET"
@@ -1146,10 +1167,12 @@
             "C",
             "C++",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "Sybase T-SQL",
             "Visual Basic"
         ]
@@ -1443,7 +1466,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -1649,6 +1672,147 @@
         "severity": 30,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 8570,
+        "name": "Avoid Calling RFC Function Module without Authorization Check",
+        "href": "AIP/quality-rules/8570",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8572,
+        "name": "Avoid using SUBMIT statement with another user permission",
+        "href": "AIP/quality-rules/8572",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8574,
+        "name": "Avoid using statement CALL TRANSACTION through variable P_TCODE",
+        "href": "AIP/quality-rules/8574",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8576,
+        "name": "Avoid using OPEN DATASET without Authorization Check",
+        "href": "AIP/quality-rules/8576",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8578,
+        "name": "Avoid using MODIFY without Authorization Check",
+        "href": "AIP/quality-rules/8578",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8580,
+        "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+        "href": "AIP/quality-rules/8580",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8582,
+        "name": "Avoid Dynamic Function/Method call without Authorization Check",
+        "href": "AIP/quality-rules/8582",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8584,
+        "name": "Prefer using OPEN DATASET statement with file Path instead of file name",
+        "href": "AIP/quality-rules/8584",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 1060020,
+        "name": "Avoid empty catch blocks for methods with high fan-in",
+        "href": "AIP/quality-rules/1060020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP",
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1101018,
+        "name": "Avoid using the GROUP BY clause",
+        "href": "AIP/quality-rules/1101018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101024,
+        "name": "Avoid using dynamic SQL in SQL Artifacts",
+        "href": "AIP/quality-rules/1101024",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101030,
+        "name": "Avoid Artifacts with queries on too many Tables and/or Views",
+        "href": "AIP/quality-rules/1101030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101062,
+        "name": "Avoid using multiple statements per line (SQL)",
+        "href": "AIP/quality-rules/1101062",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "FormsReportAnalyzer",
+            "SQL"
         ]
     }
 ]

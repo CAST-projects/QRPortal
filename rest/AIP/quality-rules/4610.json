@@ -5,6 +5,10 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "description": "Reports all anonymous class except classes that implement a specific interface.  The threshold parameter permits to set the list of interfaces. This list is initialized with the interface java.util.EventListener (to exclude event listener in swing) and can be updated with other interfaces.",
     "output": "This report lists all Classes using anonymous Classes except those that are implementing a specific interface defined in the threshold parameter.\nIt provides the following information:\n Class full name",
     "rationale": "For maintenance reason, using anonymous Classes should be done only when necessary since it makes the application more difficult to understand and modify. There are some exception to this rule such as event listener in swing, the visitor pattern...",

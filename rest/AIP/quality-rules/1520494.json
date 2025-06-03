@@ -1,0 +1,83 @@
+{
+    "id": 1520494,
+    "name": "Siebel eScript: Avoid complex PreGetFieldValue Functions",
+    "href": "AIP/quality-rules/1520494",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Number of lines of code in PreGetFieldValue",
+    "description": "This rule reports Business Components having a complex PreGetFieldValue, that is a numbef of line of code greater than \"Max LoC for PreGetFieldValue function\".\n\"Max LoC for PreGetFieldValue function\" is a paramter and can be changed at will.\nThe default value is 50 LoC.",
+    "output": "This rule reports Business Components having a complex PreGetFieldValue (above X LoC). It displays:\n- function full name\n- the associated value is the Number of lines of code in PreGetFieldValue",
+    "rationale": "PreGetFieldValue is called every time the user interface is updated to repaint fields on the screen. Therefore, a script attached to this event runs very frequently, which may cause the computer to appear to be unresponsive.\nEven empty scripts are invoked by the framework and thus cause a performance impact.",
+    "reference": "https://docs.oracle.com/cd/B40099_02/books/OIRef/OIRefInterfaceRef143.html",
+    "remediation": "To remove an existing script from BusComp_PreInvokeMethod to improve performance, you must open the script in Siebel Tools and delete its entire contents, including the Function and End Function (Siebel VB) or function (){ and } (Siebel eScript) statements.",
+    "total": "Number of added or modified Business Components",
+    "alternativeName": "Siebel eScript: Avoid complex PreGetFieldValue Functions",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max LoC for PreGetFieldValue",
+            "description": "Max LoC for PreGetFieldValue function",
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        50
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

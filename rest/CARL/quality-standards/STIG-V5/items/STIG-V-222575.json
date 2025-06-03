@@ -5,7 +5,7 @@
     "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222575",
     "description": "HTTPOnly is a flag included in a Set-Cookie HTTP response header. If the HTTPOnly flag is included in the HTTP response header, the cookie cannot be accessed through client side scripts like JavaScript.\n\nIf the HTTPOnly flag is set, even if a cross-site scripting (XSS) flaw in the application exists, and a user accidentally accesses a link that exploits this flaw, the browser will not reveal the cookie to a third party.\n\nThe HTTPOnly setting is browser dependent however most popular browsers support the feature. If a browser does not support HTTPOnly and a website attempts to set an HTTPOnly cookie, the HTTPOnly flag will be ignored by the browser, thus creating a traditional, script accessible cookie. As a result, the cookie (typically the session cookie) becomes vulnerable to theft or modification by a malicious script running on the client system.",
     "isoPatterns": null,
-    "count": 3,
+    "count": 8,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222575/quality-rules"

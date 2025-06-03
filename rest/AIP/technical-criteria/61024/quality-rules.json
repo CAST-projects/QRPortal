@@ -94,11 +94,13 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -114,6 +116,7 @@
         "technologyNames": [
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL"
         ]
@@ -129,8 +132,10 @@
             "C#",
             "C++",
             "Forms",
+            "FormsReportAnalyzer",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET"
@@ -191,6 +196,806 @@
         "weight": 5,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 1001050,
+        "name": "Avoid Procedures and Functions using the ITERATE statement (PL1)",
+        "href": "AIP/quality-rules/1001050",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001160,
+        "name": "Avoid  PLI Main procedures, PL1 function and PL1 Procedures using GOTO statement (PL1)",
+        "href": "AIP/quality-rules/1001160",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001162,
+        "name": "Avoid PLC Copybook using GOTO statement  (PL1)",
+        "href": "AIP/quality-rules/1001162",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001164,
+        "name": "Avoid Main procedures using the DATE builtin function (PL1)",
+        "href": "AIP/quality-rules/1001164",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001166,
+        "name": "Avoid Main procedures using the DATE builtin Function via include PLC (PL1)",
+        "href": "AIP/quality-rules/1001166",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001168,
+        "name": "Avoid Functions and Procedures  not having variable declared on a separate line (PL1)",
+        "href": "AIP/quality-rules/1001168",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001170,
+        "name": "Avoid Main Procedures having LEAVE statement (PL1)",
+        "href": "AIP/quality-rules/1001170",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1002000,
+        "name": "Do not use EQUIVALENCE in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002000",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002002,
+        "name": "Do not use EQUIVALENCE in Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002002",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002004,
+        "name": "Do not use EQUIVALENCE in Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002004",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002006,
+        "name": "Do not use EQUIVALENCE in Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002006",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002008,
+        "name": "Do not use COMMON blocks in Fortran-90 in Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002008",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002010,
+        "name": "Do not use COMMON blocks in Fortran-90 in Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002010",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002012,
+        "name": "Do not use COMMON blocks in Fortran-90 in Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002012",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002014,
+        "name": "Do not use COMMON blocks in Fortran-90 in Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002014",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002024,
+        "name": "Avoid using too many GOTO statement in Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002024",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002026,
+        "name": "Avoid using too many GOTO statement in Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002026",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002028,
+        "name": "Avoid using too many GOTO statement in Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002028",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002030,
+        "name": "Avoid using too many GOTO statement in Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002030",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002032,
+        "name": "Any Data must be declared, use IMPLICIT NONE in Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002032",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002034,
+        "name": "Any Data must be declared, use IMPLICIT NONE in Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002034",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002036,
+        "name": "Any Data must be declared, use IMPLICIT NONE in Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002036",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002038,
+        "name": "Any Data must be declared, use IMPLICIT NONE in Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002038",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002224,
+        "name": "Avoid high depth of code in Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002224",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002226,
+        "name": "Avoid high depth of code in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002226",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002228,
+        "name": "Avoid high depth of code in Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002228",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002230,
+        "name": "Avoid using the loop DO.. label.. CONTINUE in F90 Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002230",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002232,
+        "name": "Avoid using the loop DO.. label.. CONTINUE in F90 Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002232",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002234,
+        "name": "Avoid using the loop DO.. label.. CONTINUE in F90 Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002234",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002236,
+        "name": "Avoid using the loop DO.. label.. CONTINUE in F90 Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002236",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002254,
+        "name": "Avoid using free format files in Fortran-77 (FORTRAN)",
+        "href": "AIP/quality-rules/1002254",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002256,
+        "name": "Logical operators should be enclosed in proper parenthesis in Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002256",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002258,
+        "name": "Logical operators should be enclosed in proper parenthesis in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002258",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002260,
+        "name": "Logical operators should be enclosed in proper parenthesis in Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002260",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002262,
+        "name": "Logical operators should be enclosed in proper parenthesis in Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002262",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002266,
+        "name": "Avoid high level of Nesting in Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002266",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002268,
+        "name": "Avoid high level of Nesting in Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002268",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002270,
+        "name": "Avoid high level of Nesting in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002270",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002278,
+        "name": "Avoid using fixed format files in Fortran-90 (FORTRAN)",
+        "href": "AIP/quality-rules/1002278",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002290,
+        "name": "Avoid using complex Allocates in Fortran 90 Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002290",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002292,
+        "name": "Avoid using complex Allocates in Fortran 90 Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002292",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002294,
+        "name": "Avoid using complex Allocates in Fortran 90 Function  (FORTRAN)",
+        "href": "AIP/quality-rules/1002294",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002296,
+        "name": "Avoid using complex Allocates in Fortran 90 Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002296",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1003120,
+        "name": "Cairngorm: Avoid ModelLocator not only accessible from the main application file (Flex)",
+        "href": "AIP/quality-rules/1003120",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003122,
+        "name": "Cairngorm: Avoid FrontController that adds all its commands within the Controller constructor (Flex)",
+        "href": "AIP/quality-rules/1003122",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003124,
+        "name": "Avoid empty if statements (Flex)",
+        "href": "AIP/quality-rules/1003124",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003126,
+        "name": "Avoid more than one return path (Flex)",
+        "href": "AIP/quality-rules/1003126",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003128,
+        "name": "Avoid use of with statement (Flex)",
+        "href": "AIP/quality-rules/1003128",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003130,
+        "name": "Avoid managed events without matching [Event] metadata (Flex)",
+        "href": "AIP/quality-rules/1003130",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003132,
+        "name": "Avoid switch statement with less than 3 cases (Flex)",
+        "href": "AIP/quality-rules/1003132",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003134,
+        "name": "Avoid identical cases in switch (Flex)",
+        "href": "AIP/quality-rules/1003134",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003136,
+        "name": "Avoid unit test that does not contain at least one assertion (Flex)",
+        "href": "AIP/quality-rules/1003136",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1006010,
+        "name": "Avoid script without interpretor access path  (Shell)",
+        "href": "AIP/quality-rules/1006010",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "Shell"
+        ]
+    },
+    {
+        "id": 1007146,
+        "name": "Avoid unconditional \"if\" and \"else if\\elseif\" statements (PHP)",
+        "href": "AIP/quality-rules/1007146",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007148,
+        "name": "Avoid methods and constructor overridden only with parent artifact call (PHP)",
+        "href": "AIP/quality-rules/1007148",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007150,
+        "name": "Avoid artifacts with optional parameters before required parameters (PHP)",
+        "href": "AIP/quality-rules/1007150",
+        "critical": true,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007154,
+        "name": "Avoid using goto statements (PHP)",
+        "href": "AIP/quality-rules/1007154",
+        "critical": true,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007158,
+        "name": "Avoid artifacts using exit and die expressions (PHP)",
+        "href": "AIP/quality-rules/1007158",
+        "critical": true,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1008078,
+        "name": "Avoid using obsolete \"Arithmetic Operations\" Statement in RPG Programs (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008078",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008080,
+        "name": "Avoid using obsolete \"String Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008080",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008082,
+        "name": "Avoid using obsolete \"Assignment Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008082",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008084,
+        "name": "Avoid using obsolete \"Conditional Operations\" statements in RPG Subroutines (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008084",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008086,
+        "name": "Avoid using obsolete \"Date Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008086",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008088,
+        "name": "Avoid using obsolete \"Definition/Allocation/Array Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008088",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008090,
+        "name": "Avoid using obsolete \"Bit Operations\" statements in RPG Programs  (RPG400)",
+        "href": "AIP/quality-rules/1008090",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008092,
+        "name": "Avoid using obsolete \"Call Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008092",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008096,
+        "name": "Use QUALIFIED data structures (RPG400)",
+        "href": "AIP/quality-rules/1008096",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008098,
+        "name": "Use the corresponding END statement such as ENDIF, ENDDO instead of plain END statement (RPG400)",
+        "href": "AIP/quality-rules/1008098",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008100,
+        "name": "Avoid using O-spec; use Printer Files instead (RPG400)",
+        "href": "AIP/quality-rules/1008100",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008102,
+        "name": "Avoid using I-spec (RPG-IV only)  (RPG400)",
+        "href": "AIP/quality-rules/1008102",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008104,
+        "name": "Avoid obsolete E-spec (RPG400)",
+        "href": "AIP/quality-rules/1008104",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008106,
+        "name": "Avoid obsolete L-spec (RPG400)",
+        "href": "AIP/quality-rules/1008106",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008108,
+        "name": "Avoid using GOTO statement in RPG artifact (RPG400)",
+        "href": "AIP/quality-rules/1008108",
+        "critical": false,
+        "weight": 0,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1009098,
+        "name": "Avoid using plain END statement, use the explained END statement like ENDIF, ENDDO, etc  (RPG300)",
+        "href": "AIP/quality-rules/1009098",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG300"
+        ]
+    },
+    {
+        "id": 1018720,
+        "name": "Avoid oversized processes Activities (1100x900)  (TIBCO BW)",
+        "href": "AIP/quality-rules/1018720",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018866,
+        "name": "Avoid Activities with \"SELECT *\" queries (TIBCO BW)",
+        "href": "AIP/quality-rules/1018866",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018868,
+        "name": "Avoid Activities using \"UNION\" instead of \"Union all\" (TIBCO BW)",
+        "href": "AIP/quality-rules/1018868",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018870,
+        "name": "Avoid Activities using \"Group By\" statement (TIBCO BW)",
+        "href": "AIP/quality-rules/1018870",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018872,
+        "name": "Avoid Activities using ROWNUM (TIBCO BW)",
+        "href": "AIP/quality-rules/1018872",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018874,
+        "name": "Avoid Activities With Queries on more than 4 Tables (TIBCO BW)",
+        "href": "AIP/quality-rules/1018874",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "TIBCO"
         ]
     },
     {
@@ -334,6 +1139,56 @@
         ]
     },
     {
+        "id": 1020604,
+        "name": "Avoid unnamed OData model",
+        "href": "AIP/quality-rules/1020604",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020610,
+        "name": "Avoid declaring same OData model twice",
+        "href": "AIP/quality-rules/1020610",
+        "critical": false,
+        "weight": 9,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020614,
+        "name": "Prefer using sap.base.Log Instead of console.log (SAPUI5)",
+        "href": "AIP/quality-rules/1020614",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020836,
+        "name": "Avoid exporting namespaces",
+        "href": "AIP/quality-rules/1020836",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020848,
+        "name": "Always favour pipable operators in RxJS",
+        "href": "AIP/quality-rules/1020848",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1024000,
         "name": "Avoid using AbsoluteLayout",
         "href": "AIP/quality-rules/1024000",
@@ -352,6 +1207,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1039050,
+        "name": "Add @Override on methods overriding or implementing a method declared in a super type",
+        "href": "AIP/quality-rules/1039050",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -427,6 +1292,150 @@
         "technologyNames": [
             "C",
             "C++"
+        ]
+    },
+    {
+        "id": 1101916,
+        "name": "When using compound indexes, avoid having different index ordering in collection access",
+        "href": "AIP/quality-rules/1101916",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1101962,
+        "name": "Avoid using explain() in production code",
+        "href": "AIP/quality-rules/1101962",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ASP.NET",
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1101964,
+        "name": "When using compound indexes, avoid having different index ordering in collection access",
+        "href": "AIP/quality-rules/1101964",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ASP.NET",
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1520720,
+        "name": "Siebel: Defining Ancestry of Custom Applets",
+        "href": "AIP/quality-rules/1520720",
+        "critical": false,
+        "weight": 8,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520722,
+        "name": "Siebel: Defining Ancestry of Custom Business Components",
+        "href": "AIP/quality-rules/1520722",
+        "critical": false,
+        "weight": 8,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520724,
+        "name": "Siebel: Length of the Column should not exceed the length of the Field",
+        "href": "AIP/quality-rules/1520724",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520726,
+        "name": "Siebel eScript: Avoid putting all code in the Applet_PreInvokeMethod event",
+        "href": "AIP/quality-rules/1520726",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520728,
+        "name": "Siebel eScript: Avoid putting all code in the Service_PreInvokeMethod event",
+        "href": "AIP/quality-rules/1520728",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520730,
+        "name": "Siebel eScript: Prefer SWITCH over nested IF-THEN-ELSE in Functions",
+        "href": "AIP/quality-rules/1520730",
+        "critical": false,
+        "weight": 2,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520732,
+        "name": "Siebel eScript: Use DeleteRecord method only inside Loops located in Functions",
+        "href": "AIP/quality-rules/1520732",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520734,
+        "name": "Siebel eScript: Avoid using multiple conditions in IF constructions in Functions",
+        "href": "AIP/quality-rules/1520734",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520736,
+        "name": "Siebel: Business Component Field should have same type as related Table Column",
+        "href": "AIP/quality-rules/1520736",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520738,
+        "name": "Siebel eScript: Avoid Functions using compiler directives like define and if",
+        "href": "AIP/quality-rules/1520738",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520742,
+        "name": "Siebel Scripting Review: Use of the SetViewMode() method",
+        "href": "AIP/quality-rules/1520742",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "Siebel"
         ]
     },
     {

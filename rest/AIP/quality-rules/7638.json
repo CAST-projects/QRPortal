@@ -1,24 +1,33 @@
 {
     "id": 7638,
-    "name": "Avoid using DriverManager",
+    "name": "Avoid directly managing the connection to the database by using DriverManager",
     "href": "AIP/quality-rules/7638",
     "critical": false,
     "severity": 10,
     "maxWeight": 9,
-    "description": "Reports all methods that call java.sql.DriverManager.getConnection()",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "The use of the DriverManager class to directly manage the connection to the database violates the JEE restriction against the direct management of connections. \n\nThis rules checks if any method calling to java.sql.DriverManager.getConnection().",
     "output": "This report lists all methods that call java.sql.DriverManager.getConnection() method.\nIt provides the following information: Method Full Name",
-    "rationale": "Creating a connection to the database server is expensive. It is even more expensive if the server is located on another machine. Connection can take 30 to 50 ms depending on the platform.",
-    "reference": "http://www.precisejava.com/javaperf/j2ee/EJB.htm#EJB142\nhttp://www.webdevelopersjournal.com/columns/connection_pool.html\nhttp://commons.apache.org/dbcp/\nhttp://sourceforge.net/projects/c3p0",
-    "remediation": "Use a pool of connections unless the DriverManager is the implementation of the connection pool itself.\n\nIn a J2EE container, it is recommended to use a JNDI DataSource provided by the container. Outside of a J2EE container, consider Apache's Jakarta Commons DBCP  or C3P0. Commons DBCP's BasicDataSource and C3P0's ComboPooledDataSource are full connection pool beans, supporting the same basic properties as this class plus specific settings (such as minimal/maximal pool size etc)..",
-    "remediationSample": "import org.apache.commons.dbcp.BasicDataSource;\n\nBasicDataSource ds = new BasicDataSource();\nds.setDriverClassName(\"oracle.jdbc.driver.OracleDriver\");\nds.setUsername(\"scott\");\nds.setPassword(\"tiger\");\nds.setUrl(\"jdbc:oracle:thin:scott/tiger@myhost:1521:mysid\");\nConnection con = ds.getConnection();",
-    "sample": "Connection con = DriverManager.getConnection(URL, user, password); // VIOLATION",
-    "total": "Number of methods that reference java.sql.Connection class",
+    "rationale": "The JEE standard forbids the direct management of connections as very expensive. It requires that applications use the container's resource management facilities to obtain connections to resources. Every major web application container provides pooled database connection management as part of its resource management framework. Duplicating this functionality in an application is difficult and error prone, which is part of the reason it is forbidden under the JEE standard.",
+    "reference": "https://cwe.mitre.org/data/definitions/245.html",
+    "remediation": "Use a pool of connections unless the DriverManager is the implementation of the connection pool itself.\n\nIn a J2EE container, it is recommended to use a JNDI DataSource provided by the container. Outside of a J2EE container, consider Apache's Jakarta Commons DBCP  or C3P0. Commons DBCP's BasicDataSource and C3P0's ComboPooledDataSource are full connection pool beans, supporting the same basic properties as this class plus specific settings (such as minimal/maximal pool size etc)..\n\n\nInstead, JEE application should use the web application container's resource management facilities to obtain a connection to the database as shown in the following example.",
+    "remediationSample": "Remediation for Sample 1\n\npublic class DatabaseConnection {\nprivate static final String DB_DATASRC_REF = \"jdbc:mysql://localhost:3306/mysqldb\";\nprivate Connection conn = null;\n\npublic DatabaseConnection() {\n}\n\npublic void openDatabaseConnection() {\ntry {\nInitialContext ctx = new InitialContext();\nDataSource datasource = (DataSource) ctx.lookup(DB_DATASRC_REF);\nconn = datasource.getConnection();\n} catch (NamingException ex) {...}\n} catch (SQLException ex) {...}\n}\n\n// Member functions for retrieving database connection and accessing database\n...\n}\n\n-------------------------------------\nRemediation for Sample 2\n\n\nimport org.apache.commons.dbcp.BasicDataSource;\n\nBasicDataSource ds = new BasicDataSource();\nds.setDriverClassName(\"oracle.jdbc.driver.OracleDriver\");\nds.setUsername(\"scott\");\nds.setPassword(\"tiger\");\nds.setUrl(\"jdbc:oracle:thin:scott/tiger@myhost:1521:mysid\");\nConnection con = ds.getConnection();",
+    "sample": "Sample 1\n\npublic class DatabaseConnection {\nprivate static final String CONNECT_STRING = \"jdbc:mysql://localhost:3306/mysqldb\";\nprivate Connection conn = null;\n\npublic DatabaseConnection() {\n}\n\npublic void openDatabaseConnection() {\ntry {\nconn = DriverManager.getConnection(CONNECT_STRING);// VIOLATION\n} catch (SQLException ex) {...}\n}\n\n// \n...\n}\n\n--------------------------------\nSample 2\n\n\nConnection con = DriverManager.getConnection(URL, user, password); // VIOLATION",
+    "total": "Number of java artifacts that reference java.sql.Connection class",
     "alternativeName": "Prefer using container's resource management facilities to obtain connections to resources instead of using DriverManager class allowing direct connection to the database",
     "businessCriteria": [
         {
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,
@@ -32,6 +41,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066345,
+            "name": "CWE-245 - J2EE Bad Practices: Direct Management of Connections",
+            "href": "AIP/technical-criteria/1066345",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61018,
             "name": "Efficiency - Memory, Network and Disk Space Management",
@@ -59,9 +75,9 @@
         
     ],
     "thresholds": [
-        50.0,
-        90.0,
-        95.0,
-        99.0
+        98.0,
+        99.0,
+        99.5,
+        99.99
     ]
 }

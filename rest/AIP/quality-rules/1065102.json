@@ -20,12 +20,38 @@
     "alternativeName": "Avoid checking Integer overflow without explicit cast",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
             "id": 60016,
             "name": "Security",
             "href": "AIP/business-criteria/60016"
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066290,
+            "name": "CWE-190 - Integer Overflow or Wraparound",
+            "href": "AIP/technical-criteria/1066290",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",

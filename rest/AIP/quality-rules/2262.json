@@ -1,16 +1,21 @@
 {
     "id": 2262,
-    "name": "All stylesheet files should be in a specific directory",
+    "name": "DEPRECATED: All cascading style sheet files should be in specific directory",
     "href": "AIP/quality-rules/2262",
     "critical": false,
     "severity": 10,
     "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "File directory",
-    "description": "All stylesheet files (X) should be in a \"styles\" directory, located in the web root.",
-    "output": "This report lists all style sheet files (X) located outside the \"styles\" directory. It provides the following information: File full name, File directory",
+    "description": "To be compliant with code Conventions for the JavaServer Pages Technology, this rule checks if all cascading style sheet files are in the recommended location :  <context root> /css/",
+    "output": "This report lists all style sheet files (X) located outside the \"styles\" directory in a JSP Application. It provides the following information: File full name, File directory",
     "rationale": "For maintainability aspects, file organization must be respected.",
+    "reference": "https://www.oracle.com/technical-resources/articles/javase/code-convention.html",
     "remediation": "Change file location according to the recommended naming convention.",
-    "total": "Number of CSS pages",
+    "total": "Number of CSS pages in a JSP Application",
     "alternativeName": "Ensure you store all stylesheet files in recommanded location :",
     "businessCriteria": [
         {

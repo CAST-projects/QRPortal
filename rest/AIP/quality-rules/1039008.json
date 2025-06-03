@@ -1,0 +1,157 @@
+{
+    "id": 1039008,
+    "name": "Avoid thrown Exceptions in servlet methods",
+    "href": "AIP/quality-rules/1039008",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Even though the signatures for methods in a servlet include throws IOException, ServletException, it's a bad idea to let such exceptions be thrown. \n\nThis rule report all exceptions in methods named \"do*\" ( doPost; doGet...) are explicitly handled in servlet classes.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When a Servlet throws an exception, the default error response the Servlet container sends back to the user typically includes debugging information. \nThis information is of great value to an attacker. For example, a stack trace might show the attacker a malformed SQL query string, the type of database being used, and the version of the application container. This information enables the attacker to target known vulnerabilities in these components.",
+    "reference": "http://cwe.mitre.org/data/definitions/600.html \nOWASP Top 10 2017 Category A3 - Sensitive Data Exposure",
+    "remediation": "Use of try catch block is recommended.",
+    "remediationSample": "public void doGet(HttpServletRequest request, HttpServletResponse response) \n  throws IOException, ServletException { \n  try { \n    String ip = request.getRemoteAddr(); \n    InetAddress addr = InetAddress.getByName(ip); \n    //... \n  } \n  catch (UnknownHostException uhex) { \n    //... \n  } \n}",
+    "sample": "protected void doPost (HttpServletRequest req, HttpServletResponse res) throws IOException { \nString ip = req.getRemoteAddr(); \nInetAddress addr = InetAddress.getByName(ip); \n... \nout.println(\"hello \" + addr.getHostName()); \n} \n\n\npublic void doGet(HttpServletRequest request, HttpServletResponse response) \n  throws IOException, ServletException { \n  String ip = request.getRemoteAddr(); \n  InetAddress addr = InetAddress.getByName(ip); // VIOLATION; getByName(String) throws UnknownHostException \n  //... \n}",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure to manage an exception in servlet method using a try catch block to prevent exposing system vulnerabilities",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066700,
+            "name": "CWE-600 - Uncaught Exception in Servlet ",
+            "href": "AIP/technical-criteria/1066700",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-600",
+            "name": "Uncaught Exception in Servlet ",
+            "href": "AIP/quality-standards/CWE/items/CWE-600",
+            "standard": "CWE"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

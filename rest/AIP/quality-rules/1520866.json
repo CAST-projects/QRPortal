@@ -1,0 +1,78 @@
+{
+    "id": 1520866,
+    "name": "SiebelReview: Excessive Number of List Columns in a List Applet",
+    "href": "AIP/quality-rules/1520866",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Number of Columns",
+    "description": "This rule reports Applets with too many Columns in a List.\nThe threshold is a parameter, named \"Siebel: Max number of columns\" and can be changed at will.\nDefault value is 50.",
+    "output": "This rule reports Applets with too many Columns in a List. It displays:\n- List applet full name\n- The assciated value is the Number of Columns",
+    "rationale": "Limit the number of fields in business components or applets. There is no set limit on the number of fields in a business component, or number of list columns in a list applet. However, a business component with too many active fields will have degraded performance. Also, in some database systems it is possible to generate a query that is too large to be processed. See also Limiting the Number of Active Fields.\nIn particular, reduce the number of fields displayed in the master applet on related views. The information is static and may not be necessary. Additional space will be available on the view for supporting data without users needing to scroll. (This will also provide a usability benefit.)\n\nEnd users can reduce or increase the number of fields displayed in a list applet, by using the Columns Displayed menu option. However, it is best to provide an optimal default number of visible fields for each applet. It is also best to provide the minimum required total number of fields, including those that are hidden by default.",
+    "reference": "Siebel Performance Tuning Guide - Miscellaneous Configuration Guidelines\nhttps://docs.oracle.com/cd/B40099_02/books/PerformTun/PerformTunCustConfig3.html",
+    "remediation": "Review the design of the List Applet and try to reduce the number of List Columns displayed by default.",
+    "total": "Number of added or modified applets",
+    "alternativeName": "SiebelReview: Excessive Number of List Columns in a List Applet",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "href": "AIP/technical-criteria/61022",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max number of columns",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        50
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

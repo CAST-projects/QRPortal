@@ -203,7 +203,8 @@
         "technologyNames": [
             "C",
             "C++",
-            "JEE"
+            "JEE",
+            "SQL"
         ]
     },
     {
@@ -239,7 +240,58 @@
         "technologyNames": [
             "C",
             "C++",
+            "JEE",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1045002,
+        "name": "Ensure setting 'select-before-update' to true only for Hibernate Entity associated to table that fires an UPDATE trigger.",
+        "href": "AIP/quality-rules/1045002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1045004,
+        "name": "Ensure to use the attribute select-before-update for the persistent class associated to a table that have the UPDATE trigger in order to not have UPDATE trigger when not necessary",
+        "href": "AIP/quality-rules/1045004",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045006,
+        "name": "Ensure to use  lists, maps, bags, idbags and sets depending on your case to map a collection instead of using array to Map Collection",
+        "href": "AIP/quality-rules/1045006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1101098,
+        "name": "Avoid Artifacts with a Complex SELECT Clause (SQL)",
+        "href": "AIP/quality-rules/1101098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101114,
+        "name": "Avoid \"SELECT *\" queries (SQL)",
+        "href": "AIP/quality-rules/1101114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     }
 ]

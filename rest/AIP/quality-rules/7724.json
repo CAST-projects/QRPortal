@@ -5,16 +5,26 @@
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "description": "Reports all equals() methods of persistent subclasses that involves an attribute or a getter of the subclasses of the persistent base class (subclass or joined-subclass).",
-    "output": "Lists all overriden equals() methods of persistent subclasses (subclass or joined-subclass) that involves an attribute or the getter of the subclasses of the persitent class.\n\nIt provides the following information:\n Method full name",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "To preserve the equality contract, overriden equals() Methods in persistent Subclasses should only reference properties from the persistent base Class\n\nThis rule reports equals() methods of persistent subclasses that involves an attribute or a getter of the subclasses of the persistent base class (subclass or joined-subclass).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "It's almost never correct to override equals() on a persistant subclass and include properties that do not belong to the persistent base class in the comparison. It's tricky to satisfy the requirements that equality be both symmetric and transitive in this case; and, more important, the business key wouldn't correspond to any well-defined candidate natural key in the database (subclass properties may be mapped to a different table).",
-    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 125",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 125\nhttps://wiki.sei.cmu.edu/confluence/display/java/MET08-J.+Preserve+the+equality+contract+when+overriding+the+equals%28%29+method",
     "remediation": "Reconsider your business key attributes and use only attributes from the base class.",
     "remediationSample": "Remove the equals() method from Cat and Dog. If necessary, race and color attributes must be moved to the Animal class and be used into the equals() method. They will become a part of the business key.",
     "sample": "----> Java files:\n\npublic class Animal {\n  private Long id;\n  private String name;\n  ...\n  public Long getId() {\n    return this.id;\n  }\n\n  public String getName() {\n    return this.name;\n  }\n\n  public void setName(String name) {\n    this.name = name;\n  }\n...\n  public boolean equals(Object o) {\n    if (this == o) return true;\n    if (!(o instanceof Animal)) return false;\n    final Animal animal = (Animal) o;\n    if (! (this.getName() == animal.getName()) ) return false;\n    return true;\n  }\n}\n\npublic class Dog extends Animal {\n   private String race;\n   ...\n   \n   public String getRace() {\n      return this.race;\n   }\n\n  public String setRace(String race) {\n     this.race = race;\n  }\n\n  public boolean equals(Object o) {  // VIOLATION\n    if (this == o) return true;\n    if (!(o instanceof Dog)) return false;\n    final Dog dog = (Dog) o;\n    if (! (this.getName() == dog.getName())) return false;\n    if (! (this.getRace() == dog.getRace())) return false;\n\n    return true;\n  }\n}\n\npublic class Cat extends Animal {\n   private String color;\n   ...\n   \n   public String getColor() {\n      return this.color;\n   }\n\n  public String setColor(String color) {\n     this.color = color;\n  }\n\n  public boolean equals(Object o) {  // VIOLATION\n    if (this == o) return true;\n    if (!(o instanceof Cat)) return false;\n    final Cat cat = (Cat) o;\n    if (! (this.getName() == cat.getName())) return false;\n    if (! (this.getColor() == cat.getColor())) return false;\n\n    return true;\n  }\n}\n\n----> animal.hbm.xml\n<class name=\"Animal\" table=\"animal\">\n    <id name=\"id\" type=\"long\" column=\"animal_id\">\n        <generator class=\"native\"/>\n    </id>\n    <discriminator column=\"type\" type=\"string\"/>\n    <property name=\"name\" column=\"name\"/>\n    ...\n    <subclass name=\"Dog\" discriminator-value=\"DOG\">\n        <property name=\"race\" column=\"race\"/>\n        ...\n    </subclass>\n    <subclass name=\"Cat\" discriminator-value=\"CAT\">\n        <property name=\"color\" column=\"color\"/>\n        ...\n    </subclass>\n</class>",
     "total": "Number of persistent subclasses (subclass or joined-subclass) that override the equals method",
     "alternativeName": "Ensure that overriden equals() Methods in persistent Subclasses only reference properties from the persistent base Class",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 60013,
             "name": "Robustness",
@@ -27,6 +37,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",

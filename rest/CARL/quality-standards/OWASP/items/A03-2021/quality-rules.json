@@ -3,8 +3,8 @@
         "id": 4598,
         "name": "Ensure you don't use 'java.lang.Runtime.exec()'",
         "href": "AIP/quality-rules/4598",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -646,6 +646,26 @@
         ]
     },
     {
+        "id": 1020454,
+        "name": "Prefer not using the function dangerouslySetInnerHTML",
+        "href": "AIP/quality-rules/1020454",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020456,
+        "name": "Ensure you don't inject javascript code into your HTML template.",
+        "href": "AIP/quality-rules/1020456",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020542,
         "name": "Ensure activating Content-Security-Policy in you  angular applications to enforce client-side templates protection",
         "href": "AIP/quality-rules/1020542",
@@ -693,6 +713,252 @@
         "severity": 10,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020710,
+        "name": "Ensure enabling X-XSS-Protection header to prevent attackers submitting malicious script to unsuspecting users",
+        "href": "AIP/quality-rules/1020710",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020724,
+        "name": "Ensure enabling sanitize option for marked component to avoid any security hole",
+        "href": "AIP/quality-rules/1020724",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020772,
+        "name": "Use common database libraries handling SQL code provide specific API to perform parameterized SQL queries to assure sanitized SQL queries.",
+        "href": "AIP/quality-rules/1020772",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020808,
+        "name": "Eval() should not be used because it runs text as code.",
+        "href": "AIP/quality-rules/1020808",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020810,
+        "name": "Ensure not adding unchecked HTML by not using one of these methods: bypassSecurityTrustHtml, bypassSecurityTrustStyle, bypassSecurityTrustScript, bypassSecurityTrustUrl, bypassSecurityTrustResourceUrl",
+        "href": "AIP/quality-rules/1020810",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020830,
+        "name": "Prefer using Angular Renderer2 instead of directly interacting with the DOM",
+        "href": "AIP/quality-rules/1020830",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020832,
+        "name": "Always prefer using HttpClient Angular Module instead of using javascript HTTP request to avoid JSON vulnerability",
+        "href": "AIP/quality-rules/1020832",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020834,
+        "name": "Ensure you don't inject javascript code with  \"<script>\" tag into HTML template",
+        "href": "AIP/quality-rules/1020834",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020852,
+        "name": "Ensure you don't inject javascript code into your HTML template.",
+        "href": "AIP/quality-rules/1020852",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020854,
+        "name": "Prefer not using the function dangerouslySetInnerHTML",
+        "href": "AIP/quality-rules/1020854",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020860,
+        "name": "Avoid using setInterval with a string as first argument",
+        "href": "AIP/quality-rules/1020860",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020870,
+        "name": "Avoid using setTimeout with a string as first argument",
+        "href": "AIP/quality-rules/1020870",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020926,
+        "name": "Use common database libraries handling SQL code provide specific API to perform parameterized SQL queries to assure sanitized SQL queries.",
+        "href": "AIP/quality-rules/1020926",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1025000,
+        "name": "Ensure your application does not run OS command without sanitization",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025002,
+        "name": "Ensure your application properly neutralize XML content before it is processed",
+        "href": "AIP/quality-rules/1025002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025010,
+        "name": "Ensure your application does not run LDAP methods without sanitization",
+        "href": "AIP/quality-rules/1025010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025018,
+        "name": "Ensure you have secured your cookie",
+        "href": "AIP/quality-rules/1025018",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025020,
+        "name": "Ensure your application does not run data filter expressions without sanitization",
+        "href": "AIP/quality-rules/1025020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025022,
+        "name": "Ensure your application does not run data filter expressions without sanitization",
+        "href": "AIP/quality-rules/1025022",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025050,
+        "name": "Reports usage of RequestDispatcher file inclusion, file which name is tainted input. Extended to several MVC libraries.",
+        "href": "AIP/quality-rules/1025050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025052,
+        "name": "Reports usage of String tainted input before Unicode normalization",
+        "href": "AIP/quality-rules/1025052",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1040006,
+        "name": "Ensure activating Content-Security-Policy for Spring application to avoid untrusted source",
+        "href": "AIP/quality-rules/1040006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042024,
+        "name": "Ensure activating tags for escaping string in order to sanitize user input and prevent XSS attacks",
+        "href": "AIP/quality-rules/1042024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -768,6 +1034,26 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1101096,
+        "name": "Preventing SQL injection in Oracle dynamic SQL",
+        "href": "AIP/quality-rules/1101096",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Prefer using MyBatis query statementto prevent SQL Injection Attacks",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

@@ -21,7 +21,7 @@
     },
     {
         "id": 2284,
-        "name": "Avoid large JSP Pages - too many Scriptlets",
+        "name": "DEPRECATED: Avoid large JSP Pages - too many Scriptlets",
         "href": "AIP/quality-rules/2284",
         "critical": false,
         "weight": 4,
@@ -62,12 +62,22 @@
     },
     {
         "id": 4718,
-        "name": "Package size control",
+        "name": "Avoid having package without enough Classes/Interfaces",
         "href": "AIP/quality-rules/4718",
         "critical": false,
         "weight": 4,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 7856,
+        "name": "Avoid Tables with too many columns on an OLTP system",
+        "href": "AIP/quality-rules/7856",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "SQL"
         ]
     },
     {
@@ -82,6 +92,16 @@
             "HTML5",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1101056,
+        "name": "Avoid large Tables - too many columns (SQL)",
+        "href": "AIP/quality-rules/1101056",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "SQL"
         ]
     }
 ]

@@ -35,7 +35,7 @@
         "id": 7728,
         "name": "Avoid thread creation for application running on application server",
         "href": "AIP/quality-rules/7728",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -43,7 +43,7 @@
     },
     {
         "id": 8104,
-        "name": "Close database resources ASAP",
+        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "severity": 30,
@@ -60,6 +60,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
         ]
     },
     {

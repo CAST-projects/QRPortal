@@ -25,6 +25,11 @@
             "href": "AIP/business-criteria/60014"
         },
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -37,9 +42,58 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066870,
+            "name": "CWE-770 - Allocation of Resources Without Limits or Throttling",
+            "href": "AIP/technical-criteria/1066870",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 61018,
             "name": "Efficiency - Memory, Network and Disk Space Management",
             "href": "AIP/technical-criteria/61018",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
             "weight": 5,
             "critical": false
         }

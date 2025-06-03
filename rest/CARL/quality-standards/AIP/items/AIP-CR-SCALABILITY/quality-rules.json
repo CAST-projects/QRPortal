@@ -36,8 +36,8 @@
         "id": 4694,
         "name": "Ensure  let the system decide when it needs to collect the heap, and whether or not to do a full collection",
         "href": "AIP/quality-rules/4694",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -177,6 +177,17 @@
         ]
     },
     {
+        "id": 7470,
+        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
+        "href": "AIP/quality-rules/7470",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 7638,
         "name": "Prefer using container's resource management facilities to obtain connections to resources instead of using DriverManager class allowing direct connection to the database",
         "href": "AIP/quality-rules/7638",
@@ -190,8 +201,8 @@
         "id": 7720,
         "name": "Ensure reducing the number of EJB beans to hold performance and complexity of the application",
         "href": "AIP/quality-rules/7720",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -220,8 +231,8 @@
         "id": 7954,
         "name": "Ensure not having indirect String concatenation inside loops to avoid making your software performance slowly.",
         "href": "AIP/quality-rules/7954",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -288,6 +299,16 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1101116,
+        "name": "Avoid using SQL queries inside a loop (SQL)",
+        "href": "AIP/quality-rules/1101116",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     }
 ]

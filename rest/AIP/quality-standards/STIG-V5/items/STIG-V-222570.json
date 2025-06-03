@@ -5,7 +5,13 @@
     "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222570",
     "description": "Applications that distribute components of the application must sign the components to provide an identity assurance to consumers of the application component. Components can include application messages or application code.\n\nUse of weak or untested encryption algorithms undermines the purposes of utilizing encryption to validate the author of application components. The application must implement cryptographic modules adhering to the higher standards approved by the federal government since this provides assurance the modules have been tested and validated.\n\nIf the application resides on a National Security System (NSS) it must not use algorithms weaker than SHA-384.",
     "isoPatterns": null,
-    "count": 0,
-    "qualityRules": null,
-    "qualityTemplates": null
+    "count": 2,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222570/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222570/quality-templates"
+    }
 }

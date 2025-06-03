@@ -1,0 +1,109 @@
+{
+    "id": 1039120,
+    "name": "Avoid weak password requirements (JEE)",
+    "href": "AIP/quality-rules/1039120",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules reports instances of org.passay.PasswordValidator that do not implement the Potential Mitigations of CWE-521.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Authentication mechanisms often rely on a memorized secret (also known as a password) to provide an assertion of identity for a user of a system. It is therefore important that this password be of sufficient complexity and impractical for an adversary to guess. The specific requirements around how complex a password needs to be depends on the type of system being protected. Selecting the correct password requirements and enforcing them through implementation are critical to the overall success of the authentication mechanism.",
+    "reference": "CWE-521: Weak Password Requirements\nhttps://cwe.mitre.org/data/definitions/521.html",
+    "remediation": "A product's design should require adherance to an appropriate password policy. Specific password requirements depend strongly on contextual factors, but it is recommended to contain the following attributes:\n  - Enforcement of a minimum and maximum length\n  - Restrictions against password reuse\n  - Restrictions against using common passwords\n  - Restrictions against using contextual string in the password (e.g., user id, app name)",
+    "remediationSample": "PasswordValidator validator = new PasswordValidator(  // FIXED\n    new LengthRule(12, 128),\n    new DigestHistoryRule(encodingHashBean),\n    new DictionarySubstringRule(wordListDictionary),\n    new IllegalRegexRule(\".*(\" + username + \"|\" + appName + \").*\")\n);",
+    "sample": "# Sample 1\nPasswordValidator validator = new PasswordValidator(  // VIOLATION\n    // Missing instance of LengthRule or similar\n    new DigestHistoryRule(encodingHashBean),\n    new DictionarySubstringRule(wordListDictionary),\n    new IllegalRegexRule(\".*(\" + username + \"|\" + appName + \").*\")\n);\n\n# Sample 2\nPasswordValidator validator = new PasswordValidator(  // VIOLATION\n    new LengthRule(12, 128),\n    // Missing instance of DigestHistoryRule or similar\n    new DictionarySubstringRule(wordListDictionary),\n    new IllegalRegexRule(\".*(\" + username + \"|\" + appName + \").*\")\n);\n\n# Sample 3\nPasswordValidator validator = new PasswordValidator(  // VIOLATION\n    new LengthRule(12, 128),\n    new DigestHistoryRule(encodingHashBean),\n    // Missing instance of DictionarySubstringRule or similar,\n    new IllegalRegexRule(\".*(\" + username + \"|\" + appName + \").*\")\n);\n\n# Sample 4\nPasswordValidator validator = new PasswordValidator(  // VIOLATION\n    new LengthRule(12, 128),\n    new DigestHistoryRule(encodingHashBean),\n    new DictionarySubstringRule(wordListDictionary),\n    // Missing instance of IllegalRegexRule that checks contextual string\n);",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure the password policy implements CWE-521 mitigations",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-521",
+            "name": "Weak Password Requirements",
+            "href": "AIP/quality-standards/CWE/items/CWE-521",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-IA-5",
+            "name": "Authenticator Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-5",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-IA-5",
+            "name": "Authenticator Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-IA-5",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A07-2021",
+            "name": "Identification and Authentication Failures",
+            "href": "AIP/quality-standards/OWASP/items/A07-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "href": "AIP/quality-standards/OWASP/items/M4-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

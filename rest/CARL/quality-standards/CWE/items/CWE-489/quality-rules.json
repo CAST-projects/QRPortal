@@ -20,6 +20,26 @@
         ]
     },
     {
+        "id": 1020804,
+        "name": "Prefer refactoring the source code  instead of using console logging",
+        "href": "AIP/quality-rules/1020804",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020818,
+        "name": "xsrf check should be enabled in HttpClientXsrfModule module to activate Cross-Site forgery protection.",
+        "href": "AIP/quality-rules/1020818",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1027070,
         "name": "Avoid if statements and blocks that are always TRUE or FALSE",
         "href": "AIP/quality-rules/1027070",
@@ -39,6 +59,36 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1039020,
+        "name": "Ensure to not use \"javax.crypto.NullCipher\" for anything other than testing",
+        "href": "AIP/quality-rules/1039020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040014,
+        "name": "Ensure desabling Spring Security's debug mode in production code",
+        "href": "AIP/quality-rules/1040014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040024,
+        "name": "Ensure securing Shutdown Actuator Endpoint from unauthenticated access.",
+        "href": "AIP/quality-rules/1040024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -93,6 +143,16 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1101920,
+        "name": "Ensure to not use explain() method in production code so that performance is not reduced",
+        "href": "AIP/quality-rules/1101920",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

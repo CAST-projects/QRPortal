@@ -5,10 +5,14 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of Constructors",
     "description": "Classes should have less than X Constructors.\nThe threshold is a parameter and can be changed at will.",
     "output": "This report lists all the Classes having more than X Constructors.\nIt provides the following information:\n - Class full name\n - Number of Constructors",
-    "rationale": "For maintainability and readability reasons, Classes should not have too many Constructors.",
+    "rationale": "A class contains an unnecessarily large number of constructors. This issue makes it more difficult to understand and maintain the software, which indirectly affects security by making it more difficult or time-consuming to find and/or fix vulnerabilities. It also might make it easier to introduce vulnerabilities.",
     "remediation": "Review the Class design to reduce the number of Constructors",
     "total": "Number of Java classes",
     "alternativeName": "Ensure you review the Class design to reduce the number of Constructors",

@@ -1,0 +1,83 @@
+{
+    "id": 1520730,
+    "name": "Siebel eScript: Prefer SWITCH over nested IF-THEN-ELSE in Functions",
+    "href": "AIP/quality-rules/1520730",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Numner of nested IF",
+    "description": "This rule search for nested IF constructs:\nif ... if\nelse ...if\nAny Function that holds this specific type of nesting, is reported as a violation. Only these obvious examples are reported as a violation, as these are good candidates for implementing a Switch construct.",
+    "output": "This rule reports Functions with nested IF",
+    "rationale": "The Switch construct directs the program to choose among any number of alternatives you require, based on the value of a single variable. Using this construct offers better performance than using a series of nested If statements, and is easier to maintain.",
+    "reference": "https://docs.oracle.com/cd/B31104_02/books/PerformTun/PerformTunCustConfig7.html#wp1043766",
+    "remediation": "Refactor the nested IF into a similar SWITCH.",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Prefer SWITCH over nested IF-THEN-ELSE in Functions",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max Nested IF",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

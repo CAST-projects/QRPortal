@@ -1,14 +1,19 @@
 {
     "id": 7256,
-    "name": "Provide a private default Constructor for utility Classes (JEE)",
+    "name": "Provide a private default Constructor for utility Classes",
     "href": "AIP/quality-rules/7256",
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
-    "description": "Utility classes must have a private default constructor, but not other constructors. Default constructors are constructors without any parameters. Utility classes are static classes: all their fields and methods are static.",
-    "output": "The Quality Rule will list all classes with all fields and static methods that do not have at least one private default constructor. It will also list all classes with all fields and static methods that, in addition to the private default constructor, have other constructors.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "utility classes were not designed to be instantiated: an instance would be nonsensical. In the absence of explicit constructors, however, the compiler provides a public, parameterless default constructor. To a user, this constructor is indistinguishable from any other. It is not uncommon to see unintentionally instantiable classes in published APIs.\n\n\nUtility classes must have a private default constructor, but not other constructors. Default constructors are constructors without any parameters. Utility classes are static classes: all their fields and methods are static.\n\nExceptions\nWhen class contains public static void main(String[] args) method it is not considered as utility class and will be ignored by this rule.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "Utility classes are not meant to be instantiated because all the functionalities that they provide are accessible without instantiating the class. Instantiating these classes means that the developer has misused the class. It also consumes memory unnecessarily. Instead, providing a private default constructor ensures that the class is not instantiated.",
-    "reference": "http://www.javapractices.com/Topic40.cjp",
+    "reference": "http://www.informit.com/articles/article.aspx?p=1216151&seqNum=4\nhttp://www.javapractices.com/Topic40.cjp",
     "remediation": "Add a private default constructor to ensure that the class cannot be instantiated.",
     "remediationSample": "public class MyClassUtility\n{\n      static public bool MyUtilityFunction() {\n            // Do Something Usefull \n            return true;\n      }\n\n      private MyUtilityClass() {  // FIXED\n            // Avoid instantiation of the class\n      }\n      static int UtilityCount;\n}",
     "sample": "public class MyClassUtility\n{\n      static public bool MyUtilityFunction() {\n            // Do Something Usefull \n            return true;\n      }\n\n      static int UtilityCount;\n}  // VIOLATION",
@@ -19,6 +24,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

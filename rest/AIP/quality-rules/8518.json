@@ -5,14 +5,18 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "This metric uses CAST data-flow engine to detect a call path where input data from the user is sent to a Regular expression without prior validation and sanitization.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
     "rationale": "The software constructs all or part of a Regular expression via user-controllable inputs. These inputs are not neutralized or are incorrectly neutralized. As a consequence, a user may create a Denial Of Service attack.",
     "reference": "Regular expression Denial of Service - ReDoS\nhttps://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS\n\nCWE-400: Uncontrolled Resource Consumption\nhttps://cwe.mitre.org/data/definitions/400.html\n\nWeaknesses in the 2019 CWE Top 25 Most Dangerous Software Errors\nhttps://cwe.mitre.org/data/definitions/1200.html",
     "remediation": "Use authorized sanitization methods, limit the computation time of the Regular expression.",
-    "remediationSample": "string login = textBoxLogin.Text;\nstring password = textBoxPassword.Text;\nvar regex = new Regex(Regex.Escape(login));\nif (regex.Match(password).Success)\n    MessageBox.Show(\"ERROR: the name must not be present in the password\");\nelse\n    MessageBox.Show(\"Correct password\");",
-    "sample": "string login = textBoxLogin.Text;\nstring password = textBoxPassword.Text;\nvar regex = new Regex(login);\nif (regex.Match(password).Success)\n    MessageBox.Show(\"ERROR: the name must not be present in the password\");\nelse\n    MessageBox.Show(\"Correct password\");",
+    "remediationSample": "public bool ValidateInputVulnerable()\n{\n    string startDate = textBoxStartDate.Text;\n    string endDate = textBoxEndDate.Text;\n    string dateFormat = textBoxDateFormat.Text;\n    Regex format = new Regex(dateFormat);\n\n    if (string.IsNullOrWhiteSpace(startDate) || string.IsNullOrWhiteSpace(endDate) || string.IsNullOrWhiteSpace(dateFormat))\n    {\n        return false;\n    }\n    \n    // White list\n    List<string> allowedDateFormats = new List<string>\n    {\n        \"dd-MM-yyyy\",\n        \"MM/dd/yyyy\",\n        // Add other formats here\n    };\n    \n    if (!allowedDateFormats.Contains(dateFormat))\n    {\n        return false;\n    }\n    \n    Regex regex = new Regex($\"^{Regex.Escape(dateFormat)}$\");\n    if (regex.IsMatch(startDate) && regex.IsMatch(endDate))\n    {\n        return true;\n    }\n    \n    return false;\n}",
+    "sample": "public bool ValidateInputVulnerable()\n{\n    string startDate = textBoxStartDate.Text;\n    string endDate = textBoxEndDate.Text;\n    string dateFormat = textBoxDateFormat.Text;\n    Regex format = new Regex(dateFormat);\n    if (format.IsMatch(startDate) && format.IsMatch(endDate))\n        return true;\n    else\n        return false;\n}",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Ensure you don't have unsanitized regular expressions",
     "businessCriteria": [
@@ -28,6 +32,48 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

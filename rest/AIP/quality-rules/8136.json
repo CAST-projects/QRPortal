@@ -1,21 +1,30 @@
 {
     "id": 8136,
-    "name": "Beans with normal scope must be proxyable to avoid runtime errors",
+    "name": "CDI Beans with normal scope must be proxyable to avoid runtime errors",
     "href": "AIP/quality-rules/8136",
     "critical": true,
     "severity": 20,
     "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of violation occurrences",
     "description": "This quality rules checks all the CDI Beans, that is all the classes and producer methods which are annotated with a scope or a qualifier",
-    "output": "This quality rule reports all the CDI beans which cannot be proxied.\n\nIt handles both the standard scopes and the custom scopes.\n    ",
-    "rationale": "\nFor a CDI Bean with a normal scope, the CDI contained will provide a proxy of the underlying object instead of a reference to the object itself. If an injected class is not proxyable, the container will raise an exception at runtime. \n\nThis error will not be detected at compilation. \n\nAs per the CDI specs, A class can be put in a proxy if it fulfills the following constraints: \n* It must have a non private Constructor with no argument, \n* It must neither be final nor have a final method. \n\nThe normal scopes are Session, RequestScope, Conversation and Application, and any custom scope annotated as normal. ",
-    "reference": "https://docs.jboss.org/weld/reference/latest/en-US/html/injection.html#_client_proxies \nhttps://docs.jboss.org/cdi/spec/1.2/cdi-spec.html#client_proxies ",
+    "output": "This quality rule reports all the CDI beans which cannot be proxied.\n\nIt handles both the standard scopes and the custom scopes.",
+    "rationale": "For a CDI Bean with a normal scope, the CDI contained will provide a proxy of the underlying object instead of a reference to the object itself. If an injected class is not proxyable, the container will raise an exception at runtime. \n\nThis error will not be detected at compilation. \n\nAs per the CDI specs, A class can be put in a proxy if it fulfills the following constraints: \n* It must have a non private Constructor with no argument, \n* It must neither be final nor have a final method. \n\nThe normal scopes are Session, RequestScope, Conversation and Application, and any custom scope annotated as normal.",
+    "reference": "https://docs.jboss.org/weld/reference/latest/en-US/html/injection.html#_client_proxies \nhttps://docs.jboss.org/cdi/spec/1.2/cdi-spec.html#client_proxies",
     "remediation": "Make sure that the injected class fulfills the constraints of a proxy class, change the bean scope.",
-    "remediationSample": "\npublic class Producer{\n\n  @Produces\n  @Dependent\n  @Named(\"stringProvider\")\n  public static String getStringId()\n  {\n  return \"SomeStaticID\";\n  }\n}\n\n \n@Named\npublic class MyBean \n{\n  @Named(\"stringProvider\")\n  private String id;\n}\n     ",
-    "sample": "\npublic class Producer{\n  @Produces\n  @SessionScoped\n  @Named(\"stringProvider\")\n  public static String getStringId()\n  {\n     return \"SomeStaticID\";\n  }\n}\n\n \n@Named\npublic class MyBean \n{\n  @Named(\"stringProvider\")\n  private String id;\n}\n    ",
-    "total": "Number of violations",
+    "remediationSample": "public class Producer{\n\n  @Produces\n  @Dependent\n  @Named(\"stringProvider\")\n  public static String getStringId()\n  {\n  return \"SomeStaticID\";\n  }\n}\n\n \n@Named\npublic class MyBean \n{\n  @Named(\"stringProvider\")\n  private String id;\n}",
+    "sample": "public class Producer{\n  @Produces\n  @SessionScoped\n  @Named(\"stringProvider\")\n  public static String getStringId()\n  {\n     return \"SomeStaticID\";\n  }\n}\n\n \n@Named\npublic class MyBean \n{\n  @Named(\"stringProvider\")\n  private String id;\n}",
+    "total": "Number of CDI Beans",
     "alternativeName": "Ensure to have CDI Beans with normal scope proxyable",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 60013,
             "name": "Robustness",

@@ -46,6 +46,26 @@
         ]
     },
     {
+        "id": 1020726,
+        "name": "Ensure you have enable CSRF Protection to avoid Cross-Site forgery risk.",
+        "href": "AIP/quality-rules/1020726",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020818,
+        "name": "xsrf check should be enabled in HttpClientXsrfModule module to activate Cross-Site forgery protection.",
+        "href": "AIP/quality-rules/1020818",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1024002,
         "name": "A read permission should be specified for Content Provider to restrict data access from others apps",
         "href": "AIP/quality-rules/1024002",
@@ -129,6 +149,128 @@
         "id": 1024028,
         "name": "Ensure to include User Confirmation when using Android Protection Confirmation prompt",
         "href": "AIP/quality-rules/1024028",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1025004,
+        "name": "Ensure you URL redirection always goes to trusted sites",
+        "href": "AIP/quality-rules/1025004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025044,
+        "name": "Ensure you have secured your call to MVC",
+        "href": "AIP/quality-rules/1025044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Ensure you have secured your call to MVC",
+        "href": "AIP/quality-rules/1025046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025058,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025060,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025062,
+        "name": "Ensure you don't include numeric user inputs to SQL databases",
+        "href": "AIP/quality-rules/1025062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1040002,
+        "name": "Ensure you have enable CSRF Protection in your spring security project.",
+        "href": "AIP/quality-rules/1040002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040026,
+        "name": "Ensure explicitly specifying single HTTP method in @RequestMapping methods to avoid information leakage",
+        "href": "AIP/quality-rules/1040026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040042,
+        "name": "Ensure you have used Spring framework with version greater than 5.0.5 when enabling global security method",
+        "href": "AIP/quality-rules/1040042",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040044,
+        "name": "Upgrade to the spring-integration-zip version 1.0.2 to unsafe unzip",
+        "href": "AIP/quality-rules/1040044",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042008,
+        "name": "Ensure not using ActionForward with untrusted data source to prevent file path disclosure",
+        "href": "AIP/quality-rules/1042008",
         "critical": true,
         "severity": 20,
         "technologyNames": [

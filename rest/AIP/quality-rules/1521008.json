@@ -1,0 +1,65 @@
+{
+    "id": 1521008,
+    "name": "Siebel: Don't delete Standard Screens",
+    "href": "AIP/quality-rules/1521008",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "List of deleted Screens",
+    "description": "This rule reports deleted Standard Screen.",
+    "output": "This rule reports the Siebel Repository",
+    "rationale": "Standard objects should not be removed, even if not used.\nIt would prevent future usage.",
+    "reference": "https://docs.oracle.com/cd/E88140_01/books/UsingTools/customizing_objects8.html",
+    "remediation": "Restore deleted Standard Screen, and prefer to inactivate it.",
+    "total": "Number of modified Screens",
+    "alternativeName": "Siebel: Don't delete Standard Screens",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "href": "AIP/technical-criteria/66009",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

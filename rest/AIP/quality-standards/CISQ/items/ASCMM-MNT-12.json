@@ -5,7 +5,7 @@
     "url": null,
     "description": "Objective\nAvoid breaches of layered architecture principles due to layer-skipping references\n\nConsequence\nSoftware that does not follow the principles of layered architectures (such as strict partitioning and strict call hierarchy) decreases comprehensibility as well as simplicity to evolve the code\n\nMeasure Element\nNumber of instances where a named callable or method control element from a higher horizontal layer directly calls a named callable or method control element in a lower horizontal layer that is not adjacent to the upper layer making the call, as defined in a model of the application\u2019s architectural layers (this excludes the vertical utility layers that can be referenced from any horizontal layer)\n\n",
     "isoPatterns": null,
-    "count": 8,
+    "count": 9,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-12/quality-rules"

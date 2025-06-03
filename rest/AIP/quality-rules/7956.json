@@ -1,11 +1,15 @@
 {
     "id": 7956,
-    "name": "Avoid indirect exception handling inside loops",
+    "name": "DEPRECATED:Avoid indirect exception handling inside loops",
     "href": "AIP/quality-rules/7956",
     "critical": false,
     "severity": 10,
-    "maxWeight": 3,
-    "description": "Reports all methods which contain a try/catch block and are called within a loop (for, while, do while) at a depth level less than <depth level>.\n\n<depth level> is a parameter that can be changed at will.",
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Nesting try/catch blocks hardly impacts the performance and the readability of source. This rule reports all methods which contain a try/catch block and are called within a loop (for, while, do while) at a depth level less than <depth level>.\n\n<depth level> is a parameter that can be changed at will.",
     "output": "This reports all methods having a loop in which there is a call to a method that contains try/catch blocks.\nIt provides the following information:\n Method full name that has the loop, the call path from the method that contains the loop to the method that does the try/catch\n\nNote that:\n1/ The call path may contain different paths while only one is an error. For example:\nvoid myException(){\n     try{  throw exception(); }\n     catch(exception e){}\n}\n\nvoid g() {myException();}\n\nvoid  f() {\n       while (myCondition) { g ();}\n        g();\n        } \n\nwill report both path to g() while only one is a violation, the one that is called in the loop.\n\n2/ Several paths for the same method violating the rule are identified in the Metric Detail page by a sequence ID (in the Value column), this ID is dynamically set during each snapshot and the same path can have a different sequence ID in different snapshots.",
     "rationale": "Exception handling tends to be relatively costly, given the work in unwinding the stack, trying various exception handlers, and so on. You should avoid placing try/catch blocks within a method that is called in a loop as it can add up when performed many times inside a loop.",
     "reference": "http://www.precisejava.com/javaperf/j2se/Exceptions.htm",
@@ -21,6 +25,11 @@
             "href": "AIP/business-criteria/60014"
         },
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -32,6 +41,20 @@
             "name": "Efficiency - Expensive Calls in Loops",
             "href": "AIP/technical-criteria/66068",
             "weight": 3,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
             "critical": false
         }
     ],

@@ -1,0 +1,67 @@
+{
+    "id": 1107006,
+    "name": "Oracle Forms Column Based Data Block Items naming convention",
+    "href": "AIP/quality-rules/1107006",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.formsreport",
+        "href": "AIP/extensions/com.castsoftware.formsreport"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Column Based Data Blocks Items need to have the same name as the mapped column.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "For readability aspects, naming conventions must be respected. Coding naming conventions allow teams to collaborate efficiently.",
+    "reference": "Oracle Forms objects Naming Standards : https://docs.oracle.com/cd/E18727_01/doc.121/e12897/T302934T458266.htm#I_devnameform.",
+    "remediation": "Change name according to the naming convention.",
+    "remediationSample": "<Item Name=\"COLC\" Prompt=\"Colc\" TabPageName=\"\" PromptAttachmentOffset=\"7\" DistanceBetweenRecords=\"42\" Width=\"34\" MaximumLength=\"4\" ItemType=\"El\u00e9ment Texte\" XPosition=\"37\" YPosition=\"29\" DirtyInfo=\"true\" CanvasName=\"CANVAS_NAME\" ColumnName=\"COLC\" PromptDisplayStyle=\"Tous les enregistrements\" DataLengthSemantics=\"BYTE\" ItemsDisplay=\"0\" Height=\"14\"/>",
+    "sample": "<Item Name=\"DB_COLC\" Prompt=\"Colc\" TabPageName=\"\" PromptAttachmentOffset=\"7\" DistanceBetweenRecords=\"42\" Width=\"34\" MaximumLength=\"4\" ItemType=\"El\u00e9ment Texte\" XPosition=\"37\" YPosition=\"29\" DirtyInfo=\"true\" CanvasName=\"CANVAS_NAME\" ColumnName=\"COLC\" PromptDisplayStyle=\"Tous les enregistrements\" DataLengthSemantics=\"BYTE\" ItemsDisplay=\"0\" Height=\"14\"/>",
+    "total": "Number of Column Based Oracle Forms Data Block Items",
+    "alternativeName": "Oracle Forms Column Based Data Block Items naming convention",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1107000,
+            "name": "FormsReportAnalyzer",
+            "href": "AIP/technologies/1107000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

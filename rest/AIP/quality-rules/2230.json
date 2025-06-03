@@ -1,10 +1,14 @@
 {
     "id": 2230,
-    "name": "Use of style sheets (JEE)",
+    "name": "DEPRECATED: Use of style sheets (JEE)",
     "href": "AIP/quality-rules/2230",
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "description": "This metric detects the pages where a Style sheet (*.css) is not directly or explicitly used.\nStyle sheet (*.css) should be used (instead of no css or hardcoded style definition like style= ).",
     "output": "This report lists all pages not directly or explicitly using a style sheet. \nIt provides the following information: Page name",
     "rationale": "By using a style sheet, you ensure that the display is the same across the website. It allows to centralize maintenance of pages look and feel.",
@@ -27,6 +31,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

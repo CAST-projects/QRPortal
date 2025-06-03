@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/7898",
     "critical": false,
     "severity": 10,
-    "maxWeight": 3,
+    "maxWeight": 5,
     "description": "Names of Functions should start with X. \nThe prefix value is a parameter that can be changed at will",
     "output": "This report lists all Function names not starting with the specific prefix.\nIt provides the following information: Function full name.",
     "rationale": "For readability aspects, naming conventions must be respected",
@@ -30,6 +30,13 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 61017,
             "name": "Documentation - Naming Convention Conformity",
             "href": "AIP/technical-criteria/61017",
@@ -47,6 +54,11 @@
             "id": 139287,
             "name": "PL/SQL",
             "href": "AIP/technologies/139287"
+        },
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
         },
         {
             "id": -13,
@@ -94,6 +106,15 @@
                     "href": "AIP/technologies/139287",
                     "values": [
                         "F_"
+                    ]
+                },
+                {
+                    "id": 1101000,
+                    "name": "SQL",
+                    "href": "AIP/technologies/1101000",
+                    "values": [
+                        "F_",
+                        "fn_"
                     ]
                 },
                 {

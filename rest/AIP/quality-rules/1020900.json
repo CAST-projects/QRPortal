@@ -1,0 +1,144 @@
+{
+    "id": 1020900,
+    "name": "Avoid enabling unsecure Node.js (TypeScript)",
+    "href": "AIP/quality-rules/1020900",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.typescript",
+        "href": "AIP/extensions/com.castsoftware.typescript"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if Node.js server is built with a secured HTTPS server and using a certificate to avoid connection to an unsecured source.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Many web applications and APIs do not properly protect sensitive data, such as financial, healthcare, and PII. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data may be compromised without extra protection, such as encryption at rest or in transit, and requires special precautions when exchanged with the browser.\n\nTypically, HTTPS servers do a basic TLS handshake and accept any client connection as long as a compatible cipher suite can be found. However, the server can be configured to challenge the client with a CertificateRequest during the TLS handshake. This forces the client to present a valid certificate before the negotiation can continue.",
+    "reference": "https://expressjs.com/en/advanced/best-practice-security.html \nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
+    "remediation": "Ensure you have enabled secure HTTPS protocol and loaded keys for establishing secure HTTPS connection",
+    "remediationSample": "// Use secure HTTPS protocol \n// Load keys for establishing secure HTTPS connection \nimport * as fs from \"fs\"\nimport * as https from \"https\"\nimport * as path from \"path\"\nvar httpsOptions = { \n key: fs.readFileSync(path.resolve(__dirname, \"./artifacts/cert/server.key\")), // setting Keys and Certificates\n cert: fs.readFileSync(path.resolve(__dirname, \"./artifacts/cert/server.crt\")) \n}; \nhttps.createServer(httpsOptions, app).listen(config.port, function() { \n console.log(\"Express https server listening on port \" + config.port); \n });\n\n// or using createSecureServer with HTTP2\nimport * as http2 from \"http2\"\n\nconst options = {\n  key: fs.readFileSync('server-key.pem'),\n  cert: fs.readFileSync('server-cert.pem')\n};\n\n// Create a secure HTTP/2 server\nconst server = http2.createSecureServer(options);\nserver.listen(config.port, function() { \n console.log(\"Express http server listening on port \" + config.port); \n });",
+    "sample": "// Insecure HTTP connection \nimport * as http from \"http\"\nhttp.createServer(app).listen(config.port, function() { \n console.log(\"Express http server listening on port \" + config.port); \n });\n\n// or HTTP2\n\nimport * as http2 from \"http2\"\nhttp2.createServer(app).listen(config.port, function() { \n console.log(\"Express http server listening on port \" + config.port); \n });",
+    "total": "Number of TypeScript source codes using HTTP, HTTP/2 or HTTPS createServer",
+    "alternativeName": "Ensure building secured HTTPS server using certificate to avoid connection to unsecured source.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063118,
+            "name": "PCI-Requirement-6.5.4 - Insecure communications",
+            "href": "AIP/technical-criteria/1063118",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

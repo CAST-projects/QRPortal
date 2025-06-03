@@ -1,18 +1,23 @@
 {
     "id": 7492,
-    "name": "Avoid many-to-many association",
+    "name": "DEPRECATED: Avoid Hibernate and JPA Entities using many-to-many association.",
     "href": "AIP/quality-rules/7492",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "associatedValueName": "Number of many-to-many association",
-    "description": "Reports all Hibernate or JPA Entities that use many-to-many association.",
-    "output": "List all Hibernate or JPA Entities that use many-to-many association.\n\nIt provides the following information:\n - Hibernate or JPA Entity Full Name\n - Number of many-to-many association",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule reports all Hibernate, JPA or Jakarta Persistence entities that use many-to-many association.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "One-to-many associations are easily the most important kind of association. In fact, its usage is discouraged when a simple bidirectional many-to-one/one-to-many will do the job. In particular, a many-to-many association may always be represented as two many-to-one associations to an intervening class. This model is usually more easily extensible. In a real system, you may not have a many-to-many association. Usually there is almost always other information that must be attached to each link between associated instances (such as the date and time when an item was added to a category) and that the best way to represent this information is via an intermediate association class.\n\nMoreover, changing the definition of a primary key and all foreign keys that refer to it is a frustrating task.",
     "reference": "Hibernate in Action (ISBN 1932394-15-X) p 220",
     "remediation": "In Hibernate, you can map the association class as an entity and map two one-to-many associations for either side.",
-    "sample": "<class name=\"A\" table=\"A\"> \n    ...  \n    <set name=\"B\" table=\"B\">  \n        <key column=\"A_ID\"/> \n        <many-to-many column=\"B_ID\" class=\"B\"/> // VIOLATION\n    </set> \n</class>",
-    "total": "Number of hibernate or JPA entity that are associated to other entity through one-to-many, many-to-one, one-to-one and many-to-many",
+    "remediationSample": "Annotation based configuration:\n@Entity\npublic class A {\n\n      @Id\n      Long id;\n\n      @OneToMany // Possible fix\n      Set<B> fieldA;\n}\n\n\nXML based configuration:\n<class name=\"A\" table=\"A\">\n    ...\n    <set name=\"B\" table=\"B\">\n        <key column=\"A_ID\"/>\n        <one-to-many column=\"B_ID\" class=\"B\"/> // Possible fix\n    </set>\n</class>",
+    "sample": "Annotation based configuration:\n@Entity\npublic class A {\n\n      @Id\n      Long id;\n\n      @ManyToMany // Violation\n      Set<B> fieldA;\n}\n\n\nXML based configuration:\n<class name=\"A\" table=\"A\">\n    ...\n    <set name=\"B\" table=\"B\">\n        <key column=\"A_ID\"/>\n        <many-to-many column=\"B_ID\" class=\"B\"/> // Violation\n    </set>\n</class>",
+    "total": "Number of Hibernate, JPA or Jakarta Persistence entities that are associated to other entity through one-to-many, many-to-one, one-to-one and many-to-many",
     "alternativeName": "Ensure to map the association class as an entity and map two one-to-many associations for either side",
     "businessCriteria": [
         {

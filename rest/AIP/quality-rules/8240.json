@@ -5,17 +5,26 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from the \"setSecure\" call to the \"addCookie\" target",
     "description": "This rule will check in the source code if the 'Secure' attribute for sensitive cookies in HTTPS sessions is not set. If not enabled it could cause the user agent to send those cookies in plain text over an HTTP session. \nUsing the method 'setSecure' ensures that the session cookie is not visible to an attacker.\nLimitation: in .Net environment, this rule does not check if the key 'requireSSL' exists in web.config file.",
     "output": "List all methods full name that add cookie to a response object without setting the 'secured' attribute",
     "rationale": "The secure flag is an option that can be set by the application server when sending a new cookie to the user within an HTTP Response. The purpose of the secure flag is to prevent cookies from being observed by unauthorized parties due to the transmission of a the cookie in clear text. \nTo accomplish this goal, browsers which support the secure flag will only send cookies with the secure flag when the request is going to a HTTPS page. Said in another way, the browser will not send a cookie with the secure flag set over an unencrypted HTTP request. \nBy setting the secure flag, the browser will prevent the transmission of a cookie over an unencrypted channel.",
     "reference": "CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute\nhttps://cwe.mitre.org/data/definitions/614.html\n\nOpen Web Application Security Project (OWASP)\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
     "remediation": "Always set the secure attribute when the cookie should sent via HTTPS only.",
-    "remediationSample": "Cookie c = new Cookie(ACCOUNT_ID, acctID); \nc.setSecure(true); // Compliant Code with secure cookies \nresponse.addCookie(c);",
-    "sample": "Cookie c = new Cookie(ACCOUNT_ID, acctID); // Violation - cookie is not secure \nresponse.addCookie(c);",
+    "remediationSample": "1) C#\nHttpCookie cookie = new HttpCookie(cookieName, cookieValue);\ncookie.HttpOnly = true;\ncookie.Secure = true;\nResponse.Cookies.Add(cookie);\n\n\n2) Java\nCookie c = new Cookie(cookieName, cookieValue);\nc.setHttpOnly(true);\nc.setSecure(true); // Compliant code with secure cookies \nresponse.addCookie(c);",
+    "sample": "1) C#\nHttpCookie cookie = new HttpCookie(cookieName, cookieValue);\ncookie.HttpOnly = true;\nResponse.Cookies.Add(cookie);\n\n\n2) Java\nCookie c = new Cookie(cookieName, cookieValue);\nc.setHttpOnly(true);\nresponse.addCookie(c);",
     "total": "Number of methods adding a cookie",
     "alternativeName": "Ensure you have secured your cookie by enabling the 'Secure' attribute",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -29,10 +38,59 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1066714,
+            "name": "CWE-614 - Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
+            "href": "AIP/technical-criteria/1066714",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 66062,
             "name": "Secure Coding - Input Validation",
             "href": "AIP/technical-criteria/66062",
             "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
             "critical": true
         }
     ],
@@ -131,9 +189,9 @@
         
     ],
     "thresholds": [
-        50.0,
-        90.0,
-        95.0,
-        99.0
+        98.0,
+        99.0,
+        99.5,
+        99.99
     ]
 }

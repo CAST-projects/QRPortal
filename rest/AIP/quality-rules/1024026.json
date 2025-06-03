@@ -20,12 +20,73 @@
     "alternativeName": "Prefer not using MODE_WORLD_READABLE or MODE_WORLD_WRITABLE to share files with other apps",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
             "id": 60016,
             "name": "Security",
             "href": "AIP/business-criteria/60016"
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066376,
+            "name": "CWE-276 - Incorrect Default Permissions",
+            "href": "AIP/technical-criteria/1066376",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066459,
+            "name": "CWE-359 - Exposure of Private Personal Information to an Unauthorized Actor",
+            "href": "AIP/technical-criteria/1066459",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067021,
+            "name": "CWE-921 - Storage of Sensitive Data in a Mechanism without Access Control",
+            "href": "AIP/technical-criteria/1067021",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062307,
+            "name": "OWASP-2013-A7 - Missing Function Level Access Control",
+            "href": "AIP/technical-criteria/1062307",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062325,
+            "name": "OWASP-2017-A5 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062325",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",

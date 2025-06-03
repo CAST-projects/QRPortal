@@ -5,6 +5,10 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "Using CAST data-flow engine, this metric detects paths from user input methods down to HTTP redirection, paths which are open vulnerabilities.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
@@ -28,6 +32,41 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066701,
+            "name": "CWE-601 - URL Redirection to Untrusted Site ('Open Redirect')",
+            "href": "AIP/technical-criteria/1066701",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062310,
+            "name": "OWASP-2013-A10 - Unvalidated Redirects and Forwards",
+            "href": "AIP/technical-criteria/1062310",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

@@ -1,17 +1,22 @@
 {
     "id": 7700,
-    "name": "Use only Struts HTTP Servlet",
+    "name": "Struts1: Only Struts HTTP Servlet should be used for Struts based application",
     "href": "AIP/quality-rules/7700",
     "critical": false,
     "severity": 10,
     "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Servlet Class Name",
-    "description": "When Struts is used, reports all Servlet that inherit from javax.servlet.http.HttpServlet but not from org.apache.struts.action.ActionServlet class.",
+    "description": "For Struts based application, this rule reports all Servlet that inherit from javax.servlet.http.HttpServlet or jakarta.servlet.http.HttpServlet but not from org.apache.struts.action.ActionServlet class.",
     "output": "This report lists all HTTP Servlets that don't inherit from Struts action Servlet.\nIt provides the following information:\n  Servlet Full Name, Servlet Class Name",
     "rationale": "When Struts framework is used, it must be used for every page in the application to avoid mixing different technologies and creating an application difficult to maintain and be the source of a lack of robustness.",
-    "remediation": "Adapt the application to use Struts for all HTTP Servlets.",
+    "remediation": "Adapt the struts application to use front controller servlet (which is Action Servlet) for all HTTP requests as following one: \nThe remediation can be :\n<servlet>\n    <servlet-name>action</servlet-name>\n    <servlet-class>\n      org.apache.struts.action.ActionServlet\n    </servlet-class>\n    <init-param>\n      <param-name>config</param-name>\n      <param-value>/WEB-INF/conf/struts-config.xml</param-value>\n    </init-param>\n  <servlet>",
+    "remediationSample": "<servlet>\n    <servlet-name>action</servlet-name>\n    <servlet-class>\n      org.apache.struts.action.ActionServlet\n    </servlet-class>\n    <init-param>\n      <param-name>config</param-name>\n      <param-value>/WEB-INF/conf/struts-config.xml</param-value>\n    </init-param>\n<servlet>",
     "sample": "---> web.xml\n\n<!-- Struts Action Servlet -->\n  <servlet>\n    <servlet-name>action</servlet-name>\n    <servlet-class>\n      org.apache.struts.action.ActionServlet\n    </servlet-class>\n    <init-param>\n      <param-name>config</param-name>\n      <param-value>/WEB-INF/conf/struts-config.xml</param-value>\n    </init-param>\n  <servlet>\n\n  <servlet>\n    <servlet-name>AnotherServlet</servlet-name>\n    <servlet-class>\n      // doesn't inherit from org.apache.struts.action.ActionServlet\n      // but inherits from javax.servlet.http.HttpServlet\n      com.cast.AnotherServlet // VIOLATION:    \n   </servlet-class>\n  </servlet>",
-    "total": "Number of Servlets that inherit from javax.servlet.http.HttpServlet when org.apache.struts.action.ActionServlet is used",
+    "total": "Number of Servlets that inherit from javax.servlet.http.HttpServlet or jakarta.servlet.http.HttpServlet when org.apache.struts.action.ActionServlet is used",
     "alternativeName": "Ensure to use only Struts HTTP Servlet for Struts based application to avoid mixing different technologies",
     "businessCriteria": [
         {

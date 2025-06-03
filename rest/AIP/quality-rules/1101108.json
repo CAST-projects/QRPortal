@@ -1,0 +1,62 @@
+{
+    "id": 1101108,
+    "name": "Avoid Cobol SQL Cursors without FOR READ ONLY or FOR FETCH ONLY or FOR UPDATE or BROWSE ACCESS clauses",
+    "href": "AIP/quality-rules/1101108",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.sqlanalyzer",
+        "href": "AIP/extensions/com.castsoftware.sqlanalyzer"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Always explicitly define the purpose of a Cobol SQL Cursor by using FOR clauses : READ ONLY, FETCH ONLY, UPDATE or BROWSE ACCESS.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The purpose of a Cobol SQL Cursor should be clearly specified by using the FOR clauses : READ ONLY, FETCH ONLY, UPDATE or BROWSE ACCESS.\n\nWhen the cursor will only be used to read data, you should always use FOR READ ONLY, FOR FETCH ONLY or BROWSE ACCESS clauses. This will avoid table locking and allows other SQL statements to read from the same tables.\n\nWhen the cursor will modify data, you should always use FOR UPDATE clause.",
+    "reference": "IBM DB2 Guidelines for restricting SELECT statements: \nhttps://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.admin.perf.doc/doc/c0005280.html\nConsiderations\u2014SELECT from SQL/MP Reference Manual:\nhttp://nonstoptools.com/manuals/SqlMp-Reference.pdf",
+    "remediation": "Check the cursor and if so, add the expected FOR or BROWSE clause.",
+    "remediationSample": "EXEC SQL\n  DECLARE C_EMP CURSOR FOR\n    SELECT EMPNO, FIRSTNME, MIDINIT, LASTNAME, SALARY\n      FROM DSN8C10.EMP\n  FOR READ ONLY\nEND-EXEC.\n\nEXEC SQL\n  DECLARE C_EMP CURSOR FOR\n    SELECT EMPNO, FIRSTNME, MIDINIT, LASTNAME, SALARY\n      FROM DSN8C10.EMP\n  BROWSE ACCESS\nEND-EXEC.",
+    "sample": "EXEC SQL\n  DECLARE C_EMP CURSOR FOR\n    SELECT EMPNO, FIRSTNME, MIDINIT, LASTNAME, SALARY\n      FROM DSN8C10.EMP\nEND-EXEC.",
+    "total": "Number of Cobol Program with Cursors",
+    "alternativeName": "FOR READ ONLY or FOR FETCH ONLY or FOR UPDATE or BROWSE ACCESS should be specified in Cobol SQL Cursors",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "href": "AIP/technical-criteria/61006",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

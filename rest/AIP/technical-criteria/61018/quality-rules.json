@@ -33,7 +33,7 @@
     },
     {
         "id": 2230,
-        "name": "Use of style sheets (JEE)",
+        "name": "DEPRECATED: Use of style sheets (JEE)",
         "href": "AIP/quality-rules/2230",
         "critical": false,
         "weight": 4,
@@ -43,7 +43,7 @@
     },
     {
         "id": 2242,
-        "name": "Avoid direct definition of JavaScript Functions in a Web page (JEE)",
+        "name": "DEPRECATED: Avoid direct definition of JavaScript Functions in a Web page (JEE)",
         "href": "AIP/quality-rules/2242",
         "critical": false,
         "weight": 4,
@@ -53,7 +53,7 @@
     },
     {
         "id": 2278,
-        "name": "Check the use of \"foreach\" custom tag library",
+        "name": "DEPRECATED: Check the use of \"foreach\" custom tag library",
         "href": "AIP/quality-rules/2278",
         "critical": false,
         "weight": 4,
@@ -63,7 +63,7 @@
     },
     {
         "id": 2280,
-        "name": "Avoid using Document.all collection",
+        "name": "DEPRECATED: Avoid using Document.all collection",
         "href": "AIP/quality-rules/2280",
         "critical": false,
         "weight": 4,
@@ -105,7 +105,7 @@
     },
     {
         "id": 4618,
-        "name": "Avoid instantiating Boolean",
+        "name": "Avoid instantiating a Boolean object",
         "href": "AIP/quality-rules/4618",
         "critical": false,
         "weight": 2,
@@ -115,10 +115,10 @@
     },
     {
         "id": 4694,
-        "name": "Avoid using 'System.gc'",
+        "name": "Avoid using 'System.gc' and 'Runtime.gc'",
         "href": "AIP/quality-rules/4694",
-        "critical": false,
-        "weight": 6,
+        "critical": true,
+        "weight": 9,
         "technologyNames": [
             "JEE"
         ]
@@ -145,7 +145,7 @@
     },
     {
         "id": 4744,
-        "name": "EJB Entity access through their local Interface",
+        "name": "DEPRECATED: EJB Entity access through their local Interface",
         "href": "AIP/quality-rules/4744",
         "critical": true,
         "weight": 7,
@@ -155,7 +155,7 @@
     },
     {
         "id": 4746,
-        "name": "EJB Session access through their local Interface",
+        "name": "DEPRECATED: EJB Session access through their local Interface",
         "href": "AIP/quality-rules/4746",
         "critical": true,
         "weight": 7,
@@ -206,7 +206,7 @@
     },
     {
         "id": 7254,
-        "name": "Declare as Static all methods not using instance members (JEE)",
+        "name": "Declare as Static all methods not using instance members",
         "href": "AIP/quality-rules/7254",
         "critical": false,
         "weight": 5,
@@ -216,7 +216,7 @@
     },
     {
         "id": 7256,
-        "name": "Provide a private default Constructor for utility Classes (JEE)",
+        "name": "Provide a private default Constructor for utility Classes",
         "href": "AIP/quality-rules/7256",
         "critical": false,
         "weight": 4,
@@ -301,7 +301,7 @@
     },
     {
         "id": 7444,
-        "name": "Serialize session objects",
+        "name": "Avoid Using Non-Serialized Beans with Session Scope",
         "href": "AIP/quality-rules/7444",
         "critical": false,
         "weight": 4,
@@ -331,7 +331,7 @@
     },
     {
         "id": 7638,
-        "name": "Avoid using DriverManager",
+        "name": "Avoid directly managing the connection to the database by using DriverManager",
         "href": "AIP/quality-rules/7638",
         "critical": false,
         "weight": 9,
@@ -341,17 +341,17 @@
     },
     {
         "id": 7648,
-        "name": "Avoid calling finalize()",
+        "name": "Avoid an explicit call to finalize()",
         "href": "AIP/quality-rules/7648",
         "critical": false,
-        "weight": 4,
+        "weight": 8,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7668,
-        "name": "Avoid using incorrect XML parsing model",
+        "name": "DEPRECATED: Avoid using DOM parser for large or medium sized XML file parsing",
         "href": "AIP/quality-rules/7668",
         "critical": false,
         "weight": 4,
@@ -361,8 +361,18 @@
     },
     {
         "id": 7720,
-        "name": "Avoid too many EJB bean",
+        "name": "DEPRECATED: Avoid too many EJB beans",
         "href": "AIP/quality-rules/7720",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7728,
+        "name": "Avoid thread creation for application running on application server",
+        "href": "AIP/quality-rules/7728",
         "critical": true,
         "weight": 9,
         "technologyNames": [
@@ -371,7 +381,7 @@
     },
     {
         "id": 7734,
-        "name": "Avoid to use Log.debug() without calling Log.isDebugEnabled()",
+        "name": "Avoid using debug() method without calling isDebugEnabled() method",
         "href": "AIP/quality-rules/7734",
         "critical": false,
         "weight": 3,
@@ -401,7 +411,7 @@
     },
     {
         "id": 7936,
-        "name": "Avoid using finalize()",
+        "name": "DEPRECATED: Avoid using finalize()",
         "href": "AIP/quality-rules/7936",
         "critical": true,
         "weight": 8,
@@ -411,7 +421,7 @@
     },
     {
         "id": 7940,
-        "name": "Avoid Stateful Beans not removed",
+        "name": "Avoid accumulating Stateful Beans",
         "href": "AIP/quality-rules/7940",
         "critical": true,
         "weight": 7,
@@ -463,7 +473,7 @@
     },
     {
         "id": 8104,
-        "name": "Close database resources ASAP",
+        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "weight": 8,
@@ -517,7 +527,7 @@
     },
     {
         "id": 8214,
-        "name": "CWE-672: Expired or Released Resource should not be used",
+        "name": "Avoid operating on resource after expiration or release",
         "href": "AIP/quality-rules/8214",
         "critical": true,
         "weight": 8,
@@ -533,6 +543,446 @@
         "weight": 8,
         "technologyNames": [
             "Cobol"
+        ]
+    },
+    {
+        "id": 1001104,
+        "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001104",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001106,
+        "name": "Avoid using PLI Main Procedures using FIXED variable type declaration  (PL1)",
+        "href": "AIP/quality-rules/1001106",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001108,
+        "name": "Avoid PLC Copybooks using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001108",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001110,
+        "name": "Avoid  PLC Copybooks using FIXED variable type declaration (PL1)",
+        "href": "AIP/quality-rules/1001110",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001112,
+        "name": "Avoid Functions and Procedures not using the REORDER option (PL1)",
+        "href": "AIP/quality-rules/1001112",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001114,
+        "name": "Avoid Functions and Procedures using BLKSIZE or RECSIZE (PL1)",
+        "href": "AIP/quality-rules/1001114",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001116,
+        "name": "Avoid Function and Procedures using Builtin Function \"String\" (PL1)",
+        "href": "AIP/quality-rules/1001116",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001118,
+        "name": "Avoid Programs not using explicitly OPEN and CLOSE files (PL1)",
+        "href": "AIP/quality-rules/1001118",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001120,
+        "name": "Avoid Functions and Procedures having subscripts used in arrays or in do loops and not declared as BINARY FIXED(31) (PL1)",
+        "href": "AIP/quality-rules/1001120",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001122,
+        "name": "Avoid Functions and Procedures using BIN FIXED(15) instead of  BIN FIXED(31)  for all local variables (PL1)",
+        "href": "AIP/quality-rules/1001122",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1002096,
+        "name": "Avoid using global SAVE in Fortran-90 Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002096",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002098,
+        "name": "Avoid using global SAVE in Fortran-90 Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002098",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002100,
+        "name": "Avoid using global SAVE in Fortran-90 Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002100",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002102,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002102",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002104,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002104",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002106,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002106",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002108,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002108",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002142,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002142",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002144,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002144",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002146,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002146",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002148,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002148",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002280,
+        "name": "Avoid using global SAVE in Fortran-90 Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002280",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1003074,
+        "name": "Cairngorm: Avoid modelLocator that is Bindable at a class level (Flex)",
+        "href": "AIP/quality-rules/1003074",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003076,
+        "name": "Avoid adding or removing displayable children from updateDisplayList (Flex specific) (Flex)",
+        "href": "AIP/quality-rules/1003076",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003078,
+        "name": "Avoid popup using dynamic filters (Flex)",
+        "href": "AIP/quality-rules/1003078",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003080,
+        "name": "Avoid complex constructor (Flex)",
+        "href": "AIP/quality-rules/1003080",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003082,
+        "name": "Avoid Instantiating a variable in a loop (Flex)",
+        "href": "AIP/quality-rules/1003082",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003084,
+        "name": "Avoid recursive StyleManager call (Flex)",
+        "href": "AIP/quality-rules/1003084",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1005046,
+        "name": "Avoid using string datatype (EGL)",
+        "href": "AIP/quality-rules/1005046",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005048,
+        "name": "Avoid using Unicode or dbCHar datatypes (EGL)",
+        "href": "AIP/quality-rules/1005048",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005050,
+        "name": "Avoid using Programs having textLiteralDefaultIsString property set to YES (EGL)",
+        "href": "AIP/quality-rules/1005050",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005052,
+        "name": "Avoid using copyStr and compareStr functions (EGL)",
+        "href": "AIP/quality-rules/1005052",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1007180,
+        "name": "Use file inclusion based on API suitability (PHP)",
+        "href": "AIP/quality-rules/1007180",
+        "critical": false,
+        "weight": 8,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007184,
+        "name": "Avoid using size functions inside loops (PHP)",
+        "href": "AIP/quality-rules/1007184",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007190,
+        "name": "Avoid using relative path for including files (PHP)",
+        "href": "AIP/quality-rules/1007190",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007192,
+        "name": "Avoid using PHP short tags (PHP)",
+        "href": "AIP/quality-rules/1007192",
+        "critical": true,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007202,
+        "name": "Avoid direct access to superglobals (PHP)",
+        "href": "AIP/quality-rules/1007202",
+        "critical": true,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007206,
+        "name": "Avoid using @error suppression (PHP)",
+        "href": "AIP/quality-rules/1007206",
+        "critical": true,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007210,
+        "name": "Avoid using time() to get the system time (PHP)",
+        "href": "AIP/quality-rules/1007210",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007218,
+        "name": "Avoid fetching database rows as array and accessing using subscript (PHP)",
+        "href": "AIP/quality-rules/1007218",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1012018,
+        "name": "Avoid use of DLYJOB  (CL400)",
+        "href": "AIP/quality-rules/1012018",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1012020,
+        "name": "Avoid use of RCLRSC  (CL400)",
+        "href": "AIP/quality-rules/1012020",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1012022,
+        "name": "Avoid use of *NOMAX  (CL400)",
+        "href": "AIP/quality-rules/1012022",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1018540,
+        "name": "Avoid JMS Synchronous Activities (TIBCO BW)",
+        "href": "AIP/quality-rules/1018540",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "TIBCO"
         ]
     },
     {
@@ -576,6 +1026,66 @@
         ]
     },
     {
+        "id": 1020214,
+        "name": "Ensure to turn off and clear event listeners after component is destroyed",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020606,
+        "name": "Prefer using Asynchronous Loading",
+        "href": "AIP/quality-rules/1020606",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020704,
+        "name": "Avoid using string concatenation when using __dirname and __filename",
+        "href": "AIP/quality-rules/1020704",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure Node.js filesystem are closed (TypeScript)",
+        "href": "AIP/quality-rules/1020892",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020894,
+        "name": "Avoid using string concatenation when using nodejs __dirname and __filename variables (TypeScript)",
+        "href": "AIP/quality-rules/1020894",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1027020,
         "name": "Prefer using Any() over Count() or LongCount()",
         "href": "AIP/quality-rules/1027020",
@@ -584,6 +1094,26 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1030004,
+        "name": "Avoid using \"foreach\" to iterate over a explicit range (Kotlin)",
+        "href": "AIP/quality-rules/1030004",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030022,
+        "name": "Avoid passing an existing array with spread operator as an argument using vararg as parameters (Kotlin)",
+        "href": "AIP/quality-rules/1030022",
+        "critical": false,
+        "weight": 8,
+        "technologyNames": [
+            "Kotlin"
         ]
     },
     {
@@ -625,6 +1155,107 @@
         "weight": 8,
         "technologyNames": [
             "C++"
+        ]
+    },
+    {
+        "id": 1101086,
+        "name": "Always use VARCHAR2 and NVARCHAR2 instead of CHAR, VARCHAR or NCHAR",
+        "href": "AIP/quality-rules/1101086",
+        "critical": false,
+        "weight": 2,
+        "technologyNames": [
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101920,
+        "name": "Avoid using explain() in production code (JEE)",
+        "href": "AIP/quality-rules/1101920",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1520494,
+        "name": "Siebel eScript: Avoid complex PreGetFieldValue Functions",
+        "href": "AIP/quality-rules/1520494",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520496,
+        "name": "Siebel eScript: Avoid using ExecuteQuery() statement in Functions",
+        "href": "AIP/quality-rules/1520496",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520498,
+        "name": "SiebelReview: Force Active property Set to TRUE at BusComp level",
+        "href": "AIP/quality-rules/1520498",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520500,
+        "name": "SiebelReview: Force Active BusComp Field Property Set to TRUE",
+        "href": "AIP/quality-rules/1520500",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520502,
+        "name": "SiebelReview: Link Specification For BusComp Field Property Set To TRUE",
+        "href": "AIP/quality-rules/1520502",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520508,
+        "name": "SiebelReview: Nested MVFs",
+        "href": "AIP/quality-rules/1520508",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520510,
+        "name": "SiebelScriptingReview: Explicit Object Release",
+        "href": "AIP/quality-rules/1520510",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520512,
+        "name": "SiebelScriptingReview: Scripting The PreCanInvokeMethod Event For A Business Service",
+        "href": "AIP/quality-rules/1520512",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "Siebel"
         ]
     },
     {

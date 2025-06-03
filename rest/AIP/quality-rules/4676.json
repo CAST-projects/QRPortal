@@ -1,13 +1,21 @@
 {
     "id": 4676,
-    "name": "Methods must have appropriate JavaDoc @throws tags",
+    "name": "Public Methods must have appropriate JavaDoc @throws/@exception tags",
     "href": "AIP/quality-rules/4676",
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "description": "When enforcing the utilization of JavaDoc Comments to document an application, the @throws tags should be used to document the exceptions being thrown by a given Method. The number of exception thrown should match the number of @throws.",
-    "output": "This report lists all Methods not having the appropriate @throws JavaDoc comments.\nThis report provides the following information:\n Method full name",
-    "rationale": "There is no dispute that these comments contribute to a developer's understanding and help a developer write reliable applications more quickly. Without documenting exception thrown it is dififcult for anyone else than the author to guess its purpose and consequences except by looking at the code that is throwing it.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "When enforcing the utilization of JavaDoc Comments to document an application, the @throws/@exception tags should be used to document the exceptions being thrown by a given Method. \nThe @exception tag is a synonym for @throws.\n\nThis rule raises a violation when none of the recommended tags (@throws/@exception) is used",
+    "output": "This report lists all Methods not having the appropriate @throws or @exception JavaDoc comments.\nThis report provides the following information:\n Method full name",
+    "rationale": "There is no dispute that Javadoc comments contribute to a developer's understanding and help a developer write reliable applications more quickly. Without documenting exception thrown, it is difficult for anyone else than the author to guess its purpose and consequences except by looking at the code that is throwing it.",
+    "reference": "https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#throws\nhttps://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#exception",
+    "remediation": "Add a @throws or @exception tag with a description for each method.",
+    "remediationSample": "#Remediation Sample with @throws tag: \n/**\n * @throws IOException  If an input or output \n *                      exception occurred\n */\npublic void f() throws IOException {\n    // body\n}\n\n#Remediation Sample with @exception tag: \n/**\n* @exception StringIndexOutOfRangeException\n* if the index is not in the range <code>0</code>\n*  to <code>length()-1</code>.\n     \n*/\npublic char charAt(int index) {\n       ...\n    }",
+    "sample": "public void f() throws IOException {\n    // body\n}",
     "total": "Number of methods that throw exceptions",
     "alternativeName": "Ensure you add a @throws/@exception with a description for each method.",
     "businessCriteria": [
@@ -24,10 +32,31 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1067218,
+            "name": "CWE-1118 - Insufficient Documentation of Error Handling Techniques",
+            "href": "AIP/technical-criteria/1067218",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 61008,
             "name": "Documentation - Automated Documentation",
             "href": "AIP/technical-criteria/61008",
             "weight": 6,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
             "critical": false
         }
     ],

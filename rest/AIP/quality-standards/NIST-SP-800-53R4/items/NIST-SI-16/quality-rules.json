@@ -11,7 +11,7 @@
     },
     {
         "id": 7446,
-        "name": "Avoid double checked locking",
+        "name": "Avoid double checked locking for JSE 4.x and previous version",
         "href": "AIP/quality-rules/7446",
         "critical": true,
         "severity": 20,
@@ -31,7 +31,7 @@
     },
     {
         "id": 7714,
-        "name": "Do not use auto-wiring",
+        "name": "Avoid using auto-wiring",
         "href": "AIP/quality-rules/7714",
         "critical": false,
         "severity": 10,
@@ -232,6 +232,36 @@
         "severity": 30,
         "technologyNames": [
             "Cobol"
+        ]
+    },
+    {
+        "id": 1001104,
+        "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001108,
+        "name": "Avoid PLC Copybooks using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1020214,
+        "name": "Ensure to turn off and clear event listeners after component is destroyed",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
         ]
     },
     {

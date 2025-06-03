@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/6112",
     "critical": false,
     "severity": 10,
-    "maxWeight": 4,
+    "maxWeight": 5,
     "associatedValueName": "Name of the variable",
     "description": "The use of global variables must be avoided as much as possible.",
     "rationale": "Using Global variables makes the code more difficult to read, modify and much less robust. Also, depending on the context, the use of global variables can lead to security vulnerabilities.",
@@ -23,6 +23,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067208,
+            "name": "CWE-1108 - Excessive Reliance on Global Variables",
+            "href": "AIP/technical-criteria/1067208",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61020,
             "name": "Programming Practices - Modularity and OO Encapsulation Conformity",

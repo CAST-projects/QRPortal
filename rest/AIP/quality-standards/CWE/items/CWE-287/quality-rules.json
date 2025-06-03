@@ -1,5 +1,15 @@
 [
     {
+        "id": 1007276,
+        "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
+        "href": "AIP/quality-rules/1007276",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1020098,
         "name": "Avoid creating cookie with overly broad path (Javascript)",
         "href": "AIP/quality-rules/1020098",
@@ -13,6 +23,26 @@
         "id": 1020100,
         "name": "Avoid having cookie with an overly broad domain (Javascript)",
         "href": "AIP/quality-rules/1020100",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020220,
+        "name": "Avoid creating cookie with overly broad path (Vue.js)",
+        "href": "AIP/quality-rules/1020220",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020222,
+        "name": "Avoid creating cookie with overly broad domain (Vue.js)",
+        "href": "AIP/quality-rules/1020222",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -40,6 +70,70 @@
         ]
     },
     {
+        "id": 1020740,
+        "name": "Avoid creating cookie with overly broad path (Node.js)",
+        "href": "AIP/quality-rules/1020740",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020742,
+        "name": "Avoid creating cookie with overly broad domain (Node.js)",
+        "href": "AIP/quality-rules/1020742",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020862,
+        "name": "Avoid having cookie with an overly broad domain (TypeScript)",
+        "href": "AIP/quality-rules/1020862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020866,
+        "name": "Avoid creating cookie with overly broad path (TypeScript)",
+        "href": "AIP/quality-rules/1020866",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1025026,
+        "name": "Avoid disabling the expiration time requirement of a JWT token",
+        "href": "AIP/quality-rules/1025026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025028,
+        "name": "Avoid disabling the signature requirement of a JWT token",
+        "href": "AIP/quality-rules/1025028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027022,
         "name": "Avoid using \"new Guid()\"",
         "href": "AIP/quality-rules/1027022",
@@ -48,6 +142,46 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1039064,
+        "name": "Avoid having cookie with an overly broad domain (JEE)",
+        "href": "AIP/quality-rules/1039064",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039066,
+        "name": "Avoid creating cookie with an overly broad path (JEE)",
+        "href": "AIP/quality-rules/1039066",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040008,
+        "name": "Ensure declaring formLogin after requesting authorization and authentication",
+        "href": "AIP/quality-rules/1040008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040010,
+        "name": "Always delete the cookies during the logout (Spring)",
+        "href": "AIP/quality-rules/1040010",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

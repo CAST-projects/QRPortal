@@ -1,0 +1,288 @@
+{
+    "id": 1034014,
+    "name": "Avoid file path manipulation (PHP)",
+    "href": "AIP/quality-rules/1034014",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.php.security",
+        "href": "AIP/extensions/com.castsoftware.php.security"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric uses Psalm data-flow engine to detect a call path where input data from the user can be passed into a sensitive file operation without prior validation and sanitization.\n\nVetted user input validations can be specified to Psalm data-flow engine using the \"@psalm-taint-escape file\" annotation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software does not properly neutralize special elements that are part of paths or file names used in file system operations. This could allow an attacker to access or modify system files or other files that are critical to the application. It could range from:\n\nCreating files\n\n  - Example: file_put_contents\n  - Risk: Depending on the server configuration this may result in remote code execution. (e.g. writing a file in the web root)\n\nModifying files\n\n  - Example: file_put_contents\n  - Risk: Depending on the server configuration this may result in remote code execution. (e.g. modifying a PHP file)\n\nReading files\n\n  - Example: file_get_contents\n  - Risk: Sensitive data could be exposed from the filesystem. (e.g. config values, source code, user-submitted files)\n\nDeleting files\n\n  - Example: unlink\n  - Risk: Denial of Service or potentially RCE. (e.g. deleting application code, removing a .htaccess file)",
+    "reference": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')\nhttps://cwe.mitre.org/data/definitions/22.html\n\nCWE-73: External Control of File Name or Path\nhttps://cwe.mitre.org/data/definitions/73.html\n\nCWE-434: Unrestricted Upload of File with Dangerous Type\nhttps://cwe.mitre.org/data/definitions/434.html\n\nOpen Web Application Security Project (OWASP) \nOWASP Top Ten 2017 Category A1:2017-Injection\nhttps://www.owasp.org/index.php/Top_10-2017_A1-Injection\n\nOWASP Top Ten 2021 Category A03:2021 - Injection\nhttps://owasp.org/Top10/A03_2021-Injection/\n\nCISQ rule: ASCSM-CWE-22.",
+    "remediation": "Use an allowlist approach where possible to verify names on file operations.\nSanitize user-controlled filenames by stripping .., \\ and /.",
+    "remediationSample": "<?php\n\n/**\n* @psalm-taint-escape file\n*/\nfunction my_escaping_function_for_file_names(string input) : string {\n    // Check that input is part of a hard-coded white-list of permitted file names\n};\n\n$filename = my_escaping_function_for_file_names($_GET['header']);  // FUNCTION ANNOTATED WITH \"@psalm-taint-escape file\"\n$content = file_get_contents($filename);                           // FIXED\necho $content;",
+    "sample": "<?php\n\n$content = file_get_contents($_GET['header']);  // VIOLATION\necho $content;",
+    "total": "Number of PHP artifacts",
+    "alternativeName": "Ensure you sanitize file path constructed from user input",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062177,
+            "name": "ASCSM-CWE-22 - Path Traversal Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062177",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061010,
+            "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/technical-criteria/1061010",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066122,
+            "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/technical-criteria/1066122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061011,
+            "name": "CWE-23 - Relative Path Traversal",
+            "href": "AIP/technical-criteria/1061011",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066123,
+            "name": "CWE-23 - Relative Path Traversal",
+            "href": "AIP/technical-criteria/1066123",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061012,
+            "name": "CWE-36 - Absolute Path Traversal",
+            "href": "AIP/technical-criteria/1061012",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066136,
+            "name": "CWE-36 - Absolute Path Traversal",
+            "href": "AIP/technical-criteria/1066136",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066173,
+            "name": "CWE-73 - External Control of File Name or Path",
+            "href": "AIP/technical-criteria/1066173",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062307,
+            "name": "OWASP-2013-A7 - Missing Function Level Access Control",
+            "href": "AIP/technical-criteria/1062307",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062325,
+            "name": "OWASP-2017-A5 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062325",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063122,
+            "name": "PCI-Requirement-6.5.8 - Improper access control",
+            "href": "AIP/technical-criteria/1063122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-22",
+            "name": "Path Traversal Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-22",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-22",
+            "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/quality-standards/CWE/items/CWE-22",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-23",
+            "name": "Relative Path Traversal",
+            "href": "AIP/quality-standards/CWE/items/CWE-23",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-36",
+            "name": "Absolute Path Traversal",
+            "href": "AIP/quality-standards/CWE/items/CWE-36",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-73",
+            "name": "External Control of File Name or Path",
+            "href": "AIP/quality-standards/CWE/items/CWE-73",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-22",
+            "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-22",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-23",
+            "name": "Relative Path Traversal",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-23",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-36",
+            "name": "Absolute Path Traversal",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-36",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-22",
+            "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-22",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-23",
+            "name": "Relative Path Traversal",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-23",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-36",
+            "name": "Absolute Path Traversal",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-36",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A5-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A7-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A04-2021",
+            "name": "Insecure Design",
+            "href": "AIP/quality-standards/OWASP/items/A04-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

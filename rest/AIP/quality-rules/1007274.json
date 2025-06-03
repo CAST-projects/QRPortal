@@ -1,0 +1,122 @@
+{
+    "id": 1007274,
+    "name": "DEPRECATED: CWE-502: Avoid Object Injection (PHP)",
+    "href": "AIP/quality-rules/1007274",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "associatedValueName": "Reasoning",
+    "description": "A PHP object injection vulnerability occurs when user input is deserialized. This QR detects such cases.",
+    "output": "This report lists all artifacts that cause object injection. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "An attacker can inject objects of any class type with arbitrary properties into the application's scope by providing these in a serialized string format. When the object defined by the attacker is instantiated, certain magic methods of the injected class type, such as __wakeup() and __destruct(), are automatically invoked. Depending on the magic methods defined within the application's code and the involved properties that can be controlled by the attacker, further vulnerabilities or code can be triggered.",
+    "reference": "https://cwe.mitre.org/data/definitions/502.html",
+    "remediation": "It is highly recommended to avoid the deserialization of user input and to use the built-in functions json_encode() instead.",
+    "total": "Number of Artifacts",
+    "alternativeName": "DEPRECATED: CWE-502: Avoid Object Injection (PHP)",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061059,
+            "name": "CWE-502 - Deserialization of Untrusted Data",
+            "href": "AIP/technical-criteria/1061059",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066602,
+            "name": "CWE-502 - Deserialization of Untrusted Data",
+            "href": "AIP/technical-criteria/1066602",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062328,
+            "name": "OWASP-2017-A8 - Insecure Deserialization",
+            "href": "AIP/technical-criteria/1062328",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062348,
+            "name": "OWASP-2021-A08 - Software and Data Integrity Failures",
+            "href": "AIP/technical-criteria/1062348",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "href": "AIP/quality-standards/CWE/items/CWE-502",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-502",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-502",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A8-2017",
+            "name": "Insecure Deserialization",
+            "href": "AIP/quality-standards/OWASP/items/A8-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A08-2021",
+            "name": "Software and Data Integrity Failures",
+            "href": "AIP/quality-standards/OWASP/items/A08-2021",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

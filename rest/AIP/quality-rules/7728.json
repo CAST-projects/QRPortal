@@ -2,22 +2,47 @@
     "id": 7728,
     "name": "Avoid thread creation for application running on application server",
     "href": "AIP/quality-rules/7728",
-    "critical": false,
+    "critical": true,
     "severity": 30,
     "maxWeight": 9,
-    "description": "Reports all methods that call one of the following methods:\n* <class full name>.start() where <class full name> inherit from java.lang.Thread\n* java.lang.Thread.start()\nor reference one of the following interfaces or an implementation of these:\n* java.util.concurrent.Executor\n* java.util.concurrent.ExecutorService\n\nwhen ejb-jar.xml or web.xml are present in the application that is being analyzed.",
-    "output": "This Quality Rule reports all methods that create threads. It provides the following information: Method or Constructor Full Name",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule reports violation for all methods that \ncall one of the following methods:\n  - <class full name>.start() where <class full name> inherit from java.lang.Thread\n  - java.lang.Thread.start()\nor reference one of the following interfaces or an implementation of these:\n  - java.util.concurrent.Executor\n  - java.util.concurrent.ExecutorService\n\nThis rule is applied only for EJB based application",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "One of the reasons why an application server has been created is thread management that is complex to develop. It manages multiple threads for different types of components, and in order to effectively maximize performance and resource utilization, it requires control of the threads being run on a given machine.\n\nMore often than not, threads are created when there is no time to implement a better solution. However, the consequences can be serious in terms of performance and robustness. \n\nThe EJB specification prohibits applications from managing their own threads.\nThreads in the JVM are a limited resource that must be allocated thoughtfully. Your applications may break or cause poor Application Server performance when the server load increases. Problems such as deadlocks and thread starvation may not appear until the application is under a heavy load.\nAlso multithreaded modules are complex and difficult to debug. Interactions between application-generated threads and Application Server threads are especially difficult to anticipate and analyze.",
-    "reference": "EJB specifications, http://java.sun.com/developer/technicalArticles/J2EE/connectorarch1_5/; J2EE Best Practices: Java Design Patterns, Automation, and Performance - 2002 page 439",
+    "reference": "EJB specifications, https://www.oracle.com/java/technologies/restriction.html; J2EE Best Practices: Java Design Patterns, Automation, and Performance - 2002 page 439",
     "remediation": "Use Message Driven Bean to send messages (through JMS) that will be consumed in parallel or implement JCA where the application server manages threads efficiently and can use thread pooling if necessary.",
     "sample": "class BasicThread implements Runnable {\n        public void run() {\n            [...]\n        }\n}\n\nclass SimpleThread extends Thread {\n    public SimpleThread(String str) {\n       super(str);\n    }\n    public void run() {\n       [...]\n    }\n}\n\nclass ThreadLaunch {\n    public static void main (String args[]) {\n      Runnable runnable = new BasicThread();\n        new Thread(runnable).start(); // VIOLATION\n        new SimpleThread(\"Thread\").start(); // VIOLATION\n    }\n}",
-    "total": "Number of Java methods and constructors when ejb-jar.xml or web.xml are present in the application that is being analyzed",
+    "total": "Number of Java methods and constructors present in the application that is being analyzed",
     "alternativeName": "Ensure that no thread creation is done for application running on application server to avoid any performance and robustness issues.",
     "businessCriteria": [
         {
             "id": 1062100,
             "name": "CISQ-Index",
             "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
         },
         {
             "id": 60013,
@@ -35,6 +60,48 @@
             "id": 1062169,
             "name": "ASCRM-RLB-5 - Runtime Resource Management Control Element in a Component Built to Run on Application Servers",
             "href": "AIP/technical-criteria/1062169",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067165,
+            "name": "CWE-1065 - Runtime Resource Management Control Element in a Component Built to Run on Application Servers",
+            "href": "AIP/technical-criteria/1067165",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061045,
+            "name": "CWE-404 - Improper Resource Shutdown or Release",
+            "href": "AIP/technical-criteria/1061045",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066504,
+            "name": "CWE-404 - Improper Resource Shutdown or Release",
+            "href": "AIP/technical-criteria/1066504",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
             "weight": 5,
             "critical": false
         },
@@ -107,9 +174,9 @@
         
     ],
     "thresholds": [
-        50.0,
-        90.0,
-        95.0,
-        99.0
+        98.0,
+        99.0,
+        99.5,
+        99.99
     ]
 }

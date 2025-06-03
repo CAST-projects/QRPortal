@@ -1,15 +1,26 @@
 {
     "id": 4698,
-    "name": "Avoid using 'System.err' and 'System.out' outside a try catch block",
+    "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' outside a try catch block",
     "href": "AIP/quality-rules/4698",
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "description": "'System.err' and 'System.out' should not be used outside a try catch block.",
     "output": "This report lists all Methods using 'System.err' and 'System.out' outside a try catch block. It provides the following information: Method full name",
+    "rationale": "'System.err' and 'System.out' should not be used outside a try catch block.",
+    "remediation": "Ensure to have other ways of listing errors outside a try/catch  than 'System.err' and 'System.out'",
     "total": "Number of non-abstract Java artifacts.",
     "alternativeName": "Ensure to have other ways of listing errors outside a try/catch  than 'System.err' and 'System.out'",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 66031,
             "name": "Programming Practices",

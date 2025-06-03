@@ -1,0 +1,65 @@
+{
+    "id": 1520544,
+    "name": "Siebel: Don't overload Siebel Tables",
+    "href": "AIP/quality-rules/1520544",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Number of overload",
+    "description": "Overloading of tables occurs when you reuse the same table multiple times on different business components and each business component is \"typed\" with a search specification.\n\nNOTE: Some tables in the Siebel repository are built to be overloaded. For example, in Siebel Industry Applications, the S_ASSET table uses the TYPE_CD column to type various business components. This column is denormalized and indexed into the S_ASSET_POSTN and S_ASSET_BU intersection tables to aid performance in SalesRep and Organization visibility views. Also, XM tables, such as S_ORG_EXT_XM, are built for overloading.\n\nThe rule will check the associated Business Components of the Table, and will verify the existance of a Search Specification on the Business Component.\nWhen the count of BusComp having different Search Specification is above 1, the associated table is reported as a violation.\n\nLimitation: As mentionn in the scope (total description), this rule considers all tables, regardless of their depth (number of rows). Obviously, performance problem won't occur on tables with low depth.",
+    "output": "This rule reports overloaded Tables.\nIt provides the following information:\n- Table full name\n- the associated value in the number of overload (number of BusComp)",
+    "rationale": "Overloading of tables may cause several issues:\n\n- The search specification used to \"type\" the table into various business components may cause performance issues. Often, the table is not designed to be overloaded. For example, on the S_EVT_ACT table, the TODO_CD column, which is often used for \"typing\" the table, is not denormalized on to the S_ACT_EMP activity/employee intersection table and queries using SalesRep visibility against a business component based on the S_EVT_ACT table may result in compromised performance.\n\n- There is no guarantee that the addition of indexes against these \"type\" columns will resolve any performance issues because adding one may compromise performance elsewhere. Again, the fact that the \"type\" columns are often not denormalized onto position, employee, or organization intersection tables will have an impact on queries in certain views.\n\n- Overloading of tables increases the table size.\n\nBottom line is increased disk space consumption and decreased performance.",
+    "reference": "https://docs.oracle.com/cd/B31104_02/books/ConfigApps/ConfigApps_Overview34.html",
+    "remediation": "Don't overload Siebel Tables : no remediation.",
+    "total": "Number of added or modified Tables Data (Public) except XM",
+    "alternativeName": "Siebel: Don't overload Siebel Tables",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

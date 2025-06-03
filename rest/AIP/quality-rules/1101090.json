@@ -1,0 +1,79 @@
+{
+    "id": 1101090,
+    "name": "Avoid Tables without a clustered Index (SQL)",
+    "href": "AIP/quality-rules/1101090",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sqlanalyzer",
+        "href": "AIP/extensions/com.castsoftware.sqlanalyzer"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all SQL Server, Sybase or DB2 tables that do not have a clustered index.",
+    "output": "List all SQL Server, Sybase or DB2 tables that do not have a clustered index.",
+    "rationale": "A clustered index defines the order in which data is physically stored in a table. Table data can be sorted in only way, therefore, there can be only one clustered index per table. \n\nAlways define a clustering index. Otherwise, DB2 will consider the first index that is created on the table as the implicit clustering index. In SQL Server the primary key constraint automatically creates a clustered index on that particular column(s).",
+    "reference": "https://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/intro/src/tpc/db2z_clusteringindexes.html\nhttps://docs.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15\nhttp://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc32300.1570/html/sqlug/X50317.htm",
+    "remediation": "Consider adding a clustered index.",
+    "remediationSample": "CREATE INDEX DEPT_IX\n  ON EMP\n    (DEPTNO ASC)\n     CLUSTER;",
+    "sample": "CREATE TABLE DSN8A10.EMP\n      (EMPNO     CHAR(6)                          NOT NULL,\n       FIRSTNME  VARCHAR(12)                      NOT NULL,\n       MIDINIT   CHAR(1)                          NOT NULL,\n       LASTNAME  VARCHAR(15)                      NOT NULL,\n       WORKDEPT  CHAR(3)                                  ,\n       PHONENO   CHAR(4)         CONSTRAINT NUMBER CHECK\n                 (PHONENO >= '0000' AND\n                  PHONENO <= '9999')                      ,\n       HIREDATE  DATE                                     ,\n       JOB       CHAR(8)                                  ,\n       EDLEVEL   SMALLINT                                 ,\n       SEX       CHAR(1)                                  ,\n       BIRTHDATE DATE                                     ,\n       SALARY    DECIMAL(9,2)                             ,\n       BONUS     DECIMAL(9,2)                             ,\n       COMM      DECIMAL(9,2)                             ,\n       PRIMARY KEY (EMPNO)                                ,\n       FOREIGN KEY RED (WORKDEPT) REFERENCES DSN8A10.DEPT\n                 ON DELETE SET NULL                       )\n  EDITPROC  DSN8EAE1\n  IN DSN8D10A.DSN8S10E\n  CCSID EBCDIC;",
+    "total": "Total number of SQL Server, Sybase or DB2 tables.",
+    "alternativeName": "Each table should have a clustered index",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        },
+        {
+            "id": 1062202,
+            "name": "MIPS-Reduction - focus on data access efficiency",
+            "href": "AIP/technical-criteria/1062202",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

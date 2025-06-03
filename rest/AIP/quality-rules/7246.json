@@ -5,11 +5,17 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Efferent Coupling",
-    "description": "CE (also known as Outgoing Dependencies or the Number of Types outside a Package that Types of the Package Depend on) indicates the number of other packages that classes and interfaces in the analyzed package depend upon. This is an indicator of the package's independence.\nThe threshold contains the maximum efferent coupling.",
-    "output": "This report all classes ( and interfaces ) of a package with a high efferent Coupling. \nIt provides the following information: \n- Class (Or Interface) \n- CE",
-    "rationale": "Excessive coupling is detrimental to modular design since classes are not independent. A large efferent coupling indicates that a class is unfocussed and may also indicate that it is unstable, since it depends on the stability of all the types to which it is coupled. This prevents reuse since a high coupling possibly indicates a package is poorly designed and difficult to understand/maintain. Extracting classes from the original class so the class is decomposed into smaller classes can reduce efferent coupling, this improves modularity and promotes encapsulation.",
-    "total": "Number of Java classes and interfaces",
+    "description": "Efferent Coupling between packages (Ce) measures the total number of external classes coupled to classes of a package due to outgoing coupling. This is an indicator of the package's independence.\nThis rule reports all classes ( and interfaces ) of a package with a high efferent Coupling. \n\nThe threshold contains the maximum efferent coupling.",
+    "output": "This report all APM Java Classes of a package with a high efferent Coupling. \nIt provides the following information: \n- Class (Or Interface) \n- CE",
+    "rationale": "Excessive coupling is detrimental to modular design since classes are not independent. A large efferent coupling indicates that a class is unfocussed and may also indicate that it is unstable since it depends on the stability of all the types to which it is coupled. This prevents reuse since a high coupling possibly indicates a package is poorly designed and difficult to understand/maintain. Extracting classes from the original class so the class is decomposed into smaller classes can reduce efferent coupling, this improves modularity and promotes encapsulation.",
+    "reference": "https://www.researchgate.net/publication/314082764_Software_Instability_Analysis_Based_on_Afferent_and_Efferent_Coupling_Measures",
+    "remediation": "Review the packages in order to be sure that they do not have High Efferent Coupling.",
+    "total": "Number of APM Java All Classes referenced in DSSAPP_PACKAGES( Java and JSP Technology)",
     "alternativeName": "Ensure to review the packages in order to to have an Efferent Coupling.",
     "businessCriteria": [
         {

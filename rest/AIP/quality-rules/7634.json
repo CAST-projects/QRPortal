@@ -1,15 +1,19 @@
 {
     "id": 7634,
-    "name": "Avoid select-before-update when the Table is not associated to an UPDATE Trigger",
+    "name": "DEPRECATED: Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
     "href": "AIP/quality-rules/7634",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Hibernate Entity name",
-    "description": "Reports Hibernate Entities that set select-before-update property to true and that are not associated to a table that fires an UPDATE trigger.",
+    "description": "select-before-update (defaults to false): specifies that Hibernate should never perform an SQL UPDATE unless it is certain that an object is actually modified. Only when a transient object has been associated with a new session using update(), will Hibernate perform an extra SQL SELECT to determine if an UPDATE is actually required.\n\nUse of select-before-update will usually decrease performance. It is useful ONLY to prevent a database update trigger being called unnecessarily if you reattach a graph of detached instances to a Session.\n\nThis rule reports a violation for Hibernate Entity having 'select-before-update' set to true except when it's associated to a table that fires an UPDATE trigger.",
     "output": "List all Hibernate Entity that use select-before-update and that are not associated to a table that fires an UPDATE trigger.\n\nIt provides the following information:\n - XML File\n - Hibernate Entity",
     "rationale": "Triggers and object-relational mapping often create issues due to the difficulties of synchronizing the effect of a trigger with the representation of data in memory.\nTo enhance performances, it is a best practice to use the attribute select-before-update for the persistent class associated to a table that have the UPDATE trigger.\nBut if the table is not associated to an UPDATE trigger, then it will affect your performance since the application will perform unnecessary SELECT.",
-    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 339",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 339: https://www.cpe.ku.ac.th/~plw/oop/e_book/hibernate_in_action.pdf\nhttps://docs.jboss.org/hibernate/orm/3.5/reference/en/html/mapping.html",
     "remediation": "Remove the attribute select-before-update for the persistent class that is not associated to a table that have the UPDATE trigger.",
     "remediationSample": "---> sample.hbm.xml\n// FIXED\n<class name=\"Sample\" table=\"SAMPLE\">\n...\n</class>",
     "sample": "SAMPLE is a table not managed by an UPDATE trigger\n---> sample.hbm.xml\n// VIOLATION\n<class name=\"Sample\" table=\"SAMPLE\" select-before-update=\"true\">\n...\n</class>",
@@ -20,6 +24,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

@@ -1,0 +1,107 @@
+{
+    "id": 1008092,
+    "name": "Avoid using obsolete \"Call Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+    "href": "AIP/quality-rules/1008092",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.rpg",
+        "href": "AIP/extensions/com.castsoftware.rpg"
+    },
+    "description": "This rule detects obsolete CALL operation usage in RPG IV programs.\nIt specifically targets programs that use the fixed-format CALL opcode to invoke external programs or procedures, which is discouraged in favor of modern alternatives like CALLP.",
+    "output": "This report lists RPG400 programs using obsolete \"Call Operations\" statements in RPG Programs (RPG-IV only)\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "With the introduction of ILE RPG (RPG IV), structured and type-safe program invocation became available via the CALLP opcode and later via free-format procedure calls.\nContinuing to use the traditional CALL opcode compromises readability, maintainability, and integration with modern ILE programming concepts such as prototypes and parameter typing.",
+    "reference": "IBM ILE RPG Programmer's Guide IBM i 7.6 - \u00a7What's New in V5R1? page 64\nhttps://www.ibm.com/docs/fr/ssw_ibm_i_76/pdf/sc092507.pdf",
+    "remediation": "Replace CALL with CALLP, or better yet, use modern free-format procedure calls with properly defined prototypes.",
+    "remediationSample": "Two examples of remediation:\n\nFree-Format:\n\n\"\"\"\nDcl-pr MyPgm ExtPgm('MYPGM');\n  VAR1 int(10);\n  VAR2 char(20);\nEnd-Pr;\n\nMyPgm(VAR1: VAR2);\n\"\"\"\n\nor New Fixed-Format:\n\n\"\"\"\n       C     CALLP     MyPgm(VAR1: VAR2)\n\"\"\"",
+    "sample": "Here an example of Obsolete fixed-format call usage:\n\n\n\"\"\"\n       C     CALL      'MYPGM'\n       C     PARM      VAR1\n       C     PARM      VAR2\n\"\"\"",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid using obsolete \"Call Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066577,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1066577",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

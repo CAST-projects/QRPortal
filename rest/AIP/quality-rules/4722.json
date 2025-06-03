@@ -1,15 +1,21 @@
 {
     "id": 4722,
-    "name": "Track Classes referencing Database objects",
+    "name": "DEPRECATED: Avoid having classes referencing Database objects",
     "href": "AIP/quality-rules/4722",
     "critical": false,
     "severity": 10,
     "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Database object used",
-    "description": "All Classes should not have embedded SQL to the database. Only some Classes are allowed.",
+    "description": "All Classes should not have embedded SQL to the database. \nThis rule reports all Classes having direct access to a database object",
     "output": "This report lists all Classes having accesses to the database.\nIt provides the following information:\n - Class full name\n - Database object used",
     "rationale": "This rules permits to verify that only a specific set of classes are making access to the database and not all the application. Usually DAO classes are used to make access to the database.",
+    "reference": "http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dao.html\nhttps://www.oracle.com/java/technologies/dataaccessobject.html",
     "remediation": "Review the architecture of the application to move all classes that reference the database in a specific layer usually called data layer.",
+    "sample": "import java.sql.Connection;\nimport java.sql.SQLException;\nimport java.sql.Statement;\nimport java.util.function.Predicate;\n\npublic class ClassUsingDB_KO {\n    \n    private Connection connection;\n\n    boolean avoidSubqueries() {\n        Predicate<String> sql = x -> {\n            try {\n                    Statement statement = connection.createStatement();\n                    statement.executeQuery(\n                        \"select a.AU_FNAME from AUTHORS a where a.AU_ID in (select t.AU_ID from TITLEAUTHOR t)\");\n            } catch (SQLException e) {\n                e.printStackTrace();\n            }\n            return true;\n        };\n        return sql.test(\"xx\");\n    }\n\n}",
     "total": "Number of Java classes",
     "alternativeName": "Ensure that all classes that reference the database are in a specific layer usually called data layer",
     "businessCriteria": [

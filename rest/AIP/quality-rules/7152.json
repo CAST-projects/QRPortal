@@ -5,14 +5,30 @@
     "critical": true,
     "severity": 20,
     "maxWeight": 8,
-    "description": "Find all non final static fields that belong to Servlets.\nAll Classes that extend HttpServlet at any level are considered as Servlets.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Java servlets often store information associated with each client that connects to them. Using member fields in the javax.servlet.http.HttpServlet or jakarta.servlet.http.HttpServlet to store information specific to individual clients is a common, simple practice.\nBut all servlet fields should be static final, this approach guarantees thread-safety in the servlet.\nThis rule reports all servlet fields which are not static final \nAll Classes that extend HttpServlet at any level are considered as Servlets.",
     "output": "This report lists all non final static fields that belong to Servlet classes.\nIt provides the following information:\n  - Field full name",
-    "rationale": "Servlets must be programmed in a thread-safe manner, because the controller will share the same instance for multiple simultaneous requests. In addition to the servlet's threading model, if your intention is to store request-specific state and if your container provides clustering facilities, there's no guarantee that the same servlet instance will receive all the requests (from one user or all users) in a Web application.\n\nThe use of non static final fields within a Servlet creates a security breach as this object is shared among multiple sessions and thus can lead to confidential data leaks.",
-    "reference": "Sun Best Practices",
+    "rationale": "Servlets must be programmed in a thread-safe manner because the controller will share the same instance for multiple simultaneous requests. In addition to the servlet's threading model, if your intention is to store request-specific state and if your container provides clustering facilities, there's no guarantee that the same servlet instance will receive all the requests (from one user or all users) in a Web application.\n\nThe use of servlet fields that are not static final creates a security breach as this object is shared among multiple sessions and thus can lead to confidential data leaks.",
+    "reference": "https://wiki.sei.cmu.edu/confluence/display/java/OBJ10-J.+Do+not+use+public+static+nonfinal+fields",
     "remediation": "Review the Class design. Store global information in HttpSession, or use stateful session beans that are specifically targeted for this purpose. For temporary storage in a Servlet use local variables that are scoped within the doGet or doPost methods (or the service method).",
+    "remediationSample": "public class SampleServlet extends HttpServlet {\n  \n  private static final String lastAddr = \"nobody@nowhere.com\"; // Fixed \n  \n  public void doGet(HttpServletRequest request, HttpServletResponse response)\n    throws IOException, ServletException {\n    response.setContentType(\"text/html\");\n    PrintWriter out = response.getWriter();\n    out.println(\"<html>\");",
+    "sample": "public class SampleServlet extends HttpServlet {\n \n  private String lastAddr = \"nobody@nowhere.com\"; // Violation \n \n  public void doGet(HttpServletRequest request, HttpServletResponse response)\n    throws IOException, ServletException {\n    response.setContentType(\"text/html\");\n    PrintWriter out = response.getWriter();\n    out.println(\"<html>\");",
     "total": "Number of fields of all classes that extend HttpServlet at any level",
     "alternativeName": "Ensure to store global information in HttpSession, or use stateful session beans that are specifically targeted for this purpose",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -30,6 +46,34 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061064,
+            "name": "CWE-567 - Unsynchronized Access to Shared Data in a Multithreaded Context",
+            "href": "AIP/technical-criteria/1061064",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066667,
+            "name": "CWE-567 - Unsynchronized Access to Shared Data in a Multithreaded Context",
+            "href": "AIP/technical-criteria/1066667",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66065,
             "name": "Secure Coding - Time and State",

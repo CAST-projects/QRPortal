@@ -1,0 +1,94 @@
+{
+    "id": 1101104,
+    "name": "Avoid XXL tables without primary key / unique key constraint / unique index",
+    "href": "AIP/quality-rules/1101104",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.sqlanalyzer",
+        "href": "AIP/extensions/com.castsoftware.sqlanalyzer"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric displays the list of XXL tables that do not have Primary Key / Unique Key constraint / Unique Index.\n\nNames of Tables should not start with (TMP|LOG)\\_% and should not end with %\\_(TMP|LOG).\nThe prefix and suffix values are parameters, \"Table not prefixed by\" and \"Table not suffixed with\", that can be changed at will.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Unique keys should be created for two reasons: data integrity and performance. \nThat's why every huge table should have a Primary Key or Unique Key constraint or Unique Index.",
+    "reference": "https://dotnettutorials.net/lesson/performance-improvement-using-unique-keys/\nhttp://www.geeksengine.com/database/design/primary-key-constraint.php\nhttps://www.ibm.com/support/knowledgecenter/SSCJDQ/com.ibm.swg.im.dashdb.admin.dbobj.doc/doc/c0061097.html",
+    "remediation": "Check table and if so, add primary key or unique key constraint or at least unique index.",
+    "remediationSample": "ALTER TABLE Employee ADD CONSTRAINT unique_code UNIQUE (Code)\nGO",
+    "sample": "CREATE TABLE [Employee](\n [EmployeeID] INT NOT NULL,\n [Name] VARCHAR(50),\n [Code] INT NOT NULL\n)\nGO",
+    "total": "Number of XXL Tables.",
+    "alternativeName": "XXL Tables should have a primary key / unique key constraint / unique index",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Table not prefixed by",
+            "description": "Tables prefixes that should be excluded",
+            "technologies": [
+                {
+                    "id": 1101000,
+                    "name": "SQL",
+                    "href": "AIP/technologies/1101000",
+                    "values": [
+                        "(TMP|LOG)\\_%"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Table not suffixed with",
+            "description": "Tables suffixes that should be excluded",
+            "technologies": [
+                {
+                    "id": 1101000,
+                    "name": "SQL",
+                    "href": "AIP/technologies/1101000",
+                    "values": [
+                        "%\\_(TMP|LOG)"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

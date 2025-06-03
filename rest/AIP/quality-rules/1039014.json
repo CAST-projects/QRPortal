@@ -1,0 +1,157 @@
+{
+    "id": 1039014,
+    "name": "Avoid using Cipher with no HMAC to ensure data integrity",
+    "href": "AIP/quality-rules/1039014",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The ciphertext produced is susceptible to alteration by an adversary. This mean that the cipher provides no way to detect that the data has been tampered with. If the ciphertext can be controlled by an attacker, it could be altered without detection. \n\nThe solution is to used a cipher that includes a Hash based Message Authentication Code (HMAC) to sign the data. \nAs following modes don't provide a HMAC, a violation will be reported when one of them is used. \n- CBC \n- OFB \n- CTR \n- ECB",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If integrity check values or \"checksums\" are omitted from a protocol, there is no way of determining if data has been corrupted in transmission. The lack of checksum functionality in a protocol removes the first application-level check of data that can be used. The end-to-end philosophy of checks states that integrity checks should be performed at the lowest level that they can be completely implemented. \n\nSo using a cipher that includes a Hash based Message Authentication Code (HMAC) to sign the data will ensure data integrity. It is always recommended that you be able to verify the HMAC first, and only if the data is unmodified, do you then perform any cryptographic functions on the data.",
+    "reference": "http://cwe.mitre.org/data/definitions/353.html",
+    "remediation": "Only use mode introducing an HMAC into the resulting encrypted data, providing integrity of the result as GCM.",
+    "remediationSample": "Cipher c = Cipher.getInstance(\"AES/GCM/NoPadding\"); \nc.init(Cipher.ENCRYPT_MODE, k, iv); \nbyte[] cipherText = c.doFinal(plainText);",
+    "sample": "AES in CBC mode \nCipher c = Cipher.getInstance(\"AES/CBC/PKCS5Padding\"); \nc.init(Cipher.ENCRYPT_MODE, k, iv); \nbyte[] cipherText = c.doFinal(plainText);",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Prefer using cipher including Hash based Message Authentication Code (HMAC) to ensure data integrity",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066453,
+            "name": "CWE-353 - Missing Support for Integrity Check",
+            "href": "AIP/technical-criteria/1066453",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062348,
+            "name": "OWASP-2021-A08 - Software and Data Integrity Failures",
+            "href": "AIP/technical-criteria/1062348",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063118,
+            "name": "PCI-Requirement-6.5.4 - Insecure communications",
+            "href": "AIP/technical-criteria/1063118",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-353",
+            "name": "Missing Support for Integrity Check",
+            "href": "AIP/quality-standards/CWE/items/CWE-353",
+            "standard": "CWE"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A08-2021",
+            "name": "Software and Data Integrity Failures",
+            "href": "AIP/quality-standards/OWASP/items/A08-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

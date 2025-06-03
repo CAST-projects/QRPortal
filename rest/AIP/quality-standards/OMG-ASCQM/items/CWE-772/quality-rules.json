@@ -23,7 +23,7 @@
     },
     {
         "id": 8104,
-        "name": "Close database resources ASAP",
+        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "severity": 30,
@@ -41,6 +41,46 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1020730,
+        "name": "Ensure Node.js filesystem are closed",
+        "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure Node.js filesystem are closed (TypeScript)",
+        "href": "AIP/quality-rules/1020892",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021026,
+        "name": "Avoid leaving open file resources (Python)",
+        "href": "AIP/quality-rules/1021026",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
         ]
     }
 ]

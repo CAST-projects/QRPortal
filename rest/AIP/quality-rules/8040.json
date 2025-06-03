@@ -1,14 +1,18 @@
 {
     "id": 8040,
-    "name": "Avoid Struts 2 Action Fields without Validation",
+    "name": "Struts 2: Avoid Action Fields without Validation",
     "href": "AIP/quality-rules/8040",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "description": "Reports all action classes (and parent) fields  (except boolean type and final fields) that are :\n- not referenced directly or indirectly (i.e. the field or a call to a getter) in the validate() method when the Strut Action class implements it (inherited from com.opensymphony.xwork2.Validateable).\n- not referenced in the \"Action class name\"-validation.xml or \"Action class name\"-\"alias\"-validation.xml\n\nIn the case of a Struts Action with parent class:\n- if validation is programmatic through a validate() method, then all the fields must be referenced directly or indirectly in the validate() method and a call to super.validate() in the Struts Action class must be made\n- if the validation is declarative, fields must be referenced in \"Parent Action class name\"-validation.xml or \"Parent Action class name\"-\"alias\"-validation.xml\n\nNote that we suppose that any fields (except boolean type and final fields) of the action class must be validated even if they are always used as read-only fields by JSP pages.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Reports all action classes (and parent) fields  (except boolean type and final fields) that are :\n\n- Not referenced directly or indirectly (i.e. the field or a call to a getter) in the validate() method when the Strut Action class implements it (inherited from com.opensymphony.xwork2.Validateable).\n\n- Not referenced in the \"Action class name\"-validation.xml or \"Action class name\"-\"alias\"-validation.xml\n\nIn the case of a Struts Action with parent class:\n- If validation is programmatic through a validate() method, then all the fields must be referenced directly or indirectly in the validate() method and a call to super.validate() in the Struts Action class must be made\n\n- If the validation is declarative, fields must be referenced in \"Parent Action class name\"-validation.xml or \"Parent Action class name\"-\"alias\"-validation.xml\n\nNote that we suppose that any fields (except boolean type and final fields) of the action class must be validated even if they are always used as read-only fields by JSP pages.",
     "output": "Report lists all action class (and parent) fields (except boolean type) that are not validated. It provides the following information:\n  Java action class fields",
     "rationale": "Input validation is required to secure an application. Moreover, the web interface is exposed to anyone. Non validating input may allow injecting arbitrary web script, HTML, SQL... Consequences can be severe, like erasing the content of a database.\nOnly one invalidated input can be exploited by an attacker.\n\nNote that unused fields should be constrained so that they can only be empty or undefined. If unused fields are not validated, shared business logic in an action may allow attackers to bypass the validation checks that are performed for other uses of the form.",
-    "reference": "https://www.owasp.org/index.php/Improper_Data_Validation#Struts:_Erroneous_validate.28.29_Method\nhttps://www.owasp.org/index.php/Improper_Data_Validation#Struts:_Form_Does_Not_Extend_Validation_Class\nhttps://cwe.mitre.org/data/definitions/103.html",
+    "reference": "https://www.owasp.org/index.php/Improper_Data_Validation#Struts:_Form_Field_Without_Validator",
     "remediation": "Validate each field of the action class referenced in the methods of the action class called by the Struts framework. You can do it either by implementing the validate() method of the com.opensymphony.xwork2.ActionSupport class (or com.opensymphony.xwork2.Validateable interface) or by updating the 'Action class'-validation.xml file.",
     "remediationSample": "public class Register extends ActionSupport {\n  private String username;\n  private String password;\n\n  public String execute(){\n    User user = new User();\n    user.setPassword( getPassword() );\n    user.setUsername( getUsername() );\n    session.put(Constants.USER, user);\n    return SUCCESS;\n  }\n\n  public void validate(){ /* FIXED: the password is referenced in this method */\n    if ( getUsername().length() == 0 ){\n      addFieldError( \"username\", getText(\"username.required\") );\n    }\n\n if ( getPassword().length() == 0 ){\n   addFieldError( \"password\", getText(\"password.required\") );\n    }\n \n    if (getUsers().userExists(getUsername() ) ){\n      addFieldError(\"username\", getText( \"user.exists\"));\n    }\n  }\n}\n\n==> with the validation.xml file:\npublic class Register extends ActionSupport {\n  private String username;\n  private String password; /* FIXED: the password referenced in the Register-validation.xml file (2 times) */ \n\n  public String execute(){\n    User user = new User();\n    user.setPassword( getPassword() );\n    user.setUsername( getUsername() );\n    session.put(Constants.USER, user);\n    return SUCCESS;\n  }\n}\n\nRegister-validation.xml\n<validators>\n  <field name=\"password\">\n      <field-validator type=\"requiredstring\">\n         <message >Password is required.</message>\n      </field-validator>\n      <field-validator type=\"stringlength\">\n         <param name=\"maxLength\">10</param>\n         <param name=\"minLength\">6</param>\n         <message>Your password should be 6-10 characters.</message>\n      </field-validator>\n  </field>\n  <field name=\"username\">\n      <field-validator type=\"requiredstring\">\n           <message >Username is required.</message>\n      </field-validator>\n      <field-validator type=\"stringlength\">\n         <param name=\"maxLength\">8</param>\n         <param name=\"minLength\">5</param>\n         <message>While ${username} is a nice name, a valid username must be between ${minLength} and ${maxLength} characters long. </message>\n     </field-validator>\n  </field>\n  <validator type=\"expression\">\n      <param name=\"expression\">username != password</param>\n      <message>Username and password can't be the same.</message>\n  </validator>\n</validators>",
     "sample": "==> with the validate() method\npublic class Register extends ActionSupport {\n  private String username;\n  private String password; /* VIOLATION: the password is not referenced in the validate() method */\n\n  public String execute(){\n    User user = new User();\n    user.setPassword( getPassword() );\n    user.setUsername( getUsername() );\n    session.put(Constants.USER, user);\n    return SUCCESS;\n  }\n\n  public void validate(){ /* VIOLATION: the password is not referenced in this method */\n    if ( getUsername().length() == 0 ){\n      addFieldError( \"username\", getText(\"username.required\") );\n    }\n    if (getUsers().userExists(getUsername() ) ){\n      addFieldError(\"username\", getText( \"user.exists\"));\n    }\n  }\n}\n\n==> with the validation.xml file:\npublic class Register extends ActionSupport {\n  private String username;\n  private String password; /* VIOLATION: the password is not referenced in Register-validation.xml */\n\n  public String execute(){\n    User user = new User();\n    user.setPassword( getPassword() );\n    user.setUsername( getUsername() );\n    session.put(Constants.USER, user);\n    return SUCCESS;\n  }\n}\n\nRegister-validation.xml\n<validators>\n  <field name=\"username\">\n      <field-validator type=\"requiredstring\">\n           <message >Username is required.</message>\n      </field-validator>\n      <field-validator type=\"stringlength\">\n         <param name=\"maxLength\">8</param>\n         <param name=\"minLength\">5</param>\n         <message>While ${username} is a nice name, a valid username must be between ${minLength} and ${maxLength} characters long. </message>\n     </field-validator>\n  </field>\n</validators>",
@@ -27,6 +31,48 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066205,
+            "name": "CWE-105 - Struts: Form Field Without Validator",
+            "href": "AIP/technical-criteria/1066205",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

@@ -1,0 +1,111 @@
+{
+    "id": 1007176,
+    "name": "Avoid using break or continue statements in loops with high cyclomatic complexity (PHP)",
+    "href": "AIP/quality-rules/1007176",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "description": "This rule searches for all artifacts containing break or continue statements in loops with high cyclomatic complexity. Artifacts considered for this quality rule are PHP Section, method, function and constructor.",
+    "output": "This report lists all artifacts containing break or continue statements in loops with high cyclomatic complexity.\n\nThis QR provides the following information:\nArtifact full name",
+    "rationale": "Using break or continue statements in loops with high cyclomatic complexity makes code unreadable and difficult to maintain.",
+    "remediation": "Remove break or continue statements and use loop condition or reduce cyclomatic complexity of the loop.",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using break or continue statements in loops with high cyclomatic complexity (PHP)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062112,
+            "name": "ASCMM-MNT-11 - Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/technical-criteria/1062112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061149,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1061149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067221,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1067221",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/CWE/items/CWE-1121",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1121",
+            "standard": "ISO-5055"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

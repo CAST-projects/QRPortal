@@ -100,12 +100,14 @@
         "severity": 10,
         "technologyNames": [
             "Forms",
-            "PL/SQL"
+            "FormsReportAnalyzer",
+            "PL/SQL",
+            "SQL"
         ]
     },
     {
         "id": 2230,
-        "name": "Use of style sheets (JEE)",
+        "name": "DEPRECATED: Use of style sheets (JEE)",
         "href": "AIP/quality-rules/2230",
         "critical": false,
         "severity": 10,
@@ -125,7 +127,7 @@
     },
     {
         "id": 2236,
-        "name": "Avoid use of standard SQL API",
+        "name": "DEPRECATED: Avoid use of standard SQL API",
         "href": "AIP/quality-rules/2236",
         "critical": false,
         "severity": 10,
@@ -135,7 +137,7 @@
     },
     {
         "id": 2242,
-        "name": "Avoid direct definition of JavaScript Functions in a Web page (JEE)",
+        "name": "DEPRECATED: Avoid direct definition of JavaScript Functions in a Web page (JEE)",
         "href": "AIP/quality-rules/2242",
         "critical": false,
         "severity": 10,
@@ -145,7 +147,7 @@
     },
     {
         "id": 2278,
-        "name": "Check the use of \"foreach\" custom tag library",
+        "name": "DEPRECATED: Check the use of \"foreach\" custom tag library",
         "href": "AIP/quality-rules/2278",
         "critical": false,
         "severity": 10,
@@ -155,7 +157,7 @@
     },
     {
         "id": 2280,
-        "name": "Avoid using Document.all collection",
+        "name": "DEPRECATED: Avoid using Document.all collection",
         "href": "AIP/quality-rules/2280",
         "critical": false,
         "severity": 10,
@@ -380,7 +382,7 @@
     },
     {
         "id": 4570,
-        "name": "Avoid declaring Non Final Class Variables with Public or Package access type",
+        "name": "Avoid declaring Non Final Class Variables with Public, Protected or Package access type",
         "href": "AIP/quality-rules/4570",
         "critical": false,
         "severity": 10,
@@ -390,7 +392,7 @@
     },
     {
         "id": 4572,
-        "name": "Avoid declaring Final Instance Variables that are not dynamically initialized",
+        "name": "DEPRECATED : Avoid declaring Final Instance Variables that are not initialized",
         "href": "AIP/quality-rules/4572",
         "critical": false,
         "severity": 10,
@@ -400,7 +402,7 @@
     },
     {
         "id": 4574,
-        "name": "Avoid using deprecated objects",
+        "name": "DEPRECATED: Avoid using deprecated objects",
         "href": "AIP/quality-rules/4574",
         "critical": false,
         "severity": 10,
@@ -432,18 +434,18 @@
         "id": 4598,
         "name": "Avoid using 'java.lang.Runtime.exec()'",
         "href": "AIP/quality-rules/4598",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 4600,
-        "name": "Avoid using 'java.System.exit()'",
+        "name": "Avoid using Exit and Halt Methods on a Web/Application Server",
         "href": "AIP/quality-rules/4600",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -490,7 +492,7 @@
     },
     {
         "id": 4618,
-        "name": "Avoid instantiating Boolean",
+        "name": "Avoid instantiating a Boolean object",
         "href": "AIP/quality-rules/4618",
         "critical": false,
         "severity": 10,
@@ -510,7 +512,7 @@
     },
     {
         "id": 4656,
-        "name": "Avoid declaring throwing an exception and not throwing it",
+        "name": "Avoid declaring an exception in the method signature and not throwing it",
         "href": "AIP/quality-rules/4656",
         "critical": false,
         "severity": 10,
@@ -520,17 +522,17 @@
     },
     {
         "id": 4694,
-        "name": "Avoid using 'System.gc'",
+        "name": "Avoid using 'System.gc' and 'Runtime.gc'",
         "href": "AIP/quality-rules/4694",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 4696,
-        "name": "Avoid using 'System.err' and 'System.out' within a try catch block",
+        "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' within a try catch block",
         "href": "AIP/quality-rules/4696",
         "critical": false,
         "severity": 10,
@@ -540,7 +542,7 @@
     },
     {
         "id": 4698,
-        "name": "Avoid using 'System.err' and 'System.out' outside a try catch block",
+        "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' outside a try catch block",
         "href": "AIP/quality-rules/4698",
         "critical": false,
         "severity": 10,
@@ -550,7 +552,7 @@
     },
     {
         "id": 4702,
-        "name": "Avoid using 'Throwable.printStackTrace()' outside a try catch block",
+        "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
         "href": "AIP/quality-rules/4702",
         "critical": false,
         "severity": 10,
@@ -580,7 +582,7 @@
     },
     {
         "id": 4722,
-        "name": "Track Classes referencing Database objects",
+        "name": "DEPRECATED: Avoid having classes referencing Database objects",
         "href": "AIP/quality-rules/4722",
         "critical": false,
         "severity": 10,
@@ -590,7 +592,7 @@
     },
     {
         "id": 4744,
-        "name": "EJB Entity access through their local Interface",
+        "name": "DEPRECATED: EJB Entity access through their local Interface",
         "href": "AIP/quality-rules/4744",
         "critical": true,
         "severity": 20,
@@ -600,7 +602,7 @@
     },
     {
         "id": 4746,
-        "name": "EJB Session access through their local Interface",
+        "name": "DEPRECATED: EJB Session access through their local Interface",
         "href": "AIP/quality-rules/4746",
         "critical": true,
         "severity": 20,
@@ -730,7 +732,7 @@
     },
     {
         "id": 7134,
-        "name": "Avoid having local forward with same name as global forward",
+        "name": "DEPRECATED: Avoid having Struts local forward with same name as Struts  global forward",
         "href": "AIP/quality-rules/7134",
         "critical": false,
         "severity": 10,
@@ -740,7 +742,7 @@
     },
     {
         "id": 7138,
-        "name": "Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
+        "name": "DEPRECATED : Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
         "href": "AIP/quality-rules/7138",
         "critical": false,
         "severity": 10,
@@ -750,17 +752,17 @@
     },
     {
         "id": 7140,
-        "name": "Action Artifacts should not directly call a JSP page",
+        "name": "Struts Action artifacts should not directly call a JSP page",
         "href": "AIP/quality-rules/7140",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7142,
-        "name": "Action Classes should have only one public method",
+        "name": "DEPRECATED: Action Classes should have only one public method",
         "href": "AIP/quality-rules/7142",
         "critical": false,
         "severity": 10,
@@ -770,7 +772,7 @@
     },
     {
         "id": 7144,
-        "name": "Action Artifacts should not directly use database objects",
+        "name": "DEPRECATED : Avoid using  database objects from Struts Action Artifacts",
         "href": "AIP/quality-rules/7144",
         "critical": true,
         "severity": 20,
@@ -780,7 +782,7 @@
     },
     {
         "id": 7146,
-        "name": "JSP pages should only reference Java Objects associated to J2EE Scoped Bean",
+        "name": "Always have JSP pages referencing Java Objects associated to JEE Scoped Bean",
         "href": "AIP/quality-rules/7146",
         "critical": false,
         "severity": 10,
@@ -790,7 +792,7 @@
     },
     {
         "id": 7148,
-        "name": "JSP pages should always be accessed through their tiles definition",
+        "name": "DEPRECATED: JSP pages should always be accessed through their tiles definition",
         "href": "AIP/quality-rules/7148",
         "critical": false,
         "severity": 10,
@@ -820,7 +822,7 @@
     },
     {
         "id": 7154,
-        "name": "Avoid Fields in Action Classes that are not final static",
+        "name": "Struts1: Avoid Struts Fields in Action Classes that are not final static",
         "href": "AIP/quality-rules/7154",
         "critical": true,
         "severity": 20,
@@ -830,17 +832,17 @@
     },
     {
         "id": 7190,
-        "name": "Validator form validate() Method must call super.validate()",
+        "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
         "href": "AIP/quality-rules/7190",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7192,
-        "name": "Form Bean must extend Validator Class",
+        "name": "Avoid using Struts Form that cannot extend Validator Class",
         "href": "AIP/quality-rules/7192",
         "critical": false,
         "severity": 10,
@@ -871,7 +873,7 @@
     },
     {
         "id": 7202,
-        "name": "Check usage of '==' and '!=' on objects",
+        "name": "Avoid using '==' and '!=' to compare objects",
         "href": "AIP/quality-rules/7202",
         "critical": true,
         "severity": 20,
@@ -892,7 +894,7 @@
     },
     {
         "id": 7238,
-        "name": "Avoid calls between JSP Pages",
+        "name": "Avoid calls between JSP Page for application using Struts framework",
         "href": "AIP/quality-rules/7238",
         "critical": false,
         "severity": 10,
@@ -902,7 +904,7 @@
     },
     {
         "id": 7240,
-        "name": "Action Classes should only call Business Classes",
+        "name": "DEPRECATED: Struts Action Classes should only call Business Classes",
         "href": "AIP/quality-rules/7240",
         "critical": false,
         "severity": 10,
@@ -932,7 +934,7 @@
     },
     {
         "id": 7254,
-        "name": "Declare as Static all methods not using instance members (JEE)",
+        "name": "Declare as Static all methods not using instance members",
         "href": "AIP/quality-rules/7254",
         "critical": false,
         "severity": 10,
@@ -942,7 +944,7 @@
     },
     {
         "id": 7256,
-        "name": "Provide a private default Constructor for utility Classes (JEE)",
+        "name": "Provide a private default Constructor for utility Classes",
         "href": "AIP/quality-rules/7256",
         "critical": false,
         "severity": 10,
@@ -1020,8 +1022,8 @@
         "id": 7292,
         "name": "Avoid cyclical calls and inheritances between packages",
         "href": "AIP/quality-rules/7292",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -1039,7 +1041,7 @@
     },
     {
         "id": 7306,
-        "name": "Avoid declaring Inner Classes",
+        "name": "DEPRECATED: Avoid declaring Inner Classes",
         "href": "AIP/quality-rules/7306",
         "critical": false,
         "severity": 10,
@@ -1049,7 +1051,7 @@
     },
     {
         "id": 7308,
-        "name": "Avoid using Inner Classes",
+        "name": "DEPRECATED: Avoid using Inner Classes",
         "href": "AIP/quality-rules/7308",
         "critical": false,
         "severity": 10,
@@ -1059,7 +1061,7 @@
     },
     {
         "id": 7362,
-        "name": "Avoid action mappings validator turned off",
+        "name": "DEPRECATED: Avoid Struts action mappings validator turned off",
         "href": "AIP/quality-rules/7362",
         "critical": true,
         "severity": 20,
@@ -1079,7 +1081,7 @@
     },
     {
         "id": 7372,
-        "name": "Enable Struts Validator plugin",
+        "name": "Struts 1: Enable Struts Validator plugin",
         "href": "AIP/quality-rules/7372",
         "critical": true,
         "severity": 20,
@@ -1099,7 +1101,7 @@
     },
     {
         "id": 7380,
-        "name": "Avoid unused validation form",
+        "name": "Struts 1: Avoid unused validation form",
         "href": "AIP/quality-rules/7380",
         "critical": false,
         "severity": 10,
@@ -1109,7 +1111,7 @@
     },
     {
         "id": 7382,
-        "name": "Avoid Validator field without Form Field",
+        "name": "Struts1: Avoid Struts Validator field without Form Field",
         "href": "AIP/quality-rules/7382",
         "critical": false,
         "severity": 10,
@@ -1149,7 +1151,7 @@
     },
     {
         "id": 7416,
-        "name": "Avoid Form Field without Validator",
+        "name": "Struts1: Avoid Action Form Field without Validator",
         "href": "AIP/quality-rules/7416",
         "critical": true,
         "severity": 20,
@@ -1169,7 +1171,7 @@
     },
     {
         "id": 7442,
-        "name": "Avoid to use this within Constructor in multi-thread environment",
+        "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "severity": 20,
@@ -1179,7 +1181,7 @@
     },
     {
         "id": 7444,
-        "name": "Serialize session objects",
+        "name": "Avoid Using Non-Serialized Beans with Session Scope",
         "href": "AIP/quality-rules/7444",
         "critical": false,
         "severity": 10,
@@ -1189,7 +1191,7 @@
     },
     {
         "id": 7446,
-        "name": "Avoid double checked locking",
+        "name": "Avoid double checked locking for JSE 4.x and previous version",
         "href": "AIP/quality-rules/7446",
         "critical": true,
         "severity": 20,
@@ -1229,7 +1231,7 @@
     },
     {
         "id": 7492,
-        "name": "Avoid many-to-many association",
+        "name": "DEPRECATED: Avoid Hibernate and JPA Entities using many-to-many association.",
         "href": "AIP/quality-rules/7492",
         "critical": false,
         "severity": 10,
@@ -1259,7 +1261,7 @@
     },
     {
         "id": 7506,
-        "name": "Define equals() and hashCode() for component",
+        "name": "equals() and hashCode() should be defined for Hibernate/JPA component",
         "href": "AIP/quality-rules/7506",
         "critical": true,
         "severity": 20,
@@ -1269,7 +1271,7 @@
     },
     {
         "id": 7508,
-        "name": "Collection-typed attributes getter must be defined with the correct interface",
+        "name": "DEPRECATED: Getter of collection-typed persistent attributes should return the correct interface type",
         "href": "AIP/quality-rules/7508",
         "critical": false,
         "severity": 10,
@@ -1279,7 +1281,7 @@
     },
     {
         "id": 7510,
-        "name": "Use only Hibernate API to access to the database",
+        "name": "DEPRECATED: Use only Hibernate API to access to the database",
         "href": "AIP/quality-rules/7510",
         "critical": false,
         "severity": 10,
@@ -1399,7 +1401,7 @@
     },
     {
         "id": 7636,
-        "name": "Use version instead of timestamp",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -1409,7 +1411,7 @@
     },
     {
         "id": 7638,
-        "name": "Avoid using DriverManager",
+        "name": "Avoid directly managing the connection to the database by using DriverManager",
         "href": "AIP/quality-rules/7638",
         "critical": false,
         "severity": 10,
@@ -1419,7 +1421,7 @@
     },
     {
         "id": 7640,
-        "name": "Avoid catch blocks with assertion",
+        "name": "Avoid using catch blocks with assertion",
         "href": "AIP/quality-rules/7640",
         "critical": false,
         "severity": 10,
@@ -1429,7 +1431,7 @@
     },
     {
         "id": 7648,
-        "name": "Avoid calling finalize()",
+        "name": "Avoid an explicit call to finalize()",
         "href": "AIP/quality-rules/7648",
         "critical": false,
         "severity": 10,
@@ -1459,7 +1461,7 @@
     },
     {
         "id": 7654,
-        "name": "Avoid database tables associated to more than one Entity",
+        "name": "DEPRECATED: Avoid database tables associated to more than one Hibernate Entity",
         "href": "AIP/quality-rules/7654",
         "critical": false,
         "severity": 10,
@@ -1469,7 +1471,7 @@
     },
     {
         "id": 7668,
-        "name": "Avoid using incorrect XML parsing model",
+        "name": "DEPRECATED: Avoid using DOM parser for large or medium sized XML file parsing",
         "href": "AIP/quality-rules/7668",
         "critical": false,
         "severity": 10,
@@ -1489,7 +1491,7 @@
     },
     {
         "id": 7676,
-        "name": "Avoid too many packages referencing Mainframe",
+        "name": "DEPRECATED: Avoid too many packages referencing Mainframe",
         "href": "AIP/quality-rules/7676",
         "critical": false,
         "severity": 10,
@@ -1529,7 +1531,7 @@
     },
     {
         "id": 7700,
-        "name": "Use only Struts HTTP Servlet",
+        "name": "Struts1: Only Struts HTTP Servlet should be used for Struts based application",
         "href": "AIP/quality-rules/7700",
         "critical": false,
         "severity": 10,
@@ -1539,7 +1541,7 @@
     },
     {
         "id": 7706,
-        "name": "Avoid table and column names that are too long (portability)",
+        "name": "DEPRECATED: Avoid table and column names that are too long (portability)",
         "href": "AIP/quality-rules/7706",
         "critical": false,
         "severity": 10,
@@ -1549,7 +1551,7 @@
     },
     {
         "id": 7708,
-        "name": "Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
+        "name": "DEPRECATED: Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
         "href": "AIP/quality-rules/7708",
         "critical": false,
         "severity": 10,
@@ -1559,7 +1561,7 @@
     },
     {
         "id": 7710,
-        "name": "Avoid non serializable Entities",
+        "name": "DEPRECATED: Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/7710",
         "critical": false,
         "severity": 10,
@@ -1569,7 +1571,7 @@
     },
     {
         "id": 7712,
-        "name": "Avoid public/protected setter for the generated identifier field",
+        "name": "DEPRECATED: Avoid public/protected setter for the generated identifier field",
         "href": "AIP/quality-rules/7712",
         "critical": false,
         "severity": 10,
@@ -1579,17 +1581,17 @@
     },
     {
         "id": 7720,
-        "name": "Avoid too many EJB bean",
+        "name": "DEPRECATED: Avoid too many EJB beans",
         "href": "AIP/quality-rules/7720",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7722,
-        "name": "Avoid using references to the id in the persistent class's method equals()",
+        "name": "Avoid using persistent class's identifier in equals() method",
         "href": "AIP/quality-rules/7722",
         "critical": true,
         "severity": 20,
@@ -1609,7 +1611,7 @@
     },
     {
         "id": 7726,
-        "name": "Avoid Action artifacts that call packages that reference database",
+        "name": "Avoid Struts Action Classes that call packages having direct access to database",
         "href": "AIP/quality-rules/7726",
         "critical": false,
         "severity": 10,
@@ -1621,7 +1623,7 @@
         "id": 7728,
         "name": "Avoid thread creation for application running on application server",
         "href": "AIP/quality-rules/7728",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -1629,7 +1631,7 @@
     },
     {
         "id": 7730,
-        "name": "Use declarative transaction",
+        "name": "Always use declarative transaction",
         "href": "AIP/quality-rules/7730",
         "critical": false,
         "severity": 10,
@@ -1639,7 +1641,7 @@
     },
     {
         "id": 7732,
-        "name": "Avoid non validated inputs",
+        "name": "Avoid non validated inputs in JSP files that use JSF",
         "href": "AIP/quality-rules/7732",
         "critical": true,
         "severity": 20,
@@ -1649,7 +1651,7 @@
     },
     {
         "id": 7734,
-        "name": "Avoid to use Log.debug() without calling Log.isDebugEnabled()",
+        "name": "Avoid using debug() method without calling isDebugEnabled() method",
         "href": "AIP/quality-rules/7734",
         "critical": false,
         "severity": 10,
@@ -1918,7 +1920,7 @@
     },
     {
         "id": 7910,
-        "name": "Never exit a finally block with a return, break, continue, or throw",
+        "name": "Never exit a finally block with a return, break, continue, or throw statements",
         "href": "AIP/quality-rules/7910",
         "critical": true,
         "severity": 20,
@@ -1986,7 +1988,7 @@
     },
     {
         "id": 7936,
-        "name": "Avoid using finalize()",
+        "name": "DEPRECATED: Avoid using finalize()",
         "href": "AIP/quality-rules/7936",
         "critical": true,
         "severity": 20,
@@ -1996,7 +1998,7 @@
     },
     {
         "id": 7940,
-        "name": "Avoid Stateful Beans not removed",
+        "name": "Avoid accumulating Stateful Beans",
         "href": "AIP/quality-rules/7940",
         "critical": true,
         "severity": 20,
@@ -2271,7 +2273,7 @@
     },
     {
         "id": 8016,
-        "name": "Avoid unsecured EJB remote method",
+        "name": "Avoid unrestricted access to EJB remote methods",
         "href": "AIP/quality-rules/8016",
         "critical": true,
         "severity": 20,
@@ -2337,7 +2339,7 @@
     },
     {
         "id": 8038,
-        "name": "Avoid Struts 2 Validator field not referencing a java class field",
+        "name": "Struts 2: Avoid Struts Validator field without Form Field",
         "href": "AIP/quality-rules/8038",
         "critical": false,
         "severity": 10,
@@ -2347,7 +2349,7 @@
     },
     {
         "id": 8040,
-        "name": "Avoid Struts 2 Action Fields without Validation",
+        "name": "Struts 2: Avoid Action Fields without Validation",
         "href": "AIP/quality-rules/8040",
         "critical": true,
         "severity": 20,
@@ -2357,7 +2359,7 @@
     },
     {
         "id": 8042,
-        "name": "Struts 2 Validation: Avoid unused validation form",
+        "name": "Struts 2: Avoid unused validation form",
         "href": "AIP/quality-rules/8042",
         "critical": false,
         "severity": 10,
@@ -2554,17 +2556,17 @@
     },
     {
         "id": 8102,
-        "name": "Avoid hardcoded network resource names (JEE)",
+        "name": "Avoid hard-coded network resource names (JEE)",
         "href": "AIP/quality-rules/8102",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 8104,
-        "name": "Close database resources ASAP",
+        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "severity": 30,
@@ -2608,7 +2610,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -2678,7 +2680,7 @@
     },
     {
         "id": 8136,
-        "name": "Beans with normal scope must be proxyable to avoid runtime errors",
+        "name": "CDI Beans with normal scope must be proxyable to avoid runtime errors",
         "href": "AIP/quality-rules/8136",
         "critical": true,
         "severity": 20,
@@ -2772,7 +2774,7 @@
     },
     {
         "id": 8214,
-        "name": "CWE-672: Expired or Released Resource should not be used",
+        "name": "Avoid operating on resource after expiration or release",
         "href": "AIP/quality-rules/8214",
         "critical": true,
         "severity": 20,
@@ -2782,7 +2784,7 @@
     },
     {
         "id": 8216,
-        "name": "CWE-681: Avoid numerical data corruption during incompatible mutation",
+        "name": "Avoid using incompatible mutation",
         "href": "AIP/quality-rules/8216",
         "critical": true,
         "severity": 20,
@@ -2792,7 +2794,7 @@
     },
     {
         "id": 8218,
-        "name": "Content type should be checked when receiving a HTTP Post",
+        "name": "DEPRECATED: Content type should be checked when receiving a HTTP Post",
         "href": "AIP/quality-rules/8218",
         "critical": true,
         "severity": 30,
@@ -2804,8 +2806,8 @@
         "id": 8220,
         "name": "Avoid using deprecated method, constructor, field, type or package",
         "href": "AIP/quality-rules/8220",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -2974,7 +2976,7 @@
     },
     {
         "id": 8424,
-        "name": "Avoid using hard-coded HMAC keys",
+        "name": "Avoid hard-coded HMAC and cryptographic key",
         "href": "AIP/quality-rules/8424",
         "critical": true,
         "severity": 30,
@@ -3626,12 +3628,1862 @@
     },
     {
         "id": 8566,
-        "name": "Avoid cyclic references in the definition of CDS views (S4/HAHA)",
+        "name": "Avoid cyclic references in the definition of CDS views (S4/HANA)",
         "href": "AIP/quality-rules/8566",
         "critical": false,
         "severity": 10,
         "technologyNames": [
             "SAP SQL"
+        ]
+    },
+    {
+        "id": 8570,
+        "name": "Avoid Calling RFC Function Module without Authorization Check",
+        "href": "AIP/quality-rules/8570",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8572,
+        "name": "Avoid using SUBMIT statement with another user permission",
+        "href": "AIP/quality-rules/8572",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8574,
+        "name": "Avoid using statement CALL TRANSACTION through variable P_TCODE",
+        "href": "AIP/quality-rules/8574",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8576,
+        "name": "Avoid using OPEN DATASET without Authorization Check",
+        "href": "AIP/quality-rules/8576",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8578,
+        "name": "Avoid using MODIFY without Authorization Check",
+        "href": "AIP/quality-rules/8578",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8580,
+        "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+        "href": "AIP/quality-rules/8580",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8582,
+        "name": "Avoid Dynamic Function/Method call without Authorization Check",
+        "href": "AIP/quality-rules/8582",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8584,
+        "name": "Prefer using OPEN DATASET statement with file Path instead of file name",
+        "href": "AIP/quality-rules/8584",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 1001008,
+        "name": "Avoid having multiple artifacts inserting data on the same SQL table (PLI)",
+        "href": "AIP/quality-rules/1001008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001010,
+        "name": "Avoid having multiple artifacts deleting data on the same SQL table (PLI)",
+        "href": "AIP/quality-rules/1001010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001012,
+        "name": "Avoid having multiple artifacts updating data on the same SQL table (PLI)",
+        "href": "AIP/quality-rules/1001012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001014,
+        "name": "Avoid having multiple artifacts inserting data on the same SQL table (PLC)",
+        "href": "AIP/quality-rules/1001014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001016,
+        "name": "Avoid having multiple artifacts deleting data on the same SQL table (PLC)",
+        "href": "AIP/quality-rules/1001016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001018,
+        "name": "Avoid having multiple artifacts updating data on the same SQL table (PLC)",
+        "href": "AIP/quality-rules/1001018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001104,
+        "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001106,
+        "name": "Avoid using PLI Main Procedures using FIXED variable type declaration  (PL1)",
+        "href": "AIP/quality-rules/1001106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001108,
+        "name": "Avoid PLC Copybooks using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001110,
+        "name": "Avoid  PLC Copybooks using FIXED variable type declaration (PL1)",
+        "href": "AIP/quality-rules/1001110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001112,
+        "name": "Avoid Functions and Procedures not using the REORDER option (PL1)",
+        "href": "AIP/quality-rules/1001112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001114,
+        "name": "Avoid Functions and Procedures using BLKSIZE or RECSIZE (PL1)",
+        "href": "AIP/quality-rules/1001114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001116,
+        "name": "Avoid Function and Procedures using Builtin Function \"String\" (PL1)",
+        "href": "AIP/quality-rules/1001116",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001118,
+        "name": "Avoid Programs not using explicitly OPEN and CLOSE files (PL1)",
+        "href": "AIP/quality-rules/1001118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001120,
+        "name": "Avoid Functions and Procedures having subscripts used in arrays or in do loops and not declared as BINARY FIXED(31) (PL1)",
+        "href": "AIP/quality-rules/1001120",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001122,
+        "name": "Avoid Functions and Procedures using BIN FIXED(15) instead of  BIN FIXED(31)  for all local variables (PL1)",
+        "href": "AIP/quality-rules/1001122",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001148,
+        "name": "Avoid Main Procedures not having an ON ERROR clause (PL1)",
+        "href": "AIP/quality-rules/1001148",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001150,
+        "name": "Avoid Functions and Procedures having a SELECT without the default OTHERWISE clause (PL1)",
+        "href": "AIP/quality-rules/1001150",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001152,
+        "name": "Avoid Programs having files declared as RECORD INPUT or RECORD UPDATE and not having  the ON EOF or ON ENDFILE statement (PL1)",
+        "href": "AIP/quality-rules/1001152",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001154,
+        "name": "Avoid Programs having files declared and not having the ON UNDF or ON UNDEFINEDFILE statement except SYSPRINT and SYSIN (PL1)",
+        "href": "AIP/quality-rules/1001154",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001156,
+        "name": "Avoid PL1 Errors Blocks having ON ERROR SYSTEM blocks and not containing and displaying ONCODE and ONLOC (PL1)",
+        "href": "AIP/quality-rules/1001156",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001158,
+        "name": "Avoid Functions and Procedures not testing the SQLCODE return code after each SQL statement (PL1)",
+        "href": "AIP/quality-rules/1001158",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001172,
+        "name": "Avoid Programs overriding the *PROCESS statement (PL1)",
+        "href": "AIP/quality-rules/1001172",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001174,
+        "name": "Avoid Programs declaring STATIC variables (PL1)",
+        "href": "AIP/quality-rules/1001174",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001176,
+        "name": "Avoid Programs having FIXED without BIN or BINARY or DEC or DECIMAL.The character \"(\"  is mandatory. (PL1)",
+        "href": "AIP/quality-rules/1001176",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1002016,
+        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002018,
+        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002020,
+        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002020",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002022,
+        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002096,
+        "name": "Avoid using global SAVE in Fortran-90 Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002096",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002098,
+        "name": "Avoid using global SAVE in Fortran-90 Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002100,
+        "name": "Avoid using global SAVE in Fortran-90 Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002102,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002102",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002104,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002106,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002108,
+        "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002142,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002142",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002144,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002144",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002146,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Subroutines  (FORTRAN)",
+        "href": "AIP/quality-rules/1002146",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002148,
+        "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002148",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002208,
+        "name": "All Read and Write statements in Programs must use the return code IOSTAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002208",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002210,
+        "name": "All Read and Write statements in Subroutines must use the return code IOSTAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002210",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002212,
+        "name": "All Read and Write statements in Functions must use the return code IOSTAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002212",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002214,
+        "name": "All Read and Write statements in Modules must use the return code IOSTAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002214",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002238,
+        "name": "Avoid untested Return Code variables after Read or Write in Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002238",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002240,
+        "name": "Avoid untested Return Code variables after Read or Write in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002240",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002242,
+        "name": "Avoid untested Return Code variables after Read or Write in Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002242",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002244,
+        "name": "Avoid untested Return Code variables after Read or Write in Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002244",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002246,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002246",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002248,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002248",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002250,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002250",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002252,
+        "name": "Avoid untested Return Code variables after ALLOCATE in Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002280,
+        "name": "Avoid using global SAVE in Fortran-90 Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002280",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002282,
+        "name": "All ALLOCATE statements in Fortran-90 Programs must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002282",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002284,
+        "name": "All ALLOCATE statements in Fortran-90 Subroutines must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002284",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002286,
+        "name": "All ALLOCATE statements in Fortran-90 Functions must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002286",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002288,
+        "name": "All ALLOCATE statements in Fortran-90 Modules must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002288",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1003074,
+        "name": "Cairngorm: Avoid modelLocator that is Bindable at a class level (Flex)",
+        "href": "AIP/quality-rules/1003074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003076,
+        "name": "Avoid adding or removing displayable children from updateDisplayList (Flex specific) (Flex)",
+        "href": "AIP/quality-rules/1003076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003078,
+        "name": "Avoid popup using dynamic filters (Flex)",
+        "href": "AIP/quality-rules/1003078",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003080,
+        "name": "Avoid complex constructor (Flex)",
+        "href": "AIP/quality-rules/1003080",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003082,
+        "name": "Avoid Instantiating a variable in a loop (Flex)",
+        "href": "AIP/quality-rules/1003082",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003084,
+        "name": "Avoid recursive StyleManager call (Flex)",
+        "href": "AIP/quality-rules/1003084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003086,
+        "name": "Avoid empty catch statement (Flex)",
+        "href": "AIP/quality-rules/1003086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003088,
+        "name": "Avoid calling Alert.show directly (Flex)",
+        "href": "AIP/quality-rules/1003088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003138,
+        "name": "Avoid BindingUtils class (Flex)",
+        "href": "AIP/quality-rules/1003138",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003140,
+        "name": "Avoid use of ChangeWatcher class (Flex)",
+        "href": "AIP/quality-rules/1003140",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003142,
+        "name": "Cairngorm: Avoid CairngormEventDispatcher called explicitly (Flex)",
+        "href": "AIP/quality-rules/1003142",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003144,
+        "name": "Cairngorm: Avoid more than one reference of ModelLocator per class (Flex)",
+        "href": "AIP/quality-rules/1003144",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003146,
+        "name": "Avoid calling callLater explicitly (Flex specific) (Flex)",
+        "href": "AIP/quality-rules/1003146",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003148,
+        "name": "Avoid clone method not overridden in a custom event (Flex)",
+        "href": "AIP/quality-rules/1003148",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003150,
+        "name": "Avoid event dispatched from a constructor (Flex)",
+        "href": "AIP/quality-rules/1003150",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003152,
+        "name": "Avoid dispatching events using hard-coded strings (Flex)",
+        "href": "AIP/quality-rules/1003152",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003154,
+        "name": "Avoid listening to events using hard-coded strings (Flex)",
+        "href": "AIP/quality-rules/1003154",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003156,
+        "name": "Avoid partial source code delivery of application (Flex)",
+        "href": "AIP/quality-rules/1003156",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003158,
+        "name": "Avoid event without type specified (Flex)",
+        "href": "AIP/quality-rules/1003158",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003160,
+        "name": "Avoid conditions with hard-coded boolean values (Flex)",
+        "href": "AIP/quality-rules/1003160",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003162,
+        "name": "Avoid dynamic class (Flex)",
+        "href": "AIP/quality-rules/1003162",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003164,
+        "name": "Avoid dynamic (Object) type fields (Flex)",
+        "href": "AIP/quality-rules/1003164",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003166,
+        "name": "Avoid dynamic (Object) type variables (Flex)",
+        "href": "AIP/quality-rules/1003166",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003168,
+        "name": "Avoid using Object class in methods' parameters (Flex)",
+        "href": "AIP/quality-rules/1003168",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003172,
+        "name": "Avoid * and use strongly typed objects instead in fields (Flex)",
+        "href": "AIP/quality-rules/1003172",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003174,
+        "name": "Avoid * and use strongly typed objects instead in variables (Flex)",
+        "href": "AIP/quality-rules/1003174",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003176,
+        "name": "Avoid array-type field without ArrayElementType metadata (Flex)",
+        "href": "AIP/quality-rules/1003176",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003178,
+        "name": "Avoid incorrect message interceptor signature (Flex)",
+        "href": "AIP/quality-rules/1003178",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003180,
+        "name": "Avoid packages having artifacts with misplaced metadata (Flex)",
+        "href": "AIP/quality-rules/1003180",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003182,
+        "name": "Avoid classes having artifacts with misplaced metadata (Flex)",
+        "href": "AIP/quality-rules/1003182",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003184,
+        "name": "Avoid redundant type metadata argument for handler type (Flex)",
+        "href": "AIP/quality-rules/1003184",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003186,
+        "name": "Avoid redundant method metadata argument for handler (Flex)",
+        "href": "AIP/quality-rules/1003186",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003188,
+        "name": "Avoid packages having artifacts with unknown metadata attribute (Flex)",
+        "href": "AIP/quality-rules/1003188",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003190,
+        "name": "Avoid classes having artifacts with unknown metadata attribute (Flex)",
+        "href": "AIP/quality-rules/1003190",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003192,
+        "name": "Avoid globally bindable classes (Flex)",
+        "href": "AIP/quality-rules/1003192",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003194,
+        "name": "Avoid constructor with void return type specification (Flex)",
+        "href": "AIP/quality-rules/1003194",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003196,
+        "name": "Avoid switch statement without a default case (Flex)",
+        "href": "AIP/quality-rules/1003196",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003198,
+        "name": "Avoid MXML component with more than one entry point (Flex)",
+        "href": "AIP/quality-rules/1003198",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003200,
+        "name": "Avoid MXML component with more than two entry points (Flex)",
+        "href": "AIP/quality-rules/1003200",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003202,
+        "name": "Avoid public variables inside a custom event (Flex)",
+        "href": "AIP/quality-rules/1003202",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1005006,
+        "name": "Avoid having multiple artifacts deleting data on the same SQL table (EGL)",
+        "href": "AIP/quality-rules/1005006",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005008,
+        "name": "Avoid having multiple artifacts inserting data on the same SQL table (EGL)",
+        "href": "AIP/quality-rules/1005008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005010,
+        "name": "Avoid having multiple artifacts updating data on the same SQL table (EGL)",
+        "href": "AIP/quality-rules/1005010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005020,
+        "name": "Avoid old VAGen Compatibility statements (EGL)",
+        "href": "AIP/quality-rules/1005020",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005022,
+        "name": "Avoid Programs not having  the property includeReferencedFunctions set to YES (EGL)",
+        "href": "AIP/quality-rules/1005022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005024,
+        "name": "Avoid programs not having the property allowUnqualifiedItemReferences set to YES (EGL)",
+        "href": "AIP/quality-rules/1005024",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005046,
+        "name": "Avoid using string datatype (EGL)",
+        "href": "AIP/quality-rules/1005046",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005048,
+        "name": "Avoid using Unicode or dbCHar datatypes (EGL)",
+        "href": "AIP/quality-rules/1005048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005050,
+        "name": "Avoid using Programs having textLiteralDefaultIsString property set to YES (EGL)",
+        "href": "AIP/quality-rules/1005050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005052,
+        "name": "Avoid using copyStr and compareStr functions (EGL)",
+        "href": "AIP/quality-rules/1005052",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005068,
+        "name": "Avoid SQL query outside try-on block (EGL)",
+        "href": "AIP/quality-rules/1005068",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005070,
+        "name": "Avoid Program calls without checking the return code (EGL)",
+        "href": "AIP/quality-rules/1005070",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005072,
+        "name": "Enable Exception for migrated programs - throwNrfEofExceptions property must be set to YES (EGL)",
+        "href": "AIP/quality-rules/1005072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005074,
+        "name": "Avoid having handleHardIOErrors property enabled (EGL)",
+        "href": "AIP/quality-rules/1005074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005076,
+        "name": "Avoid having V60ExceptionCompatibility property set to NO (EGL)",
+        "href": "AIP/quality-rules/1005076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005078,
+        "name": "Avoid program calls outside a try end block (EGL)",
+        "href": "AIP/quality-rules/1005078",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005082,
+        "name": "Avoid declaring null arrays; prefer to set to empty (EGL)",
+        "href": "AIP/quality-rules/1005082",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005084,
+        "name": "Avoid using parameters on the Record column level (EGL)",
+        "href": "AIP/quality-rules/1005084",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005086,
+        "name": "Avoid functions having creator to prefix table names in SQL statements and in SQL records (EGL)",
+        "href": "AIP/quality-rules/1005086",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005088,
+        "name": "Avoid programs not having the property I4GLItemsNullable set to NO (EGL)",
+        "href": "AIP/quality-rules/1005088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005090,
+        "name": "Avoid Record Column without having the same nullable requirement as the corresponding SQL Table column (EGL)",
+        "href": "AIP/quality-rules/1005090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005092,
+        "name": "Avoid having overrided record declaration with a duplicate declaration in the same application (EGL)",
+        "href": "AIP/quality-rules/1005092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1006000,
+        "name": "Avoid scripts using SQL static statements (Shell)",
+        "href": "AIP/quality-rules/1006000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Shell"
+        ]
+    },
+    {
+        "id": 1006002,
+        "name": "Avoid scripts and functions with SQL code in temporary files (Shell)",
+        "href": "AIP/quality-rules/1006002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Shell"
+        ]
+    },
+    {
+        "id": 1006012,
+        "name": "Avoid functions without returning exit code  (Shell)",
+        "href": "AIP/quality-rules/1006012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Shell"
+        ]
+    },
+    {
+        "id": 1006014,
+        "name": "Function should not be named as UNIX commands  (Shell)",
+        "href": "AIP/quality-rules/1006014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Shell"
+        ]
+    },
+    {
+        "id": 1007002,
+        "name": "Avoid artifacts directly accessing database tables (PHP)",
+        "href": "AIP/quality-rules/1007002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007122,
+        "name": "Avoid empty catch blocks (PHP)",
+        "href": "AIP/quality-rules/1007122",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007124,
+        "name": "Avoid artifacts throwing exceptions without @Throws tag in doc comments (PHP)",
+        "href": "AIP/quality-rules/1007124",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007156,
+        "name": "Avoid using eval expressions (PHP)",
+        "href": "AIP/quality-rules/1007156",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007166,
+        "name": "Avoid classes without matching __get and __set (PHP)",
+        "href": "AIP/quality-rules/1007166",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007172,
+        "name": "Avoid having constructors with return value (PHP)",
+        "href": "AIP/quality-rules/1007172",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007176,
+        "name": "Avoid using break or continue statements in loops with high cyclomatic complexity (PHP)",
+        "href": "AIP/quality-rules/1007176",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007180,
+        "name": "Use file inclusion based on API suitability (PHP)",
+        "href": "AIP/quality-rules/1007180",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007184,
+        "name": "Avoid using size functions inside loops (PHP)",
+        "href": "AIP/quality-rules/1007184",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007190,
+        "name": "Avoid using relative path for including files (PHP)",
+        "href": "AIP/quality-rules/1007190",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007192,
+        "name": "Avoid using PHP short tags (PHP)",
+        "href": "AIP/quality-rules/1007192",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007202,
+        "name": "Avoid direct access to superglobals (PHP)",
+        "href": "AIP/quality-rules/1007202",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007206,
+        "name": "Avoid using @error suppression (PHP)",
+        "href": "AIP/quality-rules/1007206",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007210,
+        "name": "Avoid using time() to get the system time (PHP)",
+        "href": "AIP/quality-rules/1007210",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007218,
+        "name": "Avoid fetching database rows as array and accessing using subscript (PHP)",
+        "href": "AIP/quality-rules/1007218",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007244,
+        "name": "Avoid cross-site scripting - Improper Neutralization of script-related HTML tags in a web page (PHP)",
+        "href": "AIP/quality-rules/1007244",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007246,
+        "name": "Avoid Remote File Inclusion - Improper Control of Filename for Include/Require Statement in PHP Program (PHP)",
+        "href": "AIP/quality-rules/1007246",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007248,
+        "name": "Use sufficient SSL\\TLS context (PHP)",
+        "href": "AIP/quality-rules/1007248",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007250,
+        "name": "Avoid preg_replace with /e option (PHP)",
+        "href": "AIP/quality-rules/1007250",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007252,
+        "name": "Avoid filesystem function calls without sanitizing user input (PHP)",
+        "href": "AIP/quality-rules/1007252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007254,
+        "name": "Avoid files that declare both symbols and execute logic with side effects (PHP)",
+        "href": "AIP/quality-rules/1007254",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007256,
+        "name": "DEPRECATED: CWE-79: Avoid cross-site scripting - Improper Neutralization of input in script tag during web page generation (PHP)",
+        "href": "AIP/quality-rules/1007256",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007258,
+        "name": "DEPRECATED: CWE-79: Avoid cross-site scripting - Improper Neutralization of input during web page generation (PHP)",
+        "href": "AIP/quality-rules/1007258",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007260,
+        "name": "DEPRECATED: CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)",
+        "href": "AIP/quality-rules/1007260",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007264,
+        "name": "DEPRECATED: CWE-434: Avoid unrestricted file upload (PHP)",
+        "href": "AIP/quality-rules/1007264",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007266,
+        "name": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command within single quotes (PHP)",
+        "href": "AIP/quality-rules/1007266",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007268,
+        "name": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command without quotes (PHP)",
+        "href": "AIP/quality-rules/1007268",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007270,
+        "name": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command in dynamic query (PHP)",
+        "href": "AIP/quality-rules/1007270",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007272,
+        "name": "DEPRECATED: CWE-384: Avoid Session Fixation (PHP)",
+        "href": "AIP/quality-rules/1007272",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007274,
+        "name": "DEPRECATED: CWE-502: Avoid Object Injection (PHP)",
+        "href": "AIP/quality-rules/1007274",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007276,
+        "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
+        "href": "AIP/quality-rules/1007276",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007278,
+        "name": "DEPRECATED: CWE-328: Avoid weak hash functions (PHP)",
+        "href": "AIP/quality-rules/1007278",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007280,
+        "name": "DEPRECATED: CWE-214: Avoid System Information Leakage (PHP)",
+        "href": "AIP/quality-rules/1007280",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007282,
+        "name": "DEPRECATED: CWE-614: Avoid Cookie Misconfiguration (secure flag) (PHP)",
+        "href": "AIP/quality-rules/1007282",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007284,
+        "name": "DEPRECATED: CWE-200: Avoid Cookie Misconfiguration (httpOnly flag) (PHP)",
+        "href": "AIP/quality-rules/1007284",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007286,
+        "name": "DEPRECATED: CWE-242: Avoid PHP Dangerous Feature (PHP)",
+        "href": "AIP/quality-rules/1007286",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007288,
+        "name": "DEPRECATED: CWE-489: Avoid debug code in the production system (PHP)",
+        "href": "AIP/quality-rules/1007288",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007290,
+        "name": "DEPRECATED: CWE-79: Avoid cross site scripting (single quoted attribute) (PHP)",
+        "href": "AIP/quality-rules/1007290",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1008074,
+        "name": "Specify Error Subroutine for File Exception Handling  (RPG400)",
+        "href": "AIP/quality-rules/1008074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1008076,
+        "name": "Specify Program Status Data Area  (RPG400)",
+        "href": "AIP/quality-rules/1008076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1009074,
+        "name": "Specify Error Subroutine for File Exception Handling  (RPG300)",
+        "href": "AIP/quality-rules/1009074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG300"
+        ]
+    },
+    {
+        "id": 1012018,
+        "name": "Avoid use of DLYJOB  (CL400)",
+        "href": "AIP/quality-rules/1012018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1012020,
+        "name": "Avoid use of RCLRSC  (CL400)",
+        "href": "AIP/quality-rules/1012020",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1012022,
+        "name": "Avoid use of *NOMAX  (CL400)",
+        "href": "AIP/quality-rules/1012022",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1012026,
+        "name": "Do not use MONMSG CPF0000 without EXEC  (CL400)",
+        "href": "AIP/quality-rules/1012026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1018100,
+        "name": "Avoid using Get JMS Queue Message (TIBCO BW)",
+        "href": "AIP/quality-rules/1018100",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018140,
+        "name": "Avoid using Java Activities (TIBCO BW)",
+        "href": "AIP/quality-rules/1018140",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018142,
+        "name": "Avoid using External Command Activities (TIBCO BW)",
+        "href": "AIP/quality-rules/1018142",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018144,
+        "name": "Avoid hard-coded timeout in Process Activities (TIBCO BW)",
+        "href": "AIP/quality-rules/1018144",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018540,
+        "name": "Avoid JMS Synchronous Activities (TIBCO BW)",
+        "href": "AIP/quality-rules/1018540",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018760,
+        "name": "Avoid AE Schema with Target namespace not defined (TIBCO BW)",
+        "href": "AIP/quality-rules/1018760",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018764,
+        "name": "Avoid Processes using JDBC SQL Direct  (TIBCO BW)",
+        "href": "AIP/quality-rules/1018764",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018864,
+        "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+        "href": "AIP/quality-rules/1018864",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
         ]
     },
     {
@@ -4085,6 +5937,96 @@
         ]
     },
     {
+        "id": 1020202,
+        "name": "Avoid getter functions of computed properties that do not return any value",
+        "href": "AIP/quality-rules/1020202",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020204,
+        "name": "Avoid <textarea> with v-model having child elements",
+        "href": "AIP/quality-rules/1020204",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020206,
+        "name": "Avoid using v-for without key",
+        "href": "AIP/quality-rules/1020206",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020210,
+        "name": "Avoid using v-show directive inside templates",
+        "href": "AIP/quality-rules/1020210",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020212,
+        "name": "Avoid changing parent properties from child components using $parent",
+        "href": "AIP/quality-rules/1020212",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020214,
+        "name": "Ensure to turn off and clear event listeners after component is destroyed",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020218,
+        "name": "Avoid using unsecured cookie (Vue.js)",
+        "href": "AIP/quality-rules/1020218",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020220,
+        "name": "Avoid creating cookie with overly broad path (Vue.js)",
+        "href": "AIP/quality-rules/1020220",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020222,
+        "name": "Avoid creating cookie with overly broad domain (Vue.js)",
+        "href": "AIP/quality-rules/1020222",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020318,
         "name": "Avoid using jQuery deprecated methods",
         "href": "AIP/quality-rules/1020318",
@@ -4198,6 +6140,56 @@
         "id": 1020342,
         "name": "Avoid empty jQuery ajax error/fail blocks",
         "href": "AIP/quality-rules/1020342",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020450,
+        "name": "Ensure catching Javascript error in React components",
+        "href": "AIP/quality-rules/1020450",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020452,
+        "name": "Avoid empty componentDidCatch blocks",
+        "href": "AIP/quality-rules/1020452",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020454,
+        "name": "Avoid using React dangerouslySetInnerHTML",
+        "href": "AIP/quality-rules/1020454",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020456,
+        "name": "Avoid using \"<script>\" tag in HTML template used by React.js components",
+        "href": "AIP/quality-rules/1020456",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020458,
+        "name": "Avoid using unsecured cookie (React.js)",
+        "href": "AIP/quality-rules/1020458",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -4332,6 +6324,1436 @@
         "severity": 20,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020600,
+        "name": "Avoid using namespace \"jQuery.sap.*\" as deprecated ( SAPUI5)",
+        "href": "AIP/quality-rules/1020600",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020602,
+        "name": "Avoid using \"sap.ui.model.odata.ODataModel\" as deprecated in version: SAPUI5 1.48",
+        "href": "AIP/quality-rules/1020602",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020606,
+        "name": "Prefer using Asynchronous Loading",
+        "href": "AIP/quality-rules/1020606",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020608,
+        "name": "Avoid using Controls Hardcoded IDs inside a Controller, Component or JSView (SapUI5)",
+        "href": "AIP/quality-rules/1020608",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020616,
+        "name": "Create Keys for CRUD Statements (SAPUI5)",
+        "href": "AIP/quality-rules/1020616",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020618,
+        "name": "Avoid using \"jQuery.sap.storage.Type.local\"",
+        "href": "AIP/quality-rules/1020618",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020700,
+        "name": "Avoid the lack of error handling in the Node.js callbacks",
+        "href": "AIP/quality-rules/1020700",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020702,
+        "name": "Avoid using nodejs process.exit()",
+        "href": "AIP/quality-rules/1020702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020704,
+        "name": "Avoid using string concatenation when using __dirname and __filename",
+        "href": "AIP/quality-rules/1020704",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020706,
+        "name": "Ensure the Content-Security-Policy is activated (Node.js)",
+        "href": "AIP/quality-rules/1020706",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020708,
+        "name": "Ensure the X-Powered-By header is disabled",
+        "href": "AIP/quality-rules/1020708",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020710,
+        "name": "Ensure the X-XSS-Protection header is enabled",
+        "href": "AIP/quality-rules/1020710",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020712,
+        "name": "Ensure the X-Frame-Options header is setup (Node.js)",
+        "href": "AIP/quality-rules/1020712",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020718,
+        "name": "Ensure that browser cannot cache or store a page",
+        "href": "AIP/quality-rules/1020718",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020720,
+        "name": "Avoid unsecure connection to the Node.js server",
+        "href": "AIP/quality-rules/1020720",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020722,
+        "name": "Avoid enabling unsecure Node.js server",
+        "href": "AIP/quality-rules/1020722",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020724,
+        "name": "Ensure that marked is sanitized",
+        "href": "AIP/quality-rules/1020724",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020726,
+        "name": "Ensure that CSRF Protection is enabled (Node.js)",
+        "href": "AIP/quality-rules/1020726",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020728,
+        "name": "Avoid creating cookie without setting httpOnly option (Node.js)",
+        "href": "AIP/quality-rules/1020728",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020730,
+        "name": "Ensure Node.js filesystem are closed",
+        "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020732,
+        "name": "Avoid using risky cryptographic hash (Node.js)",
+        "href": "AIP/quality-rules/1020732",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020734,
+        "name": "Avoid using unsecured cookie (Node.js)",
+        "href": "AIP/quality-rules/1020734",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020736,
+        "name": "Avoid bypassing self-signed ssl certificate (Node.js)",
+        "href": "AIP/quality-rules/1020736",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020738,
+        "name": "Avoid disabling SSL verification in node-curl",
+        "href": "AIP/quality-rules/1020738",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020740,
+        "name": "Avoid creating cookie with overly broad path (Node.js)",
+        "href": "AIP/quality-rules/1020740",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020742,
+        "name": "Avoid creating cookie with overly broad domain (Node.js)",
+        "href": "AIP/quality-rules/1020742",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020744,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1",
+        "href": "AIP/quality-rules/1020744",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020746,
+        "name": "Avoid using HTTP/2 library with vulnerable versions",
+        "href": "AIP/quality-rules/1020746",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020750,
+        "name": "Avoid using the file path validation with Node.js 8.5.0",
+        "href": "AIP/quality-rules/1020750",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020758,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable versions",
+        "href": "AIP/quality-rules/1020758",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020760,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions",
+        "href": "AIP/quality-rules/1020760",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020762,
+        "name": "Avoid using url.parse() with vulnerable versions",
+        "href": "AIP/quality-rules/1020762",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020764,
+        "name": "Avoid using path library parsing functions with vulnerable versions",
+        "href": "AIP/quality-rules/1020764",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020766,
+        "name": "Avoid using Node.js ps library with vulnerable versions",
+        "href": "AIP/quality-rules/1020766",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020768,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js",
+        "href": "AIP/quality-rules/1020768",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020770,
+        "name": "Avoid using Node.js query-mysql third-party before 0.0.3",
+        "href": "AIP/quality-rules/1020770",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020772,
+        "name": "Avoid Javascript string interpolations to prevent SQL injections",
+        "href": "AIP/quality-rules/1020772",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020780,
+        "name": "Avoid using Node.js synchronous FileSystem API without try/catch block",
+        "href": "AIP/quality-rules/1020780",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020782,
+        "name": "Avoid using Buffer deprecated APIs",
+        "href": "AIP/quality-rules/1020782",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020784,
+        "name": "Avoid using node-serialize 0.0.4 with Node.js",
+        "href": "AIP/quality-rules/1020784",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020786,
+        "name": "Avoid using serialize-to-js 0.5.0 with Node.js",
+        "href": "AIP/quality-rules/1020786",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020788,
+        "name": "Avoid using moment before 2.19.3 with Node.js",
+        "href": "AIP/quality-rules/1020788",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020800,
+        "name": "Avoid jump statements in finally ",
+        "href": "AIP/quality-rules/1020800",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020802,
+        "name": "Avoid having errors without throwing them ",
+        "href": "AIP/quality-rules/1020802",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020804,
+        "name": "Avoid using console logging ",
+        "href": "AIP/quality-rules/1020804",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020806,
+        "name": "Avoid using NaN in comparison ",
+        "href": "AIP/quality-rules/1020806",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020808,
+        "name": "Avoid using eval() (Typescript)",
+        "href": "AIP/quality-rules/1020808",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020810,
+        "name": "Avoid bypassing angular security trust ",
+        "href": "AIP/quality-rules/1020810",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020816,
+        "name": "Avoid using output of the function that does not return anything",
+        "href": "AIP/quality-rules/1020816",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020818,
+        "name": "Avoid disabling xsrf check in HttpClientXsrfModule",
+        "href": "AIP/quality-rules/1020818",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Avoid hard-coded passwords (TypeScript)",
+        "href": "AIP/quality-rules/1020820",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020822,
+        "name": "Always provide error callbacks when subscribing to HttpClient observables",
+        "href": "AIP/quality-rules/1020822",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020826,
+        "name": "Avoid hard-coded network resource names (Typescript)",
+        "href": "AIP/quality-rules/1020826",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020830,
+        "name": "Avoid using Angular ElementRef API to manipulate DOM",
+        "href": "AIP/quality-rules/1020830",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020832,
+        "name": "Avoid using javascript HTTP request in Angular Application",
+        "href": "AIP/quality-rules/1020832",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020834,
+        "name": "Avoid using \"<script>\" tag into HTML template used by Angular Application",
+        "href": "AIP/quality-rules/1020834",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020850,
+        "name": "Always handle errors when using ajax with RxJS",
+        "href": "AIP/quality-rules/1020850",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020852,
+        "name": "Avoid using \"<script>\" tag in HTML template used by React.js components (Typescript)",
+        "href": "AIP/quality-rules/1020852",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020854,
+        "name": "Avoid using React dangerouslySetInnerHTML (Typescript)",
+        "href": "AIP/quality-rules/1020854",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020856,
+        "name": "Ensure catching Typescript error in React components",
+        "href": "AIP/quality-rules/1020856",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020858,
+        "name": "Avoid empty componentDidCatch blocks (Typescript)",
+        "href": "AIP/quality-rules/1020858",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020860,
+        "name": "Avoid using setInterval() (TypeScript)",
+        "href": "AIP/quality-rules/1020860",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020862,
+        "name": "Avoid having cookie with an overly broad domain (TypeScript)",
+        "href": "AIP/quality-rules/1020862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020864,
+        "name": "Avoid using unsecured cookie (TypeScript)",
+        "href": "AIP/quality-rules/1020864",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020866,
+        "name": "Avoid creating cookie with overly broad path (TypeScript)",
+        "href": "AIP/quality-rules/1020866",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020868,
+        "name": "Avoid creating cookie without setting httpOnly option (TypeScript)",
+        "href": "AIP/quality-rules/1020868",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020870,
+        "name": "Avoid using setTimeout() (TypeScript)",
+        "href": "AIP/quality-rules/1020870",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020872,
+        "name": "Always use JSON.parse & JSON.stringify with try/catch block (TypeScript)",
+        "href": "AIP/quality-rules/1020872",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020874,
+        "name": "Avoid the lack of error handling in the Node.js callbacks (TypeScript)",
+        "href": "AIP/quality-rules/1020874",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020876,
+        "name": "Avoid using nodejs process.exit() (TypeScript)",
+        "href": "AIP/quality-rules/1020876",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020880,
+        "name": "Ensure the express X-Powered-By header is disabled (TypeScript)",
+        "href": "AIP/quality-rules/1020880",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020882,
+        "name": "Ensure the express X-Frame-Options header is setup (TypeScript)",
+        "href": "AIP/quality-rules/1020882",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020884,
+        "name": "Ensure that browser cannot cache or store a page when using express (TypeScript)",
+        "href": "AIP/quality-rules/1020884",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020886,
+        "name": "Avoid using unsecured cookie with express (TypeScript)",
+        "href": "AIP/quality-rules/1020886",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020888,
+        "name": "Avoid unsecure connection to the express Node.js server (TypeScript)",
+        "href": "AIP/quality-rules/1020888",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020890,
+        "name": "Ensure that CSRF Protection is enabled when using express (TypeScript)",
+        "href": "AIP/quality-rules/1020890",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure Node.js filesystem are closed (TypeScript)",
+        "href": "AIP/quality-rules/1020892",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020894,
+        "name": "Avoid using string concatenation when using nodejs __dirname and __filename variables (TypeScript)",
+        "href": "AIP/quality-rules/1020894",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020896,
+        "name": "Avoid using risky cryptographic hash with nodejs (TypeScript)",
+        "href": "AIP/quality-rules/1020896",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020900,
+        "name": "Avoid enabling unsecure Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020900",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020902,
+        "name": "Ensure the Content-Security-Policy is activated with express (TypeScript)",
+        "href": "AIP/quality-rules/1020902",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020904,
+        "name": "Avoid using url.parse() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020904",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020906,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1 (TypeScript)",
+        "href": "AIP/quality-rules/1020906",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020908,
+        "name": "Avoid using the file path validation with Node.js 8.5.0 (TypeScript)",
+        "href": "AIP/quality-rules/1020908",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020910,
+        "name": "Avoid using path library parsing functions with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020910",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020912,
+        "name": "Avoid using HTTP/2 library with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020912",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020914,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020914",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020916,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions (TypeScript)",
+        "href": "AIP/quality-rules/1020916",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020918,
+        "name": "Avoid using Node.js query-mysql third-party (TypeScript)",
+        "href": "AIP/quality-rules/1020918",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020920,
+        "name": "Avoid disabling SSL verification in node-curl (TypeScript)",
+        "href": "AIP/quality-rules/1020920",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020922,
+        "name": "Avoid bypassing self-signed ssl certificate with Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020922",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020924,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020924",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020926,
+        "name": "Avoid string interpolations to prevent SQL injections (TypeScript)",
+        "href": "AIP/quality-rules/1020926",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020950,
+        "name": "Avoid providing password in Web Service URL",
+        "href": "AIP/quality-rules/1020950",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1021016,
+        "name": "Avoid weak encryption algorithm (Python)",
+        "href": "AIP/quality-rules/1021016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021018,
+        "name": "Avoid catch-all except blocks with empty handlers",
+        "href": "AIP/quality-rules/1021018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021020,
+        "name": "Avoid using wildcard (*) imports",
+        "href": "AIP/quality-rules/1021020",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021024,
+        "name": "Avoid return statement in finally block",
+        "href": "AIP/quality-rules/1021024",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021028,
+        "name": "Avoid empty finally block (Python)",
+        "href": "AIP/quality-rules/1021028",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021030,
+        "name": "Avoid hard-coded network resource names (Python)",
+        "href": "AIP/quality-rules/1021030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021032,
+        "name": "Avoid disabling certificate check when requesting secured urls",
+        "href": "AIP/quality-rules/1021032",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021034,
+        "name": "Avoid inconsistent initialization when deriving a new exception",
+        "href": "AIP/quality-rules/1021034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021036,
+        "name": "Avoid using eval (Python)",
+        "href": "AIP/quality-rules/1021036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021038,
+        "name": "Avoid using exec (Python)",
+        "href": "AIP/quality-rules/1021038",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021042,
+        "name": "Avoid hard-coded passwords (Python)",
+        "href": "AIP/quality-rules/1021042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021044,
+        "name": "Avoid string interpolations to prevent SQL injections (Python)",
+        "href": "AIP/quality-rules/1021044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021048,
+        "name": "Always protect sensitive data in config files from disclosure",
+        "href": "AIP/quality-rules/1021048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021050,
+        "name": "Avoid using unsecured cookie (Python)",
+        "href": "AIP/quality-rules/1021050",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021072,
+        "name": "Avoid shadowing class variables",
+        "href": "AIP/quality-rules/1021072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021074,
+        "name": "Avoid manipulating a list while iterating over it",
+        "href": "AIP/quality-rules/1021074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021076,
+        "name": "Avoid mutable default parameter values",
+        "href": "AIP/quality-rules/1021076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021078,
+        "name": "Avoid unsafe deserialization (Python)",
+        "href": "AIP/quality-rules/1021078",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021080,
+        "name": "Avoid resource injection (Python)",
+        "href": "AIP/quality-rules/1021080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021082,
+        "name": "Avoid LDAP injection (Python)",
+        "href": "AIP/quality-rules/1021082",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021084,
+        "name": "Avoid XPath injection (Python)",
+        "href": "AIP/quality-rules/1021084",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021088,
+        "name": "Avoid uncontrolled sleep calls (Python)",
+        "href": "AIP/quality-rules/1021088",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021090,
+        "name": "Avoid using insufficient random generator (Python)",
+        "href": "AIP/quality-rules/1021090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021092,
+        "name": "Avoid reflected cross-site scripting (Python)",
+        "href": "AIP/quality-rules/1021092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021094,
+        "name": "Avoid cross-site scripting (persistent) (Python)",
+        "href": "AIP/quality-rules/1021094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021096,
+        "name": "Avoid second order LDAP injection (Python)",
+        "href": "AIP/quality-rules/1021096",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021098,
+        "name": "Avoid HTTP header injection (Python)",
+        "href": "AIP/quality-rules/1021098",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021100,
+        "name": "Avoid URL redirection to untrusted site (Python)",
+        "href": "AIP/quality-rules/1021100",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021102,
+        "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (Python)",
+        "href": "AIP/quality-rules/1021102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021104,
+        "name": "Avoid file path manipulation (Python)",
+        "href": "AIP/quality-rules/1021104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021106,
+        "name": "Avoid server-side request forgery (Python)",
+        "href": "AIP/quality-rules/1021106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021108,
+        "name": "Avoid unsafe access to object attributes",
+        "href": "AIP/quality-rules/1021108",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021110,
+        "name": "Avoid using regular expression vulnerable to ReDoS (Python)",
+        "href": "AIP/quality-rules/1021110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021112,
+        "name": "Avoid OS command injection (Python)",
+        "href": "AIP/quality-rules/1021112",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021114,
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
+        "href": "AIP/quality-rules/1021114",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021116,
+        "name": "Avoid logging sensitive data (Python)",
+        "href": "AIP/quality-rules/1021116",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021118,
+        "name": "Avoid disabling CSRF Protection in fastapi_jwt_auth",
+        "href": "AIP/quality-rules/1021118",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021120,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
+        "href": "AIP/quality-rules/1021120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021122,
+        "name": "Avoid cookie poisoning",
+        "href": "AIP/quality-rules/1021122",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021124,
+        "name": "Avoid uncontrolled format string (Python)",
+        "href": "AIP/quality-rules/1021124",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021126,
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for Flask (Python)",
+        "href": "AIP/quality-rules/1021126",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021128,
+        "name": "Always protect against CSRF in Flask application",
+        "href": "AIP/quality-rules/1021128",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021130,
+        "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)",
+        "href": "AIP/quality-rules/1021130",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021132,
+        "name": "Avoid observable authentication response discrepancy (Python)",
+        "href": "AIP/quality-rules/1021132",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021134,
+        "name": "Avoid Unchecked Input for Loop Condition (Python)",
+        "href": "AIP/quality-rules/1021134",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021136,
+        "name": "Always protect against CSRF in FastAPI application",
+        "href": "AIP/quality-rules/1021136",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1022000,
+        "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
+        "href": "AIP/quality-rules/1022000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1022002,
+        "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding)",
+        "href": "AIP/quality-rules/1022002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -4555,6 +7977,342 @@
         ]
     },
     {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025002,
+        "name": "Avoid second order XPath injection",
+        "href": "AIP/quality-rules/1025002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025004,
+        "name": "Avoid second order URL redirection to untrusted site",
+        "href": "AIP/quality-rules/1025004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025010,
+        "name": "Avoid second order LDAP injection",
+        "href": "AIP/quality-rules/1025010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025018,
+        "name": "Avoid cookie injection",
+        "href": "AIP/quality-rules/1025018",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025020,
+        "name": "Avoid data filter injection",
+        "href": "AIP/quality-rules/1025020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025022,
+        "name": "Avoid data filter injection through API requests",
+        "href": "AIP/quality-rules/1025022",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025024,
+        "name": "Avoid disabling the expiration time validation of a JWT token",
+        "href": "AIP/quality-rules/1025024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025026,
+        "name": "Avoid disabling the expiration time requirement of a JWT token",
+        "href": "AIP/quality-rules/1025026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025028,
+        "name": "Avoid disabling the signature requirement of a JWT token",
+        "href": "AIP/quality-rules/1025028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025032,
+        "name": "Avoid insecure parameters for PBKDF2 password encoder",
+        "href": "AIP/quality-rules/1025032",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025034,
+        "name": "Avoid insecure parameters for BCrypt password encoder",
+        "href": "AIP/quality-rules/1025034",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025036,
+        "name": "Avoid insecure parameters for Argon2 password encoder",
+        "href": "AIP/quality-rules/1025036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025038,
+        "name": "Avoid insecure parameters for SCrypt password encoder",
+        "href": "AIP/quality-rules/1025038",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025040,
+        "name": "Avoid external control of system or configuration setting",
+        "href": "AIP/quality-rules/1025040",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025042,
+        "name": "Avoid external control of system or configuration setting through API requests",
+        "href": "AIP/quality-rules/1025042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025044,
+        "name": "Avoid MVC injection",
+        "href": "AIP/quality-rules/1025044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Avoid MVC injection through API requests",
+        "href": "AIP/quality-rules/1025046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025050,
+        "name": "Avoid dangerous file inclusion",
+        "href": "AIP/quality-rules/1025050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025052,
+        "name": "Avoid using unnormalized input strings",
+        "href": "AIP/quality-rules/1025052",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025054,
+        "name": "Avoid plaintext storage of password",
+        "href": "AIP/quality-rules/1025054",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025058,
+        "name": "Avoid numeric user inputs in SQL queries",
+        "href": "AIP/quality-rules/1025058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025060,
+        "name": "Avoid second order numeric user inputs in SQL queries",
+        "href": "AIP/quality-rules/1025060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025062,
+        "name": "Avoid numeric user inputs in SQL queries through API requests",
+        "href": "AIP/quality-rules/1025062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025064,
+        "name": "Avoid weak encoding",
+        "href": "AIP/quality-rules/1025064",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -4680,6 +8438,17 @@
         "href": "AIP/quality-rules/1027024",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027026,
+        "name": "Avoid Connection String Parameter Pollution",
+        "href": "AIP/quality-rules/1027026",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -4968,6 +8737,1337 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1030000,
+        "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
+        "href": "AIP/quality-rules/1030000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030002,
+        "name": "Avoid using \"Throwable.printStackTrace()\" with no argument (Kotlin)",
+        "href": "AIP/quality-rules/1030002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030004,
+        "name": "Avoid using \"foreach\" to iterate over a explicit range (Kotlin)",
+        "href": "AIP/quality-rules/1030004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030012,
+        "name": "Avoid using weak encryption algorithm as DES and tripleDES (Kotlin)",
+        "href": "AIP/quality-rules/1030012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030014,
+        "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) (Kotlin)",
+        "href": "AIP/quality-rules/1030014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030016,
+        "name": "Avoid hard-coded passwords and credentials (Kotlin)",
+        "href": "AIP/quality-rules/1030016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030018,
+        "name": "Avoid hard-coded network resource names (Kotlin)",
+        "href": "AIP/quality-rules/1030018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030020,
+        "name": "Avoid unhandled Exceptions in servlet methods (Kotlin)",
+        "href": "AIP/quality-rules/1030020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030022,
+        "name": "Avoid passing an existing array with spread operator as an argument using vararg as parameters (Kotlin)",
+        "href": "AIP/quality-rules/1030022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1034000,
+        "name": "Avoid SQL injection (PHP)",
+        "href": "AIP/quality-rules/1034000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034002,
+        "name": "Avoid cookie injection (PHP)",
+        "href": "AIP/quality-rules/1034002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034004,
+        "name": "Avoid LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034006,
+        "name": "Avoid OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034008,
+        "name": "Avoid PHP Remote File Inclusion",
+        "href": "AIP/quality-rules/1034008",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034010,
+        "name": "Avoid code injection (PHP)",
+        "href": "AIP/quality-rules/1034010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034012,
+        "name": "Avoid reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034016,
+        "name": "Avoid reflected cross-site scripting (non persistent) (PHP)",
+        "href": "AIP/quality-rules/1034016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034018,
+        "name": "Avoid deserialization injection (PHP)",
+        "href": "AIP/quality-rules/1034018",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034020,
+        "name": "Avoid HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034022,
+        "name": "Avoid server-side request forgery (PHP)",
+        "href": "AIP/quality-rules/1034022",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034024,
+        "name": "Avoid second order SQL injection (PHP)",
+        "href": "AIP/quality-rules/1034024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034026,
+        "name": "Avoid second order code injection (PHP)",
+        "href": "AIP/quality-rules/1034026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034028,
+        "name": "Avoid second order LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034030,
+        "name": "Avoid second order OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034032,
+        "name": "Avoid second order PHP Remote File Inclusion",
+        "href": "AIP/quality-rules/1034032",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034034,
+        "name": "Avoid second order cookie injection (PHP)",
+        "href": "AIP/quality-rules/1034034",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034036,
+        "name": "Avoid second order file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034038,
+        "name": "Avoid cross-site scripting (persistent) (PHP)",
+        "href": "AIP/quality-rules/1034038",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034040,
+        "name": "Avoid second order deserialization injection (PHP)",
+        "href": "AIP/quality-rules/1034040",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034042,
+        "name": "Avoid second order HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034044,
+        "name": "Avoid second order server-side request forgery (PHP)",
+        "href": "AIP/quality-rules/1034044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034046,
+        "name": "Avoid second order reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034048,
+        "name": "Avoid using insufficient random generator (PHP)",
+        "href": "AIP/quality-rules/1034048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034050,
+        "name": "Avoid XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034052,
+        "name": "Avoid second order XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034052",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034054,
+        "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (PHP)",
+        "href": "AIP/quality-rules/1034054",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034056,
+        "name": "Avoid using hard-coded HMAC keys (PHP)",
+        "href": "AIP/quality-rules/1034056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034058,
+        "name": "Avoid uncontrolled sleep calls (PHP)",
+        "href": "AIP/quality-rules/1034058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034060,
+        "name": "Avoid uncontrolled import into the current symbol table (PHP)",
+        "href": "AIP/quality-rules/1034060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034062,
+        "name": "Avoid creating cookie without setting httpOnly option (PHP)",
+        "href": "AIP/quality-rules/1034062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034064,
+        "name": "Ensure httpOnly option is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034064",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034066,
+        "name": "Avoid creating application cookie without SameSite option (PHP)",
+        "href": "AIP/quality-rules/1034066",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034068,
+        "name": "Ensure SameSite option is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034068",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034070,
+        "name": "Ensure strict mode is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034070",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034072,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)",
+        "href": "AIP/quality-rules/1034072",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1039002,
+        "name": "Avoid using deprecated SSL protocols to secure connection",
+        "href": "AIP/quality-rules/1039002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039004,
+        "name": "Avoid using HttpServletRequest.getRequestedSessionId()",
+        "href": "AIP/quality-rules/1039004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039006,
+        "name": "Avoid using predictable SecureRandom Seeds",
+        "href": "AIP/quality-rules/1039006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039008,
+        "name": "Avoid thrown Exceptions in servlet methods",
+        "href": "AIP/quality-rules/1039008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039010,
+        "name": "Avoid using risky cryptographic hash (JEE)",
+        "href": "AIP/quality-rules/1039010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039012,
+        "name": "Avoid using referer header field in HTTP request",
+        "href": "AIP/quality-rules/1039012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039014,
+        "name": "Avoid using Cipher with no HMAC to ensure data integrity",
+        "href": "AIP/quality-rules/1039014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039018,
+        "name": "Avoid using cryptography hash with hard-coded salt",
+        "href": "AIP/quality-rules/1039018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039020,
+        "name": "Avoid using javax.crypto.NullCipher",
+        "href": "AIP/quality-rules/1039020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039022,
+        "name": "Avoid using Insecure PBE Iteration Count",
+        "href": "AIP/quality-rules/1039022",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039024,
+        "name": "Avoid using unsecured cookie (JEE)",
+        "href": "AIP/quality-rules/1039024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039026,
+        "name": "Avoid creating cookie without setting httpOnly option (JEE)",
+        "href": "AIP/quality-rules/1039026",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039028,
+        "name": "Avoid weak encryption providing not sufficient key size (JEE)",
+        "href": "AIP/quality-rules/1039028",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039030,
+        "name": "Avoid using DefaultHttpClient constructor",
+        "href": "AIP/quality-rules/1039030",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039032,
+        "name": "Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039032",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039034,
+        "name": "Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039034",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039036,
+        "name": "Avoid using XMLReader without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039038,
+        "name": "Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039038",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039040,
+        "name": "Avoid using XMLInputFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039040",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039052,
+        "name": "Avoid Http Session without expiration",
+        "href": "AIP/quality-rules/1039052",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039056,
+        "name": "Avoid insecure use of YAML deserialization when using SnakeYaml (JEE)",
+        "href": "AIP/quality-rules/1039056",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039062,
+        "name": "Always implement readObject() to prevent untrusted deserialization when loading from ObjectInputStream",
+        "href": "AIP/quality-rules/1039062",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039064,
+        "name": "Avoid having cookie with an overly broad domain (JEE)",
+        "href": "AIP/quality-rules/1039064",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039066,
+        "name": "Avoid creating cookie with an overly broad path (JEE)",
+        "href": "AIP/quality-rules/1039066",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039068,
+        "name": "Avoid using the Non-Serializable Object Stored in Session",
+        "href": "AIP/quality-rules/1039068",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039070,
+        "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
+        "href": "AIP/quality-rules/1039070",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039072,
+        "name": "Avoid using jYAML to deserialize YAML (JEE)",
+        "href": "AIP/quality-rules/1039072",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039074,
+        "name": "Avoid using Apache ActiveMQ 5.x before 5.13.0",
+        "href": "AIP/quality-rules/1039074",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039076,
+        "name": "Avoid using HttpURLConnection with HTTP protocol",
+        "href": "AIP/quality-rules/1039076",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039078,
+        "name": "Avoid using SchemaFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039078",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039080,
+        "name": "Avoid using TransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039082,
+        "name": "Avoid using SAXTransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039082",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039084,
+        "name": "Avoid using SAXBuilder without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039084",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039086,
+        "name": "Avoid using DOMParser without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039086",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039088,
+        "name": "Avoid using Validator without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039088",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039090,
+        "name": "Avoid using java.beans.XMLDecoder (XXE)",
+        "href": "AIP/quality-rules/1039090",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039092,
+        "name": "Avoid using JAXB Unmarshaller without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039094,
+        "name": "Avoid using XPathExpression without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039096,
+        "name": "Ensure httpOnly option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039096",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Ensure secure option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039098",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039100,
+        "name": "Avoid creating cookie without setting SameSite option (JEE)",
+        "href": "AIP/quality-rules/1039100",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039102,
+        "name": "Ensure SameSite option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039102",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039104,
+        "name": "Avoid creation of temporary file with insecure permissions (JEE)",
+        "href": "AIP/quality-rules/1039104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039106,
+        "name": "Avoid disabling the automatic HTML escaping for Spring",
+        "href": "AIP/quality-rules/1039106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5",
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039110,
+        "name": "Ensure initializing cryptographic key generators (JEE)",
+        "href": "AIP/quality-rules/1039110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039112,
+        "name": "Avoid mutable fields inside a class with JCIP @Immutable annotation",
+        "href": "AIP/quality-rules/1039112",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039114,
+        "name": "Avoid predictable initialization vector (JEE)",
+        "href": "AIP/quality-rules/1039114",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039116,
+        "name": "Ensure setting origins when using @CrossOrigin Spring annotation",
+        "href": "AIP/quality-rules/1039116",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039118,
+        "name": "Avoid enabling directory listing (JEE)",
+        "href": "AIP/quality-rules/1039118",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039120,
+        "name": "Avoid weak password requirements (JEE)",
+        "href": "AIP/quality-rules/1039120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040002,
+        "name": "Avoid disabling CSRF Protection (Spring Security)",
+        "href": "AIP/quality-rules/1040002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040006,
+        "name": "Always set Content-Security-Policy for spring application",
+        "href": "AIP/quality-rules/1040006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040008,
+        "name": "Ensure declaring formLogin after requesting authorization and authentication",
+        "href": "AIP/quality-rules/1040008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040010,
+        "name": "Always delete the cookies during the logout (Spring)",
+        "href": "AIP/quality-rules/1040010",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040012,
+        "name": "HTTP user session must be invalidated during logout",
+        "href": "AIP/quality-rules/1040012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040014,
+        "name": "Avoid using Spring Security's debug mode",
+        "href": "AIP/quality-rules/1040014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040016,
+        "name": "PermitAll or user role should be specified to access URL(s) of the application",
+        "href": "AIP/quality-rules/1040016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040018,
+        "name": "Ensure the X-Frame-Options header is setup (Spring)",
+        "href": "AIP/quality-rules/1040018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040024,
+        "name": "Spring Boot Shutdown Actuator Endpoint must be secured from unauthenticated access.",
+        "href": "AIP/quality-rules/1040024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040026,
+        "name": "Avoid not providing an explicit HTTP method in @RequestMapping methods",
+        "href": "AIP/quality-rules/1040026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040030,
+        "name": "Avoid Using Generic Authentication Exception Class",
+        "href": "AIP/quality-rules/1040030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040032,
+        "name": "Avoid Using ControllerAdvice And HandlerExceptionResolver simultaneously",
+        "href": "AIP/quality-rules/1040032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040034,
+        "name": "StrictHttpFirewall should be set as Http Firewall before Spring Security 5.0.1, 4.2.4, and 4.1.5",
+        "href": "AIP/quality-rules/1040034",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040036,
+        "name": "Avoid using STOMP Spring messaging module before Spring 5.0.5 and 4.3.16",
+        "href": "AIP/quality-rules/1040036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040038,
+        "name": "Avoid using Spring Security Path Matching Inconsistency before Spring Framework 3.2.x, 4.0.x, 4.1.x, 4.2.x",
+        "href": "AIP/quality-rules/1040038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040042,
+        "name": "Avoid using Spring Security in combination with Spring Framework 5.0.5",
+        "href": "AIP/quality-rules/1040042",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040044,
+        "name": "Avoid using UnZipTransformer of spring-integration-zip prior to version 1.0.1",
+        "href": "AIP/quality-rules/1040044",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Avoid weak encryption algorithm (Spring)",
+        "href": "AIP/quality-rules/1040046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040048,
+        "name": "Avoid unsafe object binding (Spring)",
+        "href": "AIP/quality-rules/1040048",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042004,
+        "name": "Avoid Duplicate Struts validation forms with the same name",
+        "href": "AIP/quality-rules/1042004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042008,
+        "name": "Avoid using ActionForward with untrusted data source to prevent file path disclosure",
+        "href": "AIP/quality-rules/1042008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042010,
+        "name": "Avoid using ParametersInterceptor with class parameter for Struts 2.3.16 (and older)",
+        "href": "AIP/quality-rules/1042010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042012,
+        "name": "Avoid Unused Validation Form in Struts 1.x",
+        "href": "AIP/quality-rules/1042012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042016,
+        "name": "Avoid Struts action Mapping with disabled validator ",
+        "href": "AIP/quality-rules/1042016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042018,
+        "name": "Avoid Missing Form Bean in Struts 1.x",
+        "href": "AIP/quality-rules/1042018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042022,
+        "name": "Avoid using CookieInterceptor with Struts 2.3.16 (and Older)",
+        "href": "AIP/quality-rules/1042022",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042024,
+        "name": "Avoid Unescaped User-controlled Input attribute in Struts 1.x and 2.x",
+        "href": "AIP/quality-rules/1042024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042026,
+        "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older",
+        "href": "AIP/quality-rules/1042026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042028,
+        "name": "Avoid activating alwaysSelectFullNamespace when actions configured without namespace or with a wildcard namespace for Struts pre 2.3.34 and pre 2.5.1",
+        "href": "AIP/quality-rules/1042028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042030,
+        "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
+        "href": "AIP/quality-rules/1042030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042036,
+        "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
+        "href": "AIP/quality-rules/1042036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042040,
+        "name": "Avoid using Struts URLValidator with version before 2.5.13",
+        "href": "AIP/quality-rules/1042040",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042042,
+        "name": "Avoid using Rest Plugin with XStream handler to deserialise XML requests in Struts 2.1.2 - Struts 2.3.33, Struts 2.5 - Struts 2.5.12",
+        "href": "AIP/quality-rules/1042042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042046,
+        "name": "Avoid Using Dynamic Method Invocation for Apache Struts 2.x",
+        "href": "AIP/quality-rules/1042046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042050,
+        "name": "Avoid using special top object in struts 2.0.0 - struts 2.3.24",
+        "href": "AIP/quality-rules/1042050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042052,
+        "name": "Avoid using JSON-lib library for Rest Plugin of Struts 2.5 to 2.5.14",
+        "href": "AIP/quality-rules/1042052",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -5368,6 +10468,36 @@
         ]
     },
     {
+        "id": 1045008,
+        "name": "Avoid non serializable Entity beans",
+        "href": "AIP/quality-rules/1045008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045010,
+        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "href": "AIP/quality-rules/1045010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045012,
+        "name": "Avoid public/protected setter for the generated identifier field",
+        "href": "AIP/quality-rules/1045012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1050002,
         "name": "Avoid using NSString stringWithFormat on behalf of NSURL instance",
         "href": "AIP/quality-rules/1050002",
@@ -5645,6 +10775,301 @@
         "severity": 20,
         "technologyNames": [
             "Objective-C"
+        ]
+    },
+    {
+        "id": 1055000,
+        "name": "Avoid using unsecured cookie (Swift)",
+        "href": "AIP/quality-rules/1055000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055004,
+        "name": "Avoid creating file without protection (Swift)",
+        "href": "AIP/quality-rules/1055004",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055006,
+        "name": "Avoid weak cryptographic hash (Swift)",
+        "href": "AIP/quality-rules/1055006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055008,
+        "name": "Avoid weak encryption key size (Swift)",
+        "href": "AIP/quality-rules/1055008",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055010,
+        "name": "Avoid synchronizing the credentials with iCloud (Swift)",
+        "href": "AIP/quality-rules/1055010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055012,
+        "name": "Avoid using deprecated SSL protocol (Swift)",
+        "href": "AIP/quality-rules/1055012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055014,
+        "name": "Ensure that LAContext evaluatePolicy reply block is not empty (Swift)",
+        "href": "AIP/quality-rules/1055014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055016,
+        "name": "Ensure that LAContext evaluatePolicy reply block success is checked (Swift)",
+        "href": "AIP/quality-rules/1055016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055018,
+        "name": "Always use LAContext canEvaluatePolicy before using evaluatePolicy (Swift)",
+        "href": "AIP/quality-rules/1055018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055020,
+        "name": "Avoid using kSecAttrAccessibleAlways attribute when storing data in the Keychain (Swift)",
+        "href": "AIP/quality-rules/1055020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055022,
+        "name": "UIApplicationDelegate applicationDidEnterBackground must delete sensitive data (Swift)",
+        "href": "AIP/quality-rules/1055022",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055028,
+        "name": "Avoid hard-coded network resource names (Swift)",
+        "href": "AIP/quality-rules/1055028",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055032,
+        "name": "Avoid using NSPredicate(format:) (Swift)",
+        "href": "AIP/quality-rules/1055032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055034,
+        "name": "Avoid empty generic catch blocks (Swift)",
+        "href": "AIP/quality-rules/1055034",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055036,
+        "name": "Avoid hard-coded passwords (Swift)",
+        "href": "AIP/quality-rules/1055036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055038,
+        "name": "Avoid weak encryption algorithm (Swift)",
+        "href": "AIP/quality-rules/1055038",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055040,
+        "name": "Avoid using XMLDocument without restriction of XML External Entity Reference (XXE) (Swift)",
+        "href": "AIP/quality-rules/1055040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055042,
+        "name": "Avoid using NSXMLParser without restriction of XML External Entity Reference (XXE) (Swift)",
+        "href": "AIP/quality-rules/1055042",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055044,
+        "name": "Avoid using cryptography hash without salt (Swift)",
+        "href": "AIP/quality-rules/1055044",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055046,
+        "name": "Avoid dynamic code injection in WKWebView (Swift)",
+        "href": "AIP/quality-rules/1055046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1060004,
+        "name": "Avoid Empty Finally Block When Calling Resource",
+        "href": "AIP/quality-rules/1060004",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060020,
+        "name": "Avoid empty catch blocks for methods with high fan-in",
+        "href": "AIP/quality-rules/1060020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP",
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1060104,
+        "name": "Review APIs returning sensitive data fields",
+        "href": "AIP/quality-rules/1060104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060106,
+        "name": "Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
+        "href": "AIP/quality-rules/1060106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060108,
+        "name": "Avoid data fields binded to columns to return sensitive data via APIs",
+        "href": "AIP/quality-rules/1060108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060110,
+        "name": "Avoid filtering sensitive data using front-end",
+        "href": "AIP/quality-rules/1060110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060112,
+        "name": "Review APIs not accessed by frontend functions",
+        "href": "AIP/quality-rules/1060112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060114,
+        "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
+        "href": "AIP/quality-rules/1060114",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060116,
+        "name": "Always avoid http redirects to unknown or untrusted URLs",
+        "href": "AIP/quality-rules/1060116",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE",
+            "JavaScript",
+            "JavaScript Server"
         ]
     },
     {
@@ -6118,6 +11543,490 @@
         ]
     },
     {
+        "id": 1101012,
+        "name": "Avoid specifying column numbers instead of column names in ORDER BY clauses",
+        "href": "AIP/quality-rules/1101012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101020,
+        "name": "Avoid using quoted identifiers",
+        "href": "AIP/quality-rules/1101020",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101022,
+        "name": "Avoid Tables without Primary Key (SQL)",
+        "href": "AIP/quality-rules/1101022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101026,
+        "name": "Always define column names when inserting values",
+        "href": "AIP/quality-rules/1101026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101036,
+        "name": "Use ANSI standard operators in SQL WHERE clauses",
+        "href": "AIP/quality-rules/1101036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C#",
+            "C++",
+            "C/C++",
+            "Cobol",
+            "JEE",
+            "PowerBuilder",
+            "Python",
+            "VB.NET",
+            "Visual Basic"
+        ]
+    },
+    {
+        "id": 1101040,
+        "name": "Avoid empty catch blocks (SQL)",
+        "href": "AIP/quality-rules/1101040",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101052,
+        "name": "Use WHEN OTHERS in exception management (SQL)",
+        "href": "AIP/quality-rules/1101052",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101054,
+        "name": "Never use WHEN OTHERS THEN NULL",
+        "href": "AIP/quality-rules/1101054",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101072,
+        "name": "Avoid not aliased Tables",
+        "href": "AIP/quality-rules/1101072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101076,
+        "name": "Avoid unqualified column references",
+        "href": "AIP/quality-rules/1101076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101080,
+        "name": "Avoid orphaned synonyms",
+        "href": "AIP/quality-rules/1101080",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101086,
+        "name": "Always use VARCHAR2 and NVARCHAR2 instead of CHAR, VARCHAR or NCHAR",
+        "href": "AIP/quality-rules/1101086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101092,
+        "name": "Avoid Procedures using an Insert, Update, Delete, Create Table or Select without including error management (SQL)",
+        "href": "AIP/quality-rules/1101092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101094,
+        "name": "Avoid Stored Procedures not returning a status value (SQL)",
+        "href": "AIP/quality-rules/1101094",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101096,
+        "name": "Avoid SQL injection in dynamic SQL for Oracle",
+        "href": "AIP/quality-rules/1101096",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101100,
+        "name": "Avoid Functions and Procedures doing an Insert, Update or Delete without managing a transaction (SQL)",
+        "href": "AIP/quality-rules/1101100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101920,
+        "name": "Avoid using explain() in production code (JEE)",
+        "href": "AIP/quality-rules/1101920",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1101958,
+        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
+        "href": "AIP/quality-rules/1101958",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1104008,
+        "name": "CDS View AccessControl.authorizationCheck should not be set to '#NOT_REQUIRED' or '#NOT_ALLOWED' (S4/HANA)",
+        "href": "AIP/quality-rules/1104008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SAP SQL"
+        ]
+    },
+    {
+        "id": 1107000,
+        "name": "Use of call_form built-in Oracle Forms Function from a centralized location",
+        "href": "AIP/quality-rules/1107000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "FormsReportAnalyzer"
+        ]
+    },
+    {
+        "id": 1520102,
+        "name": "SiebelReview: Custom BC Based On S_PARTY Table Missing the \"Inner Join Extension Table\" User Property",
+        "href": "AIP/quality-rules/1520102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520106,
+        "name": "SiebelReview: Avoid bad BusComp configuration when using Standard 1:M Extension Tables",
+        "href": "AIP/quality-rules/1520106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520108,
+        "name": "SiebelReview: Avoid bad Link configuration when using Standard 1:M Extension Tables",
+        "href": "AIP/quality-rules/1520108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520110,
+        "name": "SiebelReview: Incorrect Join Specification To 1:1 Extension Table ROW_ID",
+        "href": "AIP/quality-rules/1520110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520112,
+        "name": "SiebelReview: Missing Join Specification for Custom Joins",
+        "href": "AIP/quality-rules/1520112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520114,
+        "name": "SiebelReview: Pick Maps Missing or Incorrectly Defined",
+        "href": "AIP/quality-rules/1520114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520140,
+        "name": "SiebelScriptingReview: Unilingual Error messages scripted",
+        "href": "AIP/quality-rules/1520140",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520494,
+        "name": "Siebel eScript: Avoid complex PreGetFieldValue Functions",
+        "href": "AIP/quality-rules/1520494",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520496,
+        "name": "Siebel eScript: Avoid using ExecuteQuery() statement in Functions",
+        "href": "AIP/quality-rules/1520496",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520498,
+        "name": "SiebelReview: Force Active property Set to TRUE at BusComp level",
+        "href": "AIP/quality-rules/1520498",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520500,
+        "name": "SiebelReview: Force Active BusComp Field Property Set to TRUE",
+        "href": "AIP/quality-rules/1520500",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520502,
+        "name": "SiebelReview: Link Specification For BusComp Field Property Set To TRUE",
+        "href": "AIP/quality-rules/1520502",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520508,
+        "name": "SiebelReview: Nested MVFs",
+        "href": "AIP/quality-rules/1520508",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520510,
+        "name": "SiebelScriptingReview: Explicit Object Release",
+        "href": "AIP/quality-rules/1520510",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520512,
+        "name": "SiebelScriptingReview: Scripting The PreCanInvokeMethod Event For A Business Service",
+        "href": "AIP/quality-rules/1520512",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520580,
+        "name": "Siebel eScript: Avoid Functions without Try, Catch and Finally block",
+        "href": "AIP/quality-rules/1520580",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520582,
+        "name": "Siebel eScript: Avoid Functions destroying variables outside of the finally clause",
+        "href": "AIP/quality-rules/1520582",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520584,
+        "name": "Siebel eScript: Avoid Functions having Return statement in the Finally clause",
+        "href": "AIP/quality-rules/1520584",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520586,
+        "name": "Siebel eScript: Prefer using GotoView in the Finally clause of a Function",
+        "href": "AIP/quality-rules/1520586",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520588,
+        "name": "Siebel Scripting Review: Using Error Code in scripts",
+        "href": "AIP/quality-rules/1520588",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520760,
+        "name": "SiebelReview: Adding System Columns as BusComp Field Objects Definitions",
+        "href": "AIP/quality-rules/1520760",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520762,
+        "name": "SiebelReview: Controls or List Columns Based on Non-Existent Fields",
+        "href": "AIP/quality-rules/1520762",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520764,
+        "name": "SiebelReview: Duplicate Item Identifiers",
+        "href": "AIP/quality-rules/1520764",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520774,
+        "name": "Avoid setting field values using hard-coded values (Siebel)",
+        "href": "AIP/quality-rules/1520774",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520822,
+        "name": "SiebelReview: View Visibility Settings",
+        "href": "AIP/quality-rules/1520822",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520824,
+        "name": "SiebelReview: Incorrect Thread Applet, Title, or Field Properties",
+        "href": "AIP/quality-rules/1520824",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520826,
+        "name": "SiebelReview: Custom Business Component Contains No Required Fields",
+        "href": "AIP/quality-rules/1520826",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
         "id": 1600100,
         "name": "Page fields using views must be display only (PeopleSoft)",
         "href": "AIP/quality-rules/1600100",
@@ -6375,6 +12284,16 @@
         "severity": 10,
         "technologyNames": [
             "PeopleSoft"
+        ]
+    },
+    {
+        "id": 1677000,
+        "name": "Avoid string interpolations to prevent SQL injections (MyBatis/iBatis)",
+        "href": "AIP/quality-rules/1677000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

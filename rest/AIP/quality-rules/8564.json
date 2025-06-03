@@ -5,6 +5,10 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "Using CAST data-flow engine, this quality rule detects execution paths from methods returning data coming from database down to request execution methods, paths which are open vulnerabilities to SSRF flaws.",
     "output": "List all methods that make resource calls forged by database content\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
@@ -28,6 +32,34 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067018,
+            "name": "CWE-918 - Server-Side Request Forgery (SSRF)",
+            "href": "AIP/technical-criteria/1067018",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062350,
+            "name": "OWASP-2021-A10 - Server-Side Request Forgery (SSRF)",
+            "href": "AIP/technical-criteria/1062350",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

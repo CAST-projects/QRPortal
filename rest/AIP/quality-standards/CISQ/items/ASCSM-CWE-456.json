@@ -5,7 +5,7 @@
     "url": null,
     "description": "Objective\nAvoid failure to explicitly initialize software data elements in use\n\nConsequence\nSoftware featuring weak initialization practices incurs the risk of logic errors within the program, possibly leading to a security problem\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared by the \u2018Create\u2019 action, then is evaluated in a \u2018Read\u2019 action without ever being initialized by a \u2018Write\u2019 action prior to the evaluation\n\n",
     "isoPatterns": null,
-    "count": 3,
+    "count": 8,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-456/quality-rules"

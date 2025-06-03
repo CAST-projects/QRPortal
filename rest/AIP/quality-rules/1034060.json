@@ -1,0 +1,74 @@
+{
+    "id": 1034060,
+    "name": "Avoid uncontrolled import into the current symbol table (PHP)",
+    "href": "AIP/quality-rules/1034060",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.php.security",
+        "href": "AIP/extensions/com.castsoftware.php.security"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric uses Psalm data-flow engine to detect a call path where input data from the user is sent into the current symbol table without prior sanitization.\n\nA violation is raised when user input is passed to function extract() with an overwritting flag. A violation is also raised when function import_request_variable() is called with no prefix or an empty prefix.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software constructs all or part of the current symbol table via user-controllable inputs. These inputs are not neutralized or are incorrectly neutralized. As a consequence, some applications may work with an unexpected behavior.",
+    "reference": "CWE-914: Improper Control of Dynamically-Identified Variables\nhttps://cwe.mitre.org/data/definitions/914.html\n\nPHP Manual - Function Reference - Warning - Do not use extract() on untrusted data\nhttps://www.php.net/manual/en/function.extract.php",
+    "remediation": "Explicitly list all the symbols you want to import in the current symbol table. When calling function extract(), use a non-overwritting flag.",
+    "remediationSample": "<?php\n\n// Remediation sample #1\n\n$foo = $_GET[\"foo\"];\n$bar = $_GET[\"bar\"];\n\n\n// Remediation sample #2\n\nextract($_GET, EXTR_SKIP);",
+    "sample": "<?php\n\nextract($_GET);",
+    "total": "Number of PHP artifacts",
+    "alternativeName": "Avoid uncontrolled import into the current symbol table (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067014,
+            "name": "CWE-914 - Improper Control of Dynamically-Identified Variables",
+            "href": "AIP/technical-criteria/1067014",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-914",
+            "name": "Improper Control of Dynamically-Identified Variables",
+            "href": "AIP/quality-standards/CWE/items/CWE-914",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

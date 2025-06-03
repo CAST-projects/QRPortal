@@ -5,10 +5,17 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of implemented interfaces",
-    "description": "Avoid Classes implementing more than X Interfaces",
+    "description": "This rule reports Java Classes implementing more than X Interfaces",
     "output": "This report lists all Classes implementing more than X Interfaces\nIt provides the following information:\n - Class full name\n - Number of implemented interfaces",
+    "rationale": "Classes implementing more than X Interfaces are not a good practice in the application architecture.",
     "remediation": "Review the design to reduce the number of implementations",
+    "remediationSample": "package diag.arch004;\npublic class Ci_OK_2_3_i1\n{\n    public void myMethod()\n    {\n        \n    }\n    public class CInner_OK_2_3_i1 implements I01_20\n    {\n        public void myMethodI01_20()\n        {        \n        }  \n    }\n}",
+    "sample": "package diag.arch004;\npublic class Cs_OK_3_3_i6 implements I01_20,I02_20,I03_20,I04_20,I05_20,I06_20\n{\n    public void myMethod()\n    {\n        \n    }\n\n    public void myMethodI01_20()\n    {        \n    }\n\n    public void myMethodI02_20()\n    {\n    }\n\n    public void myMethodI03_20()\n    {\n    }\n\n    public void myMethodI04_20()\n    {\n    }\n\n    public void myMethodI05_20()\n    {\n    }\n\n    public void myMethodI06_20()\n    {\n    }\n}",
     "total": "Number of Java classes",
     "alternativeName": "Ensure that the class is implementing a reasonable number of Interfaces",
     "businessCriteria": [

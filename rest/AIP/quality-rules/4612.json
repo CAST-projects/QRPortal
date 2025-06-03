@@ -5,12 +5,18 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Native Method name",
-    "description": "List all artifacts that call a native method except native methods contained in the libraries defined by the threshold parameter. \nThe threshold is a parameter and can be changed at will with libraries that you consider to be safe.\nSee : CWE-111: Direct Use of Unsafe JNI",
+    "description": "List all artifacts that call a native method except native methods contained in the libraries defined by the threshold parameter. \nThe threshold is a parameter and can be changed at will with libraries that you consider to be safe.",
     "output": "This report lists all artifacts using native methods except those contained in libraries defined by the parameter.\nIt provides the following information:\n - Artifact full name\n - Native Method name",
-    "rationale": "JNI is one of the most serious cause of application server crash that can be due for example to buffer overflow. Even if your code works on a plateform, it doesn't mean that it will work on other plateform because the internals of JVMs differ.\nIn case of crash, your JVM suplier's support will probably ask you to remove these calls before investigating your issue.\n\nAlso, for portability purposes, native Methods should not be used. Native Methods could be compared to Interfaces to encapsulate calls to C Methods and Functions. Doing so relies on having the appropriate environment setup at the operating system level.",
-    "reference": "http://publib.boulder.ibm.com/infocenter/iseries/v5r4/index.jsp?topic=%2Frzaha%2Fothlang.htm\nhttp://en.wikipedia.org/wiki/Java_Native_Interface#Pitfalls\nhttps://cwe.mitre.org/data/definitions/111.html ",
-    "total": "Number of artifacts",
+    "rationale": "JNI is one of the most serious cause of application server crash that can be due for example to buffer overflow. Even if your code works on a plateform, it doesn't mean that it will work on other plateform because the internals of JVMs differ.\nIn case of crash, your JVM suplier's support will probably ask you to remove these calls before investigating your issue.\n\nAlso, for portability purposes, native Methods should not be used. Native Methods could be compared to Interfaces to encapsulate calls to C Methods and Functions. Doing so relies on having the appropriate environment setup at the operating system level.\n\nSee : CWE-111: Direct Use of Unsafe JNI",
+    "reference": "https://cwe.mitre.org/data/definitions/111.html\nhttp://en.wikipedia.org/wiki/Java_Native_Interface#Pitfalls",
+    "remediation": "Don't use JNI for security reason",
+    "sample": "class Echo {\n\npublic native void runEcho();\nstatic {\n\nSystem.loadLibrary(\"echo\");\n}\npublic static void main(String[] args) {\n\nnew Echo().runEcho();   //VIOLATION\n}\n}",
+    "total": "Number of Non Abstract Java Artifacts",
     "alternativeName": "Ensure you don't use JNI for security reason",
     "businessCriteria": [
         {
@@ -22,6 +28,11 @@
             "id": 60012,
             "name": "Changeability",
             "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 60013,
@@ -40,6 +51,34 @@
             "name": "Architecture - OS and Platform Independence",
             "href": "AIP/technical-criteria/61004",
             "weight": 3,
+            "critical": false
+        },
+        {
+            "id": 1066211,
+            "name": "CWE-111 - Direct Use of Unsafe JNI",
+            "href": "AIP/technical-criteria/1066211",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063116,
+            "name": "PCI-Requirement-6.5.2 - Buffer overflows",
+            "href": "AIP/technical-criteria/1063116",
+            "weight": 5,
             "critical": false
         },
         {

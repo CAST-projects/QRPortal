@@ -1,16 +1,21 @@
 {
     "id": 2258,
-    "name": "All image files should be in a specific directory",
+    "name": "DEPRECATED: All image files should be in a specific directory",
     "href": "AIP/quality-rules/2258",
     "critical": false,
     "severity": 10,
     "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "File directory",
-    "description": "All image files (X) should be in an \"images\" directory, located in the web root.",
+    "description": "To be compliant with code Conventions for the JavaServer Pages Technology, this rule checks if all image files ( .gif, .jpg, etc.) are in the recommended location:  <context root> /images/",
     "output": "This report lists all image files (X) located outside the \"images\" directory. It provides the following information: File full name, File directory",
     "rationale": "For maintainability aspects, file organization must be respected.",
+    "reference": "https://www.oracle.com/technical-resources/articles/javase/code-convention.html",
     "remediation": "Change file location according to the recommended naming convention.",
-    "total": "Number of JPG files",
+    "total": "Number of image files",
     "alternativeName": "Ensure you store all image files in specific directory",
     "businessCriteria": [
         {

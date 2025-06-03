@@ -1,0 +1,83 @@
+{
+    "id": 1520726,
+    "name": "Siebel eScript: Avoid putting all code in the Applet_PreInvokeMethod event",
+    "href": "AIP/quality-rules/1520726",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Number of lines of code",
+    "description": "This rule report Applet_PreInvokeMethod eScripts having more than \"Siebel: Max LoC for Applet_PreInvokeMethod\" lines of code in the Applet_PreInvokeMethod event.\n\"Siebel: Max LoC for Applet_PreInvokeMethod\" is a parameter that can be changed at will.\nThe default value is 20.",
+    "output": "This rule reports Applets with a lot of code in Applet_PreInvokeMethod",
+    "rationale": "Field-level or control-level events are fired more often than most other types of events. Consequently, invoking scripts from such events can dramatically impact scalability.",
+    "reference": "https://docs.oracle.com/cd/B31104_02/books/PerformTun/PerformTunCustConfig7.html#wp1043766",
+    "remediation": "Review the code and reduce the amount of tasks performed in code.",
+    "total": "Number of added or modified Applet_PreInvokeMethod in Applets",
+    "alternativeName": "Siebel eScript: Avoid putting all code in the Applet_PreInvokeMethod event",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max LoC for Applet_PreInvokeMethod",
+            "description": "Max LoC for Applet_PreInvokeMethod function",
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

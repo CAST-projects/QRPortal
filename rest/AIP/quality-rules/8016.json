@@ -1,17 +1,21 @@
 {
     "id": 8016,
-    "name": "Avoid unsecured EJB remote method",
+    "name": "Avoid unrestricted access to EJB remote methods",
     "href": "AIP/quality-rules/8016",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "description": "Report all EJB remote methods that are not associated to a permission unless this method is associated to an unchecked permission (i.e permitted for any authenticated role) or defined in the excluded-list (can't be called). It works for EJB 3.0 and takes into account both annotation and descriptor specifications.",
-    "output": "This report all EJB remote methods (i.e methods of the remote interface and its parent) that are not associated to a permission unless this method is associated to an unchecked permission (i.e permitted for any authenticated role) or defined in the excluded-list. \nIt provides the following information:\n Method Full Name",
-    "rationale": "If you handle sensitive data or offer restricted services, you need a clearly defined security policy for your application and a framework that enforces it.\n\nIt is common to think that EJBs are deployed where they can only be accessed from their related JSPs and servlets, and security is applied at the JSP/servlet layer. But in reality you can often find situations where the security policy needs to change, for example the ports to access to the EJB become opened, and the access to these EJB becomes possible.\n\nJ2EE Server platforms include some infrastructure to provide declarative security for your application components, usually via a role-based access-control system. Such systems do effectively move application security issues away from the programmer because you cannot let individual programmers guarantee that their code is safe",
-    "reference": "http://www.ibm.com/developerworks/websphere/techjournal/0405_brown/0405_brown.html#sec4 \nhttp://www.ibm.com/developerworks/java/library/j-ejb1008.html \nhttp://download.oracle.com/docs/cd/E19253-01/817-6087/dgsecure.html",
-    "remediation": "Associate roles to the remote methods of EJB session.\n\nException :\nIf you have used programmatic security, then you must check the reason and see if there is a real need.\nIt is strongly discouraged since Programmatic login places the burden on the application developer with respect to assuring that the resulting system meets their security requirements. Programmatic login allows the application developer to bypass the application server-supported authentication mechanisms and feed authentication data directly to the security service. Since this mechanism bypasses the container-managed authentication process and sequence, the application developer must be very careful in making sure that authentication is established before accessing any restricted resources or methods. It is also the application developer's responsibility to verify the status of the login attempt and to alter the behavior of the application accordingly.\n\nHowever, applications may, at some point, need to implement security policies in code. This is the case if you want to apply security policies that depend on the application's business logic? For example: a customer can access only her own account.",
-    "remediationSample": "===> ejb-jar.xml version 2.1\n <enterprise-beans>\n    <session>\n      <ejb-name>SecAuthSampleBean</ejb-name>\n      <home>sample.ejb.SecAuthSampleHome</home>\n      <remote>sample.ejb.SecAuthSample</remote>\n      <ejb-class>sample.ejb.SecAuthSampleBean</ejb-class>\n      <session-type>Stateless</session-type>\n      <security-role-ref>\n         [...]\n      </security-role-ref>\n    </session>\n  </enterprise-beans>\n\n  <assembly-descriptor>\n    [...]\n\n    <method-permission>\n      <role-name>Administrator</role-name>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        // FIXED: methodIsAuthorized is associated to a permission\n        <method-name>methodIsAuthorized</method-name>\n      </method>\n    </method-permission>\n\n    // FIXED: methodIsNotAuthorized is associated to a permission\n    <method-permission>\n      <role-name>SecretRole</role-name>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        <method-name>methodIsNotAuthorized</method-name>\n      </method>\n    </method-permission>\n\n    <exclude-list>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n         // FIXED: methodIsExcluded can't be called\n        <method-name>methodIsExcluded</method-name>\n      </method>\n    </exclude-list>\n\n  </assembly-descriptor>\n\n</ejb-jar>",
-    "sample": "===> Java files\n// EJB Remote interface\npublic interface SecAuthSample extends EJBObject {\n    public boolean methodIsAuthorized()        throws RemoteException;\n    public boolean methodIsNotAuthorized()   throws RemoteException;\n    public boolean methodIsExcluded()          throws RemoteException;      \n}\n\n// Session bean\npublic class SecAuthSampleBean implements SessionBean {\n    [...]    \n    public boolean methodIsAuthorized() { [...] }\n    public boolean methodIsNotAuthorized() { [...] }\n    public boolean methodIsExcluded() { [...] }\n}\n\n===> ejb-jar.xml version 2.1\n <enterprise-beans>\n    <session>\n      <ejb-name>SecAuthSampleBean</ejb-name>\n      <home>sample.ejb.SecAuthSampleHome</home>\n      <remote>sample.ejb.SecAuthSample</remote>\n      <ejb-class>sample.ejb.SecAuthSampleBean</ejb-class>\n      <session-type>Stateless</session-type>\n      <security-role-ref>\n         [...]\n      </security-role-ref>\n    </session>\n  </enterprise-beans>\n\n  <assembly-descriptor>\n    [...]\n\n    // VIOLATION methodIsNotAuthorized is permitted to any role (unchecked)\n    <method-permission>\n      <unchecked/>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        <method-name>methodIsNotAuthorized</method-name>\n      </method>\n    </method-permission>\n\n    <exclude-list>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        <method-name>methodIsExcluded</method-name>\n      </method>\n    </exclude-list>\n\n  </assembly-descriptor>\n\n</ejb-jar>",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule reports all EJB remote methods that are not associated with permission unless this method is defined in the excluded-list (can't be called). \n\nIt works for EJB 3.0 and takes into account both annotation and descriptor specifications.",
+    "output": "This report all EJB remote methods (i.e methods of the remote interface and its parent) that are not associated with permission unless this method is defined in the excluded-list. \nIt provides the following information:\n Method Full Name",
+    "rationale": "If you handle sensitive data or offer restricted services, you need a clearly defined security policy for your application and a framework that enforces it.\n\nWhen an application exposes a remote interface for an entity bean, it might also expose methods that get or set the bean's data. These methods could be leveraged to read sensitive information, or to change data in ways that violate the application's expectations, potentially leading to other vulnerabilities.\n\n\nIt is common to think that EJBs are deployed where they can only be accessed from their related JSPs and servlets, and security is applied at the JSP/servlet layer. But in reality, you can often find situations where the security policy needs to change, for example, the ports to access to the EJB become opened, and the access to these EJB becomes possible.",
+    "reference": "http://download.oracle.com/docs/cd/E19253-01/817-6087/dgsecure.html\nhttps://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/development_guide/sect-ejb_application_security\nhttps://docs.oracle.com/cd/E19226-01/820-7627/gjgdi/index.html",
+    "remediation": "Associate roles to the remote methods of EJB session.\n\n\nException :\nIf you have used programmatic security, then you must check the reason and see if there is a real need.\nIt is strongly discouraged since Programmatic login places the burden on the application developer with respect to assuring that the resulting system meets their security requirements. Programmatic login allows the application developer to bypass the application server-supported authentication mechanisms and feed authentication data directly to the security service. Since this mechanism bypasses the container-managed authentication process and sequence, the application developer must be very careful in making sure that authentication is established before accessing any restricted resources or methods. It is also the application developer's responsibility to verify the status of the login attempt and to alter the behavior of the application accordingly.\n\nHowever, applications may, at some point, need to implement security policies in code. This is the case if you want to apply security policies that depend on the application's business logic. For example: a customer can access only her own account.",
+    "remediationSample": "===> ejb-jar.xml version 2.1\n <enterprise-beans>\n    <session>\n      <ejb-name>SecAuthSampleBean</ejb-name>\n      <home>sample.ejb.SecAuthSampleHome</home>\n      <remote>sample.ejb.SecAuthSample</remote>\n      <ejb-class>sample.ejb.SecAuthSampleBean</ejb-class>\n      <session-type>Stateless</session-type>\n      <security-role-ref>\n         [...]\n      </security-role-ref>\n    </session>\n  </enterprise-beans>\n\n  <assembly-descriptor>\n    [...]\n\n    <method-permission>\n      <role-name>Administrator</role-name>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        // FIXED: methodIsAuthorized is associated to a permission\n        <method-name>methodIsAuthorized</method-name>\n      </method>\n    </method-permission>\n\n    // FIXED: methodIsNotAuthorized is associated to a permission\n    <method-permission>\n      <role-name>SecretRole</role-name>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        <method-name>methodIsNotAuthorized</method-name>\n      </method>\n    </method-permission>\n\n    <exclude-list>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n         // FIXED: methodIsExcluded can't be called\n        <method-name>methodIsExcluded</method-name>\n      </method>\n    </exclude-list>\n\n  </assembly-descriptor>\n\n</ejb-jar>\n\n\n-----\n\n@Stateless\n\npublic class EmployeeBean implements EmployeeServiceLocal, EmployeeServiceRemote {\n  @PersistenceContext(unitName=\"EmployeeService\") private EntityManager manager;\n  @RolesAllowed(\"Users\")\n  public void doAction(){\n\n    Customer cust = new Customer();\n\n    cust.setLastName(\"Bond\");\n    cust.setSsn(1L);\n    manager.persist(cust);\n    \n    System.out.println(\"Saved\");\n}\n}",
+    "sample": "===> Java files\n// EJB Remote interface\npublic interface SecAuthSample extends EJBObject {\n    public boolean methodIsAuthorized()        throws RemoteException;\n    public boolean methodIsNotAuthorized()   throws RemoteException;\n    public boolean methodIsExcluded()          throws RemoteException;      \n}\n\n// Session bean\npublic class SecAuthSampleBean implements SessionBean {\n    [...]    \n    public boolean methodIsAuthorized() { [...] }\n    public boolean methodIsNotAuthorized() { [...] }\n    public boolean methodIsExcluded() { [...] }\n}\n\n===> ejb-jar.xml version 2.1\n <enterprise-beans>\n    <session>\n      <ejb-name>SecAuthSampleBean</ejb-name>\n      <home>sample.ejb.SecAuthSampleHome</home>\n      <remote>sample.ejb.SecAuthSample</remote>\n      <ejb-class>sample.ejb.SecAuthSampleBean</ejb-class>\n      <session-type>Stateless</session-type>\n      <security-role-ref>\n         [...]\n      </security-role-ref>\n    </session>\n  </enterprise-beans>\n\n  <assembly-descriptor>\n    [...]\n\n    // VIOLATION methodIsNotAuthorized is permitted to any role (unchecked)\n    <method-permission>\n      <unchecked/>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        <method-name>methodIsNotAuthorized</method-name>\n      </method>\n    </method-permission>\n\n    <exclude-list>\n      <method>\n        <ejb-name>SecAuthSampleBean</ejb-name>\n        <method-name>methodIsExcluded</method-name>\n      </method>\n    </exclude-list>\n\n  </assembly-descriptor>\n\n</ejb-jar>\n\n\n------\nWhen @PermitAll is used\n\n@Stateless\n\npublic class EmployeeBean implements EmployeeServiceLocal, EmployeeServiceRemote {\n  @PersistenceContext(unitName=\"EmployeeService\") private EntityManager manager;\n  @PermitAll  //Violation\n  public void doAction(){\n\n    Customer cust = new Customer();\n\n    cust.setLastName(\"Bond\");\n    cust.setSsn(1L);\n    manager.persist(cust);\n    \n    System.out.println(\"Saved\");\n}\n}",
     "total": "Number of EJB remote methods (i.e methods of the remote interface and its parent)",
     "alternativeName": "Ensure that unsecured EJB remote method are not used as they lead to security weakness",
     "businessCriteria": [
@@ -27,6 +31,48 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066108,
+            "name": "CWE-8 - J2EE Misconfiguration: Entity Bean Declared Remote",
+            "href": "AIP/technical-criteria/1066108",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66063,
             "name": "Secure Coding - API Abuse",

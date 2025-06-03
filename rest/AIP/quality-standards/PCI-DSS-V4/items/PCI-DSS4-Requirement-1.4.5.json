@@ -5,7 +5,7 @@
     "url": "https://listings.pcisecuritystandards.org/documents/PCI-DSS-v4_0-FR.pdf",
     "description": "Purpose\nRestricting the disclosure of internal, private, and local IP addresses is useful to prevent a hacker from obtaining knowledge of these IP addresses and using that information to access the network.\n\nGood Practice\nMethods used to meet the intent of this requirement may vary, depending on the specific networking technology being used. For example, the controls used to meet this requirement may be different for IPv4 networks than for IPv6 networks.\n\nExamples\nMethods to obscure IP addressing may include, but are not limited to:\n\u2022 IPv4 Network Address Translation (NAT).\n\u2022 Placing system components behind proxy servers/NSCs.\n\u2022 Removal or filtering of route advertisements for internal networks that use registered addressing.\n\u2022 Internal use of RFC 1918 (IPv4) or use IPv6 privacy extension (RFC 4941) when when initiating outgoing sessions to the internet.",
     "isoPatterns": null,
-    "count": 3,
+    "count": 5,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-1.4.5/quality-rules"

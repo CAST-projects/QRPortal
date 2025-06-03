@@ -5,6 +5,10 @@
     "critical": false,
     "severity": 30,
     "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack of a method producing insufficiently random numbers",
     "description": "The application uses a Pseudo-Random Number Generator (PRNG), but the PRNG's algorithm is not cryptographically strong.",
     "output": "List all methods that use random numbers insufficiently generated.\n\nIt provides the following information : \n - Method full name. \n - Call stack with bookmarks from the method producing insufficiently random numbers down to the target method.",
@@ -17,12 +21,59 @@
     "alternativeName": "Ensure using sufficient random generator",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
             "id": 60016,
             "name": "Security",
             "href": "AIP/business-criteria/60016"
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066438,
+            "name": "CWE-338 - Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
+            "href": "AIP/technical-criteria/1066438",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063153,
+            "name": "PCI-DSS4-Requirement-3.6.1 - Procedures are defined and implemented to protect cryptographic keys",
+            "href": "AIP/technical-criteria/1063153",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063108,
+            "name": "PCI-Requirement-3.6.1 - Generation of strong cryptographic keys",
+            "href": "AIP/technical-criteria/1063108",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",

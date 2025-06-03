@@ -92,6 +92,26 @@
         ]
     },
     {
+        "id": 1020728,
+        "name": "Always enable HttpOnly when creating cookies to avoid Cross-site scripting attacks",
+        "href": "AIP/quality-rules/1020728",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020804,
+        "name": "Prefer refactoring the source code  instead of using console logging",
+        "href": "AIP/quality-rules/1020804",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1024026,
         "name": "Prefer not using MODE_WORLD_READABLE or MODE_WORLD_WRITABLE to share files with other apps",
         "href": "AIP/quality-rules/1024026",
@@ -99,6 +119,30 @@
         "severity": 10,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1025044,
+        "name": "Ensure you have secured your call to MVC",
+        "href": "AIP/quality-rules/1025044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025046,
+        "name": "Ensure you have secured your call to MVC",
+        "href": "AIP/quality-rules/1025046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -121,6 +165,26 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1040014,
+        "name": "Ensure desabling Spring Security's debug mode in production code",
+        "href": "AIP/quality-rules/1040014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040024,
+        "name": "Ensure securing Shutdown Actuator Endpoint from unauthenticated access.",
+        "href": "AIP/quality-rules/1040024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -186,6 +250,16 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1101920,
+        "name": "Ensure to not use explain() method in production code so that performance is not reduced",
+        "href": "AIP/quality-rules/1101920",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

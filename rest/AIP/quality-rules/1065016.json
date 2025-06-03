@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1065016",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.cpp",
         "href": "AIP/extensions/com.castsoftware.cpp"
@@ -19,6 +19,16 @@
     "alternativeName": "Prefer using strto*() from core linrary instead of atol, atoll, atoi, atof from stdlib.h for a more robust string handling",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 60013,
             "name": "Robustness",
             "href": "AIP/business-criteria/60013"
@@ -30,6 +40,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061083,
+            "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+            "href": "AIP/technical-criteria/1061083",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066858,
+            "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+            "href": "AIP/technical-criteria/1066858",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",

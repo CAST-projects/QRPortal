@@ -1,0 +1,77 @@
+{
+    "id": 1046004,
+    "name": "Avoid Functions having a very low Comment/Code ratio (Go)",
+    "href": "AIP/quality-rules/1046004",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.go",
+        "href": "AIP/extensions/com.castsoftware.go"
+    },
+    "associatedValueName": "Comment/Code ratio",
+    "description": "Functions should have at least a ratio comment/code > X % (by default X=5)\nThe threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Functions with comment/code ratio lower than X %\nIt provides the following information:\n Function full name, comment/code ratio",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact",
+    "remediation": "Enrich Artifact code with comments",
+    "total": "Number of Go Functions",
+    "alternativeName": "Enrich your code with comments to give an overview of the code to improve maintainability",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1046000,
+            "name": "Go",
+            "href": "AIP/technologies/1046000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Minimum % Comment / Code Ratio for functions, methods and events",
+            "technologies": [
+                {
+                    "id": 1046000,
+                    "name": "Go",
+                    "href": "AIP/technologies/1046000",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

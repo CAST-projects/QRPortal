@@ -23,7 +23,7 @@
     },
     {
         "id": 2230,
-        "name": "Use of style sheets (JEE)",
+        "name": "DEPRECATED: Use of style sheets (JEE)",
         "href": "AIP/quality-rules/2230",
         "critical": false,
         "weight": 4,
@@ -33,7 +33,7 @@
     },
     {
         "id": 2242,
-        "name": "Avoid direct definition of JavaScript Functions in a Web page (JEE)",
+        "name": "DEPRECATED: Avoid direct definition of JavaScript Functions in a Web page (JEE)",
         "href": "AIP/quality-rules/2242",
         "critical": false,
         "weight": 4,
@@ -43,7 +43,7 @@
     },
     {
         "id": 2278,
-        "name": "Check the use of \"foreach\" custom tag library",
+        "name": "DEPRECATED: Check the use of \"foreach\" custom tag library",
         "href": "AIP/quality-rules/2278",
         "critical": false,
         "weight": 4,
@@ -53,7 +53,7 @@
     },
     {
         "id": 2280,
-        "name": "Avoid using Document.all collection",
+        "name": "DEPRECATED: Avoid using Document.all collection",
         "href": "AIP/quality-rules/2280",
         "critical": false,
         "weight": 4,
@@ -85,7 +85,7 @@
     },
     {
         "id": 4618,
-        "name": "Avoid instantiating Boolean",
+        "name": "Avoid instantiating a Boolean object",
         "href": "AIP/quality-rules/4618",
         "critical": false,
         "weight": 2,
@@ -95,10 +95,10 @@
     },
     {
         "id": 4694,
-        "name": "Avoid using 'System.gc'",
+        "name": "Avoid using 'System.gc' and 'Runtime.gc'",
         "href": "AIP/quality-rules/4694",
-        "critical": false,
-        "weight": 6,
+        "critical": true,
+        "weight": 9,
         "technologyNames": [
             "JEE"
         ]
@@ -125,7 +125,7 @@
     },
     {
         "id": 4744,
-        "name": "EJB Entity access through their local Interface",
+        "name": "DEPRECATED: EJB Entity access through their local Interface",
         "href": "AIP/quality-rules/4744",
         "critical": true,
         "weight": 7,
@@ -135,7 +135,7 @@
     },
     {
         "id": 4746,
-        "name": "EJB Session access through their local Interface",
+        "name": "DEPRECATED: EJB Session access through their local Interface",
         "href": "AIP/quality-rules/4746",
         "critical": true,
         "weight": 7,
@@ -175,7 +175,7 @@
     },
     {
         "id": 7254,
-        "name": "Declare as Static all methods not using instance members (JEE)",
+        "name": "Declare as Static all methods not using instance members",
         "href": "AIP/quality-rules/7254",
         "critical": false,
         "weight": 5,
@@ -185,7 +185,7 @@
     },
     {
         "id": 7256,
-        "name": "Provide a private default Constructor for utility Classes (JEE)",
+        "name": "Provide a private default Constructor for utility Classes",
         "href": "AIP/quality-rules/7256",
         "critical": false,
         "weight": 4,
@@ -260,7 +260,7 @@
     },
     {
         "id": 7444,
-        "name": "Serialize session objects",
+        "name": "Avoid Using Non-Serialized Beans with Session Scope",
         "href": "AIP/quality-rules/7444",
         "critical": false,
         "weight": 4,
@@ -280,7 +280,7 @@
     },
     {
         "id": 7638,
-        "name": "Avoid using DriverManager",
+        "name": "Avoid directly managing the connection to the database by using DriverManager",
         "href": "AIP/quality-rules/7638",
         "critical": false,
         "weight": 9,
@@ -290,17 +290,17 @@
     },
     {
         "id": 7648,
-        "name": "Avoid calling finalize()",
+        "name": "Avoid an explicit call to finalize()",
         "href": "AIP/quality-rules/7648",
         "critical": false,
-        "weight": 4,
+        "weight": 8,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7668,
-        "name": "Avoid using incorrect XML parsing model",
+        "name": "DEPRECATED: Avoid using DOM parser for large or medium sized XML file parsing",
         "href": "AIP/quality-rules/7668",
         "critical": false,
         "weight": 4,
@@ -310,8 +310,18 @@
     },
     {
         "id": 7720,
-        "name": "Avoid too many EJB bean",
+        "name": "DEPRECATED: Avoid too many EJB beans",
         "href": "AIP/quality-rules/7720",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7728,
+        "name": "Avoid thread creation for application running on application server",
+        "href": "AIP/quality-rules/7728",
         "critical": true,
         "weight": 9,
         "technologyNames": [
@@ -320,7 +330,7 @@
     },
     {
         "id": 7734,
-        "name": "Avoid to use Log.debug() without calling Log.isDebugEnabled()",
+        "name": "Avoid using debug() method without calling isDebugEnabled() method",
         "href": "AIP/quality-rules/7734",
         "critical": false,
         "weight": 3,
@@ -340,7 +350,7 @@
     },
     {
         "id": 7936,
-        "name": "Avoid using finalize()",
+        "name": "DEPRECATED: Avoid using finalize()",
         "href": "AIP/quality-rules/7936",
         "critical": true,
         "weight": 8,
@@ -350,7 +360,7 @@
     },
     {
         "id": 7940,
-        "name": "Avoid Stateful Beans not removed",
+        "name": "Avoid accumulating Stateful Beans",
         "href": "AIP/quality-rules/7940",
         "critical": true,
         "weight": 7,
@@ -402,7 +412,7 @@
     },
     {
         "id": 8104,
-        "name": "Close database resources ASAP",
+        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "weight": 8,
@@ -446,7 +456,7 @@
     },
     {
         "id": 8214,
-        "name": "CWE-672: Expired or Released Resource should not be used",
+        "name": "Avoid operating on resource after expiration or release",
         "href": "AIP/quality-rules/8214",
         "critical": true,
         "weight": 8,
@@ -480,6 +490,46 @@
         "href": "AIP/quality-rules/1020092",
         "critical": false,
         "weight": 4,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020214,
+        "name": "Ensure to turn off and clear event listeners after component is destroyed",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020704,
+        "name": "Avoid using string concatenation when using __dirname and __filename",
+        "href": "AIP/quality-rules/1020704",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure Node.js filesystem are closed (TypeScript)",
+        "href": "AIP/quality-rules/1020892",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020894,
+        "name": "Avoid using string concatenation when using nodejs __dirname and __filename variables (TypeScript)",
+        "href": "AIP/quality-rules/1020894",
+        "critical": false,
+        "weight": 5,
         "technologyNames": [
             "HTML5"
         ]
@@ -534,6 +584,26 @@
         "weight": 8,
         "technologyNames": [
             "C++"
+        ]
+    },
+    {
+        "id": 1101086,
+        "name": "Always use VARCHAR2 and NVARCHAR2 instead of CHAR, VARCHAR or NCHAR",
+        "href": "AIP/quality-rules/1101086",
+        "critical": false,
+        "weight": 2,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101920,
+        "name": "Avoid using explain() in production code (JEE)",
+        "href": "AIP/quality-rules/1101920",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
         ]
     }
 ]

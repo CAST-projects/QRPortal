@@ -1,0 +1,212 @@
+{
+    "id": 1007244,
+    "name": "Avoid cross-site scripting - Improper Neutralization of script-related HTML tags in a web page (PHP)",
+    "href": "AIP/quality-rules/1007244",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "associatedValueName": "Reasoning",
+    "description": "A reflected cross-site scripting (XSS) vulnerability occurs when user input is embedded unsanitized into the HTML response page of the web application. It allows an attacker to inject arbitrary HTML or JavaScript code into the response page of a tampered request. Usually, this attack is performed by crafting a malicious link that is sent to a victim. When opened, the attacker's JavaScript payload within the link is reflected by the application and executed in the victim's browser in the context of the web application's domain. This enables the attacker to perform phishing attacks or to steal cookies associated with the domain.",
+    "output": "This report lists all artifacts that Improper Neutralization of script-related HTML tags in a web page which could expose application to XSS attack. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "The detected injection occurs between two HTML elements. An attacker can inject a new HTML element, such as the <script> element, to invoke the JavaScript interpreter and execute arbitrary JavaScript code.",
+    "reference": "https://cwe.mitre.org/data/definitions/80.html\nhttps://www.owasp.org/index.php/Cross-site_Scripting_(XSS)\nhttps://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet",
+    "remediation": "To prevent, the HTML markup characters < and > must be transformed to their corresponding HTML entities &lt; and &gt;. For this purpose, it is recommended to use the PHP built-in function htmlentities() or htmlspecialchars() that performs this transformation.",
+    "remediationSample": "<?php\n\necho(htmlspecialchars($_GET['a']));\n\n?>",
+    "sample": "<?php\n\necho($_GET['a']);\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid cross-site scripting - Improper Neutralization of script-related HTML tags in a web page (PHP)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062191,
+            "name": "ASCSM-CWE-79 - Cross-site Scripting Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062191",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061015,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1061015",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066179,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1066179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066180,
+            "name": "CWE-80 - Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)",
+            "href": "AIP/technical-criteria/1066180",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062303,
+            "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",
+            "href": "AIP/technical-criteria/1062303",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062327,
+            "name": "OWASP-2017-A7 - Cross-Site Scripting (XSS)",
+            "href": "AIP/technical-criteria/1062327",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063121,
+            "name": "PCI-Requirement-6.5.7 - Cross-site scripting (XSS)",
+            "href": "AIP/technical-criteria/1063121",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-79",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/CWE/items/CWE-79",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-80",
+            "name": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)",
+            "href": "AIP/quality-standards/CWE/items/CWE-80",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-79",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-79",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "href": "AIP/quality-standards/OWASP/items/A3-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "href": "AIP/quality-standards/OWASP/items/A7-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.7",
+            "name": "Cross-site scripting (XSS)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.7",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.7",
+            "name": "Cross-site scripting (XSS)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.7",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222602",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222602",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222602",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222602",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

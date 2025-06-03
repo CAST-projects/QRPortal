@@ -1,17 +1,22 @@
 {
     "id": 7488,
-    "name": "Use lazy fetching for collection",
+    "name": "DEPRECATED: Lazy fetching should be used for Hibernate collection",
     "href": "AIP/quality-rules/7488",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "description": "Reports all collection association (set, list, bag, idbag, map) that don't use lazy fetching strategy. This strategy is set through the lazy property set to \"true\".",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Field Name",
+    "description": "This rule reports all collection association (set, list, bag, idbag, map) that don't use lazy fetching strategy. This strategy is set through the lazy property set to \"true\".",
     "output": "List all Hibernate Entity Property and JPA Entity Property of type collection that does not use lazy fetching.\n\nIt provides the following information:\n Hibernate Entity Property Full Name or JPA Entity Property Full Name",
-    "rationale": "In a lazy association, the associated object or collection is fetched when it's first accessed. This results in a new request to the database (unless the associated object is cached). This option is almost always used for collection mappings (it should be the default, and we recommend that you consider it as a default for all your collection mappings). Generally, the performance benefits are such that you will want to use lazy instantiation wherever possible (compared with the massive task of reading in all of the entities concerned)\n\nWhen eager fetching is used, the associated object or collection is fetched together with the owning object, using an SQL outer join, and no further database request is required. But the issue is that it will always be done like this and if the number of row is high, the performance will be affected. \n\n It is more common to specify the use of this strategy (eager fetching) at runtime for a particular HQL or criteria query to avoid that a lazy fetching requires several queries.",
-    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 148",
-    "remediation": "When the table contains lot of rows, it is better to use a lazy fetching strategy and use a eager strategy at runtime for a particular HQL query, criteria query or JPQL query to avoid that the lazy fetching requires several queries.",
-    "remediationSample": "<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    // FIXED\n    <set name=\"b_items\" lazy=\"true\" table =\"B\"> \n      <key column=\"B_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n</hibernate-mapping>",
-    "sample": "<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    // VIOLATION (it could have been lazy = \"false\")\n    <set name=\"b_items\" table =\"B\"> \n      <key column=\"B_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n</hibernate-mapping>",
+    "rationale": "In a lazy association, the associated object or collection is fetched when it's first accessed. This results in a new request to the database (unless the associated object is cached). This option is almost always used for collection mappings (it should be the default, and we recommend that you consider it as a default for all your collection mappings). Generally, the performance benefits are such that you will want to use lazy instantiation wherever possible (compared with the massive task of reading in all of the entities concerned)\n\nWhen eager fetching is used, the associated object or collection is fetched together with the owning object, using an SQL outer join, and no further database request is required. But the issue is that it will always be done like this and if the number of rows is high, the performance will be affected.",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 148\nhttps://thoughts-on-java.org/entity-mappings-introduction-jpa-fetchtypes/\nhttps://howtodoinjava.com/hibernate/lazy-loading-in-hibernate/",
+    "remediation": "You need to make sure to use the right FetchType for your use case to avoid common Hibernate performance issues. For most use cases, the FetchType.LAZY is a good choice.\n\nEAGER fetching tells Hibernate to get the related entities with the initial query. This can be very efficient because all entities are fetched with only one query. But in most cases it just creates a huge overhead because you select entities you don\u2019t need in your use case.\n\nYou can prevent this with FetchType.LAZY. This tells Hibernate to delay the initialization of the relationship until you access it in your business code. The drawback of this approach is that Hibernate needs to execute an additional query to initialize each relationship.",
+    "remediationSample": "<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    // FIXED\n    <set name=\"b_items\" lazy=\"true\" table =\"B\"> \n      <key column=\"B_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n</hibernate-mapping>\n\nRemediation sample for Sample-2 (annotation)\n\n@Entity\n@Table(name = \"USER\")\npublic class UserLazy implements Serializable { \n    @Id\n    @GeneratedValue\n    @Column(name = \"USER_ID\")\n    private Long userId;\n \n    @OneToMany(fetch = FetchType.LAZY, mappedBy = \"user\")  //FIXED\n    private Set<OrderDetail> orderDetail = new HashSet();\n    //standard getters and setters\n}",
+    "sample": "<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    // VIOLATION \n    <set name=\"b_items\" lazy=\"false\" table =\"B\"> \n      <key column=\"B_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n</hibernate-mapping>\n\nSample-2 Using annotations\n\n@Entity\n@Table(name = \"USER\")\npublic class UserLazy implements Serializable { \n    @Id\n    @GeneratedValue\n    @Column(name = \"USER_ID\")\n    private Long userId;\n \n    @OneToMany(fetch = FetchType.EAGER, mappedBy = \"user\")  //VIOLATION\n    private Set<OrderDetail> orderDetail = new HashSet();\n    //standard getters and setters\n}",
     "total": "Number of Hibernate entity properties or JPA entity properties of type collection",
     "alternativeName": "Ensure to use a lazy fetching strategy when the table contains lot of rows",
     "businessCriteria": [
@@ -19,6 +24,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

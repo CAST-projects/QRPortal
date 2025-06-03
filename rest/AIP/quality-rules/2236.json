@@ -1,16 +1,20 @@
 {
     "id": 2236,
-    "name": "Avoid use of standard SQL API",
+    "name": "DEPRECATED: Avoid use of standard SQL API",
     "href": "AIP/quality-rules/2236",
     "critical": false,
     "severity": 10,
     "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of violation",
-    "description": "Reports all pages that reference a class, interface or method whose full qualified name begin with 'java.sql.' or 'javax.sql'",
+    "description": "The rule reports all pages that reference a class, interface or method whose full qualified name begin with 'java.sql.' or 'javax.sql'\n\nStandard SQL APIs java.sql.* and javax.sql.* are symptoms of direct access to tables.\n  ",
     "output": "This report lists all JSP pages using standard SQL APIs \nIt provides the following information: \n - Page name\n - the number of violation",
     "rationale": "Standard SQL APIs java.sql.* and javax.sql.* are symptoms of direct access to tables.",
     "remediation": "Review the architecture design to invoke the layer in charge of database access.",
-    "sample": "<%@ page import = \"java.sql.*\" %>\n<% Connection myConnection =null; //VIOLATION\n      Statement myStatement =null; //VIOLATION\n\n      ResultSet myResultSet =null; //VIOLATION\n\n      javax.sql.DataSource myDataSource = null; //VIOLATION\n%>\n\n// 4 violations will be reported",
+    "sample": "<%@ page import = \"java.sql.*\" %>\n<% Connection myConnection =null; //VIOLATION\n      Statement myStatement =null; //VIOLATION\n      ResultSet myResultSet =null; //VIOLATION\n      javax.sql.DataSource myDataSource = null; //VIOLATION\n%>\n\n// 4 violations will be reported",
     "total": "Number of JSP pages",
     "alternativeName": "Ensure that the architecture design of the application invoke the layer in charge of database access.",
     "businessCriteria": [

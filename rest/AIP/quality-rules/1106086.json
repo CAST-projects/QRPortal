@@ -1,0 +1,57 @@
+{
+    "id": 1106086,
+    "name": "Ensure Db2 Scalar Function CONCAT is not used",
+    "href": "AIP/quality-rules/1106086",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks the DB2 Scalar Function CONCAT is used in DB2 Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "As you decide to migrate from DB2 to PostgreSQL, it is important to note the changes to be taken care of during the migration process. Without adaptation, the SQL script won\u2019t compile on Postgresql, leading to error",
+    "reference": "https://www.sqlines.com/db2-to-postgresql\nhttps://wiki.postgresql.org/images/d/d1/DB2UDB-to-PG.pdf",
+    "remediation": "CONCAT: CONCAT is not available in PostgreSQL, only || works.",
+    "remediationSample": "A function CONCAT as given below can be created as a workaround in PostgreSQL.\n\nCREATE OR REPLACE FUNCTION \"concat\" (text, text) RETURNS text\nLANGUAGE sql AS $$\n SELECT $1 || $2;\n$$;\n\nSELECT 'A' || 'B' ,\n    CONCAT('A', 'B'),\n    'A' || 'B' || 'C'\n    CONCAT (CONCAT('A', 'B'),'C');",
+    "sample": "SELECT 'A' || 'B' ,\n    CONCAT('A', 'B'),\n    'A' || 'B' || 'C'\n    CONCAT (CONCAT('A', 'B'),'C');",
+    "total": "Number of Artifacts with SQL code",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61044,
+            "name": "Database Migration - DB2 Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61044",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

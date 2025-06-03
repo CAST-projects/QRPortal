@@ -5,7 +5,13 @@
     "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222577",
     "description": "Authenticity protection provides protection against man-in-the-middle attacks/session hijacking and the insertion of false information into sessions.\n\nApplication communication sessions are protected utilizing transport encryption protocols, such as SSL or TLS. SSL/TLS provides web applications with a means to be able to authenticate user sessions and encrypt application traffic. Session authentication can be single (one-way) or mutual (two-way) in nature. Single authentication authenticates the server for the client, whereas mutual authentication provides a means for both the client and the server to authenticate each other.\n\nThis requirement applies to applications that utilize communications sessions. This includes, but is not limited to, web-based applications and Service-Oriented Architectures (SOA).\n\nThis requirement addresses communications protection at the application session, versus the network packet, and establishes grounds for confidence at both ends of communications sessions in ongoing identities of other parties and in the validity of information transmitted. Depending on the required degree of confidentiality and integrity, web services/SOA will require the use of SSL/TLS mutual authentication (two-way/bidirectional).",
     "isoPatterns": null,
-    "count": 0,
-    "qualityRules": null,
-    "qualityTemplates": null
+    "count": 1,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222577/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222577/quality-templates"
+    }
 }

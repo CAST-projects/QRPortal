@@ -1,14 +1,18 @@
 {
     "id": 7240,
-    "name": "Action Classes should only call Business Classes",
+    "name": "DEPRECATED: Struts Action Classes should only call Business Classes",
     "href": "AIP/quality-rules/7240",
     "critical": false,
     "severity": 10,
     "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "description": "Find all Action Classes (inherit from org.apache.struts.action.Action class) that call other classes than Business Classes specified by a parameter.",
     "output": "This report lists all call from Action Classes to non Business packages (X)\nIt provides the following information:\n Action method full name",
     "rationale": "Struts is a Framework for building Model-View-Controller 2 Web applications. This model is the Blueprints recommended architectural design pattern for interactive applications. It separates design concerns (data persistence and behavior, presentation, and control), decreasing code duplication, centralizing control, and making the application more easily modifiable. MVC 2 also helps developers with different skill sets to focus on their core skills and collaborate through clearly defined interfaces.",
-    "remediation": "Review the design to follow this principle.",
+    "remediation": "Review the design of the classes to follow this principle.",
     "remediationSample": "call the business package that will call this package",
     "sample": "// If the package is BusinessPackage.*\n\nimport org.apache.struts.action.Action;\n\nPublic class BaseApplicationAction extends Action\n{\n   public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {\n   NotBusinessPackage.SomeClass notTheBusiness; // VIOLATION\n   }\n}",
     "total": "Number of Action Classes",

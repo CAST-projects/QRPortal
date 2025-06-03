@@ -21,7 +21,7 @@
     },
     {
         "id": 4600,
-        "name": "Avoid using 'java.System.exit()'",
+        "name": "Avoid using Exit and Halt Methods on a Web/Application Server",
         "href": "AIP/quality-rules/4600",
         "critical": false,
         "weight": 2,
@@ -51,7 +51,7 @@
     },
     {
         "id": 4656,
-        "name": "Avoid declaring throwing an exception and not throwing it",
+        "name": "Avoid declaring an exception in the method signature and not throwing it",
         "href": "AIP/quality-rules/4656",
         "critical": false,
         "weight": 6,
@@ -61,7 +61,7 @@
     },
     {
         "id": 4696,
-        "name": "Avoid using 'System.err' and 'System.out' within a try catch block",
+        "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' within a try catch block",
         "href": "AIP/quality-rules/4696",
         "critical": false,
         "weight": 6,
@@ -71,7 +71,7 @@
     },
     {
         "id": 4698,
-        "name": "Avoid using 'System.err' and 'System.out' outside a try catch block",
+        "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' outside a try catch block",
         "href": "AIP/quality-rules/4698",
         "critical": false,
         "weight": 6,
@@ -81,7 +81,7 @@
     },
     {
         "id": 4702,
-        "name": "Avoid using 'Throwable.printStackTrace()' outside a try catch block",
+        "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
         "href": "AIP/quality-rules/4702",
         "critical": false,
         "weight": 6,
@@ -91,7 +91,7 @@
     },
     {
         "id": 7640,
-        "name": "Avoid catch blocks with assertion",
+        "name": "Avoid using catch blocks with assertion",
         "href": "AIP/quality-rules/7640",
         "critical": false,
         "weight": 6,
@@ -161,7 +161,7 @@
     },
     {
         "id": 7910,
-        "name": "Never exit a finally block with a return, break, continue, or throw",
+        "name": "Never exit a finally block with a return, break, continue, or throw statements",
         "href": "AIP/quality-rules/7910",
         "critical": true,
         "weight": 8,
@@ -227,6 +227,16 @@
         ]
     },
     {
+        "id": 1020202,
+        "name": "Avoid getter functions of computed properties that do not return any value",
+        "href": "AIP/quality-rules/1020202",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020340,
         "name": "Always implement the success/error/complete or done/fail/always callbacks when using jQuery ajax call",
         "href": "AIP/quality-rules/1020340",
@@ -247,11 +257,151 @@
         ]
     },
     {
+        "id": 1020450,
+        "name": "Ensure catching Javascript error in React components",
+        "href": "AIP/quality-rules/1020450",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020452,
+        "name": "Avoid empty componentDidCatch blocks",
+        "href": "AIP/quality-rules/1020452",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020540,
         "name": "Avoid using $http success and error function",
         "href": "AIP/quality-rules/1020540",
         "critical": false,
         "weight": 8,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020700,
+        "name": "Avoid the lack of error handling in the Node.js callbacks",
+        "href": "AIP/quality-rules/1020700",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020702,
+        "name": "Avoid using nodejs process.exit()",
+        "href": "AIP/quality-rules/1020702",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020780,
+        "name": "Avoid using Node.js synchronous FileSystem API without try/catch block",
+        "href": "AIP/quality-rules/1020780",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020800,
+        "name": "Avoid jump statements in finally ",
+        "href": "AIP/quality-rules/1020800",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020802,
+        "name": "Avoid having errors without throwing them ",
+        "href": "AIP/quality-rules/1020802",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020822,
+        "name": "Always provide error callbacks when subscribing to HttpClient observables",
+        "href": "AIP/quality-rules/1020822",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020850,
+        "name": "Always handle errors when using ajax with RxJS",
+        "href": "AIP/quality-rules/1020850",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020856,
+        "name": "Ensure catching Typescript error in React components",
+        "href": "AIP/quality-rules/1020856",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020858,
+        "name": "Avoid empty componentDidCatch blocks (Typescript)",
+        "href": "AIP/quality-rules/1020858",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020872,
+        "name": "Always use JSON.parse & JSON.stringify with try/catch block (TypeScript)",
+        "href": "AIP/quality-rules/1020872",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020874,
+        "name": "Avoid the lack of error handling in the Node.js callbacks (TypeScript)",
+        "href": "AIP/quality-rules/1020874",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020876,
+        "name": "Avoid using nodejs process.exit() (TypeScript)",
+        "href": "AIP/quality-rules/1020876",
+        "critical": false,
+        "weight": 7,
         "technologyNames": [
             "HTML5"
         ]
@@ -377,6 +527,26 @@
         ]
     },
     {
+        "id": 1040030,
+        "name": "Avoid Using Generic Authentication Exception Class",
+        "href": "AIP/quality-rules/1040030",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040032,
+        "name": "Avoid Using ControllerAdvice And HandlerExceptionResolver simultaneously",
+        "href": "AIP/quality-rules/1040032",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1043076,
         "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data",
         "href": "AIP/quality-rules/1043076",
@@ -445,6 +615,56 @@
         "weight": 3,
         "technologyNames": [
             "C++"
+        ]
+    },
+    {
+        "id": 1101040,
+        "name": "Avoid empty catch blocks (SQL)",
+        "href": "AIP/quality-rules/1101040",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101052,
+        "name": "Use WHEN OTHERS in exception management (SQL)",
+        "href": "AIP/quality-rules/1101052",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101054,
+        "name": "Never use WHEN OTHERS THEN NULL",
+        "href": "AIP/quality-rules/1101054",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101092,
+        "name": "Avoid Procedures using an Insert, Update, Delete, Create Table or Select without including error management (SQL)",
+        "href": "AIP/quality-rules/1101092",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101094,
+        "name": "Avoid Stored Procedures not returning a status value (SQL)",
+        "href": "AIP/quality-rules/1101094",
+        "critical": false,
+        "weight": 6,
+        "technologyNames": [
+            "SQL"
         ]
     }
 ]

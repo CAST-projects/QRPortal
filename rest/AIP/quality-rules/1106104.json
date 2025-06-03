@@ -1,0 +1,57 @@
+{
+    "id": 1106104,
+    "name": "Ensure SYSIBM.SYSDUMMY1 table is not used",
+    "href": "AIP/quality-rules/1106104",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if SYSIBM.SYSDUMMY1 table is used in DB2 Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "As you decide to migrate from DB2 to PostgreSQL, it is important to note the changes to be taken care of during the migration process. Without adaptation, the SQL script won\u2019t compile on Postgresql, leading to error",
+    "reference": "https://severalnines.com/blog/migrating-db2-postgresql-what-you-should-know/",
+    "remediation": "There is no \u201cSYSIBM.SYSDUMMY1\u201d table in PostgreSQL. PostgreSQL allows a \u201cSELECT\u201d without \u201dFROM\u201d clause. You can remove this by using script.",
+    "remediationSample": "PostgreSQL:\n\nSELECT CEIL(123.89) ; \nSELECT CEILING(123.89) ;",
+    "sample": "SELECT CEIL(123.89) FROM SYSIBM.SYSDUMMY1; \nSELECT CEILING(123.89) FROM SYSIBM.SYSDUMMY1;",
+    "total": "Number of Artifacts with SQL code",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61044,
+            "name": "Database Migration - DB2 Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61044",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

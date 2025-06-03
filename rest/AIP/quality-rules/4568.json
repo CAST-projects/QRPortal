@@ -1,14 +1,20 @@
 {
     "id": 4568,
-    "name": "Avoid declaring Public Instance Variables",
+    "name": "DEPRECATED: Avoid declaring Public Instance Variables",
     "href": "AIP/quality-rules/4568",
     "critical": true,
     "severity": 20,
     "maxWeight": 7,
-    "description": "Public Instance Variables should not be used. Instance Variables are Non Static Fields.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "A public instance variable is just an instance variable that is public. That is, you are allowed to use the instance variable from outside the class. \nThis rule reports a violation when Public Instance Variable is detected in source files.\n\nInstance Variables are Non Static Fields.",
     "output": "This report lists all Public and Non Static Fields. It provides the following information: Field full name",
     "rationale": "A Public Instance Variable can be accessed by any other Class, therefore its value can be modified at any time, without control by the Class itself. This is contrary to OO Encapsulation concepts.",
-    "remediation": "Change the Field's visibility or make it Static Final.",
+    "remediation": "Ensure to declare instance variables as 'private' in order to obey Encapsulation.",
+    "remediationSample": "Change the Field's visibility or make it Static Final.",
+    "sample": "public class Person {\n    public int age;\n    public String hairColor;\n}",
     "total": "Number of Java attributes",
     "alternativeName": "Prefer using Protected or Private Instance Variables to control the accessibility",
     "businessCriteria": [

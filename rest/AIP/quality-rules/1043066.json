@@ -21,12 +21,66 @@
     "alternativeName": "Ensure you enforce HTTPS in your ASP.NET core application",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
             "id": 60016,
             "name": "Security",
             "href": "AIP/business-criteria/60016"
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066419,
+            "name": "CWE-319 - Cleartext Transmission of Sensitive Information",
+            "href": "AIP/technical-criteria/1066419",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066623,
+            "name": "CWE-523 - Unprotected Transport of Credentials",
+            "href": "AIP/technical-criteria/1066623",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",

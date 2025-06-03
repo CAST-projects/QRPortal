@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/7368",
     "critical": false,
     "severity": 10,
-    "maxWeight": 2,
+    "maxWeight": 5,
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for Cobol programs in which binary numeric data are not defined with the SYNCHRONIZED clause.\n\nThe SYNCHRONIZED clause can be used on the data declaration itself or on the declaration of its parent structure.",
     "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - Binary numeric data definition that is not used with the SYNC clause",
@@ -20,6 +20,16 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
         },
         {
             "id": 66031,
@@ -38,6 +48,13 @@
             "name": "Efficiency - Memory, Network and Disk Space Management",
             "href": "AIP/technical-criteria/61018",
             "weight": 2,
+            "critical": false
+        },
+        {
+            "id": 1062201,
+            "name": "MIPS-Reduction - focus on algorithmic costs",
+            "href": "AIP/technical-criteria/1062201",
+            "weight": 5,
             "critical": false
         }
     ],

@@ -1,0 +1,223 @@
+{
+    "id": 1007260,
+    "name": "DEPRECATED: CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)",
+    "href": "AIP/quality-rules/1007260",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "associatedValueName": "Reasoning",
+    "description": "A command execution vulnerability occurs when user input is embedded unsanitized into a system command. It allows an attacker to terminate the intended command and to append arbitrary system commands for execution. Common character sequences to separate commands are semicolons (;), boolean operators (&|), $(subcommands), `backticks`, and newline characters (%0a).",
+    "output": "This report lists all artifacts that allow command injection through use of unsanitized user input. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "Allowing command injection can lead allows an attacker to terminate the intended command and to append arbitrary system commands for execution.",
+    "reference": "https://cwe.mitre.org/data/definitions/78.html\nhttps://www.owasp.org/index.php/Command_Injection",
+    "remediation": "It is highly recommended to avoid invoking system commands from a web application whenever possible. If must, user input should be sanitized with built-in function escapeshellcmd() on the whole command or by escaping all command arguments with the built-in function escapeshellarg().",
+    "remediationSample": "<?php\n\n$pass = $_GET[\"password\"];\nexec(\"/bin/cat /usr/share/dict/words | grep \" . escapeshellcmd($pass), $output, $status);\n\n?>",
+    "sample": "<?php\n\n$pass = $_GET[\"password\"];\nexec(\"/bin/cat /usr/share/dict/words | grep \" . $pass, $output, $status);\n\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "DEPRECATED: CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062189,
+            "name": "ASCSM-CWE-78 - OS Command Injection Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062189",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061014,
+            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/technical-criteria/1061014",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066178,
+            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/technical-criteria/1066178",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-78",
+            "name": "OS Command Injection Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-78",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-78",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-78",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-78",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API10-2023",
+            "name": "Unsafe Consumption of APIs",
+            "href": "AIP/quality-standards/OWASP/items/API10-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222604",
+            "name": "The application must protect from command injection.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222604",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222604",
+            "name": "The application must protect from command injection.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222604",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -22,12 +22,32 @@
     },
     {
         "id": 8104,
-        "name": "Close database resources ASAP",
+        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1020214,
+        "name": "Ensure to turn off and clear event listeners after component is destroyed",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021026,
+        "name": "Avoid leaving open file resources (Python)",
+        "href": "AIP/quality-rules/1021026",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
         ]
     }
 ]

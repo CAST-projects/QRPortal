@@ -2,20 +2,34 @@
     "id": 8220,
     "name": "Avoid using deprecated method, constructor, field, type or package",
     "href": "AIP/quality-rules/8220",
-    "critical": true,
-    "severity": 20,
+    "critical": false,
+    "severity": 10,
     "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of violation occurrences",
-    "description": "A violation is reported if a deprecated class, method, field variable or type used/called in the java code:\n   ",
-    "output": "A violation is reported if a deprecated java entity is used/called by a method, constructor, field or type. \n  ",
-    "rationale": "The purpose is to avoid to use the deprecated  enity as currently good and appropriate new version of the same is available. The deprecated entity may be dropped sometime in near future without any intimation.\n",
-    "reference": "https://stackoverflow.com/questions/9031832/how-to-declare-or-mark-a-java-method-as-deprecated\n             https://stackoverflow.com/questions/14627313/what-does-deprecated-mean-on-method-parameters-and-local-variables\n",
-    "remediation": "Check the documentation of the deprecated entity and avoid not to use the same. Some other way can be approached or new method, type or class can be used instead",
-    "remediationSample": " \n-Sample 1\nprivate void dumpResponse(ServerResponse response) {\n  \n  try {\n    String resp = new String(response.getByteArray());\n    logger.debug(\"Response Dump: \"+resp);\n    response.setResponseStream(new StringBufferInputStream(resp)); // as StringBufferInputStream is Deprecated the preferred way to create a stream from a string is via the StringReader class.\n  } catch (CommunicationException e) {\n    e.printStackTrace();\n  }\n  \n}\n \n---------------------------------------------------------------------------------\npublic class MyTest {\n  \n  public static void main(String[] args) {\n    \n    List list = new List();\n    list.addItem(\"MyItemOne\"); // addItem is deprecated use add\n    list.addItem(\"MyItemTwo\"); // addItem is deprecated use add\n    list.addItem(\"MyItemThree\"); // addItem is deprecated use add\n    \n    list.clear(); // clear is deprecated use removeall\n  }\n}\n\n",
-    "sample": " class Test\n            {\n                public void funUsingDerecatedField()\n                {\n                    value = 10;\n                }\n                @Deprecated\n                int value;\n            }\n            public class DeprecatedUse {\n                public static void main(String[] args) {\n                      Test obj = new Test();\n            obj.funUsingDerecatedField(); // VIOLATION as function using a deprecated field is called\n                }\n            }\n           \n",
+    "description": "A violation is reported if a deprecated class, method, field variable or type used/called in the java code.",
+    "output": "A violation is reported if a deprecated java entity is used/called by a method, constructor, field or type.",
+    "rationale": "The purpose is to avoid using the deprecated  entity as currently good and appropriate new version of the same is available. The deprecated entity may be dropped sometime in the near future without any notice.",
+    "reference": "https://docs.oracle.com/javase/1.5.0/docs/guide/javadoc/deprecation/deprecation.html\nhttp://cwe.mitre.org/data/definitions/477.html\nhttps://wiki.sei.cmu.edu/confluence/display/java/MET02-J.+Do+not+use+deprecated+or+obsolete+classes+or+methods",
+    "remediation": "Check the documentation of the deprecated entity and avoid using the same. Some other way can be approached or new method, type or class can be used instead.",
+    "remediationSample": "-Sample 1\nprivate void dumpResponse(ServerResponse response) {\n  \n  try {\n    String resp = new String(response.getByteArray());\n    logger.debug(\"Response Dump: \"+resp);\n    response.setResponseStream(nnew ByteArrayInputStream('resp'.getBytes(\"UTF-8\"));\n    // StringBufferInputStream is deprecated because it does not convert characters into bytes properly. You can use ByteArrayInputStream instead\n  } catch (CommunicationException e) {\n    e.printStackTrace();\n  }\n  \n}\n \n---------------------------------------------------------------------------------\npublic class MyTest {\n  \n  public static void main(String[] args) {\n    \n    List list = new List();\n    list.add(\"MyItemOne\"); // add is used instead of addItem()\n    list.add(\"MyItemTwo\"); \n    list.add(\"MyItemThree\"); \n    \n    list.removeall(); //  removeall is used instead of clear()\n  }\n}",
+    "sample": "class Test\n            {\n                public void funUsingDerecatedField()\n                {\n                    value = 10;\n                }\n                @Deprecated\n                int value;\n            }\n            public class DeprecatedUse {\n                public static void main(String[] args) {\n                      Test obj = new Test();\n            obj.funUsingDeprecatedField(); // VIOLATION as function using a deprecated field is called\n                }\n            }\n\n\nFile_Save_Service.saveFileDialog(null,null,new StringBufferInputStream(\"testing\"),null);\n\n---------------------------------------------------------------------------------------------------\n\npublic class MyTest {\n  \n  public static void main(String[] args) {\n    \n    List list = new List();\n    list.addItem(\"MyItemOne\"); // Violation as addItem is deprecated\n    list.addItem(\"MyItemTwo\"); \n    list.addItem(\"MyItemThree\"); \n    \n    list.clear(); //  Violation as clear() is deprecated\n  }\n}",
     "total": "Number of Java Artifacts",
     "alternativeName": "Prefer not using deprecated methods, constructors, fields, type or packages",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
         {
             "id": 60013,
             "name": "Robustness",
@@ -29,11 +43,60 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066577,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1066577",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062309,
+            "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062309",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062329,
+            "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062329",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062346,
+            "name": "OWASP-2021-A06 - Vulnerable and Outdated Components",
+            "href": "AIP/technical-criteria/1062346",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063156,
+            "name": "PCI-DSS4-Requirement-6.3.2 - An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/technical-criteria/1063156",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",
             "href": "AIP/technical-criteria/66069",
             "weight": 6,
-            "critical": true
+            "critical": false
         }
     ],
     "technologies": [

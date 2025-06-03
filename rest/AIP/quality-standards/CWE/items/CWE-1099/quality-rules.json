@@ -589,6 +589,7 @@
         "severity": 10,
         "technologyNames": [
             "Forms",
+            "FormsReportAnalyzer",
             "Visual Basic"
         ]
     },
@@ -600,8 +601,10 @@
         "severity": 10,
         "technologyNames": [
             "Forms",
+            "FormsReportAnalyzer",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL"
         ]
@@ -629,6 +632,7 @@
             "Microsoft T-SQL",
             "PL/SQL",
             "SAP SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL"
         ]
@@ -643,6 +647,7 @@
             "Microsoft T-SQL",
             "PL/SQL",
             "SAP SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL"
         ]
@@ -656,6 +661,7 @@
         "technologyNames": [
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL"
         ]
@@ -668,8 +674,10 @@
         "severity": 10,
         "technologyNames": [
             "Forms",
+            "FormsReportAnalyzer",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL"
         ]
@@ -694,6 +702,246 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1001072,
+        "name": "Avoid Functions and Procedures having bad naming convention (PL1)",
+        "href": "AIP/quality-rules/1001072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001078,
+        "name": "Avoid having Copybooks with reserved prefix (PL1)",
+        "href": "AIP/quality-rules/1001078",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1005032,
+        "name": "Avoid having Programs without a naming convention(EGL)",
+        "href": "AIP/quality-rules/1005032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005034,
+        "name": "Avoid having SQL Records without a naming convention (EGL)",
+        "href": "AIP/quality-rules/1005034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005036,
+        "name": "Avoid having Records without a naming convention (EGL)",
+        "href": "AIP/quality-rules/1005036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005086,
+        "name": "Avoid functions having creator to prefix table names in SQL statements and in SQL records (EGL)",
+        "href": "AIP/quality-rules/1005086",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1007072,
+        "name": "Avoid files with names not following naming convention (PHP)",
+        "href": "AIP/quality-rules/1007072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007074,
+        "name": "Avoid having Methods and Functions without naming convention (PHP)",
+        "href": "AIP/quality-rules/1007074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007212,
+        "name": "Avoid having variables without naming conventions (PHP)",
+        "href": "AIP/quality-rules/1007212",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1021062,
+        "name": "Respect variable naming conventions",
+        "href": "AIP/quality-rules/1021062",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021064,
+        "name": "Respect function naming conventions",
+        "href": "AIP/quality-rules/1021064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021066,
+        "name": "Respect class naming conventions",
+        "href": "AIP/quality-rules/1021066",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1101042,
+        "name": "Table naming convention - character set control (SQL)",
+        "href": "AIP/quality-rules/1101042",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101044,
+        "name": "View naming convention - character set control (SQL)",
+        "href": "AIP/quality-rules/1101044",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101046,
+        "name": "Package naming convention - prefix control (SQL)",
+        "href": "AIP/quality-rules/1101046",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101048,
+        "name": "Package Function naming convention - prefix control (SQL)",
+        "href": "AIP/quality-rules/1101048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101050,
+        "name": "Package Stored Procedure naming convention - prefix control (SQL)",
+        "href": "AIP/quality-rules/1101050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1521700,
+        "name": "Siebel: Table's name should have a designated prefix like XX_LABEL",
+        "href": "AIP/quality-rules/1521700",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521702,
+        "name": "Siebel: Business Component's name should begin with Company prefix",
+        "href": "AIP/quality-rules/1521702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521704,
+        "name": "Siebel: Applet's name should begin with Company prefix",
+        "href": "AIP/quality-rules/1521704",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521706,
+        "name": "Siebel: View's name should begin with Company prefix",
+        "href": "AIP/quality-rules/1521706",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521708,
+        "name": "Siebel: Screen's name should begin with Company prefix",
+        "href": "AIP/quality-rules/1521708",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521710,
+        "name": "Siebel: Business Object's name should begin with Company prefix",
+        "href": "AIP/quality-rules/1521710",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521712,
+        "name": "Siebel: Business Service's name should begin with Company prefix",
+        "href": "AIP/quality-rules/1521712",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
         ]
     },
     {

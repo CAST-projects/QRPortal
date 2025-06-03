@@ -3,8 +3,8 @@
         "id": 4598,
         "name": "Avoid using 'java.lang.Runtime.exec()'",
         "href": "AIP/quality-rules/4598",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -180,6 +180,16 @@
         ]
     },
     {
+        "id": 1007260,
+        "name": "DEPRECATED: CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)",
+        "href": "AIP/quality-rules/1007260",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1020058,
         "name": "Avoid using eval() (Javascript)",
         "href": "AIP/quality-rules/1020058",
@@ -197,6 +207,108 @@
         "severity": 20,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020808,
+        "name": "Avoid using eval() (Typescript)",
+        "href": "AIP/quality-rules/1020808",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020860,
+        "name": "Avoid using setInterval() (TypeScript)",
+        "href": "AIP/quality-rules/1020860",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021036,
+        "name": "Avoid using eval (Python)",
+        "href": "AIP/quality-rules/1021036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021038,
+        "name": "Avoid using exec (Python)",
+        "href": "AIP/quality-rules/1021038",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1034006,
+        "name": "Avoid OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034012,
+        "name": "Avoid reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034026,
+        "name": "Avoid second order code injection (PHP)",
+        "href": "AIP/quality-rules/1034026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034030,
+        "name": "Avoid second order OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034046,
+        "name": "Avoid second order reflection injection (PHP)",
+        "href": "AIP/quality-rules/1034046",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
         ]
     }
 ]

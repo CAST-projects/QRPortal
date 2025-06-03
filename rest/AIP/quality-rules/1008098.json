@@ -1,0 +1,68 @@
+{
+    "id": 1008098,
+    "name": "Use the corresponding END statement such as ENDIF, ENDDO instead of plain END statement (RPG400)",
+    "href": "AIP/quality-rules/1008098",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.rpg",
+        "href": "AIP/extensions/com.castsoftware.rpg"
+    },
+    "description": "This rule searches all the artifacts using plain END statements instead of corresponding END statement such as ENDIF, ENDDO etc.",
+    "output": "This report lists RPG400 artefact using plain END statement, instead of corresponding END statement such as ENDIF, ENDDO, etc.\nIt provides the following information:\nRPG400 artifact full name",
+    "rationale": "Using corresponding END statement such as ENDIF, ENDDO increases readability of the code and therefore maintainability.",
+    "remediation": "Try to replace the plain END with the corresponding END statement such as ENDIF, ENDDO etc.",
+    "total": "Total number of RPG400 Artefact",
+    "alternativeName": "Use the corresponding END statement such as ENDIF, ENDDO instead of plain END statement (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

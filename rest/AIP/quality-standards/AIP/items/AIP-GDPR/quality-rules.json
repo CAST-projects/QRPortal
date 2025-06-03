@@ -1,7 +1,7 @@
 [
     {
         "id": 4702,
-        "name": "Avoid using 'Throwable.printStackTrace()' outside a try catch block",
+        "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
         "href": "AIP/quality-rules/4702",
         "critical": false,
         "severity": 10,
@@ -123,7 +123,7 @@
     },
     {
         "id": 8218,
-        "name": "Content type should be checked when receiving a HTTP Post",
+        "name": "DEPRECATED: Content type should be checked when receiving a HTTP Post",
         "href": "AIP/quality-rules/8218",
         "critical": true,
         "severity": 30,
@@ -624,6 +624,126 @@
         ]
     },
     {
+        "id": 8570,
+        "name": "Avoid Calling RFC Function Module without Authorization Check",
+        "href": "AIP/quality-rules/8570",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8572,
+        "name": "Avoid using SUBMIT statement with another user permission",
+        "href": "AIP/quality-rules/8572",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8576,
+        "name": "Avoid using OPEN DATASET without Authorization Check",
+        "href": "AIP/quality-rules/8576",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8578,
+        "name": "Avoid using MODIFY without Authorization Check",
+        "href": "AIP/quality-rules/8578",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8580,
+        "name": "Avoid using GENERATE SUBROUTINE POOL statement without Authorization Check",
+        "href": "AIP/quality-rules/8580",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8582,
+        "name": "Avoid Dynamic Function/Method call without Authorization Check",
+        "href": "AIP/quality-rules/8582",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 1007248,
+        "name": "Use sufficient SSL\\TLS context (PHP)",
+        "href": "AIP/quality-rules/1007248",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007272,
+        "name": "DEPRECATED: CWE-384: Avoid Session Fixation (PHP)",
+        "href": "AIP/quality-rules/1007272",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007276,
+        "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
+        "href": "AIP/quality-rules/1007276",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007278,
+        "name": "DEPRECATED: CWE-328: Avoid weak hash functions (PHP)",
+        "href": "AIP/quality-rules/1007278",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007282,
+        "name": "DEPRECATED: CWE-614: Avoid Cookie Misconfiguration (secure flag) (PHP)",
+        "href": "AIP/quality-rules/1007282",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007284,
+        "name": "DEPRECATED: CWE-200: Avoid Cookie Misconfiguration (httpOnly flag) (PHP)",
+        "href": "AIP/quality-rules/1007284",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1019004,
         "name": "Avoid to set client credential type other than Certificate or Windows when using message mode",
         "href": "AIP/quality-rules/1019004",
@@ -694,6 +814,36 @@
         ]
     },
     {
+        "id": 1020218,
+        "name": "Avoid using unsecured cookie (Vue.js)",
+        "href": "AIP/quality-rules/1020218",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020222,
+        "name": "Avoid creating cookie with overly broad domain (Vue.js)",
+        "href": "AIP/quality-rules/1020222",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020458,
+        "name": "Avoid using unsecured cookie (React.js)",
+        "href": "AIP/quality-rules/1020458",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020554,
         "name": "Avoid using unsecured cookie (AngularJS)",
         "href": "AIP/quality-rules/1020554",
@@ -711,6 +861,336 @@
         "severity": 20,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020614,
+        "name": "Prefer using sap.base.Log Instead of console.log (SAPUI5)",
+        "href": "AIP/quality-rules/1020614",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020720,
+        "name": "Avoid unsecure connection to the Node.js server",
+        "href": "AIP/quality-rules/1020720",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020726,
+        "name": "Ensure that CSRF Protection is enabled (Node.js)",
+        "href": "AIP/quality-rules/1020726",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020732,
+        "name": "Avoid using risky cryptographic hash (Node.js)",
+        "href": "AIP/quality-rules/1020732",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020734,
+        "name": "Avoid using unsecured cookie (Node.js)",
+        "href": "AIP/quality-rules/1020734",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020738,
+        "name": "Avoid disabling SSL verification in node-curl",
+        "href": "AIP/quality-rules/1020738",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020742,
+        "name": "Avoid creating cookie with overly broad domain (Node.js)",
+        "href": "AIP/quality-rules/1020742",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020818,
+        "name": "Avoid disabling xsrf check in HttpClientXsrfModule",
+        "href": "AIP/quality-rules/1020818",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Avoid hard-coded passwords (TypeScript)",
+        "href": "AIP/quality-rules/1020820",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020862,
+        "name": "Avoid having cookie with an overly broad domain (TypeScript)",
+        "href": "AIP/quality-rules/1020862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020864,
+        "name": "Avoid using unsecured cookie (TypeScript)",
+        "href": "AIP/quality-rules/1020864",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020866,
+        "name": "Avoid creating cookie with overly broad path (TypeScript)",
+        "href": "AIP/quality-rules/1020866",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020868,
+        "name": "Avoid creating cookie without setting httpOnly option (TypeScript)",
+        "href": "AIP/quality-rules/1020868",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020886,
+        "name": "Avoid using unsecured cookie with express (TypeScript)",
+        "href": "AIP/quality-rules/1020886",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020888,
+        "name": "Avoid unsecure connection to the express Node.js server (TypeScript)",
+        "href": "AIP/quality-rules/1020888",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020890,
+        "name": "Ensure that CSRF Protection is enabled when using express (TypeScript)",
+        "href": "AIP/quality-rules/1020890",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020896,
+        "name": "Avoid using risky cryptographic hash with nodejs (TypeScript)",
+        "href": "AIP/quality-rules/1020896",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020920,
+        "name": "Avoid disabling SSL verification in node-curl (TypeScript)",
+        "href": "AIP/quality-rules/1020920",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020950,
+        "name": "Avoid providing password in Web Service URL",
+        "href": "AIP/quality-rules/1020950",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1021042,
+        "name": "Avoid hard-coded passwords (Python)",
+        "href": "AIP/quality-rules/1021042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021050,
+        "name": "Avoid using unsecured cookie (Python)",
+        "href": "AIP/quality-rules/1021050",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021090,
+        "name": "Avoid using insufficient random generator (Python)",
+        "href": "AIP/quality-rules/1021090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021096,
+        "name": "Avoid second order LDAP injection (Python)",
+        "href": "AIP/quality-rules/1021096",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021098,
+        "name": "Avoid HTTP header injection (Python)",
+        "href": "AIP/quality-rules/1021098",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021104,
+        "name": "Avoid file path manipulation (Python)",
+        "href": "AIP/quality-rules/1021104",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021106,
+        "name": "Avoid server-side request forgery (Python)",
+        "href": "AIP/quality-rules/1021106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021114,
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
+        "href": "AIP/quality-rules/1021114",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021118,
+        "name": "Avoid disabling CSRF Protection in fastapi_jwt_auth",
+        "href": "AIP/quality-rules/1021118",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021120,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
+        "href": "AIP/quality-rules/1021120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021126,
+        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for Flask (Python)",
+        "href": "AIP/quality-rules/1021126",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021128,
+        "name": "Always protect against CSRF in Flask application",
+        "href": "AIP/quality-rules/1021128",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021136,
+        "name": "Always protect against CSRF in FastAPI application",
+        "href": "AIP/quality-rules/1021136",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1022002,
+        "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding)",
+        "href": "AIP/quality-rules/1022002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -834,6 +1314,90 @@
         ]
     },
     {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025002,
+        "name": "Avoid second order XPath injection",
+        "href": "AIP/quality-rules/1025002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025010,
+        "name": "Avoid second order LDAP injection",
+        "href": "AIP/quality-rules/1025010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025058,
+        "name": "Avoid numeric user inputs in SQL queries",
+        "href": "AIP/quality-rules/1025058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025060,
+        "name": "Avoid second order numeric user inputs in SQL queries",
+        "href": "AIP/quality-rules/1025060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025062,
+        "name": "Avoid numeric user inputs in SQL queries through API requests",
+        "href": "AIP/quality-rules/1025062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027008,
         "name": "Always Revert After Impersonation",
         "href": "AIP/quality-rules/1027008",
@@ -864,6 +1428,316 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1030002,
+        "name": "Avoid using \"Throwable.printStackTrace()\" with no argument (Kotlin)",
+        "href": "AIP/quality-rules/1030002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030014,
+        "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) (Kotlin)",
+        "href": "AIP/quality-rules/1030014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030016,
+        "name": "Avoid hard-coded passwords and credentials (Kotlin)",
+        "href": "AIP/quality-rules/1030016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1034000,
+        "name": "Avoid SQL injection (PHP)",
+        "href": "AIP/quality-rules/1034000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034004,
+        "name": "Avoid LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034014,
+        "name": "Avoid file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034014",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034020,
+        "name": "Avoid HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034026,
+        "name": "Avoid second order code injection (PHP)",
+        "href": "AIP/quality-rules/1034026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034028,
+        "name": "Avoid second order LDAP injection (PHP)",
+        "href": "AIP/quality-rules/1034028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034036,
+        "name": "Avoid second order file path manipulation (PHP)",
+        "href": "AIP/quality-rules/1034036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034042,
+        "name": "Avoid second order HTTP header injection (PHP)",
+        "href": "AIP/quality-rules/1034042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034048,
+        "name": "Avoid using insufficient random generator (PHP)",
+        "href": "AIP/quality-rules/1034048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034050,
+        "name": "Avoid XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034052,
+        "name": "Avoid second order XPath injection (PHP)",
+        "href": "AIP/quality-rules/1034052",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034070,
+        "name": "Ensure strict mode is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034070",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034072,
+        "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)",
+        "href": "AIP/quality-rules/1034072",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1039006,
+        "name": "Avoid using predictable SecureRandom Seeds",
+        "href": "AIP/quality-rules/1039006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039010,
+        "name": "Avoid using risky cryptographic hash (JEE)",
+        "href": "AIP/quality-rules/1039010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039012,
+        "name": "Avoid using referer header field in HTTP request",
+        "href": "AIP/quality-rules/1039012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039014,
+        "name": "Avoid using Cipher with no HMAC to ensure data integrity",
+        "href": "AIP/quality-rules/1039014",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039018,
+        "name": "Avoid using cryptography hash with hard-coded salt",
+        "href": "AIP/quality-rules/1039018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039020,
+        "name": "Avoid using javax.crypto.NullCipher",
+        "href": "AIP/quality-rules/1039020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039022,
+        "name": "Avoid using Insecure PBE Iteration Count",
+        "href": "AIP/quality-rules/1039022",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039024,
+        "name": "Avoid using unsecured cookie (JEE)",
+        "href": "AIP/quality-rules/1039024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039028,
+        "name": "Avoid weak encryption providing not sufficient key size (JEE)",
+        "href": "AIP/quality-rules/1039028",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039030,
+        "name": "Avoid using DefaultHttpClient constructor",
+        "href": "AIP/quality-rules/1039030",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039052,
+        "name": "Avoid Http Session without expiration",
+        "href": "AIP/quality-rules/1039052",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039076,
+        "name": "Avoid using HttpURLConnection with HTTP protocol",
+        "href": "AIP/quality-rules/1039076",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Ensure secure option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039098",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040002,
+        "name": "Avoid disabling CSRF Protection (Spring Security)",
+        "href": "AIP/quality-rules/1040002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040012,
+        "name": "HTTP user session must be invalidated during logout",
+        "href": "AIP/quality-rules/1040012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -1033,6 +1907,106 @@
         "severity": 30,
         "technologyNames": [
             "Objective-C"
+        ]
+    },
+    {
+        "id": 1055000,
+        "name": "Avoid using unsecured cookie (Swift)",
+        "href": "AIP/quality-rules/1055000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055006,
+        "name": "Avoid weak cryptographic hash (Swift)",
+        "href": "AIP/quality-rules/1055006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055008,
+        "name": "Avoid weak encryption key size (Swift)",
+        "href": "AIP/quality-rules/1055008",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055012,
+        "name": "Avoid using deprecated SSL protocol (Swift)",
+        "href": "AIP/quality-rules/1055012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055014,
+        "name": "Ensure that LAContext evaluatePolicy reply block is not empty (Swift)",
+        "href": "AIP/quality-rules/1055014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055016,
+        "name": "Ensure that LAContext evaluatePolicy reply block success is checked (Swift)",
+        "href": "AIP/quality-rules/1055016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055018,
+        "name": "Always use LAContext canEvaluatePolicy before using evaluatePolicy (Swift)",
+        "href": "AIP/quality-rules/1055018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055036,
+        "name": "Avoid hard-coded passwords (Swift)",
+        "href": "AIP/quality-rules/1055036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055038,
+        "name": "Avoid weak encryption algorithm (Swift)",
+        "href": "AIP/quality-rules/1055038",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055044,
+        "name": "Avoid using cryptography hash without salt (Swift)",
+        "href": "AIP/quality-rules/1055044",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
         ]
     },
     {

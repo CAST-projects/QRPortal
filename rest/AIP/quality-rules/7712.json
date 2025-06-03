@@ -1,20 +1,29 @@
 {
     "id": 7712,
-    "name": "Avoid public/protected setter for the generated identifier field",
+    "name": "DEPRECATED: Avoid public/protected setter for the generated identifier field",
     "href": "AIP/quality-rules/7712",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "description": "Report all the setter methods of a persistent class that set the primary key and is not declared as private except in the case where the identifier must be set by the application. This field is determined by the <id> element in the mapping document (in the hibernate mapping XML files or the orm.xml file of JPA) or the @Id annotation in JPA. This field must be set by the application when:\n- the property: generator class is set to \"assigned\" \n- or when the annotation @GeneratedValue (javax.persitence.GeneratedValue) has not been set for the identifier field\n- or when the attribute generated-value has not been set for the identifier field in the orm.xml file\n\nExample: \n- hibernate standard\n<id name=\"username\" column=\"USERNAME\">\n      <generator class=\"assigned\"/>\n</id>\n\n- JPA annotation\n@Id\n// No @GeneratedValue declaration\nString username;\n\n- JPA with orm.xml file\n<id name=\"username\">\n    <column name=\"USERNAME\"/>\n    <!-- no generated-value declaration -->\n</id>",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule report all the setter methods of a persistent class that set the primary key and NOT declared as private \n\nThe exceptions to this rule are where the identifier must be set by the application  ( Instead of set by Hibernate, another JPA implementation or by other provider). \n\nThe field is determined by the <id> element in the mapping document (in the hibernate mapping XML files or the orm.xml file of JPA) or the @Id annotation in JPA. \n\nThis field must be set by the application when:\n\n- the property: generator class is set to \"assigned\" \n- or when the annotation @GeneratedValue (javax.persistence.GeneratedValue) has not been set for the identifier field\n- or when the attribute generated-value has not been set for the identifier field in the orm.xml file\n\nExample: \n- hibernate standard\n<id name=\"username\" column=\"USERNAME\">\n      <generator class=\"assigned\"/>\n</id>\n\n- JPA annotation\n@Id\n// No @GeneratedValue declaration\nString username;\n\n- JPA with orm.xml file\n<id name=\"username\">\n    <column name=\"USERNAME\"/>\n    <!-- no generated-value declaration -->\n</id>",
     "output": "List all setter methods of a persistent class that set the primary key and is not declared as private.\n\nIt provides the following information:\n Method full name",
     "rationale": "A primary key value must never change after it's first assigned. Since it is a generated key, it is automatically set by Hibernate, another JPA implementation or by other provider.\nThe actual behavior when an application tries to modify the value of a primary key is not defined.",
     "reference": "Hibernate in Action (ISBN 1932394-15-X) p 89\nJava Persistence with Hibernate (ISBN 1-932394-88-5) p 163\nThe Java Persistence API ( ISBN 1-932394-88-5) p 163, 416\nhttp://docs.jboss.org/hibernate/core/3.3/reference/en/html/tutorial.html#tutorial-firstapp-firstclass\nhttp://burtbeckwith.com/blog/?p=53",
-    "remediation": "Set the setter method as private.",
+    "remediation": "Usually declare the setter method private",
     "remediationSample": "------> Sample.java:\npublic class Sample {\n   private long id;\n...\n\n  private void setId(long id) { // FIXED\n     this.id = id;\n  }\n\n   public Long getId() {\n      return id;\n   }\n}",
     "sample": "------> sample.hbm.xml:\n...\n<class name=\"Sample\" table=\"SAMPLE\">\n           <id name=\"id\" column=\"id\" type=\"long\">\n                  <generator class=\"sequence\"/>\n           </id>\n           ...\n</class>\n\n------> Sample.java:\npublic class Sample {\n   private long id;\n...\n\n  public void setId(long id) { // VIOLATION\n     this.id = id;\n  }\n\n   public Long getId() {\n      return id;\n   }\n}",
     "total": "Number of setter methods of a persistent class that set the primary key",
     "alternativeName": "Usually declare the setId() method private and let Hibernate/JPA generate and set the identifier value",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 60013,
             "name": "Robustness",

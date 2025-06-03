@@ -5,10 +5,14 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of Fields",
     "description": "Classes should have less than X Fields.\nThe threshold is a parameter that can be changed at will.",
     "output": "This report lists all the Classes having more than X Fields.\nIt provides the following information:\n - Class full name\n - Number of Fields",
-    "rationale": "For maintainability and readability reasons, Classes should not have too many Fields.",
+    "rationale": "Maintainability and readability is affected by the number of fields an object has though. 40 to 50 fields is quite a lot of fields, and it'is an indication that your classes do too much on their own, and have too many responsibilities. Refactoring them to many, smaller subclasses, and using composition would probably be a good idea.",
     "remediation": "Review the Class design to reduce the number of Fields",
     "total": "Number of Java classes",
     "alternativeName": "Ensure that the classes have a resonable number of fields",

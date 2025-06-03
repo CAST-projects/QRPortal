@@ -1,17 +1,17 @@
 [
     {
         "id": 7190,
-        "name": "Validator form validate() Method must call super.validate()",
+        "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
         "href": "AIP/quality-rules/7190",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7192,
-        "name": "Form Bean must extend Validator Class",
+        "name": "Avoid using Struts Form that cannot extend Validator Class",
         "href": "AIP/quality-rules/7192",
         "critical": false,
         "severity": 10,
@@ -21,7 +21,7 @@
     },
     {
         "id": 7372,
-        "name": "Enable Struts Validator plugin",
+        "name": "Struts 1: Enable Struts Validator plugin",
         "href": "AIP/quality-rules/7372",
         "critical": true,
         "severity": 20,
@@ -31,7 +31,7 @@
     },
     {
         "id": 7732,
-        "name": "Avoid non validated inputs",
+        "name": "Avoid non validated inputs in JSP files that use JSF",
         "href": "AIP/quality-rules/7732",
         "critical": true,
         "severity": 20,
@@ -41,7 +41,7 @@
     },
     {
         "id": 8038,
-        "name": "Avoid Struts 2 Validator field not referencing a java class field",
+        "name": "Struts 2: Avoid Struts Validator field without Form Field",
         "href": "AIP/quality-rules/8038",
         "critical": false,
         "severity": 10,
@@ -51,10 +51,20 @@
     },
     {
         "id": 8042,
-        "name": "Struts 2 Validation: Avoid unused validation form",
+        "name": "Struts 2: Avoid unused validation form",
         "href": "AIP/quality-rules/8042",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042040,
+        "name": "Avoid using Struts URLValidator with version before 2.5.13",
+        "href": "AIP/quality-rules/1042040",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

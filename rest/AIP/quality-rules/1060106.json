@@ -1,0 +1,166 @@
+{
+    "id": 1060106,
+    "name": "Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
+    "href": "AIP/quality-rules/1060106",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.systemlevelrules",
+        "href": "AIP/extensions/com.castsoftware.systemlevelrules"
+    },
+    "description": "The rule will raise a violation if any of the methods like following names call 'ToJson' or 'ToString' methods to save PII or sensitive data:\n1. Save\n2. Set\n3. Put",
+    "output": "Methods that use 'ToJSONString'",
+    "rationale": "Binding client provided data (e.g., JSON) to data models, without proper properties filtering based on an allowlist, usually leads to Mass Assignment. Either guessing objects properties, exploring other API endpoints, reading the documentation, or providing additional object properties in request payloads, allows attackers to modify object properties they are not supposed to.",
+    "reference": "https://owasp.org/www-project-api-security/",
+    "remediation": "Always review APIs that assign values using 'toJson' or 'ToString' methods",
+    "total": "All Methods with the function of saving data that can contain acess/authorization/sensitive information",
+    "alternativeName": "Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067015,
+            "name": "CWE-915 - Improperly Controlled Modification of Dynamically-Determined Object Attributes",
+            "href": "AIP/technical-criteria/1067015",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062304,
+            "name": "OWASP-2013-A4 - Insecure Direct Object References",
+            "href": "AIP/technical-criteria/1062304",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062325,
+            "name": "OWASP-2017-A5 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062325",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062348,
+            "name": "OWASP-2021-A08 - Software and Data Integrity Failures",
+            "href": "AIP/technical-criteria/1062348",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063122,
+            "name": "PCI-Requirement-6.5.8 - Improper access control",
+            "href": "AIP/technical-criteria/1063122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-915",
+            "name": "Improperly Controlled Modification of Dynamically-Determined Object Attributes",
+            "href": "AIP/quality-standards/CWE/items/CWE-915",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "href": "AIP/quality-standards/OWASP/items/A4-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A5-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A08-2021",
+            "name": "Software and Data Integrity Failures",
+            "href": "AIP/quality-standards/OWASP/items/A08-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API3-2023",
+            "name": "Broken Object Property Level Authorization",
+            "href": "AIP/quality-standards/OWASP/items/API3-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API6-2019",
+            "name": "Mass Assignment",
+            "href": "AIP/quality-standards/OWASP/items/API6-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

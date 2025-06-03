@@ -1,10 +1,14 @@
 {
     "id": 7238,
-    "name": "Avoid calls between JSP Pages",
+    "name": "Avoid calls between JSP Page for application using Struts framework",
     "href": "AIP/quality-rules/7238",
     "critical": false,
     "severity": 10,
     "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Called Page name",
     "description": "Pages should not directly call other Pages through jsp:forward, jsp:include, logic:forward, logic:redirect,  core:redirect (JSTL) or pageContext.forward() or pageContext.sendRedirect().\n\nNote that referencing other pages through the directive errorPage or a static include are not reported as a violation.",
     "output": "This report lists all Pages calling another Page\nIt provides the following information:\n - Page full name\n - Called Page name",

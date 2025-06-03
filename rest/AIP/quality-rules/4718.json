@@ -1,14 +1,19 @@
 {
     "id": 4718,
-    "name": "Package size control",
+    "name": "Avoid having package without enough Classes/Interfaces",
     "href": "AIP/quality-rules/4718",
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of Classes and Interfaces",
     "description": "A Package should not have more than X and less than Y Public Classes/interfaces. The parameters X and Y, maximum number and minimum number can be customized at will.",
     "output": "This report lists all Packages having more than X and less than Y Public Classes or Interfaces.\nIt provides the following information:\n - Package full name\n - Number of Classes and Interfaces",
     "rationale": "Packages must have a reasonable size when measured in number of Classes/interfaces.",
+    "remediation": "Enrich your package with other Classes/Interfaces or merge two similar packages into a bigger one.",
     "total": "Number of Java packages",
     "alternativeName": "Ensure you don't have packages with very few Classes/Interfaces",
     "businessCriteria": [

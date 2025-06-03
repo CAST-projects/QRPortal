@@ -1,0 +1,70 @@
+{
+    "id": 1520736,
+    "name": "Siebel: Business Component Field should have same type as related Table Column",
+    "href": "AIP/quality-rules/1520736",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Types of the field and column",
+    "description": "This rule reports BC Fields not having the same type as the related column.",
+    "output": "This rule reports Fields not having the same type as the related column.\nIt reports the following informations:\n- Field full name\n- Associated value is the types of the BC field and column",
+    "rationale": "It must use the same format/type that it uses in the Siebel database.\nSiebel does not perform type conversion.\nA different type would produce error at runtime.",
+    "reference": "https://docs.oracle.com/cd/E14004_01/books/OTR/OTRObjTypesList69.html",
+    "remediation": "Align the type of Business Component Field on the type of related Table Column",
+    "total": "Number of added or modified Fields in Business Components",
+    "alternativeName": "Siebel: Business Component Field should have same type as related Table Column",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

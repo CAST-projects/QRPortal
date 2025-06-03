@@ -1,0 +1,151 @@
+{
+    "id": 1039074,
+    "name": "Avoid using Apache ActiveMQ 5.x before 5.13.0",
+    "href": "AIP/quality-rules/1039074",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if whitelist Java packages list is correctly set so that they can be used in a serialized object message.  if not, it will report a violation",
+    "output": "Total number of violation related to Java Methods which are associated to ActiveMQ\n-Primary Bookmark to Method.\n-Secondary Bookmark to Method.",
+    "rationale": "Apache ActiveMQ 5.x before 5.13.0 does not restrict the classes that can be serialized in the broker, which allows remote attackers to execute arbitrary code via a crafted serialized Java Message Service (JMS) ObjectMessage object.\n\nJMS Object messages depends on Java Serialization for marshaling/unmarshaling of the message payload. There are a couple of places inside the broker where deserialization can occur, like web console or stomp object message transformation. As the \u200bdeserialization of untrusted data can lead to security flaws as demonstrated in various reports, this leaves the broker vulnerable to this attack vector. Additionally, applications that consume ObjectMessage type of messages can be vulnerable as they deserialize objects on ObjectMessage.getObject() calls.\n\nInsecure deserialization often leads to remote code execution. Even if deserialization flaws do not result in remote code execution, they can be used to perform attacks, including replay attacks, injection attacks, and privilege escalation attacks.",
+    "reference": "https://access.redhat.com/documentation/en-us/red_hat_jboss_a-mq/6.3/html/security_guide/securebroker-objectmessage\nhttps://nvd.nist.gov/vuln/detail/CVE-2015-5254\nhttps://www.blackhat.com/docs/us-16/materials/us-16-Kaiser-Pwning-Your-Java-Messaging-With-Deserialization-Vulnerabilities.pdf",
+    "remediation": "Upgrade to Apache ActiveMQ 5.13.1. Additionally if you're using ObjectMessage message type, you need to explicitly list trusted packages",
+    "remediationSample": "Upgrade to Apache ActiveMQ 5.13.1. Additionally if you're using ObjectMessage message type, you need to explicitly list trusted packages as follow :\n\n1- Adding following Bean \n@Bean\npublic ActiveMQConnectionFactory activeMQConnectionFactory() {\n    ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(\"your broker URL\");\n    factory.setTrustedPackages(Arrays.asList(\"com.my.package\"));\n    return factory;\n}\n\n \n2- The list of trusted packages can also be set in XML. For example, a Camel endpoint in a Spring XML file can be configured as follows:\n\n<bean id=\"connectionFactory\" class=\"org.apache.activemq.spring.ActiveMQConnectionFactory\">\n    <property name=\"brokerURL\" value=\"tcp://localhost:61616\"/>\n    <property name=\"trustedPackages\"> // setiing for trusted packages\n        <list>\n            <value>org.apache.activemq.test</value>\n            <value>org.apache.camel.test</value>\n        </list>\n    </property>\n</bean>\n<bean id=\"jmsConfig\" class=\"org.apache.camel.component.jms.JmsConfiguration\">\n    <property name=\"connectionFactory\" ref=\"connectionFactory\"/>\n</bean>\n<bean id=\"activemq\" class=\"org.apache.activemq.camel.component.ActiveMQComponent\">\n    <property name=\"configuration\" ref=\"jmsConfig\"/>\n</bean>",
+    "sample": "The setTrustAllPackages() allows you to turn off the security check and trust all classes as following example:\n\nSample 1\nActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(\"tcp://localhost:61616\");\nfactory.setTrustAllPackages(true);\n\n\nSample 2\npublic void init(ActiveMQConfig activeMQConfig, Environment environment) {\n  ((ActiveMQConnectionFactory) this.jmsConnectionFactory).setTrustAllPackages(true);\n}\n\n\n\n-------------------------------------------------------------------------------------------\n\nThe whitelist mechanism can also be disabled in Spring XML as follows:\n\n<bean id=\"connectionFactory\" class=\"org.apache.activemq.spring.ActiveMQConnectionFactory\">\n    <property name=\"brokerURL\" value=\"tcp://localhost:61616\"/>\n    <property name=\"trustAllPackages\" value=\"true\"/>\n</bean>\n<bean id=\"jmsConfig\" class=\"org.apache.camel.component.jms.JmsConfiguration\">\n    <property name=\"connectionFactory\" ref=\"connectionFactory\"/>\n</bean>\n<bean id=\"activemq\" class=\"org.apache.activemq.camel.component.ActiveMQComponent\">\n    <property name=\"configuration\" ref=\"jmsConfig\"/>\n</bean>",
+    "total": "Number of Java Methods and bean Which are Associated ActiveMQ",
+    "alternativeName": "Avoid using Apache ActiveMQ 5.x before 5.13.0",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066776,
+            "name": "CWE-676 - Use of Potentially Dangerous Function",
+            "href": "AIP/technical-criteria/1066776",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062309,
+            "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062309",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062329,
+            "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062329",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062346,
+            "name": "OWASP-2021-A06 - Vulnerable and Outdated Components",
+            "href": "AIP/technical-criteria/1062346",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063156,
+            "name": "PCI-DSS4-Requirement-6.3.2 - An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/technical-criteria/1063156",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AIP-CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/AIP-STRUCTURAL-FLAW/items/AIP-CWE-676",
+            "standard": "AIP-STRUCTURAL-FLAW"
+        },
+        {
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-676",
+            "standard": "CWE"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.3.2",
+            "name": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.3.2",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

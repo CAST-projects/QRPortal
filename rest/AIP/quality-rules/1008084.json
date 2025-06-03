@@ -1,0 +1,107 @@
+{
+    "id": 1008084,
+    "name": "Avoid using obsolete \"Conditional Operations\" statements in RPG Subroutines (RPG-IV only)  (RPG400)",
+    "href": "AIP/quality-rules/1008084",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.rpg",
+        "href": "AIP/extensions/com.castsoftware.rpg"
+    },
+    "description": "This rule identifies the use of obsolete conditional operation codes within RPG IV subroutines.\nThese fixed-format conditional statements were valid in earlier versions of RPG but have been superseded by modern free-format control structures.\n\nThe following conditional opcodes (often suffix-based) are considered obsolete and should be replaced with their free-format equivalents:\n\n- ANDxx\n--- Opcodes: ANDEQ, ANDNE, ANDLT, ANDGT, ANDLE, ANDGE\n\n- ORxx\n--- Opcodes: OREQ, ORNE, ORLT, ORGT, ORLE, ORGE\n\n- CABxx\n--- Opcodes: CABEQ, CABNE, CABLT, CABGT, CABLE, CABGE\n\n- WHENxx\n--- Opcodes: WHENEQ, WHENNE, WHENLT, WHENGT, WHENLE, WHENGE\n\n- CASxx\n--- Opcodes: Any opcode starting with CAS but not equal to CAS\n\n- IFxx\n--- Opcodes: IF, IFEQ, IFNE, IFGT, IFGE, IFLT, IFLE\n\n- DOxx\n--- Opcodes: Any opcode starting with DO but not equal to DO, DOW, or DOU\n\n- DOWxx\n--- Opcodes: DOWEQ, DOWNE, DOWGT, DOWGE, DOWLT, DOWLE\n\n- DOUxx\n--- Opcodes: DOUEQ, DOUNE, DOUGT, DOUGE, DOULT, DOULE",
+    "output": "This report lists RPG400 subroutines using obsolete \"Conditional Operations\" statements in RPG Programs (RPG-IV only)\nIt provides the following information:\nRPG400 subroutine full name",
+    "rationale": "With RPG\u2019s evolution into free-format syntax (especially since RPG IV ILE), many conditional operations became obsolete or discouraged.\nThese legacy opcodes reduce code clarity and maintainability.\nTransitioning to modern control structures (e.g., if, dow, dou) is necessary for consistency and compatibility with current RPG practices.",
+    "reference": "IBM ILE RPG Programmer's Guide IBM i 7.6 - \u00a7What's New in V5R1? page 64\nhttps://www.ibm.com/docs/fr/ssw_ibm_i_76/pdf/sc092507.pdf",
+    "remediation": "Replace obsolete conditional operation codes with free-format control structures using if, select, dow, dou, and logical operators.",
+    "remediationSample": "Here an example of remediation:\n\n\"\"\"\nif FLD1 = FLD2;\n   goto TAG1;\nendif;\n\nif FLD3 <> 0 and FLD4 = FLD5;\n   // do something\nendif;\n\ndow FLD6 < 100;\n   // loop body\nenddo;\n\nselect;\n   when FLD7 = 1;\n      // action\nendselect;\n\nselect;\n   when FLD8 > someValue;\n      // action\nendselect;\n\"\"\"",
+    "sample": "Here an example of Obsolete usage:\n\n\"\"\"\n       C     CABEQ     FLD1        FLD2      TAG1\n       C     IFNE      FLD3        0\n       C     ANDEQ     FLD4        FLD5\n       C     DOWLT     FLD6        100\n       C     WHENEQ    FLD7        1\n       C     CASGT     FLD8\n\"\"\"",
+    "total": "Total number of RPG400 Subroutines",
+    "alternativeName": "Avoid using obsolete \"Conditional Operations\" statements in RPG Subroutines (RPG-IV only)  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066577,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1066577",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

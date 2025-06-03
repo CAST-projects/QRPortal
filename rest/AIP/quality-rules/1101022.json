@@ -1,0 +1,72 @@
+{
+    "id": 1101022,
+    "name": "Avoid Tables without Primary Key (SQL)",
+    "href": "AIP/quality-rules/1101022",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.sqlanalyzer",
+        "href": "AIP/extensions/com.castsoftware.sqlanalyzer"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric displays the list of tables without Primary Key constraints",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Data integrity refers to the accuracy, consistency, and reliability of data that is stored in the database. \n\nThere are four types of data integrity:\n- Row integrity\n- Column integrity\n- Referential integrity\n- User-defined integrity\n\nRow integrity refers to the requirement that all rows in a table must have a unique identifier. This unique identifier is the Primary Key of the table. \n\nThe columns included in the definition of a table's PRIMARY KEY integrity constraint are called the primary key. Although it is not required, every table should have a primary key so that:\n- Each row in the table can be uniquely identified\n- No duplicate rows exist in the table",
+    "reference": "https://docs.oracle.com/cd/B28359_01/server.111/b28318/data_int.htm#CNCPT021\nhttp://www.geeksengine.com/database/design/data-integrity.php\nhttps://www3.ntu.edu.sg/home/ehchua/programming/sql/Relational_Database_Design.html\n\n\nExceptions : DB2 global temporary tables and Oracle private temporary tables do not support primary keys\n\nhttps://www.ibm.com/developerworks/data/library/techarticle/dm-0912globaltemptable/index.html\nhttps://oracle-base.com/articles/18c/private-temporary-tables-18c",
+    "remediation": "Check the statement and if so, add primary key.",
+    "remediationSample": "Add a primary key:\nalter table SQLAMDA001_7_TBL1 add constraint SQLAMDA001_7_TBL1_PK primary key (category_name)\nusing index\n/",
+    "sample": "The following statement should be reviewed:\ncreate table SQLAMDA001_7_TBL1\n(category_name varchar2(10) not null ,\n  title        varchar2(50) null ,\n  title_id     varchar2(10) null ,\n  author_name  varchar2(30) null\n)\n/",
+    "total": "Number of Tables.",
+    "alternativeName": "Make sure to define Primary Key (PK) for your tables to enforce row integrity of data",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,17 +1,21 @@
 {
     "id": 7144,
-    "name": "Action Artifacts should not directly use database objects",
+    "name": "DEPRECATED : Avoid using  database objects from Struts Action Artifacts",
     "href": "AIP/quality-rules/7144",
     "critical": true,
     "severity": 20,
     "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Database object used",
-    "description": "For all action class (and parent classes) that are referenced in the struts-config.xml through the tag 'action-mapping' (in struts 1.x) or in struts.xml and its included files through the tag 'action' (in struts 2.x), list artifacts that reference database access",
-    "output": "This report lists all Action artifacts having accesses to the database.\nIt provides the following information:\n - Action artifact full name\n - database object used",
+    "description": "For all action class (and parent classes) that are referenced in the struts-config.xml through the tag 'action-mapping' (in struts 1.x) or in struts.xml and its included files through the tag 'action' (in struts 2.x), list artifacts that reference direct database access",
+    "output": "This report lists all Action artifacts having access to the database.\nIt provides the following information:\n - Action artifact full name\n - database object used",
     "rationale": "Action artifacts should not directly use database objects. All the database access code should be encapsulated behind the business API classes, so Struts doesn't know what persistent layer you are using. This lets you use the same business API classes in other environments, and also to run unit tests against your business API outside of Struts or a HTTP environment.",
     "reference": "http://javaboutique.internet.com/tutorials/strictly_struts/index.html",
     "remediation": "Use a Business Delegate to perform any business specific operations.",
-    "total": "The total number of artifacts of classes and parent classes that are referenced as an action in the XML configuration file.",
+    "total": "Number of artifacts of classes and parent classes that are referenced as an action in the XML configuration file.",
     "alternativeName": "Ensure to have database access code encapsulated behind the business API classes for Struts Action Artifacts",
     "businessCriteria": [
         {

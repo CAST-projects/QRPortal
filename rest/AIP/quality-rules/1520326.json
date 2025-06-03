@@ -1,0 +1,123 @@
+{
+    "id": 1520326,
+    "name": "Siebel: Avoid unreferenced Fields in Business Component",
+    "href": "AIP/quality-rules/1520326",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "description": "The rule report unreferenced Fields (having no linked control in Applet)",
+    "output": "This rule reports unreferenced Fields in Business Components",
+    "rationale": "Field in Business Component provides data to a control or list column in an applet.\nUnreferenced field means the data is fetched from database, but not displayed to the user: this is a waste of resource.",
+    "reference": "https://docs.oracle.com/cd/B31104_02/books/ConfigApps/ConfigApps_Overview32.html",
+    "remediation": "Remove the field from Business Component.",
+    "total": "Number of added or modified Fields or Multi-Value Fields in Business Components",
+    "alternativeName": "Siebel: Avoid unreferenced Fields in Business Component",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062122,
+            "name": "ASCMM-MNT-20 - Unreachable Named Callable or Method Control Element",
+            "href": "AIP/technical-criteria/1062122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061061,
+            "name": "CWE-561 - Dead Code",
+            "href": "AIP/technical-criteria/1061061",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066661,
+            "name": "CWE-561 - Dead Code",
+            "href": "AIP/technical-criteria/1066661",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "href": "AIP/technical-criteria/61027",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-20",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-561",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-561",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-561",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

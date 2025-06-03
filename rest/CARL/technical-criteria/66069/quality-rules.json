@@ -21,7 +21,7 @@
     },
     {
         "id": 7202,
-        "name": "Check usage of '==' and '!=' on objects",
+        "name": "Avoid using '==' and '!=' to compare objects",
         "href": "AIP/quality-rules/7202",
         "critical": true,
         "weight": 8,
@@ -51,7 +51,7 @@
     },
     {
         "id": 7506,
-        "name": "Define equals() and hashCode() for component",
+        "name": "equals() and hashCode() should be defined for Hibernate/JPA component",
         "href": "AIP/quality-rules/7506",
         "critical": true,
         "weight": 9,
@@ -61,7 +61,7 @@
     },
     {
         "id": 7508,
-        "name": "Collection-typed attributes getter must be defined with the correct interface",
+        "name": "DEPRECATED: Getter of collection-typed persistent attributes should return the correct interface type",
         "href": "AIP/quality-rules/7508",
         "critical": false,
         "weight": 8,
@@ -91,7 +91,7 @@
     },
     {
         "id": 7708,
-        "name": "Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
+        "name": "DEPRECATED: Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
         "href": "AIP/quality-rules/7708",
         "critical": false,
         "weight": 8,
@@ -101,7 +101,7 @@
     },
     {
         "id": 7710,
-        "name": "Avoid non serializable Entities",
+        "name": "DEPRECATED: Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/7710",
         "critical": false,
         "weight": 8,
@@ -111,7 +111,7 @@
     },
     {
         "id": 7712,
-        "name": "Avoid public/protected setter for the generated identifier field",
+        "name": "DEPRECATED: Avoid public/protected setter for the generated identifier field",
         "href": "AIP/quality-rules/7712",
         "critical": false,
         "weight": 7,
@@ -121,7 +121,7 @@
     },
     {
         "id": 7722,
-        "name": "Avoid using references to the id in the persistent class's method equals()",
+        "name": "Avoid using persistent class's identifier in equals() method",
         "href": "AIP/quality-rules/7722",
         "critical": true,
         "weight": 9,
@@ -151,7 +151,7 @@
     },
     {
         "id": 7730,
-        "name": "Use declarative transaction",
+        "name": "Always use declarative transaction",
         "href": "AIP/quality-rules/7730",
         "critical": false,
         "weight": 7,
@@ -360,7 +360,7 @@
     },
     {
         "id": 8136,
-        "name": "Beans with normal scope must be proxyable to avoid runtime errors",
+        "name": "CDI Beans with normal scope must be proxyable to avoid runtime errors",
         "href": "AIP/quality-rules/8136",
         "critical": true,
         "weight": 7,
@@ -392,7 +392,7 @@
     },
     {
         "id": 8216,
-        "name": "CWE-681: Avoid numerical data corruption during incompatible mutation",
+        "name": "Avoid using incompatible mutation",
         "href": "AIP/quality-rules/8216",
         "critical": true,
         "weight": 9,
@@ -402,7 +402,7 @@
     },
     {
         "id": 8218,
-        "name": "Content type should be checked when receiving a HTTP Post",
+        "name": "DEPRECATED: Content type should be checked when receiving a HTTP Post",
         "href": "AIP/quality-rules/8218",
         "critical": true,
         "weight": 8,
@@ -414,7 +414,7 @@
         "id": 8220,
         "name": "Avoid using deprecated method, constructor, field, type or package",
         "href": "AIP/quality-rules/8220",
-        "critical": true,
+        "critical": false,
         "weight": 6,
         "technologyNames": [
             "JEE"
@@ -473,6 +473,46 @@
         ]
     },
     {
+        "id": 1020204,
+        "name": "Avoid <textarea> with v-model having child elements",
+        "href": "AIP/quality-rules/1020204",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020206,
+        "name": "Avoid using v-for without key",
+        "href": "AIP/quality-rules/1020206",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020210,
+        "name": "Avoid using v-show directive inside templates",
+        "href": "AIP/quality-rules/1020210",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020212,
+        "name": "Avoid changing parent properties from child components using $parent",
+        "href": "AIP/quality-rules/1020212",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020318,
         "name": "Avoid using jQuery deprecated methods",
         "href": "AIP/quality-rules/1020318",
@@ -516,6 +556,26 @@
         "id": 1020538,
         "name": "Avoid wrapping angular.element objects with jQuery or $",
         "href": "AIP/quality-rules/1020538",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020806,
+        "name": "Avoid using NaN in comparison ",
+        "href": "AIP/quality-rules/1020806",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020816,
+        "name": "Avoid using output of the function that does not return anything",
+        "href": "AIP/quality-rules/1020816",
         "critical": false,
         "weight": 5,
         "technologyNames": [
@@ -651,6 +711,36 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1040016,
+        "name": "PermitAll or user role should be specified to access URL(s) of the application",
+        "href": "AIP/quality-rules/1040016",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045008,
+        "name": "Avoid non serializable Entity beans",
+        "href": "AIP/quality-rules/1045008",
+        "critical": false,
+        "weight": 8,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045012,
+        "name": "Avoid public/protected setter for the generated identifier field",
+        "href": "AIP/quality-rules/1045012",
+        "critical": false,
+        "weight": 8,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -997,6 +1087,66 @@
         "technologyNames": [
             "C",
             "C++"
+        ]
+    },
+    {
+        "id": 1101012,
+        "name": "Avoid specifying column numbers instead of column names in ORDER BY clauses",
+        "href": "AIP/quality-rules/1101012",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101020,
+        "name": "Avoid using quoted identifiers",
+        "href": "AIP/quality-rules/1101020",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101026,
+        "name": "Always define column names when inserting values",
+        "href": "AIP/quality-rules/1101026",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101072,
+        "name": "Avoid not aliased Tables",
+        "href": "AIP/quality-rules/1101072",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101076,
+        "name": "Avoid unqualified column references",
+        "href": "AIP/quality-rules/1101076",
+        "critical": false,
+        "weight": 4,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101080,
+        "name": "Avoid orphaned synonyms",
+        "href": "AIP/quality-rules/1101080",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "SQL"
         ]
     }
 ]

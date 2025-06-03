@@ -1,21 +1,30 @@
 {
     "id": 7442,
-    "name": "Avoid to use this within Constructor in multi-thread environment",
+    "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
     "href": "AIP/quality-rules/7442",
     "critical": true,
     "severity": 20,
     "maxWeight": 8,
-    "associatedValueName": "Number of occurrences of this",
-    "description": "This metric will detect all cases where this is - directly or not - referenced in a constructor.\nIndirect reference to this means the definition of an inner class in the constructor. It includes also the case where the constructor call the method start of a thread within a constructor (i.e. a method that inherits from java.lang.Thread.start())",
-    "output": "This report lists all constructors that involve this directly or indirectly.\nIt provides the following information:\n  - Method full name\n  - the number of occurrences of this detected in the constructor",
-    "rationale": "When making a reference to 'this' within a constructor - either directly or indirectly through inner classes - visible to another thread, the result can be unpredictable.\nMoreover, testing and debugging multi-threaded programs is very difficult, because of concurrency hazard that makes difficult to reproduce the issue.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of occurrences of keyword 'this'",
+    "description": "This rule detects all cases where keyword 'this' is - directly or not - referenced in a constructor.\nIndirect reference to keyword 'this' means the definition of an inner class in the constructor. \nIt includes also the case where the constructor call the method start of a thread within a constructor (i.e. a method that inherits from java.lang.Thread.start())",
+    "output": "This report lists all constructors that involve keyword 'this' directly or indirectly.\nIt provides the following information:\n  - Method full name\n  - the number of occurrences of keyword 'this' detected in the constructor",
+    "rationale": "When making a reference to keyword 'this' within a constructor - either directly or indirectly through inner classes - visible to another thread, the result can be unpredictable.\nMoreover, testing and debugging multi-threaded programs is very difficult, because of concurrency hazard that makes difficult to reproduce the issue.",
     "reference": "https://www.ibm.com/developerworks/java/library/j-jtp0618/index.html\nhttp://java.sun.com/docs/books/tutorial/essential/concurrency/syncmeth.html",
-    "remediation": "In the cases where the reference to 'this' is visible to other thread a redesign of the class must be made to avoid it.",
+    "remediation": "In the cases where the reference to keyword 'this' is visible to other thread a redesign of the class must be made to avoid it.",
     "remediationSample": "public class Safe { \n\n  private Object me;\n  private Set set = new HashSet();\n  private Thread thread;\n\n  public Safe() { \n    // Safe because \"me\" is not visible from any other thread\n    me = this;\n\n    // Safe because \"set\" is not visible from any other thread\n    set.add(this);\n\n    // Safe because MyThread won't start until construction is complete\n    // and the constructor doesn't publish the reference\n    thread = new MyThread(this);\n  }\n\n  public void start() {\n    thread.start();\n  }\n\n  private class MyThread(Object o) {\n    private Object theObject;\n\n    public MyThread(Object o) { \n      this.theObject = o;\n    }\n\n    ...\n  }\n}",
     "sample": "public class Unsafe {\n  public static Unsafe anInstance;\n  public static Set set = new HashSet();\n  private Set mySet = new HashSet();\n  private Thread thread;\n\n  public Unsafe() {\n    // Unsafe because anInstance is globally visible\n    anInstance = this;\n\n    // Unsafe because SomeOtherClass.anInstance is globally visible\n    SomeOtherClass.anInstance = this;\n\n    // Unsafe because SomeOtherClass might save the \"this\" reference\n    // where another thread could see it\n    SomeOtherClass.registerObject(this);\n\n    // Unsafe because set is globally visible \n    set.add(this);\n\n    // Unsafe because we are publishing a reference to mySet\n    mySet.add(this);\n    SomeOtherClass.someMethod(mySet);\n\n    // Unsafe because the \"this\" object will be visible from the new\n    // thread before the constructor completes\n    // in any case, start() must not be called within the constructor\n    thread = new MyThread(this);\n    thread.start();\n  }\n\n  public Unsafe(Collection c) {\n    // Unsafe because \"c\" may be visible from other threads\n    c.add(this);\n  }\n}",
-    "total": "the total procedure counts all constructors",
+    "total": "Number of constructors",
     "alternativeName": "Prefer not using keyword 'this' within Constructor in multi-thread environment to avoid unpredictable behavior",
     "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -33,6 +42,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66065,
             "name": "Secure Coding - Time and State",

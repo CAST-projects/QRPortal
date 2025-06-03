@@ -20,6 +20,16 @@
     "alternativeName": "Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 60013,
             "name": "Robustness",
             "href": "AIP/business-criteria/60013"
@@ -31,6 +41,20 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061077,
+            "name": "CWE-672 - Operation on a Resource after Expiration or Release",
+            "href": "AIP/technical-criteria/1061077",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066772,
+            "name": "CWE-672 - Operation on a Resource after Expiration or Release",
+            "href": "AIP/technical-criteria/1066772",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",

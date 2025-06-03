@@ -13,12 +13,15 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "Python",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -39,12 +42,15 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "Python",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -93,11 +99,13 @@
             "C#",
             "C++",
             "Forms",
+            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -131,6 +139,7 @@
             "HTML5",
             "JEE",
             "PowerBuilder",
+            "Python",
             "VB.NET",
             "Visual Basic"
         ]
@@ -148,10 +157,12 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET"
@@ -781,6 +792,126 @@
         ]
     },
     {
+        "id": 1020200,
+        "name": "Always have data property as a function that returns an object",
+        "href": "AIP/quality-rules/1020200",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020202,
+        "name": "Avoid getter functions of computed properties that do not return any value",
+        "href": "AIP/quality-rules/1020202",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020204,
+        "name": "Avoid <textarea> with v-model having child elements",
+        "href": "AIP/quality-rules/1020204",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020206,
+        "name": "Avoid using v-for without key",
+        "href": "AIP/quality-rules/1020206",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020208,
+        "name": "Avoid using v-if on the same element as v-for",
+        "href": "AIP/quality-rules/1020208",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020210,
+        "name": "Avoid using v-show directive inside templates",
+        "href": "AIP/quality-rules/1020210",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020212,
+        "name": "Avoid changing parent properties from child components using $parent",
+        "href": "AIP/quality-rules/1020212",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020214,
+        "name": "Ensure to turn off and clear event listeners after component is destroyed",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020218,
+        "name": "Avoid using unsecured cookie (Vue.js)",
+        "href": "AIP/quality-rules/1020218",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020220,
+        "name": "Avoid creating cookie with overly broad path (Vue.js)",
+        "href": "AIP/quality-rules/1020220",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020222,
+        "name": "Avoid creating cookie with overly broad domain (Vue.js)",
+        "href": "AIP/quality-rules/1020222",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020224,
+        "name": "Avoid using the call of web service inside a loop (VueJS)",
+        "href": "AIP/quality-rules/1020224",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020300,
         "name": "Avoid using the call of web service jQuery ajax inside a loop",
         "href": "AIP/quality-rules/1020300",
@@ -974,6 +1105,56 @@
         "id": 1020342,
         "name": "Avoid empty jQuery ajax error/fail blocks",
         "href": "AIP/quality-rules/1020342",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020450,
+        "name": "Ensure catching Javascript error in React components",
+        "href": "AIP/quality-rules/1020450",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020452,
+        "name": "Avoid empty componentDidCatch blocks",
+        "href": "AIP/quality-rules/1020452",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020454,
+        "name": "Avoid using React dangerouslySetInnerHTML",
+        "href": "AIP/quality-rules/1020454",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020456,
+        "name": "Avoid using \"<script>\" tag in HTML template used by React.js components",
+        "href": "AIP/quality-rules/1020456",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020458,
+        "name": "Avoid using unsecured cookie (React.js)",
+        "href": "AIP/quality-rules/1020458",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -1278,6 +1459,1147 @@
         "severity": 20,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020600,
+        "name": "Avoid using namespace \"jQuery.sap.*\" as deprecated ( SAPUI5)",
+        "href": "AIP/quality-rules/1020600",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020602,
+        "name": "Avoid using \"sap.ui.model.odata.ODataModel\" as deprecated in version: SAPUI5 1.48",
+        "href": "AIP/quality-rules/1020602",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020604,
+        "name": "Avoid unnamed OData model",
+        "href": "AIP/quality-rules/1020604",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020606,
+        "name": "Prefer using Asynchronous Loading",
+        "href": "AIP/quality-rules/1020606",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020608,
+        "name": "Avoid using Controls Hardcoded IDs inside a Controller, Component or JSView (SapUI5)",
+        "href": "AIP/quality-rules/1020608",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020610,
+        "name": "Avoid declaring same OData model twice",
+        "href": "AIP/quality-rules/1020610",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020612,
+        "name": "Don't override or add control methods (SAPUI5)",
+        "href": "AIP/quality-rules/1020612",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020614,
+        "name": "Prefer using sap.base.Log Instead of console.log (SAPUI5)",
+        "href": "AIP/quality-rules/1020614",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020616,
+        "name": "Create Keys for CRUD Statements (SAPUI5)",
+        "href": "AIP/quality-rules/1020616",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020618,
+        "name": "Avoid using \"jQuery.sap.storage.Type.local\"",
+        "href": "AIP/quality-rules/1020618",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020700,
+        "name": "Avoid the lack of error handling in the Node.js callbacks",
+        "href": "AIP/quality-rules/1020700",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020702,
+        "name": "Avoid using nodejs process.exit()",
+        "href": "AIP/quality-rules/1020702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020704,
+        "name": "Avoid using string concatenation when using __dirname and __filename",
+        "href": "AIP/quality-rules/1020704",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020706,
+        "name": "Ensure the Content-Security-Policy is activated (Node.js)",
+        "href": "AIP/quality-rules/1020706",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020708,
+        "name": "Ensure the X-Powered-By header is disabled",
+        "href": "AIP/quality-rules/1020708",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020710,
+        "name": "Ensure the X-XSS-Protection header is enabled",
+        "href": "AIP/quality-rules/1020710",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020712,
+        "name": "Ensure the X-Frame-Options header is setup (Node.js)",
+        "href": "AIP/quality-rules/1020712",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020714,
+        "name": "Avoid having multiple routes for the same path with Node.js Express App",
+        "href": "AIP/quality-rules/1020714",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020716,
+        "name": "Avoid using the call of web service with Node.js http.get or http.request inside a loop",
+        "href": "AIP/quality-rules/1020716",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020718,
+        "name": "Ensure that browser cannot cache or store a page",
+        "href": "AIP/quality-rules/1020718",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020720,
+        "name": "Avoid unsecure connection to the Node.js server",
+        "href": "AIP/quality-rules/1020720",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020722,
+        "name": "Avoid enabling unsecure Node.js server",
+        "href": "AIP/quality-rules/1020722",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020724,
+        "name": "Ensure that marked is sanitized",
+        "href": "AIP/quality-rules/1020724",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020726,
+        "name": "Ensure that CSRF Protection is enabled (Node.js)",
+        "href": "AIP/quality-rules/1020726",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020728,
+        "name": "Avoid creating cookie without setting httpOnly option (Node.js)",
+        "href": "AIP/quality-rules/1020728",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020730,
+        "name": "Ensure Node.js filesystem are closed",
+        "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020732,
+        "name": "Avoid using risky cryptographic hash (Node.js)",
+        "href": "AIP/quality-rules/1020732",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020734,
+        "name": "Avoid using unsecured cookie (Node.js)",
+        "href": "AIP/quality-rules/1020734",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020736,
+        "name": "Avoid bypassing self-signed ssl certificate (Node.js)",
+        "href": "AIP/quality-rules/1020736",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020738,
+        "name": "Avoid disabling SSL verification in node-curl",
+        "href": "AIP/quality-rules/1020738",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020740,
+        "name": "Avoid creating cookie with overly broad path (Node.js)",
+        "href": "AIP/quality-rules/1020740",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020742,
+        "name": "Avoid creating cookie with overly broad domain (Node.js)",
+        "href": "AIP/quality-rules/1020742",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020744,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1",
+        "href": "AIP/quality-rules/1020744",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020746,
+        "name": "Avoid using HTTP/2 library with vulnerable versions",
+        "href": "AIP/quality-rules/1020746",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020748,
+        "name": "Avoid using the call of data service with Node.js inside a loop",
+        "href": "AIP/quality-rules/1020748",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020750,
+        "name": "Avoid using the file path validation with Node.js 8.5.0",
+        "href": "AIP/quality-rules/1020750",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020758,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable versions",
+        "href": "AIP/quality-rules/1020758",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020760,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions",
+        "href": "AIP/quality-rules/1020760",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020762,
+        "name": "Avoid using url.parse() with vulnerable versions",
+        "href": "AIP/quality-rules/1020762",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020764,
+        "name": "Avoid using path library parsing functions with vulnerable versions",
+        "href": "AIP/quality-rules/1020764",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020766,
+        "name": "Avoid using Node.js ps library with vulnerable versions",
+        "href": "AIP/quality-rules/1020766",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020768,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js",
+        "href": "AIP/quality-rules/1020768",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020770,
+        "name": "Avoid using Node.js query-mysql third-party before 0.0.3",
+        "href": "AIP/quality-rules/1020770",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020772,
+        "name": "Avoid Javascript string interpolations to prevent SQL injections",
+        "href": "AIP/quality-rules/1020772",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020774,
+        "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection (Javascript)",
+        "href": "AIP/quality-rules/1020774",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020776,
+        "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection (Javascript)",
+        "href": "AIP/quality-rules/1020776",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020778,
+        "name": "Avoid having multiple artifacts deleting data on the same NoSQL collections (Javascript)",
+        "href": "AIP/quality-rules/1020778",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020780,
+        "name": "Avoid using Node.js synchronous FileSystem API without try/catch block",
+        "href": "AIP/quality-rules/1020780",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020782,
+        "name": "Avoid using Buffer deprecated APIs",
+        "href": "AIP/quality-rules/1020782",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020784,
+        "name": "Avoid using node-serialize 0.0.4 with Node.js",
+        "href": "AIP/quality-rules/1020784",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020786,
+        "name": "Avoid using serialize-to-js 0.5.0 with Node.js",
+        "href": "AIP/quality-rules/1020786",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020788,
+        "name": "Avoid using moment before 2.19.3 with Node.js",
+        "href": "AIP/quality-rules/1020788",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020800,
+        "name": "Avoid jump statements in finally ",
+        "href": "AIP/quality-rules/1020800",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020802,
+        "name": "Avoid having errors without throwing them ",
+        "href": "AIP/quality-rules/1020802",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020804,
+        "name": "Avoid using console logging ",
+        "href": "AIP/quality-rules/1020804",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020806,
+        "name": "Avoid using NaN in comparison ",
+        "href": "AIP/quality-rules/1020806",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020808,
+        "name": "Avoid using eval() (Typescript)",
+        "href": "AIP/quality-rules/1020808",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020810,
+        "name": "Avoid bypassing angular security trust ",
+        "href": "AIP/quality-rules/1020810",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020812,
+        "name": "Avoid invoking super more than once in constructor ",
+        "href": "AIP/quality-rules/1020812",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020814,
+        "name": "Avoid using web service calls inside a loop",
+        "href": "AIP/quality-rules/1020814",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020816,
+        "name": "Avoid using output of the function that does not return anything",
+        "href": "AIP/quality-rules/1020816",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020818,
+        "name": "Avoid disabling xsrf check in HttpClientXsrfModule",
+        "href": "AIP/quality-rules/1020818",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Avoid hard-coded passwords (TypeScript)",
+        "href": "AIP/quality-rules/1020820",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020822,
+        "name": "Always provide error callbacks when subscribing to HttpClient observables",
+        "href": "AIP/quality-rules/1020822",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020824,
+        "name": "Avoid Superclass knowing Subclass (Typescript)",
+        "href": "AIP/quality-rules/1020824",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020826,
+        "name": "Avoid hard-coded network resource names (Typescript)",
+        "href": "AIP/quality-rules/1020826",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020828,
+        "name": "Avoid String concatenation in loops (Typescript)",
+        "href": "AIP/quality-rules/1020828",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020830,
+        "name": "Avoid using Angular ElementRef API to manipulate DOM",
+        "href": "AIP/quality-rules/1020830",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020832,
+        "name": "Avoid using javascript HTTP request in Angular Application",
+        "href": "AIP/quality-rules/1020832",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020834,
+        "name": "Avoid using \"<script>\" tag into HTML template used by Angular Application",
+        "href": "AIP/quality-rules/1020834",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020836,
+        "name": "Avoid exporting namespaces",
+        "href": "AIP/quality-rules/1020836",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020838,
+        "name": "Avoid using Rx.observable.fromEvent without having a debouncetime set",
+        "href": "AIP/quality-rules/1020838",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020840,
+        "name": "Avoid using ngFor loop without TrackBy option",
+        "href": "AIP/quality-rules/1020840",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020848,
+        "name": "Always favour pipable operators in RxJS",
+        "href": "AIP/quality-rules/1020848",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020850,
+        "name": "Always handle errors when using ajax with RxJS",
+        "href": "AIP/quality-rules/1020850",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020852,
+        "name": "Avoid using \"<script>\" tag in HTML template used by React.js components (Typescript)",
+        "href": "AIP/quality-rules/1020852",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020854,
+        "name": "Avoid using React dangerouslySetInnerHTML (Typescript)",
+        "href": "AIP/quality-rules/1020854",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020856,
+        "name": "Ensure catching Typescript error in React components",
+        "href": "AIP/quality-rules/1020856",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020858,
+        "name": "Avoid empty componentDidCatch blocks (Typescript)",
+        "href": "AIP/quality-rules/1020858",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020860,
+        "name": "Avoid using setInterval() (TypeScript)",
+        "href": "AIP/quality-rules/1020860",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020862,
+        "name": "Avoid having cookie with an overly broad domain (TypeScript)",
+        "href": "AIP/quality-rules/1020862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020864,
+        "name": "Avoid using unsecured cookie (TypeScript)",
+        "href": "AIP/quality-rules/1020864",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020866,
+        "name": "Avoid creating cookie with overly broad path (TypeScript)",
+        "href": "AIP/quality-rules/1020866",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020868,
+        "name": "Avoid creating cookie without setting httpOnly option (TypeScript)",
+        "href": "AIP/quality-rules/1020868",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020870,
+        "name": "Avoid using setTimeout() (TypeScript)",
+        "href": "AIP/quality-rules/1020870",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020872,
+        "name": "Always use JSON.parse & JSON.stringify with try/catch block (TypeScript)",
+        "href": "AIP/quality-rules/1020872",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020874,
+        "name": "Avoid the lack of error handling in the Node.js callbacks (TypeScript)",
+        "href": "AIP/quality-rules/1020874",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020876,
+        "name": "Avoid using nodejs process.exit() (TypeScript)",
+        "href": "AIP/quality-rules/1020876",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020880,
+        "name": "Ensure the express X-Powered-By header is disabled (TypeScript)",
+        "href": "AIP/quality-rules/1020880",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020882,
+        "name": "Ensure the express X-Frame-Options header is setup (TypeScript)",
+        "href": "AIP/quality-rules/1020882",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020884,
+        "name": "Ensure that browser cannot cache or store a page when using express (TypeScript)",
+        "href": "AIP/quality-rules/1020884",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020886,
+        "name": "Avoid using unsecured cookie with express (TypeScript)",
+        "href": "AIP/quality-rules/1020886",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020888,
+        "name": "Avoid unsecure connection to the express Node.js server (TypeScript)",
+        "href": "AIP/quality-rules/1020888",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020890,
+        "name": "Ensure that CSRF Protection is enabled when using express (TypeScript)",
+        "href": "AIP/quality-rules/1020890",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure Node.js filesystem are closed (TypeScript)",
+        "href": "AIP/quality-rules/1020892",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020894,
+        "name": "Avoid using string concatenation when using nodejs __dirname and __filename variables (TypeScript)",
+        "href": "AIP/quality-rules/1020894",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020896,
+        "name": "Avoid using risky cryptographic hash with nodejs (TypeScript)",
+        "href": "AIP/quality-rules/1020896",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020898,
+        "name": "Avoid having multiple routes for the same path with Node.js Express App (TypeScript)",
+        "href": "AIP/quality-rules/1020898",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020900,
+        "name": "Avoid enabling unsecure Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020900",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020902,
+        "name": "Ensure the Content-Security-Policy is activated with express (TypeScript)",
+        "href": "AIP/quality-rules/1020902",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020904,
+        "name": "Avoid using url.parse() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020904",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020906,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1 (TypeScript)",
+        "href": "AIP/quality-rules/1020906",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020908,
+        "name": "Avoid using the file path validation with Node.js 8.5.0 (TypeScript)",
+        "href": "AIP/quality-rules/1020908",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020910,
+        "name": "Avoid using path library parsing functions with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020910",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020912,
+        "name": "Avoid using HTTP/2 library with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020912",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020914,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020914",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020916,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions (TypeScript)",
+        "href": "AIP/quality-rules/1020916",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020918,
+        "name": "Avoid using Node.js query-mysql third-party (TypeScript)",
+        "href": "AIP/quality-rules/1020918",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020920,
+        "name": "Avoid disabling SSL verification in node-curl (TypeScript)",
+        "href": "AIP/quality-rules/1020920",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020922,
+        "name": "Avoid bypassing self-signed ssl certificate with Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020922",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020924,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020924",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020926,
+        "name": "Avoid string interpolations to prevent SQL injections (TypeScript)",
+        "href": "AIP/quality-rules/1020926",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020928,
+        "name": "Always unsubscribe events in Angular onDestroy method",
+        "href": "AIP/quality-rules/1020928",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1039106,
+        "name": "Avoid disabling the automatic HTML escaping for Spring",
+        "href": "AIP/quality-rules/1039106",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5",
+            "JEE"
         ]
     }
 ]

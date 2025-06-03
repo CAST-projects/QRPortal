@@ -5,9 +5,13 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "description": "Names of Methods must start with a lowercase character",
     "output": "This report lists all the Methods with the first letter in uppercase.\nIt provides the following information:\n Method full name",
-    "rationale": "For readability aspects, naming conventions must be respected",
+    "rationale": "For readability aspects, naming conventions must be respected. Coding naming conventions allow teams to collaborate efficiently.",
     "remediation": "Change name according to the naming convention",
     "total": "Number of Java methods",
     "alternativeName": "Ensure to have the name of the method according to the naming convention",
@@ -29,6 +33,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61017,
             "name": "Documentation - Naming Convention Conformity",

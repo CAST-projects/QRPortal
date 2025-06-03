@@ -1,15 +1,20 @@
 {
     "id": 2242,
-    "name": "Avoid direct definition of JavaScript Functions in a Web page (JEE)",
+    "name": "DEPRECATED: Avoid direct definition of JavaScript Functions in a Web page (JEE)",
     "href": "AIP/quality-rules/2242",
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Page name",
     "description": "All JavaScript Functions should be defined in a JS file and not directly in the Web page (HTM, HTML, JSP).",
-    "output": "This report lists all JavaScript Functions defined within the Web page and not within a JS file.\nIt provides the following information:\n - Function name\n - Page name",
+    "output": "This report lists all JavaScript Functions defined within the Web page and not within a JS file.\nIt provides the following information:\n - Function name\n - Page name\n ",
     "rationale": "Separate behavior from presentation makes the code easier to read and debug, it lets designers and developer work on different files. It allows also to load the JavaScript from the browser one time only (and not each time the file is loaded) if included in the HTML file with the HTML link tag.",
     "reference": "Best Practices: Implementing JavaScript for rich internet applications\nhttp://thinkingandmaking.com/entries/63",
+    "remediation": "Ensure to have separate behavior from presentation and not to have direct definition of JavaScript Functions in a Web pag",
     "total": "Number of JavaScript functions",
     "alternativeName": "Ensure to have separate behavior from presentation and not to have direct definition of JavaScript Functions in a Web page",
     "businessCriteria": [
@@ -27,6 +32,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

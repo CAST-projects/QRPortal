@@ -1,10 +1,14 @@
 {
     "id": 2248,
-    "name": "Avoid Web Server pages having a very low Comment/Code ratio",
+    "name": "DEPRECATED: Avoid Web Server pages having a very low Comment/Code ratio",
     "href": "AIP/quality-rules/2248",
     "critical": false,
     "severity": 10,
     "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Comment/code ratio",
     "description": "Web Server pages should have at least a ratio comment/code > X %.\nThe threshold is a parameter and can be changed at will.",
     "output": "This report lists all pages with comment/code ratio lower than X %\nIt provides the following information:\n - Page full name\n - comment/code ratio",

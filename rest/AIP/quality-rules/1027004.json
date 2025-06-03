@@ -21,6 +21,16 @@
     "alternativeName": "Use XmlReader instead of XmlTextReader since it is deprecated and may lead to security issues",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 60013,
             "name": "Robustness",
             "href": "AIP/business-criteria/60013"
@@ -32,6 +42,55 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066577,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1066577",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062309,
+            "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062309",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062329,
+            "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062329",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062346,
+            "name": "OWASP-2021-A06 - Vulnerable and Outdated Components",
+            "href": "AIP/technical-criteria/1062346",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063156,
+            "name": "PCI-DSS4-Requirement-6.3.2 - An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/technical-criteria/1063156",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",

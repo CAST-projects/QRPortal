@@ -1,0 +1,67 @@
+{
+    "id": 1020206,
+    "name": "Avoid using v-for without key",
+    "href": "AIP/quality-rules/1020206",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.vuejs",
+        "href": "AIP/extensions/com.castsoftware.vuejs"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule will raise a violation if a v-for loop is used in Vue without a key.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When working with HTML elements that have a state in v-for loops we have to be careful that that state does not get destroyed when the DOM is re-rendered.\nElements like <input>, <select> and <textarea> all hold an internal state that captures the value of that element. When Vue\u2019s virtual DOM is modified because reactive data changed, there can be cases where the DOM that holds the looped elements can be completely or partially destroyed if the key is not properly set.\nThis of course also applies to looping custom-made components that hold state - the same rule of thumb applies. If the key is not defined, there is a risk of data and state being destroyed due to a re-render of the DOM.",
+    "reference": "https://www.telerik.com/blogs/in-vue-when-do-i-actually-need-the-key-attribute-and-why\nhttps://fr.vuejs.org/v2/guide/list.html#Maintaining-State",
+    "remediation": "Define key for v-for",
+    "remediationSample": "<!-- Right -->\n<div v-for=\"item in items\" :key=\"unique-condition\">\n    <input>\n</div>\n\n\n<span v-html=\"<input />\" v-for=\"item in items\" :key=\"unique-condition\" />\n\n\n<input v-for=\"input in myForm\" :key=\"unique-condition\" />",
+    "sample": "<div v-for=\"item in items\">\n    <input>\n</div>\n\n\n<span v-html=\"<input />\" v-for=\"item in items\" />\n\n\n<input v-for=\"input in myForm\" />",
+    "total": "Number of VueJS source code using the v-for directive",
+    "alternativeName": "Ensure that you define a key for v-for",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

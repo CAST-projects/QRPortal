@@ -1,0 +1,59 @@
+{
+    "id": 1520420,
+    "name": "Siebel: Every Added Applet should have a title",
+    "href": "AIP/quality-rules/1520420",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "description": "This rule reports custom Applets without a title.",
+    "output": "This rule reports custom Applets without a title. It displays:\n- Applet full name",
+    "rationale": "Always define the Title property of an applet. Do not leave it empty.",
+    "reference": "https://docs.oracle.com/cd/E14004_01/books/ConfigApps/Applets13.html",
+    "remediation": "Define the Title property of the applet",
+    "total": "Number of added or modified applets",
+    "alternativeName": "Siebel: Every Added Applet should have a title",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "href": "AIP/technical-criteria/61006",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

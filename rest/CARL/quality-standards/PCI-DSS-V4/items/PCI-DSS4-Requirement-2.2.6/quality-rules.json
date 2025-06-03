@@ -3,8 +3,8 @@
         "id": 7190,
         "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
         "href": "AIP/quality-rules/7190",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -103,8 +103,8 @@
         "id": 8102,
         "name": "Ensure not having hard-coded network resources names in the source files (JEE)",
         "href": "AIP/quality-rules/8102",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -129,6 +129,182 @@
         "severity": 30,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020706,
+        "name": "Ensure activating Content-Security-Policy HTTP header to avoid untrusted source",
+        "href": "AIP/quality-rules/1020706",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020708,
+        "name": "Ensure disabling X-Powered-By header in your express instance or use third-party helmet package to prevent specifically-targeted attacks on running applications",
+        "href": "AIP/quality-rules/1020708",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020712,
+        "name": "Ensure setting the X-Frame-Options in your express instance or use third-party helmet package to avoid Clickjacking attacks",
+        "href": "AIP/quality-rules/1020712",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020718,
+        "name": "Ensure setting up the No Cache headers in your express instance or use third-party helmet package to avoid catching bad information.",
+        "href": "AIP/quality-rules/1020718",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020736,
+        "name": "Ensure enabling NODE_TLS_REJECT_UNAUTHORIZED attributes allowing rejecting self signed certificates",
+        "href": "AIP/quality-rules/1020736",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020738,
+        "name": "Ensure you have enable SSL verification in node-curl",
+        "href": "AIP/quality-rules/1020738",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Ensure you don't hard-code password in the source file, hackers can steal the information by retro-engineering your application (Typescript)",
+        "href": "AIP/quality-rules/1020820",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020880,
+        "name": "Ensure disabling X-Powered-By header in your express instance or use third-party helmet package to prevent specifically-targeted attacks on running applications",
+        "href": "AIP/quality-rules/1020880",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020882,
+        "name": "Ensure setting the X-Frame-Options in your express instance or use third-party helmet package to avoid Clickjacking attacks",
+        "href": "AIP/quality-rules/1020882",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020884,
+        "name": "Ensure setting up the No Cache headers in your express instance or use third-party helmet package to avoid catching bad information.",
+        "href": "AIP/quality-rules/1020884",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020888,
+        "name": "Ensure setting the Strict-Transport-Security HTTP header to secure and encrypt communications to the Node.js server",
+        "href": "AIP/quality-rules/1020888",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020902,
+        "name": "Ensure activating Content-Security-Policy HTTP header to avoid untrusted source",
+        "href": "AIP/quality-rules/1020902",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020920,
+        "name": "Ensure you have enable SSL verification in node-curl",
+        "href": "AIP/quality-rules/1020920",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020922,
+        "name": "Ensure enabling NODE_TLS_REJECT_UNAUTHORIZED attributes allowing rejecting self signed certificates",
+        "href": "AIP/quality-rules/1020922",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1025030,
+        "name": "Ensure you don't have hard-coded JWT secret keys in your source code",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Ensure you don't have hard-coded passwords used for connection strings",
+        "href": "AIP/quality-rules/1025048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025054,
+        "name": "Ensure you don't have hard-coded passwords in configuration files : password retrieved and delivered as is to the sendCredential method",
+        "href": "AIP/quality-rules/1025054",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -162,6 +338,76 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1039006,
+        "name": "Ensure that you are not using predictable SecureRandom Seeds",
+        "href": "AIP/quality-rules/1039006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040018,
+        "name": "Ensure safely set X-Frame-Option  to avoid Clickjacking attack",
+        "href": "AIP/quality-rules/1040018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040024,
+        "name": "Ensure securing Shutdown Actuator Endpoint from unauthenticated access.",
+        "href": "AIP/quality-rules/1040024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042004,
+        "name": "Ensure not using the same name for multiple validation forms to avoid any validation error.",
+        "href": "AIP/quality-rules/1042004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042012,
+        "name": "Ensure to not have Unused Validation Form in Struts 1.x to correctly maintain the validation logic",
+        "href": "AIP/quality-rules/1042012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042016,
+        "name": "Ensure to enable validation for each Struts action Mapping of your application to prevent any types of attacks.",
+        "href": "AIP/quality-rules/1042016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042018,
+        "name": "Ensure to have Struts action pointing to a an existent form-bean in Struts 1.x to avoid mapping error",
+        "href": "AIP/quality-rules/1042018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

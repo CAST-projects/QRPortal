@@ -253,7 +253,7 @@
     },
     {
         "id": 7488,
-        "name": "Use lazy fetching for collection",
+        "name": "DEPRECATED: Lazy fetching should be used for Hibernate collection",
         "href": "AIP/quality-rules/7488",
         "critical": true,
         "severity": 20,
@@ -263,7 +263,7 @@
     },
     {
         "id": 7490,
-        "name": "Avoid UPDATE trigger firing when not necessary",
+        "name": "DEPRECATED: Avoid UPDATE trigger firing when not necessary",
         "href": "AIP/quality-rules/7490",
         "critical": true,
         "severity": 20,
@@ -273,7 +273,7 @@
     },
     {
         "id": 7496,
-        "name": "Use table-per-subclass strategy when subclasses have many properties",
+        "name": "DEPRECATED: Use table-per-subclass strategy when subclasses have many properties",
         "href": "AIP/quality-rules/7496",
         "critical": false,
         "severity": 10,
@@ -283,7 +283,7 @@
     },
     {
         "id": 7498,
-        "name": "Collection must be the same between getter and setter",
+        "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
         "href": "AIP/quality-rules/7498",
         "critical": false,
         "severity": 10,
@@ -293,7 +293,7 @@
     },
     {
         "id": 7500,
-        "name": "Use table-per-class-hierarchy when subclasses have few properties",
+        "name": "DEPRECATED: Use table-per-class-hierarchy when subclasses have few properties",
         "href": "AIP/quality-rules/7500",
         "critical": false,
         "severity": 10,
@@ -303,7 +303,7 @@
     },
     {
         "id": 7502,
-        "name": "Never use array to map a collection",
+        "name": "DEPRECATED: Never use an array to map Hibernate collection",
         "href": "AIP/quality-rules/7502",
         "critical": true,
         "severity": 20,
@@ -333,7 +333,7 @@
     },
     {
         "id": 7538,
-        "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+        "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
         "href": "AIP/quality-rules/7538",
         "critical": true,
         "severity": 20,
@@ -383,7 +383,7 @@
     },
     {
         "id": 7634,
-        "name": "Avoid select-before-update when the Table is not associated to an UPDATE Trigger",
+        "name": "DEPRECATED: Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
         "href": "AIP/quality-rules/7634",
         "critical": true,
         "severity": 20,
@@ -483,7 +483,7 @@
     },
     {
         "id": 7702,
-        "name": "Use a third party connection pool",
+        "name": "Hibernate-provided implementations from third parties should be used for connection pool",
         "href": "AIP/quality-rules/7702",
         "critical": false,
         "severity": 10,
@@ -526,9 +526,11 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "Visual Basic"
@@ -603,10 +605,12 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "Visual Basic"
@@ -725,6 +729,57 @@
         "severity": 20,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 1045002,
+        "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger",
+        "href": "AIP/quality-rules/1045002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045004,
+        "name": "Avoid UPDATE trigger firing when not necessary",
+        "href": "AIP/quality-rules/1045004",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045006,
+        "name": "Never use an array to map Hibernate collection",
+        "href": "AIP/quality-rules/1045006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1101098,
+        "name": "Avoid Artifacts with a Complex SELECT Clause (SQL)",
+        "href": "AIP/quality-rules/1101098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101114,
+        "name": "Avoid \"SELECT *\" queries (SQL)",
+        "href": "AIP/quality-rules/1101114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     }
 ]

@@ -144,10 +144,20 @@
     },
     {
         "id": 8016,
-        "name": "Avoid unsecured EJB remote method",
+        "name": "Avoid unrestricted access to EJB remote methods",
         "href": "AIP/quality-rules/8016",
         "critical": true,
         "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8102,
+        "name": "Avoid hard-coded network resource names (JEE)",
+        "href": "AIP/quality-rules/8102",
+        "critical": true,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -180,6 +190,36 @@
         "weight": 6,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020730,
+        "name": "Ensure Node.js filesystem are closed",
+        "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Avoid hard-coded passwords (TypeScript)",
+        "href": "AIP/quality-rules/1020820",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020950,
+        "name": "Avoid providing password in Web Service URL",
+        "href": "AIP/quality-rules/1020950",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     },
     {
@@ -244,6 +284,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1040046,
+        "name": "Avoid weak encryption algorithm (Spring)",
+        "href": "AIP/quality-rules/1040046",
+        "critical": true,
+        "weight": 8,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

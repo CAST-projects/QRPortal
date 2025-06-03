@@ -1,7 +1,7 @@
 [
     {
         "id": 7362,
-        "name": "Avoid action mappings validator turned off",
+        "name": "DEPRECATED: Avoid Struts action mappings validator turned off",
         "href": "AIP/quality-rules/7362",
         "critical": true,
         "severity": 20,
@@ -11,7 +11,7 @@
     },
     {
         "id": 7382,
-        "name": "Avoid Validator field without Form Field",
+        "name": "Struts1: Avoid Struts Validator field without Form Field",
         "href": "AIP/quality-rules/7382",
         "critical": false,
         "severity": 10,
@@ -21,7 +21,7 @@
     },
     {
         "id": 7416,
-        "name": "Avoid Form Field without Validator",
+        "name": "Struts1: Avoid Action Form Field without Validator",
         "href": "AIP/quality-rules/7416",
         "critical": true,
         "severity": 20,
@@ -41,7 +41,7 @@
     },
     {
         "id": 8016,
-        "name": "Avoid unsecured EJB remote method",
+        "name": "Avoid unrestricted access to EJB remote methods",
         "href": "AIP/quality-rules/8016",
         "critical": true,
         "severity": 20,
@@ -51,7 +51,7 @@
     },
     {
         "id": 8040,
-        "name": "Avoid Struts 2 Action Fields without Validation",
+        "name": "Struts 2: Avoid Action Fields without Validation",
         "href": "AIP/quality-rules/8040",
         "critical": true,
         "severity": 20,
@@ -61,7 +61,7 @@
     },
     {
         "id": 8042,
-        "name": "Struts 2 Validation: Avoid unused validation form",
+        "name": "Struts 2: Avoid unused validation form",
         "href": "AIP/quality-rules/8042",
         "critical": false,
         "severity": 10,
@@ -71,10 +71,10 @@
     },
     {
         "id": 8102,
-        "name": "Avoid hardcoded network resource names (JEE)",
+        "name": "Avoid hard-coded network resource names (JEE)",
         "href": "AIP/quality-rules/8102",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -99,6 +99,36 @@
         "severity": 20,
         "technologyNames": [
             "Cobol"
+        ]
+    },
+    {
+        "id": 1007282,
+        "name": "DEPRECATED: CWE-614: Avoid Cookie Misconfiguration (secure flag) (PHP)",
+        "href": "AIP/quality-rules/1007282",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007284,
+        "name": "DEPRECATED: CWE-200: Avoid Cookie Misconfiguration (httpOnly flag) (PHP)",
+        "href": "AIP/quality-rules/1007284",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1018864,
+        "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+        "href": "AIP/quality-rules/1018864",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
         ]
     },
     {
@@ -142,6 +172,26 @@
         ]
     },
     {
+        "id": 1020218,
+        "name": "Avoid using unsecured cookie (Vue.js)",
+        "href": "AIP/quality-rules/1020218",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020458,
+        "name": "Avoid using unsecured cookie (React.js)",
+        "href": "AIP/quality-rules/1020458",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020554,
         "name": "Avoid using unsecured cookie (AngularJS)",
         "href": "AIP/quality-rules/1020554",
@@ -149,6 +199,178 @@
         "severity": 20,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020706,
+        "name": "Ensure the Content-Security-Policy is activated (Node.js)",
+        "href": "AIP/quality-rules/1020706",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020708,
+        "name": "Ensure the X-Powered-By header is disabled",
+        "href": "AIP/quality-rules/1020708",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020718,
+        "name": "Ensure that browser cannot cache or store a page",
+        "href": "AIP/quality-rules/1020718",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020728,
+        "name": "Avoid creating cookie without setting httpOnly option (Node.js)",
+        "href": "AIP/quality-rules/1020728",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020734,
+        "name": "Avoid using unsecured cookie (Node.js)",
+        "href": "AIP/quality-rules/1020734",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020864,
+        "name": "Avoid using unsecured cookie (TypeScript)",
+        "href": "AIP/quality-rules/1020864",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020868,
+        "name": "Avoid creating cookie without setting httpOnly option (TypeScript)",
+        "href": "AIP/quality-rules/1020868",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020880,
+        "name": "Ensure the express X-Powered-By header is disabled (TypeScript)",
+        "href": "AIP/quality-rules/1020880",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020884,
+        "name": "Ensure that browser cannot cache or store a page when using express (TypeScript)",
+        "href": "AIP/quality-rules/1020884",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020886,
+        "name": "Avoid using unsecured cookie with express (TypeScript)",
+        "href": "AIP/quality-rules/1020886",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020902,
+        "name": "Ensure the Content-Security-Policy is activated with express (TypeScript)",
+        "href": "AIP/quality-rules/1020902",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020922,
+        "name": "Avoid bypassing self-signed ssl certificate with Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020922",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021032,
+        "name": "Avoid disabling certificate check when requesting secured urls",
+        "href": "AIP/quality-rules/1021032",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021050,
+        "name": "Avoid using unsecured cookie (Python)",
+        "href": "AIP/quality-rules/1021050",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021102,
+        "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (Python)",
+        "href": "AIP/quality-rules/1021102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021130,
+        "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)",
+        "href": "AIP/quality-rules/1021130",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -171,6 +393,266 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1034054,
+        "name": "Avoid parsing XML data without restriction of XML External Entity Reference (XXE) (PHP)",
+        "href": "AIP/quality-rules/1034054",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034062,
+        "name": "Avoid creating cookie without setting httpOnly option (PHP)",
+        "href": "AIP/quality-rules/1034062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034064,
+        "name": "Ensure httpOnly option is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034064",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1039024,
+        "name": "Avoid using unsecured cookie (JEE)",
+        "href": "AIP/quality-rules/1039024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039026,
+        "name": "Avoid creating cookie without setting httpOnly option (JEE)",
+        "href": "AIP/quality-rules/1039026",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039032,
+        "name": "Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039032",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039034,
+        "name": "Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039034",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039036,
+        "name": "Avoid using XMLReader without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039038,
+        "name": "Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039038",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039040,
+        "name": "Avoid using XMLInputFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039040",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039078,
+        "name": "Avoid using SchemaFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039078",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039080,
+        "name": "Avoid using TransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039082,
+        "name": "Avoid using SAXTransformerFactory without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039082",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039084,
+        "name": "Avoid using SAXBuilder without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039084",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039086,
+        "name": "Avoid using DOMParser without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039086",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039088,
+        "name": "Avoid using Validator without restriction of XML External Entity Reference (XXE)",
+        "href": "AIP/quality-rules/1039088",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039090,
+        "name": "Avoid using java.beans.XMLDecoder (XXE)",
+        "href": "AIP/quality-rules/1039090",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039092,
+        "name": "Avoid using JAXB Unmarshaller without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039094,
+        "name": "Avoid using XPathExpression without a configurable secure parser (XXE)",
+        "href": "AIP/quality-rules/1039094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039096,
+        "name": "Ensure httpOnly option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039096",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039098,
+        "name": "Ensure secure option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039098",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040024,
+        "name": "Spring Boot Shutdown Actuator Endpoint must be secured from unauthenticated access.",
+        "href": "AIP/quality-rules/1040024",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042004,
+        "name": "Avoid Duplicate Struts validation forms with the same name",
+        "href": "AIP/quality-rules/1042004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042012,
+        "name": "Avoid Unused Validation Form in Struts 1.x",
+        "href": "AIP/quality-rules/1042012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042016,
+        "name": "Avoid Struts action Mapping with disabled validator ",
+        "href": "AIP/quality-rules/1042016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042018,
+        "name": "Avoid Missing Form Bean in Struts 1.x",
+        "href": "AIP/quality-rules/1042018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -332,6 +814,36 @@
         "severity": 20,
         "technologyNames": [
             "Objective-C"
+        ]
+    },
+    {
+        "id": 1055000,
+        "name": "Avoid using unsecured cookie (Swift)",
+        "href": "AIP/quality-rules/1055000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055040,
+        "name": "Avoid using XMLDocument without restriction of XML External Entity Reference (XXE) (Swift)",
+        "href": "AIP/quality-rules/1055040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055042,
+        "name": "Avoid using NSXMLParser without restriction of XML External Entity Reference (XXE) (Swift)",
+        "href": "AIP/quality-rules/1055042",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
         ]
     },
     {

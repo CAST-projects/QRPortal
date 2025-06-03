@@ -1,13 +1,21 @@
 {
     "id": 4694,
-    "name": "Avoid using 'System.gc'",
+    "name": "Avoid using 'System.gc' and 'Runtime.gc'",
     "href": "AIP/quality-rules/4694",
-    "critical": false,
-    "severity": 10,
-    "maxWeight": 6,
-    "description": "Report all java artifacts that call java.lang.System.gc()",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule reports all java artifacts that call java.lang.System.gc() and java.lang.Runtime.gc()",
     "output": "This report lists all java artifacts using the 'java.lang.System.gc' Method.\nIt provides the following information:\n - Artifact full name",
-    "rationale": "The garbage collector should not used explicitly in the code. It is an automated process scheduled by the Java Runtime Environment. System.gc() triggers a full collection, which includes tracing all live objects in the heap and sweeping and compacting the old generation. Lot of time can be spent during this operation. In general, it is better to let the system decide when it needs to collect the heap, and whether or not to do a full collection.",
+    "rationale": "The garbage collector should not be used explicitly in the code. It is an automated process scheduled by the Java Runtime Environment. System.gc() triggers a full collection, which includes tracing all live objects in the heap and sweeping and compacting the old generation. Lot of time can be spent during this operation. In general, it is better to let the system decide when it needs to collect the heap, and whether or not to do a full collection.",
+    "reference": "https://help.semmle.com/wiki/display/JAVA/Explicit+garbage+collection#:~:text=You%20should%20avoid%20making%20calls,that%20lead%20to%20decreased%20performance.",
+    "remediation": "Ensure to let the system decide when it needs to collect the heap, and whether or not to do a full collection",
+    "remediationSample": "public class DemoApplication {\n \n    private static final Map<String, String> cache = new HashMap<String, String>();\n \n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n \n        while (scanner.hasNext()) {\n            final String next = scanner.next();\n            if (\"fill\".equals(next)) {\n                for (int i = 0; i < 1000000; i++) { \n                    cache.put(randomUUID().toString(), randomUUID().toString()); \n                } \n            } else if (\"invalidate\".equals(next)) {\n                cache.clear();\n            } else if (\"gc\".equals(next)) {\n                 System.out.println(\"known\")\n            } else if (\"exit\".equals(next)) {\n                System.exit(0);\n            } else {\n                System.out.println(\"unknown\");\n            }\n        }\n    }\n}",
+    "sample": "public class DemoApplication {\n \n    private static final Map<String, String> cache = new HashMap<String, String>();\n \n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n \n        while (scanner.hasNext()) {\n            final String next = scanner.next();\n            if (\"fill\".equals(next)) {\n                for (int i = 0; i < 1000000; i++) { \n                    cache.put(randomUUID().toString(), randomUUID().toString()); \n                } \n            } else if (\"invalidate\".equals(next)) {\n                Runtime.gc();\n            } else if (\"gc\".equals(next)) {\n                System.gc();\n            } else if (\"exit\".equals(next)) {\n                System.exit(0);\n            } else {\n                System.out.println(\"unknown\");\n            }\n        }\n    }\n}\n\n\nThe Java Language Specification does not guarantee that the JVM will start a GC when you call System.gc(). Most of JVM has a garbage collector that runs continuously, so a call to System.gc() won't do anything",
     "total": "Number of non abstract Java artifacts",
     "alternativeName": "Ensure  let the system decide when it needs to collect the heap, and whether or not to do a full collection",
     "businessCriteria": [
@@ -15,6 +23,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,
@@ -32,7 +45,21 @@
             "id": 61018,
             "name": "Efficiency - Memory, Network and Disk Space Management",
             "href": "AIP/technical-criteria/61018",
-            "weight": 6,
+            "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
             "critical": false
         }
     ],
@@ -67,9 +94,9 @@
         
     ],
     "thresholds": [
-        50.0,
-        90.0,
-        95.0,
-        99.0
+        98.0,
+        99.0,
+        99.5,
+        99.99
     ]
 }

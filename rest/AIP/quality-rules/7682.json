@@ -1,15 +1,20 @@
 {
     "id": 7682,
-    "name": "Avoid domain model depending on other Java API",
+    "name": "Avoid having Hibernate domain model depending on other Java APIs",
     "href": "AIP/quality-rules/7682",
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "description": "Reports any direct or indirect (via successive calls) calls from persistent classes' artifact to the methods of the following packages:\n- java.sql.*\n- javax.sql.*\n- javax.naming.* (include javax.naming.directory, javax.naming.event, javax.naming.ldap, javax.naming.spi)\n- javax.jms.*\n\nNote that we don't take into account method parameters and exception that belongs to these packages.\n\nThis list can be completed with the threshold.",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "A domain model represents the business entities used in a Java application. In a layered system architecture, the domain model is used to execute business logic in the business layer. The domain model implementation is such an important piece of code that it should not depend on other Java APIs\n\nThis rule checks if there exists any direct or indirect(via successive) calls from persistent classes' artifact to the methods of the following packages:\n\n- java.sql.*\n- javax.sql.*\n- javax.naming.* (include javax.naming.directory, javax.naming.event, javax.naming.ldap, javax.naming.spi)\n- javax.jms.* / jakarta.jms.*\n\n\nNote that we do not take into account method parameters and exceptions that belong to these packages.\n\nThis list of packages/APIs to exclude can be extended using the rule's parameter.",
     "output": "List all persistent classes' artifact that call other JAVA API.\n\nIt provides the following information:\n Artifact Full Name",
     "rationale": "The domain model implementation is usually a central, organizing component; it's reused heavily whenever you implement new application functionality. For this reason, you should be prepared to go to some lengths to ensure that concerns other than business aspects don't leak into the domain model implementation. The domain model should be concerned only with modeling the business domain. When these concerns start to appear in the domain model classes, we call this an example of leakage of concerns.\nFor example, code in the domain model shouldn't perform JNDI lookups or call the database via the JDBC API. This allows you to reuse the domain model implementation virtually anywhere. Most importantly, it makes it easy to unit test the domain model (in JUnit, for example) outside of any application server or other managed environment.",
-    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 64",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 64\nDomain Model Fundamentals - https://link.springer.com/chapter/10.1007/978-1-4302-2633-8_5\nDomain models and metadata  - https://livebook.manning.com/book/java-persistence-with-hibernate-second-edition/chapter-3/1\nHibernate Documentation - https://docs.jboss.org/hibernate/orm/5.0/mappingGuide/en-US/html_single/",
     "remediation": "Make these calls in another layers.",
+    "remediationSample": "----> a.hbm.xml\n<hibernate-mapping >\n  \n  <class name=\"A\" table=\"A\" lazy=\"true\">\n    <id name=\"id\" column=\"A_ID\">\n      <generator class=\"increment\"/>\n    </id>\n  </class>\n\n</hibernate-mapping>\n\n----> Java Files\npublic class A {\n  private Integer id;\n\n  public Integer getId() {\n   \n  }\n  ...\n}",
     "sample": "----> a.hbm.xml\n<hibernate-mapping >\n  \n  <class name=\"A\" table=\"A\" lazy=\"true\">\n    <id name=\"id\" column=\"A_ID\">\n      <generator class=\"increment\"/>\n    </id>\n  </class>\n\n</hibernate-mapping>\n\n----> Java Files\npublic class A {\n  private Integer id;\n   javax.naming.Context ctx;  // VIOLATION\n  ...\n  public void aMethod() {\n    // VIOLATION\n    AnObject a = (AnObject) ctx.lookup(\"AnObject\");\n  }\n  ...\n}",
     "total": "Number of persistent classes's artifacts",
     "alternativeName": "Ensure not building dependencies between an Hibernate domain model and  other Java APIs. So it can be heavily reused by any new application functionality",
@@ -60,6 +65,7 @@
                     "href": "AIP/technologies/0",
                     "values": [
                         "javax.jms.",
+                        "jakarta.jms.",
                         "javax.naming.",
                         "java.sql.",
                         "javax.sql."

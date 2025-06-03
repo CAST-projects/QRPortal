@@ -1,17 +1,22 @@
 {
     "id": 7434,
-    "name": "Avoid classes overriding only equals() or only hashCode()",
+    "name": "Ensure to override both equals() and hashCode()",
     "href": "AIP/quality-rules/7434",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "description": "Report all classes that override only boolean equals(Object) or only int hashCode()",
-    "output": "This report lists all classes that implement only equals() or only hashCode()\nIt provides the following information:\n  Class full name",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "All Java objects are expected to obey a number of invariants related to equality. One of these invariants is that equal objects must have equal hashcodes.\nFor example, a class that is made persistent requires both hashCode() and equals() methods to be defined. This issue can prevent the software from running reliably, due to incorrect or unexpected comparison results. If the relevant code is reachable by an attacker, then this reliability problem might introduce a vulnerability.\n\nThis rule reports all classes that override\n- only boolean equals(Object) but not overriding hashCode()\nor \n- only int hashCode() but not overriding equals()",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "Often classes are used in HashMap to provide an efficient storage and retrieval. The Java platform architects anticipated the importance of hash-based collection classes -- such as Hashtable, HashMap, and HashSet -- in typical Java applications, and comparing against many objects with equals() can be computationally expensive.\nIf your java class is used or can be used in a hash-based collection, override both of these methods to avoid any issues that can be painful to find when the issue appear in production because the error is not in the code that is present, but in the code that is absent.",
-    "reference": "http://www-128.ibm.com/developerworks/java/library/j-jtp05273.html",
-    "remediation": "Override both methods.",
-    "remediationSample": "class Example {\n   int id;\n\n   public int getId() {\n      return id;\n   }\n    public boolean equals(Object obj) { \n         return (obj instanceof Example \n            && id == ((Example) obj).getId()); \n   }\n   public int hashCode() {  // FIXED\n       return id/10;\n   }\n}",
-    "sample": "class Example {\n   int id;\n\n   public int getId() {\n      return id;\n   }\n    public boolean equals(Object obj) { \n         return (obj instanceof Example \n            && id == ((Example) obj).getId()); \n   }\n       // VIOLATION: missing hashCode()\n}",
+    "reference": "https://www.geeksforgeeks.org/override-equalsobject-hashcode-method/\nhttps://howtodoinjava.com/java/basics/java-hashcode-equals-methods/",
+    "remediation": "Always override hashCode() when overriding equals() method",
+    "remediationSample": "class Example {\n   int id;\n\n   public int getId() {\n      return id;\n   }\n    public boolean equals(Object obj) {\n         return (obj instanceof Example\n            && id == ((Example) obj).getId());\n   }\n   public int hashCode() {  // FIXED\n       return id/10;\n   }\n}",
+    "sample": "class Example {\n   int id;\n\n   public int getId() {\n      return id;\n   }\n    public boolean equals(Object obj) {\n         return (obj instanceof Example\n            && id == ((Example) obj).getId());\n   }\n       // VIOLATION: missing hashCode()\n}",
     "total": "Number of classes that override equals() or (not exclusive) hashCode()",
     "alternativeName": "Ensure to overrides equals() and hashCode()",
     "businessCriteria": [
@@ -24,6 +29,11 @@
             "id": 60012,
             "name": "Changeability",
             "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 66031,
@@ -46,6 +56,27 @@
             "id": 1062168,
             "name": "ASCRM-RLB-4 - Persistant Storable Data Element without Proper Comparison Control Element",
             "href": "AIP/technical-criteria/1062168",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061147,
+            "name": "CWE-1097 - Persistent Storable Data Element without Associated Comparison Control Element",
+            "href": "AIP/technical-criteria/1061147",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067197,
+            "name": "CWE-1097 - Persistent Storable Data Element without Associated Comparison Control Element",
+            "href": "AIP/technical-criteria/1067197",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066681,
+            "name": "CWE-581 - Object Model Violation: Just One of Equals and Hashcode Defined",
+            "href": "AIP/technical-criteria/1066681",
             "weight": 5,
             "critical": false
         },

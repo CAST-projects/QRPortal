@@ -1,0 +1,167 @@
+{
+    "id": 1060108,
+    "name": "Avoid data fields binded to columns to return sensitive data via APIs",
+    "href": "AIP/quality-rules/1060108",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.systemlevelrules",
+        "href": "AIP/extensions/com.castsoftware.systemlevelrules"
+    },
+    "description": "The rule will raise a violation if any fields that user defines as sensitive is binded to a table column and is not annotated with @JsonIgnore for returning",
+    "output": "Fields not annotated with JsonIgnore",
+    "rationale": "Exploitation of Excessive Data Exposure is simple, and is usually performed by sniffing the traffic to analyze the API responses, looking for sensitive data exposure that should not be returned to the user.\nSince APIs are used as data sources, sometimes developers try to implement them in a generic way without thinking about the sensitivity of the exposed data. \nWhen binding data fields accessed by APIs to columns it must be cautiously controlled that what data is to be ignored when returning the field or the model",
+    "reference": "https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa3-excessive-data-exposure.md\nhttps://owasp.org/www-project-api-security/",
+    "remediation": "Implement a schema-based response validation mechanism as an extra layer of security. As part of this mechanism define and enforce data returned by all API methods, including errors.",
+    "total": "All fields binded with Data Columns and classified as sensitive by User",
+    "alternativeName": "Avoid data fields binded to columns to return sensitive data via APIs",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066301,
+            "name": "CWE-201 - Insertion of Sensitive Information Into Sent Data",
+            "href": "AIP/technical-criteria/1066301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066313,
+            "name": "CWE-213 - Exposure of Sensitive Information Due to Incompatible Policies",
+            "href": "AIP/technical-criteria/1066313",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063122,
+            "name": "PCI-Requirement-6.5.8 - Improper access control",
+            "href": "AIP/technical-criteria/1063122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-201",
+            "name": "Insertion of Sensitive Information Into Sent Data",
+            "href": "AIP/quality-standards/CWE/items/CWE-201",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-213",
+            "name": "Exposure of Sensitive Information Due to Incompatible Policies",
+            "href": "AIP/quality-standards/CWE/items/CWE-213",
+            "standard": "CWE"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API3-2019",
+            "name": "Excessive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/API3-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API3-2023",
+            "name": "Broken Object Property Level Authorization",
+            "href": "AIP/quality-standards/OWASP/items/API3-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

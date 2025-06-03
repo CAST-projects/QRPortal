@@ -1,0 +1,57 @@
+{
+    "id": 1106046,
+    "name": "Ensure CREATE FUNCTION is not used",
+    "href": "AIP/quality-rules/1106046",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if CREATE FUNCTION statement exists in Db2 SQL files.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "As you decide to migrate from Db2 to PostgreSQL, it is important to note the changes to be taken care of during the migration process. Without adaptation, the SQL script won\u2019t compile on Postgresql, leading to error",
+    "reference": "https://www.sqlines.com/db2-to-postgresql",
+    "remediation": "The CREATE FUNCTION should be reviewed as shown in the remediation sample.",
+    "remediationSample": "Must be rewritten as follows for PostgreSQL\nCREATE OR REPLACE FUNCTION\n<function_name> (\n   parameter,\n    ....\n)\nRETURNS <return_data_type>\nLANGUAGE PLPGSQL\nAS\n$$\n   BEGIN\n   ....\n   END;\n$$\n;",
+    "sample": "CREATE FUNCTION <function_name>\n(\nparameter,\n....\n)\nSPECIFIC <function_name>\nRETURNS <return_data_type>\nNO EXTERNAL ACTION\nDETERMINISTIC\nRETURN\n....\n;",
+    "total": "Number of DB2 SQL Artifacts",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61044,
+            "name": "Database Migration - DB2 Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61044",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,16 +1,23 @@
 {
     "id": 4672,
-    "name": "Methods must have appropriate JavaDoc @param tags",
+    "name": "Public Methods must have appropriate JavaDoc @param tags",
     "href": "AIP/quality-rules/4672",
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Undocumented parameters",
-    "description": "When enforcing the utilization of JavaDoc Comments to document an application, the @param tags should be used to document the parameters of a given Method. The number of parameters should match the number of @param and the @param must have a description associated.",
+    "description": "The \"@param\" tag should be followed by the parameter's name, and then a description of that parameter.The number of parameters should match the number of @param.",
     "output": "This report lists all Methods not having the appropriate @param JavaDoc comments.\nThis report provides the following information:\n - Method full name\n - Undocumented parameters",
-    "rationale": "There is no dispute that these comments contribute to a developer's understanding and help a developer write reliable applications more quickly. Without documenting parameters it is dififcult for anyone else than the author to guess the purpose of the parameter except by looking at the code that is using it.",
+    "rationale": "There is no dispute that these comments contribute to a developer's understanding and help a developer write reliable applications more quickly.\nWithout documenting parameters it is difficult for anyone else than the author to guess the purpose of the parameter except by looking at the code that is using it.\nWhen enforcing the use of JavaDoc Comments to document an application, the @param tags should be used to document the parameters of a given Method.",
+    "reference": "https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#@param",
     "remediation": "Add a @param with a description for each method parameters.",
-    "total": "Number of method's parameters",
+    "remediationSample": "/**\n * @param  url  an absolute URL giving the base location of the image\n * @param  name the location of the image, relative to the url argument\n * @return      the image at the specified URL\n * @see         Image\n */\n public Image getImage(URL url, String name) {\n        try {\n            return getImage(new URL(url, name));\n        } catch (MalformedURLException e) {\n            return null;\n        }\n }",
+    "sample": "public Image getImage(URL url, String name) {   //Violation\n        try {\n            return getImage(new URL(url, name));\n        } catch (MalformedURLException e) {\n            return null;\n        }\n }",
+    "total": "Number of java methods with at least one parameter",
     "alternativeName": "Ensure you add a @param with a description for each method parameters.",
     "businessCriteria": [
         {

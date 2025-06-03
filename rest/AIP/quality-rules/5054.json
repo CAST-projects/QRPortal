@@ -17,6 +17,16 @@
     "alternativeName": "Avoid using HANDLE ABEND",
     "businessCriteria": [
         {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -33,6 +43,27 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062203,
+            "name": "MIPS-Reduction - focus on avoiding transaction failure",
+            "href": "AIP/technical-criteria/1062203",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",

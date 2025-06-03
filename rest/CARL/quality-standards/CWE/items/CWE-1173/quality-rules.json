@@ -3,8 +3,8 @@
         "id": 7190,
         "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
         "href": "AIP/quality-rules/7190",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -55,6 +55,16 @@
         "href": "AIP/quality-rules/8042",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042040,
+        "name": "Ensure you are using Struts URLValidator with at least version 2.5.13 or 2.3.34",
+        "href": "AIP/quality-rules/1042040",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]

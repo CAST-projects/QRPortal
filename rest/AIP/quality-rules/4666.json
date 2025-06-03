@@ -5,9 +5,17 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "description": "When enforcing the utilization of JavaDoc Comments to document an application, all Classes and Interfaces must have JavaDoc Comments. Those comments must be defined just before the declaration of the Class or Interface, with the appropriate structure (/** */)",
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "When enforcing the utilization of JavaDoc Comments to document an application, all Classes and Interfaces must have JavaDoc Comments. These comments must be defined just before the declaration of the Class or Interface, with the appropriate structure (/** */)",
     "output": "This report lists all Classes and Interfaces not having JavaDoc comments.\nThis report provides the following information:\n Class or Interface Full Name",
     "rationale": "There is no dispute that these comments contribute to a developer's understanding and help a developer write reliable applications more quickly. Without documenting classes and interfaces it is dififcult for anyone else than the author to guess the purpose of the class or interface except by looking at the code and eventually the code called by the methods in the class.",
+    "reference": "https://www.tutorialspoint.com/java/java_documentation.htm\n\nhttps://www.oracle.com/technical-resources/articles/java/javadoc-tool.html",
+    "remediation": "Add JDK javadoc tool doc comments(/** documentation */ ) when preparing automatically generated documentation.",
+    "remediationSample": "Remediation Sample#1\n/**\n * @author PYG\n *\n * TODO To change the template for this generated type comment go to\n * Window - Preferences - Java - Code Style - Code Templates\n */\npublic interface OK_InterfaceComment\n{\n\n}\n---------------------------------------------------------------------\nRemediation Sample#2\npackage diag.doc001;\n\n/**\n * @author PYG\n *\n * TODO To change the template for this generated type comment go to\n * Window - Preferences - Java - Code Style - Code Templates\n */\npublic class OK_ClassComment\n\n{\n}",
+    "sample": "Sample#1\npackage diag.doc001;\n\n//\n// @author PYG\n//\npublic class KO_1_5ClassComment_2SLASH\n{\n\n}\n--------------------------------------------\nSample#2\n\npackage diag.doc001;\n\n/*\n * \n * @author PYG\n *\n * TODO To change the template for this generated type comment go to\n * Window - Preferences - Java - Code Style - Code Templates\n */\n----------------------------------------------\nSample#3\npublic class KO_2_5ClassComment_OneStar\n{\n}\n\n\npackage diag.doc001;\n\n//**\n// * @author PYG\n// *\n\npublic interface KO_1_5InterfaceComment_2Slash\n{\n\n}\n--------------------------------------------------------\nSample#4\n\n/*\n * \n */\npackage diag.doc001;\n\n/*\n * @author PYG\n *\n * TODO To change the template for this generated type comment go to\n * Window - Preferences - Java - Code Style - Code Templates\n */\npublic interface KO_2_5InterfaceComment_OneStar\n{\n\n}",
     "total": "Number of classes and interfaces (generic or not)",
     "alternativeName": "Ensure Classes and Interfaces have JavaDoc Comments",
     "businessCriteria": [
@@ -23,6 +31,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1067213,
+            "name": "CWE-1113 - Inappropriate Comment Style",
+            "href": "AIP/technical-criteria/1067213",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61008,
             "name": "Documentation - Automated Documentation",

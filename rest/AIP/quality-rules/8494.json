@@ -5,6 +5,10 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "The software constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.\n\nUsing CAST data-flow engine, this metric detects paths from API requests down to system call API methods, paths which are open vulnerabilities to operating system injection flaws.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
@@ -22,6 +26,11 @@
             "href": "AIP/business-criteria/1062100"
         },
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -37,6 +46,69 @@
             "id": 1062189,
             "name": "ASCSM-CWE-78 - OS Command Injection Improper Input Neutralization",
             "href": "AIP/technical-criteria/1062189",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061014,
+            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/technical-criteria/1061014",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066178,
+            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/technical-criteria/1066178",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061016,
+            "name": "CWE-88 - Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
+            "href": "AIP/technical-criteria/1061016",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066188,
+            "name": "CWE-88 - Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
+            "href": "AIP/technical-criteria/1066188",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
             "weight": 5,
             "critical": false
         },

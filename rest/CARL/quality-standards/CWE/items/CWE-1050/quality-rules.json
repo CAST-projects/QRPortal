@@ -62,11 +62,22 @@
         ]
     },
     {
+        "id": 7470,
+        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
+        "href": "AIP/quality-rules/7470",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 7954,
         "name": "Ensure not having indirect String concatenation inside loops to avoid making your software performance slowly.",
         "href": "AIP/quality-rules/7954",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -157,6 +168,26 @@
         "href": "AIP/quality-rules/1020056",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020208,
+        "name": "Prefer using a computed property as a condition, if needed, instead of using v-for and v-if on the same element",
+        "href": "AIP/quality-rules/1020208",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020224,
+        "name": "Ensure that you are not making API/web service calls inside loops so that performance is not severely impacted",
+        "href": "AIP/quality-rules/1020224",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "HTML5"
         ]
@@ -259,6 +290,88 @@
         "severity": 30,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020714,
+        "name": "Ensure having only one routing handler per path to avoid an efficiency issue",
+        "href": "AIP/quality-rules/1020714",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020716,
+        "name": "\u201chttp.get\u201d or \u201chttp.request\u201d should not be used inside a loop to optimize the number of calls between the client application and web service server",
+        "href": "AIP/quality-rules/1020716",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020748,
+        "name": "Ensure you minize the number of api call especially inside a loop",
+        "href": "AIP/quality-rules/1020748",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020814,
+        "name": "",
+        "href": "AIP/quality-rules/1020814",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020840,
+        "name": "Ensure you have added \"track by\" syntax into your ngFor block",
+        "href": "AIP/quality-rules/1020840",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020898,
+        "name": "Ensure having only one routing handler per path to avoid an efficiency issue",
+        "href": "AIP/quality-rules/1020898",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1025056,
+        "name": "Ensure you don't have SQL queries inside loops",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1101116,
+        "name": "Avoid using SQL queries inside a loop (SQL)",
+        "href": "AIP/quality-rules/1101116",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     }
 ]

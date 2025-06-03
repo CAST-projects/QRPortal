@@ -22,6 +22,36 @@
         ]
     },
     {
+        "id": 1007272,
+        "name": "DEPRECATED: CWE-384: Avoid Session Fixation (PHP)",
+        "href": "AIP/quality-rules/1007272",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007276,
+        "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
+        "href": "AIP/quality-rules/1007276",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
         "id": 1020098,
         "name": "Avoid creating cookie with overly broad path (Javascript)",
         "href": "AIP/quality-rules/1020098",
@@ -52,6 +82,26 @@
         ]
     },
     {
+        "id": 1020220,
+        "name": "Avoid creating cookie with overly broad path (Vue.js)",
+        "href": "AIP/quality-rules/1020220",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020222,
+        "name": "Avoid creating cookie with overly broad domain (Vue.js)",
+        "href": "AIP/quality-rules/1020222",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020556,
         "name": "Avoid creating cookie with overly broad domain (AngularJS)",
         "href": "AIP/quality-rules/1020556",
@@ -72,6 +122,116 @@
         ]
     },
     {
+        "id": 1020736,
+        "name": "Avoid bypassing self-signed ssl certificate (Node.js)",
+        "href": "AIP/quality-rules/1020736",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020738,
+        "name": "Avoid disabling SSL verification in node-curl",
+        "href": "AIP/quality-rules/1020738",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020740,
+        "name": "Avoid creating cookie with overly broad path (Node.js)",
+        "href": "AIP/quality-rules/1020740",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020742,
+        "name": "Avoid creating cookie with overly broad domain (Node.js)",
+        "href": "AIP/quality-rules/1020742",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Avoid hard-coded passwords (TypeScript)",
+        "href": "AIP/quality-rules/1020820",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020862,
+        "name": "Avoid having cookie with an overly broad domain (TypeScript)",
+        "href": "AIP/quality-rules/1020862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020866,
+        "name": "Avoid creating cookie with overly broad path (TypeScript)",
+        "href": "AIP/quality-rules/1020866",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020890,
+        "name": "Ensure that CSRF Protection is enabled when using express (TypeScript)",
+        "href": "AIP/quality-rules/1020890",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020920,
+        "name": "Avoid disabling SSL verification in node-curl (TypeScript)",
+        "href": "AIP/quality-rules/1020920",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021042,
+        "name": "Avoid hard-coded passwords (Python)",
+        "href": "AIP/quality-rules/1021042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021048,
+        "name": "Always protect sensitive data in config files from disclosure",
+        "href": "AIP/quality-rules/1021048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1024010,
         "name": "Avoid applying dangerous protection level for signature-based permissions",
         "href": "AIP/quality-rules/1024010",
@@ -79,6 +239,54 @@
         "severity": 30,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1025024,
+        "name": "Avoid disabling the expiration time validation of a JWT token",
+        "href": "AIP/quality-rules/1025024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025026,
+        "name": "Avoid disabling the expiration time requirement of a JWT token",
+        "href": "AIP/quality-rules/1025026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025028,
+        "name": "Avoid disabling the signature requirement of a JWT token",
+        "href": "AIP/quality-rules/1025028",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -112,6 +320,116 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1030016,
+        "name": "Avoid hard-coded passwords and credentials (Kotlin)",
+        "href": "AIP/quality-rules/1030016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1034070,
+        "name": "Ensure strict mode is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034070",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1039012,
+        "name": "Avoid using referer header field in HTTP request",
+        "href": "AIP/quality-rules/1039012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039052,
+        "name": "Avoid Http Session without expiration",
+        "href": "AIP/quality-rules/1039052",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039064,
+        "name": "Avoid having cookie with an overly broad domain (JEE)",
+        "href": "AIP/quality-rules/1039064",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039066,
+        "name": "Avoid creating cookie with an overly broad path (JEE)",
+        "href": "AIP/quality-rules/1039066",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039116,
+        "name": "Ensure setting origins when using @CrossOrigin Spring annotation",
+        "href": "AIP/quality-rules/1039116",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039120,
+        "name": "Avoid weak password requirements (JEE)",
+        "href": "AIP/quality-rules/1039120",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040008,
+        "name": "Ensure declaring formLogin after requesting authorization and authentication",
+        "href": "AIP/quality-rules/1040008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040010,
+        "name": "Always delete the cookies during the logout (Spring)",
+        "href": "AIP/quality-rules/1040010",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040012,
+        "name": "HTTP user session must be invalidated during logout",
+        "href": "AIP/quality-rules/1040012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -165,6 +483,26 @@
         "severity": 20,
         "technologyNames": [
             "Objective-C"
+        ]
+    },
+    {
+        "id": 1055018,
+        "name": "Always use LAContext canEvaluatePolicy before using evaluatePolicy (Swift)",
+        "href": "AIP/quality-rules/1055018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055036,
+        "name": "Avoid hard-coded passwords (Swift)",
+        "href": "AIP/quality-rules/1055036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
         ]
     },
     {

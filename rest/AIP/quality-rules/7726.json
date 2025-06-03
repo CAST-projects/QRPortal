@@ -1,16 +1,22 @@
 {
     "id": 7726,
-    "name": "Avoid Action artifacts that call packages that reference database",
+    "name": "Avoid Struts Action Classes that call packages having direct access to database",
     "href": "AIP/quality-rules/7726",
     "critical": false,
     "severity": 10,
     "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "The package that reference the database",
-    "description": "Find all Action Classes (and parent classes) that are referenced in the struts-config.xml through the tag 'action-mapping' (in struts 1.x) or in struts.xml and its included files through the tag 'action' (in struts 2.x) list artifacts that call classes referenced in a package that reference directly the database or reference JPA or Hibernate Entities.",
-    "output": "This report lists all action artifacts that call a package that reference database or reference JPA or Hibernate Entities.\nIt provides the following information:\n Artifact full name, the package that reference the database",
-    "rationale": "Struts is a Framework for building Model-View-Controller 2 Web applications. This model is the Blueprints recommended architectural design pattern for interactive applications. The logical separation between presentation layer, the business logic layer, and the data access layer is basically an architectural way to minimize the amount of additional work necessary to add features to any layer that can be consumed by another layer.\nIt separates design concerns (data persistence and behavior, presentation, and control), decreasing code duplication, centralizing control, and making the application more easily modifiable. MVC 2 also helps developers with different skill sets to focus on their core skills and collaborate through clearly defined interfaces.\nThis is why the data access layer must be distinct from the business layer.",
+    "description": "In struts based application, the data access layer must be distinct from the business layer.\n\nThis rule finds all Action Classes (and parent classes) list artifacts that call classes (&anonymous classes) and Lambda referenced in a package that reference directly the database or reference JPA or Hibernate Entities.\n\n\nThe Action Classes considered by this rule are ones referenced in the struts-config.xml through the tag 'action-mapping' (in struts 1.x) or in struts.xml and its included files through the tag 'action' (in struts 2.x)",
+    "output": "This report lists all Action Classes that call a package that reference database or reference JPA or Hibernate Entities.\nIt provides the following information:\n Artifact full name, the package that reference the database",
+    "rationale": "Struts is a Framework for building Model-View-Controller 2 Web applications. This model is the Blueprints recommended architectural design pattern for interactive applications. The logical separation between presentation layer, the business logic layer, and the data access layer is basically an architectural way to minimize the amount of additional work necessary to add features to any layer that can be consumed by another layer.\nIt separates design concerns (data persistence and behavior, presentation, and control), decreasing code duplication, centralizing control, and making the application more easily modifiable. MVC 2 also helps developers with different skill sets to focus on their core skills and collaborate through clearly defined interfaces.",
     "remediation": "Review the design in order to separate the model from the data access layer.",
-    "total": "Number of artifacts of classes and parent classes that are referenced as an action in the XML configuration file(s)",
+    "remediationSample": "public class JEEAMDA003_1_2_DN_SHOW extends Action {\n\n    public ActionForward execute(ActionMapping mapping, ActionForm form,\n            HttpServletRequest request, HttpServletResponse response) {\n        User userForm = (User) form;\n        String user = userForm.getUserId();\n        String password = userForm.getPassword();\n        if (user.equals(\"admin\") && password.equals(\"admin\"))\n            return mapping.findForward(\"success\");\n        ActionMessages errors = new ActionMessages();\n        ActionMessage error = new ActionMessage(\"login.failed\");\n        errors.add(\"error\", error);\n        saveErrors(request, (ActionErrors) errors);\n        return mapping.findForward(\"failure\");\n    }\n\n}",
+    "sample": "public class JEEAMDA003_1_6_SHOW extends Action {\n    \n    public ActionForward execute(ActionMapping mapping, ActionForm form,\n            HttpServletRequest request, HttpServletResponse response) {\n        User user = (User) form;\n\n        try{\n            UserManager.getInstance().saveUser(user); // Violation \n        }catch(SQLException sqle)\n        {\n            ActionMessages errors = new ActionMessages();\n            ActionMessage error = new ActionMessage(\"error.generic\",sqle.getMessage());\n            errors.add(\"error\",error);\n            saveErrors(request,(ActionErrors) errors);\n        }\n        return mapping.findForward(\"success\");\n    }\n\n}",
+    "total": "Number of Action Classes and parent classes that are referenced as an action in the XML configuration file(s)",
     "alternativeName": "Ensure that all packages called by the action classes do not have any direct access to database",
     "businessCriteria": [
         {

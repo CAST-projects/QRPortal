@@ -1,15 +1,19 @@
 {
     "id": 7306,
-    "name": "Avoid declaring Inner Classes",
+    "name": "DEPRECATED: Avoid declaring Inner Classes",
     "href": "AIP/quality-rules/7306",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Class full name",
     "description": "This Quality Rule retrieves all classes that declare at least one inner class.",
     "output": "This report lists all Classes declaring Inner Classes. It provides the following information:\n - Inner Class full name\n - Class full name",
-    "rationale": "Java bytecode has no concept of inner classes, so the compiler translates inner classes into ordinary classes that are accessible to any code in the same package. An inner class gets access to the fields of the enclosing outer class even if these fields are declared private and the inner class is translated into a separate class. To let this separate class access the fields of the outer class, the compiler silently changes these fields' scope from private to package. As a result, when inner classes are declared, they are exposed but also the compiler silently overrules the decision to make some fields private. This is a threat to both the stability and the security of the application.",
-    "reference": "Gary McGraw & Ed Felten, http://www.securingjava.com/preface.html, http://www.owasp.org/index.php/Java_leading_security_practice#Inner_Classes, http://www.cs.umd.edu/~pugh/java/SecureInnerClasses.pdf",
+    "rationale": "Java bytecode has no concept of inner classes, so the compiler translates inner classes into ordinary classes that are accessible to any code in the same package. An inner class gets access to the fields of the enclosing outer class even if these fields are declared private and the inner class is translated into a separate class. To let this separate class access the fields of the outer class, the compiler silently changes these fields' scope from private to package. As a result, when inner classes are declared, they are exposed but also the compiler silently overrules the decision to make some fields private. This is a threat to both the stability and the security of the application.\n\n\nInner classes quietly introduce several security concerns because of the way they are translated into Java bytecode. In Java source code, it appears that an inner class can be declared to be accessible only by the enclosing class, but Java bytecode has no concept of an inner class, so the compiler must transform an inner class declaration into a peer class with package level access to the original outer class. More insidiously, since an inner class can access private fields in their enclosing class, once an inner class becomes a peer class in bytecode, the compiler converts private fields accessed by the inner class into protected fields.",
+    "reference": "https://cwe.mitre.org/data/definitions/485.html\nhttps://cwe.mitre.org/data/definitions/492.html\nhttp://www.cs.umd.edu/~pugh/java/SecureInnerClasses.pdf",
     "remediation": "Make the inner class a standard class.",
     "remediationSample": "public class BankAccount {\n\n}\n\nclass AccountKey {  \n    // FIXED\n  }",
     "sample": "public class BankAccount {\n\n  private class AccountKey {  \n    // VIOLATION\n  }\n}",
@@ -33,6 +37,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1066592,
+            "name": "CWE-492 - Use of Inner Class Containing Sensitive Data",
+            "href": "AIP/technical-criteria/1066592",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61020,
             "name": "Programming Practices - Modularity and OO Encapsulation Conformity",

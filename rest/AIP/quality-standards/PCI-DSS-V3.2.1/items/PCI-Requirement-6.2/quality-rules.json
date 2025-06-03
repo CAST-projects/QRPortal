@@ -23,10 +23,60 @@
         "id": 8220,
         "name": "Avoid using deprecated method, constructor, field, type or package",
         "href": "AIP/quality-rules/8220",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1002000,
+        "name": "Do not use EQUIVALENCE in Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002002,
+        "name": "Do not use EQUIVALENCE in Functions  (FORTRAN)",
+        "href": "AIP/quality-rules/1002002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002004,
+        "name": "Do not use EQUIVALENCE in Programs  (FORTRAN)",
+        "href": "AIP/quality-rules/1002004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002006,
+        "name": "Do not use EQUIVALENCE in Modules  (FORTRAN)",
+        "href": "AIP/quality-rules/1002006",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1007286,
+        "name": "DEPRECATED: CWE-242: Avoid PHP Dangerous Feature (PHP)",
+        "href": "AIP/quality-rules/1007286",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
         ]
     },
     {
@@ -140,6 +190,256 @@
         ]
     },
     {
+        "id": 1020600,
+        "name": "Avoid using namespace \"jQuery.sap.*\" as deprecated ( SAPUI5)",
+        "href": "AIP/quality-rules/1020600",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020602,
+        "name": "Avoid using \"sap.ui.model.odata.ODataModel\" as deprecated in version: SAPUI5 1.48",
+        "href": "AIP/quality-rules/1020602",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020744,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1",
+        "href": "AIP/quality-rules/1020744",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020746,
+        "name": "Avoid using HTTP/2 library with vulnerable versions",
+        "href": "AIP/quality-rules/1020746",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020750,
+        "name": "Avoid using the file path validation with Node.js 8.5.0",
+        "href": "AIP/quality-rules/1020750",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020758,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable versions",
+        "href": "AIP/quality-rules/1020758",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020760,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions",
+        "href": "AIP/quality-rules/1020760",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020762,
+        "name": "Avoid using url.parse() with vulnerable versions",
+        "href": "AIP/quality-rules/1020762",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020764,
+        "name": "Avoid using path library parsing functions with vulnerable versions",
+        "href": "AIP/quality-rules/1020764",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020766,
+        "name": "Avoid using Node.js ps library with vulnerable versions",
+        "href": "AIP/quality-rules/1020766",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020768,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js",
+        "href": "AIP/quality-rules/1020768",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020770,
+        "name": "Avoid using Node.js query-mysql third-party before 0.0.3",
+        "href": "AIP/quality-rules/1020770",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020782,
+        "name": "Avoid using Buffer deprecated APIs",
+        "href": "AIP/quality-rules/1020782",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020784,
+        "name": "Avoid using node-serialize 0.0.4 with Node.js",
+        "href": "AIP/quality-rules/1020784",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020786,
+        "name": "Avoid using serialize-to-js 0.5.0 with Node.js",
+        "href": "AIP/quality-rules/1020786",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020788,
+        "name": "Avoid using moment before 2.19.3 with Node.js",
+        "href": "AIP/quality-rules/1020788",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020904,
+        "name": "Avoid using url.parse() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020904",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020906,
+        "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1 (TypeScript)",
+        "href": "AIP/quality-rules/1020906",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020908,
+        "name": "Avoid using the file path validation with Node.js 8.5.0 (TypeScript)",
+        "href": "AIP/quality-rules/1020908",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020910,
+        "name": "Avoid using path library parsing functions with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020910",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020912,
+        "name": "Avoid using HTTP/2 library with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020912",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020914,
+        "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable nodejs versions (TypeScript)",
+        "href": "AIP/quality-rules/1020914",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020916,
+        "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions (TypeScript)",
+        "href": "AIP/quality-rules/1020916",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020918,
+        "name": "Avoid using Node.js query-mysql third-party (TypeScript)",
+        "href": "AIP/quality-rules/1020918",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020924,
+        "name": "Avoid using net.Socket object as stream with vulnerable version of Node.js (TypeScript)",
+        "href": "AIP/quality-rules/1020924",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1024000,
         "name": "Avoid using AbsoluteLayout",
         "href": "AIP/quality-rules/1024000",
@@ -178,6 +478,138 @@
         "critical": false,
         "severity": 10,
         "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1039044,
+        "name": "Avoid usage of BannedAPI when using ESAPI library",
+        "href": "AIP/quality-rules/1039044",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039074,
+        "name": "Avoid using Apache ActiveMQ 5.x before 5.13.0",
+        "href": "AIP/quality-rules/1039074",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040034,
+        "name": "StrictHttpFirewall should be set as Http Firewall before Spring Security 5.0.1, 4.2.4, and 4.1.5",
+        "href": "AIP/quality-rules/1040034",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040036,
+        "name": "Avoid using STOMP Spring messaging module before Spring 5.0.5 and 4.3.16",
+        "href": "AIP/quality-rules/1040036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040038,
+        "name": "Avoid using Spring Security Path Matching Inconsistency before Spring Framework 3.2.x, 4.0.x, 4.1.x, 4.2.x",
+        "href": "AIP/quality-rules/1040038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042010,
+        "name": "Avoid using ParametersInterceptor with class parameter for Struts 2.3.16 (and older)",
+        "href": "AIP/quality-rules/1042010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042022,
+        "name": "Avoid using CookieInterceptor with Struts 2.3.16 (and Older)",
+        "href": "AIP/quality-rules/1042022",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042030,
+        "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
+        "href": "AIP/quality-rules/1042030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042036,
+        "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
+        "href": "AIP/quality-rules/1042036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042040,
+        "name": "Avoid using Struts URLValidator with version before 2.5.13",
+        "href": "AIP/quality-rules/1042040",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042050,
+        "name": "Avoid using special top object in struts 2.0.0 - struts 2.3.24",
+        "href": "AIP/quality-rules/1042050",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1101088,
+        "name": "Avoid using LONG and LONG RAW datatypes",
+        "href": "AIP/quality-rules/1101088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101958,
+        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
+        "href": "AIP/quality-rules/1101958",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
             "C#",
             "VB.NET"
         ]

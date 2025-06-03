@@ -5,11 +5,17 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Afferent Coupling",
     "description": "Afferent Coupling (also known as Incoming Dependencies and Number of Types outside a Package that Depend on Types of the Package) indicates the number of other packages that depend upon classes within the analyzed package. Afferent Coupling is a time consuming determination of couplings between packages, hence showing which packages that depend upon each other. The number of packages that depend upon the analyzed package is an indication of the analyzed package's level of responsibility. In order to improve modularity and promote encapsulation, inter-object class couples should be kept to a minimum. If the package is relatively abstract then a large number of incoming dependencies is acceptable but the larger the number of couples, the higher the sensitivity to changes in other parts of the design, and therefore maintenance is difficult. Excessive coupling between concrete object classes is detrimental to modular design and prevents reuse.\n\nThe threshold contains the maximum afferent coupling.",
-    "output": "This report all classes ( and interfaces ) of a package with a high afferent Coupling. \nIt provides the following information : \n- Class ( Or Interface)\n- CA",
+    "output": "This report all APM Java Classes of a package with a high afferent Coupling. \nIt provides the following information : \n- Class\n- CA",
     "rationale": "If a package is highly abstract then it should be very stable.  If the package is highly concrete (un-abstract), then it would be acceptably unstable as it already has reached its maximum specialization. If a category is to be stable, it should also consist of abstract classes so that it can be extended. Stable categories that are extensible are flexible and do not constrain the design.",
-    "total": "Number of Java classes and interfaces",
+    "reference": "https://dzone.com/articles/measuring-code-complexity\nhttp://www.arisa.se/compendium/node104.html",
+    "remediation": "Review the packages in order to have an Afferent Coupling.",
+    "total": "Number of APM Java All Classes referenced in DSSAPP_PACKAGES( Java and JSP Technology)",
     "alternativeName": "Ensure to review the packages in order to to have an Afferent Coupling.",
     "businessCriteria": [
         {

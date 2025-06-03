@@ -1,25 +1,39 @@
 {
     "id": 8218,
-    "name": "Content type should be checked when receiving a HTTP Post",
+    "name": "DEPRECATED: Content type should be checked when receiving a HTTP Post",
     "href": "AIP/quality-rules/8218",
     "critical": true,
     "severity": 30,
     "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of violation occurrences",
-    "description": "A violation is reported only if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods:\n   ",
-    "output": "A violation is reported only if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods. \n  ",
-    "rationale": "The aim is to check that the content type of a message received in a HTTP POST request. Arbitrary code execution is possible if an uploaded file is interpreted and executed as code by the recipient\n-The software allows the attacker to transfer files of dangerous types that can be automatically processed within the product's environment.  \n",
-    "reference": "https://cwe.mitre.org/data/definitions/434.html",
+    "description": "If getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods a violation will be reported by this rule.",
+    "output": "A violation is reported only if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods.",
+    "rationale": "The aim is to check that the content type of a message received in a HTTP POST request. Arbitrary code execution is possible if an uploaded file is interpreted and executed as code by the recipient\n\nThe software allows the attacker to transfer files of dangerous types that can be automatically processed within the product's environment.\n\nInjection flaws, such as SQL, OS, and LDAP injection occur when untrusted data is sent to an interpreter as part of a command or query. The attackers' hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.",
+    "reference": "https://cwe.mitre.org/data/definitions/434.html\nhttps://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServlet.html",
     "remediation": "check that the content type of a message received in a HTTP POST and GET request.",
-    "remediationSample": " \n-Sample 1\nprotected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\nString strContentType = request.getContentType();\n  if (!strContentType.equals(\"text/xml\"))\n  {\n    //throw error as invalid MIME type and do not continue further\n  }\n}\n---------------------------------------------------------------------------------\nsample 2\nIf the browser doesn't pass content-type correctly,\nif(request.getContentType() == null)\n{\n}\n",
-    "sample": "protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n    String firstName = request.getParameter(\"fname\");\n    response.getWriter().append(\"Served at: \").append(request.getContextPath());\n    //VIOLATION as the request getcontent type is not used to check for the valid type\n  }\n",
-    "total": " Reports if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods.",
+    "remediationSample": "Sample 1\n\nprotected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\nString strContentType = request.getContentType();\n  if (!strContentType.equals(\"text/xml\"))\n  {\n    //throw error as invalid MIME type and do not continue further\n  }\n}\n---------------------------------------------------------------------------------\nsample 2\nIf the browser doesn't pass content-type correctly,\nif(request.getContentType() == null)\n{\n}",
+    "sample": "protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n    String firstName = request.getParameter(\"fname\");\n    response.getWriter().append(\"Served at: \").append(request.getContextPath());  \n    //VIOLATION as the request getcontent type is not used to check for the valid type\n  }\n\n@Override\nprotected void mainFlow(UsecaseExecution<TParams, TResult> execution) throws Exception {\n\n    URL url = getUrl();\n\n    HttpURLConnection connection = (HttpURLConnection) url.openConnection();\n    connection.setDoOutput(true);\n    connection.setRequestMethod(\"POST\");\n    connection.setRequestProperty(\"Content-Type\", \"application/xml\");\n\n    try {\n\n        InputStream inputStream = connection.getInputStream();\n        InputStreamReader isReader = new InputStreamReader(inputStream, charSet);\n\n       \n        }\n}\n\n------------------------------------------------------------------------------------------------------\n\n@Override\nprotected void mainFlow(UsecaseExecution<TParams, TResult> execution) throws Exception {\n\n    URL url = getUrl();\n\n    HttpURLConnection connection = (HttpURLConnection) url.openConnection();\n    connection.setDoOutput(true);\n    connection.setRequestMethod(\"POST\");\n    connection.setRequestProperty(\"Content-Type\", \"application/xml\");\n\n    try {\n\n        String contentType = connection.getContentType();  //Validating Content type.\n\n        String charSet = (contentType != null && contentType.contains(\"charset=\"))\n                ? contentType.substring(contentType.indexOf('=') + 1)\n                : \"UTF-8\";\n\n        InputStream inputStream = connection.getInputStream();\n        InputStreamReader isReader = new InputStreamReader(inputStream, charSet);\n\n       \n        }\n}",
+    "total": "Reports if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods.",
     "alternativeName": "Always check the content type when receiving a HTTP post",
     "businessCriteria": [
         {
             "id": 1062100,
             "name": "CISQ-Index",
             "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 60013,
@@ -37,6 +51,55 @@
             "id": 1062182,
             "name": "ASCSM-CWE-434 - File Upload Improper Input Neutralization",
             "href": "AIP/technical-criteria/1062182",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061050,
+            "name": "CWE-434 - Unrestricted Upload of File with Dangerous Type",
+            "href": "AIP/technical-criteria/1061050",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066534,
+            "name": "CWE-434 - Unrestricted Upload of File with Dangerous Type",
+            "href": "AIP/technical-criteria/1066534",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
             "weight": 5,
             "critical": false
         },

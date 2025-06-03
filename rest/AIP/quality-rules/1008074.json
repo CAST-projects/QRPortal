@@ -1,0 +1,113 @@
+{
+    "id": 1008074,
+    "name": "Specify Error Subroutine for File Exception Handling  (RPG400)",
+    "href": "AIP/quality-rules/1008074",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.rpg",
+        "href": "AIP/extensions/com.castsoftware.rpg"
+    },
+    "description": "This rule searches all the artifacts not having File Exception Handling and not specifying Error Subroutines.",
+    "output": "This report lists RPG400 Programs not having File Exception Handling.\nIt provides the following information:\n- RPG400 Program full name",
+    "rationale": "The error handling subroutine needs to be specific to prevent the application from unhandled exceptions. These can lead to application halt or unvalidated results. No specifying this on the file declaration part (F-spec) can show that the exceptions are not handled properly.",
+    "remediation": "Implement subroutines dedicated to File Exception Handling.",
+    "remediationSample": "Use following syntax for specifying error subroutine:\n    INFSR(Subroutine_name) \n    Or\n    KINFSR Subroutine_name\n    Flog if e k disk infds(infds) \nD infds ds \nD recname 261 270 \nD input ds qualified \nD rec1 likerec(rec1) overlay(input) \nD rec2 likerec(rec2) overlay(input)",
+    "sample": "Flog if e k disk \nD infds ds \nD recname 261 270 \nD input ds qualified \nD rec1 likerec(rec1) overlay(input) \nD rec2 likerec(rec2) overlay(input)",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Specify Error Subroutine for File Exception Handling  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

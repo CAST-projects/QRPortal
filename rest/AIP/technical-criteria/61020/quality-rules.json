@@ -106,14 +106,14 @@
         "name": "Avoid declaring Instance Variables without defined access type",
         "href": "AIP/quality-rules/4566",
         "critical": false,
-        "weight": 6,
+        "weight": 4,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 4568,
-        "name": "Avoid declaring Public Instance Variables",
+        "name": "DEPRECATED: Avoid declaring Public Instance Variables",
         "href": "AIP/quality-rules/4568",
         "critical": true,
         "weight": 7,
@@ -123,7 +123,7 @@
     },
     {
         "id": 4570,
-        "name": "Avoid declaring Non Final Class Variables with Public or Package access type",
+        "name": "Avoid declaring Non Final Class Variables with Public, Protected or Package access type",
         "href": "AIP/quality-rules/4570",
         "critical": false,
         "weight": 6,
@@ -133,17 +133,17 @@
     },
     {
         "id": 4572,
-        "name": "Avoid declaring Final Instance Variables that are not dynamically initialized",
+        "name": "DEPRECATED : Avoid declaring Final Instance Variables that are not initialized",
         "href": "AIP/quality-rules/4572",
         "critical": false,
-        "weight": 6,
+        "weight": 8,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 4576,
-        "name": "Provide accessors to Private Fields",
+        "name": "DEPRECATED: Provide accessors to Private Fields",
         "href": "AIP/quality-rules/4576",
         "critical": false,
         "weight": 4,
@@ -153,7 +153,7 @@
     },
     {
         "id": 4578,
-        "name": "Good use of Interfaces with collections as Method return types",
+        "name": "Collection interfaces should be used as method return types instead of their implementation classes",
         "href": "AIP/quality-rules/4578",
         "critical": false,
         "weight": 5,
@@ -163,7 +163,7 @@
     },
     {
         "id": 4580,
-        "name": "Good use of Interfaces when instantiating a collection",
+        "name": "Collection declarations should use interfaces instead of implementation classes",
         "href": "AIP/quality-rules/4580",
         "critical": false,
         "weight": 5,
@@ -203,7 +203,7 @@
     },
     {
         "id": 7306,
-        "name": "Avoid declaring Inner Classes",
+        "name": "DEPRECATED: Avoid declaring Inner Classes",
         "href": "AIP/quality-rules/7306",
         "critical": false,
         "weight": 1,
@@ -213,10 +213,20 @@
     },
     {
         "id": 7308,
-        "name": "Avoid using Inner Classes",
+        "name": "DEPRECATED: Avoid using Inner Classes",
         "href": "AIP/quality-rules/7308",
         "critical": false,
         "weight": 1,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7498,
+        "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
+        "href": "AIP/quality-rules/7498",
+        "critical": false,
+        "weight": 5,
         "technologyNames": [
             "JEE"
         ]
@@ -233,7 +243,7 @@
     },
     {
         "id": 7704,
-        "name": "Avoid static Fields that are not final",
+        "name": "All static fields in the enterprise bean class should be declared as final",
         "href": "AIP/quality-rules/7704",
         "critical": false,
         "weight": 9,
@@ -306,6 +316,156 @@
         "technologyNames": [
             "C",
             "C++"
+        ]
+    },
+    {
+        "id": 1003096,
+        "name": "Avoid non-const public static fields (Flex)",
+        "href": "AIP/quality-rules/1003096",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003098,
+        "name": "Avoid non-static constant fields (Flex)",
+        "href": "AIP/quality-rules/1003098",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003100,
+        "name": "Avoid protected fields in final class (Flex)",
+        "href": "AIP/quality-rules/1003100",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003102,
+        "name": "Protected static methods should be declared private (Flex)",
+        "href": "AIP/quality-rules/1003102",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003104,
+        "name": "Avoid Parsley metadata placed on inaccessible members. (Flex)",
+        "href": "AIP/quality-rules/1003104",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003106,
+        "name": "Avoid too many methods in class (Flex)",
+        "href": "AIP/quality-rules/1003106",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003108,
+        "name": "Avoid too many methods in script (Flex)",
+        "href": "AIP/quality-rules/1003108",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003110,
+        "name": "Avoid functions that are too long (Flex)",
+        "href": "AIP/quality-rules/1003110",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003112,
+        "name": "Avoid too many public fields or functions (Flex)",
+        "href": "AIP/quality-rules/1003112",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003114,
+        "name": "Avoid class with too many fields (Flex)",
+        "href": "AIP/quality-rules/1003114",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003116,
+        "name": "Avoid Flex Script with too many fields (Flex)",
+        "href": "AIP/quality-rules/1003116",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003118,
+        "name": "Avoid Value Objects with too many fields (Flex)",
+        "href": "AIP/quality-rules/1003118",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1020200,
+        "name": "Always have data property as a function that returns an object",
+        "href": "AIP/quality-rules/1020200",
+        "critical": false,
+        "weight": 3,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021068,
+        "name": "Avoid using global statement",
+        "href": "AIP/quality-rules/1021068",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1039044,
+        "name": "Avoid usage of BannedAPI when using ESAPI library",
+        "href": "AIP/quality-rules/1039044",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

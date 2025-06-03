@@ -21,6 +21,11 @@
     "alternativeName": "Ensure not using File IO unrestricted access",
     "businessCriteria": [
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -32,6 +37,48 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1061059,
+            "name": "CWE-502 - Deserialization of Untrusted Data",
+            "href": "AIP/technical-criteria/1061059",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066602,
+            "name": "CWE-502 - Deserialization of Untrusted Data",
+            "href": "AIP/technical-criteria/1066602",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062328,
+            "name": "OWASP-2017-A8 - Insecure Deserialization",
+            "href": "AIP/technical-criteria/1062328",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062348,
+            "name": "OWASP-2021-A08 - Software and Data Integrity Failures",
+            "href": "AIP/technical-criteria/1062348",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66063,
             "name": "Secure Coding - API Abuse",

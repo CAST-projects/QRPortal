@@ -1,0 +1,57 @@
+{
+    "id": 1106018,
+    "name": "Ensure PL/SQL procedures DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE are not used",
+    "href": "AIP/quality-rules/1106018",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if the DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE procedures are used in Oracle Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Oracle Autonomous Database supports LogMiner, with limitations.",
+    "reference": "https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbdl/index.html#ADBDL-GUID-CC485BF9-A23A-4342-8D52-AFD47BFD4DF5",
+    "remediation": "Autonomous Database on Dedicated Exadata Infrastructure supports LogMiner, with the following limitations:\n- The DBMS_LOGMNR.ADD_LOGFILE and DBS_LOGMNR.REMOVE_LOGFILE procedures can not be used from an Autonomous Database.\n- The dbms_logmnr.start_logmnr procedure can only be invoked with SCN or time range parameters. Querying the V$LOGMNR_CONTENTS view subsequently returns the data from the specified SCN or time range for the connected Autonomous Database.\n- Only one LogMiner session is allowed per Autonomous Database.\n- By default, Autonomous Database archived log files are kept for up to:\n      - 3 days for databases without GoldenGate capture and Autonomous Data Guard setup.\n      - 7 days for databases with Autonomous Data Guard that do not have GoldenGate capture enabled.\n      - 15 days for databases with GoldenGate capture enabled. \n     Therefore, LogMiner can only access up to 3, 7, or 15 days of archived log files as per the above list.\n     The log files retention period depends on the database transaction rate and is not always guaranteed up to the number of days specified above. There can be instances when you attempt to mine unavailable log files. In such cases, LogMiner reports ORA-1285: \"error reading file\".",
+    "remediationSample": "The remediation is to remove all references to DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE.\nYou should contact Oracle Support if you cannot remove all references to DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE.",
+    "sample": "execute DBMS_LOGMNR.ADD_LOGFILE ('C:\\ORACLE\\ORADATA\\ORDB1\\REDO01.LOG');\n/\nexecute DBMS_LOGMNR.REMOVE_LOGFILE(LOGFILENAME => 'C:\\ORACLE\\ORADATA\\ORDB1\\REDO01.LOG');\n/",
+    "total": "Number of Artifacts with SQL code except Views",
+    "alternativeName": "Ensure PL/SQL procedures DBMS_LOGMNR.ADD_LOGFILE and DBMS_LOGMNR.REMOVE_LOGFILE are not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61033,
+            "name": "Cloud Migration - Oracle Database to Oracle Cloud Database",
+            "href": "AIP/technical-criteria/61033",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

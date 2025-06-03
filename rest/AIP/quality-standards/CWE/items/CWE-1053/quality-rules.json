@@ -23,7 +23,7 @@
     },
     {
         "id": 2244,
-        "name": "Avoid undocumented Web Server Pages",
+        "name": "DEPRECATED: Avoid undocumented Web Server Pages",
         "href": "AIP/quality-rules/2244",
         "critical": false,
         "severity": 10,
@@ -142,8 +142,10 @@
         "severity": 10,
         "technologyNames": [
             "Forms",
+            "FormsReportAnalyzer",
             "Microsoft T-SQL",
             "PL/SQL",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL"
         ]
@@ -212,6 +214,166 @@
         ]
     },
     {
+        "id": 1001088,
+        "name": "Avoid undocumented PLI Programs (PL1)",
+        "href": "AIP/quality-rules/1001088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001090,
+        "name": "Avoid undocumented PLC Copybook (PL1)",
+        "href": "AIP/quality-rules/1001090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1001092,
+        "name": "Avoid undocumented PLI Procedures and Functions (PL1)",
+        "href": "AIP/quality-rules/1001092",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001094,
+        "name": "Avoid undocumented PLC Procedures and Functions (PL1)",
+        "href": "AIP/quality-rules/1001094",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1002160,
+        "name": "Avoid undocumented Programs (FORTRAN)",
+        "href": "AIP/quality-rules/1002160",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002162,
+        "name": "Avoid undocumented Subroutines (FORTRAN)",
+        "href": "AIP/quality-rules/1002162",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002164,
+        "name": "Avoid undocumented Functions (FORTRAN)",
+        "href": "AIP/quality-rules/1002164",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002166,
+        "name": "Avoid undocumented Modules (FORTRAN)",
+        "href": "AIP/quality-rules/1002166",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1005042,
+        "name": "Avoid undocumented Programs (EGL)",
+        "href": "AIP/quality-rules/1005042",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1007098,
+        "name": "Avoid undocumented artifacts (PHP)",
+        "href": "AIP/quality-rules/1007098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007102,
+        "name": "Avoid undocumented classes (PHP)",
+        "href": "AIP/quality-rules/1007102",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007106,
+        "name": "Avoid undocumented Sections (PHP)",
+        "href": "AIP/quality-rules/1007106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007110,
+        "name": "Avoid undocumented JavaScript Functions (PHP)",
+        "href": "AIP/quality-rules/1007110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1008042,
+        "name": "Avoid undocumented RPG400 Programs  (RPG400)",
+        "href": "AIP/quality-rules/1008042",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1009042,
+        "name": "Avoid undocumented RPG300 Programs  (RPG300)",
+        "href": "AIP/quality-rules/1009042",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "RPG300"
+        ]
+    },
+    {
+        "id": 1018530,
+        "name": "Avoid undocumented processes (TIBCO BW)",
+        "href": "AIP/quality-rules/1018530",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
         "id": 1020082,
         "name": "Avoid undocumented Functions and Methods (Javascript/Typescript)",
         "href": "AIP/quality-rules/1020082",
@@ -219,6 +381,116 @@
         "severity": 10,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1046002,
+        "name": "Avoid undocumented Functions (Go)",
+        "href": "AIP/quality-rules/1046002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Go"
+        ]
+    },
+    {
+        "id": 1046006,
+        "name": "Avoid undocumented Methods (Go)",
+        "href": "AIP/quality-rules/1046006",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Go"
+        ]
+    },
+    {
+        "id": 1055050,
+        "name": "Avoid undocumented Functions (Swift)",
+        "href": "AIP/quality-rules/1055050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1520440,
+        "name": "Siebel eScript: Avoid undocumented Functions",
+        "href": "AIP/quality-rules/1520440",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1522000,
+        "name": "Siebel: Avoid undocumented Tables",
+        "href": "AIP/quality-rules/1522000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1522002,
+        "name": "Siebel: Avoid undocumented Business Components",
+        "href": "AIP/quality-rules/1522002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1522004,
+        "name": "Siebel: Avoid undocumented Applets",
+        "href": "AIP/quality-rules/1522004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1522006,
+        "name": "Siebel: Avoid undocumented Views",
+        "href": "AIP/quality-rules/1522006",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1522008,
+        "name": "Siebel: Avoid undocumented Screens",
+        "href": "AIP/quality-rules/1522008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1522010,
+        "name": "Siebel: Avoid undocumented Business Objects",
+        "href": "AIP/quality-rules/1522010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1522012,
+        "name": "Siebel: Avoid undocumented Business Services",
+        "href": "AIP/quality-rules/1522012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
         ]
     },
     {

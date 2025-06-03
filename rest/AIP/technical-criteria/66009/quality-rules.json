@@ -1,7 +1,7 @@
 [
     {
         "id": 2230,
-        "name": "Use of style sheets (JEE)",
+        "name": "DEPRECATED: Use of style sheets (JEE)",
         "href": "AIP/quality-rules/2230",
         "critical": false,
         "weight": 4,
@@ -11,7 +11,7 @@
     },
     {
         "id": 2242,
-        "name": "Avoid direct definition of JavaScript Functions in a Web page (JEE)",
+        "name": "DEPRECATED: Avoid direct definition of JavaScript Functions in a Web page (JEE)",
         "href": "AIP/quality-rules/2242",
         "critical": false,
         "weight": 4,
@@ -41,7 +41,7 @@
     },
     {
         "id": 7242,
-        "name": "Avoid implementing Action Classes inheriting directly from Struts Action",
+        "name": "Struts1: Avoid implementing Action Classes inheriting directly from Struts Action",
         "href": "AIP/quality-rules/7242",
         "critical": false,
         "weight": 2,
@@ -51,7 +51,7 @@
     },
     {
         "id": 7678,
-        "name": "Avoid using specific logging implementation",
+        "name": "Avoid logging using basic java log files",
         "href": "AIP/quality-rules/7678",
         "critical": false,
         "weight": 3,
@@ -61,7 +61,7 @@
     },
     {
         "id": 7682,
-        "name": "Avoid domain model depending on other Java API",
+        "name": "Avoid having Hibernate domain model depending on other Java APIs",
         "href": "AIP/quality-rules/7682",
         "critical": false,
         "weight": 6,
@@ -71,7 +71,7 @@
     },
     {
         "id": 7714,
-        "name": "Do not use auto-wiring",
+        "name": "Avoid using auto-wiring",
         "href": "AIP/quality-rules/7714",
         "critical": false,
         "weight": 7,
@@ -81,12 +81,152 @@
     },
     {
         "id": 7716,
-        "name": "Avoid defining singleton or factory when using Spring",
+        "name": "Avoid defining singleton or factory classes when using Spring",
         "href": "AIP/quality-rules/7716",
         "critical": false,
         "weight": 7,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1001028,
+        "name": "Avoid duplicated Main Procedures (PL1)",
+        "href": "AIP/quality-rules/1001028",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1003004,
+        "name": "Avoid packages with view components referenced in a model class (Flex)",
+        "href": "AIP/quality-rules/1003004",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003006,
+        "name": "Avoid scripts with view components referenced in a model class (Flex)",
+        "href": "AIP/quality-rules/1003006",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003008,
+        "name": "Avoid class duplicated with a SDK class (Flex)",
+        "href": "AIP/quality-rules/1003008",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003010,
+        "name": "Avoid class that imports an internal class from another functional area (Flex)",
+        "href": "AIP/quality-rules/1003010",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003012,
+        "name": "Avoid using code behind files (Flex)",
+        "href": "AIP/quality-rules/1003012",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003014,
+        "name": "Avoid nested if statements (Flex)",
+        "href": "AIP/quality-rules/1003014",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003016,
+        "name": "Avoid long cases in switch (Flex)",
+        "href": "AIP/quality-rules/1003016",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1003018,
+        "name": "Avoid nested switch statements (Flex)",
+        "href": "AIP/quality-rules/1003018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1005026,
+        "name": "Avoid Too Many Copy Pasted Artifacts (EGL)",
+        "href": "AIP/quality-rules/1005026",
+        "critical": false,
+        "weight": 9,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1007012,
+        "name": "Avoid using embedded CSS in Web Pages (PHP)",
+        "href": "AIP/quality-rules/1007012",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007014,
+        "name": "Avoid direct definition of JavaScript Functions in a Web page (PHP)",
+        "href": "AIP/quality-rules/1007014",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1008026,
+        "name": "Avoid using internally described files  (RPG400)",
+        "href": "AIP/quality-rules/1008026",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1009026,
+        "name": "Avoid using internally described files  (RPG300)",
+        "href": "AIP/quality-rules/1009026",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "RPG300"
         ]
     },
     {
@@ -107,6 +247,96 @@
         "weight": 4,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1520160,
+        "name": "Siebel: Don't delete static standard extension columns (ATTRIB_)",
+        "href": "AIP/quality-rules/1520160",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1520162,
+        "name": "Siebel: Do not add custom Fields to a Siebel Base table",
+        "href": "AIP/quality-rules/1520162",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521000,
+        "name": "Siebel: Don't delete Standard Tables",
+        "href": "AIP/quality-rules/1521000",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521002,
+        "name": "Siebel: Don't delete Standard Business Components",
+        "href": "AIP/quality-rules/1521002",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521004,
+        "name": "Siebel: Don't delete Standard Applets",
+        "href": "AIP/quality-rules/1521004",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521006,
+        "name": "Siebel: Don't delete Standard Views",
+        "href": "AIP/quality-rules/1521006",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521008,
+        "name": "Siebel: Don't delete Standard Screens",
+        "href": "AIP/quality-rules/1521008",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521010,
+        "name": "Siebel: Don't delete Standard Business Objects",
+        "href": "AIP/quality-rules/1521010",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1521012,
+        "name": "Siebel: Don't delete Standard Business Services",
+        "href": "AIP/quality-rules/1521012",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "Siebel"
         ]
     },
     {

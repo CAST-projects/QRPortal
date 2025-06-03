@@ -1,10 +1,14 @@
 {
     "id": 7510,
-    "name": "Use only Hibernate API to access to the database",
+    "name": "DEPRECATED: Use only Hibernate API to access to the database",
     "href": "AIP/quality-rules/7510",
     "critical": false,
     "severity": 10,
     "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
     "associatedValueName": "Number of reference",
     "description": "Reports all objects that reference the following java.sql interface and their methods\n- java.sql.Connection\n- java.sql.Statement\n- java.sql.PreparedStatement\n- java.sql.CallableStatement\nexcept when they are used as parameters of hibernate methods (methods whose FQDN begin with net.sf.hibernate or org.hibernate)\n\nThe threshold permits to add other interfaces or classes from other framework to the previous list.",
     "output": "List objects that use other API than hibernate API\nIt provides the following information:\n - Artifact Full Name\n - Number of reference",

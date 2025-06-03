@@ -1,0 +1,121 @@
+{
+    "id": 1020898,
+    "name": "Avoid having multiple routes for the same path with Node.js Express App (TypeScript)",
+    "href": "AIP/quality-rules/1020898",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.typescript",
+        "href": "AIP/extensions/com.castsoftware.typescript"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When designing the routing system of the server, you have to make sure you have only one routing handler per path. The duplicating handler will affect the global performance of the server creating latency issues.\n\nThis rule will check if a routing call is called within a loop and/or there are multiple routing calls on the same path.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software has a loop body or loop condition that contains a control element that directly or indirectly consumes platform resources, e.g. messaging, sessions, locks, or file descriptors.\n\nThis issue can make the software perform more slowly. If an attacker can influence the number of iterations in the loop, then this performance problem might allow a denial of service by consuming more platform resources than intended.",
+    "reference": "CISQ Recommendation: ASCPEM-PRF-08 \nhttp://techblog.netflix.com/2014/11/nodejs-in-flames.html",
+    "remediation": "Ensure you only have one routing handler per path.",
+    "remediationSample": "// multiple handler for the same path /foo \nimport { Express } from '../../src/express';\nvar app = new Express() \napp.get('/foo', function (req, res) { \n   res.send('hi'); \n}); \n// add a second foo route handler \napp.get('/foo2', function (req, res) { \n   res.send('hi2'); \n}); \n\n// call in a loop for different paths \n\nfor (i = 0; i < paths.length; i++) { \n\n   app.get('/foo'+paths[i], function (req, res) { \n      res.send('hi ' + paths[i]); \n   }); \n} \n\nconsole.log('stack', app._router.stack); \napp.listen(3000);",
+    "sample": "// multiple handler for the same path /foo \nimport { Express } from '../../src/express';\nvar app = new Express() \napp.get('/foo', function (req, res) { \n   res.send('hi'); \n}); \n// add a second foo route handler \napp.get('/foo', function (req, res) { \n   res.send('hi2'); \n}); \n\n// call in a loop for the same path /foo \n\nfor (i = 0; i < paths.length; i++) { \n\n   app.get('/foo', function (req, res) { \n      res.send('hi ' + paths[i]); \n   }); \n} \n\nconsole.log('stack', app._router.stack); \napp.listen(3000);",
+    "total": "Number of TypeScript source codes using express",
+    "alternativeName": "Ensure having only one routing handler per path to avoid an efficiency issue",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062143,
+            "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/technical-criteria/1062143",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061113,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1061113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067150,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1067150",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-8",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/CWE/items/CWE-1050",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1050",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1050",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

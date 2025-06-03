@@ -63,7 +63,7 @@
     },
     {
         "id": 7154,
-        "name": "Avoid Fields in Action Classes that are not final static",
+        "name": "Struts1: Avoid Struts Fields in Action Classes that are not final static",
         "href": "AIP/quality-rules/7154",
         "critical": true,
         "severity": 20,
@@ -73,7 +73,7 @@
     },
     {
         "id": 7202,
-        "name": "Check usage of '==' and '!=' on objects",
+        "name": "Avoid using '==' and '!=' to compare objects",
         "href": "AIP/quality-rules/7202",
         "critical": true,
         "severity": 20,
@@ -133,7 +133,7 @@
     },
     {
         "id": 7434,
-        "name": "Avoid classes overriding only equals() or only hashCode()",
+        "name": "Ensure to override both equals() and hashCode()",
         "href": "AIP/quality-rules/7434",
         "critical": true,
         "severity": 20,
@@ -153,7 +153,7 @@
     },
     {
         "id": 7442,
-        "name": "Avoid to use this within Constructor in multi-thread environment",
+        "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "severity": 20,
@@ -163,7 +163,7 @@
     },
     {
         "id": 7446,
-        "name": "Avoid double checked locking",
+        "name": "Avoid double checked locking for JSE 4.x and previous version",
         "href": "AIP/quality-rules/7446",
         "critical": true,
         "severity": 20,
@@ -193,7 +193,7 @@
     },
     {
         "id": 7506,
-        "name": "Define equals() and hashCode() for component",
+        "name": "equals() and hashCode() should be defined for Hibernate/JPA component",
         "href": "AIP/quality-rules/7506",
         "critical": true,
         "severity": 20,
@@ -203,7 +203,7 @@
     },
     {
         "id": 7508,
-        "name": "Collection-typed attributes getter must be defined with the correct interface",
+        "name": "DEPRECATED: Getter of collection-typed persistent attributes should return the correct interface type",
         "href": "AIP/quality-rules/7508",
         "critical": false,
         "severity": 10,
@@ -243,7 +243,7 @@
     },
     {
         "id": 7636,
-        "name": "Use version instead of timestamp",
+        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -263,7 +263,7 @@
     },
     {
         "id": 7708,
-        "name": "Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
+        "name": "DEPRECATED: Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
         "href": "AIP/quality-rules/7708",
         "critical": false,
         "severity": 10,
@@ -273,7 +273,7 @@
     },
     {
         "id": 7710,
-        "name": "Avoid non serializable Entities",
+        "name": "DEPRECATED: Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/7710",
         "critical": false,
         "severity": 10,
@@ -283,7 +283,7 @@
     },
     {
         "id": 7712,
-        "name": "Avoid public/protected setter for the generated identifier field",
+        "name": "DEPRECATED: Avoid public/protected setter for the generated identifier field",
         "href": "AIP/quality-rules/7712",
         "critical": false,
         "severity": 10,
@@ -293,7 +293,7 @@
     },
     {
         "id": 7722,
-        "name": "Avoid using references to the id in the persistent class's method equals()",
+        "name": "Avoid using persistent class's identifier in equals() method",
         "href": "AIP/quality-rules/7722",
         "critical": true,
         "severity": 20,
@@ -315,7 +315,7 @@
         "id": 7728,
         "name": "Avoid thread creation for application running on application server",
         "href": "AIP/quality-rules/7728",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -323,7 +323,7 @@
     },
     {
         "id": 7730,
-        "name": "Use declarative transaction",
+        "name": "Always use declarative transaction",
         "href": "AIP/quality-rules/7730",
         "critical": false,
         "severity": 10,
@@ -345,11 +345,13 @@
             "C++",
             "Cobol",
             "Forms",
+            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
+            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -540,7 +542,7 @@
     },
     {
         "id": 8016,
-        "name": "Avoid unsecured EJB remote method",
+        "name": "Avoid unrestricted access to EJB remote methods",
         "href": "AIP/quality-rules/8016",
         "critical": true,
         "severity": 20,
@@ -690,7 +692,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -740,7 +742,7 @@
     },
     {
         "id": 8136,
-        "name": "Beans with normal scope must be proxyable to avoid runtime errors",
+        "name": "CDI Beans with normal scope must be proxyable to avoid runtime errors",
         "href": "AIP/quality-rules/8136",
         "critical": true,
         "severity": 20,
@@ -805,7 +807,7 @@
     },
     {
         "id": 8216,
-        "name": "CWE-681: Avoid numerical data corruption during incompatible mutation",
+        "name": "Avoid using incompatible mutation",
         "href": "AIP/quality-rules/8216",
         "critical": true,
         "severity": 20,
@@ -815,7 +817,7 @@
     },
     {
         "id": 8218,
-        "name": "Content type should be checked when receiving a HTTP Post",
+        "name": "DEPRECATED: Content type should be checked when receiving a HTTP Post",
         "href": "AIP/quality-rules/8218",
         "critical": true,
         "severity": 30,
@@ -827,8 +829,8 @@
         "id": 8220,
         "name": "Avoid using deprecated method, constructor, field, type or package",
         "href": "AIP/quality-rules/8220",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -857,6 +859,36 @@
         "id": 1020076,
         "name": "Avoid Artifacts with too many parameters (Javascript)",
         "href": "AIP/quality-rules/1020076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020728,
+        "name": "Avoid creating cookie without setting httpOnly option (Node.js)",
+        "href": "AIP/quality-rules/1020728",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020730,
+        "name": "Ensure Node.js filesystem are closed",
+        "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure Node.js filesystem are closed (TypeScript)",
+        "href": "AIP/quality-rules/1020892",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -894,6 +926,36 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1045008,
+        "name": "Avoid non serializable Entity beans",
+        "href": "AIP/quality-rules/1045008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045010,
+        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "href": "AIP/quality-rules/1045010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045012,
+        "name": "Avoid public/protected setter for the generated identifier field",
+        "href": "AIP/quality-rules/1045012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -1016,6 +1078,16 @@
         "technologyNames": [
             "C",
             "C++"
+        ]
+    },
+    {
+        "id": 1101022,
+        "name": "Avoid Tables without Primary Key (SQL)",
+        "href": "AIP/quality-rules/1101022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
         ]
     }
 ]

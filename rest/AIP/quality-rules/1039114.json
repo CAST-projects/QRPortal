@@ -1,0 +1,103 @@
+{
+    "id": 1039114,
+    "name": "Avoid predictable initialization vector (JEE)",
+    "href": "AIP/quality-rules/1039114",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules reports IvParameterSpec or GCMParameterSpec instantiated with an hard-coded initialization vector.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "By design, some cryptographic primitives (such as block ciphers) require that IVs must have certain properties for the uniqueness and/or unpredictability of an IV. Primitives may vary in how important these properties are. If these properties are not maintained, e.g. by a bug in the code, then the cryptography may be weakened or broken by attacking the IVs themselves.",
+    "reference": "CWE-329: Generation of Predictable IV with CBC Mode\nhttps://cwe.mitre.org/data/definitions/329.html",
+    "remediation": "Create the Initialization Vector with a pseudorandom number generator (PRNG).",
+    "remediationSample": "byte[] iv = new byte[16];\nnew SecureRandom().nextBytes(iv);\nIvParameterSpec ivSpec = new IvParameterSpec(iv);  // FIXED",
+    "sample": "byte[] iv = { 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 };\nIvParameterSpec ips = new IvParameterSpec(iv);   // VIOLATION",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure initialization vector is random or unique",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-329",
+            "name": "Generation of Predictable IV with CBC Mode",
+            "href": "AIP/quality-standards/CWE/items/CWE-329",
+            "standard": "CWE"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.3",
+            "name": "Insecure cryptographic storage",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.3",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.3",
+            "name": "Insecure cryptographic storage",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.3",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

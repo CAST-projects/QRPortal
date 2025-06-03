@@ -82,6 +82,16 @@
         ]
     },
     {
+        "id": 4614,
+        "name": "DEPRECATED: Proper overriding of 'clone()'",
+        "href": "AIP/quality-rules/4614",
+        "critical": true,
+        "weight": 9,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 4716,
         "name": "Avoid Classes implementing too many Interfaces (JEE)",
         "href": "AIP/quality-rules/4716",
@@ -113,7 +123,7 @@
     },
     {
         "id": 7434,
-        "name": "Avoid classes overriding only equals() or only hashCode()",
+        "name": "Ensure to override both equals() and hashCode()",
         "href": "AIP/quality-rules/7434",
         "critical": true,
         "weight": 9,
@@ -130,6 +140,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 7716,
+        "name": "Avoid defining singleton or factory classes when using Spring",
+        "href": "AIP/quality-rules/7716",
+        "critical": false,
+        "weight": 7,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

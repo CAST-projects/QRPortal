@@ -20,8 +20,18 @@
         ]
     },
     {
+        "id": 1606,
+        "name": "Triggers should not directly modify tables, a procedure or function should be used instead",
+        "href": "AIP/quality-rules/1606",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
         "id": 2236,
-        "name": "Avoid use of standard SQL API",
+        "name": "DEPRECATED: Avoid use of standard SQL API",
         "href": "AIP/quality-rules/2236",
         "critical": false,
         "weight": 8,
@@ -31,7 +41,7 @@
     },
     {
         "id": 4722,
-        "name": "Track Classes referencing Database objects",
+        "name": "DEPRECATED: Avoid having classes referencing Database objects",
         "href": "AIP/quality-rules/4722",
         "critical": false,
         "weight": 1,
@@ -41,7 +51,7 @@
     },
     {
         "id": 7134,
-        "name": "Avoid having local forward with same name as global forward",
+        "name": "DEPRECATED: Avoid having Struts local forward with same name as Struts  global forward",
         "href": "AIP/quality-rules/7134",
         "critical": false,
         "weight": 4,
@@ -51,7 +61,7 @@
     },
     {
         "id": 7138,
-        "name": "Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
+        "name": "DEPRECATED : Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
         "href": "AIP/quality-rules/7138",
         "critical": false,
         "weight": 3,
@@ -61,9 +71,9 @@
     },
     {
         "id": 7140,
-        "name": "Action Artifacts should not directly call a JSP page",
+        "name": "Struts Action artifacts should not directly call a JSP page",
         "href": "AIP/quality-rules/7140",
-        "critical": true,
+        "critical": false,
         "weight": 7,
         "technologyNames": [
             "JEE"
@@ -71,7 +81,7 @@
     },
     {
         "id": 7142,
-        "name": "Action Classes should have only one public method",
+        "name": "DEPRECATED: Action Classes should have only one public method",
         "href": "AIP/quality-rules/7142",
         "critical": false,
         "weight": 1,
@@ -81,7 +91,7 @@
     },
     {
         "id": 7144,
-        "name": "Action Artifacts should not directly use database objects",
+        "name": "DEPRECATED : Avoid using  database objects from Struts Action Artifacts",
         "href": "AIP/quality-rules/7144",
         "critical": true,
         "weight": 7,
@@ -91,7 +101,7 @@
     },
     {
         "id": 7146,
-        "name": "JSP pages should only reference Java Objects associated to J2EE Scoped Bean",
+        "name": "Always have JSP pages referencing Java Objects associated to JEE Scoped Bean",
         "href": "AIP/quality-rules/7146",
         "critical": false,
         "weight": 3,
@@ -101,7 +111,7 @@
     },
     {
         "id": 7148,
-        "name": "JSP pages should always be accessed through their tiles definition",
+        "name": "DEPRECATED: JSP pages should always be accessed through their tiles definition",
         "href": "AIP/quality-rules/7148",
         "critical": false,
         "weight": 1,
@@ -111,7 +121,7 @@
     },
     {
         "id": 7238,
-        "name": "Avoid calls between JSP Pages",
+        "name": "Avoid calls between JSP Page for application using Struts framework",
         "href": "AIP/quality-rules/7238",
         "critical": false,
         "weight": 3,
@@ -134,7 +144,7 @@
         "id": 7292,
         "name": "Avoid cyclical calls and inheritances between packages",
         "href": "AIP/quality-rules/7292",
-        "critical": true,
+        "critical": false,
         "weight": 7,
         "technologyNames": [
             "JEE"
@@ -183,7 +193,7 @@
     },
     {
         "id": 7492,
-        "name": "Avoid many-to-many association",
+        "name": "DEPRECATED: Avoid Hibernate and JPA Entities using many-to-many association.",
         "href": "AIP/quality-rules/7492",
         "critical": false,
         "weight": 7,
@@ -193,7 +203,7 @@
     },
     {
         "id": 7510,
-        "name": "Use only Hibernate API to access to the database",
+        "name": "DEPRECATED: Use only Hibernate API to access to the database",
         "href": "AIP/quality-rules/7510",
         "critical": false,
         "weight": 9,
@@ -203,7 +213,7 @@
     },
     {
         "id": 7654,
-        "name": "Avoid database tables associated to more than one Entity",
+        "name": "DEPRECATED: Avoid database tables associated to more than one Hibernate Entity",
         "href": "AIP/quality-rules/7654",
         "critical": false,
         "weight": 9,
@@ -213,7 +223,7 @@
     },
     {
         "id": 7676,
-        "name": "Avoid too many packages referencing Mainframe",
+        "name": "DEPRECATED: Avoid too many packages referencing Mainframe",
         "href": "AIP/quality-rules/7676",
         "critical": false,
         "weight": 5,
@@ -223,7 +233,7 @@
     },
     {
         "id": 7700,
-        "name": "Use only Struts HTTP Servlet",
+        "name": "Struts1: Only Struts HTTP Servlet should be used for Struts based application",
         "href": "AIP/quality-rules/7700",
         "critical": false,
         "weight": 5,
@@ -233,7 +243,7 @@
     },
     {
         "id": 7726,
-        "name": "Avoid Action artifacts that call packages that reference database",
+        "name": "Avoid Struts Action Classes that call packages having direct access to database",
         "href": "AIP/quality-rules/7726",
         "critical": false,
         "weight": 8,
@@ -283,6 +293,36 @@
         "weight": 6,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1020830,
+        "name": "Avoid using Angular ElementRef API to manipulate DOM",
+        "href": "AIP/quality-rules/1020830",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1101022,
+        "name": "Avoid Tables without Primary Key (SQL)",
+        "href": "AIP/quality-rules/1101022",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101100,
+        "name": "Avoid Functions and Procedures doing an Insert, Update or Delete without managing a transaction (SQL)",
+        "href": "AIP/quality-rules/1101100",
+        "critical": false,
+        "weight": 1,
+        "technologyNames": [
+            "SQL"
         ]
     }
 ]

@@ -1,0 +1,165 @@
+{
+    "id": 1007278,
+    "name": "DEPRECATED: CWE-328: Avoid weak hash functions (PHP)",
+    "href": "AIP/quality-rules/1007278",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "associatedValueName": "Reasoning",
+    "description": "This QR detects code that uses a hash function that is cryptographically insecure.",
+    "output": "This report lists all artifacts that use weak hash functions. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "Produced hashes through this function can be easily brute forced in order to find the original value or they may be vulnerable to collision attacks. This is dangerous if the hash is used in a security contexts.",
+    "reference": "https://cwe.mitre.org/data/definitions/328.html",
+    "remediation": "Use secure algorithm should instead.",
+    "total": "Number of Artifacts",
+    "alternativeName": "DEPRECATED: CWE-328: Avoid weak hash functions (PHP)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062179,
+            "name": "ASCSM-CWE-327 - Broken or Risky Cryptographic Algorithm Usage",
+            "href": "AIP/technical-criteria/1062179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066428,
+            "name": "CWE-328 - Use of Weak Hash",
+            "href": "AIP/technical-criteria/1066428",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-327",
+            "name": "Broken or Risky Cryptographic Algorithm Usage",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-327",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-328",
+            "name": "Use of Weak Hash",
+            "href": "AIP/quality-standards/CWE/items/CWE-328",
+            "standard": "CWE"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222598",
+            "name": "The application must maintain the confidentiality and integrity of information during preparation for transmission.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222598",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222599",
+            "name": "The application must maintain the confidentiality and integrity of information during reception.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222599",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        },
+        {
+            "id": "STIG-V-222598",
+            "name": "The application must maintain the confidentiality and integrity of information during preparation for transmission.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222598",
+            "standard": "STIG-V6"
+        },
+        {
+            "id": "STIG-V-222599",
+            "name": "The application must maintain the confidentiality and integrity of information during reception.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222599",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

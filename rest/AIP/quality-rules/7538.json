@@ -1,10 +1,14 @@
 {
     "id": 7538,
-    "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+    "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
     "href": "AIP/quality-rules/7538",
     "critical": true,
     "severity": 20,
     "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
     "associatedValueName": "Number of violation occurrences",
     "description": "This metric retrieves all ABAP Artifacts using SELECT ...  INTO CORRESPONDING FIELDS OF statement on tables and views.",
     "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
@@ -18,6 +22,11 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

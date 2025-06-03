@@ -1,0 +1,147 @@
+{
+    "id": 1007280,
+    "name": "DEPRECATED: CWE-214: Avoid System Information Leakage (PHP)",
+    "href": "AIP/quality-rules/1007280",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "associatedValueName": "Reasoning",
+    "description": "An information leakage vulnerability occurs when confidential information about the web server's setup is leaked to the application's user.",
+    "output": "This report lists all artifacts that cause system information leakage. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "Although information leakage might not be exploitable, it can help an attacker to prepare other attacks. The affected code leaks information about the system that allows an attacker to learn about used software versions or installation paths.",
+    "reference": "https://cwe.mitre.org/data/definitions/214.html",
+    "remediation": "Remove information leakage (typically phpinfo() function in PHP).",
+    "total": "Number of Artifacts",
+    "alternativeName": "DEPRECATED: CWE-214: Avoid System Information Leakage (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066314,
+            "name": "CWE-214 - Invocation of Process Using Visible Sensitive Information",
+            "href": "AIP/technical-criteria/1066314",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-214",
+            "name": "Invocation of Process Using Visible Sensitive Information",
+            "href": "AIP/quality-standards/CWE/items/CWE-214",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-22",
+            "name": "Publicly Accessible Content",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-22",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-15",
+            "name": "Information Output Filtering",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-15",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-22",
+            "name": "Publicly Accessible Content",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-22",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "NIST-SI-15",
+            "name": "Information Output Filtering",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-15",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "STIG-V-222425",
+            "name": "The application must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222425",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222425",
+            "name": "The application must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222425",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "id": 1520868,
+    "name": "Siebel eScript: Avoid Functions with more than X variables",
+    "href": "AIP/quality-rules/1520868",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Number of variables",
+    "description": "This rule reports Functions with more than X variable.\nX is a parameter, named \"Siebel: Max Variables\", and it can be changed at will.\nDefault value is 15.",
+    "output": "This rule reports Functions with too many variables. It displays:\n- Function full name\n- The associated value is the Number of variables",
+    "rationale": "Declare your variables. Declaring your variables and specifying their data type, as appropriate, can use less memory and improve performance.\nFor maintainability and readability reasons, Function should not have too many variables.",
+    "reference": "https://docs.oracle.com/cd/E14004_01/books/eScript/Using_eScript14.html",
+    "remediation": "Review the Function design to reduce the number of variables.",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Avoid Functions with more than X variables",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "href": "AIP/technical-criteria/61022",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max Variables",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        15
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

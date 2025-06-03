@@ -1,0 +1,71 @@
+{
+    "id": 1020606,
+    "name": "Prefer using Asynchronous Loading",
+    "href": "AIP/quality-rules/1020606",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.sapui5",
+        "href": "AIP/extensions/com.castsoftware.sapui5"
+    },
+    "description": "In order to activate an asynchronous loading mode, you can proceed as follow :\n      1- Add the bootstrapping tag data-sap-ui-async=\"true\" to the index.html file.\n      or\n      2- Load all application-specific configuration settings asynchronously by setting the async property in the metadata of the manifest.json file to true.",
+    "output": "Associated to each violation, the following information is provided:\n      - The number of violation occurrences\n      - Bookmarks for violation occurrences found in the source code",
+    "rationale": "As OpenUI5 is evolving, the loading processes in the background were significantly improved. To get the best out of these changes in the core and to speed up your app, we recommend that you switch on asynchronous loading. With asynchronous loading, files are retrieved in parallel. This is much quicker than with synchronous loading, where files are retrieved sequentially",
+    "reference": "https://sapui5.hana.ondemand.com/sdk/#/topic/676b636446c94eada183b1218a824717",
+    "remediation": "Update the application setting to activate the asynchronous loading. See Remediation Samples",
+    "remediationSample": "1.1- Setting bootstrapping tag data-sap-ui-async=\"true\" in index.html file.\n\n      <!DOCTYPE html>\n      <html>\n      <head>\n      <meta charset=\"utf-8\">\n      <title>My App</title>\n      <script\n      id=\"sap-ui-bootstrap\"\n      ...\n      data-sap-ui-preload=\"async\">\n      </script>\n      </head>\n      </html>\n      __________________________\n\n      1.2- Setting bootstrapping tag data-sap-ui-async=\"true\" in index.html file.\n\n      <!DOCTYPE html>\n      <html>\n      <head>\n      <meta charset=\"utf-8\">\n      <title>My App</title>\n      <script\n      id=\"sap-ui-bootstrap\"\n      ...\n      data-sap-ui-async=\"true\">\n      </script>\n      </head>\n      </html>\n      __________________________\n\n      2- Setting the async property in the metadata of the manifest.json file to true.\n      \"sap.ui5\": {\n      \"rootView\": {\n      \"viewName\": \"sap.ui.demo.worklist.view.App\",\n      \"type\": \"XML\",\n      \"async\": true,\n      \"id\": \"app\"\n      },",
+    "sample": "1.1- The Setting bootstrapping tag \"data-sap-ui-async\" in index.html file is not to true\n\n      <!DOCTYPE html>\n      <html>\n      <head>\n      <meta charset=\"utf-8\">\n      <title>My App</title>\n      <script\n      id=\"sap-ui-bootstrap\"\n      ...\n      data-sap-ui-async=\"false\">\n      </script>\n      </head>\n      </html>\n      _________________________________________________________\n\n      1.2- The Setting bootstrapping tag \"data-sap-ui-preload\" in index.html file is not to async\n\n      <!DOCTYPE html>\n      <html>\n      <head>\n      <meta charset=\"utf-8\">\n      <title>My App</title>\n      <script\n      id=\"sap-ui-bootstrap\"\n      ...\n      data-sap-ui-preload=\"\">\n      </script>\n      </head>\n      </html>\n      _________________________________________________________\n\n      2- The setting of the \"async\" property in the metadata of the manifest.json file is not 'true'.\n\n      \"sap.ui5\": {\n      \"rootView\": {\n      \"viewName\": \"sap.ui.demo.worklist.view.App\",\n      \"type\": \"XML\",\n      \"async\": false,\n      \"id\": \"app\"\n      },\n      }",
+    "total": "Number of SAPUI5 Applications",
+    "alternativeName": "Prefer using Asynchronous Loading",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
