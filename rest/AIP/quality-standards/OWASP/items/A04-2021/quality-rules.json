@@ -21,17 +21,17 @@
     },
     {
         "id": 7190,
-        "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
+        "name": "Validator form validate() Method must call super.validate()",
         "href": "AIP/quality-rules/7190",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7192,
-        "name": "Avoid using Struts Form that cannot extend Validator Class",
+        "name": "Form Bean must extend Validator Class",
         "href": "AIP/quality-rules/7192",
         "critical": false,
         "severity": 10,
@@ -41,7 +41,7 @@
     },
     {
         "id": 7372,
-        "name": "Struts 1: Enable Struts Validator plugin",
+        "name": "Enable Struts Validator plugin",
         "href": "AIP/quality-rules/7372",
         "critical": true,
         "severity": 20,
@@ -51,7 +51,7 @@
     },
     {
         "id": 7444,
-        "name": "Avoid Using Non-Serialized Beans with Session Scope",
+        "name": "Serialize session objects",
         "href": "AIP/quality-rules/7444",
         "critical": false,
         "severity": 10,
@@ -73,7 +73,7 @@
     },
     {
         "id": 8038,
-        "name": "Struts 2: Avoid Struts Validator field without Form Field",
+        "name": "Avoid Struts 2 Validator field not referencing a java class field",
         "href": "AIP/quality-rules/8038",
         "critical": false,
         "severity": 10,
@@ -83,7 +83,7 @@
     },
     {
         "id": 8218,
-        "name": "DEPRECATED: Content type should be checked when receiving a HTTP Post",
+        "name": "Content type should be checked when receiving a HTTP Post",
         "href": "AIP/quality-rules/8218",
         "critical": true,
         "severity": 30,
@@ -138,56 +138,6 @@
         ]
     },
     {
-        "id": 1020712,
-        "name": "Ensure the X-Frame-Options header is setup (Node.js)",
-        "href": "AIP/quality-rules/1020712",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020882,
-        "name": "Ensure the express X-Frame-Options header is setup (TypeScript)",
-        "href": "AIP/quality-rules/1020882",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1021104,
-        "name": "Avoid file path manipulation (Python)",
-        "href": "AIP/quality-rules/1021104",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021120,
-        "name": "Avoid mixing trusted and untrusted data in HTTP requests (Python)",
-        "href": "AIP/quality-rules/1021120",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021122,
-        "name": "Avoid cookie poisoning",
-        "href": "AIP/quality-rules/1021122",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
         "id": 1024020,
         "name": "Avoid using implicit intent",
         "href": "AIP/quality-rules/1024020",
@@ -195,90 +145,6 @@
         "severity": 20,
         "technologyNames": [
             "JEE"
-        ]
-    },
-    {
-        "id": 1025032,
-        "name": "Avoid insecure parameters for PBKDF2 password encoder",
-        "href": "AIP/quality-rules/1025032",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025034,
-        "name": "Avoid insecure parameters for BCrypt password encoder",
-        "href": "AIP/quality-rules/1025034",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025036,
-        "name": "Avoid insecure parameters for Argon2 password encoder",
-        "href": "AIP/quality-rules/1025036",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025038,
-        "name": "Avoid insecure parameters for SCrypt password encoder",
-        "href": "AIP/quality-rules/1025038",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025040,
-        "name": "Avoid external control of system or configuration setting",
-        "href": "AIP/quality-rules/1025040",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025042,
-        "name": "Avoid external control of system or configuration setting through API requests",
-        "href": "AIP/quality-rules/1025042",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025054,
-        "name": "Avoid plaintext storage of password",
-        "href": "AIP/quality-rules/1025054",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
         ]
     },
     {
@@ -301,66 +167,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1034014,
-        "name": "Avoid file path manipulation (PHP)",
-        "href": "AIP/quality-rules/1034014",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1034036,
-        "name": "Avoid second order file path manipulation (PHP)",
-        "href": "AIP/quality-rules/1034036",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1034072,
-        "name": "Avoid mixing trusted and untrusted data in HTTP requests (PHP)",
-        "href": "AIP/quality-rules/1034072",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1039004,
-        "name": "Avoid using HttpServletRequest.getRequestedSessionId()",
-        "href": "AIP/quality-rules/1039004",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039068,
-        "name": "Avoid using the Non-Serializable Object Stored in Session",
-        "href": "AIP/quality-rules/1039068",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040018,
-        "name": "Ensure the X-Frame-Options header is setup (Spring)",
-        "href": "AIP/quality-rules/1040018",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -394,16 +200,6 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
-        ]
-    },
-    {
-        "id": 1060114,
-        "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
-        "href": "AIP/quality-rules/1060114",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
         ]
     }
 ]

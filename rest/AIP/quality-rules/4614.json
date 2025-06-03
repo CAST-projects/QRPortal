@@ -1,29 +1,17 @@
 {
     "id": 4614,
-    "name": "DEPRECATED: Proper overriding of 'clone()'",
+    "name": "Proper overriding of 'clone()'",
     "href": "AIP/quality-rules/4614",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "This report lists all Methods overriding 'clone()' and not calling 'super.clone()'",
+    "description": "When overriding the 'clone()' Method, a call to 'super.clone()' is necessary. Note that where a class 'A' that has a field 'a' of type 'A' and is calling a.clone() without calling super.clone() will not be reported as a violation.",
     "output": "This report lists all Methods overriding 'clone()' and not calling 'super.clone()'.\nIt provides the following information:\n Method full name",
-    "rationale": "A call to 'super.clone()' ensures the clone behavior will still work.\nWhen overriding the 'clone()' Method, a call to 'super.clone()' is necessary. Note that where a class 'A' that has a field 'a' of type 'A' and is calling a.clone() without calling super.clone() will not be reported as a violation.",
-    "reference": "https://www.vojtechruzicka.com/java-cloning-problems/\nhttps://help.semmle.com/wiki/display/JAVA/Missing+super+clone",
+    "rationale": "A call to 'super.clone()' ensures the clone behavior will still work.",
     "remediation": "Review the Method definition",
-    "remediationSample": "class Person implements Cloneable {\n    private String name;\n    public Person(String name) { this.name = name; }\n    \n    public Person clone() {\n        try {\n            return (Person)super.clone(); // FIXED 'clone' correctly calls 'super.clone'\n        } catch (CloneNotSupportedException e) {\n            throw new AssertionError(\"Should never happen\");\n        }\n    }\n}",
-    "sample": "class Person implements Cloneable {\n    private String name;\n    public Person(String name) { this.name = name; }\n    \n    public Person clone() {\n        return new Person(this.name); // violation \n    }\n}",
     "total": "Number of Java methods",
     "alternativeName": "A clone method that is overridden in a subclass should call super.clone. Not doing so causes the subclass clone to return an object of the wrong type.",
     "businessCriteria": [
-        {
-            "id": 60012,
-            "name": "Changeability",
-            "href": "AIP/business-criteria/60012"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -41,20 +29,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1066680,
-            "name": "CWE-580 - clone() Method Without super.clone()",
-            "href": "AIP/technical-criteria/1066680",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 61010,
-            "name": "Complexity - OO Inheritance and Polymorphism",
-            "href": "AIP/technical-criteria/61010",
-            "weight": 9,
-            "critical": true
-        },
         {
             "id": 61003,
             "name": "Programming Practices - OO Inheritance and Polymorphism",

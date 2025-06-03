@@ -106,7 +106,7 @@
     },
     {
         "id": 4656,
-        "name": "Avoid declaring an exception in the method signature and not throwing it",
+        "name": "Avoid declaring throwing an exception and not throwing it",
         "href": "AIP/quality-rules/4656",
         "critical": false,
         "severity": 10,
@@ -116,7 +116,7 @@
     },
     {
         "id": 4676,
-        "name": "Public Methods must have appropriate JavaDoc @throws/@exception tags",
+        "name": "Methods must have appropriate JavaDoc @throws tags",
         "href": "AIP/quality-rules/4676",
         "critical": false,
         "severity": 10,
@@ -126,7 +126,7 @@
     },
     {
         "id": 4678,
-        "name": "DEPRECATED: Public Methods must have appropriate JavaDoc @exception tags",
+        "name": "Methods must have appropriate JavaDoc @exception tags",
         "href": "AIP/quality-rules/4678",
         "critical": false,
         "severity": 10,
@@ -136,7 +136,7 @@
     },
     {
         "id": 4696,
-        "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' within a try catch block",
+        "name": "Avoid using 'System.err' and 'System.out' within a try catch block",
         "href": "AIP/quality-rules/4696",
         "critical": false,
         "severity": 10,
@@ -146,7 +146,7 @@
     },
     {
         "id": 4702,
-        "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
+        "name": "Avoid using 'Throwable.printStackTrace()' outside a try catch block",
         "href": "AIP/quality-rules/4702",
         "critical": false,
         "severity": 10,
@@ -226,7 +226,7 @@
     },
     {
         "id": 7640,
-        "name": "Avoid using catch blocks with assertion",
+        "name": "Avoid catch blocks with assertion",
         "href": "AIP/quality-rules/7640",
         "critical": false,
         "severity": 10,
@@ -348,7 +348,7 @@
     },
     {
         "id": 7910,
-        "name": "Never exit a finally block with a return, break, continue, or throw statements",
+        "name": "Never exit a finally block with a return, break, continue, or throw",
         "href": "AIP/quality-rules/7910",
         "critical": true,
         "severity": 20,
@@ -358,7 +358,7 @@
     },
     {
         "id": 7956,
-        "name": "DEPRECATED:Avoid indirect exception handling inside loops",
+        "name": "Avoid indirect exception handling inside loops",
         "href": "AIP/quality-rules/7956",
         "critical": false,
         "severity": 10,
@@ -475,406 +475,6 @@
         ]
     },
     {
-        "id": 1001148,
-        "name": "Avoid Main Procedures not having an ON ERROR clause (PL1)",
-        "href": "AIP/quality-rules/1001148",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001150,
-        "name": "Avoid Functions and Procedures having a SELECT without the default OTHERWISE clause (PL1)",
-        "href": "AIP/quality-rules/1001150",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001152,
-        "name": "Avoid Programs having files declared as RECORD INPUT or RECORD UPDATE and not having  the ON EOF or ON ENDFILE statement (PL1)",
-        "href": "AIP/quality-rules/1001152",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001154,
-        "name": "Avoid Programs having files declared and not having the ON UNDF or ON UNDEFINEDFILE statement except SYSPRINT and SYSIN (PL1)",
-        "href": "AIP/quality-rules/1001154",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001156,
-        "name": "Avoid PL1 Errors Blocks having ON ERROR SYSTEM blocks and not containing and displaying ONCODE and ONLOC (PL1)",
-        "href": "AIP/quality-rules/1001156",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001158,
-        "name": "Avoid Functions and Procedures not testing the SQLCODE return code after each SQL statement (PL1)",
-        "href": "AIP/quality-rules/1001158",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1002016,
-        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Programs  (FORTRAN)",
-        "href": "AIP/quality-rules/1002016",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002018,
-        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Subroutines  (FORTRAN)",
-        "href": "AIP/quality-rules/1002018",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002020,
-        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Functions  (FORTRAN)",
-        "href": "AIP/quality-rules/1002020",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002022,
-        "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Modules  (FORTRAN)",
-        "href": "AIP/quality-rules/1002022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002208,
-        "name": "All Read and Write statements in Programs must use the return code IOSTAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002208",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002210,
-        "name": "All Read and Write statements in Subroutines must use the return code IOSTAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002210",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002212,
-        "name": "All Read and Write statements in Functions must use the return code IOSTAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002212",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002214,
-        "name": "All Read and Write statements in Modules must use the return code IOSTAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002214",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002238,
-        "name": "Avoid untested Return Code variables after Read or Write in Programs (FORTRAN)",
-        "href": "AIP/quality-rules/1002238",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002240,
-        "name": "Avoid untested Return Code variables after Read or Write in Subroutines (FORTRAN)",
-        "href": "AIP/quality-rules/1002240",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002242,
-        "name": "Avoid untested Return Code variables after Read or Write in Functions (FORTRAN)",
-        "href": "AIP/quality-rules/1002242",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002244,
-        "name": "Avoid untested Return Code variables after Read or Write in Modules (FORTRAN)",
-        "href": "AIP/quality-rules/1002244",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002246,
-        "name": "Avoid untested Return Code variables after ALLOCATE in Programs (FORTRAN)",
-        "href": "AIP/quality-rules/1002246",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002248,
-        "name": "Avoid untested Return Code variables after ALLOCATE in Subroutines (FORTRAN)",
-        "href": "AIP/quality-rules/1002248",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002250,
-        "name": "Avoid untested Return Code variables after ALLOCATE in Functions (FORTRAN)",
-        "href": "AIP/quality-rules/1002250",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002252,
-        "name": "Avoid untested Return Code variables after ALLOCATE in Modules (FORTRAN)",
-        "href": "AIP/quality-rules/1002252",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002282,
-        "name": "All ALLOCATE statements in Fortran-90 Programs must use the return code STAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002282",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002284,
-        "name": "All ALLOCATE statements in Fortran-90 Subroutines must use the return code STAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002284",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002286,
-        "name": "All ALLOCATE statements in Fortran-90 Functions must use the return code STAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002286",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1002288,
-        "name": "All ALLOCATE statements in Fortran-90 Modules must use the return code STAT (FORTRAN)",
-        "href": "AIP/quality-rules/1002288",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Fortran"
-        ]
-    },
-    {
-        "id": 1003086,
-        "name": "Avoid empty catch statement (Flex)",
-        "href": "AIP/quality-rules/1003086",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1005068,
-        "name": "Avoid SQL query outside try-on block (EGL)",
-        "href": "AIP/quality-rules/1005068",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005070,
-        "name": "Avoid Program calls without checking the return code (EGL)",
-        "href": "AIP/quality-rules/1005070",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005072,
-        "name": "Enable Exception for migrated programs - throwNrfEofExceptions property must be set to YES (EGL)",
-        "href": "AIP/quality-rules/1005072",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005074,
-        "name": "Avoid having handleHardIOErrors property enabled (EGL)",
-        "href": "AIP/quality-rules/1005074",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005076,
-        "name": "Avoid having V60ExceptionCompatibility property set to NO (EGL)",
-        "href": "AIP/quality-rules/1005076",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005078,
-        "name": "Avoid program calls outside a try end block (EGL)",
-        "href": "AIP/quality-rules/1005078",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1007122,
-        "name": "Avoid empty catch blocks (PHP)",
-        "href": "AIP/quality-rules/1007122",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007124,
-        "name": "Avoid artifacts throwing exceptions without @Throws tag in doc comments (PHP)",
-        "href": "AIP/quality-rules/1007124",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007206,
-        "name": "Avoid using @error suppression (PHP)",
-        "href": "AIP/quality-rules/1007206",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1008074,
-        "name": "Specify Error Subroutine for File Exception Handling  (RPG400)",
-        "href": "AIP/quality-rules/1008074",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "RPG400"
-        ]
-    },
-    {
-        "id": 1008076,
-        "name": "Specify Program Status Data Area  (RPG400)",
-        "href": "AIP/quality-rules/1008076",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "RPG400"
-        ]
-    },
-    {
-        "id": 1009074,
-        "name": "Specify Error Subroutine for File Exception Handling  (RPG300)",
-        "href": "AIP/quality-rules/1009074",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "RPG300"
-        ]
-    },
-    {
-        "id": 1012026,
-        "name": "Do not use MONMSG CPF0000 without EXEC  (CL400)",
-        "href": "AIP/quality-rules/1012026",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "CL400"
-        ]
-    },
-    {
         "id": 1020068,
         "name": "Avoid return statement in finally block (Javascript)",
         "href": "AIP/quality-rules/1020068",
@@ -888,16 +488,6 @@
         "id": 1020102,
         "name": "Always use JSON.parse & JSON.stringify with try/catch block (Javascript)",
         "href": "AIP/quality-rules/1020102",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020202,
-        "name": "Avoid getter functions of computed properties that do not return any value",
-        "href": "AIP/quality-rules/1020202",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -925,26 +515,6 @@
         ]
     },
     {
-        "id": 1020450,
-        "name": "Ensure catching Javascript error in React components",
-        "href": "AIP/quality-rules/1020450",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020452,
-        "name": "Avoid empty componentDidCatch blocks",
-        "href": "AIP/quality-rules/1020452",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1020540,
         "name": "Avoid using $http success and error function",
         "href": "AIP/quality-rules/1020540",
@@ -952,166 +522,6 @@
         "severity": 10,
         "technologyNames": [
             "HTML5"
-        ]
-    },
-    {
-        "id": 1020700,
-        "name": "Avoid the lack of error handling in the Node.js callbacks",
-        "href": "AIP/quality-rules/1020700",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020702,
-        "name": "Avoid using nodejs process.exit()",
-        "href": "AIP/quality-rules/1020702",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020780,
-        "name": "Avoid using Node.js synchronous FileSystem API without try/catch block",
-        "href": "AIP/quality-rules/1020780",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020800,
-        "name": "Avoid jump statements in finally ",
-        "href": "AIP/quality-rules/1020800",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020802,
-        "name": "Avoid having errors without throwing them ",
-        "href": "AIP/quality-rules/1020802",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020822,
-        "name": "Always provide error callbacks when subscribing to HttpClient observables",
-        "href": "AIP/quality-rules/1020822",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020850,
-        "name": "Always handle errors when using ajax with RxJS",
-        "href": "AIP/quality-rules/1020850",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020856,
-        "name": "Ensure catching Typescript error in React components",
-        "href": "AIP/quality-rules/1020856",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020858,
-        "name": "Avoid empty componentDidCatch blocks (Typescript)",
-        "href": "AIP/quality-rules/1020858",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020872,
-        "name": "Always use JSON.parse & JSON.stringify with try/catch block (TypeScript)",
-        "href": "AIP/quality-rules/1020872",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020874,
-        "name": "Avoid the lack of error handling in the Node.js callbacks (TypeScript)",
-        "href": "AIP/quality-rules/1020874",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020876,
-        "name": "Avoid using nodejs process.exit() (TypeScript)",
-        "href": "AIP/quality-rules/1020876",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1021018,
-        "name": "Avoid catch-all except blocks with empty handlers",
-        "href": "AIP/quality-rules/1021018",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021024,
-        "name": "Avoid return statement in finally block",
-        "href": "AIP/quality-rules/1021024",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021028,
-        "name": "Avoid empty finally block (Python)",
-        "href": "AIP/quality-rules/1021028",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021034,
-        "name": "Avoid inconsistent initialization when deriving a new exception",
-        "href": "AIP/quality-rules/1021034",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Python"
         ]
     },
     {
@@ -1286,56 +696,6 @@
         ]
     },
     {
-        "id": 1030000,
-        "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
-        "href": "AIP/quality-rules/1030000",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Kotlin"
-        ]
-    },
-    {
-        "id": 1030002,
-        "name": "Avoid using \"Throwable.printStackTrace()\" with no argument (Kotlin)",
-        "href": "AIP/quality-rules/1030002",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Kotlin"
-        ]
-    },
-    {
-        "id": 1030020,
-        "name": "Avoid unhandled Exceptions in servlet methods (Kotlin)",
-        "href": "AIP/quality-rules/1030020",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Kotlin"
-        ]
-    },
-    {
-        "id": 1040030,
-        "name": "Avoid Using Generic Authentication Exception Class",
-        "href": "AIP/quality-rules/1040030",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040032,
-        "name": "Avoid Using ControllerAdvice And HandlerExceptionResolver simultaneously",
-        "href": "AIP/quality-rules/1040032",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1043076,
         "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data",
         "href": "AIP/quality-rules/1043076",
@@ -1397,39 +757,6 @@
         ]
     },
     {
-        "id": 1055034,
-        "name": "Avoid empty generic catch blocks (Swift)",
-        "href": "AIP/quality-rules/1055034",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1060004,
-        "name": "Avoid Empty Finally Block When Calling Resource",
-        "href": "AIP/quality-rules/1060004",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060020,
-        "name": "Avoid empty catch blocks for methods with high fan-in",
-        "href": "AIP/quality-rules/1060020",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "ABAP",
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 1065026,
         "name": "Ensure exception objects are always caught by reference (C++)",
         "href": "AIP/quality-rules/1065026",
@@ -1487,108 +814,6 @@
         "severity": 10,
         "technologyNames": [
             "C++"
-        ]
-    },
-    {
-        "id": 1101040,
-        "name": "Avoid empty catch blocks (SQL)",
-        "href": "AIP/quality-rules/1101040",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101052,
-        "name": "Use WHEN OTHERS in exception management (SQL)",
-        "href": "AIP/quality-rules/1101052",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "FormsReportAnalyzer",
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101054,
-        "name": "Never use WHEN OTHERS THEN NULL",
-        "href": "AIP/quality-rules/1101054",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "FormsReportAnalyzer",
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101092,
-        "name": "Avoid Procedures using an Insert, Update, Delete, Create Table or Select without including error management (SQL)",
-        "href": "AIP/quality-rules/1101092",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101094,
-        "name": "Avoid Stored Procedures not returning a status value (SQL)",
-        "href": "AIP/quality-rules/1101094",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1520580,
-        "name": "Siebel eScript: Avoid Functions without Try, Catch and Finally block",
-        "href": "AIP/quality-rules/1520580",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520582,
-        "name": "Siebel eScript: Avoid Functions destroying variables outside of the finally clause",
-        "href": "AIP/quality-rules/1520582",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520584,
-        "name": "Siebel eScript: Avoid Functions having Return statement in the Finally clause",
-        "href": "AIP/quality-rules/1520584",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520586,
-        "name": "Siebel eScript: Prefer using GotoView in the Finally clause of a Function",
-        "href": "AIP/quality-rules/1520586",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520588,
-        "name": "Siebel Scripting Review: Using Error Code in scripts",
-        "href": "AIP/quality-rules/1520588",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Siebel"
         ]
     }
 ]

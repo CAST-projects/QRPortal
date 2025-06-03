@@ -1,19 +1,15 @@
 {
     "id": 7242,
-    "name": "Struts1: Avoid implementing Action Classes inheriting directly from Struts Action",
+    "name": "Avoid implementing Action Classes inheriting directly from Struts Action",
     "href": "AIP/quality-rules/7242",
     "critical": false,
     "severity": 10,
     "maxWeight": 2,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Parent Class full name",
-    "description": "All Action Classes should inherit from a single Class, inheriting from the Struts Action Class (org.apache.struts.action.Action). \nWhen a class inherit from an action class, all other action class must inherit from the same one. This base class must be abstract or have an abstract method.",
+    "description": "All Action Classes should inherit from a single Class, inheriting from the Struts Action Class (org.apache.struts.action.Action). When a class inherit from an action class, all other action class must inherit from the same one. This base class must be abstract or have an abstract method.",
     "output": "This report lists all Action Classes inheriting from different Class.\nIt provides the following information:\n - Class full name\n - parent Class full name",
     "rationale": "It is a good practice to extend the struts Action class, and all specific Actions should inherit from it. With such inheritance tree, the basic action class (those inheriting from Struts Action class) implements the methods shared by all the Action class to avoid code redundancy.",
-    "reference": "http://www.sitepoint.com/article/struts-first-steps/2",
+    "reference": "http://www.jaxmag.com/itr/online_artikel/psecom,id,648,nodeid,147.html\nhttp://www.sitepoint.com/article/struts-first-steps/2",
     "remediation": "Have Action Class inherit from one single extension of Struts Action Class that is abstract or have an abstract method.",
     "remediationSample": "Public  class MyBaseAction extends Action {\n   public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest  request, HttpServletResponse response) throws Exception {\n      //Call all common methods\n      commonTasks();\n      return executeSpecificTask(mapping,form,\n                                                   request,response);\n      }\n\n     private void commonTasks() {\n     //Code for common tasks\n    }\n\n   //Provide implementation of this method in sub-classes\n   public abstract ActionForward executeSpecificTask (ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception;\n}\n\nPublic  class MyAction extends MyBaseAction { // FIXED\n    public ActionForward executeSpecificTask (ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {\n      // some code\n   }\n}",
     "sample": "Public  class MyAction extends Action { // VIOLATION\n   public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest  request, HttpServletResponse response) throws Exception {\n      // Some code\n   }\n}",

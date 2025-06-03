@@ -1,19 +1,13 @@
 {
     "id": 2282,
-    "name": "DEPRECATED: Avoid large Include Files",
+    "name": "Avoid large Include Files",
     "href": "AIP/quality-rules/2282",
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Included files",
     "description": "Included files should not have more than X lines of code. The threshold is a parameter and can be changed at will.",
     "output": "This report lists all Files including Files with more than X lines of code. \nIt provides the following information: \n- JSP page name\n- Included files",
-    "rationale": "Large includes are more difficult to understand, and are often a sign of a bad modularity of the code.",
-    "remediation": "Review the design of the include to reduce its size.",
     "total": "Number of JSP pages",
     "alternativeName": "Ensure to have a limited include files",
     "businessCriteria": [

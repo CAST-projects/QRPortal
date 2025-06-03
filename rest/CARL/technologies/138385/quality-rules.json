@@ -457,17 +457,6 @@
         ]
     },
     {
-        "id": 7470,
-        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
-        "href": "AIP/quality-rules/7470",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 7474,
         "name": "Avoid Repainting When Updating a ListBox",
         "href": "AIP/quality-rules/7474",
@@ -562,7 +551,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -578,7 +566,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -608,7 +595,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -624,7 +610,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -641,7 +626,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -658,7 +642,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -702,7 +685,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -846,7 +828,6 @@
             "C",
             "C#",
             "C++",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -912,7 +893,6 @@
             "C++",
             "HTML5",
             "JEE",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1877,342 +1857,6 @@
         ]
     },
     {
-        "id": 1025000,
-        "name": "Ensure your application does not run OS command without sanitization",
-        "href": "AIP/quality-rules/1025000",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025002,
-        "name": "Ensure your application properly neutralize XML content before it is processed",
-        "href": "AIP/quality-rules/1025002",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025004,
-        "name": "Ensure you URL redirection always goes to trusted sites",
-        "href": "AIP/quality-rules/1025004",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025010,
-        "name": "Ensure your application does not run LDAP methods without sanitization",
-        "href": "AIP/quality-rules/1025010",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025016,
-        "name": "Ensure you have set the HttpOnly flag for cookies",
-        "href": "AIP/quality-rules/1025016",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025018,
-        "name": "Ensure you have secured your cookie",
-        "href": "AIP/quality-rules/1025018",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025020,
-        "name": "Ensure your application does not run data filter expressions without sanitization",
-        "href": "AIP/quality-rules/1025020",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025022,
-        "name": "Ensure your application does not run data filter expressions without sanitization",
-        "href": "AIP/quality-rules/1025022",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025024,
-        "name": "Ensure your application does not disable the expiration time validation of a JWT token",
-        "href": "AIP/quality-rules/1025024",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025026,
-        "name": "Ensure your application does not disable the expiration time requirement of a JWT token",
-        "href": "AIP/quality-rules/1025026",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025028,
-        "name": "Ensure your application does not disable the signature requirement of a JWT token",
-        "href": "AIP/quality-rules/1025028",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025030,
-        "name": "Ensure you don't have hard-coded JWT secret keys in your source code",
-        "href": "AIP/quality-rules/1025030",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025032,
-        "name": "Ensure you don't use insecure parameters for PBKDF2 password encoder",
-        "href": "AIP/quality-rules/1025032",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025034,
-        "name": "Ensure you don't use insecure parameters for BCrypt password encoder",
-        "href": "AIP/quality-rules/1025034",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025036,
-        "name": "Ensure you don't use insecure parameters for Argon2 password encoder",
-        "href": "AIP/quality-rules/1025036",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025038,
-        "name": "Ensure you don't use insecure parameters for SCrypt password encoder",
-        "href": "AIP/quality-rules/1025038",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025040,
-        "name": "Ensure you don't use have insecure parameters with system or configuration setting",
-        "href": "AIP/quality-rules/1025040",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025042,
-        "name": "Ensure you don't use have insecure parameters with system or configuration setting",
-        "href": "AIP/quality-rules/1025042",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025044,
-        "name": "Ensure you have secured your call to MVC",
-        "href": "AIP/quality-rules/1025044",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025046,
-        "name": "Ensure you have secured your call to MVC",
-        "href": "AIP/quality-rules/1025046",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025048,
-        "name": "Ensure you don't have hard-coded passwords used for connection strings",
-        "href": "AIP/quality-rules/1025048",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025050,
-        "name": "Reports usage of RequestDispatcher file inclusion, file which name is tainted input. Extended to several MVC libraries.",
-        "href": "AIP/quality-rules/1025050",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025052,
-        "name": "Reports usage of String tainted input before Unicode normalization",
-        "href": "AIP/quality-rules/1025052",
-        "critical": false,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025054,
-        "name": "Ensure you don't have hard-coded passwords in configuration files : password retrieved and delivered as is to the sendCredential method",
-        "href": "AIP/quality-rules/1025054",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025056,
-        "name": "Ensure you don't have SQL queries inside loops",
-        "href": "AIP/quality-rules/1025056",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025058,
-        "name": "Ensure you don't include numeric user inputs to SQL databases",
-        "href": "AIP/quality-rules/1025058",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025060,
-        "name": "Ensure you don't include numeric user inputs to SQL databases",
-        "href": "AIP/quality-rules/1025060",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025062,
-        "name": "Ensure you don't include numeric user inputs to SQL databases",
-        "href": "AIP/quality-rules/1025062",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 1027002,
         "name": "Change access modifier to \"private\", \"internal\"or \"private protected\"",
         "href": "AIP/quality-rules/1027002",
@@ -2659,80 +2303,6 @@
         "critical": false,
         "severity": 10,
         "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101036,
-        "name": "Ensure using ANSI standard Operators such as <>,<=,>= in SQL where clauses to ensure portability",
-        "href": "AIP/quality-rules/1101036",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C",
-            "C#",
-            "C++",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101958,
-        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
-        "href": "AIP/quality-rules/1101958",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101964,
-        "name": "When using compound indexes, avoid having different index ordering in collection access",
-        "href": "AIP/quality-rules/1101964",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101968,
-        "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection",
-        "href": "AIP/quality-rules/1101968",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101970,
-        "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection",
-        "href": "AIP/quality-rules/1101970",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101972,
-        "name": "Avoid having multiple artifacts deleting data on the same NoSQL collection",
-        "href": "AIP/quality-rules/1101972",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
             "C#",
             "VB.NET"
         ]

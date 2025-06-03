@@ -33,7 +33,7 @@
     },
     {
         "id": 7202,
-        "name": "Avoid using '==' and '!=' to compare objects",
+        "name": "Check usage of '==' and '!=' on objects",
         "href": "AIP/quality-rules/7202",
         "critical": true,
         "weight": 8,
@@ -63,7 +63,7 @@
     },
     {
         "id": 7506,
-        "name": "equals() and hashCode() should be defined for Hibernate/JPA component",
+        "name": "Define equals() and hashCode() for component",
         "href": "AIP/quality-rules/7506",
         "critical": true,
         "weight": 9,
@@ -73,7 +73,7 @@
     },
     {
         "id": 7508,
-        "name": "DEPRECATED: Getter of collection-typed persistent attributes should return the correct interface type",
+        "name": "Collection-typed attributes getter must be defined with the correct interface",
         "href": "AIP/quality-rules/7508",
         "critical": false,
         "weight": 8,
@@ -143,7 +143,7 @@
     },
     {
         "id": 7708,
-        "name": "DEPRECATED: Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
+        "name": "Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
         "href": "AIP/quality-rules/7708",
         "critical": false,
         "weight": 8,
@@ -153,7 +153,7 @@
     },
     {
         "id": 7710,
-        "name": "DEPRECATED: Avoid non serializable Entity beans",
+        "name": "Avoid non serializable Entities",
         "href": "AIP/quality-rules/7710",
         "critical": false,
         "weight": 8,
@@ -163,7 +163,7 @@
     },
     {
         "id": 7712,
-        "name": "DEPRECATED: Avoid public/protected setter for the generated identifier field",
+        "name": "Avoid public/protected setter for the generated identifier field",
         "href": "AIP/quality-rules/7712",
         "critical": false,
         "weight": 7,
@@ -173,7 +173,7 @@
     },
     {
         "id": 7722,
-        "name": "Avoid using persistent class's identifier in equals() method",
+        "name": "Avoid using references to the id in the persistent class's method equals()",
         "href": "AIP/quality-rules/7722",
         "critical": true,
         "weight": 9,
@@ -203,7 +203,7 @@
     },
     {
         "id": 7730,
-        "name": "Always use declarative transaction",
+        "name": "Use declarative transaction",
         "href": "AIP/quality-rules/7730",
         "critical": false,
         "weight": 7,
@@ -492,7 +492,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "weight": 9,
@@ -522,7 +522,7 @@
     },
     {
         "id": 8136,
-        "name": "CDI Beans with normal scope must be proxyable to avoid runtime errors",
+        "name": "Beans with normal scope must be proxyable to avoid runtime errors",
         "href": "AIP/quality-rules/8136",
         "critical": true,
         "weight": 7,
@@ -564,7 +564,7 @@
     },
     {
         "id": 8216,
-        "name": "Avoid using incompatible mutation",
+        "name": "CWE-681: Avoid numerical data corruption during incompatible mutation",
         "href": "AIP/quality-rules/8216",
         "critical": true,
         "weight": 9,
@@ -574,7 +574,7 @@
     },
     {
         "id": 8218,
-        "name": "DEPRECATED: Content type should be checked when receiving a HTTP Post",
+        "name": "Content type should be checked when receiving a HTTP Post",
         "href": "AIP/quality-rules/8218",
         "critical": true,
         "weight": 8,
@@ -586,7 +586,7 @@
         "id": 8220,
         "name": "Avoid using deprecated method, constructor, field, type or package",
         "href": "AIP/quality-rules/8220",
-        "critical": false,
+        "critical": true,
         "weight": 6,
         "technologyNames": [
             "JEE"
@@ -625,486 +625,6 @@
         ]
     },
     {
-        "id": 1001172,
-        "name": "Avoid Programs overriding the *PROCESS statement (PL1)",
-        "href": "AIP/quality-rules/1001172",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001174,
-        "name": "Avoid Programs declaring STATIC variables (PL1)",
-        "href": "AIP/quality-rules/1001174",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001176,
-        "name": "Avoid Programs having FIXED without BIN or BINARY or DEC or DECIMAL.The character \"(\"  is mandatory. (PL1)",
-        "href": "AIP/quality-rules/1001176",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1003138,
-        "name": "Avoid BindingUtils class (Flex)",
-        "href": "AIP/quality-rules/1003138",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003140,
-        "name": "Avoid use of ChangeWatcher class (Flex)",
-        "href": "AIP/quality-rules/1003140",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003142,
-        "name": "Cairngorm: Avoid CairngormEventDispatcher called explicitly (Flex)",
-        "href": "AIP/quality-rules/1003142",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003144,
-        "name": "Cairngorm: Avoid more than one reference of ModelLocator per class (Flex)",
-        "href": "AIP/quality-rules/1003144",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003146,
-        "name": "Avoid calling callLater explicitly (Flex specific) (Flex)",
-        "href": "AIP/quality-rules/1003146",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003148,
-        "name": "Avoid clone method not overridden in a custom event (Flex)",
-        "href": "AIP/quality-rules/1003148",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003150,
-        "name": "Avoid event dispatched from a constructor (Flex)",
-        "href": "AIP/quality-rules/1003150",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003152,
-        "name": "Avoid dispatching events using hard-coded strings (Flex)",
-        "href": "AIP/quality-rules/1003152",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003154,
-        "name": "Avoid listening to events using hard-coded strings (Flex)",
-        "href": "AIP/quality-rules/1003154",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003156,
-        "name": "Avoid partial source code delivery of application (Flex)",
-        "href": "AIP/quality-rules/1003156",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003158,
-        "name": "Avoid event without type specified (Flex)",
-        "href": "AIP/quality-rules/1003158",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003160,
-        "name": "Avoid conditions with hard-coded boolean values (Flex)",
-        "href": "AIP/quality-rules/1003160",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003162,
-        "name": "Avoid dynamic class (Flex)",
-        "href": "AIP/quality-rules/1003162",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003164,
-        "name": "Avoid dynamic (Object) type fields (Flex)",
-        "href": "AIP/quality-rules/1003164",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003166,
-        "name": "Avoid dynamic (Object) type variables (Flex)",
-        "href": "AIP/quality-rules/1003166",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003168,
-        "name": "Avoid using Object class in methods' parameters (Flex)",
-        "href": "AIP/quality-rules/1003168",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003172,
-        "name": "Avoid * and use strongly typed objects instead in fields (Flex)",
-        "href": "AIP/quality-rules/1003172",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003174,
-        "name": "Avoid * and use strongly typed objects instead in variables (Flex)",
-        "href": "AIP/quality-rules/1003174",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003176,
-        "name": "Avoid array-type field without ArrayElementType metadata (Flex)",
-        "href": "AIP/quality-rules/1003176",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003178,
-        "name": "Avoid incorrect message interceptor signature (Flex)",
-        "href": "AIP/quality-rules/1003178",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003180,
-        "name": "Avoid packages having artifacts with misplaced metadata (Flex)",
-        "href": "AIP/quality-rules/1003180",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003182,
-        "name": "Avoid classes having artifacts with misplaced metadata (Flex)",
-        "href": "AIP/quality-rules/1003182",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003184,
-        "name": "Avoid redundant type metadata argument for handler type (Flex)",
-        "href": "AIP/quality-rules/1003184",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003186,
-        "name": "Avoid redundant method metadata argument for handler (Flex)",
-        "href": "AIP/quality-rules/1003186",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003188,
-        "name": "Avoid packages having artifacts with unknown metadata attribute (Flex)",
-        "href": "AIP/quality-rules/1003188",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003190,
-        "name": "Avoid classes having artifacts with unknown metadata attribute (Flex)",
-        "href": "AIP/quality-rules/1003190",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003192,
-        "name": "Avoid globally bindable classes (Flex)",
-        "href": "AIP/quality-rules/1003192",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003194,
-        "name": "Avoid constructor with void return type specification (Flex)",
-        "href": "AIP/quality-rules/1003194",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1003196,
-        "name": "Avoid switch statement without a default case (Flex)",
-        "href": "AIP/quality-rules/1003196",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Flex"
-        ]
-    },
-    {
-        "id": 1005082,
-        "name": "Avoid declaring null arrays; prefer to set to empty (EGL)",
-        "href": "AIP/quality-rules/1005082",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005084,
-        "name": "Avoid using parameters on the Record column level (EGL)",
-        "href": "AIP/quality-rules/1005084",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005086,
-        "name": "Avoid functions having creator to prefix table names in SQL statements and in SQL records (EGL)",
-        "href": "AIP/quality-rules/1005086",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005088,
-        "name": "Avoid programs not having the property I4GLItemsNullable set to NO (EGL)",
-        "href": "AIP/quality-rules/1005088",
-        "critical": false,
-        "weight": 3,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005090,
-        "name": "Avoid Record Column without having the same nullable requirement as the corresponding SQL Table column (EGL)",
-        "href": "AIP/quality-rules/1005090",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005092,
-        "name": "Avoid having overrided record declaration with a duplicate declaration in the same application (EGL)",
-        "href": "AIP/quality-rules/1005092",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1006012,
-        "name": "Avoid functions without returning exit code  (Shell)",
-        "href": "AIP/quality-rules/1006012",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "Shell"
-        ]
-    },
-    {
-        "id": 1006014,
-        "name": "Function should not be named as UNIX commands  (Shell)",
-        "href": "AIP/quality-rules/1006014",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "Shell"
-        ]
-    },
-    {
-        "id": 1007166,
-        "name": "Avoid classes without matching __get and __set (PHP)",
-        "href": "AIP/quality-rules/1007166",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007172,
-        "name": "Avoid having constructors with return value (PHP)",
-        "href": "AIP/quality-rules/1007172",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007176,
-        "name": "Avoid using break or continue statements in loops with high cyclomatic complexity (PHP)",
-        "href": "AIP/quality-rules/1007176",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007254,
-        "name": "Avoid files that declare both symbols and execute logic with side effects (PHP)",
-        "href": "AIP/quality-rules/1007254",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007286,
-        "name": "DEPRECATED: CWE-242: Avoid PHP Dangerous Feature (PHP)",
-        "href": "AIP/quality-rules/1007286",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1007288,
-        "name": "DEPRECATED: CWE-489: Avoid debug code in the production system (PHP)",
-        "href": "AIP/quality-rules/1007288",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1018760,
-        "name": "Avoid AE Schema with Target namespace not defined (TIBCO BW)",
-        "href": "AIP/quality-rules/1018760",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "TIBCO"
-        ]
-    },
-    {
-        "id": 1018764,
-        "name": "Avoid Processes using JDBC SQL Direct  (TIBCO BW)",
-        "href": "AIP/quality-rules/1018764",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "TIBCO"
-        ]
-    },
-    {
         "id": 1020040,
         "name": "Avoid using delete with no object properties",
         "href": "AIP/quality-rules/1020040",
@@ -1130,46 +650,6 @@
         "href": "AIP/quality-rules/1020066",
         "critical": false,
         "weight": 7,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020204,
-        "name": "Avoid <textarea> with v-model having child elements",
-        "href": "AIP/quality-rules/1020204",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020206,
-        "name": "Avoid using v-for without key",
-        "href": "AIP/quality-rules/1020206",
-        "critical": false,
-        "weight": 3,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020210,
-        "name": "Avoid using v-show directive inside templates",
-        "href": "AIP/quality-rules/1020210",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020212,
-        "name": "Avoid changing parent properties from child components using $parent",
-        "href": "AIP/quality-rules/1020212",
-        "critical": false,
-        "weight": 4,
         "technologyNames": [
             "HTML5"
         ]
@@ -1222,106 +702,6 @@
         "weight": 5,
         "technologyNames": [
             "HTML5"
-        ]
-    },
-    {
-        "id": 1020600,
-        "name": "Avoid using namespace \"jQuery.sap.*\" as deprecated ( SAPUI5)",
-        "href": "AIP/quality-rules/1020600",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020602,
-        "name": "Avoid using \"sap.ui.model.odata.ODataModel\" as deprecated in version: SAPUI5 1.48",
-        "href": "AIP/quality-rules/1020602",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020616,
-        "name": "Create Keys for CRUD Statements (SAPUI5)",
-        "href": "AIP/quality-rules/1020616",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020806,
-        "name": "Avoid using NaN in comparison ",
-        "href": "AIP/quality-rules/1020806",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020816,
-        "name": "Avoid using output of the function that does not return anything",
-        "href": "AIP/quality-rules/1020816",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1021020,
-        "name": "Avoid using wildcard (*) imports",
-        "href": "AIP/quality-rules/1021020",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021034,
-        "name": "Avoid inconsistent initialization when deriving a new exception",
-        "href": "AIP/quality-rules/1021034",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021072,
-        "name": "Avoid shadowing class variables",
-        "href": "AIP/quality-rules/1021072",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021074,
-        "name": "Avoid manipulating a list while iterating over it",
-        "href": "AIP/quality-rules/1021074",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021076,
-        "name": "Avoid mutable default parameter values",
-        "href": "AIP/quality-rules/1021076",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Python"
         ]
     },
     {
@@ -1456,36 +836,6 @@
         ]
     },
     {
-        "id": 1040016,
-        "name": "PermitAll or user role should be specified to access URL(s) of the application",
-        "href": "AIP/quality-rules/1040016",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045008,
-        "name": "Avoid non serializable Entity beans",
-        "href": "AIP/quality-rules/1045008",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045012,
-        "name": "Avoid public/protected setter for the generated identifier field",
-        "href": "AIP/quality-rules/1045012",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1050028,
         "name": "Always use LAContext canEvaluatePolicy: before using evaluatePolicy: (Objective-C)",
         "href": "AIP/quality-rules/1050028",
@@ -1513,36 +863,6 @@
         "weight": 7,
         "technologyNames": [
             "Objective-C"
-        ]
-    },
-    {
-        "id": 1055014,
-        "name": "Ensure that LAContext evaluatePolicy reply block is not empty (Swift)",
-        "href": "AIP/quality-rules/1055014",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055016,
-        "name": "Ensure that LAContext evaluatePolicy reply block success is checked (Swift)",
-        "href": "AIP/quality-rules/1055016",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055018,
-        "name": "Always use LAContext canEvaluatePolicy before using evaluatePolicy (Swift)",
-        "href": "AIP/quality-rules/1055018",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "Swift"
         ]
     },
     {
@@ -1900,106 +1220,6 @@
         "technologyNames": [
             "C",
             "C++"
-        ]
-    },
-    {
-        "id": 1101012,
-        "name": "Avoid specifying column numbers instead of column names in ORDER BY clauses",
-        "href": "AIP/quality-rules/1101012",
-        "critical": false,
-        "weight": 3,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101020,
-        "name": "Avoid using quoted identifiers",
-        "href": "AIP/quality-rules/1101020",
-        "critical": false,
-        "weight": 3,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101026,
-        "name": "Always define column names when inserting values",
-        "href": "AIP/quality-rules/1101026",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101072,
-        "name": "Avoid not aliased Tables",
-        "href": "AIP/quality-rules/1101072",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101076,
-        "name": "Avoid unqualified column references",
-        "href": "AIP/quality-rules/1101076",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101080,
-        "name": "Avoid orphaned synonyms",
-        "href": "AIP/quality-rules/1101080",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1520760,
-        "name": "SiebelReview: Adding System Columns as BusComp Field Objects Definitions",
-        "href": "AIP/quality-rules/1520760",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520762,
-        "name": "SiebelReview: Controls or List Columns Based on Non-Existent Fields",
-        "href": "AIP/quality-rules/1520762",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520764,
-        "name": "SiebelReview: Duplicate Item Identifiers",
-        "href": "AIP/quality-rules/1520764",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520774,
-        "name": "Avoid setting field values using hard-coded values (Siebel)",
-        "href": "AIP/quality-rules/1520774",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "Siebel"
         ]
     }
 ]

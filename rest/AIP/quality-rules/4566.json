@@ -5,16 +5,10 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "description": "Instance Variables should have an access type defined (Public, Private or Protected). Instance Variables are Non Static Fields.",
     "output": "This report lists all Instance Variables without defined access types. It provides the following information: Field full name",
-    "rationale": "For security reasons, Instance Variables should always have an access type defined. When no access type is defined, the visibility of the variable is at the Package level which means that it may be accessed from any other class in the same package as the declaring class.",
-    "remediation": "Provide required access type to the Instance Variable.",
-    "remediationSample": "class Page {\npublic String pageName;\n// instance variable with public access\nprivate int pageNumber;\n// instance variable with private access\n}",
-    "sample": "class Page {\n// instance variabled without access type \nString pageName;\nint pageNumber;\n\n}",
+    "rationale": "For security reasons, Instance Variables should always have an access type defined. When no access type is defined, the visibility of the variable is at the Package level.",
+    "remediation": "Review the Field declaration to add the relevant access type.",
     "total": "Number of Java attributes",
     "alternativeName": "Ensure that you have access type defined at instance variable level to control accesss",
     "businessCriteria": [
@@ -39,7 +33,7 @@
             "id": 61020,
             "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
             "href": "AIP/technical-criteria/61020",
-            "weight": 4,
+            "weight": 6,
             "critical": false
         },
         {

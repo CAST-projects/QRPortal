@@ -1,19 +1,15 @@
 {
     "id": 7678,
-    "name": "Avoid logging using basic java log files",
+    "name": "Avoid using specific logging implementation",
     "href": "AIP/quality-rules/7678",
     "critical": false,
     "severity": 10,
     "maxWeight": 3,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "This rule checks all references to log4j, Logback and Java.Util.logger API usage. \nAny artifact that reference a class, an interface, a method or a field that belongs to a class from the package org.apache.log4j\nch.qos.logback.classic.Logger\njava.util.logging.Logger\n\nwill be reported as violation.\n\nThis rule can be customized by specifying any other specific implementations package to be avoided",
+    "description": "Finds and reports all references to log4j API usage. The threshold parameter allows specifying other specific implementations package to avoid.\nAll artifacts that reference a class, an interface, a method or a field that belongs to a class from the package org.apache.log4j will be reported.",
     "output": "This report lists all artifacts and fields that violate this rule.\nIt provides the following information:\n Artifact Full Name and Field Full Name",
-    "rationale": "Instead of being stick to a specific logging implementation, it is recommended to use Java-based logging utility and a programming model for logging and for other toolkits that provides APIs, log implementations, and wrapper implementations over some other tools \nas Apache Commons Logging (previously known as Jakarta Commons Logging or JCL).\nit's also recommanded to use Log interface that is intended to be both light-weight and an independent abstraction of other logging toolkits. It provides the middleware/tooling developer with a simple logging abstraction that allows the user (application developer) to plug in a specific logging implementation.",
-    "reference": "https://stackify.com/java-logging-best-practices/\nhttps://www.sitepoint.com/which-java-logging-framework-has-the-best-performance/#loggingframeworkperformance",
-    "remediation": "Prefer for example using Simple Logging Facade for Java (SLF4J) that acts as a facade for different logging frameworks. It offers a generic API making the logging independent of the actual implementation.\nThis allows for different logging frameworks to coexist. It also helps migrate from one framework to another.",
+    "rationale": "Instead of being stick to a specific logging implementation, it is recommended to use the logging wrapper Jakarta commons-logging. It provides a Log interface that is intended to be both light-weight and an independent abstraction of other logging toolkits. It provides the middleware/tooling developer with a simple logging abstraction that allows the user (application developer) to plug in a specific logging implementation.",
+    "reference": "http://www.infoq.com/news/2007/02/javaee-best-practices",
+    "remediation": "Use SLF4J http://www.slf4j.org/index.html instead and configure it to use your specific logging implementation.",
     "remediationSample": "import org.apache.commons.logging.Log;\nimport org.apache.commons.logging.LogFactory;\nLog log = LogFactory.getLog(\"com.cast\"); // FIXED",
     "sample": "import org.apache.log4j.*\nLogger  logger = Logger.getLogger(\"com.cast\"); // VIOLATION",
     "total": "Number of artifacts and fields that use org.apache.log4j, org.apache.commons.logging or other logging package specified in the threshold",
@@ -64,9 +60,7 @@
                     "name": "ALL TECHNOLOGIES",
                     "href": "AIP/technologies/0",
                     "values": [
-                        "org.apache.log4j",
-                        "ch.qos.logback.classic",
-                        "java.util.logging"
+                        "org.apache.log4j"
                     ]
                 }
             ]

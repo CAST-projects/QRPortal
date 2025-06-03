@@ -5,17 +5,12 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Path until the remote called artifact",
-    "description": "This rules reports violation when detecting one of the following remote call inside a loop at a depth level less than <depth level>:\n* SQL Statement through loop (example: SQL cursor on SQL Server, nested cursors on Oracle)\n* Stored procedure called many times from the client in a loop.\n* EJB3 Session remote method\n\n\n<depth level> is a parameter that can be changed at will.",
+    "description": "Reports the following remote call inside a loop at a depth level less than <depth level>:\n* SQL Statement through loop (example: SQL cursor on SQL Server, nested cursors on Oracle)\n* Stored procedure called many times from the client in a loop.\n* EJB3 Session remote method\n* ABAP RFC\n\n<depth level> is a parameter that can be changed at will.",
     "output": "This report all remote call inside a loop. \nIt provides the following information:\n - Caller Artifact Full Name that contains the loop\n - path until the remote called artifact\n\nNote that:\n1/ The call path may contains different path while only one is an error. For example:\ng(){myException()}\n f() {\n       while { g ()}\n        g()\n        } \n\nwill report both path to g() while only one is a violation.\n\n2/ 2/ Several paths for the same method violating the rule are identified in the Metric Detail page by a sequence ID (in the Value column), this ID is dynamically set during each snapshot and the same path can have a different sequence ID in different snapshots.",
-    "rationale": "Having a loop body or loop condition that contains a control element that directly or indirectly consumes platform resources (e.g. messaging, sessions, locks, or file descriptors) can make the software perform more slowly. \nSoftware that is coded so as to execute expensive computations repeatedly (such as in loops) requires excessive computational resources when the usage and data volume grow.\n\nIf an attacker can influence the number of iterations in the loop, then this performance problem might allow a denial of service by consuming more platform resources than intended",
-    "reference": "Please refer to  CISQ rule: ASCPEM-PRF-8 : http://www.omg.org/spec/ASCPEM/1.0/PDF",
-    "remediation": "The loop execution can be delegated to the server side of the application so that not network latency will occur.",
-    "sample": "for ( i int i=0, children.lengh && CheckNumFiles.ToProcess(), i++){\n     writeObjectToDatabase(children[i])// violation \n}",
+    "rationale": "All remote calls made inside a loop will badly impact the performances of your application.",
+    "reference": "Please refer to  CISQ rule: ASCPEM-PRF-8 : http://www.omg.org/spec/ASCPEM/1.0/PDF:",
+    "remediation": "This loop execution can be delegated to the server side of the application so that not network latency will occur.",
     "total": "Number of methods calling at least one method inside a loop",
     "alternativeName": "Ensure not having direct or indirect remote calls inside a loop to avoid making your software performance slow",
     "businessCriteria": [
@@ -30,16 +25,6 @@
             "href": "AIP/business-criteria/60014"
         },
         {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
-        },
-        {
-            "id": 1061000,
-            "name": "ISO-5055-Index",
-            "href": "AIP/business-criteria/1061000"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -50,20 +35,6 @@
             "id": 1062143,
             "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
             "href": "AIP/technical-criteria/1062143",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1061113,
-            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
-            "href": "AIP/technical-criteria/1061113",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1067150,
-            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
-            "href": "AIP/technical-criteria/1067150",
             "weight": 5,
             "critical": false
         },

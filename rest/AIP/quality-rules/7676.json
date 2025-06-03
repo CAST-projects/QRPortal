@@ -1,14 +1,10 @@
 {
     "id": 7676,
-    "name": "DEPRECATED: Avoid too many packages referencing Mainframe",
+    "name": "Avoid too many packages referencing Mainframe",
     "href": "AIP/quality-rules/7676",
     "critical": false,
     "severity": 10,
     "maxWeight": 5,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "description": "This quality rule retrieves all packages that are making Mainframe invocation. This number must not exceed 1 (The threshold is a parameter and can be changed at will.)",
     "output": "This report lists all packages that reference Mainframe.\nIt provides the following information:\n package full name",
     "rationale": "All calls to Mainframe  must be encapsulated into one or more specific packages. It separates design concerns decreasing code duplication, centralizing control, and making the application more easily modifiable.",

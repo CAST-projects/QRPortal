@@ -144,20 +144,10 @@
     },
     {
         "id": 8016,
-        "name": "Avoid unrestricted access to EJB remote methods",
+        "name": "Avoid unsecured EJB remote method",
         "href": "AIP/quality-rules/8016",
         "critical": true,
         "weight": 9,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 8102,
-        "name": "Avoid hard-coded network resource names (JEE)",
-        "href": "AIP/quality-rules/8102",
-        "critical": true,
-        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
@@ -210,76 +200,6 @@
         "weight": 6,
         "technologyNames": [
             "HTML5"
-        ]
-    },
-    {
-        "id": 1020730,
-        "name": "Ensure Node.js filesystem are closed",
-        "href": "AIP/quality-rules/1020730",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020820,
-        "name": "Avoid hard-coded passwords (TypeScript)",
-        "href": "AIP/quality-rules/1020820",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020950,
-        "name": "Avoid providing password in Web Service URL",
-        "href": "AIP/quality-rules/1020950",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1021016,
-        "name": "Avoid weak encryption algorithm (Python)",
-        "href": "AIP/quality-rules/1021016",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021042,
-        "name": "Avoid hard-coded passwords (Python)",
-        "href": "AIP/quality-rules/1021042",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021048,
-        "name": "Always protect sensitive data in config files from disclosure",
-        "href": "AIP/quality-rules/1021048",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021110,
-        "name": "Avoid using regular expression vulnerable to ReDoS (Python)",
-        "href": "AIP/quality-rules/1021110",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "Python"
         ]
     },
     {
@@ -344,36 +264,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1030016,
-        "name": "Avoid hard-coded passwords and credentials (Kotlin)",
-        "href": "AIP/quality-rules/1030016",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Kotlin"
-        ]
-    },
-    {
-        "id": 1039112,
-        "name": "Avoid mutable fields inside a class with JCIP @Immutable annotation",
-        "href": "AIP/quality-rules/1039112",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040046,
-        "name": "Avoid weak encryption algorithm (Spring)",
-        "href": "AIP/quality-rules/1040046",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -535,136 +425,6 @@
         "weight": 8,
         "technologyNames": [
             "Objective-C"
-        ]
-    },
-    {
-        "id": 1055004,
-        "name": "Avoid creating file without protection (Swift)",
-        "href": "AIP/quality-rules/1055004",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055006,
-        "name": "Avoid weak cryptographic hash (Swift)",
-        "href": "AIP/quality-rules/1055006",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055008,
-        "name": "Avoid weak encryption key size (Swift)",
-        "href": "AIP/quality-rules/1055008",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055010,
-        "name": "Avoid synchronizing the credentials with iCloud (Swift)",
-        "href": "AIP/quality-rules/1055010",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055012,
-        "name": "Avoid using deprecated SSL protocol (Swift)",
-        "href": "AIP/quality-rules/1055012",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055020,
-        "name": "Avoid using kSecAttrAccessibleAlways attribute when storing data in the Keychain (Swift)",
-        "href": "AIP/quality-rules/1055020",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055036,
-        "name": "Avoid hard-coded passwords (Swift)",
-        "href": "AIP/quality-rules/1055036",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055044,
-        "name": "Avoid using cryptography hash without salt (Swift)",
-        "href": "AIP/quality-rules/1055044",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1060104,
-        "name": "Review APIs returning sensitive data fields",
-        "href": "AIP/quality-rules/1060104",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060106,
-        "name": "Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
-        "href": "AIP/quality-rules/1060106",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060108,
-        "name": "Avoid data fields binded to columns to return sensitive data via APIs",
-        "href": "AIP/quality-rules/1060108",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060110,
-        "name": "Avoid filtering sensitive data using front-end",
-        "href": "AIP/quality-rules/1060110",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060112,
-        "name": "Review APIs not accessed by frontend functions",
-        "href": "AIP/quality-rules/1060112",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
         ]
     }
 ]

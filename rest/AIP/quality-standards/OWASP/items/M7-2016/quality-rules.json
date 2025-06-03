@@ -12,7 +12,7 @@
     },
     {
         "id": 4614,
-        "name": "DEPRECATED: Proper overriding of 'clone()'",
+        "name": "Proper overriding of 'clone()'",
         "href": "AIP/quality-rules/4614",
         "critical": true,
         "severity": 20,
@@ -32,7 +32,7 @@
     },
     {
         "id": 7648,
-        "name": "Avoid an explicit call to finalize()",
+        "name": "Avoid calling finalize()",
         "href": "AIP/quality-rules/7648",
         "critical": false,
         "severity": 10,
@@ -42,7 +42,7 @@
     },
     {
         "id": 7716,
-        "name": "Avoid defining singleton or factory classes when using Spring",
+        "name": "Avoid defining singleton or factory when using Spring",
         "href": "AIP/quality-rules/7716",
         "critical": false,
         "severity": 10,
@@ -64,13 +64,11 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -91,13 +89,11 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -140,13 +136,11 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -167,12 +161,10 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -220,7 +212,6 @@
             "HTML5",
             "JEE",
             "PowerBuilder",
-            "Python",
             "VB.NET",
             "Visual Basic"
         ]
@@ -333,10 +324,8 @@
             "C#",
             "C++",
             "Forms",
-            "FormsReportAnalyzer",
             "Microsoft T-SQL",
             "PL/SQL",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET"
@@ -443,7 +432,7 @@
     },
     {
         "id": 8104,
-        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
+        "name": "Close database resources ASAP",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "severity": 30,
@@ -465,7 +454,7 @@
     },
     {
         "id": 8114,
-        "name": "Avoid data corruption during incompatible mutation (ABAP)",
+        "name": "Avoid numerical data corruption during incompatible mutation (ABAP)",
         "href": "AIP/quality-rules/8114",
         "critical": false,
         "severity": 10,
@@ -477,20 +466,10 @@
         "id": 8220,
         "name": "Avoid using deprecated method, constructor, field, type or package",
         "href": "AIP/quality-rules/8220",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
-        ]
-    },
-    {
-        "id": 1003196,
-        "name": "Avoid switch statement without a default case (Flex)",
-        "href": "AIP/quality-rules/1003196",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Flex"
         ]
     },
     {
@@ -534,16 +513,6 @@
         ]
     },
     {
-        "id": 1021022,
-        "name": "'Initialize ancestors when overriding __init__'",
-        "href": "AIP/quality-rules/1021022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
         "id": 1024000,
         "name": "Avoid using AbsoluteLayout",
         "href": "AIP/quality-rules/1024000",
@@ -562,16 +531,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1030000,
-        "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
-        "href": "AIP/quality-rules/1030000",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Kotlin"
         ]
     },
     {
@@ -685,16 +644,6 @@
         ]
     },
     {
-        "id": 1055032,
-        "name": "Avoid using NSPredicate(format:) (Swift)",
-        "href": "AIP/quality-rules/1055032",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
         "id": 1065080,
         "name": "Avoid using C-style and functional notation casts (C++)",
         "href": "AIP/quality-rules/1065080",
@@ -724,17 +673,6 @@
         "technologyNames": [
             "C",
             "C++"
-        ]
-    },
-    {
-        "id": 1101098,
-        "name": "Avoid Artifacts with a Complex SELECT Clause (SQL)",
-        "href": "AIP/quality-rules/1101098",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "FormsReportAnalyzer",
-            "SQL"
         ]
     }
 ]

@@ -5,10 +5,6 @@
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.securityanalyzer",
-        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
-    },
     "associatedValueName": "Call stack from the use of a method producing insufficiently random numbers down to the target method",
     "description": "When software generates predictable values in a context requiring unpredictability, it may be possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information. \n\nThe list of methods producing insufficiently random numbers can be customized.",
     "output": "List all methods that use random numbers insufficiently generated.\n\nIt provides the following information : \n - Method full name. \n - Call stack with bookmarks from the method producing insufficiently random numbers down to the target method.",
@@ -32,48 +28,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1066430,
-            "name": "CWE-330 - Use of Insufficiently Random Values",
-            "href": "AIP/technical-criteria/1066430",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062306,
-            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062306",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062323,
-            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062323",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062342,
-            "name": "OWASP-2021-A02 - Cryptographic Failures",
-            "href": "AIP/technical-criteria/1062342",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063153,
-            "name": "PCI-DSS4-Requirement-3.6.1 - Procedures are defined and implemented to protect cryptographic keys",
-            "href": "AIP/technical-criteria/1063153",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063108,
-            "name": "PCI-Requirement-3.6.1 - Generation of strong cryptographic keys",
-            "href": "AIP/technical-criteria/1063108",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

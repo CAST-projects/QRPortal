@@ -1,19 +1,14 @@
 {
     "id": 2260,
-    "name": "DEPRECATED: All script files should be in a specific directory",
+    "name": "All script files should be in a specific directory",
     "href": "AIP/quality-rules/2260",
     "critical": false,
     "severity": 10,
     "maxWeight": 2,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "File directory",
     "description": "All script files (X) should be in a \"script\" directory, located in the web root.",
     "output": "This report lists all script files (X) located outside the \"script\" directory. It provides the following information: File full name, File directory",
     "rationale": "For maintainability aspects, file organization must be respected.",
-    "reference": "https://www.oracle.com/technical-resources/articles/javase/code-convention.html",
     "remediation": "Change file location according to the recommended naming convention.",
     "total": "Number of JS Scripts",
     "alternativeName": "Ensure you store all script files in specific directory",

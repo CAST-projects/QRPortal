@@ -4,14 +4,10 @@
     "href": "AIP/quality-rules/4740",
     "critical": false,
     "severity": 10,
-    "maxWeight": 5,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
+    "maxWeight": 2,
     "description": "Names of Fields should start with a lowercase character. Java fields convention naming here exclude Java constant that are static final Java fields and follow another naming convention rule.",
     "output": "This report lists all the Fields with the first letter in uppercase.\nIt provides the following information:\n Field full name",
-    "rationale": "For readability aspects, naming conventions must be respected. Coding naming conventions allow teams to collaborate efficiently",
+    "rationale": "For readability aspects, naming conventions must be respected",
     "reference": "http://java.sun.com/docs/codeconv/html/CodeConventions.doc8.html",
     "remediation": "Change name according to the naming convention",
     "total": "Number of Java fields except static final fields",
@@ -34,13 +30,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1067199,
-            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
-            "href": "AIP/technical-criteria/1067199",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 61017,
             "name": "Documentation - Naming Convention Conformity",

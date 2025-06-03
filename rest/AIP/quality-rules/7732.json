@@ -1,33 +1,24 @@
 {
     "id": 7732,
-    "name": "Avoid non validated inputs in JSP files that use JSF",
+    "name": "Avoid non validated inputs",
     "href": "AIP/quality-rules/7732",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "JSF supports validators, which are responsible for making sure that the user enters an acceptable value. Each input control must be associated with one or more validators.\n\n\nThis rule checks if the input field in JSP files using JSF (i.e. reference the JSF core taglib) has been validated as expected.\n\nFollowing validation ways supported by JSF are considered by this rule: \nStandard validation, Custom validation, Validation in the backing bean.\n\nThe validation can be done also by using the annotation @FacesValidator in the class during runtime\n\n\n\nAll other ways that consist of making the validation in the application (in the method called when a button is selected like createEmail method in the Example section) is not considered. In this case, a manual check will be needed to validate if the validation is made or not in this way.",
+    "description": "Reports all input field that is not validated in JSP files that use JSF (i.e. reference the JSF core taglib). Faces handles validation in three ways - \nvia standard validation, custom validation, validation in the backing bean.\n\nNote that the other way that consist in making the validation in the application (in the method called when a button is selected like createEmail method in the Example section)  is not considered. In this case, a manual check will be needed to validate if the validation is made or not through this way.",
     "output": "This report lists all input that are not validated. It provides the following information:\n  JSP Input Field Full Name",
-    "rationale": "The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.\n\n\nInput validation is required to secure an application. Moreover, the web interface is exposed to anyone. Non validating input may allow injecting arbitrary web script, HTML, SQL... Consequences can be severe, like erasing the content of a database.\nOnly one invalidated input can be exploited by an attacker.",
-    "reference": "Java Server Faces in Action ISBN 1-932394-11-7 p 44\nhttps://www.journaldev.com/7035/jsf-validation-example-tutorial-validator-tag-custom-validator\nhttps://laliluna.com/articles/posts/jsf-validation-error-handling-tutorial.html\nhttps://dzone.com/articles/jsf-validation-tutorial-error",
+    "rationale": "Input validation is required to secure an application. Moreover, the web interface is exposed to anyone. Non validating input may allow injecting arbitrary web script, HTML, SQL... Consequences can be severe, like erasing the content of a database.\nOnly one invalidated input can be exploited by an attacker.\n\nJSF supports validators, which are responsible for making sure that the user enters an acceptable value. Each input control must be associated with one or more validators.",
+    "reference": "Java Server Faces in Action ISBN 1-932394-11-7 p 44",
     "remediation": "Validate each input field through one of  the three ways - at the UI component level, via validator methods in backing beans, or in validator classes.\nUI components generally handle simple validation, such as whether a value is required, or validation logic that's specific to the component itself (and therefore not usable with other components).\nValidator methods are useful when you need to validate one or more\nfields on a form (and you don't need to share that logic with other components). External validators are useful for generic cases like the length of a field or a number range; they are pluggable, which means you can attach one or more of them to any component.",
     "remediationSample": "-------------- 1st sample (standard validation) --------------\n\n----> JSP file\n<%@taglib prefix=\"f\" uri=\"http://java.sun.com/jsf/core\"%>\n<%@taglib prefix=\"h\" uri=\"http://java.sun.com/jsf/html\"%>\n\n<h:inputText id=\"age\" value=\"#{UserRegistration.user.age}\">\n          <f:validateLongRange maximum=\"150\" minimum=\"0\"/>\n</h:inputText>\n\n----> jsf_core.tld\n<tag>\n    <name>validateLongRange</name>\n    <tag-class>\n     com.sun.faces.taglib.jsf_core.ValidateLongRangeTag\n    </tag-class>\n...\n\n----> ValidateLongRangeTag.java:\npublic class ValidateLongRangeTag extends com.sun.faces.taglib.jsf_core.MaxMinValidatorTag {\n....\n}\n\n---> MaxMinValidatorTag.java:\npublic class MaxMinValidatorTag extends javax.faces.webapp.ValidatorTag {\n  ...\n}\n\n\n-------------- 2nd sample ( custom validation) --------------\n----> JSP file:\n<%@taglib prefix=\"f\" uri=\"http://java.sun.com/jsf/core\"%>\n<%@taglib prefix=\"h\" uri=\"http://java.sun.com/jsf/html\"%>\n\n<h:inputText id=\"emailInput\"\n               value=\"#{registrationBean.email}/>\n      <f:validator validatorId=\"emailValidator\"/> // FIXED\n</h:inputText>\n\n----> faces-config.xml\n<faces-config>\n  ...\n       <validator>\n            <validator-id>emailValidator</validator-id>\n            <validator-class>com.sample.EmailValidator</validator-class>\n        </validator>\n  ... \n\n</faces-config>\n\n----> EmailValidator.java\npackage com.sample;\n\npublic class EmailValidator implements javax.faces.validator.Validator {\n    ....\n}\n\n\n-------------- 3rd sample ( validation in the backing bean) --------------\n----> JSP file:\n<h:inputText id=\"emailInput\"\n            validator=\"#{registrationBean.validateEmail}\" // FIXED\n            value=\"#{registrationBean.email}/>\n\n----> faces-config.xml\n<faces-config>\n...\n    <managed-bean>\n        <managed-bean-name>registrationBean</managed-bean-name>\n        <managed-bean-class>\n            com.sample.registrationBean\n        </managed-bean-class>\n        <managed-bean-scope>session</managed-bean-scope>\n    </managed-bean> \n...\n</faces-config>\n\n----> RegistrationBean.java\npackage com.sample;\n\n\npublic class RegistrationBean {\n    ...\n    public void validateEmail(FacesContext context, UIComponent validate, Object value){\n       ...\n    }\n}",
     "sample": "----> JSP file (1st sample: standard validation)\n<%@taglib prefix=\"f\" uri=\"http://java.sun.com/jsf/core\"%>\n<%@taglib prefix=\"h\" uri=\"http://java.sun.com/jsf/html\"%>\n\n<h:inputText id=\"age\" value=\"#{UserRegistration.user.age}\"> // VIOLATION\n</h:inputText>\n\n----> JSP file (for 2nd, 3rd and 4th sample)\n<%@taglib prefix=\"f\" uri=\"http://java.sun.com/jsf/core\"%>\n<%@taglib prefix=\"h\" uri=\"http://java.sun.com/jsf/html\"%>\n\n<h:form id=\"create\"> \n     ....\n\n     <h:inputText id=\"emailInput\"\n            value=\"#{registrationBean.email}/> // VIOLATION\n\n     <h:commandButton id=\"submit\" \n                                  value=\"CreateEmail\"\n                                  action=\"#{registrationBean.createEmail}\"/>\n     ....\n</h:form>\n\n---> faces-config.xml\n<faces-config>\n...\n    <managed-bean>\n        <managed-bean-name>registrationBean</managed-bean-name>\n        <managed-bean-class>\n            com.sample.registrationBean\n        </managed-bean-class>\n        <managed-bean-scope>session</managed-bean-scope>\n    </managed-bean> \n...\n</faces-config>\n\n---> RegistrationBean.java\npackage com.sample;\n\npublic class RegistrationBean {\n    ...\n\n    }\n}",
-    "total": "Number of input fields, 0 if JSF is not used",
+    "total": "Number of input field, 0 if JSF is not used",
     "alternativeName": "Ensure validating all inputs in JSP files that use JSF",
     "businessCriteria": [
         {
             "id": 1062100,
             "name": "CISQ-Index",
             "href": "AIP/business-criteria/1062100"
-        },
-        {
-            "id": 1061000,
-            "name": "ISO-5055-Index",
-            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 66031,
@@ -45,62 +36,6 @@
             "id": 1062191,
             "name": "ASCSM-CWE-79 - Cross-site Scripting Improper Input Neutralization",
             "href": "AIP/technical-criteria/1062191",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1067273,
-            "name": "CWE-1173 - Improper Use of Validation Framework",
-            "href": "AIP/technical-criteria/1067273",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1061015,
-            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-            "href": "AIP/technical-criteria/1061015",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066179,
-            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-            "href": "AIP/technical-criteria/1066179",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062303,
-            "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",
-            "href": "AIP/technical-criteria/1062303",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062327,
-            "name": "OWASP-2017-A7 - Cross-Site Scripting (XSS)",
-            "href": "AIP/technical-criteria/1062327",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062343,
-            "name": "OWASP-2021-A03 - Injection",
-            "href": "AIP/technical-criteria/1062343",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063121,
-            "name": "PCI-Requirement-6.5.7 - Cross-site scripting (XSS)",
-            "href": "AIP/technical-criteria/1063121",
             "weight": 5,
             "critical": false
         },

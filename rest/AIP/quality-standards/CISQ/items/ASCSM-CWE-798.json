@@ -5,7 +5,7 @@
     "url": null,
     "description": "Objective\nAvoid the existence of hard-coded credentials elements\n\nConsequence\nSoftware featuring weak authentication practices incurs the risk of exposing resources and functionality to unintended actors, possibly leading to compromised sensitive information and even the execution of arbitrary code\n\nMeasure Element\nNumber of instances where a storable data element or member data element is initialized by a \u2018Write\u2019 action, transported throughout the application along the transport sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the remote resource management action ; the transport sequence is composed of assignment operations as updates to the value would not be considered as hard-coded (literal) any more.\n\n",
     "isoPatterns": null,
-    "count": 12,
+    "count": 4,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-798/quality-rules"

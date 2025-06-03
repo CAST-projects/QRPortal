@@ -104,7 +104,7 @@
     },
     {
         "id": 7488,
-        "name": "DEPRECATED: Lazy fetching should be used for Hibernate collection",
+        "name": "Use lazy fetching for collection",
         "href": "AIP/quality-rules/7488",
         "critical": true,
         "weight": 9,
@@ -114,7 +114,7 @@
     },
     {
         "id": 7490,
-        "name": "DEPRECATED: Avoid UPDATE trigger firing when not necessary",
+        "name": "Avoid UPDATE trigger firing when not necessary",
         "href": "AIP/quality-rules/7490",
         "critical": true,
         "weight": 9,
@@ -124,7 +124,7 @@
     },
     {
         "id": 7496,
-        "name": "DEPRECATED: Use table-per-subclass strategy when subclasses have many properties",
+        "name": "Use table-per-subclass strategy when subclasses have many properties",
         "href": "AIP/quality-rules/7496",
         "critical": false,
         "weight": 8,
@@ -134,7 +134,7 @@
     },
     {
         "id": 7498,
-        "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
+        "name": "Collection must be the same between getter and setter",
         "href": "AIP/quality-rules/7498",
         "critical": false,
         "weight": 8,
@@ -144,7 +144,7 @@
     },
     {
         "id": 7500,
-        "name": "DEPRECATED: Use table-per-class-hierarchy when subclasses have few properties",
+        "name": "Use table-per-class-hierarchy when subclasses have few properties",
         "href": "AIP/quality-rules/7500",
         "critical": false,
         "weight": 8,
@@ -154,7 +154,7 @@
     },
     {
         "id": 7502,
-        "name": "DEPRECATED: Never use an array to map Hibernate collection",
+        "name": "Never use array to map a collection",
         "href": "AIP/quality-rules/7502",
         "critical": true,
         "weight": 9,
@@ -164,7 +164,7 @@
     },
     {
         "id": 7634,
-        "name": "DEPRECATED: Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
+        "name": "Avoid select-before-update when the Table is not associated to an UPDATE Trigger",
         "href": "AIP/quality-rules/7634",
         "critical": true,
         "weight": 9,
@@ -194,7 +194,7 @@
     },
     {
         "id": 7702,
-        "name": "Hibernate-provided implementations from third parties should be used for connection pool",
+        "name": "Use a third party connection pool",
         "href": "AIP/quality-rules/7702",
         "critical": false,
         "weight": 8,
@@ -225,8 +225,7 @@
         "technologyNames": [
             "C",
             "C++",
-            "JEE",
-            "SQL"
+            "JEE"
         ]
     },
     {
@@ -352,432 +351,6 @@
         "weight": 7,
         "technologyNames": [
             "HTML5"
-        ]
-    },
-    {
-        "id": 1020714,
-        "name": "Avoid having multiple routes for the same path with Node.js Express App",
-        "href": "AIP/quality-rules/1020714",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020774,
-        "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection (Javascript)",
-        "href": "AIP/quality-rules/1020774",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020776,
-        "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection (Javascript)",
-        "href": "AIP/quality-rules/1020776",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020778,
-        "name": "Avoid having multiple artifacts deleting data on the same NoSQL collections (Javascript)",
-        "href": "AIP/quality-rules/1020778",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020838,
-        "name": "Avoid using Rx.observable.fromEvent without having a debouncetime set",
-        "href": "AIP/quality-rules/1020838",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020898,
-        "name": "Avoid having multiple routes for the same path with Node.js Express App (TypeScript)",
-        "href": "AIP/quality-rules/1020898",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1045002,
-        "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger",
-        "href": "AIP/quality-rules/1045002",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045004,
-        "name": "Avoid UPDATE trigger firing when not necessary",
-        "href": "AIP/quality-rules/1045004",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045006,
-        "name": "Never use an array to map Hibernate collection",
-        "href": "AIP/quality-rules/1045006",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1101000,
-        "name": "Never use SQL queries with a cartesian product (SQL)",
-        "href": "AIP/quality-rules/1101000",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101002,
-        "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
-        "href": "AIP/quality-rules/1101002",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101004,
-        "name": "Avoid non-indexed SQL queries",
-        "href": "AIP/quality-rules/1101004",
-        "critical": false,
-        "weight": 9,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101006,
-        "name": "Avoid non-indexed XXL SQL queries",
-        "href": "AIP/quality-rules/1101006",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101008,
-        "name": "Avoid non-SARGable queries",
-        "href": "AIP/quality-rules/1101008",
-        "critical": false,
-        "weight": 3,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101010,
-        "name": "Avoid NATURAL JOIN queries",
-        "href": "AIP/quality-rules/1101010",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101014,
-        "name": "Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)",
-        "href": "AIP/quality-rules/1101014",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101018,
-        "name": "Avoid using the GROUP BY clause",
-        "href": "AIP/quality-rules/1101018",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101024,
-        "name": "Avoid using dynamic SQL in SQL Artifacts",
-        "href": "AIP/quality-rules/1101024",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101028,
-        "name": "Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries",
-        "href": "AIP/quality-rules/1101028",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101030,
-        "name": "Avoid Artifacts with queries on too many Tables and/or Views",
-        "href": "AIP/quality-rules/1101030",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101032,
-        "name": "Avoid exists and not exists independent clauses (SQL)",
-        "href": "AIP/quality-rules/1101032",
-        "critical": true,
-        "weight": 6,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101034,
-        "name": "Avoid using DISTINCT in SQL SELECT statements",
-        "href": "AIP/quality-rules/1101034",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101038,
-        "name": "Avoid OR conditions testing equality on the same identifier in SQL WHERE clauses",
-        "href": "AIP/quality-rules/1101038",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101058,
-        "name": "Avoid mixing ANSI and non-ANSI JOIN syntax in the same query",
-        "href": "AIP/quality-rules/1101058",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101060,
-        "name": "Avoid using LIKE conditions starting with a wildcard character",
-        "href": "AIP/quality-rules/1101060",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101066,
-        "name": "Avoid improperly written triangular joins with XXL tables",
-        "href": "AIP/quality-rules/1101066",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101068,
-        "name": "Avoid synonym with both private and public definition",
-        "href": "AIP/quality-rules/1101068",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101070,
-        "name": "Avoid explicit comparison with NULL",
-        "href": "AIP/quality-rules/1101070",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101078,
-        "name": "Always prefer PRIVATE to PUBLIC synonym",
-        "href": "AIP/quality-rules/1101078",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101082,
-        "name": "Avoid looping chain of synonyms",
-        "href": "AIP/quality-rules/1101082",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101088,
-        "name": "Avoid using LONG and LONG RAW datatypes",
-        "href": "AIP/quality-rules/1101088",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101090,
-        "name": "Avoid Tables without a clustered Index (SQL)",
-        "href": "AIP/quality-rules/1101090",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101102,
-        "name": "Avoid using LIKE conditions without wildcards",
-        "href": "AIP/quality-rules/1101102",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101104,
-        "name": "Avoid XXL tables without primary key / unique key constraint / unique index",
-        "href": "AIP/quality-rules/1101104",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101106,
-        "name": "Avoid tables without primary key / unique key constraint / unique index",
-        "href": "AIP/quality-rules/1101106",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101114,
-        "name": "Avoid \"SELECT *\" queries (SQL)",
-        "href": "AIP/quality-rules/1101114",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101922,
-        "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection (JEE)",
-        "href": "AIP/quality-rules/1101922",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1101924,
-        "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection (JEE)",
-        "href": "AIP/quality-rules/1101924",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1101926,
-        "name": "Avoid having multiple artifacts deleting data on the same NoSQL collections (JEE)",
-        "href": "AIP/quality-rules/1101926",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1101968,
-        "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection",
-        "href": "AIP/quality-rules/1101968",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101970,
-        "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection",
-        "href": "AIP/quality-rules/1101970",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101972,
-        "name": "Avoid having multiple artifacts deleting data on the same NoSQL collection",
-        "href": "AIP/quality-rules/1101972",
-        "critical": false,
-        "weight": 8,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
         ]
     }
 ]

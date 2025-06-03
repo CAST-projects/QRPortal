@@ -1,14 +1,10 @@
 {
     "id": 8566,
-    "name": "Avoid cyclic references in the definition of CDS views (S4/HANA)",
+    "name": "Avoid cyclic references in the definition of CDS views (S4/HAHA)",
     "href": "AIP/quality-rules/8566",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "extension": {
-        "name": "com.castsoftware.sap",
-        "href": "AIP/extensions/com.castsoftware.sap"
-    },
     "description": "This rule reports all CDS Views that have one-on-one and more static circular dependencies.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "When two CDS views refer to each other through a call, the result is a circular dependency. Neither CDS views can function without the other, and so neither is reusable without the other. This can cause unpredictable behaviors.\nRedesign May eliminate these dependencies to prevent problems during activation.",

@@ -130,26 +130,6 @@
         ]
     },
     {
-        "id": 1606,
-        "name": "Triggers should not directly modify tables, a procedure or function should be used instead",
-        "href": "AIP/quality-rules/1606",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1634,
-        "name": "Ensure the table is truly unnecessary. If not, then remove it from the project to avoid dead code.",
-        "href": "AIP/quality-rules/1634",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 2230,
         "name": "DEPRECATED: Use of style sheets (JEE)",
         "href": "AIP/quality-rules/2230",
@@ -324,26 +304,6 @@
         ]
     },
     {
-        "id": 4578,
-        "name": "Ensure you declare the type as an interface of a more appropriate collection",
-        "href": "AIP/quality-rules/4578",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 4580,
-        "name": "Ensure you declare the type as an interface of a more appropriate collection.",
-        "href": "AIP/quality-rules/4580",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 4592,
         "name": "Always Prefer not hiding Static Methods to avoid unexpected behavior of your application",
         "href": "AIP/quality-rules/4592",
@@ -377,8 +337,8 @@
         "id": 4598,
         "name": "Ensure you don't use 'java.lang.Runtime.exec()'",
         "href": "AIP/quality-rules/4598",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -387,8 +347,8 @@
         "id": 4600,
         "name": "Ensure you don't use 'java.System.exit()' to know what happened when you exit your program",
         "href": "AIP/quality-rules/4600",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -597,8 +557,8 @@
         "id": 7140,
         "name": "Ensure to use the action mapping table in struts configuration file.",
         "href": "AIP/quality-rules/7140",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -770,8 +730,8 @@
         "id": 7292,
         "name": "Ensure to have packages without cyclical calls and inheritances between packages",
         "href": "AIP/quality-rules/7292",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -856,16 +816,6 @@
         "severity": 10,
         "technologyNames": [
             "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 7404,
-        "name": "Avoid unreferenced views",
-        "href": "AIP/quality-rules/7404",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
         ]
     },
     {
@@ -1183,7 +1133,7 @@
         "id": 7728,
         "name": "Ensure that no thread creation is done for application running on application server to avoid any performance and robustness issues.",
         "href": "AIP/quality-rules/7728",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -1211,7 +1161,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1227,7 +1176,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1257,7 +1205,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1273,7 +1220,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1290,7 +1236,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1307,7 +1252,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1403,16 +1347,6 @@
         ]
     },
     {
-        "id": 7814,
-        "name": "Avoid Tables not using referential integrity",
-        "href": "AIP/quality-rules/7814",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 7816,
         "name": "Avoid using GOTO statement",
         "href": "AIP/quality-rules/7816",
@@ -1422,7 +1356,6 @@
             "C",
             "C#",
             "C++",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1447,8 +1380,7 @@
         "technologyNames": [
             "C",
             "C++",
-            "JEE",
-            "SQL"
+            "JEE"
         ]
     },
     {
@@ -1474,16 +1406,6 @@
         ]
     },
     {
-        "id": 7856,
-        "name": "Avoid Tables with too many columns on an OLTP system",
-        "href": "AIP/quality-rules/7856",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 7860,
         "name": "Ensure all the functions and procedures are used",
         "href": "AIP/quality-rules/7860",
@@ -1493,8 +1415,7 @@
             "C",
             "C++",
             "JEE",
-            "JavaScript",
-            "SQL"
+            "JavaScript"
         ]
     },
     {
@@ -1977,8 +1898,8 @@
         "id": 8102,
         "name": "Ensure not having hard-coded network resources names in the source files (JEE)",
         "href": "AIP/quality-rules/8102",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -2084,8 +2005,8 @@
         "id": 8220,
         "name": "Prefer not using deprecated methods, constructors, fields, type or packages",
         "href": "AIP/quality-rules/8220",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -2233,56 +2154,6 @@
         ]
     },
     {
-        "id": 1020202,
-        "name": "Ensure get() function always return a value",
-        "href": "AIP/quality-rules/1020202",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020204,
-        "name": "Ensure you don't use <textarea> with child elements such as inner text, if it has the v-model attribute",
-        "href": "AIP/quality-rules/1020204",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020206,
-        "name": "Ensure that you define a key for v-for",
-        "href": "AIP/quality-rules/1020206",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020210,
-        "name": "Avoid using v-show directive inside templates",
-        "href": "AIP/quality-rules/1020210",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020212,
-        "name": "Ensure that you use $emit to emit events instead of $parent to directly change parent props, to maintain the vue philosophy of props down events up",
-        "href": "AIP/quality-rules/1020212",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1020312,
         "name": "Ensure not using anonymous functions to attach events because they are difficult to debug, maintain, test or reuse",
         "href": "AIP/quality-rules/1020312",
@@ -2316,26 +2187,6 @@
         "id": 1020342,
         "name": "Ensure you have properly manage errors by using the error/fail callbacks",
         "href": "AIP/quality-rules/1020342",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020450,
-        "name": "Ensure you have overwritten component methods to properly catch errors",
-        "href": "AIP/quality-rules/1020450",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020452,
-        "name": "Ensure you have properly use the componentDidCatch to better manage errors",
-        "href": "AIP/quality-rules/1020452",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -2516,196 +2367,6 @@
         "id": 1020540,
         "name": "Prefer using $http methods 'then' and 'catch' instead of 'success' and 'error' as the latter returns original promise when you chain off of them",
         "href": "AIP/quality-rules/1020540",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020700,
-        "name": "Ensure you check the returned error in Node.js callbacks",
-        "href": "AIP/quality-rules/1020700",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020702,
-        "name": "You should set the process.exitCode to allow the process exiting naturally rather than calling process.exit() directly.",
-        "href": "AIP/quality-rules/1020702",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020780,
-        "name": "Ensure you call synchronous FileSystem API inside a try/catch block to manage errors.",
-        "href": "AIP/quality-rules/1020780",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020800,
-        "name": "Avoid jump statements in finally",
-        "href": "AIP/quality-rules/1020800",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020802,
-        "name": "Always throw all created error.",
-        "href": "AIP/quality-rules/1020802",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020806,
-        "name": "Preferusing  Number.isNaN() instead NaN in comparison",
-        "href": "AIP/quality-rules/1020806",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020812,
-        "name": "Invoking super should be done only once in constructor",
-        "href": "AIP/quality-rules/1020812",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020816,
-        "name": "Ensure that you have not using output of the function that does not return anything",
-        "href": "AIP/quality-rules/1020816",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020822,
-        "name": "Ensure that you provide an error callback to the HttpClient  ubscribe method.",
-        "href": "AIP/quality-rules/1020822",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020824,
-        "name": "Always ensure Superclass not knowing Subclass",
-        "href": "AIP/quality-rules/1020824",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020830,
-        "name": "Prefer using Angular Renderer2 instead of directly interacting with the DOM",
-        "href": "AIP/quality-rules/1020830",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020836,
-        "name": "Always prefer using modules over namespaces for structuring you code instead of exporting namespaces",
-        "href": "AIP/quality-rules/1020836",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020848,
-        "name": "Always ensuure using \"pipeable\" operators which can be imported from \"rxjs/operators\" instead of \"patch\" operator",
-        "href": "AIP/quality-rules/1020848",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020850,
-        "name": "Always handle errors when using ajax with RxJS",
-        "href": "AIP/quality-rules/1020850",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020856,
-        "name": "Ensure you have overwritten component methods to properly catch errors",
-        "href": "AIP/quality-rules/1020856",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020858,
-        "name": "Ensure you have properly use the componentDidCatch to better manage errors",
-        "href": "AIP/quality-rules/1020858",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020872,
-        "name": "Always use JSON.parse and JSON.stringify with try/catch block because of the synchronous call (Typescript)",
-        "href": "AIP/quality-rules/1020872",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020874,
-        "name": "Ensure you check the returned error in Node.js callbacks",
-        "href": "AIP/quality-rules/1020874",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020876,
-        "name": "You should set the process.exitCode to allow the process exiting naturally rather than calling process.exit() directly.",
-        "href": "AIP/quality-rules/1020876",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -3071,76 +2732,6 @@
         ]
     },
     {
-        "id": 1039006,
-        "name": "Ensure that you are not using predictable SecureRandom Seeds",
-        "href": "AIP/quality-rules/1039006",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039050,
-        "name": "Prefer using @Override annotation to mark methods overriding or implementing a method declared in a super type to avoid unintentional errors",
-        "href": "AIP/quality-rules/1039050",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039068,
-        "name": "Ensure to declare the object as serializable if you are using it as a httpsession attribute",
-        "href": "AIP/quality-rules/1039068",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039070,
-        "name": "Prefer using java.net.URI instead of java.net.URL",
-        "href": "AIP/quality-rules/1039070",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040016,
-        "name": "Avoid blocking access to public ressources",
-        "href": "AIP/quality-rules/1040016",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040030,
-        "name": "Prefer not using Generic Authentication Exception Class to promote easy error handling",
-        "href": "AIP/quality-rules/1040030",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040032,
-        "name": "Ensure not using ControllerAdvice And HandlerExceptionResolver simultaneously to avoid unexpected behavior",
-        "href": "AIP/quality-rules/1040032",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1043076,
         "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data",
         "href": "AIP/quality-rules/1043076",
@@ -3149,36 +2740,6 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
-        ]
-    },
-    {
-        "id": 1045008,
-        "name": "Ensure implementing the Serializable interface for all Entity beans",
-        "href": "AIP/quality-rules/1045008",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045010,
-        "name": "Ensure to use version attribute instead of timestamp for Hibernate Entity",
-        "href": "AIP/quality-rules/1045010",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045012,
-        "name": "Usually declare the setId() method private and let Hibernate/JPA generate and set the identifier value",
-        "href": "AIP/quality-rules/1045012",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -3789,214 +3350,6 @@
         "technologyNames": [
             "C",
             "C++"
-        ]
-    },
-    {
-        "id": 1101012,
-        "name": "While using ORDER BY in queries prefer using Column names instead of indexes for better maintainability and readability of queries in code",
-        "href": "AIP/quality-rules/1101012",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101016,
-        "name": "Ensure that you have a limited number of paramenters in OR clauses or IN statements to ensure good query performance",
-        "href": "AIP/quality-rules/1101016",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101020,
-        "name": "Make sure the identifiers defined in SQL are not quoted <\"\"> as it is confusing to read and reduces maintainability of code",
-        "href": "AIP/quality-rules/1101020",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101022,
-        "name": "Make sure to define Primary Key (PK) for your tables to enforce row integrity of data",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101026,
-        "name": "When inserting data into columns always define column names to prevent mistakes and wrong updates",
-        "href": "AIP/quality-rules/1101026",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101036,
-        "name": "Ensure using ANSI standard Operators such as <>,<=,>= in SQL where clauses to ensure portability",
-        "href": "AIP/quality-rules/1101036",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C",
-            "C#",
-            "C++",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101040,
-        "name": "Ensure to handle exception in a catch block and not leave it empty",
-        "href": "AIP/quality-rules/1101040",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101052,
-        "name": "Ensure to use WHEN OTHERS with WHEN for exception handling to prevent unexpected behavior",
-        "href": "AIP/quality-rules/1101052",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101054,
-        "name": "Ensure to propagate errors to client instead of using with NULL when handling exceptions through WHEN OTHERS",
-        "href": "AIP/quality-rules/1101054",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101056,
-        "name": "Ensure that your tables do not have large number of columns as it tends to add redundancy in data, try dividing the tables instead and link them through keys",
-        "href": "AIP/quality-rules/1101056",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101064,
-        "name": "Ensure that you do not have triggers acting on other triggers and cascading, review your design to avoid such cases",
-        "href": "AIP/quality-rules/1101064",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101072,
-        "name": "Improve the readability and maintainability of your queries by using aliases for tables",
-        "href": "AIP/quality-rules/1101072",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101076,
-        "name": "Ensure column references in queries are qualified to avoid any ambiguous and undefined references",
-        "href": "AIP/quality-rules/1101076",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101080,
-        "name": "When creating synonyms ensure that you do not reference a missing object as it will create errors at execution",
-        "href": "AIP/quality-rules/1101080",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101092,
-        "name": "Errors should be handled in stored procedures and functions",
-        "href": "AIP/quality-rules/1101092",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101094,
-        "name": "Stored Procedures should always RETURN a status value. RETURN 0 to indicate success and any non-zero value indicates failure.",
-        "href": "AIP/quality-rules/1101094",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101098,
-        "name": "Avoid Artifacts with a Complex SELECT Clause (SQL)",
-        "href": "AIP/quality-rules/1101098",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101100,
-        "name": "Avoid Functions and Procedures doing an Insert, Update or Delete without managing a transaction (SQL)",
-        "href": "AIP/quality-rules/1101100",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101958,
-        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
-        "href": "AIP/quality-rules/1101958",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101964,
-        "name": "When using compound indexes, avoid having different index ordering in collection access",
-        "href": "AIP/quality-rules/1101964",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
         ]
     }
 ]

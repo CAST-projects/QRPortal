@@ -11,7 +11,7 @@
     },
     {
         "id": 7154,
-        "name": "Struts1: Avoid Struts Fields in Action Classes that are not final static",
+        "name": "Avoid Fields in Action Classes that are not final static",
         "href": "AIP/quality-rules/7154",
         "critical": true,
         "weight": 8,
@@ -31,7 +31,7 @@
     },
     {
         "id": 7442,
-        "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
+        "name": "Avoid to use this within Constructor in multi-thread environment",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "weight": 8,
@@ -41,7 +41,7 @@
     },
     {
         "id": 7446,
-        "name": "Avoid double checked locking for JSE 4.x and previous version",
+        "name": "Avoid double checked locking",
         "href": "AIP/quality-rules/7446",
         "critical": true,
         "weight": 9,
@@ -51,7 +51,7 @@
     },
     {
         "id": 7636,
-        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "Use version instead of timestamp",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "weight": 7,
@@ -110,46 +110,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1039006,
-        "name": "Avoid using predictable SecureRandom Seeds",
-        "href": "AIP/quality-rules/1039006",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039068,
-        "name": "Avoid using the Non-Serializable Object Stored in Session",
-        "href": "AIP/quality-rules/1039068",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039070,
-        "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
-        "href": "AIP/quality-rules/1039070",
-        "critical": true,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045010,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
-        "href": "AIP/quality-rules/1045010",
-        "critical": false,
-        "weight": 7,
-        "technologyNames": [
-            "JEE"
         ]
     }
 ]

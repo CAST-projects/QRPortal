@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1065100",
     "critical": false,
     "severity": 10,
-    "maxWeight": 5,
+    "maxWeight": 3,
     "extension": {
         "name": "com.castsoftware.cpp",
         "href": "AIP/extensions/com.castsoftware.cpp"
@@ -17,11 +17,6 @@
     "sample": "class C3\n {\n public:\n C3() = default;\n C3(C3&& rhs) // Non-compliant - move constructor throws\n {\n // ...\n throw std::runtime_error(\"Error\");\n }\n C3& operator=(C3&& rhs) // Non-compliant - move assignment operator throws\n {\n // ...\n throw std::runtime_error(\"Error\");\n return *this;",
     "alternativeName": "Avoid move constructor and move assignment operator to exit with an exception",
     "businessCriteria": [
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -39,20 +34,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063119,
-            "name": "PCI-Requirement-6.5.5 - Improper error handling",
-            "href": "AIP/technical-criteria/1063119",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",

@@ -5,10 +5,6 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.securityanalyzer",
-        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
-    },
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "Using CAST data-flow engine, this metric detects execution paths from API requests down to file creation methods, paths which are open vulnerabilities to operating system injection flaws.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
@@ -26,11 +22,6 @@
             "href": "AIP/business-criteria/1062100"
         },
         {
-            "id": 1061000,
-            "name": "ISO-5055-Index",
-            "href": "AIP/business-criteria/1061000"
-        },
-        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -46,90 +37,6 @@
             "id": 1062177,
             "name": "ASCSM-CWE-22 - Path Traversal Improper Input Neutralization",
             "href": "AIP/technical-criteria/1062177",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1061010,
-            "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
-            "href": "AIP/technical-criteria/1061010",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066122,
-            "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
-            "href": "AIP/technical-criteria/1066122",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1061011,
-            "name": "CWE-23 - Relative Path Traversal",
-            "href": "AIP/technical-criteria/1061011",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066123,
-            "name": "CWE-23 - Relative Path Traversal",
-            "href": "AIP/technical-criteria/1066123",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1061012,
-            "name": "CWE-36 - Absolute Path Traversal",
-            "href": "AIP/technical-criteria/1061012",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066136,
-            "name": "CWE-36 - Absolute Path Traversal",
-            "href": "AIP/technical-criteria/1066136",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066173,
-            "name": "CWE-73 - External Control of File Name or Path",
-            "href": "AIP/technical-criteria/1066173",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062307,
-            "name": "OWASP-2013-A7 - Missing Function Level Access Control",
-            "href": "AIP/technical-criteria/1062307",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062325,
-            "name": "OWASP-2017-A5 - Broken Access Control",
-            "href": "AIP/technical-criteria/1062325",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062344,
-            "name": "OWASP-2021-A04 - Insecure Design",
-            "href": "AIP/technical-criteria/1062344",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063122,
-            "name": "PCI-Requirement-6.5.8 - Improper access control",
-            "href": "AIP/technical-criteria/1063122",
             "weight": 5,
             "critical": false
         },

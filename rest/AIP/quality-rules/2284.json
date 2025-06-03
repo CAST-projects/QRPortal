@@ -1,22 +1,16 @@
 {
     "id": 2284,
-    "name": "DEPRECATED: Avoid large JSP Pages - too many Scriptlets",
+    "name": "Avoid large JSP Pages - too many Scriptlets",
     "href": "AIP/quality-rules/2284",
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Number of scriptlets",
     "description": "Avoid Pages with more than X Scriptlets. Scriptlets begin with <%, <%! or <%=. The threshold is a parameter that can be changed at will.",
     "output": "This report lists all Pages with more than X scriptlets (<%= is considered as scriptlet) in a page. \nIt provides the following information: \n - Page full name\n - Number of scriptlets",
-    "rationale": "From JSP 1.2 Specification, it is highly recommended that the JSP Standard Tag Library (JSTL) be used in your web application to help reduce the need for JSP scriptlets in your pages. Pages that use JSTL are, in general, more consistent andd easier for HTML programmers to learn.",
+    "rationale": "From JSP 1.2 Specification, it is highly recommended that the JSP Standard Tag Library (JSTL) be used in your web application to help reduce the need for JSP scriptlets in your pages. Pages that use JSTL are, in general, easier to read and maintain.",
     "reference": "http://java.sun.com/developer/technicalArticles/javaserverpages/code_convention\nhttp://stackoverflow.com/questions/2128024/does-scriptlet-hit-the-performance-in-jsp",
     "remediation": "Review the design of the Page to reduce the number of Scriptlets",
-    "remediationSample": "<%@ taglib uri=\"http://java.sun.com/jstl/core\" prefix=\"c\" %>\n<html>\n <head>\n  <title>Count to 10 Example (using JSTL)</title>\n </head>\n\n <body>\n  <c:forEach var=\"i\" begin=\"1\" end=\"10\" step=\"1\">\n   <c:out value=\"${i}\" />\n\n   <br />\n  </c:forEach>\n </body>\n</html>",
-    "sample": "<html>\n <head>\n  <title>Count to 10 in JSP scriptlet</title>\n </head>\n <body>\n<%\n for(int i=1;i<=10;i++)\n{%>\n<%=i%><br/>\n<%\n}\n%>\n </body>\n</html>",
     "total": "Number of JSP pages",
     "alternativeName": "Prefer using JSP Standard Tag Library (JSTL) instead of JSP scriptlets as easier to read and to maintain",
     "businessCriteria": [

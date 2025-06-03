@@ -5,15 +5,11 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.securityanalyzer",
-        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
-    },
     "associatedValueName": "Call stack from user input source down to the target method",
     "description": "Using CAST data-flow engine, this quality rule detects execution paths from user input methods down to request execution methods, paths which are open vulnerabilities to SSRF flaws.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target method.",
     "rationale": "The software does not properly neutralize URLs that are used in an request execution, allowing attackers to access internal services or to launch attacks from your web server.",
-    "reference": "CWE-918: Server-Side Request Forgery (SSRF)\nhttps://cwe.mitre.org/data/definitions/918.html\n\nCWE CATEGORY: OWASP Top Ten 2021 Category A10:2021 - Server-Side Request Forgery (SSRF)\nhttps://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/\n\nOWASP Cheat Sheet Series - Server-Side Request Forgery Prevention Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+    "reference": "https://cwe.mitre.org/data/definitions/918.html\nhttps://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/\nhttps://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
     "remediation": "Do not accept URLs from users.\nUse authorized sanitization methods.",
     "remediationSample": "// JEE\nString constURL = \"https://www.validUrl.com/\";\nvar url = new URL(constURL);\nHttpURLConnection conn = (HttpURLConnection)url.openConnection(); // OK\n\n// .NET\nString constURL = \"https://www.validUrl.com/\";\nvar client = new HttpClient();\nHttpResponseMessage response = await client.GetAsync(constUrl); // OK",
     "sample": "// JEE\nString taintedURL = request.getParameter(\"url\");\nvar url = new URL(taintedURL);\nHttpURLConnection conn = (HttpURLConnection)url.openConnection(); // Violation\n\n// .NET\nString taintedURL = request.Item(\"url\");\nvar client = new HttpClient();\nHttpResponseMessage response = await client.GetAsync(taintedUrl); // Violation",
@@ -32,34 +28,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1067018,
-            "name": "CWE-918 - Server-Side Request Forgery (SSRF)",
-            "href": "AIP/technical-criteria/1067018",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062350,
-            "name": "OWASP-2021-A10 - Server-Side Request Forgery (SSRF)",
-            "href": "AIP/technical-criteria/1062350",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063114,
-            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
-            "href": "AIP/technical-criteria/1063114",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

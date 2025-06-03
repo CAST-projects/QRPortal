@@ -1,28 +1,18 @@
 {
     "id": 7910,
-    "name": "Never exit a finally block with a return, break, continue, or throw statements",
+    "name": "Never exit a finally block with a return, break, continue, or throw",
     "href": "AIP/quality-rules/7910",
     "critical": true,
     "severity": 20,
     "maxWeight": 8,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "When the code has a jump statement inside a finally block, it will cause any thrown exception in the try/catch block to be discarded.\n\nThis rule raises violation when detecting method that contains an abrupt in a finally block. \nAn abrupt completion of a statement or block occurs when it throws an exception, executes a break or continue to an enclosing statement, or executes a return from the method thereby preventing the exception from being thrown to the caller.",
+    "description": "Reports all methods that contain an abrupt in a finally block. An abrupt completion of a statement or block occurs when it throws an exception, executes a break or continues to an enclosing statement, or executes a return from the method.",
     "output": "Reports all methods that contain an abrupt exit in a finally block. An abrupt exit of a statement or block occurs when it throws an exception, executes a break or continues to an enclosing statement, or executes a return from the method.\n\nIt provides the following information:\n Method full name",
     "rationale": "Care must be taken if completion of a try-catch block occurs as a result of executing a return. If a finally block also returns a value, then that return supersedes any previous return in the try-catch block. Also, if an exception was thrown in the try or catch blocks that was not caught, then execution of a return in the finally block prevents the exception from being thrown to the caller (because it is not possible for the caller to simultaneously evaluate the return and catch the exception). This is also valid for break or continue instructions.",
     "reference": "OWASP\nhttp://www.owasp.org/index.php/Return_Inside_Finally_Block\n\nCERT\nhttps://www.securecoding.cert.org/confluence/display/java/ERR04-J.+Do+not+exit+abruptly+from+a+finally+block\n\nPuzzle 36: Indecision from the book \"Java Puzzlers: Traps, Pitfalls, and Corner Cases\"  By Joshua Bloch, Neal Gafter\nhttp://www.javapuzzlers.com/",
-    "remediationSample": "try {\n   ...\n   throw IllegalArgumentException(); // the IllegalArgumentException will be delivered to the caller\n}\nfinally {\n\n  /* ... */\n   \n}",
-    "sample": "try {\n   ...\n   throw IllegalArgumentException(); // the IllegalArgumentException will never be delivered to the caller\n}\nfinally {\n\n  /* ... */\n  return r; // VIOLATION: The finally block will cause the exception to be discarded. \n}",
+    "sample": "try {\n   ...\n   throw IllegalArgumentException();\n}\nfinally {\n  // VIOLATION: the IllegalArgumentException will never be delivered to the caller. The finally block will cause the exception to be discarded. \n  return r;\n}",
     "total": "Number of methods that have a finally block",
     "alternativeName": "Ensure not using jump statements inside a finally block so that any RuntimeException could be propagated and not discarded",
     "businessCriteria": [
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -40,27 +30,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1066684,
-            "name": "CWE-584 - Return Inside Finally Block",
-            "href": "AIP/technical-criteria/1066684",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063119,
-            "name": "PCI-Requirement-6.5.5 - Improper error handling",
-            "href": "AIP/technical-criteria/1063119",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",

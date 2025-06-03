@@ -95,17 +95,6 @@
         ]
     },
     {
-        "id": 7470,
-        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
-        "href": "AIP/quality-rules/7470",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 7488,
         "name": "Ensure to use a lazy fetching strategy when the table contains lot of rows",
         "href": "AIP/quality-rules/7488",
@@ -199,8 +188,8 @@
         "id": 7720,
         "name": "Ensure reducing the number of EJB beans to hold performance and complexity of the application",
         "href": "AIP/quality-rules/7720",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -214,8 +203,7 @@
         "technologyNames": [
             "C",
             "C++",
-            "JEE",
-            "SQL"
+            "JEE"
         ]
     },
     {
@@ -254,8 +242,8 @@
         "id": 7954,
         "name": "Ensure not having indirect String concatenation inside loops to avoid making your software performance slowly.",
         "href": "AIP/quality-rules/7954",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -455,128 +443,6 @@
         "severity": 10,
         "technologyNames": [
             "HTML5"
-        ]
-    },
-    {
-        "id": 1020714,
-        "name": "Ensure having only one routing handler per path to avoid an efficiency issue",
-        "href": "AIP/quality-rules/1020714",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020716,
-        "name": "\u201chttp.get\u201d or \u201chttp.request\u201d should not be used inside a loop to optimize the number of calls between the client application and web service server",
-        "href": "AIP/quality-rules/1020716",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020898,
-        "name": "Ensure having only one routing handler per path to avoid an efficiency issue",
-        "href": "AIP/quality-rules/1020898",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1025056,
-        "name": "Ensure you don't have SQL queries inside loops",
-        "href": "AIP/quality-rules/1025056",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1045002,
-        "name": "Ensure setting 'select-before-update' to true only for Hibernate Entity associated to table that fires an UPDATE trigger.",
-        "href": "AIP/quality-rules/1045002",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045004,
-        "name": "Ensure to use the attribute select-before-update for the persistent class associated to a table that have the UPDATE trigger in order to not have UPDATE trigger when not necessary",
-        "href": "AIP/quality-rules/1045004",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045006,
-        "name": "Ensure to use  lists, maps, bags, idbags and sets depending on your case to map a collection instead of using array to Map Collection",
-        "href": "AIP/quality-rules/1045006",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1101000,
-        "name": "Prefer using a Join with a consition when making SQL queries so that performance is not adversely impacted due to cartesian/cross join",
-        "href": "AIP/quality-rules/1101000",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101002,
-        "name": "Prefer using a Join with a consition when making SQL queries on XXL tables so that performance is not adversely impacted due to cartesian/cross join",
-        "href": "AIP/quality-rules/1101002",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101022,
-        "name": "Make sure to define Primary Key (PK) for your tables to enforce row integrity of data",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101030,
-        "name": "Ensure that you are not making queries and Joins on too many tables or views as it hampers execution performance",
-        "href": "AIP/quality-rules/1101030",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101088,
-        "name": "Ensure that you use CLOB, NCLOB or BLOB datatypes in tables instead of LONG or LONG RAW as the latter are deprecated",
-        "href": "AIP/quality-rules/1101088",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
         ]
     }
 ]

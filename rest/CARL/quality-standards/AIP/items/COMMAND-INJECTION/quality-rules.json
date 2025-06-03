@@ -3,8 +3,8 @@
         "id": 4598,
         "name": "Ensure you don't use 'java.lang.Runtime.exec()'",
         "href": "AIP/quality-rules/4598",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -366,84 +366,6 @@
         ]
     },
     {
-        "id": 1020808,
-        "name": "Eval() should not be used because it runs text as code.",
-        "href": "AIP/quality-rules/1020808",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020860,
-        "name": "Avoid using setInterval with a string as first argument",
-        "href": "AIP/quality-rules/1020860",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020870,
-        "name": "Avoid using setTimeout with a string as first argument",
-        "href": "AIP/quality-rules/1020870",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1025000,
-        "name": "Ensure your application does not run OS command without sanitization",
-        "href": "AIP/quality-rules/1025000",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025010,
-        "name": "Ensure your application does not run LDAP methods without sanitization",
-        "href": "AIP/quality-rules/1025010",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025050,
-        "name": "Reports usage of RequestDispatcher file inclusion, file which name is tainted input. Extended to several MVC libraries.",
-        "href": "AIP/quality-rules/1025050",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025052,
-        "name": "Reports usage of String tainted input before Unicode normalization",
-        "href": "AIP/quality-rules/1025052",
-        "critical": false,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 1027044,
         "name": "SafeHandle.DangerousGetHandle\" should not be called",
         "href": "AIP/quality-rules/1027044",
@@ -452,26 +374,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1042026,
-        "name": "Ensure note using wildcards for action mapping name to avoid executing arbitrary Java code on server side",
-        "href": "AIP/quality-rules/1042026",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042046,
-        "name": "Using Dynamic Method Invocation for Apache Struts 2.x allows remote attackers to execute arbitrary code via method: prefix, related to chained expressions.",
-        "href": "AIP/quality-rules/1042046",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {

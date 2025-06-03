@@ -1,23 +1,19 @@
 {
     "id": 7714,
-    "name": "Avoid using auto-wiring",
+    "name": "Do not use auto-wiring",
     "href": "AIP/quality-rules/7714",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "associatedValueName": "Number of violation occurrences",
-    "description": "Field injection is not recommended. This rule reports all Spring Bean that use autowire attribute.",
-    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "associatedValueName": "Associated Value",
+    "description": "Reports all Spring Bean that use autowire attribute.",
+    "output": "The metric will list all Spring bean that use auto-wiring. It provides the following information:\n  Spring Bean Full Name",
     "rationale": "Auto-wiring can save you time in small applications, but in many cases, it leads to bad practices and is inflexible in large applications. Using byName seems like a good idea, but it may lead you to give your classes artificial property names so that you can take advantage of the auto-wiring functionality. The whole idea behind Spring is that you can create your classes how you like and have Spring work for you, not the other way around. You may be tempted to use byType until you realize\nthat you can only have one bean for each type in your BeanFactory -- a restriction that is problematic when you need to maintain beans with different configurations of the same type.\n\nAlso it will affect the performance of your application since auto-wiring is slow.",
-    "reference": "https://blog.marcnuri.com/field-injection-is-not-recommended/\nhttps://howtodoinjava.com/best-practices/13-best-practices-for-writing-spring-configuration-files/\nhttps://www.vojtechruzicka.com/field-dependency-injection-considered-harmful/\nhttp://code.google.com/p/google-guice/wiki/SpringComparison\nhttps://www.baeldung.com/spring-annotations-resource-inject-autowire\nhttps://stackoverflow.com/questions/7142622/what-is-the-difference-between-inject-and-autowired-in-spring-framework-which",
-    "remediation": "Define your wiring explicitly, and you benefit from explicit semantics and full flexibility on property naming and on how many instances of\nthe same type you manage.\n\nSpring team recommands to Always use constructor based on dependency injection in your bean and Always use assertions  for mandatory dependencies",
-    "remediationSample": "<beans>\n   <bean id=\"myBean\" class=\"com.cast.MyBean\"/> // FIXED\n...\n</beans>\n\n@Service\npublic class ModuleManagementService {\n\n    \n  private ModuleManagementManager moduleManagementManager;\n \n  //  Prefer setter injection over constructor injection\n  @Inject  // OR @Autowired\n  public void setInjectedBean() {\n      moduleManagementManager = new ModuleManagementManager();   // NO VIOLATION\n  }\n}",
-    "sample": "<beans>\n   <bean id=\"myBean\" autowire=\"byName\" class=\"com.cast.MyBean\"/> // VIOLATION\n...\n</beans>\n\n\n\nimport org.springframework.stereotype.Component;\n\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\n@Component\npublic class ModuleManagementManager {\n  private static final Logger LOGGER = LoggerFactory.getLogger(ModuleManagementManager.class);\n}\n\nimport org.springframework.stereotype.Service;\n\nimport javax.enterprise.inject.Instance;\nimport javax.inject.Inject;\nimport javax.inject.Named;\nimport javax.inject.Provider;\nimport javax.inject.Qualifier;\nimport javax.inject.Scope;\n\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\n@Service\npublic class ModuleManagementService {\n\n  private static final Logger LOGGER = LoggerFactory.getLogger(ModuleManagementService.class);\n  \n  // JSR-330 injection\n  @Inject\n  ModuleManagementManager moduleManagementManager = new ModuleManagementManager(); // VIOLATION\n}",
-    "total": "Number of Java classes",
+    "reference": "http://www.onjava.com/pub/a/onjava/2006/01/25/spring-xml-configuration-best-practices.html\nhttp://code.google.com/p/google-guice/wiki/SpringComparison",
+    "remediation": "Define your wiring explicitly, and you benefit from explicit semantics and full flexibility on property naming and on how many instances of\nthe same type you manage.",
+    "remediationSample": "<beans>\n   <bean id=\"myBean\" class=\"com.cast.MyBean\"/> // FIXED\n...\n</beans>",
+    "sample": "<beans>\n   <bean id=\"myBean\" autowire=\"byName\" class=\"com.cast.MyBean\"/> // VIOLATION\n...\n</beans>",
+    "total": "The total number of Spring bean, 0 if Spring is not used",
     "alternativeName": "Prefer not using auto-wiring to guarantee more flexibility and better performance of your application",
     "businessCriteria": [
         {
@@ -42,13 +38,6 @@
             "name": "Architecture - Reuse",
             "href": "AIP/technical-criteria/66009",
             "weight": 7,
-            "critical": false
-        },
-        {
-            "id": 1066709,
-            "name": "CWE-609 - Double-Checked Locking",
-            "href": "AIP/technical-criteria/1066709",
-            "weight": 5,
             "critical": false
         }
     ],

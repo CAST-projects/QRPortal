@@ -1,21 +1,13 @@
 {
     "id": 7134,
-    "name": "DEPRECATED: Avoid having Struts local forward with same name as Struts  global forward",
+    "name": "Avoid having local forward with same name as global forward",
     "href": "AIP/quality-rules/7134",
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Global forward full name",
-    "description": "This report lists all local forward that have the same name as global forward.",
-    "output": "It provides the following information:\n - local forward full name\n - global forward full name",
-    "rationale": "In Struts, for better readability and to avoid unexpected behaviour, it is recommended to have a unique name as entry point.",
-    "remediation": "Don't have local forward with same name as global forward",
-    "remediationSample": "<action-mappings type=\"org.apache.struts.action.ActionMapping\">\n    <action path=\"/login\" parameter=\"\" input=\"/index.jsp\" scope=\"request\"\n      name=\"loginForm\" type=\"com.jmd.test.struts.controleur.LoginAction\">\n      <forward name=\"success\" path=\"/welcome.jsp\" redirect=\"false\" />\n      <forward name=\"error\" path=\"/index.jsp\" redirect=\"false\" />\n    </action>\n  </action-mappings>",
-    "sample": "<action-mappings type=\"org.apache.struts.action.ActionMapping\">\n    <action path=\"/login\" parameter=\"\" input=\"/index.jsp\" scope=\"request\"\n      name=\"loginForm\" type=\"com.jmd.test.struts.controleur.LoginAction\">\n      <global-forward name=\"success\" path=\"/welcomeglobal.jsp\" redirect=\"false\" />\n      <forward name=\"success\" path=\"/welcome.jsp\" redirect=\"false\" />\n      <forward name=\"error\" path=\"/index.jsp\" redirect=\"false\" />\n    </action>\n  </action-mappings>",
+    "description": "For better readability it is recommended to have a unique name as entry point.",
+    "output": "This report lists all local forward that have the same name as global forward.\nIt provides the following information:\n - local forward full name\n - global forward full name",
     "total": "Number of Local Forwards",
     "alternativeName": "Ensure you don't have local forward with same name as global forward for better readability and to avoid unexpected behavior",
     "businessCriteria": [

@@ -12,20 +12,20 @@
     },
     {
         "id": 4600,
-        "name": "Avoid using Exit and Halt Methods on a Web/Application Server",
+        "name": "Avoid using 'java.System.exit()'",
         "href": "AIP/quality-rules/4600",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 4694,
-        "name": "Avoid using 'System.gc' and 'Runtime.gc'",
+        "name": "Avoid using 'System.gc'",
         "href": "AIP/quality-rules/4694",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -42,7 +42,7 @@
     },
     {
         "id": 7202,
-        "name": "Avoid using '==' and '!=' to compare objects",
+        "name": "Check usage of '==' and '!=' on objects",
         "href": "AIP/quality-rules/7202",
         "critical": true,
         "severity": 20,
@@ -73,7 +73,7 @@
     },
     {
         "id": 7442,
-        "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment",
+        "name": "Avoid to use this within Constructor in multi-thread environment",
         "href": "AIP/quality-rules/7442",
         "critical": true,
         "severity": 20,
@@ -83,7 +83,7 @@
     },
     {
         "id": 7444,
-        "name": "Avoid Using Non-Serialized Beans with Session Scope",
+        "name": "Serialize session objects",
         "href": "AIP/quality-rules/7444",
         "critical": false,
         "severity": 10,
@@ -93,7 +93,7 @@
     },
     {
         "id": 7446,
-        "name": "Avoid double checked locking for JSE 4.x and previous version",
+        "name": "Avoid double checked locking",
         "href": "AIP/quality-rules/7446",
         "critical": true,
         "severity": 20,
@@ -103,7 +103,7 @@
     },
     {
         "id": 7506,
-        "name": "equals() and hashCode() should be defined for Hibernate/JPA component",
+        "name": "Define equals() and hashCode() for component",
         "href": "AIP/quality-rules/7506",
         "critical": true,
         "severity": 20,
@@ -133,7 +133,7 @@
     },
     {
         "id": 7636,
-        "name": "DEPRECATED: Prefer using version number instead of timestamp for Hibernate Entity",
+        "name": "Use version instead of timestamp",
         "href": "AIP/quality-rules/7636",
         "critical": false,
         "severity": 10,
@@ -153,7 +153,7 @@
     },
     {
         "id": 7722,
-        "name": "Avoid using persistent class's identifier in equals() method",
+        "name": "Avoid using references to the id in the persistent class's method equals()",
         "href": "AIP/quality-rules/7722",
         "critical": true,
         "severity": 20,
@@ -175,7 +175,7 @@
         "id": 7728,
         "name": "Avoid thread creation for application running on application server",
         "href": "AIP/quality-rules/7728",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -183,7 +183,7 @@
     },
     {
         "id": 7940,
-        "name": "Avoid accumulating Stateful Beans",
+        "name": "Avoid Stateful Beans not removed",
         "href": "AIP/quality-rules/7940",
         "critical": true,
         "severity": 20,
@@ -215,7 +215,7 @@
     },
     {
         "id": 8104,
-        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
+        "name": "Close database resources ASAP",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "severity": 30,
@@ -247,36 +247,6 @@
         ]
     },
     {
-        "id": 8578,
-        "name": "Avoid using MODIFY without Authorization Check",
-        "href": "AIP/quality-rules/8578",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "ABAP"
-        ]
-    },
-    {
-        "id": 1001104,
-        "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
-        "href": "AIP/quality-rules/1001104",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001108,
-        "name": "Avoid PLC Copybooks using variables with ALLOCATE and without FREE  (PL1)",
-        "href": "AIP/quality-rules/1001108",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PLC"
-        ]
-    },
-    {
         "id": 1020062,
         "name": "Avoid using non thread-safe Javascript singleton pattern",
         "href": "AIP/quality-rules/1020062",
@@ -284,66 +254,6 @@
         "severity": 10,
         "technologyNames": [
             "HTML5"
-        ]
-    },
-    {
-        "id": 1020214,
-        "name": "Ensure to turn off and clear event listeners after component is destroyed",
-        "href": "AIP/quality-rules/1020214",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020730,
-        "name": "Ensure Node.js filesystem are closed",
-        "href": "AIP/quality-rules/1020730",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020892,
-        "name": "Ensure Node.js filesystem are closed (TypeScript)",
-        "href": "AIP/quality-rules/1020892",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020928,
-        "name": "Always unsubscribe events in Angular onDestroy method",
-        "href": "AIP/quality-rules/1020928",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1021026,
-        "name": "Avoid leaving open file resources (Python)",
-        "href": "AIP/quality-rules/1021026",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021110,
-        "name": "Avoid using regular expression vulnerable to ReDoS (Python)",
-        "href": "AIP/quality-rules/1021110",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
         ]
     },
     {
@@ -433,46 +343,6 @@
         ]
     },
     {
-        "id": 1039008,
-        "name": "Avoid thrown Exceptions in servlet methods",
-        "href": "AIP/quality-rules/1039008",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039068,
-        "name": "Avoid using the Non-Serializable Object Stored in Session",
-        "href": "AIP/quality-rules/1039068",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039070,
-        "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
-        "href": "AIP/quality-rules/1039070",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040014,
-        "name": "Avoid using Spring Security's debug mode",
-        "href": "AIP/quality-rules/1040014",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1043020,
         "name": "Avoid having applications with the debug mode activated",
         "href": "AIP/quality-rules/1043020",
@@ -513,16 +383,6 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
-        ]
-    },
-    {
-        "id": 1045010,
-        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
-        "href": "AIP/quality-rules/1045010",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -576,16 +436,6 @@
         ]
     },
     {
-        "id": 1055020,
-        "name": "Avoid using kSecAttrAccessibleAlways attribute when storing data in the Keychain (Swift)",
-        "href": "AIP/quality-rules/1055020",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
         "id": 1065004,
         "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
         "href": "AIP/quality-rules/1065004",
@@ -605,26 +455,6 @@
         "technologyNames": [
             "C",
             "C++"
-        ]
-    },
-    {
-        "id": 1101000,
-        "name": "Never use SQL queries with a cartesian product (SQL)",
-        "href": "AIP/quality-rules/1101000",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101002,
-        "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
-        "href": "AIP/quality-rules/1101002",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
         ]
     }
 ]

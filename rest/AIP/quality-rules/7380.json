@@ -1,22 +1,18 @@
 {
     "id": 7380,
-    "name": "Struts 1: Avoid unused validation form",
+    "name": "Avoid unused validation form",
     "href": "AIP/quality-rules/7380",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "An unused validation form indicates that validation logic is not up-to-date.\nThis rule reports all unused form validator not referencing java class. \nNote that it can be the form name or the action name (in the case of a form shared among different actions)",
+    "description": "This metric reports all unused form validator. Note that it can be the form name or the action name (in the case of a form shared among different actions)",
     "output": "This report lists all unused validation forms name. It provides the following information:\n  Form Validation Full Name",
-    "rationale": "It is easy for developers to forget to update validation logic when they remove or rename action form mappings. One indication that validation logic is not being properly maintained is the presence of an unused validation form.",
+    "rationale": "When a validation form is unused, this indicate that the validation logic is not properly maintained and can result in a weakness.\nInput validation is required to secure an application. Moreover, the web interface is exposed to anyone. Non validating input may allow injecting arbitrary web script, HTML, SQL... Consequences can be severe, like erasing the content of a database.",
     "reference": "http://cwe.mitre.org/data/definitions/107.html",
     "remediation": "Update the validation.xml's entries according to the form used in your application.",
     "remediationSample": "----> validation.xml:\n<form-validation>\n  <formset> // FIXED\n    <form name=\"logonForm\">\n      <field property=\"username\" \n            depends=\"required\">\n        <arg0 key=\"prompt.username\"/>\n      </field>\n    </form>\n  </formset>\n</form-validation>",
     "sample": "----> struts-config.xml:\n<action-mapping>\n  <action path=\"/logon\"\n         type=\"com.cast.struts.sample.LogonAction\"\n         name=\"logonForm\"/>\n</action-mapping>\n\n<form-beans>\n  <form-bean name=\"logonForm\"\n            type=\"com.cast.struts.sample.LogonForm\"/>\n</form-beans>\n\n----> validation.xml:\n\n<form-validation>\n  <formset>\n    <form name=\"logonForm\">\n      <field property=\"username\" \n            depends=\"required\">\n        <arg0 key=\"prompt.username\"/>\n      </field>\n    </form>\n   <form name=\"addressForm\"> // VIOLATION: this form or action-mapping doesn't exist\n      ...\n   </form>\n  </formset>\n</form-validation>",
-    "total": "Number of validation forms",
+    "total": "Number of validation forms when object of type \"Validation Configuration File\" is present",
     "alternativeName": "Ensure to update the validation.xml's entries according to the form used in your application",
     "businessCriteria": [
         {
@@ -31,48 +27,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1066207,
-            "name": "CWE-107 - Struts: Unused Validation Form",
-            "href": "AIP/technical-criteria/1066207",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062301,
-            "name": "OWASP-2013-A1 - Injection",
-            "href": "AIP/technical-criteria/1062301",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062321,
-            "name": "OWASP-2017-A1 - Injection",
-            "href": "AIP/technical-criteria/1062321",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062343,
-            "name": "OWASP-2021-A03 - Injection",
-            "href": "AIP/technical-criteria/1062343",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063114,
-            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
-            "href": "AIP/technical-criteria/1063114",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",
@@ -136,9 +90,9 @@
         
     ],
     "thresholds": [
-        98.0,
-        99.0,
-        99.5,
-        99.99
+        50.0,
+        90.0,
+        95.0,
+        99.0
     ]
 }

@@ -5,25 +5,16 @@
     "critical": true,
     "severity": 30,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.securityanalyzer",
-        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
-    },
     "description": "Using CAST data-flow engine, this quality rule detects execution paths from user input methods down to deserialization methods, which are open vulnerabilities to injection flaws.\n\nThe list of deserialization methods car be extended thanks to a user configuration (Deserialize.write)",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target deserialization method",
     "rationale": "Insecure deserialization often leads to remote code execution. Even if deserialization flaws do not result in remote code execution, they can be used to perform attacks, including replay attacks, injection attacks, and privilege escalation attacks.\nThe business impact depends on the protection needs of the application and data.",
-    "reference": "CWE-502: Deserialization of Untrusted Data\nhttps://cwe.mitre.org/data/definitions/502.html\n\nOWASP Cheat Sheet Series - Deserialization Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html\n\nOWASP Top 10:2021 - A08:2021 \u2013 Software and Data Integrity Failures\nhttps://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/",
+    "reference": "CWE-502: Deserialization of Untrusted Data\nhttps://cwe.mitre.org/data/definitions/502.html\n\nOpen Web Application Security Project (OWASP) Top Ten 2017 - Category A8\nhttps://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization",
     "remediation": "Avoid serialising and deserialising objects\nUse signatures to detect tampering\nConfigure your library safely\nAs a last resort, restrict deserialization to be possible only to specific, whitelisted classes.\nCheck out the OWASP Deserialisation Cheat Sheet",
     "remediationSample": "Using readObject\n________________\n\nInputStream is; // is must not depend on user input\nObjectOutputStream ois = new ObjectOutputStream(is);\nMyClass myclass1 = (MyClass)ois.readObject();\n\n\n\nUsing XMLdecoder\n________________\n\nXMLdecoder d = new XMLdecoder(\n                            new BufferedInputStream(\n                            new FileInputStream(file)));\n\nObject result = d.readObject();\nd.close();\n\n\nUsing Kryo\n________________\n\nString userInput = param;\nKryo kryo = new Kryo();\nOutput output = new Output(new FileOutputStream(\"file.dat\"));\nInput input = new input(new FileInputStream(file));\nObject someObject = \"some string\";\nkryo.writeClassAndObject(output, someObject);\noutput.close();\nObject theObject = kryo.readClassAndObject(input);\ninput.close();",
     "sample": "Using readObject\n________________\n\nInputStream is = request.getInputStream();\nObjectOutputStream ois = new ObjectOutputStream(is);\nMyClass myclass1 = (MyClass)ois.readObject(); //Violation\n\n\n\nUsing XMLdecoder\n________________\n\nXMLdecoder d = new XMLdecoder(\n                            new BufferedInputStream(\n                            new FileInputStream(userInput)));\n\nObject result = d.readObject(); //Violation\nd.close();\n\n\nUsing Kryo\n________________\n\nString userInput = param;\nKryo kryo = new Kryo();\nOutput output = new Output(new FileOutputStream(\"file.dat\"));\nInput input = new input(new FileInputStream(userInput));\nObject someObject = \"some string\";\nkryo.writeClassAndObject(output, someObject);\noutput.close();\nObject theObject = kryo.readClassAndObject(input);  //Violation\ninput.close();",
     "total": "Number of potentially vulnerable methods",
     "alternativeName": "Avoid deserialization injection",
     "businessCriteria": [
-        {
-            "id": 1061000,
-            "name": "ISO-5055-Index",
-            "href": "AIP/business-criteria/1061000"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -36,55 +27,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1061059,
-            "name": "CWE-502 - Deserialization of Untrusted Data",
-            "href": "AIP/technical-criteria/1061059",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066602,
-            "name": "CWE-502 - Deserialization of Untrusted Data",
-            "href": "AIP/technical-criteria/1066602",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062301,
-            "name": "OWASP-2013-A1 - Injection",
-            "href": "AIP/technical-criteria/1062301",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062328,
-            "name": "OWASP-2017-A8 - Insecure Deserialization",
-            "href": "AIP/technical-criteria/1062328",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062348,
-            "name": "OWASP-2021-A08 - Software and Data Integrity Failures",
-            "href": "AIP/technical-criteria/1062348",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063114,
-            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
-            "href": "AIP/technical-criteria/1063114",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

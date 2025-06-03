@@ -5,18 +5,14 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Full Name of createStatement method called",
-    "description": "This rule will check the use of the method java.sql.Connection.createStatement()",
+    "description": "All references to the method java.sql.Connection.createStatement() must be avoided.",
     "output": "This report lists all methods that reference java.sql.Connection.Statement interface instances (or its sub-interface or sub-class).\nIt provides the following information: \n - Method Full Name\n - The Full Name of createStatement method that has been called",
     "rationale": "There are two benefits to use PreparedStatement or CallableStatement over Statement:\n- Performance: PreparedStatement gives better performance when compared to Statement because it is pre-parsed. CallableStatement is even more efficient but as it uses a stored procedure in the database, it is less portable,\n- Security: to prevent SQL Injection Attacks.",
-    "reference": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
-    "remediation": "Use java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall() instead.",
-    "remediationSample": "PreparedStatement stmt = connection.prepareStatement(\"SELECT * FROM users WHERE userid=? AND password=?\");\nstmt.setString(1, userid);\nstmt.setString(2, password);\nResultSet rs = stmt.executeQuery();",
-    "sample": "String query = \"SELECT * FROM users WHERE userid ='\"+ userid + \"'\" + \" AND password='\" + password + \"'\";\nStatement stmt = connection.createStatement(); //violation\nResultSet rs = stmt.executeQuery(query);",
+    "reference": "http://www.theserverside.com/tt/articles/article.tss?l=JavaOne2006Day4\nhttp://www.precisejava.com/javaperf/j2ee/JDBC.htm",
+    "remediation": "use java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall() instead.",
+    "remediationSample": "PreparedStatement ps = connection.prepareStatement(\"select address from employee where name=Bob\"); // FIXED\n\nResultSet rs = ps.executeQuery();",
+    "sample": "Statement stmt = connection.createStatement(); // VIOLATION\n\nResultSet rs = stmt.executeQuery(\"select address from employee where name=Bob\");",
     "total": "Number of methods that call java.sql.Connection.createStatement() or java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall()",
     "alternativeName": "Prefer using PreparedStatement or CallableStatement over CreateStatement to prevent SQL Injection Attacks",
     "businessCriteria": [
@@ -32,34 +28,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1062301,
-            "name": "OWASP-2013-A1 - Injection",
-            "href": "AIP/technical-criteria/1062301",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062321,
-            "name": "OWASP-2017-A1 - Injection",
-            "href": "AIP/technical-criteria/1062321",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063114,
-            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
-            "href": "AIP/technical-criteria/1063114",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

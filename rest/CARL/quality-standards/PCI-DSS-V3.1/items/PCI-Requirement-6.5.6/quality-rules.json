@@ -14,8 +14,8 @@
         "id": 4600,
         "name": "Ensure you don't use 'java.System.exit()' to know what happened when you exit your program",
         "href": "AIP/quality-rules/4600",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -24,8 +24,8 @@
         "id": 4694,
         "name": "Ensure  let the system decide when it needs to collect the heap, and whether or not to do a full collection",
         "href": "AIP/quality-rules/4694",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -155,7 +155,7 @@
         "id": 7728,
         "name": "Ensure that no thread creation is done for application running on application server to avoid any performance and robustness issues.",
         "href": "AIP/quality-rules/7728",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -230,36 +230,6 @@
         "id": 1020062,
         "name": "Make sure that you have only one instance created in class constructor and it has been frozen to avoid any changes.",
         "href": "AIP/quality-rules/1020062",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020214,
-        "name": "Ensure to clear event listeners after components are destroyed to prevent memory leaks",
-        "href": "AIP/quality-rules/1020214",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020730,
-        "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
-        "href": "AIP/quality-rules/1020730",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020892,
-        "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
-        "href": "AIP/quality-rules/1020892",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -342,46 +312,6 @@
         ]
     },
     {
-        "id": 1039008,
-        "name": "Ensure to manage an exception in servlet method using a try catch block to prevent exposing system vulnerabilities",
-        "href": "AIP/quality-rules/1039008",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039068,
-        "name": "Ensure to declare the object as serializable if you are using it as a httpsession attribute",
-        "href": "AIP/quality-rules/1039068",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039070,
-        "name": "Prefer using java.net.URI instead of java.net.URL",
-        "href": "AIP/quality-rules/1039070",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040014,
-        "name": "Ensure desabling Spring Security's debug mode in production code",
-        "href": "AIP/quality-rules/1040014",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1043020,
         "name": "Ensure you have reviewed the web config file and update the value of debug property to false",
         "href": "AIP/quality-rules/1043020",
@@ -425,16 +355,6 @@
         ]
     },
     {
-        "id": 1045010,
-        "name": "Ensure to use version attribute instead of timestamp for Hibernate Entity",
-        "href": "AIP/quality-rules/1045010",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1065004,
         "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
         "href": "AIP/quality-rules/1065004",
@@ -454,26 +374,6 @@
         "technologyNames": [
             "C",
             "C++"
-        ]
-    },
-    {
-        "id": 1101000,
-        "name": "Prefer using a Join with a consition when making SQL queries so that performance is not adversely impacted due to cartesian/cross join",
-        "href": "AIP/quality-rules/1101000",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101002,
-        "name": "Prefer using a Join with a consition when making SQL queries on XXL tables so that performance is not adversely impacted due to cartesian/cross join",
-        "href": "AIP/quality-rules/1101002",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
         ]
     }
 ]

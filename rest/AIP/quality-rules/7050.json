@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/7050",
     "critical": false,
     "severity": 10,
-    "maxWeight": 5,
+    "maxWeight": 1,
     "description": "ABAP Functions should begin with Z. This reports shows all the ABAP Functions not starting with Z. The prefix is a parameter and can be changed at will.",
     "output": "This report lists all ABAP Functions that does not respect the naming conventions.\nIt provides the following information:\nABAP Function full name",
     "rationale": "For readability aspects and to respect SAP standard, naming conventions must be respected.",
@@ -29,13 +29,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1067199,
-            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
-            "href": "AIP/technical-criteria/1067199",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 61017,
             "name": "Documentation - Naming Convention Conformity",

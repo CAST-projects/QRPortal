@@ -5,9 +5,6 @@
     "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222388",
     "description": "Persistent cookies are a primary means by which a web application will store application state and user information.  Since HTTP is a stateless protocol, this persistence allows the web application developer to provide a robust and customizable user experience.\n\nHowever, if a web application stores user authentication information within a persistent cookie or other temporary storage mechanism, this information can be stolen and used to compromise the users account.\n\nLikewise, HTML 5 provides the developer with a client storage capability where application data larger than the 4K cookie size limit can be stored on the local client.  While this can be beneficial to the developer, this is considered insecure storage and should not be used for storing sensitive session or security tokens.  A cross site scripting attack can put this data at risk.\n\nWeb applications must clear sensitive data from files and storage areas on the client when the session is terminated.",
     "isoPatterns": null,
-    "count": 2,
-    "qualityRules": {
-        "name": "Quality Rules in numeric ID order",
-        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222388/quality-rules"
-    }
+    "count": 0,
+    "qualityRules": null
 }

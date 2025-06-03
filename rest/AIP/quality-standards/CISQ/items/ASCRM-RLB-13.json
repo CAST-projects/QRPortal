@@ -5,7 +5,7 @@
     "url": null,
     "description": "Objective\nAvoid circular dependencies between modules\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a module has references that cycle back to itself via the module callable or data relations cycle (for example, with JAVA this pattern means cycles between packages)\n\n",
     "isoPatterns": null,
-    "count": 8,
+    "count": 7,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-13/quality-rules"

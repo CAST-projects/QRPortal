@@ -56,7 +56,7 @@
     },
     {
         "id": 4744,
-        "name": "DEPRECATED: EJB Entity access through their local Interface",
+        "name": "EJB Entity access through their local Interface",
         "href": "AIP/quality-rules/4744",
         "critical": true,
         "severity": 20,
@@ -66,7 +66,7 @@
     },
     {
         "id": 4746,
-        "name": "DEPRECATED: EJB Session access through their local Interface",
+        "name": "EJB Session access through their local Interface",
         "href": "AIP/quality-rules/4746",
         "critical": true,
         "severity": 20,
@@ -137,7 +137,7 @@
     },
     {
         "id": 7200,
-        "name": "Avoid String concatenation in loops",
+        "name": "Avoid String concatenation in loops (JEE)",
         "href": "AIP/quality-rules/7200",
         "critical": false,
         "severity": 10,
@@ -236,17 +236,6 @@
         ]
     },
     {
-        "id": 7470,
-        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
-        "href": "AIP/quality-rules/7470",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 7476,
         "name": "Turn off \"Multiple SQL statements for each measure\"",
         "href": "AIP/quality-rules/7476",
@@ -268,7 +257,7 @@
     },
     {
         "id": 7488,
-        "name": "DEPRECATED: Lazy fetching should be used for Hibernate collection",
+        "name": "Use lazy fetching for collection",
         "href": "AIP/quality-rules/7488",
         "critical": true,
         "severity": 20,
@@ -278,7 +267,7 @@
     },
     {
         "id": 7490,
-        "name": "DEPRECATED: Avoid UPDATE trigger firing when not necessary",
+        "name": "Avoid UPDATE trigger firing when not necessary",
         "href": "AIP/quality-rules/7490",
         "critical": true,
         "severity": 20,
@@ -288,7 +277,7 @@
     },
     {
         "id": 7496,
-        "name": "DEPRECATED: Use table-per-subclass strategy when subclasses have many properties",
+        "name": "Use table-per-subclass strategy when subclasses have many properties",
         "href": "AIP/quality-rules/7496",
         "critical": false,
         "severity": 10,
@@ -298,7 +287,7 @@
     },
     {
         "id": 7498,
-        "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
+        "name": "Collection must be the same between getter and setter",
         "href": "AIP/quality-rules/7498",
         "critical": false,
         "severity": 10,
@@ -308,7 +297,7 @@
     },
     {
         "id": 7500,
-        "name": "DEPRECATED: Use table-per-class-hierarchy when subclasses have few properties",
+        "name": "Use table-per-class-hierarchy when subclasses have few properties",
         "href": "AIP/quality-rules/7500",
         "critical": false,
         "severity": 10,
@@ -318,7 +307,7 @@
     },
     {
         "id": 7502,
-        "name": "DEPRECATED: Never use an array to map Hibernate collection",
+        "name": "Never use array to map a collection",
         "href": "AIP/quality-rules/7502",
         "critical": true,
         "severity": 20,
@@ -358,7 +347,7 @@
     },
     {
         "id": 7538,
-        "name": "DEPRECATED: Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
+        "name": "Avoid using SELECT ... INTO CORRESPONDING FIELDS OF",
         "href": "AIP/quality-rules/7538",
         "critical": true,
         "severity": 20,
@@ -388,7 +377,7 @@
     },
     {
         "id": 7634,
-        "name": "DEPRECATED: Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger.",
+        "name": "Avoid select-before-update when the Table is not associated to an UPDATE Trigger",
         "href": "AIP/quality-rules/7634",
         "critical": true,
         "severity": 20,
@@ -398,7 +387,7 @@
     },
     {
         "id": 7638,
-        "name": "Avoid directly managing the connection to the database by using DriverManager",
+        "name": "Avoid using DriverManager",
         "href": "AIP/quality-rules/7638",
         "critical": false,
         "severity": 10,
@@ -478,7 +467,7 @@
     },
     {
         "id": 7702,
-        "name": "Hibernate-provided implementations from third parties should be used for connection pool",
+        "name": "Use a third party connection pool",
         "href": "AIP/quality-rules/7702",
         "critical": false,
         "severity": 10,
@@ -488,10 +477,10 @@
     },
     {
         "id": 7720,
-        "name": "DEPRECATED: Avoid too many EJB beans",
+        "name": "Avoid too many EJB bean",
         "href": "AIP/quality-rules/7720",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -522,11 +511,9 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "Visual Basic"
@@ -681,7 +668,7 @@
     },
     {
         "id": 7936,
-        "name": "DEPRECATED: Avoid using finalize()",
+        "name": "Avoid using finalize()",
         "href": "AIP/quality-rules/7936",
         "critical": true,
         "severity": 20,
@@ -691,7 +678,7 @@
     },
     {
         "id": 7940,
-        "name": "Avoid accumulating Stateful Beans",
+        "name": "Avoid Stateful Beans not removed",
         "href": "AIP/quality-rules/7940",
         "critical": true,
         "severity": 20,
@@ -703,8 +690,8 @@
         "id": 7954,
         "name": "Avoid indirect String concatenation inside loops",
         "href": "AIP/quality-rules/7954",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -777,7 +764,7 @@
     },
     {
         "id": 8104,
-        "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
+        "name": "Close database resources ASAP",
         "href": "AIP/quality-rules/8104",
         "critical": true,
         "severity": 30,
@@ -852,7 +839,7 @@
     },
     {
         "id": 8214,
-        "name": "Avoid operating on resource after expiration or release",
+        "name": "CWE-672: Expired or Released Resource should not be used",
         "href": "AIP/quality-rules/8214",
         "critical": true,
         "severity": 20,
@@ -971,78 +958,6 @@
         ]
     },
     {
-        "id": 1020714,
-        "name": "Avoid having multiple routes for the same path with Node.js Express App",
-        "href": "AIP/quality-rules/1020714",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020716,
-        "name": "Avoid using the call of web service with Node.js http.get or http.request inside a loop",
-        "href": "AIP/quality-rules/1020716",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020898,
-        "name": "Avoid having multiple routes for the same path with Node.js Express App (TypeScript)",
-        "href": "AIP/quality-rules/1020898",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1025056,
-        "name": "Avoid running SQL queries inside a loop",
-        "href": "AIP/quality-rules/1025056",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1045002,
-        "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger",
-        "href": "AIP/quality-rules/1045002",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045004,
-        "name": "Avoid UPDATE trigger firing when not necessary",
-        "href": "AIP/quality-rules/1045004",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045006,
-        "name": "Never use an array to map Hibernate collection",
-        "href": "AIP/quality-rules/1045006",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1050000,
         "name": "Avoid using the call of web service with iOS/Objective-C API inside a loop",
         "href": "AIP/quality-rules/1050000",
@@ -1050,69 +965,6 @@
         "severity": 30,
         "technologyNames": [
             "Objective-C"
-        ]
-    },
-    {
-        "id": 1101000,
-        "name": "Never use SQL queries with a cartesian product (SQL)",
-        "href": "AIP/quality-rules/1101000",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101002,
-        "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)",
-        "href": "AIP/quality-rules/1101002",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101022,
-        "name": "Avoid Tables without Primary Key (SQL)",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101030,
-        "name": "Avoid Artifacts with queries on too many Tables and/or Views",
-        "href": "AIP/quality-rules/1101030",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ABAP",
-            "FormsReportAnalyzer",
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101084,
-        "name": "Avoid Cursors inside a loop (SQL)",
-        "href": "AIP/quality-rules/1101084",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "FormsReportAnalyzer",
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101088,
-        "name": "Avoid using LONG and LONG RAW datatypes",
-        "href": "AIP/quality-rules/1101088",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
         ]
     }
 ]

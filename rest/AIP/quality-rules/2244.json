@@ -1,14 +1,10 @@
 {
     "id": 2244,
-    "name": "DEPRECATED: Avoid undocumented Web Server Pages",
+    "name": "Avoid undocumented Web Server Pages",
     "href": "AIP/quality-rules/2244",
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "description": "Pages should have comments",
     "output": "This report lists all undocumented pages. \nIt provides the following information:\n Page name, Page full name",
     "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact",
@@ -33,13 +29,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1067153,
-            "name": "CWE-1053 - Missing Documentation for Design",
-            "href": "AIP/technical-criteria/1067153",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 61028,
             "name": "Documentation - Volume of Comments",

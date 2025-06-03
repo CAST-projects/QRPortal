@@ -5,12 +5,8 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "extension": {
-        "name": "com.castsoftware.sap",
-        "href": "AIP/extensions/com.castsoftware.sap"
-    },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This metric retrieves all ABAP artifacts using SELECT ... ENDSELECT statement on tables and views.\nLoops using the addition UP TO 1 ROWS, or UP TO n ROWS are not considered as violations.\nLoops containing a \"return\" statement are not considered as violations.",
+    "description": "This metric retrieves all ABAP artifacts using SELECT ... ENDSELECT statement on tables and views. Loops using the addition UP TO 1 ROWS (or UP TO ONE ROWS) are not considered as violations.",
     "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
     "rationale": "The SELECT ... ENDSELECT works as a loop fetching single record for every loop pause. Basically, it works like a client cursor which will generate too much traffic on the network and communications between the application server and the database server.",
     "remediation": "Use preferably the \"SELECT... INTO TABLE...+ LOOP AT Table\" statement.",
@@ -23,11 +19,6 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
-        },
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

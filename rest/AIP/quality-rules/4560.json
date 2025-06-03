@@ -5,14 +5,10 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Number of Methods",
     "description": "Interfaces should have less than X Methods.\nThe threshold is a parameter and can be changed at will.",
     "output": "This report lists all the Interfaces having more than X Methods.\nIt provides the following information:\n - Interface full name\n - Number of Methods",
-    "rationale": "An Inteface contains an unnecessarily large number of methods. This issue makes it more difficult to understand and maintain the software, which indirectly affects security by making it more difficult or time-consuming to find and/or fix vulnerabilities. It also might make it easier to introduce vulnerabilities.",
+    "rationale": "For maintainability and readability reasons, Interfaces should not have too many Methods.",
     "remediation": "Review the Interface design to reduce the number of Methods",
     "total": "Number of interfaces",
     "alternativeName": "Ensure that the interfaces have a reasonable number of methods",

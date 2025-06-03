@@ -1,14 +1,10 @@
 {
     "id": 7138,
-    "name": "DEPRECATED : Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
+    "name": "Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
     "href": "AIP/quality-rules/7138",
     "critical": false,
     "severity": 10,
     "maxWeight": 3,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Called Action Class full name",
     "description": "All Action classes that are referenced in the struts-config.xml through the tag 'action-mapping' (in struts 1.x) or in struts.xml and its included files through the tag 'action' (in struts 2.x) that are invoked by other Java code are listed except when the caller is in the inheritance tree of the Action class.",
     "output": "This report lists all methods that call Action Classes \nIt provides the following information:\n - Non action mapping class method that call the action class except those in its inheritance tree\n - Action Class full name",

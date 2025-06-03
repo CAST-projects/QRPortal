@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/7826",
     "critical": false,
     "severity": 10,
-    "maxWeight": 5,
+    "maxWeight": 3,
     "description": "Names of Forms should start with X. \nThe prefix value is a parameter that can be changed at will",
     "output": "This report lists all Forms whose name is not starting with the prefix.",
     "rationale": "For readability aspects, naming conventions must be respected",
@@ -30,13 +30,6 @@
     ],
     "technicalCriteria": [
         {
-            "id": 1067199,
-            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
-            "href": "AIP/technical-criteria/1067199",
-            "weight": 5,
-            "critical": false
-        },
-        {
             "id": 61017,
             "name": "Documentation - Naming Convention Conformity",
             "href": "AIP/technical-criteria/61017",
@@ -49,11 +42,6 @@
             "id": -10,
             "name": "Forms",
             "href": "AIP/technologies/-10"
-        },
-        {
-            "id": 1107000,
-            "name": "FormsReportAnalyzer",
-            "href": "AIP/technologies/1107000"
         },
         {
             "id": -9,
@@ -78,14 +66,6 @@
                     "id": -10,
                     "name": "Forms",
                     "href": "AIP/technologies/-10",
-                    "values": [
-                        "FRM"
-                    ]
-                },
-                {
-                    "id": 1107000,
-                    "name": "FormsReportAnalyzer",
-                    "href": "AIP/technologies/1107000",
                     "values": [
                         "FRM"
                     ]

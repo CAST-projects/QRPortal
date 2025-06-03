@@ -20,16 +20,6 @@
         ]
     },
     {
-        "id": 1606,
-        "name": "Triggers should not directly modify tables, a procedure or function should be used instead",
-        "href": "AIP/quality-rules/1606",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 2230,
         "name": "DEPRECATED: Use of style sheets (JEE)",
         "href": "AIP/quality-rules/2230",
@@ -93,8 +83,8 @@
         "id": 4598,
         "name": "Ensure you don't use 'java.lang.Runtime.exec()'",
         "href": "AIP/quality-rules/4598",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -153,8 +143,8 @@
         "id": 7140,
         "name": "Ensure to use the action mapping table in struts configuration file.",
         "href": "AIP/quality-rules/7140",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -286,8 +276,8 @@
         "id": 7292,
         "name": "Ensure to have packages without cyclical calls and inheritances between packages",
         "href": "AIP/quality-rules/7292",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -455,7 +445,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -472,7 +461,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -489,7 +477,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -534,8 +521,8 @@
         "id": 8102,
         "name": "Ensure not having hard-coded network resources names in the source files (JEE)",
         "href": "AIP/quality-rules/8102",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -581,68 +568,12 @@
         ]
     },
     {
-        "id": 1020830,
-        "name": "Prefer using Angular Renderer2 instead of directly interacting with the DOM",
-        "href": "AIP/quality-rules/1020830",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1027032,
         "name": "Ensure not having hardcoded network resources names in the source files (.NET)",
         "href": "AIP/quality-rules/1027032",
         "critical": false,
         "severity": 10,
         "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101022,
-        "name": "Make sure to define Primary Key (PK) for your tables to enforce row integrity of data",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101036,
-        "name": "Ensure using ANSI standard Operators such as <>,<=,>= in SQL where clauses to ensure portability",
-        "href": "AIP/quality-rules/1101036",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C",
-            "C#",
-            "C++",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101100,
-        "name": "Avoid Functions and Procedures doing an Insert, Update or Delete without managing a transaction (SQL)",
-        "href": "AIP/quality-rules/1101100",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101958,
-        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
-        "href": "AIP/quality-rules/1101958",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
             "C#",
             "VB.NET"
         ]

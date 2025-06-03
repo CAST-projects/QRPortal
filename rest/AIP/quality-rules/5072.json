@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/5072",
     "critical": false,
     "severity": 10,
-    "maxWeight": 5,
+    "maxWeight": 3,
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for COBOL programs using the DISPLAY statements with the \"UPON CONSOLE\" addition.",
     "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - DISPLAY UPON CONSOLE statement",
@@ -15,11 +15,6 @@
     "total": "Number of COBOL programs",
     "alternativeName": "Avoid DISPLAY ... UPON CONSOLE",
     "businessCriteria": [
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -37,55 +32,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1066589,
-            "name": "CWE-489 - Active Debug Code",
-            "href": "AIP/technical-criteria/1066589",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066597,
-            "name": "CWE-497 - Exposure of Sensitive System Information to an Unauthorized Control Sphere",
-            "href": "AIP/technical-criteria/1066597",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062306,
-            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062306",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062323,
-            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062323",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062341,
-            "name": "OWASP-2021-A01 - Broken Access Control",
-            "href": "AIP/technical-criteria/1062341",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063151,
-            "name": "PCI-DSS4-Requirement-2.2.2 - Vendor default accounts are managed",
-            "href": "AIP/technical-criteria/1063151",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063113,
-            "name": "PCI-Requirement-6.3.1 - Remove Development and Test Accounts, User IDs, and Passwords Before Release",
-            "href": "AIP/technical-criteria/1063113",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",

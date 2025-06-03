@@ -1,29 +1,16 @@
 {
     "id": 4600,
-    "name": "Avoid using Exit and Halt Methods on a Web/Application Server",
+    "name": "Avoid using 'java.System.exit()'",
     "href": "AIP/quality-rules/4600",
-    "critical": true,
-    "severity": 20,
-    "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "Java artifacts should not use 'java.System.exit()' or 'Runtime.getRuntime().exit(0)' or 'Runtime.getRuntime().halt(0)'  for application deployed on a Web Server or an Application Server (when web.xml and/or ejb-jar.xml file are present).\n    ",
-    "output": "This report lists  Java methods call or using 'java.System.exit()', 'Runtime.getRuntime().exit(0)' or 'Runtime.getRuntime().halt(0)'\nIt provides the following information:\n\n - method full name",
-    "rationale": "Using the exit and halt methods in web application is a bad idea because it terminates not only program but also the Java Virtual Machine. Therefore it will shutdown the current application as well as other critical applications if any, running in the same JVM. This can result in DoS (Denial Of Service) attacks. Additionally, programs should perform necessary cleanup actions when forcibly terminated.",
-    "reference": "http://cwe.mitre.org/data/definitions/382.html\n\nhttps://wiki.sei.cmu.edu/confluence/display/java/ERR09-J.+Do+not+allow+untrusted+code+to+terminate+the+JVM\n\nhttps://javarevisited.blogspot.com/2014/11/dont-use-systemexit-on-java-web-application.html\n\nhttps://www.baeldung.com/java-system-exit\n\nhttps://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html",
-    "remediation": "Don't use 'java.System.exit()', 'Runtime.getRuntime().exit(0)' and 'Runtime.getRuntime().halt(0)' to know what happened when you exit your program",
-    "remediationSample": "public class ok_UseExit\n{\n    {\n        if (System.currentTimeMillis() >500000)\n           return; \n    }\n    \n    public OK_UseExit()\n    {\n        return;\n    }\n    \n    public void ok_go()\n    {\n         return;\n    }\n}",
-    "sample": "sample #1\n\npublic class KO_UseExit\n{\n    {\n        if (System.currentTimeMillis() >500000)\n            System.exit(0);\n    }\n    \n    public KO_UseExit()\n    {\n        System.exit(0);\n    }\n    \n    public void ko_go()\n    {\n        System.exit(0);\n    }\n}\n\n-------------------------------------------------\nsample # 2\n\npublic class KO_UseExit\n{\n    {\n        if (System.currentTimeMillis() >500000)\n           Runtime.getRuntime().exit(0);\n    }\n    \n    public KO_UseExit()\n    {\n       Runtime.getRuntime().exit(0);\n    }\n    \n    public void ko_go()\n    {\n     Runtime.getRuntime().exit(0);\n    }\n}\n\n\n--------------------------------------------------------\n\nsample # 3\n\npublic class KO_UseExit\n{\n    {\n        if (System.currentTimeMillis() >500000)\n          Runtime.getRuntime().halt(0)\n    \n    public KO_UseExit()\n    {\n       Runtime.getRuntime().halt(0)\n    }\n    \n    public void ko_go()\n    {\n     Runtime.getRuntime().halt(0)\n    }\n}",
-    "total": "Number of Java Artifacts",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "description": "Java artifacts should not use 'java.System.exit()'  for application deployed on a Web Server or an Application Server (when web.xml and/or ejb-jar.xml file are present)",
+    "output": "This report lists all java artifacts using 'java.System.exit()'.\nIt provides the following information:\n - Artifact full name",
+    "rationale": "Using 'java.System.exit()' is prohibited since it goes against the Exception error handling model.",
+    "total": "Number of Java artifacts",
     "alternativeName": "Ensure you don't use 'java.System.exit()' to know what happened when you exit your program",
     "businessCriteria": [
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
-        },
         {
             "id": 66031,
             "name": "Programming Practices",
@@ -42,39 +29,11 @@
     ],
     "technicalCriteria": [
         {
-            "id": 1066482,
-            "name": "CWE-382 - J2EE Bad Practices: Use of System.exit()",
-            "href": "AIP/technical-criteria/1066482",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063120,
-            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
-            "href": "AIP/technical-criteria/1063120",
-            "weight": 5,
-            "critical": false
-        },
-        {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",
             "href": "AIP/technical-criteria/61014",
             "weight": 2,
             "critical": false
-        },
-        {
-            "id": 66064,
-            "name": "Secure Coding - Weak Security Features",
-            "href": "AIP/technical-criteria/66064",
-            "weight": 9,
-            "critical": true
         }
     ],
     "technologies": [
@@ -114,9 +73,9 @@
         
     ],
     "thresholds": [
-        98.0,
-        99.0,
-        99.5,
-        99.99
+        50.0,
+        90.0,
+        95.0,
+        99.0
     ]
 }

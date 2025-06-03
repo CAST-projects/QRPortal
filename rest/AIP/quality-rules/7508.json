@@ -1,29 +1,20 @@
 {
     "id": 7508,
-    "name": "DEPRECATED: Getter of collection-typed persistent attributes should return the correct interface type",
+    "name": "Collection-typed attributes getter must be defined with the correct interface",
     "href": "AIP/quality-rules/7508",
     "critical": false,
     "severity": 10,
     "maxWeight": 8,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "Reports all getter of collection-typed persistent attributes that don't return the correct interface type (getter can be defined on the persistent class itself or an inherited class that references a persistent attribute). The type returned by a getter must be:\nFor Hibernate:\n  Interface                         Association            Attribute\n\n  java.util.Set                      set                         \n  java.util.SortedSet                set                      sort\n  java.util.List                     list\n  java.util.Collection          bag or idbag\n  java.util.Map                       map\n  java.util.SortedMap                 map                     sort\n\nFor JPA:\n  Interface                                                          Association\njava.util.Set or java.util.List                                  when @OrderBy is used\njava.util.Map                                                      when @MapKey is used (javax.persistence.MapKey)\njava.util.Collection, java.util.Set or java.util.List      when no @OrderBY and no @MapKey is used",
+    "description": "Reports all getter of collection-typed persistent attributes that don't return the correct interface type (getter can be defined on the persistent class itself or an inherited class that references a persistent attribute). The type returned by a getter must be:\nFor Hibernate:\n  Interface                         Association            Attribute\n\n  java.util.Set                      set                         \n  java.util.SortedSet          set                          sort\n  java.util.List                     list\n  java.util.Collection          bag or idbag\n  java.util.Map                    map\n  java.util.SortedMap        map                        sort\n\nFor JPA:\n  Interface                                                          Association\njava.util.Set or java.util.List                                  when @OrderBy is used\njava.util.Map                                                      when @MapKey is used (javax.persistence.MapKey)\njava.util.Collection, java.util.Set or java.util.List      when no @OrderBY and no @MapKey is used",
     "output": "List all methods that don't return the correct interface for collection-typed persistent attributes.\n\nIt provides the following information:\n- Method Full Name",
     "rationale": "Hibernate or JPA requires interfaces for collection-typed attributes. You must use java.util.Set rather than HashSet, for example. At runtime, Hibernate or JPA wraps the HashSet instance with an instance of one of Hibernate's own classes in order to support lazy collections. Hibernate uses its own implementations of the List, Map or Set interfaces.\n\nIf the getters are not used with the correct interface, you may encounter ClassCastException issues.",
-    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 69\nThe Java Persistence API (ISBN 1-932394-88-5) page 116",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 69\nThe Java Persistence API (ISBN 1-932394-88-5) page 116\nhttp://www.avaje.org/manydatatypes.html",
     "remediation": "Instead of using a concrete class or the wrong interface, define the getter return type with the correct interface.",
     "remediationSample": "----> A.java\n\npublic class A {\n  private Integer id;\n  private SortedSet<B> b_items;\n\n  ...\n\n  // FIXED\n  public SortedSet<B> getB_items() {\n    return b_items;\n  }\n  ...\n}",
     "sample": "----> a.hbm.xml\n\n<hibernate-mapping >\n  \n  <class name=\"A\" table =\"A\"> \n    <id name=\"id\">\n      <generator class=\"increment\"/>\n    </id>\n\n    <set name=\"b_items\" lazy=\"true\" table =\"B\" sort=\"natural\"> \n      <key column=\"B_ID\"/>\n      <one-to-many class=\"B\"/>\n    </array>\n  </class>\n\n  <class name=\"B\" table=\"B\" lazy=\"true\">\n    <id name=\"id\" column=\"B_ID\">\n      <generator class=\"increment\"/>\n    </id>\n  </class>\n\n</hibernate-mapping>\n\n----> A.java\npublic class A {\n  private Integer id;\n  private SortedSet<B> b_items;\n\n  ...\n\n  // VIOLATION\n  public TreeSet<B> getB_items() {\n    return b_items;\n  }\n  ...\n}",
     "total": "Number of getters associated to persistent collection-typed attributes",
     "alternativeName": "Ensure you provide interfaces for Hibernate/JPA collection-typed attributes.",
     "businessCriteria": [
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
-        },
         {
             "id": 60013,
             "name": "Robustness",

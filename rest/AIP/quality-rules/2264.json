@@ -1,16 +1,12 @@
 {
     "id": 2264,
-    "name": "DEPRECATED: All page files should be in a specific directory",
+    "name": "All page files should be in a specific directory",
     "href": "AIP/quality-rules/2264",
     "critical": false,
     "severity": 10,
     "maxWeight": 2,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "File directory",
-    "description": "As per code Conventions for the JavaServer Pages Technology, all cascading style sheet files should be in a in the recommended location\n\nAll page files (X) should be in a \"pages\" directory, located in the web root.",
+    "description": "All page files (X) should be in a \"pages\" directory, located in the web root.",
     "output": "This report lists all pages (X) located outside the \"pages\" directory. It provides the following information: File full name, File directory",
     "rationale": "For maintainability aspects, file organization must be respected.",
     "remediation": "Change file location according to the recommended naming convention.",

@@ -27,14 +27,12 @@
         "weight": 1,
         "technologyNames": [
             "Forms",
-            "FormsReportAnalyzer",
-            "PL/SQL",
-            "SQL"
+            "PL/SQL"
         ]
     },
     {
         "id": 2236,
-        "name": "DEPRECATED: Avoid use of standard SQL API",
+        "name": "Avoid use of standard SQL API",
         "href": "AIP/quality-rules/2236",
         "critical": false,
         "weight": 8,
@@ -88,7 +86,7 @@
     },
     {
         "id": 4722,
-        "name": "DEPRECATED: Avoid having classes referencing Database objects",
+        "name": "Track Classes referencing Database objects",
         "href": "AIP/quality-rules/4722",
         "critical": false,
         "weight": 1,
@@ -168,7 +166,7 @@
     },
     {
         "id": 7134,
-        "name": "DEPRECATED: Avoid having Struts local forward with same name as Struts  global forward",
+        "name": "Avoid having local forward with same name as global forward",
         "href": "AIP/quality-rules/7134",
         "critical": false,
         "weight": 4,
@@ -178,7 +176,7 @@
     },
     {
         "id": 7138,
-        "name": "DEPRECATED : Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
+        "name": "Action Classes should only be called by Action Mappings tag (for Struts 1.x) or Action tag (for Struts 2.x)",
         "href": "AIP/quality-rules/7138",
         "critical": false,
         "weight": 3,
@@ -188,9 +186,9 @@
     },
     {
         "id": 7140,
-        "name": "Struts Action artifacts should not directly call a JSP page",
+        "name": "Action Artifacts should not directly call a JSP page",
         "href": "AIP/quality-rules/7140",
-        "critical": false,
+        "critical": true,
         "weight": 7,
         "technologyNames": [
             "JEE"
@@ -198,7 +196,7 @@
     },
     {
         "id": 7142,
-        "name": "DEPRECATED: Action Classes should have only one public method",
+        "name": "Action Classes should have only one public method",
         "href": "AIP/quality-rules/7142",
         "critical": false,
         "weight": 1,
@@ -208,7 +206,7 @@
     },
     {
         "id": 7144,
-        "name": "DEPRECATED : Avoid using  database objects from Struts Action Artifacts",
+        "name": "Action Artifacts should not directly use database objects",
         "href": "AIP/quality-rules/7144",
         "critical": true,
         "weight": 7,
@@ -218,7 +216,7 @@
     },
     {
         "id": 7146,
-        "name": "Always have JSP pages referencing Java Objects associated to JEE Scoped Bean",
+        "name": "JSP pages should only reference Java Objects associated to J2EE Scoped Bean",
         "href": "AIP/quality-rules/7146",
         "critical": false,
         "weight": 3,
@@ -228,7 +226,7 @@
     },
     {
         "id": 7148,
-        "name": "DEPRECATED: JSP pages should always be accessed through their tiles definition",
+        "name": "JSP pages should always be accessed through their tiles definition",
         "href": "AIP/quality-rules/7148",
         "critical": false,
         "weight": 1,
@@ -249,7 +247,7 @@
     },
     {
         "id": 7238,
-        "name": "Avoid calls between JSP Page for application using Struts framework",
+        "name": "Avoid calls between JSP Pages",
         "href": "AIP/quality-rules/7238",
         "critical": false,
         "weight": 3,
@@ -259,7 +257,7 @@
     },
     {
         "id": 7240,
-        "name": "DEPRECATED: Struts Action Classes should only call Business Classes",
+        "name": "Action Classes should only call Business Classes",
         "href": "AIP/quality-rules/7240",
         "critical": false,
         "weight": 3,
@@ -282,7 +280,7 @@
         "id": 7292,
         "name": "Avoid cyclical calls and inheritances between packages",
         "href": "AIP/quality-rules/7292",
-        "critical": false,
+        "critical": true,
         "weight": 7,
         "technologyNames": [
             "JEE"
@@ -341,7 +339,7 @@
     },
     {
         "id": 7492,
-        "name": "DEPRECATED: Avoid Hibernate and JPA Entities using many-to-many association.",
+        "name": "Avoid many-to-many association",
         "href": "AIP/quality-rules/7492",
         "critical": false,
         "weight": 7,
@@ -351,7 +349,7 @@
     },
     {
         "id": 7510,
-        "name": "DEPRECATED: Use only Hibernate API to access to the database",
+        "name": "Use only Hibernate API to access to the database",
         "href": "AIP/quality-rules/7510",
         "critical": false,
         "weight": 9,
@@ -381,7 +379,7 @@
     },
     {
         "id": 7654,
-        "name": "DEPRECATED: Avoid database tables associated to more than one Hibernate Entity",
+        "name": "Avoid database tables associated to more than one Entity",
         "href": "AIP/quality-rules/7654",
         "critical": false,
         "weight": 9,
@@ -401,7 +399,7 @@
     },
     {
         "id": 7676,
-        "name": "DEPRECATED: Avoid too many packages referencing Mainframe",
+        "name": "Avoid too many packages referencing Mainframe",
         "href": "AIP/quality-rules/7676",
         "critical": false,
         "weight": 5,
@@ -411,7 +409,7 @@
     },
     {
         "id": 7700,
-        "name": "Struts1: Only Struts HTTP Servlet should be used for Struts based application",
+        "name": "Use only Struts HTTP Servlet",
         "href": "AIP/quality-rules/7700",
         "critical": false,
         "weight": 5,
@@ -421,7 +419,7 @@
     },
     {
         "id": 7726,
-        "name": "Avoid Struts Action Classes that call packages having direct access to database",
+        "name": "Avoid Action artifacts that call packages that reference database",
         "href": "AIP/quality-rules/7726",
         "critical": false,
         "weight": 8,
@@ -479,142 +477,12 @@
     },
     {
         "id": 8566,
-        "name": "Avoid cyclic references in the definition of CDS views (S4/HANA)",
+        "name": "Avoid cyclic references in the definition of CDS views (S4/HAHA)",
         "href": "AIP/quality-rules/8566",
         "critical": false,
         "weight": 7,
         "technologyNames": [
             "SAP SQL"
-        ]
-    },
-    {
-        "id": 1001008,
-        "name": "Avoid having multiple artifacts inserting data on the same SQL table (PLI)",
-        "href": "AIP/quality-rules/1001008",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001010,
-        "name": "Avoid having multiple artifacts deleting data on the same SQL table (PLI)",
-        "href": "AIP/quality-rules/1001010",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001012,
-        "name": "Avoid having multiple artifacts updating data on the same SQL table (PLI)",
-        "href": "AIP/quality-rules/1001012",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "PLI"
-        ]
-    },
-    {
-        "id": 1001014,
-        "name": "Avoid having multiple artifacts inserting data on the same SQL table (PLC)",
-        "href": "AIP/quality-rules/1001014",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "PLC"
-        ]
-    },
-    {
-        "id": 1001016,
-        "name": "Avoid having multiple artifacts deleting data on the same SQL table (PLC)",
-        "href": "AIP/quality-rules/1001016",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "PLC"
-        ]
-    },
-    {
-        "id": 1001018,
-        "name": "Avoid having multiple artifacts updating data on the same SQL table (PLC)",
-        "href": "AIP/quality-rules/1001018",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "PLC"
-        ]
-    },
-    {
-        "id": 1005006,
-        "name": "Avoid having multiple artifacts deleting data on the same SQL table (EGL)",
-        "href": "AIP/quality-rules/1005006",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005008,
-        "name": "Avoid having multiple artifacts inserting data on the same SQL table (EGL)",
-        "href": "AIP/quality-rules/1005008",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1005010,
-        "name": "Avoid having multiple artifacts updating data on the same SQL table (EGL)",
-        "href": "AIP/quality-rules/1005010",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "EGL"
-        ]
-    },
-    {
-        "id": 1006000,
-        "name": "Avoid scripts using SQL static statements (Shell)",
-        "href": "AIP/quality-rules/1006000",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "Shell"
-        ]
-    },
-    {
-        "id": 1006002,
-        "name": "Avoid scripts and functions with SQL code in temporary files (Shell)",
-        "href": "AIP/quality-rules/1006002",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "Shell"
-        ]
-    },
-    {
-        "id": 1007002,
-        "name": "Avoid artifacts directly accessing database tables (PHP)",
-        "href": "AIP/quality-rules/1007002",
-        "critical": false,
-        "weight": 6,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1018100,
-        "name": "Avoid using Get JMS Queue Message (TIBCO BW)",
-        "href": "AIP/quality-rules/1018100",
-        "critical": true,
-        "weight": 9,
-        "technologyNames": [
-            "TIBCO"
         ]
     },
     {
@@ -638,16 +506,6 @@
         ]
     },
     {
-        "id": 1020830,
-        "name": "Avoid using Angular ElementRef API to manipulate DOM",
-        "href": "AIP/quality-rules/1020830",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1050010,
         "name": "Avoid using NSURLRequest setAllowsAnyHTTPSCertificate:forHost",
         "href": "AIP/quality-rules/1050010",
@@ -665,106 +523,6 @@
         "weight": 8,
         "technologyNames": [
             "Objective-C"
-        ]
-    },
-    {
-        "id": 1055022,
-        "name": "UIApplicationDelegate applicationDidEnterBackground must delete sensitive data (Swift)",
-        "href": "AIP/quality-rules/1055022",
-        "critical": true,
-        "weight": 8,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1101022,
-        "name": "Avoid Tables without Primary Key (SQL)",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101100,
-        "name": "Avoid Functions and Procedures doing an Insert, Update or Delete without managing a transaction (SQL)",
-        "href": "AIP/quality-rules/1101100",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1107000,
-        "name": "Use of call_form built-in Oracle Forms Function from a centralized location",
-        "href": "AIP/quality-rules/1107000",
-        "critical": false,
-        "weight": 1,
-        "technologyNames": [
-            "FormsReportAnalyzer"
-        ]
-    },
-    {
-        "id": 1520102,
-        "name": "SiebelReview: Custom BC Based On S_PARTY Table Missing the \"Inner Join Extension Table\" User Property",
-        "href": "AIP/quality-rules/1520102",
-        "critical": true,
-        "weight": 6,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520106,
-        "name": "SiebelReview: Avoid bad BusComp configuration when using Standard 1:M Extension Tables",
-        "href": "AIP/quality-rules/1520106",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520108,
-        "name": "SiebelReview: Avoid bad Link configuration when using Standard 1:M Extension Tables",
-        "href": "AIP/quality-rules/1520108",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520110,
-        "name": "SiebelReview: Incorrect Join Specification To 1:1 Extension Table ROW_ID",
-        "href": "AIP/quality-rules/1520110",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520112,
-        "name": "SiebelReview: Missing Join Specification for Custom Joins",
-        "href": "AIP/quality-rules/1520112",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "Siebel"
-        ]
-    },
-    {
-        "id": 1520114,
-        "name": "SiebelReview: Pick Maps Missing or Incorrectly Defined",
-        "href": "AIP/quality-rules/1520114",
-        "critical": false,
-        "weight": 4,
-        "technologyNames": [
-            "Siebel"
         ]
     },
     {

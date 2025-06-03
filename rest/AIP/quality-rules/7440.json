@@ -1,23 +1,19 @@
 {
     "id": 7440,
-    "name": "Avoid having suspicious similar method names or signatures in an inheritance tree",
+    "name": "Suspicious similar method names or signatures in an inheritance tree",
     "href": "AIP/quality-rules/7440",
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Method overridden",
-    "description": "This rule reports \n- Methods in an inheritance tree that have the same signature but whose name differs only by capitalization \n- Methods that have the same name but are overridden with a different signature (this signature doesn't exist in the super class) \n\nFollowing restrictions are considered : \n- Where the class implements an interface, if one method with the same signature exists in the class then no violation will be reported even if other methods exist with different signatures.\n\n- Where the class extends another class, a violation is reported for a method only when the number of parameters are the same and one of the parameters of the signature of the child class method inherits from a parameter in the same place as the parent class method with the same name.",
-    "output": "This report lists all methods that override a similar method name or signature. It provides the following information:\n  - Method full name\n  - Method overridden\n\n\nTotal Population - Number of methods that override a method from a superclass or\n                    + Number of methods having suspicious names",
+    "description": "Find all methods in an inheritance tree that have the same signature but whose name differs only by capitalization and methods that have the same name but are overridden with a different signature (this signature doesn't exist in the super class) with the following restrictions:\n- where the class implements an interface, if one method with the same signature exists in the class then no violation will be reported even if other methods exist with different signatures\n- where the class extends another class, a violation will be reported for a method only when the number of parameters are the same and one of the parameters of the signature of the child class method inherits from a parameter in the same place as the parent class method with the same name.",
+    "output": "This report lists all methods that override a similar method name or signature. It provides the following information:\n  - Method full name\n  - Method overridden",
     "rationale": "When programming it is very easy to make a mistake when naming a method to override or in its signature. This may occur when writing the inherited class, but also when changing the signature of the basic class to add a new parameter or when changing the type of a parameter. One of the more typical examples is the overriding of equals methods with an argument type that is different from the Object class.",
-    "reference": "https://dzone.com/articles/all-about-overriding-in-java\nhttps://www.java67.com/2012/09/what-is-rules-of-overloading-and-overriding-in-java.html",
+    "reference": "[1] http://www.artima.com/lejava/articles/equality.html - it explains the consequences when equals for example is not well overriden",
     "remediation": "Fix the name of the method or the signature and if you use JSE 5.0 or later add the @Override annotation to inform the compiler that the method is meant to override a method declared in a superclass. If the method marked with @Override fails to correctly override a method in one of its superclasses, the compiler generates an error.",
     "remediationSample": "class Example {\n   int firstMethod (String str) {...}\n   void secondMethod (int value, boolean b) {...}\n}\n\nclass ExampleExtended extends Example{\n   @Override     // only for JSE 5 or later\n   int firstMethod (String str) {...}  // FIXED\n\n   @Override     // only for JSE 5 or later\n   void secondMethod (int value, boolean b) {...} // FIXED\n}",
     "sample": "class Example {\n   int firstMethod (String str) {...}\n   void secondMethod (int value, boolean b) {...}\n}\n\nclass ExampleExtended extends Example{\n   int firstmethod (String str) {...}  // VIOLATION because of 'm' that is not in uppercase as the parent class method\n   void secondMethod (int value) {...} // VIOLATION\n}",
-    "total": "Methods that override a method from a superclass and Methods having suspicious names",
+    "total": "Number of methods that fails and methods that override a method from a superclass",
     "alternativeName": "Ensure to have the exact name and signature for each method and ensure having the '@Override' annotation when you need overriding a method declared in a superclass (for JSE 5.0 or later)",
     "businessCriteria": [
         {

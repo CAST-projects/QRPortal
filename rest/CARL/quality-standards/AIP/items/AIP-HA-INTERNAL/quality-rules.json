@@ -213,7 +213,7 @@
         "id": 7728,
         "name": "Ensure that no thread creation is done for application running on application server to avoid any performance and robustness issues.",
         "href": "AIP/quality-rules/7728",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -241,7 +241,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -596,8 +595,8 @@
         "id": 8220,
         "name": "Prefer not using deprecated methods, constructors, fields, type or packages",
         "href": "AIP/quality-rules/8220",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -626,36 +625,6 @@
         "id": 1020076,
         "name": "Aggregate method parameters into an object to improve readability and maintainability of your code",
         "href": "AIP/quality-rules/1020076",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020728,
-        "name": "Always enable HttpOnly when creating cookies to avoid Cross-site scripting attacks",
-        "href": "AIP/quality-rules/1020728",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020730,
-        "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
-        "href": "AIP/quality-rules/1020730",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020892,
-        "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
-        "href": "AIP/quality-rules/1020892",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -696,36 +665,6 @@
         ]
     },
     {
-        "id": 1045008,
-        "name": "Ensure implementing the Serializable interface for all Entity beans",
-        "href": "AIP/quality-rules/1045008",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045010,
-        "name": "Ensure to use version attribute instead of timestamp for Hibernate Entity",
-        "href": "AIP/quality-rules/1045010",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1045012,
-        "name": "Usually declare the setId() method private and let Hibernate/JPA generate and set the identifier value",
-        "href": "AIP/quality-rules/1045012",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1065062,
         "name": "Ensure that testing floating point numbers for equality is not used as is source of imprecision",
         "href": "AIP/quality-rules/1065062",
@@ -745,16 +684,6 @@
         "technologyNames": [
             "C",
             "C++"
-        ]
-    },
-    {
-        "id": 1101022,
-        "name": "Make sure to define Primary Key (PK) for your tables to enforce row integrity of data",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
         ]
     }
 ]

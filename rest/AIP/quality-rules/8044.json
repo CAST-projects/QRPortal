@@ -5,10 +5,6 @@
     "critical": true,
     "severity": 20,
     "maxWeight": 8,
-    "extension": {
-        "name": "com.castsoftware.securityanalyzer",
-        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
-    },
     "associatedValueName": "Call stack from user input source down to the target log method",
     "description": "This metric uses CAST data-flow engine to detect a call path where input data from the user is written into the application logs without prior validation and sanitization.",
     "output": "List all methods that make resource calls forged by user input\n\nIt provides the following information:\n- Method full name\n- Call stack from user input source down to the target log method",
@@ -32,55 +28,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1066217,
-            "name": "CWE-117 - Improper Output Neutralization for Logs",
-            "href": "AIP/technical-criteria/1066217",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066193,
-            "name": "CWE-93 - Improper Neutralization of CRLF Sequences ('CRLF Injection')",
-            "href": "AIP/technical-criteria/1066193",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062306,
-            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062306",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062323,
-            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
-            "href": "AIP/technical-criteria/1062323",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062349,
-            "name": "OWASP-2021-A09 - Security Logging and Monitoring Failures",
-            "href": "AIP/technical-criteria/1062349",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063114,
-            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
-            "href": "AIP/technical-criteria/1063114",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 66062,
             "name": "Secure Coding - Input Validation",

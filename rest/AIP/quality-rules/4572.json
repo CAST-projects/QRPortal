@@ -1,20 +1,14 @@
 {
     "id": 4572,
-    "name": "DEPRECATED : Avoid declaring Final Instance Variables that are not initialized",
+    "name": "Avoid declaring Final Instance Variables that are not dynamically initialized",
     "href": "AIP/quality-rules/4572",
     "critical": false,
     "severity": 10,
-    "maxWeight": 8,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "If the instance variable declared as final, then we have to perform initialization explicitly whether we are using it or not and JVM won\u2019t provide any default value for the final instance variable.",
+    "maxWeight": 6,
+    "description": "Final Fields should be declared as Static (Class Variable and not Instance Variable) if they are not dynamically initialized. Here is an example of dynamic initialization of a Final Instance Variable: 'public  final int nFact = (int) BasicObjectFactory.makeObject();'",
     "output": "This report lists all Final Instance Variables, except those that are dynamically initialized. It provides the following information: Field full name",
     "rationale": "If a Final Instance Variable is not dynamically initialized, its value will be the same for all Instances and need not be an Instance Variable. This final instance variable requires memory for each new instantiation while it could be declared as static and require memory only once for all instances of the class.",
     "remediation": "Review the Field declaration to add the Static modifier.",
-    "remediationSample": "Initialization before constructor completion \n\nclass Test { \n    final int x = 10; \n    public static void main(String[] args) \n    { \n        Test t = new Test(); \n        System.out.println(t.x); \n    } \n} \nOutput: 10\n---------------------------------------------------------\n\nWe can also initialize a final instance variable inside a non-static or instance block also.\n\nclass Test { \n    final int x; \n    { \n        x = 10; \n    } \n    public static void main(String[] args) \n    { \n        Test t = new Test(); \n        System.out.println(t.x); \n    } \n} \nOutput: 10\n-------------------------\nInside default constructor we can also initialize a final instance variable.\n\nclass Test { \n    final int x; \n    Test() \n    { \n        x = 10; \n    } \n    public static void main(String[] args) \n    { \n        Test t = new Test(); \n        System.out.println(t.x); \n    } \n} \nOutput: 10\n----------------------------------------------\nThe above mentioned are the only possible places to perform initialization for final instance variable. If we try to perform initialization anywhere else then we will get compile time error.\n\n\n\n// Declare final instance variable within any static blocks \nclass Test { \n    final int x; \n    public static void main(String[] args) \n    { \n        x = 10; \n        Test t = new Test(); \n        System.out.println(t.x); \n    } \n} \nOutput: error: non-static variable x cannot be referenced from a static context\n\n\n// Declare or initialize final instance variable within any methods \nclass Test { \n    final int x; \n    public void m() \n    { \n        x = 10; \n    } \n} \nOutput: error: cannot assign a value to final variable x",
-    "sample": "class Test { \n    final int x; \n    public static void main(String[] args) \n    { \n        Test t = new Test(); \n        System.out.println(t.x); \n    } \n} \n\nOutput:\n\nerror: variable x not initialized in the default constructor",
     "total": "Number of Java attributes",
     "alternativeName": "Ensure explicitly Initializing the instance variable declared as final otherwise a compile-time error occurs.",
     "businessCriteria": [
@@ -39,7 +33,7 @@
             "id": 61020,
             "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
             "href": "AIP/technical-criteria/61020",
-            "weight": 8,
+            "weight": 6,
             "critical": false
         },
         {

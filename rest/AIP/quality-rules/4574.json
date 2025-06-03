@@ -1,14 +1,10 @@
 {
     "id": 4574,
-    "name": "DEPRECATED: Avoid using deprecated objects",
+    "name": "Avoid using deprecated objects",
     "href": "AIP/quality-rules/4574",
     "critical": false,
     "severity": 10,
-    "maxWeight": 5,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
+    "maxWeight": 4,
     "associatedValueName": "Deprecated Object full name",
     "description": "List all Deprecated Methods or Fields.\nIn Java, Deprecated objects are defined with the JavaDoc tag @deprecated or the annotation @deprecated available since JSE 5. (to obtain accurate results, the java archive rt.jar must also have been analyzed).\nIn VC++ it reports objects using the deprecated __declspec declaration or pragma.\nIn GCC it reports objects with the deprecated attribute\n\nIf the reason/remediation of the deprecation is described in the source code, it is also displayed.",
     "output": "This report lists all the Methods using a deprecated Method\nIt provides the following information:\n - Method full name\n - deprecated Object full name\nIf the reason/remediation of the deprecation is described in the source code, it is also displayed.",
@@ -28,11 +24,6 @@
             "href": "AIP/business-criteria/60012"
         },
         {
-            "id": 1061000,
-            "name": "ISO-5055-Index",
-            "href": "AIP/business-criteria/1061000"
-        },
-        {
             "id": 60013,
             "name": "Robustness",
             "href": "AIP/business-criteria/60013"
@@ -49,20 +40,6 @@
             "name": "Architecture - OS and Platform Independence",
             "href": "AIP/technical-criteria/61004",
             "weight": 4,
-            "critical": false
-        },
-        {
-            "id": 1061055,
-            "name": "CWE-477 - Use of Obsolete Function",
-            "href": "AIP/technical-criteria/1061055",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066577,
-            "name": "CWE-477 - Use of Obsolete Function",
-            "href": "AIP/technical-criteria/1066577",
-            "weight": 5,
             "critical": false
         }
     ],

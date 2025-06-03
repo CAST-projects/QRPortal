@@ -453,17 +453,6 @@
         ]
     },
     {
-        "id": 7470,
-        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
-        "href": "AIP/quality-rules/7470",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 7474,
         "name": "Avoid Repainting When Updating a ListBox",
         "href": "AIP/quality-rules/7474",
@@ -560,13 +549,11 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -587,13 +574,11 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -636,13 +621,11 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -663,12 +646,10 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -689,15 +670,12 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "Python",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -718,15 +696,12 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
             "PowerBuilder",
-            "Python",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -775,13 +750,11 @@
             "C#",
             "C++",
             "Forms",
-            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "JavaScript",
             "Microsoft T-SQL",
             "PL/SQL",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET",
@@ -815,7 +788,6 @@
             "HTML5",
             "JEE",
             "PowerBuilder",
-            "Python",
             "VB.NET",
             "Visual Basic"
         ]
@@ -956,10 +928,8 @@
             "C#",
             "C++",
             "Forms",
-            "FormsReportAnalyzer",
             "Microsoft T-SQL",
             "PL/SQL",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET"
@@ -1033,12 +1003,10 @@
             "C++",
             "Cobol",
             "Forms",
-            "FormsReportAnalyzer",
             "HTML5",
             "JEE",
             "Microsoft T-SQL",
             "PL/SQL",
-            "SQL",
             "SQL Server",
             "Sybase T-SQL",
             "VB.NET"
@@ -1526,7 +1494,7 @@
     },
     {
         "id": 8424,
-        "name": "Avoid hard-coded HMAC and cryptographic key",
+        "name": "Avoid using hard-coded HMAC keys",
         "href": "AIP/quality-rules/8424",
         "critical": true,
         "severity": 30,
@@ -2017,354 +1985,6 @@
         ]
     },
     {
-        "id": 1025000,
-        "name": "Avoid second order OS command injection",
-        "href": "AIP/quality-rules/1025000",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025002,
-        "name": "Avoid second order XPath injection",
-        "href": "AIP/quality-rules/1025002",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025004,
-        "name": "Avoid second order URL redirection to untrusted site",
-        "href": "AIP/quality-rules/1025004",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025010,
-        "name": "Avoid second order LDAP injection",
-        "href": "AIP/quality-rules/1025010",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025016,
-        "name": "Avoid using cookie without the HttpOnly flag",
-        "href": "AIP/quality-rules/1025016",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025018,
-        "name": "Avoid cookie injection",
-        "href": "AIP/quality-rules/1025018",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025020,
-        "name": "Avoid data filter injection",
-        "href": "AIP/quality-rules/1025020",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025022,
-        "name": "Avoid data filter injection through API requests",
-        "href": "AIP/quality-rules/1025022",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025024,
-        "name": "Avoid disabling the expiration time validation of a JWT token",
-        "href": "AIP/quality-rules/1025024",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025026,
-        "name": "Avoid disabling the expiration time requirement of a JWT token",
-        "href": "AIP/quality-rules/1025026",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025028,
-        "name": "Avoid disabling the signature requirement of a JWT token",
-        "href": "AIP/quality-rules/1025028",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025030,
-        "name": "Avoid hard-coded JWT secret keys",
-        "href": "AIP/quality-rules/1025030",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025032,
-        "name": "Avoid insecure parameters for PBKDF2 password encoder",
-        "href": "AIP/quality-rules/1025032",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025034,
-        "name": "Avoid insecure parameters for BCrypt password encoder",
-        "href": "AIP/quality-rules/1025034",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025036,
-        "name": "Avoid insecure parameters for Argon2 password encoder",
-        "href": "AIP/quality-rules/1025036",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025038,
-        "name": "Avoid insecure parameters for SCrypt password encoder",
-        "href": "AIP/quality-rules/1025038",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025040,
-        "name": "Avoid external control of system or configuration setting",
-        "href": "AIP/quality-rules/1025040",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025042,
-        "name": "Avoid external control of system or configuration setting through API requests",
-        "href": "AIP/quality-rules/1025042",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025044,
-        "name": "Avoid MVC injection",
-        "href": "AIP/quality-rules/1025044",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025046,
-        "name": "Avoid MVC injection through API requests",
-        "href": "AIP/quality-rules/1025046",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025048,
-        "name": "Avoid hard-coded password in connection string",
-        "href": "AIP/quality-rules/1025048",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025050,
-        "name": "Avoid dangerous file inclusion",
-        "href": "AIP/quality-rules/1025050",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025052,
-        "name": "Avoid using unnormalized input strings",
-        "href": "AIP/quality-rules/1025052",
-        "critical": false,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025054,
-        "name": "Avoid plaintext storage of password",
-        "href": "AIP/quality-rules/1025054",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025056,
-        "name": "Avoid running SQL queries inside a loop",
-        "href": "AIP/quality-rules/1025056",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025058,
-        "name": "Avoid numeric user inputs in SQL queries",
-        "href": "AIP/quality-rules/1025058",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025060,
-        "name": "Avoid second order numeric user inputs in SQL queries",
-        "href": "AIP/quality-rules/1025060",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025062,
-        "name": "Avoid numeric user inputs in SQL queries through API requests",
-        "href": "AIP/quality-rules/1025062",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1025064,
-        "name": "Avoid weak encoding",
-        "href": "AIP/quality-rules/1025064",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 1027000,
         "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
         "href": "AIP/quality-rules/1027000",
@@ -2490,17 +2110,6 @@
         "href": "AIP/quality-rules/1027024",
         "critical": true,
         "severity": 30,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1027026,
-        "name": "Avoid Connection String Parameter Pollution",
-        "href": "AIP/quality-rules/1027026",
-        "critical": true,
-        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -3203,122 +2812,6 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
-        ]
-    },
-    {
-        "id": 1060020,
-        "name": "Avoid empty catch blocks for methods with high fan-in",
-        "href": "AIP/quality-rules/1060020",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "ABAP",
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1060022,
-        "name": "Avoid too many SQL calls for methods with high fan-in",
-        "href": "AIP/quality-rules/1060022",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101036,
-        "name": "Use ANSI standard operators in SQL WHERE clauses",
-        "href": "AIP/quality-rules/1101036",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C",
-            "C#",
-            "C++",
-            "C/C++",
-            "Cobol",
-            "JEE",
-            "PowerBuilder",
-            "Python",
-            "VB.NET",
-            "Visual Basic"
-        ]
-    },
-    {
-        "id": 1101958,
-        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
-        "href": "AIP/quality-rules/1101958",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101962,
-        "name": "Avoid using explain() in production code",
-        "href": "AIP/quality-rules/1101962",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101964,
-        "name": "When using compound indexes, avoid having different index ordering in collection access",
-        "href": "AIP/quality-rules/1101964",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101968,
-        "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection",
-        "href": "AIP/quality-rules/1101968",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101970,
-        "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection",
-        "href": "AIP/quality-rules/1101970",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101972,
-        "name": "Avoid having multiple artifacts deleting data on the same NoSQL collection",
-        "href": "AIP/quality-rules/1101972",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
         ]
     }
 ]

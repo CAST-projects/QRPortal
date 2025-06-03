@@ -13,7 +13,7 @@
     },
     {
         "id": 8424,
-        "name": "Avoid hard-coded HMAC and cryptographic key",
+        "name": "Avoid using hard-coded HMAC keys",
         "href": "AIP/quality-rules/8424",
         "critical": true,
         "severity": 30,
@@ -21,116 +21,6 @@
             "C#",
             "JEE",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1007248,
-        "name": "Use sufficient SSL\\TLS context (PHP)",
-        "href": "AIP/quality-rules/1007248",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1020720,
-        "name": "Avoid unsecure connection to the Node.js server",
-        "href": "AIP/quality-rules/1020720",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020732,
-        "name": "Avoid using risky cryptographic hash (Node.js)",
-        "href": "AIP/quality-rules/1020732",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020888,
-        "name": "Avoid unsecure connection to the express Node.js server (TypeScript)",
-        "href": "AIP/quality-rules/1020888",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020896,
-        "name": "Avoid using risky cryptographic hash with nodejs (TypeScript)",
-        "href": "AIP/quality-rules/1020896",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020950,
-        "name": "Avoid providing password in Web Service URL",
-        "href": "AIP/quality-rules/1020950",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1021016,
-        "name": "Avoid weak encryption algorithm (Python)",
-        "href": "AIP/quality-rules/1021016",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021114,
-        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for FastAPI (Python)",
-        "href": "AIP/quality-rules/1021114",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021126,
-        "name": "Ensure the HTTP Strict-Transport-Security header (HSTS) is set up for Flask (Python)",
-        "href": "AIP/quality-rules/1021126",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1022000,
-        "name": "DEPRECATED: Avoid weak encryption algorithm as DES and triple DES",
-        "href": "AIP/quality-rules/1022000",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1022002,
-        "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding)",
-        "href": "AIP/quality-rules/1022002",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -164,18 +54,6 @@
         ]
     },
     {
-        "id": 1025030,
-        "name": "Avoid hard-coded JWT secret keys",
-        "href": "AIP/quality-rules/1025030",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "C#",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 1027010,
         "name": "Avoid weak encryption providing insufficient key size (.NET)",
         "href": "AIP/quality-rules/1027010",
@@ -184,136 +62,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1030012,
-        "name": "Avoid using weak encryption algorithm as DES and tripleDES (Kotlin)",
-        "href": "AIP/quality-rules/1030012",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Kotlin"
-        ]
-    },
-    {
-        "id": 1030014,
-        "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) (Kotlin)",
-        "href": "AIP/quality-rules/1030014",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Kotlin"
-        ]
-    },
-    {
-        "id": 1034056,
-        "name": "Avoid using hard-coded HMAC keys (PHP)",
-        "href": "AIP/quality-rules/1034056",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "PHP"
-        ]
-    },
-    {
-        "id": 1039002,
-        "name": "Avoid using deprecated SSL protocols to secure connection",
-        "href": "AIP/quality-rules/1039002",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039010,
-        "name": "Avoid using risky cryptographic hash (JEE)",
-        "href": "AIP/quality-rules/1039010",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039018,
-        "name": "Avoid using cryptography hash with hard-coded salt",
-        "href": "AIP/quality-rules/1039018",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039020,
-        "name": "Avoid using javax.crypto.NullCipher",
-        "href": "AIP/quality-rules/1039020",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039022,
-        "name": "Avoid using Insecure PBE Iteration Count",
-        "href": "AIP/quality-rules/1039022",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039028,
-        "name": "Avoid weak encryption providing not sufficient key size (JEE)",
-        "href": "AIP/quality-rules/1039028",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039030,
-        "name": "Avoid using DefaultHttpClient constructor",
-        "href": "AIP/quality-rules/1039030",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039076,
-        "name": "Avoid using HttpURLConnection with HTTP protocol",
-        "href": "AIP/quality-rules/1039076",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040034,
-        "name": "StrictHttpFirewall should be set as Http Firewall before Spring Security 5.0.1, 4.2.4, and 4.1.5",
-        "href": "AIP/quality-rules/1040034",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040046,
-        "name": "Avoid weak encryption algorithm (Spring)",
-        "href": "AIP/quality-rules/1040046",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -384,56 +132,6 @@
         "severity": 30,
         "technologyNames": [
             "Objective-C"
-        ]
-    },
-    {
-        "id": 1055006,
-        "name": "Avoid weak cryptographic hash (Swift)",
-        "href": "AIP/quality-rules/1055006",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055008,
-        "name": "Avoid weak encryption key size (Swift)",
-        "href": "AIP/quality-rules/1055008",
-        "critical": true,
-        "severity": 30,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055012,
-        "name": "Avoid using deprecated SSL protocol (Swift)",
-        "href": "AIP/quality-rules/1055012",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055038,
-        "name": "Avoid weak encryption algorithm (Swift)",
-        "href": "AIP/quality-rules/1055038",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Swift"
-        ]
-    },
-    {
-        "id": 1055044,
-        "name": "Avoid using cryptography hash without salt (Swift)",
-        "href": "AIP/quality-rules/1055044",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Swift"
         ]
     }
 ]

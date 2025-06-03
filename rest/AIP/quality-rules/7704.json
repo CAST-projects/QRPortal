@@ -1,22 +1,18 @@
 {
     "id": 7704,
-    "name": "All static fields in the enterprise bean class should be declared as final",
+    "name": "Avoid static Fields that are not final",
     "href": "AIP/quality-rules/7704",
     "critical": false,
     "severity": 10,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
     "associatedValueName": "Non final static fields",
-    "description": "An enterprise bean must not use read/write static fields. Using read-only static fields is allowed. Therefore, it is recommended that all static fields in the enterprise bean class be declared as final.\n\n\nThis rule reports all enterprise beans (session, message and entity) that have non final static fields even if these static fields are held by a class in its inheritance tree.",
+    "description": "Reports all enterprise beans (session, message and entity) that have not final static fields even if these static fields are hold by a class in its inheritance tree.",
     "output": "This report lists all java enterprise classes that have non final static fields.\nIt provides the following information:\n - Class full name\n - list of non final static fields",
-    "rationale": "An object contains a public static field that is not marked final, which might allow it to be modified in unexpected ways.\nThis rule is required to ensure consistent runtime semantics because while some EJB containers may use a single JVM to execute all enterprise bean's instances, others may distribute the instances across\nmultiple JVMs.",
-    "reference": "JSR-220 Enterprise Java Beans 3.0 Final Release (ejbcore) page 545\nhttps://www.oracle.com/technetwork/java/restrictions-142267.html",
+    "rationale": "An enterprise bean must not use read/write static fields. Using read-only static fields is allowed. Therefore, it is recommended that all static fields in the enterprise bean class be declared as final.\nThis rule is required to ensure consistent runtime semantics because while some EJB containers may use a single JVM to execute all enterprise bean's instances, others may distribute the instances across\nmultiple JVMs.",
+    "reference": "JSR-220 Enterprise Java Beans 3.0 Final Release (ejbcore) page 545",
     "remediation": "Declare these static fields as final or review your design.",
-    "remediationSample": "Session:\n\n@Stateful\npublic class MyBean implements MyRemoteBean {\n   private static final String myName = \"MyBean\"; // FIXED\n    ...\n    public int aMethod() {\n        ...\n    }\n   ...\n}\n\nMessage:\n\n@MessageDriven(mappedName = \"jms/TestQueue\")\npublic class TestMessageDrivenBean implements MessageListener {\n    private static final String queue_name = \"Queue\"\n\n    public void onMessage(Message message) {\n        ....\n        }\n}\n\nEntity:\n\npublic class Customer implements Serializable {\n    private static final long serialVersionUID = 1L;\n    .....\n}",
-    "sample": "Session:\n\n@Stateful\npublic class MyBean implements MyRemoteBean {\n   private static String myName = \"MyBean\"; // VIOLATION\n    ...\n    public int aMethod() {\n        ...\n    }\n   ...\n}\n\nMessage:\n\n@MessageDriven(mappedName = \"jms/TestQueue\")\npublic class TestMessageDrivenBean implements MessageListener {\n    private static String queue_name = \"Queue\"\n\n    public void onMessage(Message message) {\n        ....\n        }\n}\n\nEntity:\n\npublic class Customer implements Serializable {\n    private static long serialVersionUID = 1L;\n    .....\n}",
+    "remediationSample": "@Stateful\npublic class MyBean implements MyRemoteBean {\n   private static final String myName = \"MyBean\"; // FIXED\n    ...\n    public int aMethod() {\n        ...\n    }\n   ...\n}",
+    "sample": "@Stateful\npublic class MyBean implements MyRemoteBean {\n   private static String myName = \"MyBean\"; // VIOLATION\n    ...\n    public int aMethod() {\n        ...\n    }\n   ...\n}",
     "total": "Number of enterprise beans (session, message and entity)",
     "alternativeName": "Ensure to have all static fields in the enterprise bean class be declared as final.",
     "businessCriteria": [
@@ -32,13 +28,6 @@
         }
     ],
     "technicalCriteria": [
-        {
-            "id": 1066600,
-            "name": "CWE-500 - Public Static Field Not Marked Final",
-            "href": "AIP/technical-criteria/1066600",
-            "weight": 5,
-            "critical": false
-        },
         {
             "id": 61020,
             "name": "Programming Practices - Modularity and OO Encapsulation Conformity",

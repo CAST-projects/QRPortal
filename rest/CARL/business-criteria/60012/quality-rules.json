@@ -254,26 +254,6 @@
         ]
     },
     {
-        "id": 1606,
-        "name": "Triggers should not directly modify tables, a procedure or function should be used instead",
-        "href": "AIP/quality-rules/1606",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1634,
-        "name": "Ensure the table is truly unnecessary. If not, then remove it from the project to avoid dead code.",
-        "href": "AIP/quality-rules/1634",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 2230,
         "name": "DEPRECATED: Use of style sheets (JEE)",
         "href": "AIP/quality-rules/2230",
@@ -694,8 +674,8 @@
         "id": 4598,
         "name": "Ensure you don't use 'java.lang.Runtime.exec()'",
         "href": "AIP/quality-rules/4598",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -736,16 +716,6 @@
         "href": "AIP/quality-rules/4612",
         "critical": false,
         "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 4614,
-        "name": "A clone method that is overridden in a subclass should call super.clone. Not doing so causes the subclass clone to return an object of the wrong type.",
-        "href": "AIP/quality-rules/4614",
-        "critical": true,
-        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -884,8 +854,8 @@
         "id": 7140,
         "name": "Ensure to use the action mapping table in struts configuration file.",
         "href": "AIP/quality-rules/7140",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -1027,8 +997,8 @@
         "id": 7292,
         "name": "Ensure to have packages without cyclical calls and inheritances between packages",
         "href": "AIP/quality-rules/7292",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -1136,16 +1106,6 @@
         ]
     },
     {
-        "id": 7404,
-        "name": "Avoid unreferenced views",
-        "href": "AIP/quality-rules/7404",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 7434,
         "name": "Ensure to overrides equals() and hashCode()",
         "href": "AIP/quality-rules/7434",
@@ -1170,16 +1130,6 @@
         "id": 7492,
         "name": "Ensure to map the association class as an entity and map two one-to-many associations for either side",
         "href": "AIP/quality-rules/7492",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 7498,
-        "name": "Ensure to have the same collection between the getter and the setter",
-        "href": "AIP/quality-rules/7498",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -1297,26 +1247,6 @@
         ]
     },
     {
-        "id": 7760,
-        "name": "Avoid triggers, functions and procedures with a very low comment/code ratio",
-        "href": "AIP/quality-rules/7760",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 7762,
-        "name": "Ensure you add meaningful comments foreach trigger, function and procedure",
-        "href": "AIP/quality-rules/7762",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 7766,
         "name": "Ensure you keep simple the design of the component/module to reduce number of independent paths",
         "href": "AIP/quality-rules/7766",
@@ -1328,7 +1258,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1344,7 +1273,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1374,7 +1302,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1390,7 +1317,6 @@
             "C++",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1407,7 +1333,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1424,7 +1349,6 @@
             "HTML5",
             "JEE",
             "JavaScript",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1440,16 +1364,6 @@
             "HTML5",
             "JEE",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 7786,
-        "name": "Avoid long Table or View names",
-        "href": "AIP/quality-rules/7786",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
         ]
     },
     {
@@ -1568,16 +1482,6 @@
         ]
     },
     {
-        "id": 7814,
-        "name": "Avoid Tables not using referential integrity",
-        "href": "AIP/quality-rules/7814",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
         "id": 7816,
         "name": "Avoid using GOTO statement",
         "href": "AIP/quality-rules/7816",
@@ -1587,7 +1491,6 @@
             "C",
             "C#",
             "C++",
-            "SQL",
             "VB.NET"
         ]
     },
@@ -1612,8 +1515,7 @@
         "technologyNames": [
             "C",
             "C++",
-            "JEE",
-            "SQL"
+            "JEE"
         ]
     },
     {
@@ -1727,8 +1629,7 @@
             "C",
             "C++",
             "JEE",
-            "JavaScript",
-            "SQL"
+            "JavaScript"
         ]
     },
     {
@@ -1895,8 +1796,8 @@
         "id": 8102,
         "name": "Ensure not having hard-coded network resources names in the source files (JEE)",
         "href": "AIP/quality-rules/8102",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -2007,16 +1908,6 @@
         "id": 1020090,
         "name": "Ensure to keep your code maintainable by reducing the nested control statements",
         "href": "AIP/quality-rules/1020090",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020200,
-        "name": "Ensure the data property to return objects from a function",
-        "href": "AIP/quality-rules/1020200",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -2164,36 +2055,6 @@
         ]
     },
     {
-        "id": 1020830,
-        "name": "Prefer using Angular Renderer2 instead of directly interacting with the DOM",
-        "href": "AIP/quality-rules/1020830",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020836,
-        "name": "Always prefer using modules over namespaces for structuring you code instead of exporting namespaces",
-        "href": "AIP/quality-rules/1020836",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020848,
-        "name": "Always ensuure using \"pipeable\" operators which can be imported from \"rxjs/operators\" instead of \"patch\" operator",
-        "href": "AIP/quality-rules/1020848",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
         "id": 1024000,
         "name": "Prefer using FrameLayout, RelativeLayout or CustomLayout in place of AbsoluteLayout",
         "href": "AIP/quality-rules/1024000",
@@ -2245,26 +2106,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1039044,
-        "name": "BannedAPI should not be used because they are considered deprecated and unsafe",
-        "href": "AIP/quality-rules/1039044",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1039050,
-        "name": "Prefer using @Override annotation to mark methods overriding or implementing a method declared in a super type to avoid unintentional errors",
-        "href": "AIP/quality-rules/1039050",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -2469,154 +2310,6 @@
         "technologyNames": [
             "C",
             "C++"
-        ]
-    },
-    {
-        "id": 1101016,
-        "name": "Ensure that you have a limited number of paramenters in OR clauses or IN statements to ensure good query performance",
-        "href": "AIP/quality-rules/1101016",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101022,
-        "name": "Make sure to define Primary Key (PK) for your tables to enforce row integrity of data",
-        "href": "AIP/quality-rules/1101022",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101036,
-        "name": "Ensure using ANSI standard Operators such as <>,<=,>= in SQL where clauses to ensure portability",
-        "href": "AIP/quality-rules/1101036",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C",
-            "C#",
-            "C++",
-            "JEE",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101042,
-        "name": "Prefer not having table names using characters outside of [a-z,0-9,_] for better readability and changeability",
-        "href": "AIP/quality-rules/1101042",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101044,
-        "name": "Prefer not having view names using characters outside of [a-z,0-9,_] for better readability and changeability",
-        "href": "AIP/quality-rules/1101044",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101046,
-        "name": "Ensure to have your packages named based on the same naming convention for better readability",
-        "href": "AIP/quality-rules/1101046",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101048,
-        "name": "Ensure to have your package functions named based on the same naming convention for better readability",
-        "href": "AIP/quality-rules/1101048",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101050,
-        "name": "Ensure to have your package stored procedures named based on the same naming convention for better readability",
-        "href": "AIP/quality-rules/1101050",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101064,
-        "name": "Ensure that you do not have triggers acting on other triggers and cascading, review your design to avoid such cases",
-        "href": "AIP/quality-rules/1101064",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101074,
-        "name": "Ensure your table aliases do not have numbers to improve readability",
-        "href": "AIP/quality-rules/1101074",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ALL TECHNOLOGIES"
-        ]
-    },
-    {
-        "id": 1101098,
-        "name": "Avoid Artifacts with a Complex SELECT Clause (SQL)",
-        "href": "AIP/quality-rules/1101098",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101100,
-        "name": "Avoid Functions and Procedures doing an Insert, Update or Delete without managing a transaction (SQL)",
-        "href": "AIP/quality-rules/1101100",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
-        ]
-    },
-    {
-        "id": 1101958,
-        "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
-        "href": "AIP/quality-rules/1101958",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1101964,
-        "name": "When using compound indexes, avoid having different index ordering in collection access",
-        "href": "AIP/quality-rules/1101964",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "ASP.NET",
-            "C#",
-            "VB.NET"
         ]
     }
 ]

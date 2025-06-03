@@ -2,19 +2,13 @@
     "id": 4598,
     "name": "Avoid using 'java.lang.Runtime.exec()'",
     "href": "AIP/quality-rules/4598",
-    "critical": true,
-    "severity": 20,
-    "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "This rule reports Java artifacts using 'java.lang.Runtime.exec()'",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "description": "Java artifacts should not use 'java.lang.Runtime.exec()'",
     "output": "This report lists all java artifacts using 'java.lang.Runtime.exec'.\nIt provides the following information:\n - Artifact full name",
-    "rationale": "For portability reasons, 'java.lang.Runtime.exec()' should not be used since it means being dependent on the environment where the application is deployed.\nFor security reasons, 'java.lang.Runtime.exec()' can lead to malicious file execution resulting in devastating attacks such as total server compromise.",
-    "reference": "Open Web Application Security Project's Top Ten\nhttp://www.owasp.org/index.php/Top_10_2007-A3\nsee OWASP_Top_10_2007_for_JEE.pdf\nhttps://docs.oracle.com/javase/6/docs/api/java/lang/ProcessBuilder.html\nhttps://cwe.mitre.org/data/definitions/77\nhttps://cwe.mitre.org/data/definitions/78\nhttps://cwe.mitre.org/data/definitions/88\nhttps://www.sans.org/top25-software-errors/#cat1",
-    "remediation": "Alternative to java.lang.Runtime.exec(), we can also make use of java.lang.ProcessBuilder which makes it much easier to specify a process, set up its environment, spawn it, and handle its file descriptors.",
-    "sample": "private boolean checkSudoPrivilege() throws InterruptedException, IOException {\n  // \"sudo -v\" returns non-zero value if the current user has problem running sudo command.\n  // It will always return zero if user is root.\n  Process process = Runtime.getRuntime().exec(\"sudo -v\");\n  int exitCode = process.waitFor();\n  return exitCode == 0;\n }\n}",
+    "rationale": "For portability reasons, 'java.lang.Runtime.exec()' should not be used since it means being dependant on the environment where the application is deployed.\nFor security reasons, 'java.lang.Runtime.exec()' can lead to malicious file execution resulting in devastating attacks such as total server compromise.\n\nThere are uses correct uses of Runtime.exec for example when the method call is platform neutral.\n\nSuch examples of the correct use of Runtime.exec are:\n- Invocation of a Java compiler, with the name of the compiler specified as a\nuser-settable Property.\n- Execution of a command the user typed in (a \"shell\").\n- Invocation of a browser, configured as part of the installation of the\nprogram, when the user presses a \"Help\" button.",
+    "reference": "Open Web Application Security Project's Top Ten\nhttp://www.owasp.org/index.php/Top_10_2007-A3\nsee OWASP_Top_10_2007_for_JEE.pdf",
     "total": "Number of Java artifacts",
     "alternativeName": "Ensure you don't use 'java.lang.Runtime.exec()'",
     "businessCriteria": [
@@ -32,16 +26,6 @@
             "id": 60012,
             "name": "Changeability",
             "href": "AIP/business-criteria/60012"
-        },
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
-        },
-        {
-            "id": 1061000,
-            "name": "ISO-5055-Index",
-            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 60013,
@@ -68,62 +52,6 @@
             "href": "AIP/technical-criteria/61004",
             "weight": 6,
             "critical": false
-        },
-        {
-            "id": 1061014,
-            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-            "href": "AIP/technical-criteria/1061014",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1066178,
-            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-            "href": "AIP/technical-criteria/1066178",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062301,
-            "name": "OWASP-2013-A1 - Injection",
-            "href": "AIP/technical-criteria/1062301",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062321,
-            "name": "OWASP-2017-A1 - Injection",
-            "href": "AIP/technical-criteria/1062321",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1062343,
-            "name": "OWASP-2021-A03 - Injection",
-            "href": "AIP/technical-criteria/1062343",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063155,
-            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
-            "href": "AIP/technical-criteria/1063155",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1063114,
-            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
-            "href": "AIP/technical-criteria/1063114",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 66064,
-            "name": "Secure Coding - Weak Security Features",
-            "href": "AIP/technical-criteria/66064",
-            "weight": 9,
-            "critical": true
         }
     ],
     "technologies": [
@@ -223,9 +151,9 @@
         
     ],
     "thresholds": [
-        98.0,
-        99.0,
-        99.5,
-        99.99
+        50.0,
+        90.0,
+        95.0,
+        99.0
     ]
 }

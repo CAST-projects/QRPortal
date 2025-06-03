@@ -5,12 +5,8 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 8,
-    "extension": {
-        "name": "com.castsoftware.sap",
-        "href": "AIP/extensions/com.castsoftware.sap"
-    },
     "associatedValueName": "XXL SAP Table/View name",
-    "description": "This rule retrieves all ABAP artifacts using SELECT ... ENDSELECT statement on tables and views. This rule applies only XXL database tables.\nLoops using the addition UP TO 1 ROWS, or UP TO n ROWS are not considered as violations.\nLoops containing a \"return\" statement are not considered as violations.\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
+    "description": "This rule retrieves all ABAP artifacts using SELECT ... ENDSELECT statement on tables and views. This rule applies only XXL database tables. Loops using the addition UP TO 1 ROWS (or UP TO ONE ROWS) are not considered as violations.\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
     "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The XXL SAP Table/View name",
     "rationale": "The SELECT ... ENDSELECT works as a loop fetching single record for every loop pause. Basically, it works like a client cursor which will generate too much traffic on the network and communications between the application server and the database server. When used on extremely large tables, this statement becomes a performance killer.",
     "remediation": "Use preferably the  \"SELECT... INTO TABLE...+ LOOP AT Table\" tatement.",
@@ -23,11 +19,6 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
-        },
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

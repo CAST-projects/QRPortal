@@ -13,8 +13,8 @@
         "id": 8220,
         "name": "Prefer not using deprecated methods, constructors, fields, type or packages",
         "href": "AIP/quality-rules/8220",
-        "critical": false,
-        "severity": 10,
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "JEE"
         ]
@@ -45,16 +45,6 @@
         "href": "AIP/quality-rules/1020320",
         "critical": false,
         "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020782,
-        "name": "Ensure you no longer us Buffer() function or new Buffer() constructor because they are deprecated",
-        "href": "AIP/quality-rules/1020782",
-        "critical": true,
-        "severity": 30,
         "technologyNames": [
             "HTML5"
         ]
@@ -99,16 +89,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1101088,
-        "name": "Ensure that you use CLOB, NCLOB or BLOB datatypes in tables instead of LONG or LONG RAW as the latter are deprecated",
-        "href": "AIP/quality-rules/1101088",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "SQL"
         ]
     }
 ]

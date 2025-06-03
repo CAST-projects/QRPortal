@@ -5,17 +5,10 @@
     "critical": true,
     "severity": 20,
     "maxWeight": 9,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "associatedValueName": "Number of violation occurrences",
-    "description": "To respect OO encapsulation concepts, Fields should not be accessed from outside the Class without going through their accessors.\nProtected fields are also considered by this rule computation. Use of protected fields is allowed by the Java language but not a good practice as it introduces a hard coupling between implementation and interfaces (abstract class here).\nAs per the book \"Effective Java\" by Joshua Bloch : \"The need for protected members should be relatively rare\".Fields of an INNER class are considered as internal fields of the outer class and Fields of a Child class (By inheritance) are considered as internal fields of the outer.",
-    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
-    "rationale": "The fundamental concept of this rule is encapsulation:\nHiding the internals of the object protects its integrity by preventing users from setting the internal data of the component into an invalid or inconsistent state. A benefit of encapsulation is that it can reduce system complexity, and thus increases robustness, by allowing the developer to limit the inter-dependencies between software components.",
-    "remediation": "Implement and use accessors ( getter/setter methods ) to access non-static-final fields from other classes.",
-    "remediationSample": "// com/test/A.java\n\npackage com.test;\n\nimport java.awt.Insets;\n\nclass B{\n    private String s;\n    public  static final Integer i = 10;\n\n    public String getS(){ return s; }\n    public void setS( String t ) { s = t; }\n}\n\npublic class A {\n    \n    void metdhodAccessedByField() {\n        B b = new B();\n        b.getS().concat(\"\"); // NOT A VIOLATION ANYMORE - USING GETTER TO GET THE FIELD\n    }\n    \n    void publicFieldOtherClass() {\n        B b = new B();\n        b.setS( \"\" ); // NOT VIOLATION ANYMORE - USING SETTER TO SET THE FIELD\n    }\n    \n    // ...\n}\n\n// ...",
-    "sample": "// com/test/A.java\n\npackage com.test;\n\nimport java.awt.Insets;\n\nclass B{\n    public String s;\n    public static final Integer i = 10;\n}\n\npublic class A {\n    \n    void metdhodAccessedByField() {\n        B b = new B();\n        b.s.concat(\"\"); // VIOLATION - DIRECT FIELD ACCESS OF ANOTHER CLASS DURING METHOD CALL\n    }\n    \n    void publicFieldOtherClass() {\n        B b = new B();\n        b.s = \"\"; // VIOLATION - DIRECT FIELD ACCESS OF ANOTHER CLASS\n    }\n    \n    void staticFinalField() {\n        Integer x = B.i;  // NO VIOLATION - ACCESS OF STATIC FINAL FIELD\n    }\n}\n\nclass C {\n    public int a;\n    class D {\n        private float x;\n        class E {\n            void outerClassField () {\n                x=10.0f;    // NO VIOLATION - ACCESSING OUTER CLASS FIELD\n            }\n            \n            void recursiveOuterClassField () {\n                a=10;        // NO VIOLATION - ACCESSING OUTER CLASS FIELD\n            }\n        }\n    }\n}\n\nclass F{\n    static class G {\n        static char c = 'x';\n        static class H {\n            static boolean b;\n        }\n    }\n    \n    void innerClassField() {\n        G.c = 'c';  // NO VIOLATION - ACEESSING INNERCLASS FIELD\n    }\n    \n    void recursiveInnerClassField() {\n        G.H.b = true; // NO VIOLATION - ACCESSING INNERCLASS FIELD\n    }\n    \n}\n\nclass I {\n    double d;\n}\n\nclass J extends I {\n    void baseClassField() {\n        d = 20.0; // NO VIOLATION - ACCESSING BASE CLASS FIELD\n    }\n}\n\nclass K {\n    byte b;\n    void sameClassField() {\n        b=1;     // NO VIOLATION - ACCESSING SAME CLASS FIELD\n    }\n}\n\nclass L extends java.awt.Insets {\n\n    public L(int t, int l, int b, int r) {\n        super(t, l, b, r);\n    } \n    private static final long serialVersionUID = 1L;\n    \n    void randomMethod(int x) {}\n    \n    void externalBaseClassMethodArgField() {\n        randomMethod(top); // NO VIOLATION - METHOD ARG IS A FIELD FROM BASE CLASS\n    }\n    \n    int externalClassFieldReturn() {\n        return right;    // NO VIOLATION - RETURNING VALUE IS A FIELD FROM BASE CLASS\n        \n    }\n}",
+    "associatedValueName": "Field full name",
+    "description": "To respect OO encapsulation concepts, Fields should not be accessed from outside the Class without going through their accessors.\nProtected fields are also considered by this rule comptation.Using protected fields is allowed by the Java language but not a good practive as it introduce a hard coupling between implementation and interfaces (abstract class here).\nAs per the book \"Effective Java\" by Joshua Bloch : \"The need for protected members should be relatively rare.\". Fields of an INNER class are considered as internal fields of the outer class and Fields of a Child class (By inheritance) are considered as internal fields of the outer",
+    "output": "This report lists all Methods directly using Fields from other Classes.\nIt provides the following information:\n - Method full name\n - Field full name",
+    "rationale": "On of the fundamental concept of this rule is encapsulation:\nHiding the internals of the object protects its integrity by preventing users from setting the internal data of the component into an invalid or inconsistent state. A benefit of encapsulation is that it can reduce system complexity, and thus increases robustness, by allowing the developer to limit the interdependencies between software components.",
     "total": "Number of non abstract Java artifacts",
     "alternativeName": "Ensure not using Fields (non static final) from other Classes to respect OO encapsulation concepts",
     "businessCriteria": [
@@ -28,11 +21,6 @@
             "id": 60012,
             "name": "Changeability",
             "href": "AIP/business-criteria/60012"
-        },
-        {
-            "id": 1061000,
-            "name": "ISO-5055-Index",
-            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 66031,
@@ -50,20 +38,6 @@
             "id": 1062117,
             "name": "ASCMM-MNT-16 - Method Control Element Usage of Member Element from other Class Element",
             "href": "AIP/technical-criteria/1062117",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1061141,
-            "name": "CWE-1090 - Method Containing Access of a Member Element from Another Class",
-            "href": "AIP/technical-criteria/1061141",
-            "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 1067190,
-            "name": "CWE-1090 - Method Containing Access of a Member Element from Another Class",
-            "href": "AIP/technical-criteria/1067190",
             "weight": 5,
             "critical": false
         },

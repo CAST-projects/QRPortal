@@ -5,17 +5,10 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 4,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "This report lists all java artifacts using the Vector type, either as a parameter, or as a local variable.",
+    "description": "Avoid using Vector. Its use can lead to performance problems.",
     "output": "This report lists all java artifacts using the Vector type, either as a parameter, or as a local variable.\nIt provides the following information:\n - Artifact full name",
-    "rationale": "Performance: Vector is synchronized and thread-safe and because of this, it is slightly slower than ArrayList.\nFunctionality: Vector synchronizes at the level of each individual operation. Generally a programmer likes to synchronize a whole sequence of operations. Synchronizing individual operations is both less safe and slower.\nVectors obsolete: Vectors are considered obsolete and unofficially deprecated in java. Also, vector synchronizes on each individual operation which is almost never done. Mostly java programmers prefer using ArrayList since they will probably synchronize the arrayList explicitly anyway if they need to do synchronization.",
-    "reference": "https://www.techiedelight.com/why-vector-class-java-obsolete/",
-    "remediation": "When synchronization is not need, prefer List and Map implementations and when synchronization is needed use Collections.synchronizedList and CopyOnWriteArrayList.",
-    "remediationSample": "import java.util.*; \n  \npublic class ArrayListDemo { \n    public static void main(String args[]) \n    { \n  \n        // Creating an empty Vector \n        ArrayList<Integer> arr_list = new ArrayList<Integer>(n); \n  \n        // Use add() method to add elements in the Vector \n        arr_list.add(\"10\"); \n        arr_list.add(\"20\"); \n        arr_list.add(\"30\"); \n        arr_list.add(\"40\"); \n        arr_list.add(\"50\"); \n  \n        // Displaying the Vector \n        System.out.println(\"ArrayList: \" + arr_list); \n  \n        // Fetching the specific element from the Vector \n        System.out.println(\"The element is: \"\n                           + arr_list.get(2)); \n    } \n}",
-    "sample": "import java.util.*; \n  \npublic class VectorDemo { \n    public static void main(String args[]) \n    { \n        Vector<String> vec_tor = new Vector<String>(); //Violation\n  \n        // Use add() method to add elements in the Vector \n        vec_tor.add(\"Geeks\"); \n        vec_tor.add(\"for\"); \n        vec_tor.add(\"Geeks\"); \n        vec_tor.add(\"10\"); \n        vec_tor.add(\"20\"); \n  \n        // Displaying the Vector \n        System.out.println(\"Vector: \" + vec_tor); \n  \n        // Fetching the specific element from the Vector \n        System.out.println(\"The element is: \"\n                           + vec_tor.get(2)); \n    } \n}\n------------------------------------------------\n....\nType type = field.getGenericType();\nif (type instanceof ParameterizedType) {\n    ParameterizedType ptype = (ParameterizedType) type;\nif(c.getSimpleName().equals(\"Vector\")){\n    Class pta = (Class) ptype.getActualTypeArguments()[0];\n    Vector<what to put here> v = (Vector)field.get(obj);\n    if(v == null){\n        v = new Vector<what to put here>();\n        field.set(obj, v);\n    }\n....",
+    "rationale": "Since Vectors are all synchronized - yet synchronization is usually not needed -, they are much slower than the various List and Map implementations",
+    "remediation": "When synchronization is not need, prefer List and Map implementations",
     "total": "Number of Java objects",
     "alternativeName": "Prefer using List and Map implementations instead of using Vector.",
     "businessCriteria": [
@@ -23,11 +16,6 @@
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
-        },
-        {
-            "id": 20140522,
-            "name": "Green",
-            "href": "AIP/business-criteria/20140522"
         },
         {
             "id": 66031,

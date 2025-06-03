@@ -1,19 +1,13 @@
 {
     "id": 4668,
-    "name": "DEPRECATED: Classes and Interfaces must have JavaDoc @author tag",
+    "name": "Classes and Interfaces must have JavaDoc @author tag",
     "href": "AIP/quality-rules/4668",
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "extension": {
-        "name": "com.castsoftware.jee",
-        "href": "AIP/extensions/com.castsoftware.jee"
-    },
-    "description": "This rule will check the use of JavaDoc @author tag for each Classes/Interfaces.",
+    "description": "When enforcing the utilization of JavaDoc Comments to document an application, the @author tag should be used to know who wrote a given Class or Interface.",
     "output": "This report lists all Classes and Interfaces not having the @author JavaDoc comments.\nThis report provides the following information:\n Class or Interface Full Name",
     "rationale": "When enforcing the utilization of JavaDoc Comments to document an application, the @author tag should be used to know who wrote a given Class or Interface.",
-    "reference": "Put as Deprecated as @author tag is something that you can have looking to history in SCM and it's useless when dev has left company.",
-    "remediation": "Add JavaDoc @author tag to Classes and Interfaces",
     "total": "Number of classes and interfaces (generic or not)",
     "alternativeName": "Ensure you have JavaDoc @author tag for Classes and Interfaces",
     "businessCriteria": [

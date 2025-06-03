@@ -1,17 +1,17 @@
 [
     {
         "id": 7190,
-        "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
+        "name": "Validator form validate() Method must call super.validate()",
         "href": "AIP/quality-rules/7190",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
     },
     {
         "id": 7192,
-        "name": "Avoid using Struts Form that cannot extend Validator Class",
+        "name": "Form Bean must extend Validator Class",
         "href": "AIP/quality-rules/7192",
         "critical": false,
         "severity": 10,
@@ -21,7 +21,7 @@
     },
     {
         "id": 7362,
-        "name": "DEPRECATED: Avoid Struts action mappings validator turned off",
+        "name": "Avoid action mappings validator turned off",
         "href": "AIP/quality-rules/7362",
         "critical": true,
         "severity": 20,
@@ -31,7 +31,7 @@
     },
     {
         "id": 7382,
-        "name": "Struts1: Avoid Struts Validator field without Form Field",
+        "name": "Avoid Validator field without Form Field",
         "href": "AIP/quality-rules/7382",
         "critical": false,
         "severity": 10,
@@ -41,7 +41,7 @@
     },
     {
         "id": 7416,
-        "name": "Struts1: Avoid Action Form Field without Validator",
+        "name": "Avoid Form Field without Validator",
         "href": "AIP/quality-rules/7416",
         "critical": true,
         "severity": 20,
@@ -61,7 +61,7 @@
     },
     {
         "id": 8016,
-        "name": "Avoid unrestricted access to EJB remote methods",
+        "name": "Avoid unsecured EJB remote method",
         "href": "AIP/quality-rules/8016",
         "critical": true,
         "severity": 20,
@@ -71,7 +71,7 @@
     },
     {
         "id": 8040,
-        "name": "Struts 2: Avoid Action Fields without Validation",
+        "name": "Avoid Struts 2 Action Fields without Validation",
         "href": "AIP/quality-rules/8040",
         "critical": true,
         "severity": 20,
@@ -81,7 +81,7 @@
     },
     {
         "id": 8042,
-        "name": "Struts 2: Avoid unused validation form",
+        "name": "Struts 2 Validation: Avoid unused validation form",
         "href": "AIP/quality-rules/8042",
         "critical": false,
         "severity": 10,
@@ -91,32 +91,12 @@
     },
     {
         "id": 8102,
-        "name": "Avoid hard-coded network resource names (JEE)",
+        "name": "Avoid hardcoded network resource names (JEE)",
         "href": "AIP/quality-rules/8102",
-        "critical": true,
-        "severity": 20,
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
-        ]
-    },
-    {
-        "id": 1018862,
-        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
-        "href": "AIP/quality-rules/1018862",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "TIBCO"
-        ]
-    },
-    {
-        "id": 1018864,
-        "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
-        "href": "AIP/quality-rules/1018864",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "TIBCO"
         ]
     },
     {
@@ -150,146 +130,6 @@
         ]
     },
     {
-        "id": 1020706,
-        "name": "Ensure the Content-Security-Policy is activated (Node.js)",
-        "href": "AIP/quality-rules/1020706",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020708,
-        "name": "Ensure the X-Powered-By header is disabled",
-        "href": "AIP/quality-rules/1020708",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020712,
-        "name": "Ensure the X-Frame-Options header is setup (Node.js)",
-        "href": "AIP/quality-rules/1020712",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020718,
-        "name": "Ensure that browser cannot cache or store a page",
-        "href": "AIP/quality-rules/1020718",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020736,
-        "name": "Avoid bypassing self-signed ssl certificate (Node.js)",
-        "href": "AIP/quality-rules/1020736",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020738,
-        "name": "Avoid disabling SSL verification in node-curl",
-        "href": "AIP/quality-rules/1020738",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020880,
-        "name": "Ensure the express X-Powered-By header is disabled (TypeScript)",
-        "href": "AIP/quality-rules/1020880",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020882,
-        "name": "Ensure the express X-Frame-Options header is setup (TypeScript)",
-        "href": "AIP/quality-rules/1020882",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020884,
-        "name": "Ensure that browser cannot cache or store a page when using express (TypeScript)",
-        "href": "AIP/quality-rules/1020884",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020902,
-        "name": "Ensure the Content-Security-Policy is activated with express (TypeScript)",
-        "href": "AIP/quality-rules/1020902",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020920,
-        "name": "Avoid disabling SSL verification in node-curl (TypeScript)",
-        "href": "AIP/quality-rules/1020920",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1020922,
-        "name": "Avoid bypassing self-signed ssl certificate with Node.js (TypeScript)",
-        "href": "AIP/quality-rules/1020922",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "HTML5"
-        ]
-    },
-    {
-        "id": 1021032,
-        "name": "Avoid disabling certificate check when requesting secured urls",
-        "href": "AIP/quality-rules/1021032",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
-        "id": 1021130,
-        "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)",
-        "href": "AIP/quality-rules/1021130",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "Python"
-        ]
-    },
-    {
         "id": 1027084,
         "name": "Avoid calling CoSetProxyBlanket and CoInitializeSecurity",
         "href": "AIP/quality-rules/1027084",
@@ -298,76 +138,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 1039006,
-        "name": "Avoid using predictable SecureRandom Seeds",
-        "href": "AIP/quality-rules/1039006",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040018,
-        "name": "Ensure the X-Frame-Options header is setup (Spring)",
-        "href": "AIP/quality-rules/1040018",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1040024,
-        "name": "Spring Boot Shutdown Actuator Endpoint must be secured from unauthenticated access.",
-        "href": "AIP/quality-rules/1040024",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042004,
-        "name": "Avoid Duplicate Struts validation forms with the same name",
-        "href": "AIP/quality-rules/1042004",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042012,
-        "name": "Avoid Unused Validation Form in Struts 1.x",
-        "href": "AIP/quality-rules/1042012",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042016,
-        "name": "Avoid Struts action Mapping with disabled validator ",
-        "href": "AIP/quality-rules/1042016",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1042018,
-        "name": "Avoid Missing Form Bean in Struts 1.x",
-        "href": "AIP/quality-rules/1042018",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
