@@ -18,7 +18,7 @@
     "remediationSample": "MyBatis\n\n<select id=\"getPerson\" parameterType=\"string\" resultType=\"org.application.vo.Person\">\nSELECT * FROM PERSON WHERE NAME = #{name} AND PHONE LIKE #{phone}; \n</select>\n\nIBatis\n\n<statement id=\"getPerson\" resultMap=\"get-person-result\">\n  SELECT * FROM PERSON WHERE NAME = #name# AND PHONE LIKE #phone#; \n</statement>",
     "sample": "MyBatis\n\n<select id=\"getPerson\" parameterType=\"string\" resultType=\"org.application.vo.Person\">\nSELECT * FROM PERSON WHERE NAME = #{name} AND PHONE LIKE '${phone}'; \n</select>\n\nIBatis\n\n<statement id=\"getPerson\" resultMap=\"get-person-result\">\n  SELECT * FROM PERSON WHERE NAME = #name# AND PHONE LIKE '$phone$'; \n</statement>",
     "total": "Number of iBatis/MyBatis Queries",
-    "alternativeName": "Prefer using MyBatis query statementto prevent SQL Injection Attacks",
+    "alternativeName": "Prefer using MyBatis query statement to prevent SQL Injection Attacks",
     "businessCriteria": [
         {
             "id": 1062100,
