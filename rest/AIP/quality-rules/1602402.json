@@ -1,0 +1,57 @@
+{
+    "id": 1602402,
+    "name": "All created or modified Record View must be in a project (PeopleSoft)",
+    "href": "AIP/quality-rules/1602402",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "Check for objects not belonging to a project",
+    "rationale": "Projects are used to identify and deliver objects that have been created or modified",
+    "remediation": "If an object is created or modified, you must insert it into a project by using \"Insert / Current definition into project\"",
+    "total": "Number of PeopleSoft Record View",
+    "alternativeName": "All created or modified Record View must be in a project (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

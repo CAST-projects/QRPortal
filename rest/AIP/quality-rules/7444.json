@@ -1,0 +1,129 @@
+{
+    "id": 7444,
+    "name": "Avoid Using Non-Serialized Beans with Session Scope",
+    "href": "AIP/quality-rules/7444",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Session Bean Name",
+    "description": "The application stores a non-serializable object as an HttpSession attribute, which can hurt reliability.\nThis rule reports classes that are not serialized (i.e. don't implement or inherit from the java.io.Serializable interface) and that are instantiated by beans stored in the session. This includes JSP beans and also JSF backing beans.",
+    "output": "Report all classes that don't implement (or inherit from) Serializable interface and that instantiated as session scope objects.\nIt provides the following information:\n  - Full Class Name\n  - Session Bean Name",
+    "rationale": "A JEE application can make use of multiple JVMs in order to improve application reliability and performance. In order to make the multiple JVMs appear as a single application to the end user, the JEE container can replicate an HttpSession object across multiple JVMs so that if one JVM becomes unavailable another can step in and take its place without disrupting the flow of the application. This is only possible if all session data is serializable, allowing the session to be duplicated between the JVMs.",
+    "reference": "https://cwe.mitre.org/data/definitions/579.html\n\nhttps://www.tutorialspoint.com/jsp/jsp_java_beans.htm#:~:text=Selected%20Reading-,JSP%20%2D%20JavaBeans,default%2C%20no%2Dargument%20constructor.\n\nhttps://stackoverflow.com/questions/3142181/why-java-beans-have-to-be-serializable",
+    "remediation": "Implement serialization if your web container implements such mechanisms or ignore it in others cases.",
+    "remediationSample": "----> for JSF \n      myBean.java:\n// FIXED: the interface Serializable is implemented\npublic class MyBean implements Serializable {\n    // Properties\n    private String name;\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n}\n\n-----> for JSP\n// FIXED: the interface Serializable is implemented\npublic class SampleBean implements Serializable {\n     \n    private String param1;\n    private Date param2 = new Date();\n     \n    public String getParam1() {\n        return param1;\n    }\n    public void setParam1(String param1) {\n        this.param1 = param1;\n    }\n     \n    public Date getParam2() {\n        return param2;\n    }\n    public void setParam2(Date param2) {\n        this.param2 = param2;\n    }\n     \n    @Override\n    public String toString() {\n        return \"SampleBean [param1=\" + param1 + \", param2=\" + param2 + \"]\";\n    }\n \n}",
+    "sample": "Sample for JSF:\n----> faces-config.xml:\n<managed-bean>\n    <managed-bean-name>myBean</managed-bean-name>\n    <managed-bean-class>com.cast.MyBean</managed-bean-class>\n    <managed-bean-scope>session</managed-bean-scope>\n</managed-bean>\n\n----> myBean.java:\n// VIOLATION: the class associate to a backing bean \n// does not implement the interface Serializable\npublic class MyBean {\n    // Properties\n    private String name;\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n}\n\n----------------------------------------------------------\nfor JSP\n\n<%@ page language=\"java\" contentType=\"text/html;charset=UTF-8\" %>\n<%@ page import=\"com.javacodegeeks.snippets.enterprise.SampleBean\"%>\n \n<html>\n \n<head>\n    <title>Java Code Geeks Snippets - Use a Bean in JSP Page</title>\n</head>\n \n<body>\n \n    <jsp:useBean id=\"sampleBean\" class=\"com.javacodegeeks.snippets.enterprise.SampleBean\" scope=\"session\">\n        <%-- intialize bean properties --%>\n        <jsp:setProperty name=\"sampleBean\" property=\"param1\" value=\"value1\" />\n    </jsp:useBean>\n     \n    Sample Bean: <%= sampleBean %>\n     \n    param1: <jsp:getProperty name=\"sampleBean\" property=\"param1\" />\n    param2: <jsp:getProperty name=\"sampleBean\" property=\"param2\" />\n \n</body>\n\npublic class SampleBean { // Violation\n     \n    private String param1;\n    private Date param2 = new Date();\n     \n    public String getParam1() {\n        return param1;\n    }\n    public void setParam1(String param1) {\n        this.param1 = param1;\n    }\n     \n    public Date getParam2() {\n        return param2;\n    }\n    public void setParam2(Date param2) {\n        this.param2 = param2;\n    }\n     \n    @Override\n    public String toString() {\n        return \"SampleBean [param1=\" + param1 + \", param2=\" + param2 + \"]\";\n    }\n \n}",
+    "total": "Number of beans in the session scope",
+    "alternativeName": "Ensure to implement serialization if your web container implements such mechanisms or ignore it in others cases",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066679,
+            "name": "CWE-579 - J2EE Bad Practices: Non-serializable Object Stored in Session",
+            "href": "AIP/technical-criteria/1066679",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 4,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-579",
+            "name": "J2EE Bad Practices: Non-serializable Object Stored in Session",
+            "href": "AIP/quality-standards/CWE/items/CWE-579",
+            "standard": "CWE"
+        },
+        {
+            "id": "A04-2021",
+            "name": "Insecure Design",
+            "href": "AIP/quality-standards/OWASP/items/A04-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

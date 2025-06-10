@@ -1,0 +1,62 @@
+{
+    "id": 1600518,
+    "name": "Prefer boolean operators (EXISTS, NOT EXISTS) and non-negative predicates (PeopleSoft)",
+    "href": "AIP/quality-rules/1600518",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "Check the use of negative predicates (NOT IN, NOT BETWEEN, NOT LIKE, NOT NULL, <>, !=)",
+    "rationale": "Negative predicates (NOT IN, NOT BETWEEN, NOT LIKE, NOT NULL, <>, !=) are statements that generates full scan.\nThis rule is a best practice on query construction to improve performances.",
+    "remediation": "Validate the query by a DBA and test it in a real environment",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "Prefer boolean operators (EXISTS, NOT EXISTS) and non-negative predicates (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

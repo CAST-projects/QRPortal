@@ -1,0 +1,72 @@
+{
+    "id": 1027042,
+    "name": "Avoid having unmatched contracts for exported interfaces",
+    "href": "AIP/quality-rules/1027042",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule will check if the export attribute contract type specified for a class matches the class, an interface implemented or an inheritance.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "In order for an import to be matched with an export, the import and export must have the same contract. The contract consists of a string, called the contract name, and the type of the exported or imported object, called the contract type. Only if both the contract name and contract type match is an export considered to fulfill a particular import.",
+    "reference": "https://docs.microsoft.com/dotnet/framework/mef/attributed-programming-model-overview-mef",
+    "remediation": "Ensure your classes implement the export interface properly.",
+    "remediationSample": "[Export(typeof(IMyAddin))]\npublic class MyLogger : IMyAddin\n{\n\n}",
+    "sample": "[Export(typeof(IMyAddin))]\npublic class MyLogger // does not implement IMyAddin\n{\n\n}",
+    "total": "Number of classes",
+    "alternativeName": "Ensure your classes implement the export interface properly",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

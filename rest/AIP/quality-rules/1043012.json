@@ -1,0 +1,174 @@
+{
+    "id": 1043012,
+    "name": "Avoid creating cookie without setting httpOnly option in Config file (ASP.NET)",
+    "href": "AIP/quality-rules/1043012",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnetweb",
+        "href": "AIP/extensions/com.castsoftware.dotnetweb"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. This is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie. The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session. The property httpOnlyCookies adds a httpOnly flag to cookies and makes it impossible to read cookies from the client. This serves as a protection against XSS (for example prevents attackers from reading the session ID from cookies or the forms authentication ticket from the authentication cookie).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in config file",
+    "rationale": "If read access is not properly restricted, then attackers can steal the sensitive information. If write access is not properly restricted, \nthen attackers can modify and possibly delete the data, causing incorrect results and possibly a denial of service.",
+    "reference": "https://cwe.mitre.org/data/definitions/1004.html \nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
+    "remediation": "Always setting httponly option when creating a cookie",
+    "remediationSample": "<httpCookies httpOnlyCookies=\"true\"/>",
+    "sample": "<httpCookies httpOnlyCookies=\"false\"/>",
+    "total": "Number of config files",
+    "alternativeName": "Always enable HttpOnly for cookies in Config file (ASP.NET)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067104,
+            "name": "CWE-1004 - Sensitive Cookie Without 'HttpOnly' Flag",
+            "href": "AIP/technical-criteria/1067104",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "href": "AIP/technical-criteria/66066",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1004",
+            "name": "Sensitive Cookie Without 'HttpOnly' Flag",
+            "href": "AIP/quality-standards/CWE/items/CWE-1004",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222575",
+            "name": "The application must set the HTTPOnly flag on session cookies.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222575",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222575",
+            "name": "The application must set the HTTPOnly flag on session cookies.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222575",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

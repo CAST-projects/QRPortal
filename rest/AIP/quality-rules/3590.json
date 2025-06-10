@@ -1,0 +1,64 @@
+{
+    "id": 3590,
+    "name": "Avoid Interface implementation on Structures",
+    "href": "AIP/quality-rules/3590",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Interface",
+    "description": "Interfaces should not be implemented on Structures.",
+    "output": "This report lists all Interfaces implemented on Structures. It provides the following information: Interface full name, Structure name",
+    "rationale": "C# and VB.NET allow structs to implement interfaces. However this language feature can produce unexpected results, as structs are value types while interfaces require reference types to interact with. This means that calls to interface methods via implicit boxing operations will modify a copy rather than the original object.\nWhen implicit boxing occurs, a copy of the struct is placed on the heap and calls to the interface methods are executed on this copy via a reference. All changes to the state of the struct object are discarded after that call.",
+    "remediation": "Declare the type as a class rather than a struct. This is better OO practice as classes can hide their implementation details using efficient class property encapsulation. The drawback of this approach is a potential performance cost as the object will no longer be creatable as an efficient stack object. However, keep in mind that the .NET Just-In-Time compiler automatically inlines small simple methods. Create a wrapper class that contains the struct as a member - for example a property (for efficient encapsulation), and use the wrapper class to implement the interface.",
+    "total": "Total number of structures",
+    "alternativeName": "Avoid Interface implementation on Structures",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "id": 7706,
+    "name": "DEPRECATED: Avoid table and column names that are too long (portability)",
+    "href": "AIP/quality-rules/7706",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all entities or columns defined through annotations or XML, that define a table or column name whose length is greater than 30.\nThe table and column name length are parameters that can be changed at will.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If you specify table name that is too long you won't be able to create it on some databases. This will prevent you from using these table names unless you use a Naming Strategy to reduce the length of the table name.\n\nTo ease portability, choose table names with a length accepted by the majority of databases you want to support.",
+    "remediation": "Change the table name size or use a Naming Strategy to reduce the table name length.\n\nSome facts from http://www.mssqlcity.com/Articles/Compare\n\n                                table name length     column name length\nSQL Server 2000   128                            128\nASE 12.5                  30                              30\nMYSQL 4.1               64                              64\nDB2 8.1                  128                            128\nOracle 9i                  30                              30",
+    "remediationSample": "<class name=\"cast.core.InputFieldValueResource\" table=\"input_field_value_resource\">\n   ...\n</class>",
+    "sample": "<class name=\"cast.core.InputFieldValueResource\" table=\"cast_core_input_field_value_resource\">\n   ...\n</class>",
+    "total": "Number of persistent entities and properties",
+    "alternativeName": "Ensure that table and column names are not too long (portability)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "href": "AIP/technical-criteria/61004",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum length for the column names",
+            "description": "maximum length authorized for column name",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        30
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Maximum length for the table names",
+            "description": "maximum length authorized for the table name",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        30
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

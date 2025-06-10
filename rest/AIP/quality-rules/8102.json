@@ -1,0 +1,253 @@
+{
+    "id": 8102,
+    "name": "Avoid hard-coded network resource names (JEE)",
+    "href": "AIP/quality-rules/8102",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule reports all artifacts that contain hardcoded network resource\n\n- URLs (of the form file:///c:/Tmp/Folder/ or http://host.com/folder) \n- Paths (Windows absolute paths of the form c:\\Tmp\\Folder) \n- JDBC URL (of the form jdbc:oracle:thin:@//myhost:1521/orcl) \n- IP addresses (IPv4 format like 0.0.0.0 to 255.255.255.255) \n- JNDI lookup path",
+    "output": "List all artifacts that reference hard coded IP adresses, URL, paths\nIt provides the following information: \n - Artifact full name",
+    "rationale": "Built-in resource names cause problems when the target is moved. Avoid hard-coded network resources (e.g., IP addresses, URLs, etc.)\nThe software initializes data using hard-coded values that act as network resource identifiers.\nThis issue can prevent the software from running reliably, e.g. if it runs in an environment does not use the hard-coded network resource identifiers. If the relevant code is reachable by an attacker, then this reliability problem might introduce a vulnerability.\nHard coding network resorces, server IP addresses, URL etc can expose the information to attackers. Anyone who has access to the class files can decompile them and discover the sensitive information.\nHard coding sensitive information also increases the need to manage and accommodate changes to the code",
+    "reference": "ASCRM 1.0, Automated Source Code Reliability Measure, Object Management Group.\nhttps://wiki.sei.cmu.edu/confluence/display/java/MSC03-J.+Never+hard+code+sensitive+information",
+    "remediation": "Retrieve the hard-coded IP adresses, URLs, paths from an external file located in a secure directory",
+    "remediationSample": "Remediation For Sample1: The compliant solution retrieves the server IP address from an external file located in a secure directory\nclass IPaddress {\n  public static void main(String[] args) throws IOException {\n    char[] ipAddress = new char[100];\n    int offset = 0;\n    int charsRead = 0;\n    BufferedReader br = null;\n    try {\n      br = new BufferedReader(new InputStreamReader(\n             new FileInputStream(\"serveripaddress.txt\")));\n      while ((charsRead = br.read(ipAddress, offset, ipAddress.length - offset))\n          != -1) {\n        offset += charsRead;\n        if (offset >= ipAddress.length) {\n          break;\n        }\n      }\n       \n      // ... Work with IP address\n \n    } finally {\n      Arrays.fill(ipAddress,  (byte) 0);\n      br.close();\n    }\n  }\n}\n---------------------------\nRemediation for Sample2: Using the Configuration object and use this parameter instead of the hard coded path: \n\npublic class Sample{\n  private Configuration config;\n  public Sample(Configuration myConfig) {\n    this.config = myConfig;\n  }\n  public Collection<User> listUsers() {\n    String listingFolder = config.getProperty(\"myApp.listingFolder\");\n    File userList = new File(listingFolder, \"users.txt\"); // Compliant\n    Collection<User> users = parse(userList);\n    return users;\n  }\n}",
+    "sample": "Sample1: This noncompliant code example includes a hard-coded server IP address in a constant String:\n\nclass IPaddress {\n  String ipAddress = new String(\"172.16.254.1\");\n  public static void main(String[] args) {\n    //...\n  }\n}\n\n---------------\nSample2: This noncompliant code example includes a hard-coded URIs\n\npublic class TEST_SAMPLE{\n  public Collection<User> listUsers() {\n    File popleList = new File(\"/home/login/RED/people.txt\"); \n    Collection<User> people = parse(peopleList);\n    return people;\n  }\n}",
+    "total": "Number of Java Artifacts",
+    "alternativeName": "Ensure not having hard-coded network resources names in the source files (JEE)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062164,
+            "name": "ASCRM-RLB-18 - Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/technical-criteria/1062164",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "href": "AIP/technical-criteria/61004",
+            "weight": 7,
+            "critical": false
+        },
+        {
+            "id": 1061114,
+            "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/technical-criteria/1061114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067151,
+            "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/technical-criteria/1067151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063150,
+            "name": "PCI-DSS4-Requirement-1.4.5 - The disclosure of internal IP addresses and routing information is limited to only authorized parties.",
+            "href": "AIP/technical-criteria/1063150",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063101,
+            "name": "PCI-Requirement-1.3.8 - Do not disclose private IP addresses and routing information to unauthorized parties.",
+            "href": "AIP/technical-criteria/1063101",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-18",
+            "name": "Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-18",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/CWE/items/CWE-1051",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1051",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1051",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2023",
+            "name": "Security misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API8-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-1.3.8",
+            "name": "Do not disclose private IP addresses and routing information to unauthorized parties.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-1.3.8",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-1.3.8",
+            "name": "Do not disclose private IP addresses and routing information to unauthorized parties.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-1.3.8",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-1.4.5",
+            "name": "The disclosure of internal IP addresses and routing information is limited to only authorized parties.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-1.4.5",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

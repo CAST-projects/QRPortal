@@ -1,0 +1,80 @@
+{
+    "id": 588,
+    "name": "Avoid using Global Variables (C++)",
+    "href": "AIP/quality-rules/588",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Global variable used",
+    "description": "This rule searches for C++ code using global variables.\nConstant are not taken into account in this rule.",
+    "output": "Associated to each C++ Method/Constructor/Destructor with violations, the Quality Rule provides: \n- the global variable used.",
+    "rationale": "Global variables should be encapsulated in a class.",
+    "remediation": "Create a static data member in the appropriate class to replace the global variable.",
+    "sample": "int m_iGlobal = 0;\n\nvoid m()\n{\n m_iGlobal = 1; // VIOLATION\n}",
+    "total": "Number of C++ methods, constructors, and destructors",
+    "alternativeName": "Avoid using Global Variables (C++)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067208,
+            "name": "CWE-1108 - Excessive Reliance on Global Variables",
+            "href": "AIP/technical-criteria/1067208",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Declarations",
+            "name": "Declarations",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Declarations",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Declarations",
+            "name": "Declarations",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Declarations",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "CWE-1108",
+            "name": "Excessive Reliance on Global Variables",
+            "href": "AIP/quality-standards/CWE/items/CWE-1108",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

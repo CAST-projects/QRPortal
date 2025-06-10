@@ -1,0 +1,88 @@
+{
+    "id": 1521702,
+    "name": "Siebel: Business Component's name should begin with Company prefix",
+    "href": "AIP/quality-rules/1521702",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "description": "The quality rule reports the Business Components not compliant with the naming convention",
+    "output": "This rule reports custom Business Components not identified by a prefix",
+    "rationale": "For readability aspects, naming conventions must be respected",
+    "remediation": "Change name according to the naming convention",
+    "total": "Number of added Business Components",
+    "alternativeName": "Siebel: Business Component's name should begin with Company prefix",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Prefix Business Component",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        "AM_"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

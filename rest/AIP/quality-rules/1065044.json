@@ -1,0 +1,82 @@
+{
+    "id": 1065044,
+    "name": "Avoid other than main(), namespace declarations and extern \"C\" declarations in the global namespace (C/C++)",
+    "href": "AIP/quality-rules/1065044",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "The rule will raise a violation when any artifacts other than main, namespace or extern C are defined in global scope.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Declaring names into appropriate namespaces reduces the names found during lookup, helping to ensure that the names found meet developer expectations.",
+    "reference": "MISRA C++, 2008, 7-3-1: The global namespace shall only contain main, namespace declarations and extern \"C\" declarations.",
+    "remediation": "Ensure that in global space only extern linkages, namespace and main function are present",
+    "remediationSample": "namespace MY_API\n{\nvoid b2 ( int32_t ); // Compliant\nint32_t x2; // Compliant\n}\nint32_t main ( ) // Compliant - main function\n{\n}",
+    "sample": "void f1 ( int32_t ); // Non-compliant\nint32_t x1; // Non-compliant\nnamespace\n{\nvoid f2 ( int32_t ); // Compliant\nint32_t x2; // Compliant\n}",
+    "total": "Number of C / C++ methods and functions",
+    "alternativeName": "Ensure that in global space only extern linkages, namespace and main function are present",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Declarations",
+            "name": "Declarations",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Declarations",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Declarations",
+            "name": "Declarations",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Declarations",
+            "standard": "C-CPP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

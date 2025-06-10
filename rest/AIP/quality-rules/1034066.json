@@ -1,0 +1,144 @@
+{
+    "id": 1034066,
+    "name": "Avoid creating application cookie without SameSite option (PHP)",
+    "href": "AIP/quality-rules/1034066",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.php.security",
+        "href": "AIP/extensions/com.castsoftware.php.security"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule reports all the calls to set_cookie() with SameSite set to 'None', or not set.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The SameSite attribute controls how cookies are sent for cross-domain requests. This attribute may have three values: 'Lax', 'Strict', or 'None'. If the 'None' value is used, a website may create a cross-domain POST HTTP request to another website, and the browser automatically adds cookies to this request. This may lead to Cross-Site-Request-Forgery (CSRF) attacks if there are no additional protections in place (such as Anti-CSRF tokens).",
+    "reference": "CWE-1275: Sensitive Cookie with Improper SameSite Attribute\nhttps://cwe.mitre.org/data/definitions/1275.html\n\nOWASP Top Ten 2021 Category A01:2021 \u2013 Broken Access Control\nhttps://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+    "remediation": "Always set SameSite to 'Lax' or 'Strict' when creating a cookie",
+    "remediationSample": "$arr_cookie_options = array (\n    'expires' => time() + 60*60*24*30,\n    'path' => '/',\n    'domain' => '.example.com',\n    'secure' => true,\n    'httponly' => true,\n    'samesite' => 'Lax'                              // SameSite set to 'Lax'\n);\nsetcookie(\"user\", \"John Doe\", $arr_cookie_options);  // FIXED",
+    "sample": "$arr_cookie_options = array (\n    'expires' => time() + 60*60*24*30,\n    'path' => '/',\n    'domain' => '.example.com',\n    'secure' => true,\n    'httponly' => true\n    // Missing option 'samesite'\n);\nsetcookie(\"user\", \"John Doe\", $arr_cookie_options);  // VIOLATION",
+    "total": "Number of PHP artifacts",
+    "alternativeName": "Always set SameSite option when creating a cookie",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067375,
+            "name": "CWE-1275 - Sensitive Cookie with Improper SameSite Attribute",
+            "href": "AIP/technical-criteria/1067375",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062308,
+            "name": "OWASP-2013-A8 - Cross-Site Request Forgery (CSRF)",
+            "href": "AIP/technical-criteria/1062308",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063123,
+            "name": "PCI-Requirement-6.5.9 - Cross-site request forgery (CSRF)",
+            "href": "AIP/technical-criteria/1063123",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1275",
+            "name": "Sensitive Cookie with Improper SameSite Attribute",
+            "href": "AIP/quality-standards/CWE/items/CWE-1275",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-23",
+            "name": "Session Authenticity",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-23",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-23",
+            "name": "Session Authenticity",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-23",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A8-2013",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "href": "AIP/quality-standards/OWASP/items/A8-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.9",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.9",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

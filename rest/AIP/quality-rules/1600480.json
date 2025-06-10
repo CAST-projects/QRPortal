@@ -1,0 +1,82 @@
+{
+    "id": 1600480,
+    "name": "Avoid too many Related displays (PeopleSoft)",
+    "href": "AIP/quality-rules/1600480",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Number of Related Displays",
+    "description": "This quality rule detects Pages with more than X Related displays.\nX is a parameter than can be changed at will.\nDefault value is 5.",
+    "output": "This report lists all PeopleSoft Pages with a number of Related Displays greater than X.\nX is a parameter that can be changed at will.\nThe associated value is the number of Related Displays.",
+    "rationale": "Related displays, which cause a trip to the server, should be minimized when possible",
+    "remediation": "Review the Page design, and remove unwanted Related displays.",
+    "total": "Number of PeopleSoft Page",
+    "alternativeName": "Avoid too many Related displays (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "PeopleSoft: Max related display",
+            "description": "Max number",
+            "technologies": [
+                {
+                    "id": 1600000,
+                    "name": "PeopleSoft",
+                    "href": "AIP/technologies/1600000",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

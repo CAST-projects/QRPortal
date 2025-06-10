@@ -1,0 +1,79 @@
+{
+    "id": 7496,
+    "name": "DEPRECATED: Use table-per-subclass strategy when subclasses have many properties",
+    "href": "AIP/quality-rules/7496",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "The table-per-class-hierarchy strategy should be used only for very simple cases. Otherwise, the table-per-subclass strategy is recommended.\nIf we use the table-per-subclass strategy we may introduce common attributes at a single place, but, in case the table-per-concrete-class strategy is used, we have to do it at multiple places.\n\nThis rule reports all persistent entities (Hibernate, JPA or Jakarta Persistence) that do not use the table-per-subclass strategy for its subclasses when they have three or more attributes. This number is a threshold that can be changed if required.\n\nThis verification is limited to the first level of entities inheritance tree. For example, if the entity inheritance tree contains an entity C that inherits from entity B, that subsequently inherits from entity A, only the number of fields of entity B will be analyzed, not those from entity C.",
+    "output": "List all Hibernate, JPA or Jakarta Persistence Entities that do not use table-per-subclass strategy for their subclasses when they have as many or more attributes than the threshold parameter.\n\nIt provides the following information:\n Hibernate, JPA or Jakarta Persistence Entity Full Name",
+    "rationale": "If you require polymorphic associations or queries, and subclasses declare many properties (subclasses differ mainly by the data they hold), lean toward the table-per-subclass approach.\n\nBy default, choose table-per-class-hierarchy for simple problems. For more complex cases (or when you are overruled by a data modeler insisting upon the importance of nullability constraints), you should consider the table-per-subclass strategy. But at that point, ask yourself whether it might be better to remodel inheritance as delegation in the object model. Complex inheritance is often best avoided for all sorts of reasons unrelated to persistence or ORM.",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 105",
+    "remediation": "Use the table-per-subclass strategy to map the hierarchy.",
+    "remediationSample": "Remediation for Sample 1:\n\n<class name=\"Animal\" table=\"ANIMAL\">\n    <id name=\"id\" type=\"long\" column=\"ANIMAL_ID\">\n        <generator class=\"native\"/>\n    </id>\n    <property name=\"amount\" column=\"AMOUNT\"/>\n\n    // FIXED table-per-subclass strategy is used\n    <joined-subclass name=\"Dog\" table=\"DOG\">\n        <key column=\"DOG_ID\"/>\n        <property name=\"race\" column=\"RACE\"/>\n    </joined-subclass>\n\n    <joined-subclass name=\"Cat\" table=\"CAT\">\n        <key column=\"CAT_ID\"/>\n        <property name=\"color\" column=\"COLOR\"/>\n        <property name=\"country\" column=\"COUNTRY\"/>\n        <property name=\"age\" column=\"AGE\"/>\n        <property name=\"owner\" column=\"OWNER\">\n    </joined-subclass>\n</class>\n\n\n------------------\nRemediation for Sample 2:\n\n@Entity\n@Table(name = \"employees\")\n@Inheritance(strategy=InheritanceType.JOINED) // Fixed with table per subclass strategy\npublic class Employee {\n    @Id\n    @GeneratedValue(strategy = GenerationType.AUTO)\n    @Column(name = \"empid\")\n    private int empid;\n\n    @Column(name = \"name\")\n    private String name;\n\n    @Column(name = \"designation\")\n    private String designation;\n\n    @Column(name = \"emailid\")\n    private String emailId;\n}\n\n@Entity\n@Table(name = \"managers\")\n@PrimaryKeyJoinColumn(name = \"empid\")\npublic class Manager extends Employee\n{\n    @Column(name = \"reportee_count\")\n    private int reporteeCount;\n\n    @Column(name = \"mgmt_experience\")\n    private float mgmtExperience;\n\n    @Column(name = \"max_reportees\")\n    private int maxReportees;\n}",
+    "sample": "Sample 1 XML based:  animal.hbm.xml\n\n<class name=\"Animal\" table=\"ANIMAL\">\n    <id name=\"id\" type=\"long\" column=\"ANIMAL_ID\">\n        <generator class=\"native\"/>\n    </id>\n    <discriminator column=\"TYPE\" type=\"string\"/>\n    <property name=\"amount\" column=\"AMOUNT\"/>\n\n    // VIOLATION: one of the subclass attributes count \n    // is greater or equal to 3 and table-per-subclass\n    // strategy is not used\n\n    <subclass name=\"Dog\" discriminator-value=\"DOG\">\n        <property name=\"race\" column=\"RACE\"/>\n    </subclass>\n\n    <subclass name=\"Cat\" discriminator-value=\"CAT\">\n        <property name=\"color\" column=\"COLOR\"/>\n        <property name=\"country\" column=\"COUNTRY\"/>\n        <property name=\"age\" column=\"AGE\"/>\n        <property name=\"owner\" column=\"OWNER\">\n    </subclass>\n</class>\n-----------------------------------------------\n\nSample 2 Annotation based:\n\n@Entity\n@Table(name = \"employees\")\npublic class Employee {  // Violation - default strategy used (single table)\n    @Id\n    @GeneratedValue(strategy = GenerationType.AUTO)\n    @Column(name = \"empid\")\n    private int empid;\n\n    @Column(name = \"name\")\n    private String name;\n\n    @Column(name = \"designation\")\n    private String designation;\n\n    @Column(name = \"emailid\")\n    private String emailId;\n}\n\n@Entity\n@Table(name = \"managers\")\n@PrimaryKeyJoinColumn(name = \"empid\")\npublic class Manager extends Employee\n{\n    @Column(name = \"reportee_count\")\n    private int reporteeCount;\n\n    @Column(name = \"mgmt_experience\")\n    private float mgmtExperience;\n\n    @Column(name = \"max_reportees\")\n    private int maxReportees;\n}",
+    "total": "Number of Hibernate, JPA or Jakarta Persistence entities that are subclassed (subclass or joined-subclass) and that are not inheriting from another entity",
+    "alternativeName": "Ensure to use table-per-subclass strategy when subclasses have many properties",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Nbr_property",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        3
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "id": 1600384,
+    "name": "Naming convention on Language Record Table (PeopleSoft)",
+    "href": "AIP/quality-rules/1600384",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "Language records are identified by the suffix (defined in a parameter list)",
+    "output": "This report lists all the Language Record Table not following the naming convention.",
+    "rationale": "A language record table is a record. In that case, they must be considered as exceptions for object type record table and they must be identified by a specific naming convention.",
+    "remediation": "Rename the object using the good naming convention and research all the references to this object using the old reference (function find reference and find in in the application designer)",
+    "remediationSample": "<KEY>_MY_REF_LNG",
+    "total": "Number of PeopleSoft Lang record tables (ADDED)",
+    "alternativeName": "Naming convention on Language Record Table (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Suffix PeopleSoft Language Record Table",
+            "description": "PeopleSoft: Suffix Language Record Table",
+            "technologies": [
+                {
+                    "id": 1600000,
+                    "name": "PeopleSoft",
+                    "href": "AIP/technologies/1600000",
+                    "values": [
+                        "_LANG",
+                        "_LNG",
+                        "_LN"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

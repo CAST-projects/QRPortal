@@ -1,0 +1,164 @@
+{
+    "id": 8086,
+    "name": "Avoid types that own disposable fields and are not disposable",
+    "href": "AIP/quality-rules/8086",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for all the classes that declares and implements an IDisposable field type but not implement the IDisposable interface.",
+    "output": "This report lists all the classes that declare an IDisposable and not implement the IDisposable interface.\n\nIt provides following information:\n- Class name",
+    "rationale": "In an application if a class declares an IDisposable field indirectly that owns an unmanaged resource then the class should implement the IDisposable interface. When the class implements the IDisposable interface , the class dispose of unmanaged resources that it owns. If the class has an instance field that is an IDisposable type, that indicates that the field owns an unmanaged resource.\nSo if the class does not directly own any unmanaged resources, it should not implement a finalizer.",
+    "reference": "http://msdn.microsoft.com/en-us/library/ms182172.aspx",
+    "remediation": "Try either to remove the IDisposable fields or to make the class IDisposable. Make the class IDisposable by implementing IDisposable interface and from System.IDisposable.Dispose method invoke the Dispose method of the field.",
+    "remediationSample": "using System;\nusing System.IO;\n\nnamespace DesignLibrary\n{\n   \n   public class HasDisposeMethod: IDisposable\n   {\n      FileStream newFile;\n\n      public HasDisposeMethod()\n      {\n         newFile = new FileStream(@\"c:\\temp.txt\", FileMode.Open);\n      }\n\n      protected virtual void Dispose(bool disposing)\n      {\n         if (disposing)\n            {\n               // dispose managed resources\n               newFile.Close();\n            }\n          // free native resources\n      }\n\n      public void Dispose()\n      {\n         Dispose(true);\n      GC.SuppressFinalize(this);\n      }\n   }\n}",
+    "sample": "using System;\nusing System.IO;\n\nnamespace DesignLibrary\n{\n   // Violation \n   public class NoDisposeMethod\n   {\n      FileStream newFile;\n\n      public NoDisposeMethod()\n      {\n         newFile = new FileStream(@\"c:\\temp.txt\", FileMode.Open);\n      }\n   }\n\n}",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid types that own disposable fields and are not disposable",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061044,
+            "name": "CWE-401 - Missing Release of Memory after Effective Lifetime",
+            "href": "AIP/technical-criteria/1061044",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066501,
+            "name": "CWE-401 - Missing Release of Memory after Effective Lifetime",
+            "href": "AIP/technical-criteria/1066501",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 7,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "href": "AIP/technical-criteria/66066",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-401",
+            "name": "Missing Release of Memory after Effective Lifetime",
+            "href": "AIP/quality-standards/CWE/items/CWE-401",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-401",
+            "name": "Missing Release of Memory after Effective Lifetime",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-401",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-401",
+            "name": "Missing Release of Memory after Effective Lifetime",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-401",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "id": 7720,
+    "name": "DEPRECATED: Avoid too many EJB beans",
+    "href": "AIP/quality-rules/7720",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of EJB",
+    "description": "This reports a violation when the number of EJB beans ( Entity Java Bean, Session Java Bean , Message Driven Java Bean) defined in the application (ejb-jar.xml or annotation) is greater than 500. \nThis number can be changed as will through the threshold parameter.\n\nThe consequences of having too many beans are typically increased time and complexity during development, and suboptimal system functioning.",
+    "output": "This reports a violation when the number of EJB is greater than 500 Or the threshold.\nIt provides the following information:\n - Application\n - Number of EJB",
+    "rationale": "When too many EJB beans are created, the application performance can be poor because most of the functionalities will be run through a session (which means that the EJB container intercepts and processes many more method calls). Also, the application server itself may not perform as well because of the additional resources required to deploy and pool instances for many sessions.\nIn addition, there is more development effort due to all the session-related artifacts.",
+    "reference": "Wiley - J2EE AntiPatterns (ISBN: 0-471-14615-3) P 366",
+    "remediation": "Review the design of your application to decrease this number.\nThere are a large number of sessions defined, for example more than 50. A typical enterprise application can expect at most 20 to 30 sessions.",
+    "total": "!",
+    "alternativeName": "Ensure reducing the number of EJB beans to hold performance and complexity of the application",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of EJB",
+            "description": "Maximum number of EJB authorized",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        500
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

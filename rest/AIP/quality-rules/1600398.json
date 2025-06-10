@@ -1,0 +1,90 @@
+{
+    "id": 1600398,
+    "name": "Naming convention on AE Temporary Record (PeopleSoft)",
+    "href": "AIP/quality-rules/1600398",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "Application Engine Temporary Records are identified by the suffix (defined in a parameter list)",
+    "output": "This report lists all the AE Temporary Record not following the suffix naming convention.",
+    "rationale": "An App Engine Temporary Record is a record. In that case, they must be considered as exceptions for object type record and they must be identified by a specific naming convention.",
+    "remediation": "Rename the object using the good naming convention and research all the references to this object using the old reference (function find reference and find in in the application designer)",
+    "remediationSample": "<KEY>_<LABEL>_{TAO|TMP}\nWith <LABEL> = AE name with TAO ending",
+    "total": "Number of PeopleSoft Application engine temp records (ADDED)",
+    "alternativeName": "Naming convention on AE Temporary Record (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Suffix PeopleSoft AE Temp Record",
+            "description": "PeopleSoft: Suffix AE Temporary Record",
+            "technologies": [
+                {
+                    "id": 1600000,
+                    "name": "PeopleSoft",
+                    "href": "AIP/technologies/1600000",
+                    "values": [
+                        "_TAO",
+                        "_TMP"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

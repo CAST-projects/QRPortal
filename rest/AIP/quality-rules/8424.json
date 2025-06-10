@@ -1,0 +1,209 @@
+{
+    "id": 8424,
+    "name": "Avoid hard-coded HMAC and cryptographic key",
+    "href": "AIP/quality-rules/8424",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule identifies the use of hard-coded HMAC and cryptographic keys in software source code. HMAC and cryptographic keys are meant to be secret and configurable, but when they are embedded directly in the code, they become easily accessible to anyone who can inspect the binary or decompile the application.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Hard-coding HMAC and cryptographic keys poses a significant security risk because it makes them vulnerable to extraction by attackers. If malicious actors gain access to the source code or compiled binary, they can recover the keys and compromise encrypted data, impersonate legitimate users, or bypass security controls. Additionally, hard-coded keys make key rotation difficult, forcing developers to modify and redeploy the application whenever a key must be changed. This undermines security best practices such as regular key updates and least-privilege access, increasing the risk of long-term breaches.",
+    "reference": "CWE-321: Use of Hard-coded Cryptographic Key\nhttps://cwe.mitre.org/data/definitions/321.html\n\nOWASP Top Ten 2021 Category A02:2021 - Cryptographic Failures\nhttps://owasp.org/Top10/A02_2021-Cryptographic_Failures/\n\nOWASP Cheat Sheet Series - Cryptographic Storage Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html\n\nhttps://en.wikipedia.org/wiki/HMAC\nhttps://en.wikipedia.org/wiki/Key_(cryptography)",
+    "remediation": "To address this issue, developers should avoid hard-coding HMAC and cryptographic keys and instead use secure key management solutions. Keys should be stored in environment variables, secure configuration files (with restricted access), or dedicated key management systems. Additionally, keys should be dynamically retrieved at runtime and periodically rotated. If legacy systems require hard-coded keys for backward compatibility, they should be phased out in favor of more secure alternatives.",
+    "remediationSample": "// ----------------------------------------------------------------------------\n(C#)\n\nusing (HMAC hmac = HMAC.Create(\"HMACSHA512\"))\n{\n    var rngCryptoServiceProvider = new RNGCryptoServiceProvider();\n    byte[] randomBytes = new byte[keyLength];\n    rngCryptoServiceProvider.GetBytes(randomBytes);\n    hmac.Key = randomBytes;\n}\n\n// ----------------------------------------------------------------------------\n(Java)\n\nprivate static final String ENV_KEY_NAME = \"ENCRYPTION_KEY\"; // Key loaded externally\n\npublic Key getEncryptionKey() {\n    // Retrieve key from environment variable\n    String keyValue = System.getenv(ENV_KEY_NAME);\n    if (keyValue == null || keyValue.isEmpty()) {\n        throw new IllegalStateException(\"Encryption key not configured!\");\n    }\n    return new SecretKeySpec(keyValue.getBytes(), \"AES\");\n}",
+    "sample": "// ----------------------------------------------------------------------------\n(C#)\n\nusing (HMAC hmac = HMAC.Create(\"HMACSHA512\"))\n{\n  string secureKey = \"12345\";\n  byte[] SecureBytes = Encoding.ASCII.GetBytes(secureKey);\n  hmac.Key = SecureBytes;\n}\n\n// ----------------------------------------------------------------------------\n(Java)\n\nprivate static final String HARD_CODED_KEY = \"ThisIsASecretKey123\"; // Hard-coded key\n\npublic Key getEncryptionKey() {\n    // Creates a SecretKeySpec using the hard-coded key (vulnerable to CWE-321)\n    return new SecretKeySpec(HARD_CODED_KEY.getBytes(), \"AES\"); // CWE-321\n}",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure not using hard-coded HMAC and cryptographic key",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061037,
+            "name": "CWE-321 - Use of Hard-coded Cryptographic Key",
+            "href": "AIP/technical-criteria/1061037",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066421,
+            "name": "CWE-321 - Use of Hard-coded Cryptographic Key",
+            "href": "AIP/technical-criteria/1066421",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-321",
+            "name": "Use of Hard-coded Cryptographic Key",
+            "href": "AIP/quality-standards/CWE/items/CWE-321",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-321",
+            "name": "Use of Hard-coded Cryptographic Key",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-321",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-321",
+            "name": "Use of Hard-coded Cryptographic Key",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-321",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M5-2016",
+            "name": "Insufficient Cryptography",
+            "href": "AIP/quality-standards/OWASP/items/M5-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "id": 2592,
+    "name": "Encapsulation compliance",
+    "href": "AIP/quality-rules/2592",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "associatedValueName": "Module variable",
+    "description": "Avoid directly accessing module variables from outside the Class not using getters and setters.",
+    "output": "This report lists all direct accesses to module variables from outside the Class not using getters and setters.",
+    "rationale": "Direct usage of module variables outside of the class prevents control and should be avoided.",
+    "remediation": "Define getters and setters even if no checks are in place (such as setting a correct value). If these are needed later on, future modification will be easier.",
+    "total": "Number of VB artifacts",
+    "alternativeName": "Encapsulation compliance",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 4,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "href": "AIP/technical-criteria/66066",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

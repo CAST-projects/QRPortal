@@ -1,0 +1,71 @@
+{
+    "id": 1020608,
+    "name": "Avoid using Controls Hardcoded IDs inside a Controller, Component or JSView (SapUI5)",
+    "href": "AIP/quality-rules/1020608",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sapui5",
+        "href": "AIP/extensions/com.castsoftware.sapui5"
+    },
+    "description": "Hardcoded IDs should be used to define IDs for controls inside a JSView, Controller or Component. To guarantee their uniqueness when reusing views, you can not give hardcoded IDs, but you have to give the view the opportunity to add its own instance ID as a prefix.",
+    "output": "Associated to each violation, the following information is provided:\n      - The number of violation occurrences\n      - Bookmarks for violation occurrences found in the source code",
+    "rationale": "Stable IDs are used to identify and modify the controls within the controller during runtime. However, if you reuse or nest these views, these stable IDs are no longer unique. To avoid ambiguity, each view adds its own ID as prefix to all its child controls.\n\n\n      When you create JSViews or applications that will be running together with views or applications from other sources (that are not owned by you), or JSViews that will be instantiated several times in parallel, you must not create static IDs for your controls, fragments, or views in UI5. Doing so might result in duplicate ID errors that will break your app. Especially when running together with other apps, there could be name clashes or other errors.",
+    "reference": "https://sapui5.hana.ondemand.com/#/topic/91f28be26f4d1014b6dd926db0e91070.html",
+    "remediation": "This is can be done by using the View.createId(...) method. For the example above, this is done as follows:\n\n      var oButton = new sap.m.Button(this.createId(\"myButton\"), {text:\"Hello JS View\"});\n      This is not required for declarative view types as the view parser can manage this automatically\n\n\n      Use the createId() function of a view or controller instead. This is done automatically in XMLViews and JSONViews. The createId() function adds the View ID as a prefix, thus recursively ensuring uniqueness of the ID (for example: __page0--__dialog0).",
+    "remediationSample": "var btn = new sap.m.Button(this.createId(\"myBtn\"), {text: \"Hello\"});\n      ________________________________\n\n      var _input = new sap.m.Input({\n      showValueHelp: Boolean(\"true\"),\n      valueHelpOnly: Boolean(\"true\"),\n      id: this.createId(\"approver\"),\n      valueHelpRequest: [that._onApproverHelpRequest, that]\n      });\n      ________________________________\n\n      sap.ushell.Container.getRenderer(\"fiori2\").addLeftPaneContent(\"sap.m.Button\", {id: this.createId(\"testBtn\"), text: \"Test Button\"}, true, true);",
+    "sample": "var btn = new sap.m.Button(\"myBtn\", {text: \"Hello\"});\n      ________________________________\n\n      var _input = new sap.m.Input({\n      showValueHelp: Boolean(\"true\"),\n      valueHelpOnly: Boolean(\"true\"),\n      id: \"approver\",\n      valueHelpRequest: [that._onApproverHelpRequest, that]\n      });\n      ________________________________\n\n      sap.ushell.Container.getRenderer(\"fiori2\").addLeftPaneContent(\"sap.m.Button\", {id: \"testBtn\", text: \"Test Button\"}, true, true);",
+    "total": "Number of SAPUI5 Artifacts managing controls (Controllers, Components, JSViews...)",
+    "alternativeName": "Avoid using Controls Hardcoded IDs inside a Controller, Component or JSView (SapUI5)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

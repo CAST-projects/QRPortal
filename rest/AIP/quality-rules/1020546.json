@@ -1,0 +1,210 @@
+{
+    "id": 1020546,
+    "name": "Avoid using unsanitized AngularJS application",
+    "href": "AIP/quality-rules/1020546",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.angularjs",
+        "href": "AIP/extensions/com.castsoftware.angularjs"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "AngularJS includes a $sanitize service that will parse an HTML string into tokens and only allow safe and white-listed markup. The markup will no longer contain scripting expression and dangerous attributes when the string is \"disinfected\".",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure that users cannot add unchecked HTML string. It helps detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.",
+    "reference": "https://docs.angularjs.org/guide/security",
+    "remediationSample": "var app = angular.module(\"app\", [\"ngSanitize\"]);",
+    "sample": "var app = angular.module(\"app\");",
+    "total": "Number of angular applications (may be represented by an html file, most often index.html, or no html if such html file does not exist)",
+    "alternativeName": "Ensure to use $sanitize service in AngularJS apps to prevent Data Injection attacks",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062191,
+            "name": "ASCSM-CWE-79 - Cross-site Scripting Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062191",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061015,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1061015",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066179,
+            "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/technical-criteria/1066179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062303,
+            "name": "OWASP-2013-A3 - Cross-Site Scripting (XSS)",
+            "href": "AIP/technical-criteria/1062303",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062327,
+            "name": "OWASP-2017-A7 - Cross-Site Scripting (XSS)",
+            "href": "AIP/technical-criteria/1062327",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063121,
+            "name": "PCI-Requirement-6.5.7 - Cross-site scripting (XSS)",
+            "href": "AIP/technical-criteria/1063121",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-79",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/CWE/items/CWE-79",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-79",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-79",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "href": "AIP/quality-standards/OWASP/items/A3-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "href": "AIP/quality-standards/OWASP/items/A7-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.7",
+            "name": "Cross-site scripting (XSS)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.7",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.7",
+            "name": "Cross-site scripting (XSS)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.7",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222602",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222602",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222602",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222602",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

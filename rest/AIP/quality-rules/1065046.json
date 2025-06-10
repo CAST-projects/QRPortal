@@ -1,0 +1,170 @@
+{
+    "id": 1065046,
+    "name": "Avoid using the unbounded functions of <cstring> library",
+    "href": "AIP/quality-rules/1065046",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "The rule will raise a violation when the following unbounded functions of <cstring> are used:\nstrcpy\nstrcmp\nstrcat\nstrchr\nstrspn\nstrcspn\nstrpbrk\nstrrchr\nstrstr\nstrtok\nstrlen",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The strcpy, strcmp, strcat, strchr, strspn, strcspn, strpbrk, strrchr, strstr, strtok and strlen functions within the <cstring> library can read or write beyond the end of a buffer, resulting in undefined behaviour.\n\nIdeally, a safe string handling library should be used.",
+    "reference": "MISRA C++ 2008, 18-0-5: The unbounded functions of library <cstring> shall not be used.",
+    "remediation": "Use functions such as mentioned below to ensure that the copied string is NULL-Terminated:\n\nsnprintf\nstrlcpy",
+    "sample": "#include <cstring> \nvoid fn ( const char_t * pChar ) \n{    \nchar_t array [ 10 ];\nstrcpy ( array, pChar );   // Non-compliant\n}",
+    "total": "Number of C / C++ method and function",
+    "alternativeName": "Avoid using the unbounded functions of <cstring> library",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062145,
+            "name": "ASCRM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062145",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062174,
+            "name": "ASCSM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062174",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061022,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1061022",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066220,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1066220",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066342,
+            "name": "CWE-242 - Use of Inherently Dangerous Function",
+            "href": "AIP/technical-criteria/1066342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066776,
+            "name": "CWE-676 - Use of Potentially Dangerous Function",
+            "href": "AIP/technical-criteria/1066776",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Libraries",
+            "name": "Libraries",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Libraries",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Libraries",
+            "name": "Libraries",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Libraries",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "ASCRM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-120",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-120",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/CWE/items/CWE-120",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-242",
+            "name": "Use of Inherently Dangerous Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-242",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-676",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-120",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-120",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

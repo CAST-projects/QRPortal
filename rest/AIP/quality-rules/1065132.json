@@ -1,0 +1,75 @@
+{
+    "id": 1065132,
+    "name": "Avoid using typeid in polymorphic class from the body of its constructor or destructor.",
+    "href": "AIP/quality-rules/1065132",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "The rule will raise a violation when typeid on a class with a virtual function is used from within its constructor or destructor",
+    "rationale": "During construction and destruction of an object, its final type may be different from that of the completely constructed object. The result of using an object\u2019s dynamic type in a constructor or destructor may not be consistent with developer expectations. The dynamic type of an object is used in the following construct:\n- typeid on a class with a virtual function or a virtual function in a base class.",
+    "reference": "MISRA C++ 2008, 12-1-1: An object\u2019s dynamic type shall not be used from the body of its constructor or destructor. \nAUTOSAR C++ 2014, M12-1-1: An object\u2019s dynamic type shall not be used from the body of its constructor or destructor.",
+    "remediation": "Avoid using object's dynamic type in a constructor or a destructor",
+    "remediationSample": "class B1\n{\npublic:\nB1 ( )\n{\ntypeid ( B1 ); // Compliant, B1 not polymorphic\n\n}\n};",
+    "sample": "class B2\n{\npublic:\nvirtual ~B2 ( );\nvirtual void foo ( );\nB2 ( )\n{\ntypeid ( B2 ); // Non-compliant\n\n}\n};",
+    "alternativeName": "Avoid using typeid in polymorphic class from the body of its constructor or destructor.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Special-Member-Functions",
+            "name": "Special Member Functions",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Special-Member-Functions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Special-Member-Functions",
+            "name": "Special Member Functions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Special-Member-Functions",
+            "standard": "C-CPP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

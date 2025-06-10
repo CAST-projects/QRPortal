@@ -1,0 +1,257 @@
+{
+    "id": 8476,
+    "name": "Avoid calling unsafe C library functions from COBOL",
+    "href": "AIP/quality-rules/8476",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Calling unsafe C library functions from COBOL is a security problem as this requires large size of the buffer to avoid buffer overflows. \n\nThis rule reports use of the following insecure functions: strcpy(), strcat(), sprintf();",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides: \n\n- The number of unsafe C library functions calls from COBOL.\n- The bookmarks of the calls.",
+    "rationale": "Buffer overflows can cause the program to crash at a minimum. At worst, a carefully crafted overflow can cause malicious code to be executed.",
+    "reference": "OWASP Top 10 2017 Category A9 - Using Components with Known Vulnerabilities\nMITRE, CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')\nMITRE, CWE-676 - Use of Potentially Dangerous Function",
+    "remediation": "In such cases, it's better to use an alternate, secure function which allows you to define the maximum number of characters to be written to the buffer:\n\nstrlcpy (BSD library) or strncpy\nstrlcat (BSD library) or strncat\nsnprintf\nfgets\ngetpwuid",
+    "sample": "CALL 'gets' USING in-line RETURNING in-line.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid calling unsafe C library functions from COBOL",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062145,
+            "name": "ASCRM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062145",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062174,
+            "name": "ASCSM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062174",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061022,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1061022",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066220,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1066220",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066342,
+            "name": "CWE-242 - Use of Inherently Dangerous Function",
+            "href": "AIP/technical-criteria/1066342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066776,
+            "name": "CWE-676 - Use of Potentially Dangerous Function",
+            "href": "AIP/technical-criteria/1066776",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062309,
+            "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062309",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062329,
+            "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062329",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062346,
+            "name": "OWASP-2021-A06 - Vulnerable and Outdated Components",
+            "href": "AIP/technical-criteria/1062346",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063116,
+            "name": "PCI-Requirement-6.5.2 - Buffer overflows",
+            "href": "AIP/technical-criteria/1063116",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AIP-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/AIP-STRUCTURAL-FLAW/items/AIP-CWE-120",
+            "standard": "AIP-STRUCTURAL-FLAW"
+        },
+        {
+            "id": "AIP-CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/AIP-STRUCTURAL-FLAW/items/AIP-CWE-676",
+            "standard": "AIP-STRUCTURAL-FLAW"
+        },
+        {
+            "id": "ASCRM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-120",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-120",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/CWE/items/CWE-120",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-242",
+            "name": "Use of Inherently Dangerous Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-242",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-676",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-120",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-120",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222612",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222612",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

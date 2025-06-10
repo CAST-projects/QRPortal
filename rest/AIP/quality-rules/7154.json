@@ -1,0 +1,72 @@
+{
+    "id": 7154,
+    "name": "Struts1: Avoid Struts Fields in Action Classes that are not final static",
+    "href": "AIP/quality-rules/7154",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Field name",
+    "description": "Struts action classes are not thread-safe. You should not place any fields which are not static final in the class.\nThis rule reports fields that are not static final in classes that inherit from the class org.apache.struts.action.Action",
+    "output": "This report lists all fields which are not final static in Action classes:\nIt provides the following information:\n - Action Class\n - Field name",
+    "rationale": "Avoid instance/non final static field in Action Class\n- Instance and static field should not be used in an Action class to store information related to the state of a particular request.\nThe same instance of an Action class can be shared among multiple simultaneous requests through multi-threading\n- Instance/static field may, however, be used to share global resources across requests for the same action.\nThe use of fields within an Action class creates a security breach as this object is shared among multiple sessions and thus can lead to confidential data leaks",
+    "reference": "https://cwiki.apache.org/confluence/display/STRUTS1/StrutsWhyOnlyOneInstanceOfActionClass",
+    "remediation": "Change the design of your Action class implementation if the field is not used to share global resources across requests for the same action. You should use local variables inside your methods, and pass whatever data you need to other methods in the class via parameters.  Because local variables and method parameters exist once per *thread* instead of once per *instance*, so there is no problem in using them to store the state for a particular request.",
+    "remediationSample": "Public class BaseApplicationAction extends Action\n{\n// FIXED\npublic ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception\n[...]\n}",
+    "sample": "Public class BaseApplicationAction extends Action\n{\nstatic int StaticField; // VIOLATION\nlong Id;                     // VIOLATION\n\npublic ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception\n[...]\n}",
+    "total": "Number of fields in Action classes",
+    "alternativeName": "Ensure to use local variables inside your methods, and pass whatever data you need to other methods in the class via parameters",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "href": "AIP/technical-criteria/66065",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

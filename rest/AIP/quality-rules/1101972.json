@@ -1,0 +1,158 @@
+{
+    "id": 1101972,
+    "name": "Avoid having multiple artifacts deleting data on the same NoSQL collection",
+    "href": "AIP/quality-rules/1101972",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.nosqldotnet",
+        "href": "AIP/extensions/com.castsoftware.nosqldotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric detects tables having too many sources of delete data deletion (too many artifacts deleting them). It retrieves table having more than X artifacts deleting these tables, where X a configurable parameter.\n\nLimitation: In the case where an artifact does different actions on data (such as update, delete or insert) and the violation is triggered then the bookmarks of the other actions will be present in the dashboard.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "One main source of data corruption within applications comes from lack of compliance to data modification rules defined for an application. These rules are usually related to the use of specific procedures for update/insert/delete, a specific API or a data layer that is fully tested to maintain data integrity. The creation of new, different update/insert/delete procedures and functions that do not make use the existing tested code is at origin of many data corruption cases.",
+    "remediation": "Review the source code of the application and modify it on order not to have multiple artifacs deleting data on the same NoSQL table",
+    "sample": "db.collection.remove(\n   <query>,\n   {\n     justOne: <boolean>,\n     writeConcern: <document>,\n     collation: <document>\n   }\n)",
+    "total": "Number of collections deleted by artifact",
+    "alternativeName": "Avoid having multiple artifacts deleting data on the same NoSQL collection",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062144,
+            "name": "ASCPEM-PRF-9 - Non-Stored SQL Callable Control Element with Excessive Number of Data Resource Access",
+            "href": "AIP/technical-criteria/1062144",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061120,
+            "name": "CWE-1060 - Excessive Number of Inefficient Server-Side Data Accesses",
+            "href": "AIP/technical-criteria/1061120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067160,
+            "name": "CWE-1060 - Excessive Number of Inefficient Server-Side Data Accesses",
+            "href": "AIP/technical-criteria/1067160",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-9",
+            "name": "Non-Stored SQL Callable Control Element with Excessive Number of Data Resource Access",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-9",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1060",
+            "name": "Excessive Number of Inefficient Server-Side Data Accesses",
+            "href": "AIP/quality-standards/CWE/items/CWE-1060",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1060",
+            "name": "Excessive Number of Inefficient Server-Side Data Accesses",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1060",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1060",
+            "name": "Excessive Number of Inefficient Server-Side Data Accesses",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1060",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max number of artifacts deleting the collection",
+            "description": "Max number of artifacts deleting the collection",
+            "technologies": [
+                {
+                    "id": 138636,
+                    "name": "ASP.NET",
+                    "href": "AIP/technologies/138636",
+                    "values": [
+                        1
+                    ]
+                },
+                {
+                    "id": 138383,
+                    "name": "C#",
+                    "href": "AIP/technologies/138383",
+                    "values": [
+                        1
+                    ]
+                },
+                {
+                    "id": 138385,
+                    "name": "VB.NET",
+                    "href": "AIP/technologies/138385",
+                    "values": [
+                        1
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "id": 7212,
+    "name": "Avoid instantiations inside loops (.NET)",
+    "href": "AIP/quality-rules/7212",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all artifacts with loops (for, while, do while)  that contain object instantiations (object creation).\n.NET artifacts include all methods and constructors.\n \nIf the instantiation concerns one of the following cases listed here below  it will be not considered as a violation.\n* The instantiation is an element of the list created using the following methods.\n       - System.Collections.Generic.Dictionary<TKey, TValue>..Add(TKey, TValue)\n       - System.Collections.Generic.List<T>..Add(T)\n       - System.Collections.Generic.Queue<T>.Enqueue\n       - System.Collections.Generic.SortedList<TKey, TValue>.Add\n       - System.Collections.Generic.Stack<T>.Push\n       - System.Collections.ArrayList.Add\n       - System.Collections.Hashtable.Add\n       - System.Collections.Queue.Enqueue\n      - System.Collections.Stack.Push\n      - System.Collections.Concurrent.BlockingCollection<T>.Add(T)\n\n* The instantiation is in the end of a return or throw statement.\n\n The list can be extended with other methods given as parameter of the rule.",
+    "output": "All .NET artifacts(methods and constructors) with loops (for, while, do while) that contain object instantiations (object creation)",
+    "rationale": "One of the fundamental OO performance management principles is this: Avoid excessive object creation. This doesn't mean that you should give up the benefits of object-oriented programming by not creating any objects, but you should be wary of object creation inside of tight loops when executing performance-critical code. Object creation is expensive enough that you should avoid unnecessarily creating temporary or intermediate objects in situations where performance is an issue.",
+    "reference": "CISQ rule: ASCPEM-PRF-8.",
+    "remediation": "Ensure you don't instantiate objects in loops.",
+    "remediationSample": "public class MyLoop {\n     public void printCount() {\n         StringBuilder sb = new StringBuilder(); // FIXED\n         for (int i = 0; i < 100; i++) {\n             sb.Length = 0;\n             sb.Append(\"count = \");\n             sb.Append(i);\n              Console.WriteLine(sb);\n         }\n     }\n }",
+    "sample": "public class MyLoop {\n     public void printCount() {\n         for (int i = 0; i < 100; i++) {\n             StringBuilder sb = new StringBuilder(); // VIOLATION\n             sb.Append(\"count = \");\n             sb.Append(i);\n            Console.WriteLine(sb);\n         }\n     }\n }",
+    "total": "Total number of methods and constructors",
+    "alternativeName": "Ensure you don't instantiate objects in loops",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062143,
+            "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/technical-criteria/1062143",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061113,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1061113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067150,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1067150",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "href": "AIP/technical-criteria/66068",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-8",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/CWE/items/CWE-1050",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1050",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1050",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

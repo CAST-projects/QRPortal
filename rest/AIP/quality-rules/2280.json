@@ -1,0 +1,123 @@
+{
+    "id": 2280,
+    "name": "DEPRECATED: Avoid using Document.all collection",
+    "href": "AIP/quality-rules/2280",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Avoid using \"Document.all\" JScript code.",
+    "output": "This report lists all uses of Document.all JavaScript code.\nIt provides the following information: \n - Web file Artifact full name",
+    "rationale": "Using the Document.all collection is slow when retrieving its different objects into HTML, HTM, JSP, JS files as it collects - and loads in memory - all items.",
+    "remediation": "E.g.: Rather use: var temp = document.foo  temp.innerText = \"Hello\" Instead of document.all['foo'].innerText = \"Hello\"",
+    "total": "Number of objects belonging to files with extension given by parameter",
+    "alternativeName": "Ensure to use an alternative to Document.all collection",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "HTM",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".htm"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "HTML",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".html"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "JS",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".js"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "JSP",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".jsp"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

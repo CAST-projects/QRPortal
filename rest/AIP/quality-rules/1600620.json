@@ -1,0 +1,77 @@
+{
+    "id": 1600620,
+    "name": "Avoid PeopleCode Events with a low comment/code ratio (PeopleSoft)",
+    "href": "AIP/quality-rules/1600620",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Comment/code ratio",
+    "description": "PeopleCode Events should have at least a ratio comment/code > X %\nThe threshold is a parameter and can be changed at will.",
+    "output": "This report lists all PeopleSoft Events with comment/code ratio lower than X %.",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact",
+    "remediation": "Enrich Artifact code with comments",
+    "total": "Number of PeopleSoft Events",
+    "alternativeName": "Avoid PeopleCode Events with a low comment/code ratio (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "PeopleSoft: Min % Comment in Event",
+            "description": "Min % Comment",
+            "technologies": [
+                {
+                    "id": 1600000,
+                    "name": "PeopleSoft",
+                    "href": "AIP/technologies/1600000",
+                    "values": [
+                        10
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

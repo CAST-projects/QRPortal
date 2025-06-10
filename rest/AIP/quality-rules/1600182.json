@@ -1,0 +1,69 @@
+{
+    "id": 1600182,
+    "name": "Avoid renaming or changing attributes on existing projet's Fields (PeopleSoft)",
+    "href": "AIP/quality-rules/1600182",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Value in the Vanilla",
+    "description": "This quality rule reports DBField with attributes renamed or changed from original value in Vanilla.",
+    "output": "Failed checks give the number of wrongly defined fields.\nThe associated value is the defined values in the vanilla.",
+    "rationale": "As a result of this kind of change, the original value is lost.\nSo the change cannot be undone.\nThis type of change must be avoided as it leads to a dead-end.",
+    "remediation": "Avoid these types of change.\nReverting back to origin is complex or impossible.",
+    "total": "Number of PeopleSoft DBField (MODIFIED)",
+    "alternativeName": "Avoid renaming or changing attributes on existing projet's Fields (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

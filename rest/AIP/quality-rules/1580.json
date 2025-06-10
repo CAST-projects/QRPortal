@@ -1,0 +1,64 @@
+{
+    "id": 1580,
+    "name": "Avoid using execute immediate",
+    "href": "AIP/quality-rules/1580",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "description": "Using Execute immediate allows to dynamically create the query from strings, but leads to some performance problems. The execution plan cannot be stored in memory and thus needs to be calculated each time.",
+    "output": "This report lists all triggers, procedures, functions and packages using the execute immediate keyword.\nIt provides the following information: Artifact Name, Artifact Full Name.",
+    "rationale": "The EXECUTE IMMEDIATE statement prepares (parses) and immediately executes a dynamic SQL statement or an anonymous PL/SQL block.\nEach repetition of the same dynamic SQL statement incurs a soft parse, which is a small overhead compared to a static statement, but still an overhead. The overhead of execute immediate is small, it can be in the thousandths of a second - however, it can add up if this is inside a loop / on a method called once per object.",
+    "remediation": "You should replace the dynamic SQL statements through different static statements.",
+    "total": "Number of PLSQL objects using execute immediate",
+    "alternativeName": "Avoid using execute immediate",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,154 @@
+{
+    "id": 7050,
+    "name": "Function naming convention",
+    "href": "AIP/quality-rules/7050",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "description": "ABAP Functions should begin with Z. This reports shows all the ABAP Functions not starting with Z. The prefix is a parameter and can be changed at will.",
+    "output": "This report lists all ABAP Functions that does not respect the naming conventions.\nIt provides the following information:\nABAP Function full name",
+    "rationale": "For readability aspects and to respect SAP standard, naming conventions must be respected.",
+    "remediation": "Change name according to the naming convention.",
+    "total": "Number of ABAP Functions",
+    "alternativeName": "Function naming convention",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Prefix #1",
+            "description": "Function naming convention",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "Z"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Prefix #2",
+            "description": "Function naming convention",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "Y"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Prefix #3",
+            "description": "Function naming convention",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "LY"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Prefix #4",
+            "description": "Function naming convention",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "LZ"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Prefix #5",
+            "description": "Function naming convention",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "SAPLY"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Prefix #6",
+            "description": "Function naming convention",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "SAPLZ"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

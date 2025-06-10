@@ -1,0 +1,144 @@
+{
+    "id": 7362,
+    "name": "DEPRECATED: Avoid Struts action mappings validator turned off",
+    "href": "AIP/quality-rules/7362",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Automatic filtering via a Struts bean has been turned off, which disables the Struts Validator and custom validation logic. This exposes the application to other weaknesses related to insufficient input validation.\n\nThis rule reports all action mapping with disabled validation.",
+    "output": "This report lists all Struts action mappingsAction Mapping that have a disabled validation. It provides the following information:\n  Action Mapping Full Name",
+    "rationale": "Disabling the validation of a form expose this action to various types of attacks such as SQL Injection, Command Injection, Cross-Site Scripting, Denial of Service... This is due to the fact that invalidated input may allow injecting arbitrary web script, HTML, SQL... Consequences can be severe, like deletion of the entire content of a database. Input validation is mandatory to secure an application. \nMoreover, the web interface is exposed to anyone.",
+    "reference": "http://cwe.mitre.org/data/definitions/109.html",
+    "remediation": "Enable the validation.",
+    "remediationSample": "----> struts-config.xml:\n...\n<action path=\"/submit\"\n             type=\"submit.SubmitAction\"\n             name=\"submitForm\" input=\"/submit.jsp\"\n             scope=\"request\"\n             validate=\"true\"> // FIXED\n    <forward name=\"success\" path=\"/submit.jsp\"/>\n    <forward name=\"failure\" path=\"/submit.jsp\"/>\n</action>\n...\n\nNote also that the absence of validate attribute is interpreted as validate=\"true\"",
+    "sample": "----> struts-config.xml:\n...\n<action path=\"/submit\"\n             type=\"submit.SubmitAction\"\n             name=\"submitForm\" input=\"/submit.jsp\"\n             scope=\"request\" \n             validate=\"false\"> // VIOLATION\n    <forward name=\"success\" path=\"/submit.jsp\"/>\n    <forward name=\"failure\" path=\"/submit.jsp\"/>\n</action>\n...",
+    "total": "Number of Struts action mapping or 0 if no object of type \"Struts Configuration File\" is present",
+    "alternativeName": "Ensure to have the validation activated  for all Struts action mappings",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066209,
+            "name": "CWE-109 - Struts: Validator Turned Off",
+            "href": "AIP/technical-criteria/1066209",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-109",
+            "name": "Struts: Validator Turned Off",
+            "href": "AIP/quality-standards/CWE/items/CWE-109",
+            "standard": "CWE"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

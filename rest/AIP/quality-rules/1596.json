@@ -1,0 +1,59 @@
+{
+    "id": 1596,
+    "name": "Avoid using \"nullable\" Columns except in the last position in a Table",
+    "href": "AIP/quality-rules/1596",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "description": "\"Nullable\" Columns should be last in the Table Column order.",
+    "output": "This report lists all Tables with \"nullable\" Columns not located at the end of the table.\nIt provides the following information: Table name, Table full name",
+    "rationale": "Placing Columns that frequently contain NULLs last in the Table Column order, minimizes the average Row length and optimizes the Table data density, which of course benefits performance. \nThis column ordering also minimizes the number of Column length bytes that need to be navigated to access the non-NULL Column values. This also benefits performance.",
+    "remediation": "Review the design of the Table to change Column order",
+    "total": "Number of PLSQL tables",
+    "alternativeName": "Avoid using \"nullable\" Columns except in the last position in a Table",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

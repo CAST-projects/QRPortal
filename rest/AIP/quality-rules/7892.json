@@ -1,0 +1,62 @@
+{
+    "id": 7892,
+    "name": "Web Dynpro - Avoid changing the program flow",
+    "href": "AIP/quality-rules/7892",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks Web Dynpro source code for statements that can change the program flow such as \"LEAVE PROGRAM\", \"CALL TRANSACTION\", \"LEAVE TO TRANSACTION\" and \"SUBMIT\".",
+    "output": "Associated to each ABAP Web Dynpro Method/Event Handler/Supply Function with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Within Web Dynpro, the program flow must not be changed. You must avoid statements that leave the current session or start other sessions.",
+    "reference": "SAP",
+    "remediation": "Avoid using the respective technologies.",
+    "sample": "* Sample 1:\nLEAVE PROGRAM.\n\n* Sample 2:\nCALL TRANSACTION 'tcode' AND SKIP FIRST SCREEN.\n\n* Sample 3:\nLEAVE TO TRANSACTION 'tcode'.\n\n* Sample 4:\nSUBMIT myreport.",
+    "total": "Number of Web Dynpro Methods, Web Dynpro Event Handlers and Web Dynpro Supply Functions",
+    "alternativeName": "Web Dynpro - Avoid changing the program flow",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

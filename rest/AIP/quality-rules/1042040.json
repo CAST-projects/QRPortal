@@ -1,0 +1,164 @@
+{
+    "id": 1042040,
+    "name": "Avoid using Struts URLValidator with version before 2.5.13",
+    "href": "AIP/quality-rules/1042040",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.struts",
+        "href": "AIP/extensions/com.castsoftware.struts"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the struts framework version and if any URLValidator has been used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If an application allows enter an URL in a form field and built-in URLValidator is used, it is possible to prepare a special URL which will be used to overload server process when performing validation of the URL. It could lead to DOS Attacks.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9804\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7672\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8738\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4465\n\nhttps://cwiki.apache.org/confluence/display/WW/S2-050\nhttps://cwiki.apache.org/confluence/display/WW/S2-041\nhttps://cwiki.apache.org/confluence/display/WW/S2-044",
+    "remediation": "Upgrade to Apache Struts version 2.5.13 or 2.3.34.",
+    "remediationSample": "Upgrade to Struts version 2.5.13 or 2.3.34.\n\nWorkaround :\n\n<validator type=\"url\">\n    <param name=\"fieldName\">myHomePage</param>\n    <param name=\"urlRegex\">^(https?|ftp):\\\\/\\\\/(([a-z0-9$_\\\\.\\\\+!\\\\*\\\\'\\\\(\\\\),;\\\\?&=-]|%[0-9a-f]{2})+(:([a-z0-9$_\\\\.\\\\+!\\\\*\\\\'\\\\(\\\\),;\\\\?&=-]|%[0-9a-f]{2})+)?@)?(#?)((([a-z0-9]\\\\.|[a-z0-9][a-z0-9-]*[a-z0-9]\\\\.)*[a-z][a-z0-9-]*[a-z0-9]|((\\\\d|[1-9]\\\\d|1\\\\d{2}|2[0-4][0-9]|25[0-5])\\\\.){3}(\\\\d|[1-9]\\\\d|1\\\\d{2}|2[0-4][0-9]|25[0-5]))(:\\\\d+)?)(((\\\\/{0,1}([a-z0-9$_\\\\.\\\\+!\\\\*\\\\'\\\\(\\\\),;:@&=-]|%[0-9a-f]{2})*)*(\\\\?([a-z0-9$_\\\\.\\\\+!\\\\*\\\\'\\\\(\\\\),;:@&=-]|%[0-9a-f]{2})*)?)?)?(#([a-z0-9$_\\\\.\\\\+!\\\\*\\\\'\\\\(\\\\),;:@&=-]|%[0-9a-f]{2})*)?$</param>\n    <message>Invalid homepage url</message>\n</validator>",
+    "sample": "Struts 2 sample:\n\n<validator type=\"url\">\n    <param name=\"fieldName\">myHomePage</param>\n    <message>Invalid homepage url</message>\n</validator>",
+    "total": "Number of struts 2.x config XML file",
+    "alternativeName": "Ensure you are using Struts URLValidator with at least version 2.5.13 or 2.3.34",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067273,
+            "name": "CWE-1173 - Improper Use of Validation Framework",
+            "href": "AIP/technical-criteria/1067273",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066776,
+            "name": "CWE-676 - Use of Potentially Dangerous Function",
+            "href": "AIP/technical-criteria/1066776",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062309,
+            "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062309",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062329,
+            "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062329",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062346,
+            "name": "OWASP-2021-A06 - Vulnerable and Outdated Components",
+            "href": "AIP/technical-criteria/1062346",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063156,
+            "name": "PCI-DSS4-Requirement-6.3.2 - An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/technical-criteria/1063156",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AIP-CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/AIP-STRUCTURAL-FLAW/items/AIP-CWE-676",
+            "standard": "AIP-STRUCTURAL-FLAW"
+        },
+        {
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-676",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1173",
+            "name": "Improper Use of Validation Framework",
+            "href": "AIP/quality-standards/CWE/items/CWE-1173",
+            "standard": "CWE"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.3.2",
+            "name": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.3.2",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

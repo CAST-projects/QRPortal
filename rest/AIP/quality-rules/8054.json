@@ -1,0 +1,153 @@
+{
+    "id": 8054,
+    "name": "Avoid calling blocking functions with an infinite timeout",
+    "href": "AIP/quality-rules/8054",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for C++ methods that call blocking functions with the infinite timeout parameter. Functions that are detected by the rule are:\n- WaitForSingleObject() \n- WaitForMultipleObjects() \n- Sleep()",
+    "output": "Associated to each C++ method with violations, the Quality Rule provides:\n- the number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - blocking function call",
+    "rationale": "Calling this type of function with parameters corresponding to infinite timeout can lead to program blocking and/or deadlock. \n\nEven if the logical behavior would be to wait infinitely until some event occurs, it can be good practice to add a timeout to detect a bad situation (such as a probable deadlock).",
+    "remediation": "Correct this violation by adding logic that deals with a situation when the mutex is never released.",
+    "remediationSample": "void f(HANDLE mutex)\n{\n    int const TIMEOUT = 10000; // Value depends on your application\n    DWORD result = WaitForSingleObject(mutex, TIMEOUT);\n    if (result == WAIT_TIMEOUT)\n    {\n        throw std::runtime_error(\"Cannot access mySharedData. Deadlock?\");\n    }\n    mySharedData = 10;\n    ReleaseMutex(mutex);\n}",
+    "sample": "void f(HANDLE mutex)\n{\n    WaitForSingleObject(mutex, INFINITE);\n    mySharedData = 10;\n    ReleaseMutex(mutex);\n}",
+    "total": "Number of C++ methods",
+    "alternativeName": "Avoid calling blocking functions with an infinite timeout",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062165,
+            "name": "ASCRM-RLB-19 - Synchronous Call Time-Out Absence",
+            "href": "AIP/technical-criteria/1062165",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061139,
+            "name": "CWE-1088 - Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/technical-criteria/1061139",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067188,
+            "name": "CWE-1088 - Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/technical-criteria/1067188",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061096,
+            "name": "CWE-821 - Incorrect Synchronization",
+            "href": "AIP/technical-criteria/1061096",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066921,
+            "name": "CWE-821 - Incorrect Synchronization",
+            "href": "AIP/technical-criteria/1066921",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-19",
+            "name": "Synchronous Call Time-Out Absence",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-19",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-821",
+            "name": "Incorrect Synchronization",
+            "href": "AIP/quality-standards/CWE/items/CWE-821",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1088",
+            "name": "Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/quality-standards/CWE/items/CWE-1088",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-821",
+            "name": "Incorrect Synchronization",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-821",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1088",
+            "name": "Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1088",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-821",
+            "name": "Incorrect Synchronization",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-821",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-1088",
+            "name": "Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1088",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

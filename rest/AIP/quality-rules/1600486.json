@@ -1,0 +1,81 @@
+{
+    "id": 1600486,
+    "name": "Create all new Record Temp in a specific tablespace (PeopleSoft)",
+    "href": "AIP/quality-rules/1600486",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Tablespace",
+    "description": "Tablespaces that must be used are listed in the parameter list",
+    "rationale": "In order to better identify the amount of datas generated in specific tables during some processes, all new record should be created in specific tablespaces.\nIt allows DBAs to reorganize these tablespaces.",
+    "remediation": "In application designer, before building the table, goto the menu Tools/Data Administration/Set TableSpace and choose the right one. This rule needed that the right tablespace exist in the database, if not contact the DBA",
+    "total": "Number of PeopleSoft Record Temp (ADDED)",
+    "alternativeName": "Create all new Record Temp in a specific tablespace (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "PeopleSoft: Tablespace for Record View",
+            "description": "Tablespaces used for Record Temporary",
+            "technologies": [
+                {
+                    "id": 1600000,
+                    "name": "PeopleSoft",
+                    "href": "AIP/technologies/1600000",
+                    "values": [
+                        "TAB_EFWORK_XL"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

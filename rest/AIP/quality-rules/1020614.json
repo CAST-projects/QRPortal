@@ -1,0 +1,197 @@
+{
+    "id": 1020614,
+    "name": "Prefer using sap.base.Log Instead of console.log (SAPUI5)",
+    "href": "AIP/quality-rules/1020614",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.sapui5",
+        "href": "AIP/extensions/com.castsoftware.sapui5"
+    },
+    "description": "This Rule report violation when the usage of console.log() is detected",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Because some browsers don\u2019t support the console object and the developer tools aren\u2019t available, use sap.base.Log.info instead.",
+    "reference": "https://inui.io/sapui5-best-practices/#2-use-sapbaselog-instead-of-consolelog",
+    "remediation": "// in your controller\n \nsap.ui.define([\n  \"sap/ui/core/mvc/Controller\"\n], function(Controller) {\n  \"use strict\";\n  \n  return Controller.extend(\"my.app.controller.Controller\", function() {\n  \n    onInit: function() {\n \n      sap.base.Log.info(\"view is instantiated\"); // view is instantiated\n \n    },\n \n    onExit: function() {\n \n      sap.base.Log.all(\"view is destroyed\"); // view is destroyed\n \n    }\n \n  });\n \n});",
+    "remediationSample": "sap.base.Log.info(\"some message\");",
+    "sample": "console.log(\"some message\");",
+    "total": "Number of SAPUI5 Source Artifacts (Controllers, Components, Objects, JSViews...)",
+    "alternativeName": "Prefer using sap.base.Log Instead of console.log (SAPUI5)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066589,
+            "name": "CWE-489 - Active Debug Code",
+            "href": "AIP/technical-criteria/1066589",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066632,
+            "name": "CWE-532 - Insertion of Sensitive Information into Log File",
+            "href": "AIP/technical-criteria/1066632",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062349,
+            "name": "OWASP-2021-A09 - Security Logging and Monitoring Failures",
+            "href": "AIP/technical-criteria/1062349",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063151,
+            "name": "PCI-DSS4-Requirement-2.2.2 - Vendor default accounts are managed",
+            "href": "AIP/technical-criteria/1063151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063113,
+            "name": "PCI-Requirement-6.3.1 - Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/technical-criteria/1063113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-489",
+            "name": "Active Debug Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-489",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-532",
+            "name": "Insertion of Sensitive Information into Log File",
+            "href": "AIP/quality-standards/CWE/items/CWE-532",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A09-2021",
+            "name": "Security Logging and Monitoring Failures",
+            "href": "AIP/quality-standards/OWASP/items/A09-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API6-2023",
+            "name": "Unrestricted Access to Sensitive Business Flows",
+            "href": "AIP/quality-standards/OWASP/items/API6-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.2",
+            "name": "Vendor default accounts are managed",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.2",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222444",
+            "name": "The application must not write sensitive data into the application logs.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222444",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222444",
+            "name": "The application must not write sensitive data into the application logs.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222444",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

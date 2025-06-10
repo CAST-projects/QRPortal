@@ -1,0 +1,116 @@
+{
+    "id": 6078,
+    "name": "Avoid Datawindows accessing Database Procedures or Functions",
+    "href": "AIP/quality-rules/6078",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Database procedure or function",
+    "description": "Datawindows should not access database procedures or functions",
+    "total": "Number of Datawindows",
+    "alternativeName": "Avoid Datawindows accessing Database Procedures or Functions",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062113,
+            "name": "ASCMM-MNT-12 - Named Callable and Method Control Element with Layer-skipping Call",
+            "href": "AIP/technical-criteria/1062113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 1,
+            "critical": false
+        },
+        {
+            "id": 1061116,
+            "name": "CWE-1054 - Invocation of a Control Element at an Unnecessarily Deep Horizontal Layer",
+            "href": "AIP/technical-criteria/1061116",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067154,
+            "name": "CWE-1054 - Invocation of a Control Element at an Unnecessarily Deep Horizontal Layer",
+            "href": "AIP/technical-criteria/1067154",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-12",
+            "name": "Named Callable and Method Control Element with Layer-skipping Call",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-12",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1054",
+            "name": "Invocation of a Control Element at an Unnecessarily Deep Horizontal Layer",
+            "href": "AIP/quality-standards/CWE/items/CWE-1054",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1054",
+            "name": "Invocation of a Control Element at an Unnecessarily Deep Horizontal Layer",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1054",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1054",
+            "name": "Invocation of a Control Element at an Unnecessarily Deep Horizontal Layer",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1054",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

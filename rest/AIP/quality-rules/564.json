@@ -1,0 +1,75 @@
+{
+    "id": 564,
+    "name": "Avoid including files other than header files",
+    "href": "AIP/quality-rules/564",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Include name",
+    "description": "This rule searches for C/C++ files that include files other than header files (with file extensions like \".h\", etc). The extension list is a parameter and can be changed at will. \n\nNote: Including files without extensions is not considered as being problematic.",
+    "output": "Associated to each implementation file with violations, the Quality Rule provides:\n- The Include name",
+    "rationale": "If a file includes a file that does not have a header extension this either means:\n- That naming conventions have not been respected, therefore making it harder to understand the program etc.\n- That code is duplicated at several locations breaking the encapsulation rules",
+    "remediation": "Either rename the included file (and where it is referenced) or review.",
+    "remediationSample": "// File1.cpp\n#include \"file2.h\"\n#include \"file3.h\"",
+    "sample": "// File1.cpp\n#include \"file2.cpp\" <-- This is incorrect, include the header file!\n#include \"file3.zzz\" <-- This is incorrect, rename the file to .h",
+    "total": "Number of C/C++ files",
+    "alternativeName": "Avoid including files other than header files",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Extensions for files",
+            "description": "Extensions for files",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".hh",
+                        ".h++",
+                        ".hpp",
+                        ".hcc",
+                        ".h",
+                        ".hxx"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

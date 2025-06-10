@@ -1,0 +1,172 @@
+{
+    "id": 1027090,
+    "name": "Avoid improper instantiation of argument exceptions",
+    "href": "AIP/quality-rules/1027090",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will raise a violation when a method has a parameter, and it throws an exception type that is, or derives from, ArgumentException, it expected to call a constructor accepting a paramName parameter correctly. Possible causes include the following situations:\n\n1. A call is made to the default (parameterless) constructor of an exception type that is, or derives from, ArgumentException that has a constructor accepting a paramName parameter.\n\n2. An incorrect string argument is passed to a parameterized constructor of an exception type that is, or derives from, ArgumentException.\n\n3. One of the parameters' names is passed for the message argument of the constructor of exception type that is, or derives from, ArgumentException.\n\nThe exception types checks are ArgumentException, ArgumentNullException, ArgumentOutOfRangeException and DuplicateWaitObjectException.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The exception message should target the developer and clearly explain the error condition and how to correct or avoid the exception.The arguments fed to the ArgumentException or their constructors should be formed in a correct manner.\n\nFollowing is the correct syntax and arguments of exceptions:\n\nArgumentException(string message)\nArgumentException(string message, string paramName)\nArgumentNullException(string paramName)\nArgumentNullException(string paramName, string message)\nArgumentOutOfRangeException(string paramName)\nArgumentOutOfRangeException(string paramName, string message)\nDuplicateWaitObjectException(string parameterName)\nDuplicateWaitObjectException(string parameterName, string message)",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca2208\n\nhttps://cwe.mitre.org/data/definitions/397.html\nhttps://cwe.mitre.org/data/definitions/687.html",
+    "remediation": "Make sure these constructors are called with the correct string arguments.",
+    "remediationSample": "public void Foo(Bar a, Bar b)\n{\n  throw new ArgumentException(\"My error message\", \"a\");\n  throw new ArgumentException(\"My error message\", \"b\", innerException);\n  throw new ArgumentNullException(\"a\");\n  throw new ArgumentNullException(nameOf(a));\n  throw new ArgumentNullException(\"My error message\",\u2002\"a\");\n  throw new ArgumentOutOfRangeException(\"b\");\n  throw new ArgumentOutOfRangeException(\"b\", \"My error message\");\n  throw new ArgumentOutOfRangeException(\"b\",\u2002b,\u2002\"My error message\");\n  throw new ArgumentNullException(nameof(title), \"All books must have a title.\");\n}",
+    "sample": "public void Foo(Bar a, int[] b)\n{\n  throw new ArgumentException(); // Noncompliant\n  throw new ArgumentException(\"My error message\", \"c\"); // Noncompliant\n  throw new ArgumentException(\"My error message\", \"c\", innerException); // Noncompliant\n  throw new ArgumentNullException(\"c\"); // Noncompliant\n  throw new ArgumentNullException(\"My error message\",\u2002\"c\"); // Noncompliant\n  throw new ArgumentOutOfRangeException(\"c\");\n  throw new ArgumentOutOfRangeException(\"c\", \"My error message\"); // Noncompliant\n  throw new ArgumentOutOfRangeException(\"c\",\u2002b,\u2002\"My error message\"); // Noncompliant\n  throw new ArgumentNullException(\"All books must have a title.\", nameof(title));\n}",
+    "total": "Number of Methods",
+    "alternativeName": "Avoid improper instantiation of argument exceptions",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062149,
+            "name": "ASCRM-CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1062149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062181,
+            "name": "ASCSM-CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1062181",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066497,
+            "name": "CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1066497",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066787,
+            "name": "CWE-687 - Function Call With Incorrectly Specified Argument Value",
+            "href": "AIP/technical-criteria/1066787",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-397",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-397",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CWE/items/CWE-397",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-687",
+            "name": "Function Call With Incorrectly Specified Argument Value",
+            "href": "AIP/quality-standards/CWE/items/CWE-687",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

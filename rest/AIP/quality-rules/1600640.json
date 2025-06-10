@@ -1,0 +1,68 @@
+{
+    "id": 1600640,
+    "name": "Field label don't contain \":\" (PeopleSoft)",
+    "href": "AIP/quality-rules/1600640",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rule reports PeopleSoft DBField Label having the CheckColon property set.\nCheckColon is a property computed by the CAST extractor for PeopleSoft, detecting the presence of ':' in PSDBFLDLABL.SHORTNAME or in PSDBFLDLABL.LONGNAME.",
+    "rationale": "Column headings typically do not need a colon.\nHaving an ending colon the field label and no field id defined will lead to duplicate colon : ugly.\nThe consequence is a bad User Experience.",
+    "reference": "https://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tapd/task_SettingPageFieldPropertiesforControls-077512.html\nhttp://www.go-faster.co.uk/peopletools/psdbfldlabl.htm",
+    "remediation": "In Application Designer, fill the property label id to avoid the appearance of \":\" in the end of the text",
+    "total": "Number of PeopleSoft DBField Label",
+    "alternativeName": "Field label don't contain \":\" (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

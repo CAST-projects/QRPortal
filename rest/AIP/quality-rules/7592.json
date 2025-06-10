@@ -1,0 +1,67 @@
+{
+    "id": 7592,
+    "name": "Avoid using \"ORDER BY\" in SELECTS",
+    "href": "AIP/quality-rules/7592",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "associatedValueName": "Number of ORDER BY",
+    "description": "This metric retrieves the ABAP artifacts containing queries using the \"ORDER BY\" clause.\nIt is not computed in case of SAP-HANA database.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of ORDER BY",
+    "rationale": "The ORDER BY clause is executed on the database server while the ABAP SORT statement is executed on the application server. The database server will usually be the bottleneck so, for performance reason, it is often better to move the sort from the database server to the application server.",
+    "reference": "http://erpgenie.com\nABAP Syntax performance tuning",
+    "remediation": "If you are not sorting by the primary key ( E.g. using the ORDER BY PRIMARY key statement) but are sorting by another key, it could be better to use the ABAP SORT statement to sort the data in an internal table. Note however that for very large result sets it might not be a feasible solution and you would want to let the database server sort it.",
+    "remediationSample": "DATA flights TYPE TABLE OF sflight.\n\nSELECT * FROM sflight INTO TABLE flights.\n\nSORT flights BY currency price.",
+    "sample": "SELECT * FROM sflight\n  ORDER BY currency price.",
+    "total": "Number of ABAP Artifacts containing OpenSQL queries",
+    "alternativeName": "Avoid using \"ORDER BY\" in SELECTS",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

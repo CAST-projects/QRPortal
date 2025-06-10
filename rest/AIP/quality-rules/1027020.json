@@ -1,0 +1,77 @@
+{
+    "id": 1027020,
+    "name": "Prefer using Any() over Count() or LongCount()",
+    "href": "AIP/quality-rules/1027020",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule searches for the use of Count or LongCount to check if the collection has at least one element.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The Count and LongCount LINQ method calls require enumerating the entire collection to compute the count. The same check is faster with the Any method as it avoids enumerating the collection.\n\nThe Any method make the code more efficient and more readable.",
+    "reference": "https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1827?view=vs-2019",
+    "remediation": "Use Any method instead of Count and LongCount if possible.",
+    "remediationSample": "private bool isNotEmpty(IEnumerable<string> strings)\n{\n  return strings.Any();\n}",
+    "sample": "private bool isNotEmpty(IEnumerable<string> strings)\n{\n  return strings.Count() > 0;  //  >= 1, == 0, <= 1, ...\n}\n\nprivate bool isNotEmpty(IEnumerable<string> strings)\n{\n  return strings.LongCount() > 0;  //  >= 1, == 0, <= 1, ...\n}",
+    "total": "Number of methods and fields and properties initialized using a lambda function",
+    "alternativeName": "Use Any instead of Count to check for a non-empty sequence",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

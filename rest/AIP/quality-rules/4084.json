@@ -1,0 +1,71 @@
+{
+    "id": 4084,
+    "name": "Avoid nested Stored Procedures using temporary Tables",
+    "href": "AIP/quality-rules/4084",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "description": "Nested Stored Procedures should not use temporary Tables",
+    "output": "This report lists all nested Stored Procedures using temporary Tables\nIt provides the following information:  Procedure name, Procedure full name, number of used temporary Tables",
+    "rationale": "Using temporary tables in nested procedures could be risky when tables are created in the parent stored procedure level and changes are made in the nested level. At the creation moment of the nested procedure, we should create all parent tables. \nWhen temporary table is created in the nested procedure, note that the procedure will be recompiled at each execution before SQL Server 2005+. Starting with SQL Server 2005+, recompilation occurs at statement level rather than stored procedure level.",
+    "remediation": "Replace temporary tables with queries.",
+    "remediationSample": "Create proc1 \nAs \nBegin \nExec proc2 \nEnd; \nGo \nCreate proc2 \nAs \nBegin \n/* 1st case , select directly from the final table */ \nselect * from toto1 \n\n/* 2nd case, select directly from the final table */ \nselect * from toto2 \nEnd; \nGo ",
+    "sample": "Create proc1 \nAs \nBegin \n\nCreate table #table1 (col1 integer) \nInsert into #table1 select * from toto1 \n\nExec proc2 \nDrop table #table1 \nEnd; \nGo \nCreate table #table1 (col1 integer) \ngo \nCreate proc2 \nAs \nBegin \n/* 1st case */ \nSelect * from #table1; \n\n/* 2nd case*/ \nCreate table #table2 (col1 int); \nInsert into #table2 select * from toto2 \n\nSelect * from #table2; \nDrop table #table2; \nEnd; \nGo \nDrop table #table1 \nGo",
+    "total": "Number of stored procedures",
+    "alternativeName": "Avoid nested Stored Procedures using temporary Tables",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

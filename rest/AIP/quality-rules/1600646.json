@@ -1,0 +1,82 @@
+{
+    "id": 1600646,
+    "name": "Developers should not build long pages that are longer than 5 pages (PeopleSoft)",
+    "href": "AIP/quality-rules/1600646",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Page Height",
+    "description": "Despite the rule name aligned with PeopleSoft best pratices, the maximum Page Height is a parameter that can be changed at will.",
+    "output": "This report lists all the Pages having a Height above 5 times the standard.\nIt provides the following information: \n- Page  full name.\n- The associated value is the PageHeight.",
+    "rationale": "Improve look & feel for the user.\nAlso long page are longer to load.",
+    "remediation": "Review the design of the Page and remove in Page Designer the unnecessary elements to reduce its length.",
+    "total": "Number of PeopleSoft Pages (ADDED)",
+    "alternativeName": "Developers should not build long pages that are longer than 5 pages (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "PeopleSoft: Page Height Max",
+            "description": "PageHeightMax",
+            "technologies": [
+                {
+                    "id": 1600000,
+                    "name": "PeopleSoft",
+                    "href": "AIP/technologies/1600000",
+                    "values": [
+                        2500
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "id": 1600678,
+    "name": "Consolidating PeopleCode Programs (PeopleSoft)",
+    "href": "AIP/quality-rules/1600678",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This metric detects records with multiple fields having the event RowInit, RowInsert, SaveEdit, SavePreChange, SavePostChange",
+    "output": "This report lists all Records having multiple fields having the event RowInit, RowInsert, SaveEdit, SavePreChange, SavePostChange\nIt provides the following information:\n- Record full name\n- The associated value is the number of violations inside the violating Record",
+    "rationale": "Consolidate RowInit PeopleCode into one field within the record to reduce the number of PeopleCode events that need to be triggered. Fewer PeopleCode programs results in fewer PeopleCode objects to manage. Do the same for RowInsert, SaveEdit, SavePreChange, SavePostChange, and Workflow PeopleCode programs.",
+    "reference": "Oracle PeopleCode Developer's Guide : https://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tpcd/task_UsingBetterCodingTechniquesforImprovedPerformance-0749c3.html",
+    "remediation": "Consolidate RowInit PeopleCode into one field within the record. Do the same for RowInsert, SaveEdit, SavePreChange, SavePostChange, and Workflow PeopleCode programs.",
+    "total": "Number of PeopleSoft Records",
+    "alternativeName": "Consolidating PeopleCode Programs (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

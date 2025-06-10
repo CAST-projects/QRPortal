@@ -1,0 +1,134 @@
+{
+    "id": 1027012,
+    "name": "Avoid storing Non-Serializable Object as HttpSessionState attributes.",
+    "href": "AIP/quality-rules/1027012",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid storing Non-Serializable Object as HttpSessionState attributes",
+    "output": "Number of Methods setting Non-Serializable Object as HttpSessionState Attributes",
+    "rationale": "When non-serializable object is stored as an HttpSessionState attribute, it can damage application reliablity.\nASP.NET servers by default store the HttpSessionState object, its attributes and any objects they reference in memory which limits active session state to what can be accommodated by the system memory.\nServers are configured to persistent session state to expand capacity. The server must serialize the HttpSessionState object to persist its session state.",
+    "reference": "https://cwe.mitre.org/data/definitions/579.html",
+    "remediation": "All the objects which are stored as session attributes in the application must declare [Serializable] attribute to serialize the session correctly.",
+    "remediationSample": "HttpContext.Current.Session[CURRENT_USER_KEY] = value; \n \nthis.Session.Add(\"lbSection\", (string)((LinkButton)sender).ID.ToString());\n\n________________________________________________________\n\n[Serializable]\npublic class DataGlob {\n   String GlobName;\n   String GlobValue;\n\n   public void AddToSession(HttpSessionState session) {\n     session[\"glob\"] = this;\n   }\n}",
+    "sample": "HttpContext.Current.Session[CURRENT_USER_KEY] = value; \n \nthis.Session.Add(\"lbSection\", (string)((LinkButton)sender).ID.ToString());\n\n_________________________________________________________\n\npublic class DataGlob {\n   String GlobName;\n   String GlobValue;\n\n   public void AddToSession(HttpSessionState session) {\n     session[\"glob\"] = this;\n   }\n}",
+    "total": "Number of Methods setting HttpSessionState Attributes",
+    "alternativeName": "Ensure to declare the object as serializable if you are using it as a httpsessionstate attribute",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066679,
+            "name": "CWE-579 - J2EE Bad Practices: Non-serializable Object Stored in Session",
+            "href": "AIP/technical-criteria/1066679",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "href": "AIP/technical-criteria/66065",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-579",
+            "name": "J2EE Bad Practices: Non-serializable Object Stored in Session",
+            "href": "AIP/quality-standards/CWE/items/CWE-579",
+            "standard": "CWE"
+        },
+        {
+            "id": "A04-2021",
+            "name": "Insecure Design",
+            "href": "AIP/quality-standards/OWASP/items/A04-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

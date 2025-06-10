@@ -1,0 +1,65 @@
+{
+    "id": 7672,
+    "name": "Avoid using EXIT statement in Include",
+    "href": "AIP/quality-rules/7672",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric retrieves all include files containing EXIT statements. The metric does not take into account EXIT used inside a loop.",
+    "output": "Associated to each ABAP Include with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "For maintenability reasons, it is better to avoid using the EXIT statement in includes. If a program references such an include and if developers did not see the EXIT statements, then blocks could be terminated unexpectedly or the program could stop prematurely.",
+    "remediation": "Use EXIT statements in programs that call the include and remove these statements from include. It could be better to use return codes and to let the calling code managing the exit.",
+    "total": "Number of ABAP Includes",
+    "alternativeName": "Avoid using EXIT statement in Include",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": 7958,
+    "name": "Avoid orphaned synonyms in PL/SQL context",
+    "href": "AIP/quality-rules/7958",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "description": "This metric identifies synonyms that are defined on objects which no longer exist. This is syntactically possible.\nIndeed through a series of CREATE synonym statements, a synonym could be defined and in fact refer to itself",
+    "output": "This report lists all synonyms that are defined on objects which no longer exist. It provides the following information:\n\nthe  list of each synonym that match the citerion. The name of each synonym that is part of  the  full name,",
+    "rationale": "Presence of synonyms that are based on non existent object will generate error at execution time when accessed. Even if synonyms is authorized at creation time, the execution time will generate error",
+    "reference": "Oracle documentation, for example",
+    "remediation": "Aplly clean up in your code",
+    "total": "Number of synonyms that is part of the analyzed source code",
+    "alternativeName": "Avoid orphaned synonyms in PL/SQL context",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,156 @@
+{
+    "id": 4696,
+    "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' within a try catch block",
+    "href": "AIP/quality-rules/4696",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule reports any reference to  'System.err' and/or'System.out' as violation.",
+    "output": "This report lists all Methods using 'System.err' in catch blocks. It provides the following information: Method full name",
+    "rationale": "Accessing System.out or System.err from an application is a problem if the system (especially as a server) goes to production:\n\n\u2013 Messages are written directly to the console. This makes it difficult to redirect specific entries to separate files, configure the required log format (e.g. timestamp, current thread etc.) or specify rules for rollover, retention etc.\n\n\u2013 There\u2019s no way to use severity for messages (e.g. trace, debug, info, warn, error). There\u2019s natural difference between an exception which needs to be logged and some debugging output. The latter one is not desired to be visible in a production system as it negatively affects performance and creates large log files which are hard to analyze.",
+    "remediation": "Prefer using logging framework  as SLF4j.",
+    "sample": "try {\n  // Do something that may throw an exception.\n}\ncatch (Exception e) {\n  System.err.println(e);\n}",
+    "total": "Number of non-abstract Java artifacts",
+    "alternativeName": "Prefer using logging framework  as SLF4j instead of  'System.err' or 'System.out'",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062148,
+            "name": "ASCRM-CWE-396 - Declaration of Catch for Generic Exception",
+            "href": "AIP/technical-criteria/1062148",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062180,
+            "name": "ASCSM-CWE-396 - Declaration of Catch for Generic Exception",
+            "href": "AIP/technical-criteria/1062180",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066496,
+            "name": "CWE-396 - Declaration of Catch for Generic Exception",
+            "href": "AIP/technical-criteria/1066496",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-396",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-396",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "href": "AIP/quality-standards/CWE/items/CWE-396",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

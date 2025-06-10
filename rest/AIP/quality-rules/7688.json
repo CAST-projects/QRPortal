@@ -1,0 +1,128 @@
+{
+    "id": 7688,
+    "name": "Never truncate data in MOVE statements",
+    "href": "AIP/quality-rules/7688",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs containing MOVE statements where data are truncated.\n\nData assignments are checked for MOVE and MOVE CORRESPONDING statements. \n\nDecimal part of numeric variables is not taken into account and these variables are considered like variables not having decimal part. \nThe rule will not detect violations related to decimal part and violations related to position:length accesses (in source variables and in target variables).",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - MOVE statement\n  - Source variable\n  - Target variable",
+    "rationale": "If a variable or a group is moved into another that is shorter, then it will be truncated and part of the information will be lost. This is going to generate troubles in production. In addition, data defined after the target data could be overridden and an abend can occur.",
+    "remediation": "If a target data is shorter than the source data in a MOVE statement, then either enlarge the size of the target data or move part of the source data only.",
+    "remediationSample": "* Exemple 1\n 01 A PIC X(10).\n 01 B PIC X(10).\n. . .\n MOVE A TO B\n* or\n 01 A.\n     05 A1 PIC X(5).\n     05 A2 PIC X(5).\n 01 B PIC X(5).\n. . .\n MOVE A1 TO B\n\n* Exemple 2\n 01 A.\n     05 A1 PIC X(5).\n     05 A2 PIC 999.\n     05 A3 PIC X(2).\n 01 B PIC X(10).\n. . .\n MOVE A TO B\n* or\n 01 A.\n     05 A-PART1.\n         10 A1 PIC X(5).\n         10 A2 PIC 999.\n     05 A3 PIC X(2).\n 01 B PIC X(8).\n. . .\n MOVE A-PART1 TO B",
+    "sample": "* Exemple 1\n 01 A PIC X(10).\n 01 B PIC X(5).\n. . .\n MOVE A TO B\n\n* Exemple 2\n 01 A.\n     A1 PIC X(5).\n     A2 PIC 999.\n     A3 PIC X(2).\n 01 B PIC X(8).\n. . .\n MOVE A TO B",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Never truncate data in MOVE statements",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062152,
+            "name": "ASCRM-CWE-704 - Incorrect Type Conversion or Cast",
+            "href": "AIP/technical-criteria/1062152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061081,
+            "name": "CWE-704 - Incorrect Type Conversion or Cast",
+            "href": "AIP/technical-criteria/1061081",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066804,
+            "name": "CWE-704 - Incorrect Type Conversion or Cast",
+            "href": "AIP/technical-criteria/1066804",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062203,
+            "name": "MIPS-Reduction - focus on avoiding transaction failure",
+            "href": "AIP/technical-criteria/1062203",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-704",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/CWE/items/CWE-704",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-704",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-704",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

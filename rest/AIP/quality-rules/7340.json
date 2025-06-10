@@ -1,0 +1,121 @@
+{
+    "id": 7340,
+    "name": "Avoid Classes with Destructor not explicitly virtual whenever one of its base Class has a virtual Destructor",
+    "href": "AIP/quality-rules/7340",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for derived classes which provide a destructor not explicitly declared as virtual and which inherit from a base class that provides a virtual destructor.",
+    "output": "Associated to each C++ class with violations, the Quality Rule provides:\n- Bookmarks for violation occurrences found in source code:\n  - Derived-class non-virtual destructor\n  - Base-class virtual destructor",
+    "rationale": "A missing virtual keyword in front of a destructor \"overriding\" a virtual destructor will hide the polymorphic nature of the destructor from developers using the class. They may not know that at execution time other destructors in the inheritance tree will be executed. A missing virtual keyword may also be an indication that the author of the destructor ignored the fact that it needed to be virtual and thus was not aware that the destructor requires specific attention and specific coding.",
+    "remediation": "Add the virtual keyword in the destructor declaration, checks that the destructor is implemented as expected and matches the class hierarchy design requirements, and documents the destructor for future extension of the class hierarchy and modification of the method.\n\nAlternatively, if the derived class destructor is empty, remove it.",
+    "remediationSample": "class Car : public Vehicle\n{\npublic:\n    Car();\n    virtual ~Car();           // FIXED\nprotected:\n    int numberOfWheels;\n};",
+    "sample": "class Vehicle \n{\npublic:\n    Vehicle();\n    virtual ~Vehicle();\n    void start();\n    void stop();\n    virtual void run();\nprotected:\n    Engine* theEngine;\n};\n\nclass Car : public Vehicle\n{\npublic:\n    Car();\n    ~Car();           // VIOLATION\nprotected:\n    int numberOfWheels;\n};",
+    "total": "Number of C++ classes",
+    "alternativeName": "Avoid Classes with Destructor not explicitly virtual whenever one of its base Class has a virtual Destructor",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062163,
+            "name": "ASCRM-RLB-17 - Child Class Element wihout Virtual Destructor unlike its Parent Class Element",
+            "href": "AIP/technical-criteria/1062163",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061108,
+            "name": "CWE-1045 - Parent Class with a Virtual Destructor and a Child Class without a Virtual Destructor",
+            "href": "AIP/technical-criteria/1061108",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067145,
+            "name": "CWE-1045 - Parent Class with a Virtual Destructor and a Child Class without a Virtual Destructor",
+            "href": "AIP/technical-criteria/1067145",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61010",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-17",
+            "name": "Child Class Element wihout Virtual Destructor unlike its Parent Class Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-17",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1045",
+            "name": "Parent Class with a Virtual Destructor and a Child Class without a Virtual Destructor",
+            "href": "AIP/quality-standards/CWE/items/CWE-1045",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1045",
+            "name": "Parent Class with a Virtual Destructor and a Child Class without a Virtual Destructor",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1045",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1045",
+            "name": "Parent Class with a Virtual Destructor and a Child Class without a Virtual Destructor",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1045",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

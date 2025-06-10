@@ -1,0 +1,152 @@
+{
+    "id": 8432,
+    "name": "Avoid Cross-Client Database Access using Open SQL statements with CLIENT SPECIFIED/USING CLIENT addition",
+    "href": "AIP/quality-rules/8432",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A client indicates a data area in an AS ABAP database that contains independent application data. The application data of different clients use the same database tables, but are flagged with a three-figure client ID within these tables.\n\nWhen logging on to AS ABAP, this client ID must be entered. The current client is entered in the system field sy-mandt.\n\nOpen SQL statements support automatic client handling by default, where the data of the current client is accessed by default. This is specified by passing an implicit condition for the current client to WHERE conditions, and ignoring clients specified in modifying statements in work areas. \nBut the Automatic client handling in OpenSQL can be switched to a different client using the addition USING CLIENT or switched off using the addition CLIENT SPECIFIED and this can be be risky as allowing access to foreign data that is critical for security.\n\nIn this rule, a violation is reported when trying an unauthorized accessing client data by bypassing the client separation and client handling mechanisms from within an ABAP program by using OpenSQL statements with \"CLIENT SPECIFIED\" or \"USING CLIENT\" addition.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Restrictions on what authenticated users are allowed to do are often not properly enforced. Attackers can exploit these flaws to access unauthorized functionality and/or data, such as access other users' accounts, view sensitive files, modify other users' data, change access rights, etc.",
+    "reference": "https://www.se80.co.uk/dataelements/s/syma/symandt.htm\n\nNote: \nsy-mandt: Client ID used by the current user to log on, for example \"401\" or \"800\".\n\nclient: Organizational unit in Application Server (AS) ABAP. For each logon to AS ABAP, a client ID must be specified. This ID enables a logon to a specific client. The various clients in an AS ABAP have separate user master records and separate authorizations. Client-specific data is split by the client column in application tables. Application programs generally run in application clients. There is also a system client for performing system-specific or administrative tasks.",
+    "remediation": "The additions \"USING CLIENT\" and \"CLIENT SPECIFIED\" should not be used in OpenSQL. The following source code shows how OpenSQL is generally used for implicit automatic client handling.\n\nSELECT ... \n       FROM dbtab \n       WHERE ... \n       INTO ...",
+    "sample": "OpenSQL Statements with USING CLIENT/CLIENT SPECIFIED addition.\n\nThis program allows a user to access customer data in any client.\n\nDATA client TYPE sy-mandt. \nclient = sy-mandt. \ncl_demo_input=>request( CHANGING field = client ). \n\nSELECT * \n       FROM scustom USING CLIENT @client \n       INTO TABLE @DATA(customers1). \ncl_demo_output=>display( customers1 ). \n\nSELECT * \n       FROM scustom CLIENT SPECIFIED \n       WHERE mandt = @client \n       INTO TABLE @DATA(customers2). \ncl_demo_output=>display( customers2 ).",
+    "total": "Number of ABAP Artifacts containing OpenSQL",
+    "alternativeName": "Avoid Cross-Client Database Access using Open SQL statements with CLIENT SPECIFIED/USING CLIENT addition",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066385,
+            "name": "CWE-285 - Improper Authorization",
+            "href": "AIP/technical-criteria/1066385",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062307,
+            "name": "OWASP-2013-A7 - Missing Function Level Access Control",
+            "href": "AIP/technical-criteria/1062307",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062325,
+            "name": "OWASP-2017-A5 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062325",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063122,
+            "name": "PCI-Requirement-6.5.8 - Improper access control",
+            "href": "AIP/technical-criteria/1063122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-285",
+            "name": "Improper Authorization",
+            "href": "AIP/quality-standards/CWE/items/CWE-285",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A5-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A7-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.8",
+            "name": "Improper access control",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.8",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

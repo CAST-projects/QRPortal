@@ -1,0 +1,67 @@
+{
+    "id": 1600666,
+    "name": "Use DESCR and DESCRSHORT for description fields rather than record specific titles (PeopleSoft)",
+    "href": "AIP/quality-rules/1600666",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "All page fields with a label TEXT",
+    "rationale": "All labels should be defined at Field level only. If a label is defined at the page level, it will impact the maintenance and it can generate some side-effects if the label don't describe the content of the field.",
+    "remediation": "Select the corresponding label (DESCR or DESCRSHORT). If no label matches, create a new one at field level.",
+    "total": "Number of PeopleSoft Page Fields",
+    "alternativeName": "Use DESCR and DESCRSHORT for description fields rather than record specific titles (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

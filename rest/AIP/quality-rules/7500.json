@@ -1,0 +1,79 @@
+{
+    "id": 7500,
+    "name": "DEPRECATED: Use table-per-class-hierarchy when subclasses have few properties",
+    "href": "AIP/quality-rules/7500",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule reports all persistent entities (Hibernate, JPA or Jakarta Persistence) that do not use table-per-class-hierarchy for their subclasses when they have less than three attributes. This number is a threshold that can be changed if required.\n\nThis verification is limited to the first level of entities inheritance tree. For example, if the entity inheritance tree contains an entity C that inherits from entity B, that subsequently inherit from entity A, only the number of fields of entity B will be analyzed, not those from entity C.",
+    "output": "List all Hibernate, JPA or Jakarta Persistence Entities that do not use table-per-class-hierarchy strategy for its subclasses when they have fewer attributes than the threshold parameter.\n\nIt provides the following information:\n Hibernate, JPA or Jakarta Persistence Entity Full Name",
+    "rationale": "If you require polymorphic associations (an association to a superclass, hence to all classes in the hierarchy with dynamic resolution of the concrete class at runtime) or queries, and sub-classes declare relatively few properties (particularly if the main difference between subclasses is in their behavior), lean toward the table-per-class-hierarchy model.",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 105\n\nhttps://www.javatpoint.com/hibernate-table-per-concrete-class-using-annotation-tutorial-example",
+    "remediation": "Use the table-per-class-hierarchy strategy to map the hierarchy.",
+    "remediationSample": "<class name=\"Animal\" table=\"ANIMAL\">\n    <id name=\"id\" type=\"long\" column=\"ANIMAL_ID\">\n        <generator class=\"native\"/>\n    </id>\n    <discriminator column=\"TYPE\" type=\"string\"/>\n    <property name=\"amount\" column=\"AMOUNT\"/>\n\n    // FIXED: table-per-class-hierarchy strategy is used\n    <subclass name=\"Dog\" discriminator-value=\"DOG\">\n        <property name=\"race\" column=\"RACE\"/>\n    </subclass>\n\n    <subclass name=\"Cat\" discriminator-value=\"CAT\">\n        <property name=\"color\" column=\"COLOR\"/>\n    </subclass>\n</class>\n\n----------------------------------------------------------\nsample2:  Annotation Based\n\n@Entity\n@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Fixed\npublic class Transport {\n    @Id\n    @GeneratedValue(strategy = GenerationType.AUTO)\n    @Column(name = \"id\")\n    private int id;\n\n    @Column(name = \"name\")\n    private String name;\n}\n\n@Entity\npublic class Bus extends Transport {\n\n    @Column(name = \"capacity\")\n    private int capacity;\n}",
+    "sample": "----> sample1 xml based: animal.hbm.xml\n\n<class name=\"Animal\" table=\"ANIMAL\">\n    <id name=\"id\" type=\"long\" column=\"ANIMAL_ID\">\n        <generator class=\"native\"/>\n    </id>\n\n    <property name=\"amount\" column=\"AMOUNT\"/>\n\n     // VIOLATION none of the subclass attributes count \n     // is greater or equal to 3 and \n     // table-per-class-hierarchy strategy is not used\n\n    <joined-subclass name=\"Dog\" table=\"DOG\">\n        <key column=\"DOG_ID\"/>\n        <property name=\"race\" column=\"RACE\"/>\n    </joined-subclass>\n\n    <joined-subclass name=\"Cat\" table=\"CAT\">\n        <key column=\"CAT_ID\"/>\n        <property name=\"color\" column=\"COLOR\"/>\n    </joined-subclass>\n</class>\n\n-----------------------------------------------------\nsample2 - Annotation based\n\n@Entity\n@Inheritance(strategy = InheritanceType.JOINED) // uses table per subclass strategy\npublic class Transport {\n    @Id\n    @GeneratedValue(strategy = GenerationType.AUTO)\n    @Column(name = \"id\")\n    private int id;\n\n    @Column(name = \"name\")\n    private String name;\n}\n\n@Entity\npublic class Bus extends Transport {\n\n    @Column(name = \"capacity\")\n    private int capacity;\n}",
+    "total": "Number of Hibernate, JPA or Jakarta Persistence entities that are subclassed (subclass or joined-subclass) and that are not inheriting from another entity",
+    "alternativeName": "Choose table-per-class-hierarchy when the maximum added attributes of subclasses does not exceed three",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Nbr_property",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        3
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

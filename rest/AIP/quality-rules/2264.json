@@ -1,0 +1,72 @@
+{
+    "id": 2264,
+    "name": "DEPRECATED: All page files should be in a specific directory",
+    "href": "AIP/quality-rules/2264",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "File directory",
+    "description": "As per code Conventions for the JavaServer Pages Technology, all cascading style sheet files should be in a in the recommended location\n\nAll page files (X) should be in a \"pages\" directory, located in the web root.",
+    "output": "This report lists all pages (X) located outside the \"pages\" directory. It provides the following information: File full name, File directory",
+    "rationale": "For maintainability aspects, file organization must be respected.",
+    "remediation": "Change file location according to the recommended naming convention.",
+    "total": "Number of JSP pages",
+    "alternativeName": "Ensure you store all page files in specific directory",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Directory",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 279,
+                    "name": "NO LABEL",
+                    "href": "AIP/technologies/279",
+                    "values": [
+                        "pages"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "id": 5138,
+    "name": "Avoid Programs with lines exceeding the maximum length of characters",
+    "href": "AIP/quality-rules/5138",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "associatedValueName": "Number of lines with more than 80 characters",
+    "description": "This rule searches for code lines longer than X characters. X is parameter which default value is 80.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of lines with more than 80 characters",
+    "rationale": "For better readability and portability, Cobol Programs should not have lines longer than 80 characters.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid Programs with lines exceeding the maximum length of characters",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "href": "AIP/technical-criteria/61006",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum length",
+            "description": "Maximum number of characters per line of code",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        80
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

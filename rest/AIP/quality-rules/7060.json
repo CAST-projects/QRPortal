@@ -1,0 +1,70 @@
+{
+    "id": 7060,
+    "name": "Avoid undocumented Programs (ABAP)",
+    "href": "AIP/quality-rules/7060",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "description": "ABAP programs should be documented. This reports shows all the ABAP programs with no comments.",
+    "output": "This rule lists all undocumented ABAP Programs.\nIt provides following information:\n- ABAP Program full name",
+    "remediation": "Add comments into programs to explain what is their goal and how they work.",
+    "total": "Number of  ABAP Programs",
+    "alternativeName": "Avoid undocumented Programs (ABAP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067153,
+            "name": "CWE-1053 - Missing Documentation for Design",
+            "href": "AIP/technical-criteria/1067153",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1053",
+            "name": "Missing Documentation for Design",
+            "href": "AIP/quality-standards/CWE/items/CWE-1053",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "id": 7304,
+    "name": "IF statements must be closed by END-IF",
+    "href": "AIP/quality-rules/7304",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs using IF statements that are not closed by the END-IF terminator.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - IF statement that is not ended by the END-IF terminator",
+    "rationale": "Since the Cobol 85 standard, Cobol language has allowed using statement terminators. Thus, the IF statement can be ended by a dot or by its specific scope terminator (END-IF). In the case where END-IF is not used, then the first dot encountered ends the IF block. This can create problems because a dot is very difficult to see into the code of a program and it is very easy for a developer who wants to insert a new statement into the IF scope to add a dot accidentally. For instance, the following code contains a dot added accidentally before the GO TO statement (it belongs to the IF-block):\nIF CPT = 10\n    MOVE 100 TO CD-VAR1.\n    GO TO PARA-10.\nCOMPUTE WS-TOT = WS-MAX - WS-MIN.\n\nAs a result, the GO TO statement will be executed systematically and the next COMPUTE will become dead code!\n\nThis kind of troubles may produce unpredictable results and the application can become instable. In addition, even if the developer must only remove a dot, then it is extremely difficult for him to find where the problem is.",
+    "reference": "IBM Enterprise Cobol for z/OS - Language Reference",
+    "remediation": "Add END-IF terminator to all IF statements.",
+    "remediationSample": "IF A = 10\n    MOVE \"OK\" TO VAR1\n    PERFORM PARA-1\n    MOVE 19 TO VAR2\nEND-IF\nADD 1 TO A.",
+    "sample": "* In this example, the IF block ends after the PERFORM statement\n* because a dot has been inserted accidentally \n\nIF A = 10\n    MOVE \"OK\" TO VAR1\n    PERFORM PARA-1.\n    MOVE 19 TO VAR2.\nADD 1 TO A.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "IF statements must be closed by END-IF",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

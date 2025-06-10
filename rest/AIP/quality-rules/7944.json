@@ -1,0 +1,152 @@
+{
+    "id": 7944,
+    "name": "Avoid High Response for Classes",
+    "href": "AIP/quality-rules/7944",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "associatedValueName": "Response For Class",
+    "description": "Avoid High Response for a Class (RFC > X)\nRFC is the total number of local methods and remote methods called by methods in the Class.\nThe threshold is a parameter and can be changed at will.\n\nFor Power Builder, Classes designates PB Applications, Datastores, Menus, Userobjects and Windows.",
+    "output": "This report lists all Classes with High Response for a Class\nIt provides the following information:\nClass full name, RFC",
+    "rationale": "If a large number of methods can be invoked in response to a message, the testing and debugging of the Class becomes more complicated since it requires a greater level of understanding required on the part of the tester.",
+    "reference": "A Metrics Suite for Object Oriented Design\nChidamber, S.R. and C.F. Kemerer\nIEEE Transactions on Software Engineering, 1994",
+    "remediation": "Reduce the number of local methods and remote methods called by methods in the Class",
+    "total": "Number of classes",
+    "alternativeName": "Ensure you have a number of local methods and remote methods called by methods in the Class below a predefined threshold",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "href": "AIP/technical-criteria/61022",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Response for a Class",
+            "description": "Max Response per class",
+            "technologies": [
+                {
+                    "id": 141901,
+                    "name": ".NET (Legacy Analyzer)",
+                    "href": "AIP/technologies/141901",
+                    "values": [
+                        50.0
+                    ]
+                },
+                {
+                    "id": -15,
+                    "name": "ABAP",
+                    "href": "AIP/technologies/-15",
+                    "values": [
+                        50.0
+                    ]
+                },
+                {
+                    "id": 138383,
+                    "name": "C#",
+                    "href": "AIP/technologies/138383",
+                    "values": [
+                        50.0
+                    ]
+                },
+                {
+                    "id": -3,
+                    "name": "C++",
+                    "href": "AIP/technologies/-3",
+                    "values": [
+                        50.0
+                    ]
+                },
+                {
+                    "id": 140029,
+                    "name": "JEE",
+                    "href": "AIP/technologies/140029",
+                    "values": [
+                        50.0
+                    ]
+                },
+                {
+                    "id": -8,
+                    "name": "PowerBuilder",
+                    "href": "AIP/technologies/-8",
+                    "values": [
+                        50.0
+                    ]
+                },
+                {
+                    "id": 138385,
+                    "name": "VB.NET",
+                    "href": "AIP/technologies/138385",
+                    "values": [
+                        50.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

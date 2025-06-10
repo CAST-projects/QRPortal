@@ -1,0 +1,121 @@
+{
+    "id": 8002,
+    "name": "Never perform C-style cast between incompatible Class pointers",
+    "href": "AIP/quality-rules/8002",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for C++ methods, constructors, and destructors performing C-style casts between pointers to classes that are not compatible. \n\nNote: Compatible classes belong to the same class hierarchy. However, even to cast between those classes, C-style casts are not the preferred solution: see rules #8058 and #8060.",
+    "output": "Associated to each C++ method, constructor, and destructor with violations, the Quality Rule provides:\n  - The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - dangerous cast",
+    "rationale": "Using an incompatible C-style cast between pointers to classes is equivalent to using 'reinterpret_cast'. It totally silences the type translation system, and will result in unpredictable behavior with high risk of crash and/or memory corruption.",
+    "remediation": "If classes do not have any relationship:\n- Use 'void*' as an intermediate type, and a 'static_cast' from 'void*' to the destination type. \n- Or use a 'reinterpret_cast' instead. Be aware that most of the time, 'reinterpret_cast' will lead to unpredictable behavior. Its effects are _implementation-defined_ and not portable. Its use should be limited to low-level (close to the hardware) programming.\n\nIf classes belong to the same inheritance tree, then for derived-to-base, see rule #8058, use implicit type conversion, and for base-to-derived, see rule #8060, use a 'dynamic_cast'.",
+    "remediationSample": "In this example, there is no sensible way to use a pointer to 'A' as if it was a pointer to 'B'. We could silence this rule by using 'reinterpret_cast', but we could not make anything useful with 'b'.\n\nIf classes have a relationship, but the compiler does not know it, the same kind of problems can occur:\n\nclass A;\nclass B;\n\nvoid f()\n{\n    A* a = (A*)new B();\n}\n\nclass A \n{ \npublic:\n    virtual ~A();\n};\n\nclass B : public A\n{\n};\n\nHere, even if the classes are related, the compiler does not know it at the point of definition of the f function. This C-style cast will still be equivalent to a 'reinterpret_cast' and can be wrong (if you used a 'static_cast' the code would not compile, which is a good thing).",
+    "sample": "class A \n{ \n    int i;\n};\n\nclass B \n{\npublic:\n    B() : p(\"Hello\") { }\n    std::string p;\n};\n\nint main()\n{\n    B * b = (B*) new A(); // VIOLATION. A is not a child/mother class of B\n    std::cout << b->p << std::endl; // Probably a program crash\n    return 0;\n}",
+    "total": "Number of C++ Methods, Constructors, and Destructors",
+    "alternativeName": "Never perform C-style cast between incompatible Class pointers",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062187,
+            "name": "ASCSM-CWE-681 - Numeric Types Incorrect Conversion",
+            "href": "AIP/technical-criteria/1062187",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061078,
+            "name": "CWE-681 - Incorrect Conversion between Numeric Types",
+            "href": "AIP/technical-criteria/1061078",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066781,
+            "name": "CWE-681 - Incorrect Conversion between Numeric Types",
+            "href": "AIP/technical-criteria/1066781",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-681",
+            "name": "Numeric Types Incorrect Conversion",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-681",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-681",
+            "name": "Incorrect Conversion between Numeric Types",
+            "href": "AIP/quality-standards/CWE/items/CWE-681",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-681",
+            "name": "Incorrect Conversion between Numeric Types",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-681",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-681",
+            "name": "Incorrect Conversion between Numeric Types",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-681",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

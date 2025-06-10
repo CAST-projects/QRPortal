@@ -1,0 +1,57 @@
+{
+    "id": 1106008,
+    "name": "Ensure PL/SQL package DBMS_SCHEDULER is not used",
+    "href": "AIP/quality-rules/1106008",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks the usage of the DBMS_SCHEDULER package in the Oracle Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "DBMS_SCHEDULER is not supported by Aurora PostgreSQL",
+    "reference": "https://www.timescale.com/blog/the-postgresql-job-scheduler-you-always-wanted-but-be-careful-what-you-ask-for/#:~:text=The%20job%20scheduler%20is%20a%20PostgreSQL%20background%20process.\n\n\nhttps://www.freecodecamp.org/news/how-to-schedule-a-job-in-postgresql/",
+    "remediation": "PostgreSQL doesn\u2019t currently provide a directly comparable alternative for the Oracle DBMS_SCHEDULER package.",
+    "remediationSample": "The remediation is to remove all references to DBMS_SCHEDULER an try to replace with a PostgreSQL solution",
+    "sample": "BEGIN\nDBMS_SCHEDULER.CREATE_CHAIN (\nchain_name => 'my_chain1',\nrule_set_name => NULL,\nevaluation_interval => NULL,\ncomments => NULL);\nEND;\n/\n\nBEGIN\nDBMS_SCHEDULER.CREATE_PROGRAM(\nprogram_name => 'CALC_STATS',\nprogram_action => 'HR.UPDATE_HR_SCHEMA_STATS',\nprogram_type => 'STORED_PROCEDURE',\nenabled => TRUE);\nEND;\n/\nBEGIN\nDBMS_SCHEDULER.CREATE_SCHEDULE(\nschedule_name => 'stats_schedule',\nstart_date => SYSTIMESTAMP,\nrepeat_interval => 'FREQ=HOURLY;INTERVAL=1',\ncomments => 'Every hour');\nEND;\n/\nBEGIN\nDBMS_SCHEDULER.CREATE_JOB (\njob_name => 'my_new_job3',\nprogram_name => 'my_saved_program1',\nschedule_name => 'my_saved_schedule1');\nEND;\n/",
+    "total": "Number of Artifacts with SQL code",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61045,
+            "name": "Database Migration - Oracle Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61045",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

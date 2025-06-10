@@ -1,0 +1,126 @@
+{
+    "id": 1520732,
+    "name": "Siebel eScript: Use DeleteRecord method only inside Loops located in Functions",
+    "href": "AIP/quality-rules/1520732",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Number of call",
+    "description": "This rule reports usage of DeleteRecord() outside a Loop construct.",
+    "output": "This rule reports Functions calling DeleteRecord method in a loop",
+    "rationale": "When you are deleting records in script based on a particular query, be sure to use a while loop rather than an 'If' statement as the 'If' condition will only delete one record where multiple records may need to be deleted.",
+    "reference": "https://docs.oracle.com/cd/B40099_02/books/OIRef/OIRefInterfaceRef92.html\nhttps://it.toolbox.com/blogs/joshuaweir/siebel-scripting-best-practices-080808\nhttps://it.toolbox.com/blogs/joshuaweir/siebel-scripting-best-practices-part-2-112609",
+    "remediation": "Replace the If by a Loop, like While.",
+    "remediationSample": "bcPositionMVG.ClearToQuery();\nbcPositionMVG.InvokeMethod(\"SetAdminMode\", \"TRUE\");\nbcPositionMVG.SetSearchExpr(\"[Id] <> '0-5220'\");\nbcPositionMVG.ExecuteQuery();\n \n// The first record is identified and deleted. However, \n// subsequent child records are not deleted. \nwhile ( bcPositionMVG.FirstRecord() )        // FIXED\n{ \n   bcPositionMVG.DeleteRecord(); \n}",
+    "sample": "bcPositionMVG.ClearToQuery();\nbcPositionMVG.InvokeMethod(\"SetAdminMode\", \"TRUE\");\nbcPositionMVG.SetSearchExpr(\"[Id] <> '0-5220'\");\nbcPositionMVG.ExecuteQuery();\n \n// The first record is identified and deleted. However, \n// subsequent child records are not deleted. \nif ( bcPositionMVG.FirstRecord() )              \n{ \n   bcPositionMVG.DeleteRecord();              // VIOLATION\n}",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Use DeleteRecord method only inside Loops located in Functions",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062143,
+            "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/technical-criteria/1062143",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061113,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1061113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067150,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1067150",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-8",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/CWE/items/CWE-1050",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1050",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1050",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

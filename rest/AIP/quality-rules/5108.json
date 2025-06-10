@@ -1,0 +1,73 @@
+{
+    "id": 5108,
+    "name": "Avoid Sections with a very low comment/code ratio (COBOL)",
+    "href": "AIP/quality-rules/5108",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "associatedValueName": "Comment/code ratio",
+    "description": "Sections should have at least a ratio comment/code > X %\nThe threshold is a parameter and can be changed at will.",
+    "output": "Associated to each COBOL Section with violations, the Quality Rule provides:\n- The comment/code ration",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact",
+    "remediation": "Enrich Artifact code with comments",
+    "total": "Number of Cobol Sections",
+    "alternativeName": "Avoid Sections with a very low comment/code ratio (COBOL)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Minimum % Comment / Code Ratio for section",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

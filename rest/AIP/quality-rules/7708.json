@@ -1,0 +1,66 @@
+{
+    "id": 7708,
+    "name": "DEPRECATED: Avoid using session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)",
+    "href": "AIP/quality-rules/7708",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Reports all methods that reference:\n - net.sf.hibernate.Session.setFlushMode(org.hibernate.FlushMode) or org.hibernate.Session.setFlushMode(org.hibernate.FlushMode) \nand also the parameters:\n   * net.sf.hibernate.COMMIT, net.sf.hibernate.NEVER\n   * org.hibernate.FlushMode.COMMIT, org.hibernate.FlushMode.NEVER or org.hibernate.FlushMode.MANUAL",
+    "output": "List all methods that call setFlushMode with FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL as value.\n\nIt provides the following information:\n Method Full Name",
+    "rationale": "Session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL) specifies that the session won't be flushed before query execution (it will be flushed only at the end of the database transaction). Be aware that this setting may expose you to stale data: modifications you made to objects only in memory may conflict with the results of the query. We don't recommend that you change this setting from the default. \nIt's provided to allow performance optimization in rare cases. Likewise, most applications rarely need to call flush() explicitly. This functionality is useful when you're working with triggers, mixing Hibernate with direct JDBC, or working with buggy JDBC drivers. You should be aware of the option but not necessarily look out for use cases.",
+    "reference": "https://www.cpe.ku.ac.th/~plw/oop/e_book/hibernate_in_action.pdf  p 160/161",
+    "remediation": "Verify that these settings are necessary.",
+    "remediationSample": "public void testJEEPPUB003_1_SHOW_4() {\n        UsersFromVb newUser = new UsersFromVb(\"Jake2\",\"Roberts\",23,\"Chimp@EroticMonkey.com\");\n        \n        UsersFromVbHome userManager = new UsersFromVbHome();\n        //userManager.persist(newUser);\n        Session mySession = userManager.getSessionFactory().getCurrentSession();\n        mySession.getTransaction().begin();\n        //userManager.attachClean(newUser);\n        mySession.persist(newUser);\n        //userManager.persist(newUser);\n        mySession.getTransaction().commit();\n        \n    }",
+    "sample": "case#1:\n\npublic void testJEEPPUB003_1_SHOW_2() {\n        UsersFromVb newUser = new UsersFromVb(\"Jake2\",\"Roberts\",23,\"Chimp@EroticMonkey.com\");\n        \n        UsersFromVbHome userManager = new UsersFromVbHome();\n        //userManager.persist(newUser);\n        Session mySession = userManager.getSessionFactory().getCurrentSession();\n        mySession.getTransaction().begin();\n        //userManager.attachClean(newUser);\n        mySession.persist(newUser);\n        mySession.setFlushMode(FlushMode.COMMIT);   //VIOLATION\n        //userManager.persist(newUser);\n        mySession.getTransaction().commit();\n        \n    } \n\ncase#2:\n\n    public void testJEEPPUB003_1_SHOW_4() {\n        UsersFromVb newUser = new UsersFromVb(\"Jake2\",\"Roberts\",23,\"Chimp@EroticMonkey.com\");\n        \n        UsersFromVbHome userManager = new UsersFromVbHome();\n        //userManager.persist(newUser);\n        Session mySession = userManager.getSessionFactory().getCurrentSession();\n        mySession.getTransaction().begin();\n        //userManager.attachClean(newUser);\n        mySession.persist(newUser);\n        mySession.setFlushMode(FlushMode.MANUAL); //VIOLATION\n        //userManager.persist(newUser);\n        mySession.getTransaction().commit();\n        \n    }",
+    "total": "Number of methods that reference org.hibernate.Session.setFlushMode or net.sf.hibernate.Session.setFlushMode",
+    "alternativeName": "Ensure that session.setFlushMode(FlushMode.COMMIT, FlushMode.NEVER or FlushMode.MANUAL)  is not used",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

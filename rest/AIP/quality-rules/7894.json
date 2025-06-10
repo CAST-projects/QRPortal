@@ -1,0 +1,62 @@
+{
+    "id": 7894,
+    "name": "Avoid using LOOP INTO, use LOOP ASSIGNING instead",
+    "href": "AIP/quality-rules/7894",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks all Abap artifacts accessing tables with a LOOP INTO construct.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "LOOP ... ASSIGNING is faster than LOOP ... INTO if field-symbols are modified. In this specific case, the system automatically update data in internal table.",
+    "remediation": "Replace LOOP INTO constructs by LOOP ASSIGNING constructs and use field-symbols.",
+    "remediationSample": "LOOP AT itab ASSIGNING <fs>.\n  ...\n<fs>-fld1 = 'X'.\n\nENDLOOP.",
+    "sample": "LOOP AT itab INTO wa_tab.\n  ...\n  wa_tab-fld1 = 'X'.\n  MODIFY itab FROM wa_tab.\n\nENDLOOP.",
+    "total": "Number of Abap artifacts",
+    "alternativeName": "Avoid using LOOP INTO, use LOOP ASSIGNING instead",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "href": "AIP/technical-criteria/66068",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

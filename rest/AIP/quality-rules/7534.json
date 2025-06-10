@@ -1,0 +1,67 @@
+{
+    "id": 7534,
+    "name": "Avoid READ TABLE without BINARY SEARCH",
+    "href": "AIP/quality-rules/7534",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric retrieves all ABAP Artifacts using READ statements on standard ABAP internal tables without using the BINARY SEARCH option.\nREAD statement on SORTED and HASHED tables are not taken into account as they do not require the  BINARY SEARCH option.\nREAD statements with following additions do not give violations:\n-INDEX\n-WITH KEY\n-WITH TABLE KEY",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "When a the READ command is used without the BINARY SEARCH option, the internal table  is sequentially searched (equivalent of an SQL table scan). The consequence  is poor performance especially when the size of internal table is large or if it grows. Instead of this, it is recommended to use the BINARY SEARCH option. The binary search  algorithm is much faster to search of a value in an internal table. It is however necessary to sort the internal table before doing a binary search in order to get that performance advantage.",
+    "reference": "ABAP Objects, Keller-Kruger, SAP Press\nEnhancing the Quality of ABAP Development, Meijs-Krouwels-Heulmans-Sommen, SAP Press",
+    "remediation": "Add the BINARY SEARCH option to the statement and check that the internal table is sorted before using the READ statement.",
+    "remediationSample": "DATA int_flight TYPE STANDARD TABLE.\nREAD TABLE int_flight BINARY SEARCH.",
+    "sample": "DATA int_flight TYPE STANDARD TABLE.\nREAD TABLE int_flight.",
+    "total": "Number of ABAP Artifacts using READ statements on standard ABAP internal tables only (not on SORTED and HASHED tables).",
+    "alternativeName": "Avoid READ TABLE without BINARY SEARCH",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

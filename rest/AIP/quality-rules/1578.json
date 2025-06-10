@@ -1,0 +1,59 @@
+{
+    "id": 1578,
+    "name": "Avoid using LONG & LONG RAW datatype for Table Columns",
+    "href": "AIP/quality-rules/1578",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "description": "Long and long raw datatypes should not be used for table columns.",
+    "output": "This report lists all Tables using the long and long raw column datatypes \nIt provides the following information: Table name, Table full name.",
+    "rationale": "Oracle instructs user to not use LONG and LONG RAW anymore and to use LOB instead.\nThe reasons for that are:\n- LONG can only store 2GB whereas LOB can have 4GB\n- In PL/SQL only 32760 bytes can be handled on LONG (on possibly 2GB)\n- Only one column of type LONG or LONG RAW per table is possible. There is no such limit with LOB\n- Acess to LONG are sequential whereas access to LOB can be direct (thus having better performances)\n- A LONG value can't be used as a parameter of a function in SQL, and in PL/SQL LONG variables will be converted to VARCHAR2\netc..",
+    "remediation": "Convert LONG and LONG RAW to LOB.",
+    "total": "Number of PLSQL tables and views",
+    "alternativeName": "Avoid using LONG & LONG RAW datatype for Table Columns",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "id": 7498,
+    "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
+    "href": "AIP/quality-rules/7498",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all getters that don't return the same collection instance as it was assigned by Hibernate or JPA to the setter method: any modification of the setter parameter or the attribute returned by the getter will be detected and reported.\nIn setter method, a modification occur when the class attribute is not initialized with the parameter directly. And in the getter when the return value is not the class attribute itself. To perform this check, any call to a method or a constructor in the getter or setter will be considered as a violation.\nThis metric take into account the case where getter and setter are implemented on an inherited class of the persistent class (can happen when inherited fields are persistent)",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "By using getter and setter, the programmer can control how his important variables are accessed and updated in a correct manner, such as changing value of a variable within a specified range.",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 74\nThe Java Persistence API page 122 - ISBN 1-932394-88-5",
+    "remediation": "Keep the same collection as reference",
+    "remediationSample": "private List<String> listTitles;\npublic void setListTitles(List<String> titles) {\n    this.listTitles = titles;\n}\npublic List<String> getListTitles() {\n    return this.listTitles;\n}",
+    "sample": "private List<Person> listPeople = new ArrayList<Person>();     //VIOLATION\n    public void setListPeople(List<Person> list) {\n        for (Person aPerson : list) {\n            this.listPeople.add((Person) aPerson.clone());\n        }\n    }\n    public List<Person> getListPeople() {                      //VIOLATION\n        List<Person> listReturn = new ArrayList<Person>();\n        for (Person aPerson : this.listPeople) {\n            listReturn.add((Person) aPerson.clone());\n        }\n        return listReturn;\n    }",
+    "total": "Number of fields setters and getters that have a Collection as parameter or return value",
+    "alternativeName": "Ensure to have the same collection between the getter and the setter",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        },
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

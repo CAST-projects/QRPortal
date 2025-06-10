@@ -1,0 +1,155 @@
+{
+    "id": 7542,
+    "name": "Avoid using FOR ALL ENTRIES IN without emptiness check",
+    "href": "AIP/quality-rules/7542",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric retrieves all ABAP artifacts using FOR ALL ENTRIES IN statement without explicitly checking the emptiness of the internal table used in the FOR ALL ENTRIES IN statement.\nThe emptiness checks recognized are the following \nCHECK NOT ts_table[] IS INITIAL.\nIF NOT ts_table[] IS INITIAL.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "As the FOR ALL ENTRIES IN is part of the WHERE clause, an empty internal table can end-up in a full table scan and thus cause performance troubles. This is why it is mandatory to include an  emptiness check before any use of the FOR ALL ENTRIES IN statement.",
+    "reference": "Enhancing the Quality of ABAP Development, \nMeijs-Krouwels-Heulmans-Sommen, SAP Press\nISBN 1-59229-030-2",
+    "remediation": "Use an emptiness check based on one of the following syntax :\nCHECK NOT ts_table[] IS INITIAL.\n or\nIF NOT ts_table[] IS INITIAL.",
+    "remediationSample": "* Select orders for specific material and order type\nSELECT matnr auart vbeln posnr\n              FROM vapma\n              INTO TABLE ts_vapma[]\n              WHERE matnr IN so_matnr\n              AND auart IN so_auart.\n\n* Use this result to read the detail data from VBAP: \n* Order Item Data\nIF NOT ts_vapma[] IS INITIAL.\nSELECT matnr vbeln kwmeng vrkme\n              FROM vbap\n              INTO TABLE ts_orders\n              FOR ALL ENTRIES IN ts_vapma[]\n              WHERE vbeln = ts_vapma\n              AND posnr = ts_vapma-posnr.\nENDIF.",
+    "sample": "* Select orders for specific material and order type\nSELECT matnr auart vbeln posnr\n              FROM vapma\n              INTO TABLE ts_vapma[]\n              WHERE matnr IN so_matnr\n             AND auart IN so_auart.\n\n* Use this result to read the detail data from VBAP: \n* Order Item Data\nSELECT matnr vbeln kwmeng vrkme\n              FROM vbap\n              INTO TABLE ts_orders\n              FOR ALL ENTRIES IN ts_vapma[]\n              WHERE vbeln = ts_vapma\n              AND posnr = ts_vapma-posnr",
+    "total": "Number of ABAP Artifacts containing OpenSQL statements",
+    "alternativeName": "Avoid using FOR ALL ENTRIES IN without emptiness check",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061041,
+            "name": "CWE-391 - Unchecked Error Condition",
+            "href": "AIP/technical-criteria/1061041",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066491,
+            "name": "CWE-391 - Unchecked Error Condition",
+            "href": "AIP/technical-criteria/1066491",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "href": "AIP/quality-standards/CWE/items/CWE-391",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-391",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-391",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222656",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222656",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222656",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222656",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

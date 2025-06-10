@@ -1,0 +1,82 @@
+{
+    "id": 7668,
+    "name": "DEPRECATED: Avoid using DOM parser for large or medium sized XML file parsing",
+    "href": "AIP/quality-rules/7668",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "DOM Parser creates an In Memory tree representation of XML file and then parses it, so it requires more memory and it's advisable to have increased the heap size for DOM parser in order to avoid Java.lang.OutOfMemoryError:java heap space . \n\nParsing large or medium sized XML files using DOM parser will take a long time or even may not be able to load it completely simply because it requires lot of memory to create XML Dom Tree.\n\nThis rule checks all methods parsing XML files. A violation is reported when detecting a reference to javax.xml.parsers.DocumentBuilder class",
+    "output": "List all methods, that reference javax.xml.parsers.DocumentBuilder class.\n\nIt provides the following information:\n Java Method Fullname",
+    "rationale": "Efficient parsing of XML documents is more and more critical as XML gets adopted more widely. It is very important to have an efficient way to parse XML data, especially in applications that are intended to handle large volumes. Improper parsing can result in excessive memory usage and processing times that can hurt scalability.",
+    "reference": "http://ptgmedia.pearsoncmg.com/images/0131453491/samplechapter/megginson_ch08.pdf\nhttps://www.mysoftkey.com/java/difference-between-dom-and-sax-parser-in-java/",
+    "remediation": "Prefer using SAX XML parser for parsing large XML files in Java because it doesn't require to load whole XML file in Java and it can read a big XML file in small parts\n\nIt's specially recommended to use SAX when no modification are made on the document and when used in different threads (session, EJB...), in a loop.",
+    "remediationSample": "import java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.Iterator;\nimport java.util.List;\n\nimport javax.xml.parsers.ParserConfigurationException;\nimport javax.xml.parsers.SAXParser;\nimport javax.xml.parsers.SAXParserFactory;\n\nimport org.xml.sax.Attributes;\nimport org.xml.sax.SAXException;\n\nimport org.xml.sax.helpers.DefaultHandler;\n\npublic class SAXParserExample extends DefaultHandler{\n    [...]\n    \n    public SAXParserExample(){\n        [...]\n    }\n\n    private void parseDocument() {\n        SAXParserFactory spf = SAXParserFactory.newInstance();\n        try {\n            SAXParser sp = spf.newSAXParser();\n            sp.parse(\"sample.xml\", this);\n        }catch(SAXException se) {\n            se.printStackTrace();\n        }catch(ParserConfigurationException pce) {\n            pce.printStackTrace();\n        }catch (IOException ie) {\n            ie.printStackTrace();\n        }\n    }\n\n    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {\n        [...]\n    }\n\n    public void characters(char[] ch, int start, int length) throws SAXException {\n        [...]\n    }\n\n    public void endElement(String uri, String localName, String qName) throws SAXException {\n        [...]\n    }\n\n    [...]\n}",
+    "sample": "import javax.xml.parsers.DocumentBuilder;\nimport javax.xml.parsers.DocumentBuilderFactory;\nimport javax.xml.parsers.ParserConfigurationException;\n\nimport org.w3c.dom.Document;\nimport org.w3c.dom.Element;\nimport org.w3c.dom.NodeList;\nimport org.xml.sax.SAXException;\n\npublic class DomParserExample {\n    Document dom;\n\n    private void parseXmlFile(){\n        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();\n        try {\n            DocumentBuilder db = dbf.newDocumentBuilder();  // VIOLATION\n            dom = db.parse(\"sample.xml\");\n        }catch(ParserConfigurationException pce) {\n            pce.printStackTrace();\n        }catch(SAXException se) {\n            se.printStackTrace();\n        }catch(IOException ioe) {\n            ioe.printStackTrace();\n        }\n    }\n}",
+    "total": "Number of methods that reference javax.xml.parsers.SAXParser and javax.xml.parsers.DocumentBuilder",
+    "alternativeName": "Prefer using SAX parser for large or medium sized XML file parsing instead of DOM parser",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "STIG-V-222593",
+            "name": "XML-based applications must mitigate DoS attacks by using XML filters, parser options, or gateways.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222593",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222593",
+            "name": "XML-based applications must mitigate DoS attacks by using XML filters, parser options, or gateways.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222593",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

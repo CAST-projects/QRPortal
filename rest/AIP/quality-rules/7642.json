@@ -1,0 +1,140 @@
+{
+    "id": 7642,
+    "name": "Avoid SQL queries on XXL tables not using the first column of a composite index in the WHERE clause",
+    "href": "AIP/quality-rules/7642",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Name of the table having a misused composite index",
+    "description": "This metric retrieves all client-server artifacts that contain an SQL query with a WHERE clause not using the first column of composite index (multiple column base index).\n\nThe value of the metric is number of client-server artifacts that contain an SQL query not using the first column of a composite index divided by the number of client-server artifacts using a composite index.\nAn artifacts using a composite index means here artifacts containing a query that uses at least one column of a compostite index.\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
+    "output": "Associated to each artifact with violations, the Quality Rule provides: \n- Name of the table having a misused composite index.",
+    "rationale": "Whenever a query with a WHERE clause does not use the first column of composite index (multiple column base index), the database engine will not use the composite index to retrieve the data, potentially leading to very poor performance.",
+    "remediation": "Depending on the context, the user has to evaluate if the fact that the composite index is not is leading to poor performance.\nIf the query does not use other indexes, the fact that the query does not use the first column of a composite index is most probably an error that needs to be fixed.",
+    "sample": "The table T is defined the 4 following columns : A, B, C, D\n\nThe analyzed application  has one artifact that contains the following query : \nSELECT * FROM T WHERE B = 'X'\n\nExample 1 : \nTable T has the following index defined i1 on (A, B, C) columns.\nThe artifact  will be part of the output of this metric to inform the user that i1 will not be used by the query processor engine. \n\nExample 2 : \nTable T has the following indexes defined  i2 (B, C) and i3 (B).\nThe artifact  will not  be part of the output of this metric (first column (i3)  or composite index( i2) is used).\n\nNote  artifact  is part of the scope and is counted by the total procedure.\n\nExample 3 : \nTable T has the following indexes defined  i1 (A, B, C), and i3 (B).\nThe artifact  will be part of the output of this metric to inform the user that i1 will not be used by the database engine, even if the database engine uses the index i3.\n\nExample 4 :\nTable T has the following index defined i3 (B).\nThe artifact  is not ignored by this metric.",
+    "total": "Number of client-server artifacts using tables or views that contain a query using columns of a composite index in the WHERE clause of the query",
+    "alternativeName": "Avoid SQL queries on XXL tables not using the first column of a composite index in the WHERE clause",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062142,
+            "name": "ASCPEM-PRF-7 - Large Data Resource ColumnSet with Index Element of Excessive Size",
+            "href": "AIP/technical-criteria/1062142",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061144,
+            "name": "CWE-1094 - Excessive Index Range Scan for a Data Resource",
+            "href": "AIP/technical-criteria/1061144",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067194,
+            "name": "CWE-1094 - Excessive Index Range Scan for a Data Resource",
+            "href": "AIP/technical-criteria/1067194",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 1062202,
+            "name": "MIPS-Reduction - focus on data access efficiency",
+            "href": "AIP/technical-criteria/1062202",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-7",
+            "name": "Large Data Resource ColumnSet with Index Element of Excessive Size",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-7",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1094",
+            "name": "Excessive Index Range Scan for a Data Resource",
+            "href": "AIP/quality-standards/CWE/items/CWE-1094",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1094",
+            "name": "Excessive Index Range Scan for a Data Resource",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1094",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1094",
+            "name": "Excessive Index Range Scan for a Data Resource",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1094",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Minimum number of rows to consider a table as XXL",
+            "description": "tables are considered as XXL if the number of rows is greater than this value",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        100000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

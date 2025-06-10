@@ -1,0 +1,59 @@
+{
+    "id": 1600570,
+    "name": "All new Record must have a SYNCID (PeopleSoft)",
+    "href": "AIP/quality-rules/1600570",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "If you do have a synchronizable component interface, then you have to have a SYNCID.\n\nWhen the quality rule is not applicable, you just have to either :\nignore the violations and don't include them in an action plan\nor\ndisable the quality rule in CMS, and rerun a snapshot : this is a local adaptation of the quality model to the specific context of a given Peoplesoft application, having no synchronization requirements with a mobile tier.",
+    "output": "This report lists all the PeopleSoft Record Table with violation:\nIt provides the following information: \n- PeopleSoft Record Table full name.",
+    "rationale": "System ID functionality simplifies system ID maintenance for developers, especially for those working on mobile applications where the System ID field must be set to SYNCID on the record properties for each record of each component used in mobile applications.",
+    "reference": "https://docs.oracle.com/cd/E13292_01/pt849pbr0/eng/psbooks/tmob/chapter.htm?File=tmob/htm/tmob04.htm\nhttps://docs.oracle.com/cd/E25688_01/pt852pbr0/eng/psbooks/tapd/chapter.htm?File=tapd/htm/tapd06.htm",
+    "remediation": "For all new record, set the system ID field to SYNCID.\nYou can set the System ID for an overall project or for the current record definition in the project workspace.",
+    "total": "Number of PeopleSoft Record Table (ADDED)",
+    "alternativeName": "All new Record must have a SYNCID (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

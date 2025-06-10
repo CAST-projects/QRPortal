@@ -1,0 +1,71 @@
+{
+    "id": 7238,
+    "name": "Avoid calls between JSP Page for application using Struts framework",
+    "href": "AIP/quality-rules/7238",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Called Page name",
+    "description": "Pages should not directly call other Pages through jsp:forward, jsp:include, logic:forward, logic:redirect,  core:redirect (JSTL) or pageContext.forward() or pageContext.sendRedirect().\n\nNote that referencing other pages through the directive errorPage or a static include are not reported as a violation.",
+    "output": "This report lists all Pages calling another Page\nIt provides the following information:\n - Page full name\n - Called Page name",
+    "rationale": "A good implementation of an MVC model means no calls from one Page to another. In addition, the user's permissions that go to the target JSP page cannot be checked (if applicable).",
+    "remediation": "To avoid these issues, always go from one JSP page to another through an Action class and action-mappings (in case of struts 1.x) or action (in case of struts 2.x).",
+    "remediationSample": "Sample.jsp\n<%\n    response.sendRedirect(\"Example.do\"); // FIXED\n%>\n\n<%\n    pageContext.forward( \"Example.do\" ); // FIXED\n%>\n\n<jsp:forward page= 'Example.do' /> // FIXED\n\n// implement the flow into the struts-config.xml file:\n\n<action path=\"/Example\"\ntype=\"strutsSample.SampleAction\">\n<forward name=\"success\" path=\"/myPage.jsp\"/>\n</action>\n\n// And in the action class:\npublic class SampleAction extends Action {\npublic ActionForward execute(\nActionMapping mapping,\nActionForm form,\nHttpServletRequest request,\nHttpServletResponse response)\nthrows Exception {\nreturn mapping.findForward(\"success\");\n}\n}",
+    "sample": "// Sample.jsp\n<%\n    response.sendRedirect(\"myPage.jsp\"); // VIOLATION\n%>\n\n<%\n    pageContext.forward( \"myPage.jsp\" ); // VIOLATION\n%>\n\n<jsp:forward page= 'myPage.jsp' /> // VIOLATION",
+    "total": "Number of JSP pages",
+    "alternativeName": "Ensure to go from one JSP page to another through an Struts Action class and Struts action-mappings or action",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

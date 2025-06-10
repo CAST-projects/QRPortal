@@ -1,0 +1,109 @@
+{
+    "id": 7662,
+    "name": "Avoid SQL queries on XXL Tables with implicit conversions in the WHERE clause",
+    "href": "AIP/quality-rules/7662",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Name of the first column involved in a type conversion",
+    "description": "This metric retrieves all SQL artifacts with a query on an XXL table using implicit type conversion.\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
+    "output": "Associated to each artifact with violations, the Quality Rule provides: \n- The Name of the column (first column involved in a type conversion).",
+    "rationale": "A query using implicit type conversion usually introduces performance issues into an application as well as classical data conversion issues such date to string conversion.",
+    "total": "Number of SQL artifacts using XXL Tables or views based on XXL tables",
+    "alternativeName": "Avoid SQL queries on XXL Tables with implicit conversions in the WHERE clause",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 1062202,
+            "name": "MIPS-Reduction - focus on data access efficiency",
+            "href": "AIP/technical-criteria/1062202",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum number of rows to consider a table as XXL",
+            "description": "tables are considered as XXL if the number of rows is greater than this value",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        100000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

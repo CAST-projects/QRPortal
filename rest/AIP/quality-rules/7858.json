@@ -1,0 +1,67 @@
+{
+    "id": 7858,
+    "name": "Avoid passing parameter by value",
+    "href": "AIP/quality-rules/7858",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks all Abap subroutines (Form) and find out those that define formal parameters with the VALUE() addition.",
+    "output": "Associated to each ABAP Form routine with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "The possible forms of parameter transfer in ABAP are pass by reference (indicated by Reference(PARAM) or not at all) and pass by value (indicated by Value(PARAM) ). \nThe general rule is that pass by value is always slower than pass by reference. The loss in performance is always a minimum of 40 % and can rise to several 1000 %, depending on the data type and data volume.",
+    "remediation": "Try to avoid passing parameter by value as much as possible.",
+    "remediationSample": "DATA: BEGIN OF X.\nINCLUDE STRUCTURE SFLIGHT.\nDATA: ADDITION(8) TYPE C,\nEND OF X.\n...\nPERFORM U USING X.\n...\nFORM U USING X STRUCTURE SFLIGHT.\nWRITE: X-FLDATE.\nENDFORM.",
+    "sample": "DATA: BEGIN OF X.\nINCLUDE STRUCTURE SFLIGHT.\nDATA: ADDITION(8) TYPE C,\nEND OF X.\n...\nPERFORM U USING X.\n...\nFORM U USING VALUE(X) STRUCTURE SFLIGHT.\nWRITE: X-FLDATE.\nENDFORM.",
+    "total": "Number of Abap Forms having parameters",
+    "alternativeName": "Avoid passing parameter by value",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

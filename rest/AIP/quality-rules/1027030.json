@@ -1,0 +1,67 @@
+{
+    "id": 1027030,
+    "name": "Avoid using \"Obsolete\" attribute without message",
+    "href": "AIP/quality-rules/1027030",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The Obsolete Attribute marks elements like classes, methods, properties, fields, delegates, and many others within your code as deprecated or obsolete. The attribute is read at compile time and it is used to generate a warning or an error to the developer.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Without message for the Obsolete attributes, the maintainer waste time to understand the purpose of using the obsolete attribute.",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/api/system.obsoleteattribute?view=netcore-3.1",
+    "remediation": "Ensure to explain for each Obsolete Attribute, it will save time for the maintenance.",
+    "remediationSample": "public class A\n{\n  [Obsolete(\"Print content\")]\n  public void print()\n  { ... }\n}",
+    "sample": "public class A\n{\n  [Obsolete]  // Noncompliant\n  public void Print()\n  { ... }\n}",
+    "total": "Number of methods",
+    "alternativeName": "Ensure to add the message for the Obsolete Attribute.",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "href": "AIP/technical-criteria/61006",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

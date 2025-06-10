@@ -1,0 +1,69 @@
+{
+    "id": 1600670,
+    "name": "FIELDNUM values should be numbered sequentially for Record (PeopleSoft)",
+    "href": "AIP/quality-rules/1600670",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Either 'FIELDNUM not sequential = <FIELDNUM value>' or 'Same FIELDNUM = <FIELDNUM value>'",
+    "description": "The PSRECFIELD.FIELDNUM values should be numbered sequentially from 1 through PSRECDEFN.FIELDCOUNT.\nNote: when using Application Designer, it is not possible to generate errors",
+    "output": "This report lists all Record fields with a bad FIELDNUM:\n- No field with FIELDNUM - 1\n- Another field with the same FIELDNUM",
+    "rationale": "As PeopleSoft uses FIELDNUM to generate the SQL script to create the record, it should be correctly defined",
+    "remediation": "Modify the configuration, either manually or using Application Designer, to avoid errors.",
+    "total": "Number of PeopleSoft RecordField",
+    "alternativeName": "FIELDNUM values should be numbered sequentially for Record (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

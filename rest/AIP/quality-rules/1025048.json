@@ -1,0 +1,297 @@
+{
+    "id": 1025048,
+    "name": "Avoid hard-coded password in connection string",
+    "href": "AIP/quality-rules/1025048",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Call stack from hard-coded string down to the target method",
+    "description": "This rule will detect a call path where a hard-coded password is sent to a method used to build a connection string.",
+    "output": "Lists all methods that call target methods, passing at least one hard-coded password parameter. \n\nIt provides the following information : \n - Method full name. \n - Call stack with bookmarks from hard-coded password down to the target method.",
+    "rationale": "The software should not have hard-coded passwords in the application code or files. \nHard-coded passwords typically create a significant security hole that allows an attacker to bypass the authentication that has been configured by the software administrator. \nThis hole might be difficult for the system administrator to detect. Even if detected, it can be difficult to fix, so the administrator may be forced into disabling the product entirely.",
+    "reference": "CWE-547: Use of Hard-coded, Security-relevant Constants\nhttps://cwe.mitre.org/data/definitions/547.html",
+    "remediation": "Instead of explicit database password, use OS-integrated system authentication.\nAlternatively, store the password in an encrypted configuration file, and implement a mechanism enabling administrators to change the password. Ensure the file permissions are configured to restrict access to administrators only.\n\nSpecifics for .Net:\nIn particular, if the database supports Integrated Windows Authentication, prefer to use a Windows user over SQL user. \nConfigure the connection string with \"Trusted_Connection=True;\", or \"Integrated Security=SSPI;\" (or \"true\").\nAlternatively, define the application's connection string in the web.config configuration file. Typically, this should be in the connectionString attribute of an <add> element, under the <connectionStrings> element. \nEncrypt the configured connection strings using: aspnet_regiis -pe \"connectionStrings\" -app \"/YourApplication\"\n\nSpecifics for Java:\nIn particular, if the database supports Integrated Authentication or Kerberos, prefer to use this over explicit credentials for the SQL user.   \nIf possible, configure the JDBC URL with \"integratedSecurity=true;\" and \"authenticationScheme=JavaKerberos\" .  \nAlternatively, define the database password and JDBC connection parameters in an encrypted configuration file, e.g. a .properties file.   \nIdeally, leverage the Java Application Server infrastructure to protect the database password using a  specific container-provided mechanism, e.g. Oracle's Wallet, WebSphere's security.xml with CustomPasswordEncryption, or JBoss' SecureIdentityLoginModule.",
+    "remediationSample": ".Net remediation sample\n  var builder = new SqlConnectionStringBuilder();\n  //sqlUser & sqlPass read from an encrypted web.config file.\n  builder.Password = sqlPass; // FIXED\n\nJava remediation sample\n  String urlJdbc = \"jdbc:sqlserver://dbServer/appDb\";\n  //sqlUser & sqlPass read from an encrypted .properties file.\n  conn = DriverManager.getConnection(urlJdbc, sqlUser, sqlPass);  // FIXED",
+    "sample": ".Net sample\n  var builder = new SqlConnectionStringBuilder();\n  builder.Password = \"mypass\"; // VIOLATION\n\nJava sample\n  String urlJdbc = \"jdbc:sqlserver://dbServer/appDb\";\n  conn = DriverManager.getConnection(urlJdbc, \"sa\", \"mypass\");  // VIOLATION",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure you don't have hard-coded passwords used for connection strings",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062192,
+            "name": "ASCSM-CWE-798 - Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/technical-criteria/1062192",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061093,
+            "name": "CWE-798 - Use of Hard-coded Credentials",
+            "href": "AIP/technical-criteria/1061093",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066898,
+            "name": "CWE-798 - Use of Hard-coded Credentials",
+            "href": "AIP/technical-criteria/1066898",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062302,
+            "name": "OWASP-2013-A2 - Broken Authentication and Session Management",
+            "href": "AIP/technical-criteria/1062302",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062322,
+            "name": "OWASP-2017-A2 - Broken Authentication",
+            "href": "AIP/technical-criteria/1062322",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062347,
+            "name": "OWASP-2021-A07 - Identification and Authentication Failures",
+            "href": "AIP/technical-criteria/1062347",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063151,
+            "name": "PCI-DSS4-Requirement-2.2.2 - Vendor default accounts are managed",
+            "href": "AIP/technical-criteria/1063151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063113,
+            "name": "PCI-Requirement-6.3.1 - Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/technical-criteria/1063113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-798",
+            "name": "Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-798",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/CWE/items/CWE-798",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-798",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-798",
+            "name": "Use of Hard-coded Credentials",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-798",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "href": "AIP/quality-standards/OWASP/items/A2-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/A2-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A07-2021",
+            "name": "Identification and Authentication Failures",
+            "href": "AIP/quality-standards/OWASP/items/A07-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API2-2019",
+            "name": "Broken User Authentication",
+            "href": "AIP/quality-standards/OWASP/items/API2-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API2-2023",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/API2-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.2",
+            "name": "Vendor default accounts are managed",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.2",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222642",
+            "name": "The application must not contain embedded authentication data.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222642",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222642",
+            "name": "The application must not contain embedded authentication data.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222642",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

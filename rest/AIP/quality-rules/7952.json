@@ -1,0 +1,60 @@
+{
+    "id": 7952,
+    "name": "Avoid synonym with both private & PUBLIC Definition in PL/SQL context",
+    "href": "AIP/quality-rules/7952",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "description": "This metric retrieves synonyms  that have two definitions: one private and one public",
+    "output": "This report lists all the synonyms with two definitions\nIt provides the following information:\nThe ordered list of all synonyms that have both private & PUBLIC definition. The name of each synonym that is part of  the  full name.",
+    "rationale": "Presence of a synonym with several definitions induces code complexity.",
+    "reference": "Oracle documentation",
+    "remediation": "Reconsider the use of synonym with multiple definitions: One idea could be to rename one of them",
+    "total": "Number of synonyms that are part of the analyzed source code",
+    "alternativeName": "Avoid synonym with both private & PUBLIC Definition in PL/SQL context",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

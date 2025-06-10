@@ -1,0 +1,72 @@
+{
+    "id": 8080,
+    "name": "Avoid exists independent clauses",
+    "href": "AIP/quality-rules/8080",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 6,
+    "associatedValueName": "SQL artifacts",
+    "description": "The diag will identify the sql objects using \"exists\" which are independent (not referring to the parent object)",
+    "output": "Returns all the sql objects violating this rule",
+    "rationale": "This diag will help to identify the violations around independent \"exists\" clause\n- solve a potential performance and disk space issue \n- applicable for all sql, including embeded sql",
+    "remediation": "select name from person \nwhere exists (select 1 from children where children.fatherid = person.id)",
+    "remediationSample": "In the violation example, select will return all persons. The remediation will return persons who are parent. \nI can only imagine such a case when query uses configuration option \nselect name from person where exists (select 1 from system_info where debug = 1)",
+    "sample": "select name from person where exists (select 1 from children)",
+    "total": "Number of SQL Artifacts",
+    "alternativeName": "Avoid exists independent clauses",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 6,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

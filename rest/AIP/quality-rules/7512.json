@@ -1,0 +1,63 @@
+{
+    "id": 7512,
+    "name": "Avoid empty Functions, Forms and Modules",
+    "href": "AIP/quality-rules/7512",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This metric retrieves all ABAP Functions, ABAP Forms, and ABAP Modules that contain no statements.",
+    "output": "This report lists all ABAP Functions, ABAP Forms, and ABAP Modules that contain no statements. \nIt provides the following information:\n- ABAP Functions/Forms/Modules full name",
+    "rationale": "For maintainability aspect, avoid ABAP Functions, ABAP Forms, and ABAP Modules that contain no statements.",
+    "remediation": "Check if the object is referenced. If not then remove it.",
+    "total": "Number of ABAP Functions, ABAP Forms, and ABAP Modules",
+    "alternativeName": "Avoid empty Functions, Forms and Modules",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61031,
+            "name": "Complexity - Empty Code",
+            "href": "AIP/technical-criteria/61031",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

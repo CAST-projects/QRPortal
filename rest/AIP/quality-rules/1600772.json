@@ -1,0 +1,76 @@
+{
+    "id": 1600772,
+    "name": "Avoid Pages with more than X linked Pages (PeopleSoft)",
+    "href": "AIP/quality-rules/1600772",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Number of Linked Pages",
+    "description": "List of Pages that have more (>) than X linked Pages :\nNote X is a parameter and can be changed at will.",
+    "output": "This report lists all the Pages with too many linked pages",
+    "rationale": "Do not access to many pages in the same page",
+    "total": "Number of PeopleSoft Pages (ADDED)",
+    "alternativeName": "Avoid Pages with more than X linked Pages (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "href": "AIP/technical-criteria/61022",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "PeopleSoft: Max Number Linked Page in Page",
+            "description": "Max Number",
+            "technologies": [
+                {
+                    "id": 1600000,
+                    "name": "PeopleSoft",
+                    "href": "AIP/technologies/1600000",
+                    "values": [
+                        2
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

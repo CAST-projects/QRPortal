@@ -1,0 +1,129 @@
+{
+    "id": 7524,
+    "name": "Avoid using BREAK or BREAK-POINT statement",
+    "href": "AIP/quality-rules/7524",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "associatedValueName": "Number of BREAK or BREAK-POINT",
+    "description": "This metric retrieves all ABAP Artifacts using the BREAK or BREAK-POINT statement.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of BREAK or BREAK-POINT",
+    "rationale": "BREAK and BREAK-POINT are breakpoints statement: a signal at a particular point in the program that tells the ABAP runtime processor to interrupt processing and start the Debugger. The Debugger is activated when the program reaches this point so this should never happen in production. Such statement must never be used in a production release and thus must not appear in the source code.",
+    "remediation": "Remove or Comment-out the BREAK statement",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using BREAK or BREAK-POINT statement",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066589,
+            "name": "CWE-489 - Active Debug Code",
+            "href": "AIP/technical-criteria/1066589",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066791,
+            "name": "CWE-691 - Insufficient Control Flow Management",
+            "href": "AIP/technical-criteria/1066791",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-489",
+            "name": "Active Debug Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-489",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-691",
+            "name": "Insufficient Control Flow Management",
+            "href": "AIP/quality-standards/CWE/items/CWE-691",
+            "standard": "CWE"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

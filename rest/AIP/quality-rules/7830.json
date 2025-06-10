@@ -1,0 +1,133 @@
+{
+    "id": 7830,
+    "name": "Avoid unreferenced Interfaces",
+    "href": "AIP/quality-rules/7830",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "description": "All Interfaces should be referenced. An unreferenced Interface is an Interface that is not explicitly called from within the analyzed code.",
+    "output": "This report lists all unreferenced Interfaces\nIt provides the following information: Interface full name",
+    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance.\n\nWarning:\nUnreferenced code can also be the symptoms of missing code (code not included in the source code analysis) and / or can be the symptom of use of polymorphism.\nThe intensive use of polymorphism can make the application easier to change but much more difficult to test, debug and stabilize.",
+    "remediation": "Check if the Interface is truly unnecessary.\nRemove Interfaces that are not used.",
+    "total": "Number of interfaces",
+    "alternativeName": "Ensure all the interfaces are used",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062122,
+            "name": "ASCMM-MNT-20 - Unreachable Named Callable or Method Control Element",
+            "href": "AIP/technical-criteria/1062122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061061,
+            "name": "CWE-561 - Dead Code",
+            "href": "AIP/technical-criteria/1061061",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066661,
+            "name": "CWE-561 - Dead Code",
+            "href": "AIP/technical-criteria/1066661",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "href": "AIP/technical-criteria/61027",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-20",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-561",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-561",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-561",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

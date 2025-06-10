@@ -1,0 +1,162 @@
+{
+    "id": 1024040,
+    "name": "Always activate unlockedDeviceRequired to avoid data decryption when device is unlocked",
+    "href": "AIP/quality-rules/1024040",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.android",
+        "href": "AIP/extensions/com.castsoftware.android"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check when the unlockedDeviceRequired flag is enabled.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Android 9 introduces the unlockedDeviceRequired flag. This option determines whether the Keystore requires the screen to be unlocked before allowing decryption of any in-flight or stored data using the specified key. These types of keys are well suited for encrypting sensitive data to store on disk, such as health or enterprise data. The flag provides users a higher assurance that the data cannot be decrypted while the device is locked should their phone be lost or stolen.\n\nWhen the unlockedDeviceRequired flag is enabled, encryption and signature verification can still happen at any time. The flag prevents only decryption of data when the device is unlocked.",
+    "reference": "https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUnlockedDeviceRequired(boolean) https://developer.android.com/about/versions/pie/android-9.0#security",
+    "remediation": "Enable the flag 'unlockedDeviceRequired' by passing true to the setUnlockedDeviceRequired() method.",
+    "remediationSample": "API >= 28:\n.setUnlockedDeviceRequired(true)",
+    "sample": "API >= 28:\n.setUnlockedDeviceRequired(false) or not set",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Ensure setting the flag 'unlockedDeviceRequired' to 'true' to the setUnlockedDeviceRequired() method",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M5-2016",
+            "name": "Insufficient Cryptography",
+            "href": "AIP/quality-standards/OWASP/items/M5-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

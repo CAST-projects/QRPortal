@@ -1,0 +1,72 @@
+{
+    "id": 7654,
+    "name": "DEPRECATED: Avoid database tables associated to more than one Hibernate Entity",
+    "href": "AIP/quality-rules/7654",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "An entity models a database table\nThis rule checks if used database tables are associated to more than one Hibernate Entity. If yes, a violation is reported except for \n- Entities that belong to the same hierarchy and that are stored into a single table using the table-per-class-hierarchy strategy (also know as SINGLE_TABLE in JPA/Jakarta Persistence) \nand \n- Entities that are stored into several tables using table-per-sub-class strategy (also know as JOINED in JPA/Jakarta Persistence).\n\nNote that in the case where two hierarchy are associated to the same table, only the root Entity will be reported, not all the hierarchy.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "One main source of data corruption within applications comes from lack of compliance to data modification rules defined for an application. These rules are usually related to the use of specific procedures for update/insert/delete, a specific API or a data layer that is fully tested to maintain data integrity. The creation of new, different update/insert/delete procedures and functions that do not make use the existing tested code is at origin of many data corruption cases.\nIn the case of Hibernate, having different mapping files associated with the same table is a source of such data corruption.",
+    "reference": "https://docs.jboss.org/hibernate/stable/orm/userguide/html_single/Hibernate_User_Guide.html#entity",
+    "remediation": "Review your design and decide which Entity must manage the table.",
+    "remediationSample": "create table Contact (\n    id integer not null,\n    first varchar(255),\n    last varchar(255),\n    middle varchar(255),\n    notes varchar(255),\n    starred boolean not null,\n    website varchar(255),\n    primary key (id)\n)\n\n\n@Entity(name = \"Contact\")    //FIXED:Single class should be associated to a table.\npublic static class Contact {\n\n    @Id\n    private Integer id;\n\n    private Name name;\n\n    private String notes;\n\n    private URL website;\n\n    private boolean starred;\n\n    //Getters and setters are omitted for brevity\n}",
+    "sample": "// VIOLATION: table A is referenced by two Entities\n---> a.hbm.xml\n<class name=\"A\" table=\"A\"> \n    ...  \n</class>\n\n---> b.hbm.xml\n<class name=\"B\" table=\"A\"> \n    ...  \n</class>\n\n------------------------------------------------------------------------------------------\n\ncreate table Contact (\n    id integer not null,\n    first varchar(255),\n    last varchar(255),\n    middle varchar(255),\n    notes varchar(255),\n    starred boolean not null,\n    website varchar(255),\n    primary key (id)\n)\n@Entity(name = \"Contact\")\npublic static class Contact {\n\n    @Id\n    private Integer id;\n\n    private Name name;\n\n    private String notes;\n\n    private URL website;\n\n    private boolean starred;\n\n    //Getters and setters are omitted for brevity\n}\n\n\n@Entity(name = \"Contact\")    //VIOLATION\npublic static class TempContact {\n\n    @Id\n    private Integer id;\n\n    private Name name;\n\n    private String notes;\n\n    private URL website;\n\n    private boolean starred;\n\n    //Getters and setters are omitted for brevity\n}",
+    "total": "Number of entities",
+    "alternativeName": "Ensure that each database table is associated to only one Hibernate Entity in order avoid data corruption.",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

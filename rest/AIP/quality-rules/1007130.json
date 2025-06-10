@@ -1,0 +1,131 @@
+{
+    "id": 1007130,
+    "name": "Avoid Artifacts with excessive lines of code (PHP)",
+    "href": "AIP/quality-rules/1007130",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "description": "This rule searches for all the artifacts with excessive lines of code including comments. Artifacts being checked including methods, functions and constructor. An artifact with more than 100 lines of code is considered as violation.",
+    "output": "This report lists all the artifacts with excessive lines of code.\n\nThis QR provides the following information:\n- Artifact full name.",
+    "rationale": "Artifact with excessive lines of code indicates that it has lot of operations to perform and therefore will be difficult to understand and maintain.",
+    "reference": "PHPMD http://phpmd.org/rules/codesize.html#excessivemethodlength",
+    "remediation": "Refactor the code to reduce the number of code lines in an artifact.",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Artifacts with excessive lines of code (PHP)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062128,
+            "name": "ASCMM-MNT-8 - Source Element Excessive Size",
+            "href": "AIP/technical-criteria/1062128",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061132,
+            "name": "CWE-1080 - Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/technical-criteria/1061132",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067180,
+            "name": "CWE-1080 - Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/technical-criteria/1067180",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-8",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1080",
+            "name": "Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-1080",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1080",
+            "name": "Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1080",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1080",
+            "name": "Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1080",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum method size",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        100.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

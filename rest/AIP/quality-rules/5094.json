@@ -1,0 +1,147 @@
+{
+    "id": 5094,
+    "name": "Avoid using MOVE CORRESPONDING ... TO ...",
+    "href": "AIP/quality-rules/5094",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs using MOVE CORRESPONDING statements.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - MOVE CORRESPONDING statement",
+    "rationale": "The CORRESPONDING option allows moving fields from a data structure to another by using their respective names with only one statement. This option works silently because the moved fields are not explicitly specified and this can lead different problems: \n- A field is defined into only one data structure\n- Two fields defined in the both data structures have the same name but not the same type. \nIn the first case, the field will not be moved and the data will be lost. In the second case, data fields with different (incompatible?) types will be moved the one into the other and the data will be corrupted because of truncated size or bad conversion.",
+    "remediation": "Try as much as possible to replace the MOVE CORRESPONDING statements by explicit MOVE statements or add explanations about fields to be moved in the code.",
+    "remediationSample": "MOVE FIELD-1 OF A TO FIELD-1 OF B.\nMOVE FIELD-2 OF A TO FIELD-2 OF B.",
+    "sample": "01 A.\n    05 FIELD-1 PIC XX.\n    05 FIELD-2 PIC XXX.\n    05 FIELD-3 PIC 9.\n\n01 B.\n    05 FIELD-1 PIC XX.\n    05 FIELD-4 PIC 999.\n    05 FIELD-2 PIC X(3).\n\nPROCEDURE DIVISION.\n\n    MOVE CORRESPONDING A TO B.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid using MOVE CORRESPONDING ... TO ...",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061033,
+            "name": "CWE-197 - Numeric Truncation Error",
+            "href": "AIP/technical-criteria/1061033",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066297,
+            "name": "CWE-197 - Numeric Truncation Error",
+            "href": "AIP/technical-criteria/1066297",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 8,
+            "critical": true
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063116,
+            "name": "PCI-Requirement-6.5.2 - Buffer overflows",
+            "href": "AIP/technical-criteria/1063116",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-197",
+            "name": "Numeric Truncation Error",
+            "href": "AIP/quality-standards/CWE/items/CWE-197",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-197",
+            "name": "Numeric Truncation Error",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-197",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-197",
+            "name": "Numeric Truncation Error",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-197",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

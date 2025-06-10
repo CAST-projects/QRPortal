@@ -1,0 +1,99 @@
+{
+    "id": 7798,
+    "name": "Avoid Classes with a High Lack of Cohesion",
+    "href": "AIP/quality-rules/7798",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "Lack of Cohesion in Methods",
+    "description": "This rule searches for Classes with High Lack of Cohesion in Methods (LCOM > X). LCOM measures the correlation between the methods and the local instance variables of a class. High values indicate that instance variables are accessed by different sets of methods, so that the class could be split in 2 or more entities. The threshold used to mark a class as in error is a parameter and can be changed at will.\n\nThis rule uses the LCOM5 version of the LCOM metric (sometimes called LCOM*).",
+    "output": "This report lists all Classes with Lack of Cohesion in Methods greater than X. It provides the following information: \n- Class full name\n- LCOM value",
+    "rationale": "Cohesiveness of Methods within a Class is desirable, since it promotes encapsulation. Low cohesion increases complexity, thereby increasing the likelihood of errors during the development process.",
+    "reference": "A Metrics Suite for Object Oriented Design, Chidamber, S.R. and C.F. Kemerer, IEEE Transactions on Software Engineering, 1994\nComparison of Various Lacks of Cohesion Metrics, Taranjeet Kaur and Rupinder Kaur, International Journal of Engineering and Advanced Technology (IJEAT), February 2013",
+    "remediation": "Lack of cohesion implies Classes should probably be split into two or more sub/classes",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid Classes with a High Lack of Cohesion",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Lack of Cohesion (%)",
+            "description": "Max Lack of Cohesion per method",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        95.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

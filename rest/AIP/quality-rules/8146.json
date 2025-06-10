@@ -1,0 +1,79 @@
+{
+    "id": 8146,
+    "name": "Avoid calling programs statically",
+    "href": "AIP/quality-rules/8146",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs calling large subprograms statically.\n    A static calls is done when the target of CALL statements is enclosed between quotes (ex: CALL \"SPGM\").",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides: \n- The number of violation occurrences \n- Bookmarks for violation occurrences found in the source code: \n    - CALL statement",
+    "rationale": "Using static calls implies that both calling and called programs are linked at compilation time and are loaded at run-time in same memory location. It is better to use dynamic call to avoid that dependency. ",
+    "remediation": "Try to replace static calls by dynamic calls.",
+    "remediationSample": "WORKING-STORAGE SECTION. \n            01 PGM-NAME PICTURE X(8). \n            ... \n            MOVE \"SUBPROG\" TO PGM-NAME. \n            CALL PGM-NAME USING RECORD-1. (1)",
+    "sample": "CALL \"SUBPROG\" USING RECORD-1.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid calling programs statically",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062201,
+            "name": "MIPS-Reduction - focus on algorithmic costs",
+            "href": "AIP/technical-criteria/1062201",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

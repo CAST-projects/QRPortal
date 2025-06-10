@@ -1,0 +1,67 @@
+{
+    "id": 4058,
+    "name": "Avoid queries using old style join convention  instead of ANSI-Standard joins",
+    "href": "AIP/quality-rules/4058",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "description": "List all statements that include JOIN clause(s) defined with the Oracle proprietary syntax",
+    "output": "This report lists all queries using old style joins instead of ANSI-Standard joins,\nThis includes \"classic\" joins as well as outer joins (*= and =*)",
+    "rationale": "- ANSI syntax allow a clear separation between joins clause and the where clause restrictions. The ANSI notation makes the relations between the tables explicit, and saves you from coding equality tests for join conditions in the WHERE clause. Support for full outer joins also eliminates the need for complex workarounds to do those queries (With old syntax some construction can lead to an unexpected behavior). Moreover ANSI joins allows having optimization hints. And last, this historic syntax notation will probably be deprecated in a future release",
+    "reference": "Oracle  SQL Student Guide Volume 1",
+    "remediation": "Transform the queries including Join predicats with  the use of the ANSI syntax. As a consequence Reconsider tthe statement. \nFor that  check the business rule(s) to fully understand the objective of the statement in term of result set. Use ANSI Join syntax notation to rewrite the part of the code.",
+    "remediationSample": "cross join\nSELECT last_name, department_name\nFROM employees\nCROSS JOIN departments;\n\nnatural join:\nSELECT department_id, department_name,\nlocation_id, city\nFROM departments\nNATURAL JOIN locations;\n\nUSING clause usage:\nSELECT e.employee_id, e.last_name, d.location_id\nFROM employees e JOIN departments d\nUSING (department_id);\n\n\nON clause usage:\nSELECT e.employee_id, e.last_name, e.department_id,\nd.department_id, d.location_id\nFROM employees e JOIN departments d\nON (e.department_id = d.department_id);\n\nother sample\nSELECT employee_id, city, department_name\nFROM employees e\nJOIN departments d\nON d.department_id = e.department_id\nJOIN locations l\nON d.location_id = l.location_id;\n\nLEFT Outer Join sample:\nSELECT e.last_name, e.department_id, d.department_name\nFROM employees e\nLEFT OUTER JOIN departments d\nON (e.department_id = d.department_id);\n\nright outer JOIN:\nSELECT e.last_name, e.department_id, d.department_name\nFROM employees e\nRIGHT OUTER JOIN departments d\nON (e.department_id = d.department_id);\n\nsample Outer JOIN:\nSELECT e.last_name, e.department_id, d.department_name\nFROM employees e\nFULL OUTER JOIN departments d\nON (e.department_id = d.department_id);",
+    "sample": "cross join:\nSELECT last_name, department_name\nFROM employees, departments;\n\nnatural join:\nSELECT department_id, department_name,\ndepartments.location_id, city\nFROM departments, locations\nWHERE departments.location_id = locations.location_id;\n\nUSING clause usage:\nSELECT employee_id, last_name,\nemployees.department_id, location_id\nFROM employees, departments\nWHERE employees.department_id = departments.department_id;\n\nON clause usage:\nSELECT e.last_name emp, m.last_name mgr\nFROM employees e JOIN employees m\nON (e.manager_id = m.employee_id);\n\nother sample:\nSELECT employee_id, city, department_name\nFROM employees, departments, locations\nWHERE employees.department_id = departments.department_id\nAND departments.location_id = locations.location_id;\n\nLEFT Outer Join sample:\nFROM employees e, departments d\nWHERE d.department_id (+) = e.department_id;\n\nright outer JOIN:\nSELECT e.last_name, e.department_id, d.department_name\nFROM employees e, departments d\nWHERE d.department_id = e.department_id (+);",
+    "total": "Number of objects that can contain SELECT",
+    "alternativeName": "Avoid queries using old style join convention  instead of ANSI-Standard joins",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "href": "AIP/technical-criteria/61004",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "id": 1600514,
+    "name": "Prefer using UNION to the OR operator (PeopleSoft)",
+    "href": "AIP/quality-rules/1600514",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rule reports all PeopleSoft SQL Definitions having an OR operator.",
+    "rationale": "Depending on the SQL statement, the same result can be obtained faster (with less resources) when a UNION is used to add the results of 2 queries, rather than using OR operator.",
+    "reference": "https://bertwagner.com/2018/02/20/or-vs-union-all-is-one-better-for-performance/",
+    "remediation": "With the help of a DBA, analyse the execution plan of both queries (with UNION and with OR) and chose the one that provide the best performance.",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "Prefer using UNION to the OR operator (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

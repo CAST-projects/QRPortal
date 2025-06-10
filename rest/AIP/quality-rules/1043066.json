@@ -1,0 +1,188 @@
+{
+    "id": 1043066,
+    "name": "Always use HTTPS Redirection Middleware and HSTS Middleware in your ASP.NET Core application",
+    "href": "AIP/quality-rules/1043066",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.dotnetweb",
+        "href": "AIP/extensions/com.castsoftware.dotnetweb"
+    },
+    "associatedValueName": "Number of defects",
+    "description": "This rule will check the use of UseHttpsRedirection and UseHsts in your ASP.NET Core application main class.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of defects\n- Bookmarks for defects found in the source code",
+    "rationale": "For an application that manage sensitive information and does not use message-level encryption, then it should only be allowed to communicate over an encrypted transport channel. therefore the application configuration should ensure that HTTPS is used for all access to sensitive information.\n\nIt is recommended for an ASP.NET Core application to use:\n- HTTPS Redirection Middleware (UseHttpsRedirection) to redirect HTTP requests to HTTPS.\n- HSTS Middleware (UseHsts) to send HTTP Strict Transport Security Protocol (HSTS) headers to clients.",
+    "reference": "https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.1&tabs=visual-studio#require-https",
+    "remediation": "Ensure you have explicitly used UseHttpsRedirection and UseHsts APIs",
+    "remediationSample": "public void Configure(IApplicationBuilder app, IWebHostEnvironment env)\n{\n    if (env.IsDevelopment())\n    {\n        app.UseDeveloperExceptionPage();\n    }\n    else\n    {\n        app.UseExceptionHandler(\"/Error\");\n        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.\n        app.UseHsts();\n    }\n\n    app.UseHttpsRedirection();\n    app.UseStaticFiles();\n\n    app.UseRouting();\n\n    app.UseAuthorization();\n\n    app.UseEndpoints(endpoints =>\n    {\n        endpoints.MapRazorPages();\n    });\n}",
+    "sample": "// violation here because IApplicationBuilder app has not been set properly\n\npublic void Configure(IApplicationBuilder app, IWebHostEnvironment env)\n{\n    if (env.IsDevelopment())\n    {\n        app.UseDeveloperExceptionPage();\n    }\n    else\n    {\n        app.UseExceptionHandler(\"/Error\");\n    }\n\n    app.UseStaticFiles();\n\n    app.UseRouting();\n\n    app.UseAuthorization();\n\n    app.UseEndpoints(endpoints =>\n    {\n        endpoints.MapRazorPages();\n    });\n}",
+    "total": "Number of C# source codes using IApplicationBuilder object-based",
+    "alternativeName": "Ensure you enforce HTTPS in your ASP.NET core application",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066419,
+            "name": "CWE-319 - Cleartext Transmission of Sensitive Information",
+            "href": "AIP/technical-criteria/1066419",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066623,
+            "name": "CWE-523 - Unprotected Transport of Credentials",
+            "href": "AIP/technical-criteria/1066623",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-319",
+            "name": "Cleartext Transmission of Sensitive Information",
+            "href": "AIP/quality-standards/CWE/items/CWE-319",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-523",
+            "name": "Unprotected Transport of Credentials",
+            "href": "AIP/quality-standards/CWE/items/CWE-523",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-22",
+            "name": "Publicly Accessible Content",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-22",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-22",
+            "name": "Publicly Accessible Content",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-22",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API10-2023",
+            "name": "Unsafe Consumption of APIs",
+            "href": "AIP/quality-standards/OWASP/items/API10-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

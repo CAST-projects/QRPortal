@@ -1,0 +1,72 @@
+{
+    "id": 1520738,
+    "name": "Siebel eScript: Avoid Functions using compiler directives like define and if",
+    "href": "AIP/quality-rules/1520738",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Number of compiler directives",
+    "description": "This rules detects eScript using either #if or #define preprocessor directives.",
+    "output": "This rule reports Functions with compiler directives. It provides:\n- function full name\n- The associated value is the Number of compiler directives",
+    "rationale": "Siebel eScript is originally based on the ECMA Script standard, and shares the same C family style syntax, like the preprocessor directives.\nIt was supported by the T eScript Engine (available before Siebel CRM version 7.8).\nThis engine is now superceded by the T eScript Engine, which provide better performance, scalability as well as strong typing.\nHowever, it does not support preprocessor directives like #if and #define.",
+    "reference": "https://docs.oracle.com/cd/E14004_01/books/UsingTools/using_script_editors7.html#wp1150486",
+    "remediation": "An alternative to using #define is to use a var declaration.\nFor example, change #define MY_DEFINE \"abc\"to var MY_DEFINE = \"abc\"",
+    "remediationSample": "var MY_DEFINE = \"abc\";    // FIXED",
+    "sample": "#define MY_DEFINE \"abc\";   // VIOLATION",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Avoid Functions using compiler directives like define and if",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "id": 1020616,
+    "name": "Create Keys for CRUD Statements (SAPUI5)",
+    "href": "AIP/quality-rules/1020616",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.sapui5",
+        "href": "AIP/extensions/com.castsoftware.sapui5"
+    },
+    "description": "If you do a CRUD operation (Create, Read, Update and Delete) with an OData Model in SAP UI5, then it is better to generate a key for the operation. For example, for a read operation, the aim is to read an element that has the primary keys foo and bar. See \"Sample\" and \"Remediation sample\".",
+    "output": "Associated to each violation, the following information is provided:\n      - The number of violation occurrences\n      - Bookmarks for violation occurrences found in the source code",
+    "rationale": "To use the key generation has those advantages:\n\n      The key gets formatted automatically. The key gets formatted into the right format of the primary key specified in the OData service. For example, if the key is stated as 0 but in the OData service, the key is defined as a Boolean, then the 0 gets automatically formatted to false.\n      If there is more than one key, then the keys get aligned in the correct order. For example, there is a PrimaryKey1 and a PrimaryKey2. If those get mixed up in the wrong order in a path as a String as in the first code sample, then the read request fails. But the key generation takes care of the right order. If the order of the keys is mixed up in the key generation as in the second code sample, then the key generation sorts it out. The key gets aligned in the right order, and the read request succeeds.",
+    "reference": "https://inui.io/sapui5-best-practices/#1-create-keys-for-crud-statements",
+    "remediation": "Use the key generation.",
+    "remediationSample": "// controller\n      // with key generation\n      // get model\n      var oModel = this.getView().getModel();\n      // create primary keys with key generation\n      var sPath = oModel.createKey(\"/Products\", {\n      ProductID1: \"foo\",\n      ProductID2: \"bar\"\n\n      });\n      // read the product with the primary keys foo and bar\n      oModel.read(sPath, {\n      success: function(oData) { sap.base.Log.info(oData); },\n      error: function(oData) { sap.base.Log.info(oData); }\n\n      });",
+    "sample": "// controller\n      // without key generation\n      // get model\n      var oModel = this.getView().getModel();\n      // set path with primary keys in a String\n      var sPath = \"/Products(ProductID1='foo',ProductID2='bar')\";\n      // read the product with the primary keys foo and bar\n      oModel.read(sPath, {\n      success: function(oData) { sap.base.Log.info(oData); },\n      error: function(oData) { sap.base.Log.info(oData); }\n\n      });",
+    "total": "Number of SAPUI5 Source Artifacts (Controllers, Components, Objects, JSViews...)",
+    "alternativeName": "Create Keys for CRUD Statements (SAPUI5)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

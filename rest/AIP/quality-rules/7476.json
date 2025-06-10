@@ -1,0 +1,60 @@
+{
+    "id": 7476,
+    "name": "Turn off \"Multiple SQL statements for each measure\"",
+    "href": "AIP/quality-rules/7476",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "description": "List universes using the \"Multiple SQL statements for each measure\" option.",
+    "output": "List universes using the \"Multiple SQL statements for each measure\" option.",
+    "rationale": "Multiple SQL statements for each measure can negatively impact performance, although you may choose to enable this option during development since it may solve some fan trap situations.",
+    "reference": "BO Best Practices for v5",
+    "remediation": "Turn the option off.",
+    "total": "Number of universes",
+    "alternativeName": "Turn off \"Multiple SQL statements for each measure\"",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -23,
+            "name": "Business Object",
+            "href": "AIP/technologies/-23"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

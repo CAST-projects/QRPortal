@@ -1,0 +1,64 @@
+{
+    "id": 1600538,
+    "name": "Using the GetNextNumberWithGaps Function (PeopleSoft)",
+    "href": "AIP/quality-rules/1600538",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This metric detects all artifacts accessing the database in Insert with sequence but not using the GetNextNumberWithGaps Function",
+    "output": "This report lists all artifacts using Insert statement using sequence instead of calling GetNextNumberWithGaps\nIt provides the following information:\n- PeopleCode artifacts full name\n- The associated value is the number of Insert statement using sequence instead of calling GetNextNumberWithGaps found in the artifact source code",
+    "rationale": "Many applications use a sequence number as a unique key. The last number used is stored in a common table, and a SQL statement is issued to retrieve the last number used and update the table. This action locks the common table until the whole transaction is saved and the unit of work committed.\n\nInstead, consider using the GetNextNumberWithGaps PeopleCode function whenever gaps in the sequence numbering are acceptable. The function retrieves the last number used, increments it by one, and updates the common table. This action is done in a separate unit of work to minimize the time a database lock is held on the common table.\n\nGetNextNumberWithGaps issues a commit only when issued from the SavePreChange or Workflow event.",
+    "reference": "Oracle PeopleCode Developer's Guide : https://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tpcd/task_UsingBetterCodingTechniquesforImprovedPerformance-0749c3.html",
+    "remediation": "Review the code and use GetNextNumberWithGaps function to build the sequence.",
+    "total": "Number of PeopleSoft Events, Functions and Methods",
+    "alternativeName": "Using the GetNextNumberWithGaps Function (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

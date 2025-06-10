@@ -1,0 +1,66 @@
+{
+    "id": 7550,
+    "name": "Avoid using nested programs",
+    "href": "AIP/quality-rules/7550",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs containing nested subprograms. A nested subprogram is a Cobol program defined at the end of the main program and is visible by this one only.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - IDENTIFICATION division of the nested subprogram",
+    "rationale": "Nested programs are not visible among the source files. In addition, if there are several occurrences of the same nested subprograms, then the maintenance tasks may be difficult and it is easy to forget one of these occurrences. Then, incoherences can occur during the application execution.",
+    "remediation": "If there are several occurrences of the same nested program, then replace them by an external subprogram. Try to use external subprograms as much as possible.",
+    "sample": "000700 Identification Division.\n000800 Program-Id. MAINPGM.\n000900 Procedure Division.\n001000     Display \"I am in MAINPGM\".\n001100     Call \"NEST1\".\n001300     Goback.\n001400**************************************************\n001500*** NEST1 is directly contained in MAINPGM     ***\n001700**************************************************\n001800 Identification Division.\n001900 Program-Id. NEST1.\n002000 Procedure Division.\n002100     Display \"I am in NEST1\".\n002400     GoBack.\n004500 End Program NEST1.\n005500 End Program MAINPGM.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid using nested programs",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

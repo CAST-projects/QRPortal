@@ -1,0 +1,57 @@
+{
+    "id": 1106256,
+    "name": "Ensure FOR BIT DATA statement is not used",
+    "href": "AIP/quality-rules/1106256",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if FOR BIT DATA Statement is used in DB2 CREATE TABLE",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "As you decide to migrate from DB2 to Microsoft SQL Server, it is important to note the changes to be taken care of during the migration process. Without adaptation, the SQL script won\u2019t compile on Microsoft SQL Server, leading to error",
+    "reference": "https://www.sqlines.com/db2-to-sql-server",
+    "remediation": "Remove DB2 FOR BIT DATA column clause as it is not supported in SQL Server.",
+    "remediationSample": "CREATE TABLE Binary_Table (\n    ID INT IDENTITY PRIMARY KEY,\n    Name VARCHAR(100),\n    Binary_Column BINARY(16),  -- Fixed-length binary data\n    Var_Binary_Column VARBINARY(256), -- Variable-length binary data\n    Created_At DATETIME DEFAULT GETDATE()\n);",
+    "sample": "CREATE TABLE Binary_Table (\n    ID INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n    Name VARCHAR(100),\n    Binary_Column CHAR(16) FOR BIT DATA,  -- Fixed-length binary data (16 bytes)\n    Var_Binary_Column VARCHAR(256) FOR BIT DATA, -- Variable-length binary data\n    Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);",
+    "total": "Number of SQL Tables",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61034,
+            "name": "Database Migration - DB2 Database to SQL Server",
+            "href": "AIP/technical-criteria/61034",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

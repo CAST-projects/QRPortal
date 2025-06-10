@@ -1,0 +1,144 @@
+{
+    "id": 7884,
+    "name": "Avoid disabling source code inspection",
+    "href": "AIP/quality-rules/7884",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks ABAP source code for searching directives that allow the deactivation of specific checks performed by the Code Inspector tool. These directives are: \"SET EXTENDED CHECK OFF\" and \"\"#EC...\".",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Source code inspection checks for bad practices and potential performance issues. For maintenance, performance and robustness reasons, it is better to avoid deactivating SAP source code inspection rules.",
+    "remediation": "Check if these directives are absolutely necessary and, if not, remove them from the source code.",
+    "remediationSample": "* SET EXTENDED CHECK OFF\n<Coding>\n* SET EXTENDED CHECKS ON\n\nExample 2:\nDATA: I TYPE I. \nI = 4.\nBREAK-POINT.    \nWRITE 'Hugo'.   \nFORM AB.        \"#EC CALLED\nENDFORM.",
+    "sample": "Example 1:\nSET EXTENDED CHECK OFF\n<Coding>\nSET EXTENDED CHECKS ON\n\nExample 2:\nDATA: I TYPE I. \"#EC NEEDED\nI = 4.\nBREAK-POINT.    \"#EC NOBREAK\nWRITE 'Hugo'.   \"#EC NOTEXT\nFORM AB.        \"#EC CALLED\nENDFORM.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid disabling source code inspection",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2023",
+            "name": "Security misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API8-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

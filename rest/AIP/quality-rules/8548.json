@@ -1,0 +1,199 @@
+{
+    "id": 8548,
+    "name": "Avoid using ABAP command INSERT REPORT",
+    "href": "AIP/quality-rules/8548",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "description": "INSERT REPORT is used to pass the content of itab to the ABAP program specified in prog in the repository as source code. If a program with the specified name already exists, its source code is overwritten. Otherwise a new program with the name specified in prog and the source code from itab is created in the repository.",
+    "output": "Associated to each ABAP artifact in violation, the Quality Rule provides: \n- The number of calls to system functions\n- Bookmarks for violation occurrences found in source code: \n  - INSERT REPORT ...",
+    "rationale": "If used wrongly, dynamic programming techniques can present a serious security risk. Any dynamic content that is passed to a program from the outside must be checked thoroughly or escaped before being used in dynamic statements. This can be done using the system class CL_ABAP_DYN_PRG or the predefined function escape. See ABAP Command Injections.",
+    "reference": "https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-us/abapinsert_report.htm#:~:text=See%20ABAP%20Command%20Injections.,of%20the%20system%20table%20TRDIR",
+    "remediation": "The statement INSERT REPORT must be used with extreme caution, because it can completely overwrite existing programs without warning. Any inadvertent overwriting can be prevented by checking whether the specified name already exists in the NAME column of the system table TRDIR.",
+    "sample": "DATA: itab TYPE TABLE OF string,\n      prog TYPE sy-repid,\n      uc   TYPE trdir-uccheck.\n\nFIELD-SYMBOLS <line> TYPE string.\n\nprog = ...\nSELECT SINGLE uccheck\n       FROM trdir\n       WHERE name    = @prog AND\n             uccheck = ' '\n       INTO  (@uc).\n\nIF sy-subrc = 0.\n  READ REPORT prog INTO itab.\n  LOOP AT itab ASSIGNING <line>.\n    TRANSLATE <line> TO UPPER CASE.\n    IF <line> CS 'DESCRIBE FIELD' AND\n       <line> CS 'LENGTH' AND\n       <line> NS 'MODE'.\n      REPLACE '.' IN <line> WITH ' IN CHARACTER MODE.'.\n    ENDIF.\n    ...\n  ENDLOOP.\n  SYNTAX-CHECK FOR itab ...\n  IF sy-subrc = 0.\n    INSERT REPORT prog FROM itab VERSION 'X'. //VIOLATION\n  ENDIF.\nENDIF.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using ABAP command INSERT REPORT",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062189,
+            "name": "ASCSM-CWE-78 - OS Command Injection Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062189",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061014,
+            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/technical-criteria/1061014",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066178,
+            "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/technical-criteria/1066178",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AIP-CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/quality-standards/AIP-STRUCTURAL-FLAW/items/AIP-CWE-78",
+            "standard": "AIP-STRUCTURAL-FLAW"
+        },
+        {
+            "id": "ASCSM-CWE-78",
+            "name": "OS Command Injection Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-78",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-78",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-78",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-78",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "id": 8090,
+    "name": "Avoid using NaN to test the result of an expression",
+    "href": "AIP/quality-rules/8090",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches all the methods and functions using Doble.NaN to test if the result of an expression is a number.",
+    "output": "This report lists all the methods and functions using Doble.NaN to test if the result of an expression is a number.\n\nIt provides following information: \n- Method name",
+    "rationale": "Using Double.NaN , which represents not-a-number, can produce sometimes unexpected results.  In the source code any expression that tests equality between a value and Double.NaN always returns false. Any expression that tests inequality between a value and Double.NaN always returns true.",
+    "reference": "http://msdn.microsoft.com/en-us/library/bb264491.aspx",
+    "remediation": "Instead of using Double.NaN, try and  use Single.IsNan(Single) or Double.IsNan(Double) to test the value.",
+    "remediationSample": "using System;\n\nnamespace UsageLibrary\n{\n   class NaNTests\n   {\n      static double zero;\n\n      static void Main()\n      {\n         Console.WriteLine( double.IsNaN(0/zero) );\n      }\n   }\n}",
+    "sample": "using System;\n\nnamespace UsageLibrary\n{\n   class NaNTests\n   {\n      static double zero;\n\n      static void Main()\n      {\n         Console.WriteLine( 0/zero == double.NaN );\n         Console.WriteLine( 0/zero != double.NaN );\n      }\n   }\n}",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid using NaN to test the result of an expression",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

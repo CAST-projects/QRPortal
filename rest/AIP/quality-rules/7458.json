@@ -1,0 +1,87 @@
+{
+    "id": 7458,
+    "name": "Avoid large Interfaces - too many Methods (.NET)",
+    "href": "AIP/quality-rules/7458",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of methods",
+    "description": "Interfaces should have less than X Methods.\nThe threshold is a parameter and can be changed at will.\nIn C# interfaces are pure virtual classes.",
+    "output": "This report lists all the Interfaces having more than X Methods.\nIt provides the following information:\n Interface full name, number of Methods",
+    "rationale": "If an interface contains unnecessarily too many methods, It will become hard to understand and maintain.\nSo,for better maintainability and readability, interfaces should not have too many Methods.",
+    "remediation": "Review the Interface design to reduce the number of Methods",
+    "total": "Number of interfaces",
+    "alternativeName": "Avoid large Interfaces - too many Methods (.NET)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61010",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum method count per interface",
+            "description": "Max method count per interface",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

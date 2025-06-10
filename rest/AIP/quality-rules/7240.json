@@ -1,0 +1,83 @@
+{
+    "id": 7240,
+    "name": "DEPRECATED: Struts Action Classes should only call Business Classes",
+    "href": "AIP/quality-rules/7240",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Find all Action Classes (inherit from org.apache.struts.action.Action class) that call other classes than Business Classes specified by a parameter.",
+    "output": "This report lists all call from Action Classes to non Business packages (X)\nIt provides the following information:\n Action method full name",
+    "rationale": "Struts is a Framework for building Model-View-Controller 2 Web applications. This model is the Blueprints recommended architectural design pattern for interactive applications. It separates design concerns (data persistence and behavior, presentation, and control), decreasing code duplication, centralizing control, and making the application more easily modifiable. MVC 2 also helps developers with different skill sets to focus on their core skills and collaborate through clearly defined interfaces.",
+    "remediation": "Review the design of the classes to follow this principle.",
+    "remediationSample": "call the business package that will call this package",
+    "sample": "// If the package is BusinessPackage.*\n\nimport org.apache.struts.action.Action;\n\nPublic class BaseApplicationAction extends Action\n{\n   public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {\n   NotBusinessPackage.SomeClass notTheBusiness; // VIOLATION\n   }\n}",
+    "total": "Number of Action Classes",
+    "alternativeName": "org.apache.struts.action.Action classes should only call Business Classes specified by a parameter.",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Business package names",
+            "description": "Business package list",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "Fill the business package list"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

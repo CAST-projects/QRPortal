@@ -1,0 +1,72 @@
+{
+    "id": 558,
+    "name": "Data Members naming convention - case control",
+    "href": "AIP/quality-rules/558",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Data member name",
+    "description": "This rule searches for C++ class data members that do not respect naming conventions. \n\nNote: Data Member names should start with a lowercase character and symbols such as '_' are also to be avoided. Const Data Members are not taken into account.",
+    "output": "Associated to each C++ class data member with violations, the Quality Rule provides:\n- data member name",
+    "rationale": "For readability aspects, naming conventions must be respected",
+    "remediation": "Change name according to the naming convention",
+    "total": "Number of C++ class data members",
+    "alternativeName": "Data Members naming convention - case control",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

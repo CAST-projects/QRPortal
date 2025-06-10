@@ -1,0 +1,74 @@
+{
+    "id": 8066,
+    "name": "Avoid using 'using namespace' or 'using' declarations in header files",
+    "href": "AIP/quality-rules/8066",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "Namespace that is referenced",
+    "description": "This rule searches for header files that contain, at namespace level, a 'using namespace' declarative or a namespace 'using' declaration.",
+    "output": "Associated to each C++ header file with violations, the Quality Rule provides:\n- The namespace that is referenced\n- Bookmarks for violation occurrences found in source code:\n  - \"Using namespace\" statement",
+    "rationale": "The 'using namespace' directive pulls an entire namespace into not only your header, but also any client code that uses your header. This can provoke ambiguities in client code, or even select the wrong function during overload resolution. \n\nA namespace 'using' declaration is not as polluting, but can have strange side effects since it only captures function overload sets at the time it appears.\n\nUsing 'using' is a very valuable way to increase code brevity in implementation files (.cpp), but should be avoided in headers files.",
+    "reference": "C++ coding standard, Sutter/Alexandrescu, Item 59 (http://www.gotw.ca/publications/c++cs.htm)",
+    "remediation": "In header files, always explicitly qualify names from other namespaces.",
+    "remediationSample": "// In header\n#include <string>\n#include <vector>\nusing namespace std;\n\nstd::vector<std::string> split(std::string const &s);",
+    "sample": "// In header\n#include <string>\n#include <vector>\nusing namespace std;\n\nvector<string> split(string const &s);",
+    "total": "Number of C++ header files",
+    "alternativeName": "Avoid using 'using namespace' or 'using' declarations in header files",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Declarations",
+            "name": "Declarations",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Declarations",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Declarations",
+            "name": "Declarations",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Declarations",
+            "standard": "C-CPP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

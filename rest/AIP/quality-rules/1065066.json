@@ -1,0 +1,93 @@
+{
+    "id": 1065066,
+    "name": "Avoid having  a method call or additional expressions in a statement using \"++\" or \"--\" operators (C/C++)",
+    "href": "AIP/quality-rules/1065066",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "This rule will raise a violation when a statement, with \"++\" and \"--\" operators, has other side effects apart from increment and decrement.\nA function call is considered to be a side effect for the purposes of t his rule.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The use of increment and decrement operators in combination with other operators is not\nrecommended because:\n\u2022 It can significantly impair the readability of the code;\n\u2022 It introduces additional side effects into a statement with the potential for undefined behavior\n\nIt is safer to use these operators in isolation from any other arithmetic operators",
+    "reference": "Standards Reference:\nMISRA C 2012, 13.1: A full expression containing an increment (++) or decrement (--) operator should have no other potential side effects other than that caused by the increment or decrement operator\n\nMISRA C++ 2008, 5-2-10: The increment (++) and decrement (--) operators should not be mixed with other operators in an expression",
+    "remediation": "Use increment decrement operators in isolation from the other side-effects",
+    "remediationSample": "++u8b;\nu8a = u8b + u8c;\nu8c--;\n______________\nThe following are all compliant because the only side eff ect in each expression is caused by the\nincrement or decrement operator.\nx++;\na[ i ]++;\nb.x++;\nc->x++;\n++( *p );\n*p++;\n( *p )++;",
+    "sample": "The expression:\nu8a = u8b++\nis non-compliant. The non-compliant expression statement:\nu8a = ++u8b + u8c--;\n____________________\nThe following are all non-compliant because they contain a function call as well as an increment or\ndecrement operator:\nif ( ( f ( ) + --u8a ) == 0u )\n{\n}\ng ( u8b++ );\nThe following are all non-compliant even though the sub-expression containing the increment or\ndecrement operator or some other side eff ect is not evaluated:\nu8a = ( 1u == 1u ) ? 0u : u8b++;\nif ( u8a++ == ( ( 1u == 1u ) ? 0u : f ( ) ) )\n{\n}\n___________________________________________________________________________________________________",
+    "total": "Total number of methods C/C++",
+    "alternativeName": "Avoid having  a method call or additional expressions in a statement using \"++\" or \"--\" operators (C/C++)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Expressions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-C-2012-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-C-2012-Expressions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Expressions",
+            "standard": "C-CPP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "id": 7494,
+    "name": "Persistent class method's equals() and hashCode() must access its fields through getter methods",
+    "href": "AIP/quality-rules/7494",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule reports all Hibernate or JPA persistent class method's equals() and hashCode() that directly access its own fields without using getter methods.\nWe consider also the case where equals and hashCode are implemented on an inherited class of the persistent class (this can happen when inherited fields are persistent).",
+    "output": "List all equals or hashCode methods of persistent classes that rely on the fields (persistent or not). It provides the following information: Method Full Name",
+    "rationale": "This is important, since the object instance passed as other might be a proxy object, not the actual instance that holds the persistent state. This is the case when there are lazy associations between classes. This is one point where Hibernate is not completely transparent, but it's good practice to use accessor methods instead of direct instance variable access: when tuning the performance of the application, a lazy association might be required and the issue can occur.\n\nThis potential issue raises a ClassCastException and can cause the application to become unstable.",
+    "reference": "Hibernate in Action (ISBN 1932394-15-X) p 125, Java Persistence with Hibernate (ISBN 1-932394-88-5) p 400, The Java Persistence API page 400 - ISBN 1-932394-88-5",
+    "remediation": "Use the getter instead.",
+    "remediationSample": "public class PersitentSample implements Serializable {\n   \n     private Long id;\n     private String field;\n\n   \n    public Long getId() {\n        return id;\n    }\n\n    private void setId(Long id) {\n        this.id = id;\n    }\n    \n    public String getField() {\n        return field;\n    }\n    \n    public void setField(String field) {\n        this.field = field;\n    }\n               \n    public boolean equals(Object obj) {\n         if (this==obj)\n            return true;\n        if (obj==null)\n            return false;\n        if (obj.getClass() != this.getClass())\n            return false;\n        final PersitentSample o = (PersitentSample) obj;\n        return this.getField().equals(o.getField());  // FIXED\n    }\n   \n    public int hashCode() {\n        return getField().hashCode();                    // FIXED\n    }\n}",
+    "sample": "public class PersitentSample implements Serializable {\n   \n     private Long id;\n     private String field;\n\n   \n    public Long getId() {\n        return id;\n    }\n\n    private void setId(Long id) {\n        this.id = id;\n    }\n    \n    public String getField() {\n        return field;\n    }\n    \n    public void setField(String field) {\n        this.field = field;\n    }\n               \n    public boolean equals(Object obj) {\n         if (this==obj)\n            return true;\n        if (id==null)\n            return false;\n        if (obj.getClass() != this.getClass()) return false;\n        final PersitentSample o = (PersitentSample) obj;\n        return this.field.equals(o.getField());  // VIOLATION\n    }\n   \n    public int hashCode() {\n        return field.hashCode();                     // VIOLATION\n    }\n}",
+    "total": "Number of equals() and hashCode() methods implemented by Hibernate or JPA persistent classes or by classes that reference persistent fields.",
+    "alternativeName": "Ensure to use  getter method to access fields  of persistent class method's equals() and hashCode().",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,162 @@
+{
+    "id": 1043036,
+    "name": "Avoid using Impersonate identity (ASP.NET)",
+    "href": "AIP/quality-rules/1043036",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnetweb",
+        "href": "AIP/extensions/com.castsoftware.dotnetweb"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Impersonation is commonly used in applications that rely on Microsoft Internet Information Services (IIS) to authenticate the user. Checks for the Impersonate flag in the configuration file.\n\nUsing the Impersonate method of the WindowsIdentity class, it is possible to use impersonation in a very controlled scope. This is in contrast to using the Impersonation property of the OperationBehaviorAttribute, which allows impersonation for the scope of the entire operation. Whenever possible, control the scope of impersonation by using the more precise Impersonate method.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in config file",
+    "rationale": "The technical impact is attackers acting as users or administrators, or users using privileged functions, or creating, accessing, updating or deleting every record.\nThe business impact depends on the protection needs of the application and data.\n\nASP.NET impersonation is disabled by default. If impersonation is enabled for an ASP.NET application, that application runs in the context of the identity whose access token IIS passes to ASP.NET. That token can be either an authenticated user token, such as a token for a logged-in Windows user, or the token that IIS provides for anonymous users (typically, the IUSR_MACHINENAME identity).",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control\nhttps://docs.microsoft.com/en-us/previous-versions/aspnet/xh507fc5(v=vs.100)\n\nOWASP-2017 - A5 Broken Access Control",
+    "remediation": "Ensure the impersonation flag remains set to false (default value)",
+    "remediationSample": "<configuration>\n  <system.web>\n    <identity impersonate=\"false\"/>\n  </system.web>\n</configuration>",
+    "sample": "<configuration>\n  <system.web>\n    <identity impersonate=\"true\"/>\n  </system.web>\n</configuration>",
+    "total": "Number of config files",
+    "alternativeName": "Ensure the impersonation flag remains set to false (ASP.NET)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066620,
+            "name": "CWE-520 - .NET Misconfiguration: Use of Impersonation",
+            "href": "AIP/technical-criteria/1066620",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062307,
+            "name": "OWASP-2013-A7 - Missing Function Level Access Control",
+            "href": "AIP/technical-criteria/1062307",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062325,
+            "name": "OWASP-2017-A5 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062325",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-520",
+            "name": ".NET Misconfiguration: Use of Impersonation",
+            "href": "AIP/quality-standards/CWE/items/CWE-520",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-3",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A5-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A7-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

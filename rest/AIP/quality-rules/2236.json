@@ -1,0 +1,70 @@
+{
+    "id": 2236,
+    "name": "DEPRECATED: Avoid use of standard SQL API",
+    "href": "AIP/quality-rules/2236",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation",
+    "description": "The rule reports all pages that reference a class, interface or method whose full qualified name begin with 'java.sql.' or 'javax.sql'\n\nStandard SQL APIs java.sql.* and javax.sql.* are symptoms of direct access to tables.\n  ",
+    "output": "This report lists all JSP pages using standard SQL APIs \nIt provides the following information: \n - Page name\n - the number of violation",
+    "rationale": "Standard SQL APIs java.sql.* and javax.sql.* are symptoms of direct access to tables.",
+    "remediation": "Review the architecture design to invoke the layer in charge of database access.",
+    "sample": "<%@ page import = \"java.sql.*\" %>\n<% Connection myConnection =null; //VIOLATION\n      Statement myStatement =null; //VIOLATION\n      ResultSet myResultSet =null; //VIOLATION\n      javax.sql.DataSource myDataSource = null; //VIOLATION\n%>\n\n// 4 violations will be reported",
+    "total": "Number of JSP pages",
+    "alternativeName": "Ensure that the architecture design of the application invoke the layer in charge of database access.",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

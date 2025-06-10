@@ -1,0 +1,175 @@
+{
+    "id": 1039022,
+    "name": "Avoid using Insecure PBE Iteration Count",
+    "href": "AIP/quality-rules/1039022",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jeerules",
+        "href": "AIP/extensions/com.castsoftware.jeerules"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The iteration count used by a password-based key derivation function should not be too low to decrease attack possibilities.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "An iteration count has traditionally served the purpose of increasing the cost of producing keys from a password,     thereby also increasing the difficulty of attack. According to PKCS #5: Password-Based Cryptography Specification,         Version 2.0, a minimum of 1000 iterations is recommended. This will increase the cost of exhaustive search for passwords significantly, without a noticeable impact in the cost of deriving individual keys.",
+    "reference": "https://cwe.mitre.org/data/definitions/916.html \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure \nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure\nThis rule is compliant with: \nCWE-916: Use of Password Hash With Insufficient Computational Effort \nOWASP Top 10 2013 A6 Sensitive Data Exposure \nOWASP Top 10 2017 A3 Sensitive Data Exposure",
+    "remediation": "According to PKCS #5: Password-Based Cryptography Specification, Version 2.0, a minimum of 1000 iterations is recommended.",
+    "remediationSample": "An iteration count is greater or equal to 1000",
+    "sample": "int iterationCount = 10; \n    PBEParameterSpec pbeps = new PBEParameterSpec(salt, iterationCount);",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Prefer using long PBE Iteration Count to to decrease attack possibilities",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067016,
+            "name": "CWE-916 - Use of Password Hash With Insufficient Computational Effort",
+            "href": "AIP/technical-criteria/1067016",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-916",
+            "name": "Use of Password Hash With Insufficient Computational Effort",
+            "href": "AIP/quality-standards/CWE/items/CWE-916",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M5-2016",
+            "name": "Insufficient Cryptography",
+            "href": "AIP/quality-standards/OWASP/items/M5-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

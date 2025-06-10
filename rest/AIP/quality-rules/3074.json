@@ -1,0 +1,52 @@
+{
+    "id": 3074,
+    "name": "Index pages and global.asa must be located in the root directory",
+    "href": "AIP/quality-rules/3074",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "description": "Index pages and global.asa must be located in the root directory",
+    "output": "This report lists all index pages and global.asa located outside the root directory. It provides the following information: File full name",
+    "total": "Number of pages",
+    "alternativeName": "Index pages and global.asa must be located in the root directory",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -19,
+            "name": "ASP",
+            "href": "AIP/technologies/-19"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

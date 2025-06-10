@@ -1,0 +1,67 @@
+{
+    "id": 7730,
+    "name": "Always use declarative transaction",
+    "href": "AIP/quality-rules/7730",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The Bean Provider can choose between using programmatic transaction demarcation in the enterprise bean code (this style is called bean-managed transaction demarcation)  or  declarative transaction demarcation performed automatically by the EJB container (this style is called container-managed transaction demarcation).\n\nWithout theses features, transactions must be controlled using explicit transaction demarcation which is less recommended as it requires that the transactional code be written within the business logic, which reduces the clarity of the code and more importantly creates inflexible distributed objects\n\n\nThis rule reports violation when an explicit transaction demarcation is done in project using EJB BEANS and/or Message Driven Beans\n\nThis Quality Rule reports all methods that directly (or indirectly through inheritance) reference an object of the following type:\n\n* java.sql.Connection\n* javax.transaction.UserTransaction / jakarta.transaction.UserTransaction\n* javax.persistence.EntityTransaction / jakarta.persistence.EntityTransaction\n* org.hibernate.Transaction\n* org.springframework.transaction.PlatformTransactionManager\n* org.springframework.transaction.support.TransactionTemplate",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "One of the primary advantages of an Application Server is the support of declarative transactions. Without this feature, transactions must be controlled using explicit transaction demarcation. Explicit demarcation is difficult for developers to use at best, particularly if you are new to transactional systems. In addition, explicit transaction demarcation requires that the transactional code be written within the business logic, which reduces the clarity of the code and more importantly creates inflexible distributed objects. Once transaction demarcation is \"hardcoded\" into the business object, changes in transaction behaviour require changes to the business logic itself.\n\nDeclarative transactions make it easier for you to create robust transactional applications. The risk to not use them is data corruption.",
+    "reference": "http://docstore.mik.ua/orelly/java-ent/ebeans/ch08_02.htm",
+    "remediation": "Using transaction attributes simplifies the construction of transactional applications by reducing the risks associated with improper use of transactional protocols like JTA. It is more efficient and easier to use transaction attributes than to control transactions explicitly. This can be done through EJB or Spring.",
+    "remediationSample": "use container-managed transaction demarcation (@Transactional Annotation or Configure Transactions with XML)\n@Stateless\npublic class UserServiceImpl {\n   UserDAO UserDAO;\n   @Resource SessionContext context;\n\n   @TransactionAttribute(TransactionAttributeType.REQUIRED)\n   public void update(User user) throws Exception {\n      try {\n         userDAO.update(user);\n      } catch (Exception up) {\n         context.setRollbackOnly();\n         throw up;\n      }\n   }\n}",
+    "sample": "// programmatic transaction demarcation\n\n@Stateless\n@TransactionManagement(TransactionManagementType.BEAN)\npublic class UserServiceImpl {\n   UserDAO userDAO;\n\n   public void update(User user) throws Exception {\n      InitialContext context = new InitialContext();\n      //reference of javax.transaction.UserTransaction\n       UserTransaction transaction = (UserTransaction)context.lookup(\"UserTransaction\");\n      try {\n         //explicit transaction demarcation\n         transaction.begin();// starting the transaction : violation\n     .......\n         transaction.commit(); // committing: violation\n      } catch (Exception up) {\n         transaction.rollback();\n         throw up;\n      }\n   }\n}",
+    "total": "Number of Java Methods and Constructors (including generic methods and generic constructors) if ejb-jar.xml, Spring XML or JPA XML files exists",
+    "alternativeName": "Prefer using declarative transaction to improve clarity and flexibility of the code",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

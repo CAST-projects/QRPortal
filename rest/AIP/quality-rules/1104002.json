@@ -1,0 +1,66 @@
+{
+    "id": 1104002,
+    "name": "Prefer setting \"many to one\" cardinality for \"left outer join\" in CDS Views (S4/HANA)",
+    "href": "AIP/quality-rules/1104002",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This rule reports CDS views using left outer joins without adding MANY TO ONE cardinalities.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If the cardinality MANY TO ONE is specified, any database that supports this addition assumes that the results set defined by the left outer join matches this cardinality and SQL Optimizer attempts to suppress any surplus joins. \nFor exemple, When defining outer joins as LEFT OUTER MANY TO ONE joins, if no field is requested from the joined table, the database can avoid executing the join at runtime.",
+    "reference": "https://blogs.sap.com/2018/12/20/safeguard-performance-of-abap-cds-views-part-3-rules-for-good-performance-of-cds-views/",
+    "remediation": "Add \"MANY TO ONE\" cardinality on \"left outer join\".",
+    "remediationSample": "define view demo_cds_join\n  as select from spfli\n    left outer many to one join   scarr on\n      spfli.carrid = scarr.carrid\n  {\n    scarr.carrname  as carrier,\n    spfli.connid    as flight,\n    spfli.cityfrom  as departure,\n    spfli.cityto    as arrival\n  }",
+    "sample": "define view demo_cds_join\n  as select from spfli\n    left outer join   scarr on\n      spfli.carrid = scarr.carrid\n  {\n    scarr.carrname  as carrier,\n    spfli.connid    as flight,\n    spfli.cityfrom  as departure,\n    spfli.cityto    as arrival\n  }",
+    "total": "Number of CDS views",
+    "alternativeName": "Prefer setting \"many to one\" cardinality for \"left outer join\" in CDS Views (S4/HANA)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -20,
+            "name": "SAP SQL",
+            "href": "AIP/technologies/-20"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

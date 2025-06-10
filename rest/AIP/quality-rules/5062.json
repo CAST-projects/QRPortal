@@ -1,0 +1,66 @@
+{
+    "id": 5062,
+    "name": "Avoid using ALTER",
+    "href": "AIP/quality-rules/5062",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs using ALTER statements to manage their control flow.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - ALTER statement",
+    "rationale": "The ALTER statement is error-prone. If it is used in Cobol programs, then GO TO statements as they appear in the listing may not be those that will be encountered by the program at run time. The ALTER statement makes the maintenance programmer's job more difficult.",
+    "reference": "IBM Enterprise Cobol for z/OS - Programming Guide",
+    "remediation": "If you need to change the processing sequence due to a certain condition, then use an alternative set of PERFORM or GO TO statements.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid using ALTER",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

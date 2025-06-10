@@ -1,0 +1,55 @@
+{
+    "id": 2574,
+    "name": "Avoid using Global Variables (Visual Basic)",
+    "href": "AIP/quality-rules/2574",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Global variable",
+    "description": "Global Variables should not be used.",
+    "output": "This report lists all uses of Global Variables.",
+    "rationale": "The key disadvantages of using Global Variables are: Side effects - Hidden access - for example when a local variable has the same name as the global variable. Indiscriminate access - it is impossible to prevent access to the variable, therefore is may be difficult to make changes in the future.",
+    "remediation": "Use parameters in functions and subs.",
+    "total": "Number of Objects likely to use global variables",
+    "alternativeName": "Avoid using Global Variables (Visual Basic)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

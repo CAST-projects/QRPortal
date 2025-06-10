@@ -1,0 +1,98 @@
+{
+    "id": 7236,
+    "name": "Avoid recursive calls with PERFORM statements",
+    "href": "AIP/quality-rules/7236",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs in which paragraphs call themselves with a PERFORM statement.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - PERFORM statement that refers to the paragraph it belongs to",
+    "rationale": "The PERFORM statement allows calling paragraphs with several call levels. However, Cobol is not a recursive language and can not manage paragraph recursive calls correctly. When a paragraph is called via a PERFORM statement, then the calling statement is saved into a stack and the control flow jumps to the beginning of the called paragraph. At the end of this paragraph, then the control flow returns to the calling statement. A recursive call can alter the calling statement stack and the control flow may be unpredictable. \nFurthermore, all data are global to the program. Then, if a paragraph called at level 'n' modifies a data, then this data is modified for all the call levels. \nFor all these reasons, it is better to replace paragraph recursive calls by loops.",
+    "reference": "IBM Enterprise Cobol for z/OS - Language Reference",
+    "remediation": "Try to remove recursive algorithms in the program and replace them by iterative algorithms.",
+    "remediationSample": "PROCEDURE DIVISION.\n       PROCESS.\n           MOVE 0 TO A.\n           PERFORM PROC-01 UNTIL A = 13.\n           GOBACK.\n\n       PROC-01.\n           ADD 1 TO A.",
+    "sample": "PROCEDURE DIVISION.\n       PROCESS.\n           MOVE 0 TO A.\n           PERFORM PROC-01.\n           GOBACK.\n\n       PROC-01.\n           ADD 1 TO A.\n      * If condition is true then there is a recursive call\n           IF A < 13 THEN\n               PERFORM PROC-01\n           END-IF",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid recursive calls with PERFORM statements",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062151,
+            "name": "ASCRM-CWE-674 - Uncontrolled Recursion",
+            "href": "AIP/technical-criteria/1062151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066774,
+            "name": "CWE-674 - Uncontrolled Recursion",
+            "href": "AIP/technical-criteria/1066774",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-674",
+            "name": "Uncontrolled Recursion",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-674",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-674",
+            "name": "Uncontrolled Recursion",
+            "href": "AIP/quality-standards/CWE/items/CWE-674",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

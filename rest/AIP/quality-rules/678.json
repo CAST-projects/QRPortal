@@ -1,0 +1,154 @@
+{
+    "id": 678,
+    "name": "Never throw an exception from a Destructor",
+    "href": "AIP/quality-rules/678",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for C++ destructors that throw exceptions.",
+    "output": "Associated to each C++ destructor with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - 'throw' statement",
+    "rationale": "Destructors should be exception-safe. This is because a destructor will be automatically called when an exception is thrown to de-allocate all objects which are on the stack between the exception throw and catch. If a destructor ends up throwing an exception, either directly or indirectly, the program will terminate. The bottom line here: never allow an exception of any sort to be thrown from a destructor; the alternative opens up the possibility that a buggy program simply crashes without presenting any easily identifiable source for the bug.",
+    "reference": "\"How can I handle a destructor that fails?\":http://www.parashift.com/c++-faq-lite/dtors-shouldnt-throw.html",
+    "remediation": "Remove the throw statements from destructors, prefer calling non throwing function only from destructors. If you call a potentially throwing function from a destructor, swallow all exception it may throw by wrapping it in a 'try/catch' clause.\n\nIf the object destruction can fail and you want to report it to the user, create a dedicated function that will be called separately before the destructor.",
+    "sample": "Closing a file is an operation that may fail. Therefore, the standard library provides:\n- A 'close' function, which the user can call explicitly and check the stream state afterwards,\n- The destructor, which call the 'close' function if necessary but does not allow the user to check if it succeeded or failed. If the stream is configured to throw exceptions on error, those exceptions are swallowed by the destructor.",
+    "total": "Number of C++ destructors",
+    "alternativeName": "Never throw an exception from a Destructor",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062149,
+            "name": "ASCRM-CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1062149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062181,
+            "name": "ASCSM-CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1062181",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066497,
+            "name": "CWE-397 - Declaration of Throws for Generic Exception",
+            "href": "AIP/technical-criteria/1066497",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-397",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-397",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "href": "AIP/quality-standards/CWE/items/CWE-397",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

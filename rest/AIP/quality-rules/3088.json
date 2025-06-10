@@ -1,0 +1,66 @@
+{
+    "id": 3088,
+    "name": "Avoid large Page files (ASP)",
+    "href": "AIP/quality-rules/3088",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Associated Value",
+    "description": "Pages should not have more than X lines of code.\nThe threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Page files with more than X lines of code. It provides the following information: Page name, number of lines",
+    "total": "Number of ASP pages",
+    "alternativeName": "Avoid large Page files (ASP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "href": "AIP/technical-criteria/61023",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -19,
+            "name": "ASP",
+            "href": "AIP/technologies/-19"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum line count per page",
+            "description": "Maximum line count per page",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        1000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

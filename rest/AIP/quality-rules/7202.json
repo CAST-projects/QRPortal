@@ -1,0 +1,166 @@
+{
+    "id": 7202,
+    "name": "Avoid using '==' and '!=' to compare objects",
+    "href": "AIP/quality-rules/7202",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule checks the usage of == and != operators between two objects (not primitive types). If detected, a violation will be reported.",
+    "output": "This report lists all methods that use the == or != operators. It provides the following information:\n Method full name",
+    "rationale": "It is a source of great confusion to novice programmers that Java has two ways of thinking about the equality of objects. When used with object references, the == operator returns true only if both references are to the same object. The == operator is used to compare values of primitive types or object references, but it does not test for value or semantic equality. This is the same for the '!=' operator.\n\nTwo objects are considered equal if they have the same states (values)\nwhen you use the == operator with object types, what you\u2019re actually doing is testing whether the two variables have references that point to the same space in memory. Even if the objects referenced by the variables are identical in regards to their values, the results will still be false. This is somewhat unintuitive, and it can be a source of confusion\u2014and bugs",
+    "reference": "Practical Java Programming Language Guide - ISBN 0-201-61646-7\nhttp://javatechniques.com/blog/string-equality-and-interning\nhttps://javarevisited.blogspot.com/2013/05/java-mistake-3-using-instead-of-equals.html\nhttps://stackify.com/equality-in-java-operators-methods-and-what-to-use-when/",
+    "remediation": "In the case of semantic equality replace it with a call to equals method.\nThe method '.compareTo()' of Comparable interface can be also as remediation: \nComparable interface Compares values and returns an int which tells if the values compare less than, equal, or greater than.\nIf your class objects have a natural order, implement the Comparable<T> interface and define this method. All Java classes that have a natural ordering implement Comparable<T> - Example: String, wrapper classes, BigInteger",
+    "remediationSample": "Integer ia;\nInteger ib;\n\nif (ia.equals(ib)) {}  // FIXED\nif (!ia.equals(ib)) {} // FIXED\n\npublic static void sort(Comparable[] a){ \n    int n = a.length;\n    for (int i = 0; i < n; i++) {\n        for (int j = i; j > 0; j--) {\n            if(a[j].compareTo(a[j-1]) < 0)  swap(a, j, j-1);\n            else                            break;\n        }\n    }\n}",
+    "sample": "int i = 1;\nint j = 2;\nInteger ia;\nInteger ib;\n\nif (i == j) {}     // OK: i and j are primitive types\nif (ia == ib) {} // VIOLATION\nif (ia != ib) {}  // VIOLATION",
+    "total": "Number of non abstract Java Methods and Constructors",
+    "alternativeName": "Ensure using object equals method instead of equality syntax to compare objects",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061067,
+            "name": "CWE-595 - Comparison of Object References Instead of Object Contents",
+            "href": "AIP/technical-criteria/1061067",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066695,
+            "name": "CWE-595 - Comparison of Object References Instead of Object Contents",
+            "href": "AIP/technical-criteria/1066695",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061068,
+            "name": "CWE-597 - Use of Wrong Operator in String Comparison",
+            "href": "AIP/technical-criteria/1061068",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066697,
+            "name": "CWE-597 - Use of Wrong Operator in String Comparison",
+            "href": "AIP/technical-criteria/1066697",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-595",
+            "name": "Comparison of Object References Instead of Object Contents",
+            "href": "AIP/quality-standards/CWE/items/CWE-595",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-597",
+            "name": "Use of Wrong Operator in String Comparison",
+            "href": "AIP/quality-standards/CWE/items/CWE-597",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-595",
+            "name": "Comparison of Object References Instead of Object Contents",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-595",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-597",
+            "name": "Use of Wrong Operator in String Comparison",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-597",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-595",
+            "name": "Comparison of Object References Instead of Object Contents",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-595",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-597",
+            "name": "Use of Wrong Operator in String Comparison",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-597",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

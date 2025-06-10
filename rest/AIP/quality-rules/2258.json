@@ -1,0 +1,100 @@
+{
+    "id": 2258,
+    "name": "DEPRECATED: All image files should be in a specific directory",
+    "href": "AIP/quality-rules/2258",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "File directory",
+    "description": "To be compliant with code Conventions for the JavaServer Pages Technology, this rule checks if all image files ( .gif, .jpg, etc.) are in the recommended location:  <context root> /images/",
+    "output": "This report lists all image files (X) located outside the \"images\" directory. It provides the following information: File full name, File directory",
+    "rationale": "For maintainability aspects, file organization must be respected.",
+    "reference": "https://www.oracle.com/technical-resources/articles/javase/code-convention.html",
+    "remediation": "Change file location according to the recommended naming convention.",
+    "total": "Number of image files",
+    "alternativeName": "Ensure you store all image files in specific directory",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Directory",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 279,
+                    "name": "NO LABEL",
+                    "href": "AIP/technologies/279",
+                    "values": [
+                        "images"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Extensions for image files",
+            "description": "the list of authorized extension for images",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".png",
+                        ".tif",
+                        ".svg",
+                        ".psd",
+                        ".eps",
+                        ".gif",
+                        ".drw",
+                        ".ps",
+                        ".jpg",
+                        ".bmp",
+                        ".psp",
+                        ".jpeg",
+                        ".dxf",
+                        ".ai"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

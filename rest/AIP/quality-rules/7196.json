@@ -1,0 +1,121 @@
+{
+    "id": 7196,
+    "name": "Avoid large number of String concatenation (JEE)",
+    "href": "AIP/quality-rules/7196",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of time the '+' is called",
+    "description": "All String Classes should resort to using \"StringBuilder\" or \"StringBuffer\" instead of \"+\" or \"concat()\" Method because \"StringBuilder\" or \"StringBuffer\" is better in performance than the latter. of performance issue. \n\nSince version 1.6, the Oracle JVM also automatically optimizes this pattern in most cases. However, other JVMs might not. So this quality rule is kept in the AIP quality model, albeit with a low weight. And an instance where \"+\" is used more than X times should be a violation. The value of X is set to 5.",
+    "output": "This report lists all methods calling more than X times the '+' method on String object.\nIt provides the following information:\n - Method full name\n - the number of time the '+' is called",
+    "rationale": "The quickest way of concatenating String in Java is by using  concatenation operator (\"+\") or concat() and it works quite well if you just have to join one or two fixed size String, but if you have to join thousands of String or then performance of concatenation operator is not good. Main reason of performance drop is creation of lots of temporary String object due to immutability of String (each call for concatenation will result in a new String object being created) \n\nAnd String concatenation resolved at runtime is much slower than using StringBuffer/StringBuilder.",
+    "reference": "http://www.precisejava.com/javaperf/j2se/StringAndStringBuffer.htm#Strings104 \nhttp://www.oracle.com/technetwork/java/javase/6u18-142093.html\nhttps://javapapers.com/java/java-string-vs-stringbuilder-vs-stringbuffer-concatenation-performance-micro-benchmark/",
+    "remediation": "Use StringBuffer and StringBuffer.append() method instead",
+    "remediationSample": "StringBuffer result = new StringBuffer(\"hello\");\nresult.append(\" John\");\nresult.append(\" Smith\");",
+    "sample": "Sample 1: \nString result = \"hello\";\nresult += \" John\";\nresult += \" Smith\"; // VIOLATION if the threshold is 3\n\n\nSample 2\n\nString myString = \"Both\".concat(\" fickle\")\n  .concat(\" dwarves\")\n  .concat(\" jinx\")\n  .concat(\" my\")\n  .concat(\" pig\")\n  .concat(\" quiz\");\n \nassertEquals(\"Both fickle dwarves jinx my pig quiz\", myString);",
+    "total": "Number of non abstract Java artifacts",
+    "alternativeName": "Ensure to use StringBuilder or StringBuffer and StringBuilder.append() or StringBuffer.append() method instead",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061109,
+            "name": "CWE-1046 - Creation of Immutable Text Using String Concatenation",
+            "href": "AIP/technical-criteria/1061109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067146,
+            "name": "CWE-1046 - Creation of Immutable Text Using String Concatenation",
+            "href": "AIP/technical-criteria/1067146",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1046",
+            "name": "Creation of Immutable Text Using String Concatenation",
+            "href": "AIP/quality-standards/CWE/items/CWE-1046",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1046",
+            "name": "Creation of Immutable Text Using String Concatenation",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1046",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1046",
+            "name": "Creation of Immutable Text Using String Concatenation",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1046",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "nbr",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

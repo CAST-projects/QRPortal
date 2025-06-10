@@ -1,0 +1,60 @@
+{
+    "id": 1600572,
+    "name": "Ensure than \"Build Sequence No\" is upper than the onew of other SQL Views it relies on (PeopleSoft)",
+    "href": "AIP/quality-rules/1600572",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "View used in the SQL statement with a Build sequence upper or equal to the Build sequence",
+    "description": "The quality rule lists all the Record Views with a Build Sequence No lower or equal to the Build Sequence No of the other Views used in the SQL statement.",
+    "output": "This report lists all the Record Views with a Build sequence lower or equal to the Build sequence of the view used in the SQL statement.\nIt provides the following information:\n- PeopleSoft Record View full name\n- The associated values are the reference to View objects with upper Build sequence",
+    "rationale": "When you do a build project action, the Application Designer will search for all the views with build sequence 1 and then build them. After this is completed, all the views with build sequence 2 is built and so on.\n\nSo when you are developing applications which have multiple level of views, make use of the build sequence property and give the correct sequence number so that you won't face any issue while project migration.\n\nOtherwise, when you migrate and do the build project option, often the build will error out stating table not defined in the database.",
+    "reference": "https://docs.oracle.com/cd/E28394_01/pt852pbh1/eng/psbooks/tapd/chapter.htm?File=tapd/htm/tapd09.htm\nhttp://www.peoplesoftjournal.com/2013/03/build-sequence.html\nhttps://peoplesoftwiki.com/books/app-designer/page/view-build-sequence",
+    "remediation": "When you are developing applications which have multiple level of views, increase the build sequence number of any views to be greater than the view they rely on (i.e greater than 1).",
+    "total": "Number of PeopleSoft Record View (ADDED)",
+    "alternativeName": "Ensure than \"Build Sequence No\" is upper than the onew of other SQL Views it relies on (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

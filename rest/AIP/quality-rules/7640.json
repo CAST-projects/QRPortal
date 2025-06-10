@@ -1,0 +1,132 @@
+{
+    "id": 7640,
+    "name": "Avoid using catch blocks with assertion",
+    "href": "AIP/quality-rules/7640",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule reports violation for all methods and constructors containing a catch block that refer to the assert instruction.",
+    "output": "This report lists all Methods that refer to the assert instruction.It provides the following information: Method full name",
+    "rationale": "Assertions are not meant to replace checking method parameters or program state and throwing informative exceptions when facing an exceptional situation. The program logic or the error handling logic shouldn't rely on them.\n\nThe purpose of an assertion is to force a program to fail when a simple self-diagnosis shows there's something wrong with the program itself. Assertions may help a programmer in finding bugs and avoiding them in the first place. Since all programming and debugging should be done in a development environment rather than in a production environment, assertions are usually disabled in production environments.",
+    "reference": "https://airbrake.io/blog/java-exception-handling/assertionerror-java",
+    "remediation": "The exception must be handled correctly according to its type.",
+    "remediationSample": "try {\n   Date defaultDate=format.parse(DEFAULT_DATE_STRING);\n...\n} catch( ParseException pexc ) {\n  // This must never happen!\n     throw myException(\"bad init value\", pexc); // FIXED\n}",
+    "sample": "try {\n   Date defaultDate=format.parse(DEFAULT_DATE_STRING);\n...\n} catch( ParseException pexc ) {\n  // This must never happen!\n  assert false : \"bad init value\"; // VIOLATION\n}",
+    "total": "Number of methods and constructors that have code (not abstracts or from interfaces) containing a catch block",
+    "alternativeName": "An exception should be correctly handled according to its type and not by using an assertion",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062155,
+            "name": "ASCRM-RLB-1 - Empty Exception Block",
+            "href": "AIP/technical-criteria/1062155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-1",
+            "name": "Empty Exception Block",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-1",
+            "standard": "CISQ"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

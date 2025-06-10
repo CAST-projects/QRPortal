@@ -1,0 +1,62 @@
+{
+    "id": 6082,
+    "name": "Avoid PB Function/Event/Method accessing Database Procedures or Functions",
+    "href": "AIP/quality-rules/6082",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "associatedValueName": "Database procedure or function",
+    "description": "PB Functions, Events and Methods should not access the database procedures or functions. Datawindows should be used instead.",
+    "total": "Number of functions, events, methods",
+    "alternativeName": "Avoid PB Function/Event/Method accessing Database Procedures or Functions",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

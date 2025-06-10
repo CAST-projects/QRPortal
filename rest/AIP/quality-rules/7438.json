@@ -1,0 +1,195 @@
+{
+    "id": 7438,
+    "name": "Avoid non thread safe singleton",
+    "href": "AIP/quality-rules/7438",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "The implementation of the singleton pattern may not be thread-safe: If several calls were made into this method from a multi-threaded program, you could end up creating multiple instances of the class, and also mess up seriously since the system expects to have only one instance.\n\nThe problem takes place where you check if the instance is null.  \nThis rule reports singleton that initialize the static field that refer to the single instance in a non synchronized method.\n\nA singleton is defined as:\n- a class with a static member with the same type or parent type (extended or implemented) as the class\n- a static method that refers the instance and return an object of same type or a parent type (extended or implemented)\n- a class that has only private constructors",
+    "output": "The metric will list all singleton classes that are not thread safe.",
+    "rationale": "The code contains a function or method that operates in a multi-threaded environment but owns an unsafe non-final static storable or member data element. This issue can prevent the software from running reliably. If the relevant code is reachable by an attacker, then this reliability problem might introduce a vulnerability.\n\nThe software uses the singleton pattern when creating a resource within a multithreaded environment that may not be thread-safe.",
+    "reference": "http://tekpool.wordpress.com/2006/10/27/singleton-pattern-part-2-thread-safe-implemenation/\nhttps://javarevisited.blogspot.com/2014/05/double-checked-locking-on-singleton-in-java.html",
+    "remediation": "To remediate to this issue (in case of multi-threaded environment), there is two solutions:\n- Declare the field that hold the unique instance as static final and initialize it in the declaration\n- Synchronize the method that initialize the field",
+    "remediationSample": "1/ declare a static final field\nclass Singleton\n{\n  private static final Singleton instance = new Singleton(); // FIXED\n  private Singleton() {}\n  public static Singleton getInstance() { \n    return instance;\n  }\n}\n\n2/ synchronize the method\nclass Singleton\n{\n  private static Singleton instance;\n  private Singleton() {}\n  public static synchronized Singleton getInstance() { \n    if (instance == null)              \n      instance = new Singleton();\n    return instance;\n  }\n\n#3 Using Enum\n\npublic enum Singleton{\n    INSTANCE;\n \n    public void show(){\n        System.out.println(\"Singleton using Enum in Java\");\n    }\n}\n//You can access this Singleton as Singleton.INSTANCE and call any method like below\nSingleton.INSTANCE.show()\n\n#4. Double checked Locking:\nIt is throwing false violation in this case, it is remediation , should not be considered as a violation.\nPlease check https://jira.castsoftware.com/browse/JFAMILY-1716 for false violation\n\nclass DoubleCheckedLockingSingleton {\n\n    private static volatile DoubleCheckedLockingSingleton instance;\n\n    private DoubleCheckedLockingSingleton() {\n    }\n\n    public static DoubleCheckedLockingSingleton getInstance() {\n        if (instance == null) {\n            synchronized (DoubleCheckedLockingSingleton.class) {\n                if (instance == null) {\n                    instance = new DoubleCheckedLockingSingleton();\n                    System.out.println(\"Instance Created\");\n                }\n            }\n\n        }\n        return instance;\n    }\n\n}",
+    "sample": "class Singleton\n{\n  private static Singleton instance;\n  private Singleton() {}\n  public static Singleton getInstance() { \n    if (instance == null)                    // VIOLATION\n      instance = new Singleton();\n    return instance;\n  }\n}",
+    "total": "Number of singleton classes (as defined in the definition)",
+    "alternativeName": "Ensure to declare the field that hold the unique instance as static final and initialize it in the declaration or synchronize the method that initialize the field",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062157,
+            "name": "ASCRM-RLB-11 - Named Callable and Method Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+            "href": "AIP/technical-criteria/1062157",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061119,
+            "name": "CWE-1058 - Invokable Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+            "href": "AIP/technical-criteria/1061119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067158,
+            "name": "CWE-1058 - Invokable Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+            "href": "AIP/technical-criteria/1067158",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061060,
+            "name": "CWE-543 - Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/technical-criteria/1061060",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066643,
+            "name": "CWE-543 - Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/technical-criteria/1066643",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "href": "AIP/technical-criteria/66065",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-11",
+            "name": "Named Callable and Method Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-543",
+            "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/quality-standards/CWE/items/CWE-543",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1058",
+            "name": "Invokable Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+            "href": "AIP/quality-standards/CWE/items/CWE-1058",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-543",
+            "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-543",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1058",
+            "name": "Invokable Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1058",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-543",
+            "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-543",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-1058",
+            "name": "Invokable Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1058",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

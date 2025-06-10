@@ -1,0 +1,60 @@
+{
+    "id": 1520422,
+    "name": "Siebel: Applets from the same view cannot have the same title",
+    "href": "AIP/quality-rules/1520422",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Other applet with same name in the view",
+    "description": "This rule reports Applets having the same title and included in the same view.",
+    "output": "This rule reports Applets having the same title and included in the same view. It displays:\n-the applet full name\n- the associated value give the applet title and view name",
+    "rationale": "Do not use the same title for more than one applet that Siebel CRM displays in the same view. If a view contains multiple applets that display data from the same business component, then distinguish the titles according to the type of applet.",
+    "reference": "https://docs.oracle.com/cd/E14004_01/books/ConfigApps/Applets13.html",
+    "remediation": "For example, use distinct titles in a view that displays accounts, such as Account List Applet or Account Form Applet.",
+    "total": "Number of added or modified applets",
+    "alternativeName": "Siebel: Applets from the same view cannot have the same title",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "href": "AIP/technical-criteria/61006",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

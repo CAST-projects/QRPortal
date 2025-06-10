@@ -1,0 +1,74 @@
+{
+    "id": 5058,
+    "name": "Avoid using SORT",
+    "href": "AIP/quality-rules/5058",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs using the SORT statement.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - SORT statement",
+    "rationale": "The internal COBOL sort function is known as being inefficient on zOS environment (this is the same problem with the merge function). It is often recommended to use external sort tools to process files which can contain a large number of records. Usually required in batch processing the sort tools are generally called by a previous step in the JCL running the program.\nUsing the internal Cobol sort function rather than external sort tool can affect perceptibly the performance of applications in terms of data manipulation.",
+    "remediation": "Remove all unnecessary SORT action and replace them by external SORT.",
+    "remediationSample": "//SORGDG  EXEC PGM=SORT\n//SYSOUT     DD  SYSOUT=*\n//SORTIN      DD  DISP=SHR,DSN=MYTELCO.COBDYNSQ.GDG(0)\n//SORTOUT  DD  DSN=MYTELCO.SORTOUT,DISP=(NEW,PASS,DELETE),\n//                             DCB=(LRECL=80,BLKSIZE=0,DSORG=PS,RECFM=FB),\n//                             SPACE=(CYL,(5,5) \n//SYSIN          DD  *\n  SORT FIELDS=(1,6,CH,A)\n  SUM FIELDS=NONE\n/*\n//COBOL1  EXEC PGM=COBFUNC1\n//STEPLIB  DD  DSN=APPCAST.SOURCE.LOADLIB\n//SORT01   DD  DSN=MYTELCO.SORTOUT\n//VSAMF      DD  DSN=MYTELCO.EMPDATA.VSAM,DISP=SHR  \n//SEQTF      DD  DSN=MYTELCO.COBFUNC1.SEQ1,DISP=(NEW,CATLG,DELETE),\n//                           DCB=(LRECL=120,BLKSIZE=0,DSORG=PS,RECFM=FB)\n//                           SPACE=(TRK,(5,5))",
+    "sample": "IDENTIFICATION DIVISION.\n       PROGRAM-ID. COBFUNC1.\n...\n           SORT SORT-FILE\n            ON ASCENDING KEY WORKDEPT\n                USING EMPDATA\n                GIVING OUTFILE\n...",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid using SORT",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": false
+        },
+        {
+            "id": 1062202,
+            "name": "MIPS-Reduction - focus on data access efficiency",
+            "href": "AIP/technical-criteria/1062202",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

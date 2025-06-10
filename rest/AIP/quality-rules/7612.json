@@ -1,0 +1,73 @@
+{
+    "id": 7612,
+    "name": "Avoid Interfaces with a low comment/code ratio",
+    "href": "AIP/quality-rules/7612",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "associatedValueName": "Comment / code ratio",
+    "description": "ABAP interfaces should be documented. This reports shows all the ABAP interfaces with less than a defined comment / code ratio. This ratio is a parameter of the rule and can be changed at will.",
+    "output": "Associated to each ABAP Interface with violations, the Quality Rule provides:\n- The comment/code ratio",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact.",
+    "remediation": "Enrich Artifact code with comments.",
+    "total": "Number of ABAP Interfaces",
+    "alternativeName": "Avoid Interfaces with a low comment/code ratio",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "min",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

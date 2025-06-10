@@ -1,0 +1,181 @@
+{
+    "id": 7768,
+    "name": "Avoid Artifacts with High Depth of Code",
+    "href": "AIP/quality-rules/7768",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Depth of Code",
+    "description": "Depth of Code is measured as the maximum number of nested control statements in an artifact. For example, an \nArtifact that contains an IF statement which contains a While loop which itself contains another IF statement will have a Depth of Code of 3 (at least).\nAvoid Artifacts with Depth of Code (DoC) greater than X. The threshold level is a parameter that can be changed at will.",
+    "output": "This report lists all Artifacts with a Depth of Code greater than X. It provides the following information: Artifact full name, DoC",
+    "rationale": "Complex Artifacts are difficult to maintain. Keeping Artifacts small and simple ensures a good readability of the code.",
+    "remediation": "Review the design of the Artifact to reduce the Depth of Code",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Artifacts with High Depth of Code",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067224,
+            "name": "CWE-1124 - Excessively Deep Nesting",
+            "href": "AIP/technical-criteria/1067224",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": -19,
+            "name": "ASP",
+            "href": "AIP/technologies/-19"
+        },
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        },
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 1107000,
+            "name": "FormsReportAnalyzer",
+            "href": "AIP/technologies/1107000"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138663,
+            "name": "JavaScript",
+            "href": "AIP/technologies/138663"
+        },
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        },
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        },
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        },
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1124",
+            "name": "Excessively Deep Nesting",
+            "href": "AIP/quality-standards/CWE/items/CWE-1124",
+            "standard": "CWE"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Depth of Code",
+            "description": "Max Depth of Code per artifact",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

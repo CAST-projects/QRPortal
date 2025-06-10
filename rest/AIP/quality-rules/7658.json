@@ -1,0 +1,84 @@
+{
+    "id": 7658,
+    "name": "Avoid SQL queries on XXL Tables using Functions on indexed Columns in the WHERE clause",
+    "href": "AIP/quality-rules/7658",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Name of the first column used as function parameter",
+    "description": "This metric retrieves all SQL artifacts that query XXL tables and that use functions on indexed columns in WHERE clause.\nIt retrieves all SQL artifacts  with a WHERE clause using a function that takes a table column used as a database index as a function parameter (except specific indexes such as function-based indexes).\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
+    "output": "Associated to each artifact with violations, the Quality Rule provides: \n- Name of the column (first column used as function parameter).",
+    "rationale": "Whenever a function is used in a WHERE clause and takes a indexed column as a function parameter, the database engine might be unable to take advantage of the index, leading to very poor performance.",
+    "total": "Number of Client-Server artifacts using XXL Tables or views based on XXL tables",
+    "alternativeName": "Avoid SQL queries on XXL Tables using Functions on indexed Columns in the WHERE clause",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 1062202,
+            "name": "MIPS-Reduction - focus on data access efficiency",
+            "href": "AIP/technical-criteria/1062202",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum number of rows to consider a table as XXL",
+            "description": "tables are considered as XXL if the number of rows is greater than this value",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        100000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

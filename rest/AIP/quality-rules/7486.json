@@ -1,0 +1,79 @@
+{
+    "id": 7486,
+    "name": "Split universes of more than X MB",
+    "href": "AIP/quality-rules/7486",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "description": "Split universes of more than <PARAM> MB",
+    "output": "List all universes bigger than <PARAM> MB with their respective sizes. The list is sorted from the biggest universe from the smallest one.",
+    "rationale": "If the universe is big this could have  an impact on the RAM available to your system.",
+    "reference": "BO Best Practices for v5",
+    "remediation": "Split the universe",
+    "sample": "If the universe is bigger than 1MB, divide it into multiple universes. When you select File > Open, you load the universe into RAM. For example, if the universe is 1.39 MB, then it uses 1.5MB",
+    "total": "Number of universes",
+    "alternativeName": "Split universes of more than X MB",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -23,
+            "name": "Business Object",
+            "href": "AIP/technologies/-23"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum size of universe in MB",
+            "description": "Maximum size of universe in MB",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        1
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

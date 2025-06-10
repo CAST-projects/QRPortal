@@ -1,0 +1,146 @@
+{
+    "id": 7702,
+    "name": "Hibernate-provided implementations from third parties should be used for connection pool",
+    "href": "AIP/quality-rules/7702",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "An application should not have to configure a ConnectionProvider explicitly if using one of the Hibernate-provided implementations from third parties. \nHibernate will internally determine which ConnectionProvider to use based on the following algorithm:\n\nIf hibernate.connection.provider_class is set, it takes precedence\nelse if hibernate.connection.datasource is set \nelse if any setting prefixed by hibernate.c3p0. is set \nelse if any setting prefixed by hibernate.proxool. is set \nelse if any setting prefixed by hibernate.hikari. is set \nelse if any setting prefixed by hibernate.vibur. is set \nelse if any setting prefixed by hibernate.agroal. is set \n\n\n\nThis rule checks hibernate.properties or hibernate.cfg.xml file: \n\n- If hibernate.connection.provider_class is set, it will report a violation as it takes precedence over all Hibernate-provided implementations from any third party\n\n- If hibernate.connection.provider_class in not set but no other setting prefixed by hibernate.c3p0 or hibernate.proxool, hibernate.hikari, or hibernate.vibur  or hibernate.agroal can be found neither the setting for hibernate.connection.datasource : a violation will be reported also as no explicit configuration tu use Hibernate-provided implementations from third parties.",
+    "output": "This report list the XML or .properties file that doesn't define a third party pool.\nIt provides the following information:\n File Full Name",
+    "rationale": "It is very important to define a connection pool to increase database access performances.\nHibernate's own connection pooling algorithm is quite rudimentary. It is intended to help you get started and is not intended for use in a production system, or even for performance testing. You should use a third party pool for best performance and stability. \n\nJust replace the hibernate.connection.pool_size property with connection pool specific settings. This will turn off Hibernate's internal pool. For example, you might like to use c3p0.",
+    "reference": "https://docs.jboss.org/hibernate/orm/6.0/userguide/html_single/Hibernate_User_Guide.html#configurations\nhttps://docs.jboss.org/hibernate/orm/6.0/userguide/html_single/Hibernate_User_Guide.html#database\n\n\nHibernate in Action (ISBN 1932394-15-X) p 45",
+    "remediation": "Modern Recommendation\n\nFor new projects:\nHikariCP: Preferred choice due to its modern design, high performance, and efficiency. It is the default pool in Spring Boot.\nAgroal: A good alternative for Jakarta EE environments (high performance and lightweight).\nTomcat JDBC: Lightweight and easy to configure in Tomcat-based environments.\n\nFor legacy projects:\nConsider Apache Commons DBCP or C3P0 if already in use, but migrate to HikariCP when possible.",
+    "remediationSample": "---> hibernate.cfg.xml\n...\n<hibernate-configuration>\n    <!-- a SessionFactory instance listed as /jndi/name -->\n    <session-factory\n        name=\"java:comp/env/hibernate/SessionFactory\">\n        <!-- properties -->\n        <property name=\"connection.datasource\">my/first/datasource</property> // FIXED\n     ...\n    </session-factory>\n</hibernate-configuration>\n\n---> or in hibernate.properties\n...\nhibernate.connection.datasource = my/first/datasource\n...",
+    "sample": "---> hibernate.cfg.xml\n...\n<hibernate-configuration>\n    <session-factory name=\"java:comp/env/hibernate/SessionFactory\">\n       ...\n        <property name=\"connection.pool_size\">10</property> // VIOLATION\n...\n\n---> or in hibernate.properties\nhibernate.connection.pool_size = 10 // VIOLATION",
+    "total": "Number of Hibernate configuration fields (including hibernate.properties)",
+    "alternativeName": "Prefer using Hibernate-provided implementations from third parties for connection pool to increase database access performances.",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062134,
+            "name": "ASCPEM-PRF-13 - Data Resource Access not using Connection Pooling capability",
+            "href": "AIP/technical-criteria/1062134",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061126,
+            "name": "CWE-1072 - Data Resource Access without Use of Connection Pooling",
+            "href": "AIP/technical-criteria/1061126",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067172,
+            "name": "CWE-1072 - Data Resource Access without Use of Connection Pooling",
+            "href": "AIP/technical-criteria/1067172",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066505,
+            "name": "CWE-405 - Asymmetric Resource Consumption (Amplification)",
+            "href": "AIP/technical-criteria/1066505",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-13",
+            "name": "Data Resource Access not using Connection Pooling capability",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-13",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-405",
+            "name": "Asymmetric Resource Consumption (Amplification)",
+            "href": "AIP/quality-standards/CWE/items/CWE-405",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1072",
+            "name": "Data Resource Access without Use of Connection Pooling",
+            "href": "AIP/quality-standards/CWE/items/CWE-1072",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1072",
+            "name": "Data Resource Access without Use of Connection Pooling",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1072",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1072",
+            "name": "Data Resource Access without Use of Connection Pooling",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1072",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Specific third party connection pool properties to check",
+            "description": "list of other specific third party connection pool properties to check if defined",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "connection.datasource"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

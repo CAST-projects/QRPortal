@@ -1,0 +1,175 @@
+{
+    "id": 1020320,
+    "name": "Avoid using jQuery $.cookie",
+    "href": "AIP/quality-rules/1020320",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jquery",
+        "href": "AIP/extensions/com.castsoftware.jquery"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Using deprecated jQuery API could lead to security compliancy issues. $.cookie library has been deprecated and must not be used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Component-heavy development patterns can lead to development teams not even understanding which components they use in their application or API, much less keeping them up to date.",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities",
+    "remediation": "Use the Cookie framework instead (https://github.com/js-cookie/js-cookie)",
+    "remediationSample": "// set value \nCookies.set('name', 'value', { domain: 'subdomain.site.com' }); \n\n// get value \nCookies.get('name'); // => 'value'",
+    "sample": "// set value \n$.cookie('name', 'value'); \n\n// get value \n$.cookie('name'); // => \"value\"",
+    "total": "Number of javascript source codes using jquery",
+    "alternativeName": "Ensure you don't use jQuery $.cookie because it is deprecated",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066577,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1066577",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062309,
+            "name": "OWASP-2013-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062309",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062329,
+            "name": "OWASP-2017-A9 - Using Components with Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1062329",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062346,
+            "name": "OWASP-2021-A06 - Vulnerable and Outdated Components",
+            "href": "AIP/technical-criteria/1062346",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063156,
+            "name": "PCI-DSS4-Requirement-6.3.2 - An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/technical-criteria/1063156",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063112,
+            "name": "PCI-Requirement-6.2 - Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/technical-criteria/1063112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.3.2",
+            "name": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.3.2",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": 584,
+    "name": "Avoid Classes with at least one virtual Function and without a virtual Destructor",
+    "href": "AIP/quality-rules/584",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for C++ classes that have a virtual method but no virtual destructor.",
+    "output": "Associated to each C++ class with violations, the Quality Rule provides:\n- Bookmarks for violation occurrences found in source code:\n  - Virtual method",
+    "rationale": "Whenever a virtual method is defined in a class, it means that the class is intended to be used in an inheritance hierarchy. In this context, a derived object will often be handled through a pointer to its base class, to achieve polymorphism. If a class has a non-virtual destructor, and an attempt is made to destroy an object of a derived type through a pointer to the base type, the behavior is undefined.\n\nOn some platforms, it may call the base-class version of the destructor instead of the derived-class version, provoking memory leaks, resource losses and stability issues. On others, it may simply crash.\n\nFurthermore, once your class contains one virtual function, adding a virtual destructor does not add any additional per-object cost, so adding it is both free and safer.",
+    "reference": "\"C++ FAQ Lite [20.7] When should my destructor be virtual?\":http://www.parashift.com/c++-faq-lite/virtual-functions.html##faq-20.7",
+    "remediation": "Add a virtual destructor to the class that has a virtual function.",
+    "remediationSample": "class CParent\n{\n    virtual ~CParent();\n    int virtual foo();\n};",
+    "sample": "class CParent\n{\n    ~CParent();\n    virtual int foo();\n};",
+    "total": "Number of C++ classes",
+    "alternativeName": "Avoid Classes with at least one virtual Function and without a virtual Destructor",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062161,
+            "name": "ASCRM-RLB-15 - Class Element with Virtual Method Element wihout Virtual Destructor",
+            "href": "AIP/technical-criteria/1062161",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061138,
+            "name": "CWE-1087 - Class with Virtual Method without a Virtual Destructor",
+            "href": "AIP/technical-criteria/1061138",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067187,
+            "name": "CWE-1087 - Class with Virtual Method without a Virtual Destructor",
+            "href": "AIP/technical-criteria/1067187",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-15",
+            "name": "Class Element with Virtual Method Element wihout Virtual Destructor",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-15",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1087",
+            "name": "Class with Virtual Method without a Virtual Destructor",
+            "href": "AIP/quality-standards/CWE/items/CWE-1087",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1087",
+            "name": "Class with Virtual Method without a Virtual Destructor",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1087",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1087",
+            "name": "Class with Virtual Method without a Virtual Destructor",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1087",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

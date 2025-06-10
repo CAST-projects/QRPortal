@@ -1,0 +1,126 @@
+{
+    "id": 8402,
+    "name": "All types of a serializable class must be serializable",
+    "href": "AIP/quality-rules/8402",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "For all classes that are Serializable (implement System.Runtime.Serialization.ISerializable or inherit classes that implement ISerializable or marked with SerializableAttribute ), reports all fields that are \n- not Serializable\n- non-static \n- non-transient/not marked as NonSerialized\n- and not primitives types",
+    "output": "All fields of Serializable classes that are NOT Serializable.\n(non-static, non-transient, not primitive fields)\n\nIt provides the following information: Full Field Name",
+    "rationale": "Every field of a serializable class must be either serializable or marked as NonSerialized. Declaring fields of non-serializable type inside of a serializable class will result in SerializationException thrown during the serialization.",
+    "reference": "CISQ: ASCRMRLB03\nhttps://cwe.mitre.org/data/definitions/1070.html",
+    "remediation": "Make the field type serializable or mark it as NonSerialized .",
+    "remediationSample": "using System;\nusing System.IO;\nusing System.Runtime.Serialization;\nusing System.Runtime.Serialization.Formatters.Binary;\n\n//Make the field type serializable:\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nnamespace SerializableClass_OK_1\n{\n    [Serializable()]\n    class SomeType { }   //FIX\n\n    [Serializable()]\n    class Employee\n    {\n        int EmpId;\n        string EmpName;\n        SomeType Type; // NO VIOLATION\n\n        //Default constructor\n        public Employee()\n        {\n            EmpId = 0;\n            EmpName = null;\n            Type = null;\n        }\n    }\n}\n\n//Mark the field type as NonSerialized:\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nnamespace SerializableClass_OK_2\n{\n    [Serializable()]\n    class Employee\n    {\n        int EmpId;\n        string EmpName;\n        [NonSerialized()] SomeType Type;  //FIX - NO VIOLATION\n\n        //Default constructor\n        public Employee()\n        {\n            EmpId = 0;\n            EmpName = null;\n            Type = null;\n        }\n    }\n}",
+    "sample": "using System;\nusing System.IO;\nusing System.Runtime.Serialization;\nusing System.Runtime.Serialization.Formatters.Binary;\n\n\nnamespace SerializableClass_KO\n{    \n    public class SomeType { }\n\n    [Serializable()]    //Set this attribute to all the classes that want to serialize\n    public class Employee\n    {\n        int EmpId;\n        string EmpName;\n        SomeType Type; //VIOLATION\n\n\n        //Default constructor\n        public Employee()\n        {\n            EmpId = 0;\n            EmpName = null;\n            Type = null;\n\n        }\n    }\n}",
+    "total": "Number of non-static, non-transient and not primitive fields of classes that implement Serializable",
+    "alternativeName": "All types of a serializable class must be serializable",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062167,
+            "name": "ASCRM-RLB-3 - Serializable Storable Data Element with non-Serializable Item Elements",
+            "href": "AIP/technical-criteria/1062167",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061125,
+            "name": "CWE-1070 - Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/technical-criteria/1061125",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067170,
+            "name": "CWE-1070 - Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/technical-criteria/1067170",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-3",
+            "name": "Serializable Storable Data Element with non-Serializable Item Elements",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-3",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1070",
+            "name": "Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/quality-standards/CWE/items/CWE-1070",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1070",
+            "name": "Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1070",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1070",
+            "name": "Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1070",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

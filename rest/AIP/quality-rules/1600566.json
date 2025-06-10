@@ -1,0 +1,59 @@
+{
+    "id": 1600566,
+    "name": "Non-Standard SQL Table Name must be empty for a Record Query View (PeopleSoft)",
+    "href": "AIP/quality-rules/1600566",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Name of the physical view",
+    "description": "Identify each record with a defined Non-Standard SQL Table Name",
+    "output": "This report lists all the Record Query Views with the property not empty",
+    "rationale": "For a new record query don't use the \"Non Standard SQL Table Name' property to specify the query name. It will override the standard convention of prefixing PS_ to the record name",
+    "remediation": "Delete the specific name. the impact of any change should be studied further because the table name is probably referenced in some SQL and / or PeopleCode",
+    "total": "Number of PeopleSoft Record Query",
+    "alternativeName": "Non-Standard SQL Table Name must be empty for a Record Query View (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

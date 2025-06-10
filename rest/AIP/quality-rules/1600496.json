@@ -1,0 +1,70 @@
+{
+    "id": 1600496,
+    "name": "Send messages in the SavePostChange event (PeopleSoft)",
+    "href": "AIP/quality-rules/1600496",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This metric detects all artifacts using Message sending functions, outside of the SavePostChange event",
+    "output": "This report lists all artifacts using Insert statement using sequence instead of calling GetNextNumberWithGaps\nIt provides the following information:\n- PeopleCode artifacts full name\n- The associated value is the number of Message sending functions found in the artifact source code, outside of the SavePostChange event",
+    "rationale": "Messages sent online should always be coded in the SavePostChange event. To minimize the time that PeopleTools maintains locks on single-threaded messaging tables, behind-the-scenes logic in the SavePostChange event defers sending the message until just before the commit for the transaction.",
+    "reference": "Oracle PeopleCode Developer's Guide : https://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tpcd/task_UsingBetterCodingTechniquesforImprovedPerformance-0749c3.html",
+    "remediation": "Messages sent online should always be coded in the SavePostChange event.",
+    "sample": "Message Class Outbound Asynchronous Example\nThe following example uses the Publish method in the PeopleCode IntBroker class:\n\nLocal Message &MSG;\nLocal Rowset &SALES_ORDER, &RS;\n\n /*Get a pointer to the component buffer rowset */\n&SALES_ORDER = GetLevel0();\n/*Create an instance of the SALES_ORDER_ASYNC message object */\n&MSG = CreateMessage(OPERATION.SALES_ORDER_ASYNC);\n\n/*Copy the rows from the rowset to the message object */\n&MSG.CopyRowset(&SALES_ORDER);\n/*Send the message */\n%IntBroker.Publish(&MSG);",
+    "total": "Number of PeopleSoft Events, Functions and Methods",
+    "alternativeName": "Send messages in the SavePostChange event (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

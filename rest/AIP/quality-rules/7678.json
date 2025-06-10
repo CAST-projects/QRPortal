@@ -1,0 +1,81 @@
+{
+    "id": 7678,
+    "name": "Avoid logging using basic java log files",
+    "href": "AIP/quality-rules/7678",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This rule checks all references to log4j, Logback and Java.Util.logger API usage. \nAny artifact that reference a class, an interface, a method or a field that belongs to a class from the package org.apache.log4j\nch.qos.logback.classic.Logger\njava.util.logging.Logger\n\nwill be reported as violation.\n\nThis rule can be customized by specifying any other specific implementations package to be avoided",
+    "output": "This report lists all artifacts and fields that violate this rule.\nIt provides the following information:\n Artifact Full Name and Field Full Name",
+    "rationale": "Instead of being stick to a specific logging implementation, it is recommended to use Java-based logging utility and a programming model for logging and for other toolkits that provides APIs, log implementations, and wrapper implementations over some other tools \nas Apache Commons Logging (previously known as Jakarta Commons Logging or JCL).\nit's also recommanded to use Log interface that is intended to be both light-weight and an independent abstraction of other logging toolkits. It provides the middleware/tooling developer with a simple logging abstraction that allows the user (application developer) to plug in a specific logging implementation.",
+    "reference": "https://stackify.com/java-logging-best-practices/\nhttps://www.sitepoint.com/which-java-logging-framework-has-the-best-performance/#loggingframeworkperformance",
+    "remediation": "Prefer for example using Simple Logging Facade for Java (SLF4J) that acts as a facade for different logging frameworks. It offers a generic API making the logging independent of the actual implementation.\nThis allows for different logging frameworks to coexist. It also helps migrate from one framework to another.",
+    "remediationSample": "import org.apache.commons.logging.Log;\nimport org.apache.commons.logging.LogFactory;\nLog log = LogFactory.getLog(\"com.cast\"); // FIXED",
+    "sample": "import org.apache.log4j.*\nLogger  logger = Logger.getLogger(\"com.cast\"); // VIOLATION",
+    "total": "Number of artifacts and fields that use org.apache.log4j, org.apache.commons.logging or other logging package specified in the threshold",
+    "alternativeName": "Prefer using SLF4J that acts as a facade for different logging frameworks instead of using basic java log files",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "href": "AIP/technical-criteria/66009",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Logging implemention packages",
+            "description": "logging implemention package",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "org.apache.log4j",
+                        "ch.qos.logback.classic",
+                        "java.util.logging"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

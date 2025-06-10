@@ -1,0 +1,69 @@
+{
+    "id": 7142,
+    "name": "DEPRECATED: Action Classes should have only one public method",
+    "href": "AIP/quality-rules/7142",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of public methods",
+    "description": "Classes that inherit from org.apache.struts.action.Action with more than one public method will be listed. Exception to this rule: \n- all classes that inherit from org.apache.struts.action.DispatchAction that is specifically designed to group related actions into a single class and have more than one public method to handle each operation.\n- all Action class that are also Spring Beans: in this case, setter methods are excluded from the violations",
+    "output": "This report lists all Action Classes with more than one public method.\nIt provides the following information:\n - Action Class full name\n - public method number",
+    "rationale": "Action Classes should have only 1 public method, this eases struts usage (one function for one action).",
+    "remediation": "Review the architecture of the application  and have action Classes that have only 1 public method",
+    "total": "Number of action classes, except those inheriting from dispatchaction",
+    "alternativeName": "Ensure to have action classes that have only 1 public method",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

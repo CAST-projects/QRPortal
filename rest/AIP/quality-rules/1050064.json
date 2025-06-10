@@ -1,0 +1,193 @@
+{
+    "id": 1050064,
+    "name": "Avoid weak cryptographic hash (Objective-C)",
+    "href": "AIP/quality-rules/1050064",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.cfamily",
+        "href": "AIP/extensions/com.castsoftware.cfamily"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "MD5/SHA1 hashes were used as salt to hash a password or a passphrase. In cryptography, a salt is random data that's used as additional input to a one-way function. Recently, several exploits were developed which proved that MD5 will generate identical outputs for the different input parameters. As a consequence, somebody can break your encryption or log on to your website.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The use of a non-standard algorithm is dangerous because a determined attacker may be able to break the algorithm and compromise whatever data has been protected. Well-known techniques may exist to break the algorithm.",
+    "reference": "https://cwe.mitre.org/data/definitions/327.html \nhttps://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure \nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure",
+    "remediation": "Avoid using MD5 or SHA1 hashes as input to cryptographic functions or to store passwords. Prefer using the following hashing algorithms: SHA224, SHA256, SHA384, and SHA512. Make sure you choose the most appropriate one, depending on your use case, security requirements and runtime constraints.",
+    "remediationSample": "NSData *imageData = [NSData dataWithContentsOfFile:file]; \nCC_SHA256(imageData, [imageData length], result);",
+    "sample": "NSData *imageData = [NSData dataWithContentsOfFile:file]; \nCC_MD5(imageData, [imageData length], result);",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Ensure you provide strong cryptographic hash to enforce your encryption (Objective-C)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062179,
+            "name": "ASCSM-CWE-327 - Broken or Risky Cryptographic Algorithm Usage",
+            "href": "AIP/technical-criteria/1062179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066427,
+            "name": "CWE-327 - Use of a Broken or Risky Cryptographic Algorithm",
+            "href": "AIP/technical-criteria/1066427",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-327",
+            "name": "Broken or Risky Cryptographic Algorithm Usage",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-327",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-327",
+            "name": "Use of a Broken or Risky Cryptographic Algorithm",
+            "href": "AIP/quality-standards/CWE/items/CWE-327",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M5-2016",
+            "name": "Insufficient Cryptography",
+            "href": "AIP/quality-standards/OWASP/items/M5-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

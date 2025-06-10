@@ -1,0 +1,191 @@
+{
+    "id": 1019008,
+    "name": "Avoid not enabling throttling while setting service behavior",
+    "href": "AIP/quality-rules/1019008",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.wcf",
+        "href": "AIP/extensions/com.castsoftware.wcf"
+    },
+    "description": "The rule will raise a violation if the app.config or web.config file or the source code does not define the following parameters:\nmaxConcurrentCalls, \nmaxConcurrentSessions, \nmaxConcurrentInstances\n\nwhen defining the service behavior",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When throttling is not enabled there is a possibility of excessive client requests on the system resources which can lead to exhaustion and ultimately Denial of Service.\nAt the same time it is to be kept in mind that a very small limit can hinder genuine requests. The concurrent requests, calls and sessions should be reviewed and changed based on context of usage.",
+    "reference": "https://cwe.mitre.org/data/definitions/770.html\nhttps://cwe.mitre.org/data/definitions/400.html\n\nhttps://docs.microsoft.com/en-us/dotnet/api/system.servicemodel.dispatcher.servicethrottle.maxconcurrentinstances?view=netframework-4.8",
+    "remediation": "Always define enable throttling",
+    "remediationSample": "Throttling defined in Config File:\n\n<serviceBehaviors>\n <behavior name=\"etravel.restfulservice.mailprocessingservice_behavior\">\n          <serviceThrottling \n            maxConcurrentCalls=\"1\" \n            maxConcurrentSessions=\"1\" \n            maxConcurrentInstances=\"1\"\n          />\n <serviceDebug includeExceptionDetailInFaults=\"true\" />\n <serviceMetadata httpGetEnabled=\"false\" httpsGetEnabled=\"false\"/>\n </behavior>\n\n\n_____________________________________________________\n\nThrottling defined in Source Code:\n\nServiceHost host = new ServiceHost(typeof(ThrottlingInWCF.ThrottlingInWCF));  \n  \nServiceThrottlingBehavior stb= new ServiceThrottlingBehavior();  \nstb.MaxConcurrentCalls=2;  \nstb.MaxConcurrentInstances=2;  \nstb.MaxConcurrentSessions=2;  \n  \nhost.Description.Behaviors.Add(stb);  \nhost.Open();  \nConsole.Write(\"Service started...\");  \nConsole.Read();",
+    "sample": "<serviceBehaviors>\n <behavior name=\"etravel.restfulservice.mailprocessingservice_behavior\">\n <serviceDebug includeExceptionDetailInFaults=\"true\" />\n <serviceMetadata httpGetEnabled=\"false\" httpsGetEnabled=\"false\"/>\n </behavior>\n//Violation - Throttling not enabled\n\n__________________________________\n\nService Behavior defined in Source Code:\n\n\nServiceHost host = new ServiceHost();  \nhost.Open();  \nConsole.Write(\"Service started...\");  \nConsole.Read();",
+    "total": "Number of WCF configurations",
+    "alternativeName": "Avoid not enabling throttling while setting service behavior",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066870,
+            "name": "CWE-770 - Allocation of Resources Without Limits or Throttling",
+            "href": "AIP/technical-criteria/1066870",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1019000,
+            "name": "WCF",
+            "href": "AIP/technologies/1019000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-400",
+            "name": "Uncontrolled Resource Consumption",
+            "href": "AIP/quality-standards/CWE/items/CWE-400",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-770",
+            "name": "Allocation of Resources Without Limits or Throttling",
+            "href": "AIP/quality-standards/CWE/items/CWE-770",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API4-2019",
+            "name": "Lack of Resources & Rate Limiting",
+            "href": "AIP/quality-standards/OWASP/items/API4-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API4-2023",
+            "name": "Unlimited Resource Consumption",
+            "href": "AIP/quality-standards/OWASP/items/API4-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

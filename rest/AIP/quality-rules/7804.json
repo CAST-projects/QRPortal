@@ -1,0 +1,158 @@
+{
+    "id": 7804,
+    "name": "Avoid Classes with High Weighted Methods per Class",
+    "href": "AIP/quality-rules/7804",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "Weighted Methods per Class",
+    "description": "Avoid Classes with High Weighted Methods per Class (WMC > X).\nThe Weighted Methods per Class metric is defined as the sum of all the Classes method's cyclomatic complexity. The threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Classes with a Weighted Methods per Class greater than X. It provides the following information: Class full name, WMC",
+    "rationale": "The number of methods and complexity of methods is an indicator of how much time and effort is required to develop and maintain the object.\nFor maintainability reasons, High Weighted Methods per Class should not be too high.",
+    "reference": "A Metrics Suite for Object Oriented Design\nChidamber, S.R. and C.F. Kemerer\nIEEE Transactions on Software Engineering, 1994",
+    "remediation": "Reduce the number  - by splitting the Class in two or moving method to a component Class - or the Cyclomatic Complexity of the method of the non compliant Class",
+    "total": "Number of classes",
+    "alternativeName": "Avoid Classes with High Weighted Methods per Class",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062112,
+            "name": "ASCMM-MNT-11 - Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/technical-criteria/1062112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061149,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1061149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067221,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1067221",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        },
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/CWE/items/CWE-1121",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1121",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Weighted Methods",
+            "description": "Max Weighted Methods per class",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        100.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

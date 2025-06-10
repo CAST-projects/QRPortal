@@ -1,0 +1,163 @@
+{
+    "id": 3610,
+    "name": "Avoid declaring VB Variables without typing them (.NET)",
+    "href": "AIP/quality-rules/3610",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid declaring a Variable with 'Dim Var_Nam = '",
+    "output": "This report lists all variable declarations without variable typing",
+    "rationale": "When declaring a Variable with 'Dim Var_Nam = ' or simply 'Dim Var_Nam' the compiler will not assign a type. \nIt worsens performance level and prevents compilation to detect typing errors. \n\nPlease note that when option Infer is On local variables with initial values will not be considered in violation.",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/dim-statement",
+    "remediation": "Use real type to declare the Variable\nE.g.: 'Dim Var_Nam as String = new '",
+    "remediationSample": "Dim Var_Nam as String;",
+    "sample": "Dim Var_Nam;",
+    "total": "Number of variable declarations",
+    "alternativeName": "Avoid declaring VB Variables without typing them (.NET)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062150,
+            "name": "ASCRM-CWE-456 - Storable and Member Data Element Missing Initialization",
+            "href": "AIP/technical-criteria/1062150",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061051,
+            "name": "CWE-456 - Missing Initialization of a Variable",
+            "href": "AIP/technical-criteria/1061051",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066556,
+            "name": "CWE-456 - Missing Initialization of a Variable",
+            "href": "AIP/technical-criteria/1066556",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061075,
+            "name": "CWE-665 - Improper Initialization",
+            "href": "AIP/technical-criteria/1061075",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066765,
+            "name": "CWE-665 - Improper Initialization",
+            "href": "AIP/technical-criteria/1066765",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61029,
+            "name": "Complexity - Dynamic Instantiation",
+            "href": "AIP/technical-criteria/61029",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-456",
+            "name": "Storable and Member Data Element Missing Initialization",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-456",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-456",
+            "name": "Missing Initialization of a Variable",
+            "href": "AIP/quality-standards/CWE/items/CWE-456",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-665",
+            "name": "Improper Initialization",
+            "href": "AIP/quality-standards/CWE/items/CWE-665",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-456",
+            "name": "Missing Initialization of a Variable",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-456",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-665",
+            "name": "Improper Initialization",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-665",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-456",
+            "name": "Missing Initialization of a Variable",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-456",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-665",
+            "name": "Improper Initialization",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-665",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

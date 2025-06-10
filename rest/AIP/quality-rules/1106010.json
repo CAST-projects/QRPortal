@@ -1,0 +1,57 @@
+{
+    "id": 1106010,
+    "name": "Ensure PL/SQL package DBMS_RANDOM is not used",
+    "href": "AIP/quality-rules/1106010",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks the usage of the DBMS_RANDOM package in the Oracle Database(s).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Oracle\u2019s DBMS_RANDOM package provides functionality for generating random numbers or strings as part of an SQL statement or PL/SQL procedure. PostgreSQL does not provide a dedicated package equivalent to Oracle DBMS_RANDOM : Migration is not possible. However, other PostgreSQL functions can be used as workarounds under certain conditions.",
+    "reference": "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/DBMS_RANDOM.html#GUID-BEC1A703-44C0-42AC-9015-C487D02DAA8F\nhttps://github.com/orafce/orafce",
+    "remediation": "PostgreSQL: Generating random numbers can be performed using the random() function. \nFor generating random strings, you can use the value returned from the random() function coupled with an md5() function.",
+    "remediationSample": "The remediation is to remove all references to DBMS_RANDOM.\nIn PostgreSQL you can try to use the random() function for generated random numbers.\n\nHave a look to github \"orafce\" project, maybe you can find a better remediation.",
+    "sample": "select dbms_random.string('p',10) from dual;\n\nselect dbms_random.value() from dual;",
+    "total": "Number of Artifacts with SQL code",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61045,
+            "name": "Database Migration - Oracle Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61045",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

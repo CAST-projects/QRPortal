@@ -1,0 +1,152 @@
+{
+    "id": 7650,
+    "name": "All types of a serializable Class must be serializable",
+    "href": "AIP/quality-rules/7650",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Every field of a serializable class must be either serializable or transient\n\nThis rule reports a violation if a Serializable class (implement java.io.Serializable or inherit from a class that is serializable) has a field that is \n- not Serializable (do not implement java.io.Serializable or inherit from a class that is serializable)\n- non-static \n- non transient fields \n- and not Java primitives type.\n\nNote that in the case of a field declared with an interface, this field is considered as serializable when the concrete class used to initialized this field is serializable. This quality rule will take into account cases where the field is initialized in the declaration, not the cases where the field is initialized later in a method.",
+    "output": "Report all fields of Serializable classes that are not serializable, not transient, non-static and not primitive.\n\nIt provides the following information:\n  Full Field Name",
+    "rationale": "Declaring non-transient fields of non-serializable type inside of a serializable class will result in an exception thrown during the serialization.\n\nThis issue can prevent the software from running reliably, e.g. by triggering an exeption. If the relevant code is reachable by an attacker, then this reliability problem might introduce a vulnerability.",
+    "reference": "https://cwe.mitre.org/data/definitions/1066.html\n8.2.42 ASCQM Ban Non-Serializable Elements in Serializable Objects : https://www.omg.org/spec/ASCQM/1.0/Beta2/PDF",
+    "remediation": "Make the field type serializable or transient.",
+    "remediationSample": "---> 1st solution\npublic static  final class  SomeType implements Serializable {} // FIXED\n\npublic class SerializableField implements Serializable {\n    private String str;\n    private SomeType field;\n}\n\n---> 2nd solution\npublic static  final class  SomeType {} \n\npublic class SerializableField implements Serializable {\n    private String str;\n    private transient SomeType field; // FIXED\n}",
+    "sample": "public static  final class  SomeType {}\n\npublic class SerializableField implements Serializable {\n    private String str;\n    private SomeType field; // VIOLATION\n}",
+    "total": "Number of non-static, non-transient and not primitive fields of classes that implement Serializable",
+    "alternativeName": "Ensure to have every field of a serializable class either serializable or transient to avoid failure to implement serialization capabilities",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062166,
+            "name": "ASCRM-RLB-2 - Serializable Storable Data Element without Serialization Control Element",
+            "href": "AIP/technical-criteria/1062166",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061123,
+            "name": "CWE-1066 - Missing Serialization Control Element",
+            "href": "AIP/technical-criteria/1061123",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067166,
+            "name": "CWE-1066 - Missing Serialization Control Element",
+            "href": "AIP/technical-criteria/1067166",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061125,
+            "name": "CWE-1070 - Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/technical-criteria/1061125",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067170,
+            "name": "CWE-1070 - Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/technical-criteria/1067170",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-2",
+            "name": "Serializable Storable Data Element without Serialization Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-2",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1066",
+            "name": "Missing Serialization Control Element",
+            "href": "AIP/quality-standards/CWE/items/CWE-1066",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1070",
+            "name": "Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/quality-standards/CWE/items/CWE-1070",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1066",
+            "name": "Missing Serialization Control Element",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1066",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1070",
+            "name": "Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1070",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1066",
+            "name": "Missing Serialization Control Element",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1066",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-1070",
+            "name": "Serializable Data Element Containing non-Serializable Item Elements",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1070",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

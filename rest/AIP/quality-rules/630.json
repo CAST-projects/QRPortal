@@ -1,0 +1,70 @@
+{
+    "id": 630,
+    "name": "Avoid data members that are not private",
+    "href": "AIP/quality-rules/630",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Visibility",
+    "description": "This rule searches for C++ class data members that are not defined with the \"private\" visibility.",
+    "output": "Associated to each C++ class member with violations, the Quality Rule provides:\n- visibility\n- Bookmarks for violation occurrences found in the source code:\n  - class member declaration",
+    "rationale": "All data members of types declared as 'class' should be defined as 'private'. They should not be 'public' or 'protected'.\n\nBy implementing class interfaces with member functions, the implementer achieves precise control over how the object state can be modified and allows a class to be maintained without affecting clients. This is one of the main benefits and principles of Object-Oriented design and coding: Encapsulation. If direct access to the object state is allowed through public members, there is no way for the class to ensure its invariants are respected. This is a significant increase in the cost and risk of changes as well as an increase in security risks. \n\nIn some cases, a class is only an aggregate of values, with no specific behavior and no invariants to preserve. In this situation, it is better to make all data public, by declaring it as a 'struct' (this is equivalent to a 'class' immediately followed by 'public', but it clearly documents the intent).",
+    "reference": "High Integrity CPP Rule 3.4.1",
+    "remediation": "Change the the visibility to \"private\" and implement member functions to access data members.",
+    "remediationSample": "class Fraction\n{\npublic:\n    // Invariants: \n    // The fraction is stored in irreducible form: 2/4 is stored as 1/2\n    // The denominator cannot be null\n    // The denominator cannot be negative\n    Fraction(int num, int denominator);\n    void setDenominator(int denominator)\n    {\n        assert(denominator != 0);\n        myDenominator = denominator;\n        normalize();\n    }\nprivate:\n    void normalize(); // reduce to lowest terms and make the denominator positive\n    int myNumerator;\n    int myDenominator;\n    // ...\n};",
+    "sample": "class Fraction\n{\npublic:\n    // Invariants: \n    // The fraction is stored in irreducible form: 2/4 is stored as 1/2\n    // The denominator cannot be null\n    // The denominator cannot be negative\n    Fraction(int num, int denominator);\n    int numerator;   // violation\n    int denominator; // violation\n    // ...\n};",
+    "total": "Number of C++ class members",
+    "alternativeName": "Avoid data members that are not private",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 6,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "href": "AIP/technical-criteria/66066",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

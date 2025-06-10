@@ -1,0 +1,94 @@
+{
+    "id": 8010,
+    "name": "Do not overload the ampersand, comma, logical AND or logical OR operators",
+    "href": "AIP/quality-rules/8010",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for C++ operators that are overloaded. The list of operators that are checked is as follows:\n- ampersand ('&')\n- comma (',')\n- logical AND ('&&')\n- logical OR ('||')",
+    "output": "Associated to each C++ operators in violation, the Quality Rule provides:\n- Bookmarks for violation occurrences found in the source code:\n  - Operator",
+    "rationale": "Depending on the operator involved, the rationale is a variation of the same theme: the overloaded operator does not have the same behavior as the classical operator, therefore using it could be surprising and lead to subtle bugs.   \n\n* Logical OR and AND operators\n\nThe logical AND and logical OR operators (&&, ||) exhibit \"short circuit\" operation. That is, the second operand is not evaluated if the result can be deduced solely by evaluating the first operand. However, short-circuit evaluation is not possible for overloaded versions of these operators. Therefore, to avoid possibly confusing behavior, these operators should not be overloaded. \n\n* Comma Operator\n\nThe built-in comma operator guarantees that the first operand is evaluated before the second operand. However, if the comma operator is overloaded, its operand evaluation depends on C++'s function parameter mechanism, which does not guarantee the order of evaluation. Therefore, to avoid possibly confusing behavior, the comma operator should not be overloaded. \n\n* Ampersand Operator\n\nThe C++ standard [ISO/IEC 14882-2003] says in Section 5.3.1 paragraph 4 that \"The address of an object of incomplete type can be taken, but if the complete type of that object is a class type that declares operator&() as a member function, then the behavior is undefined.\" Therefore, to avoid possible undefined behavior, the operator & should not be overloaded. \n\nThe operators taken into account are unary operators, i.e. operators defined in a class with no argument and operators defined outside of a class with one argument. Binary operators (defined in a class with one parameter or out side of a class with two parameters) are not considered here.",
+    "reference": "\"CERT: Do not overload the ampersand, comma, logical AND or logical OR operators\":https://www.securecoding.cert.org/confluence/display/cplusplus/DCL10-CPP.+Do+not+overload+the+ampersand,+comma,+logical+AND+or+logical+OR+operators",
+    "remediation": "To avoid possibly confusing behavior, these operators should not be overloaded.",
+    "total": "Number of C++ overloaded operators",
+    "alternativeName": "Do not overload the ampersand, comma, logical AND or logical OR operators",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Expressions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Expressions",
+            "standard": "C-CPP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

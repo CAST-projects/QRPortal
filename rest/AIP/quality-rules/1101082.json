@@ -1,0 +1,97 @@
+{
+    "id": 1101082,
+    "name": "Avoid looping chain of synonyms",
+    "href": "AIP/quality-rules/1101082",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.sqlanalyzer",
+        "href": "AIP/extensions/com.castsoftware.sqlanalyzer"
+    },
+    "associatedValueName": "This metric displays the list of chained synonyms.",
+    "description": "This metric retrieves synonyms  that are part of a looping chain of synonym. Indeed through a series of CREATE synonym statements, a synonym could be defined and in fact refer to itself.",
+    "output": "This report lists all the ordered looping chain of synonyms.\n\nIt provides the following information:\n- the ordered list of each synonym that is part of the looping chain\n- the name of each synonym that is part of  the  full name",
+    "rationale": "Presence of a looping chain of synonyms will generate error at execution time when accessed. \n\nOn oracle, even if a looping chain of synonyms is authorized at creation time, the execution time will generate \"ORA-01775 looping chain of synonyms\" error.",
+    "reference": "Oracle documentation, for example",
+    "remediation": "Change at least one synonym definition to cut the circular list.",
+    "remediationSample": "Remove the last synonym : \n\ndrop synonym s4;",
+    "sample": "For example, the following definitions are circular:\n\ncreate synonym s1 for s2;\n\ncreate synonym s2 for s3;\n\ncreate synonym s3 for s4;\n\ncreate synonym s4 for s1;",
+    "total": "Number of Synonyms.",
+    "alternativeName": "Ensure that when chaining synonyms you do not loop them leading to synonym referring to itself as it will cause a error during execution",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062151,
+            "name": "ASCRM-CWE-674 - Uncontrolled Recursion",
+            "href": "AIP/technical-criteria/1062151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066774,
+            "name": "CWE-674 - Uncontrolled Recursion",
+            "href": "AIP/technical-criteria/1066774",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-674",
+            "name": "Uncontrolled Recursion",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-674",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-674",
+            "name": "Uncontrolled Recursion",
+            "href": "AIP/quality-standards/CWE/items/CWE-674",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

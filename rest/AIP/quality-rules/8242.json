@@ -1,0 +1,179 @@
+{
+    "id": 8242,
+    "name": "Avoid using insufficient random values for cookies",
+    "href": "AIP/quality-rules/8242",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Call stack from the use of a method producing insufficiently random numbers down to the target method",
+    "description": "When software generates predictable values in a context requiring unpredictability, it may be possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information. \n\nThe list of methods producing insufficiently random numbers can be customized.",
+    "output": "List all methods that use random numbers insufficiently generated.\n\nIt provides the following information : \n - Method full name. \n - Call stack with bookmarks from the method producing insufficiently random numbers down to the target method.",
+    "rationale": "When software generates predictable values in a context requiring unpredictability, it may be possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information.",
+    "reference": "CWE-330: Use of Insufficiently Random Values\nhttps://cwe.mitre.org/data/definitions/330.html",
+    "remediation": "Potential remediations : \n- Use a well-vetted algorithm that is currently considered to be strong by experts in the field, and select well-tested implementations with adequate length seeds.",
+    "remediationSample": "@Override\npublic void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NoSuchAlgorithmException {\n    response.setContentType(\"text/html;charset=UTF-8\");\n\n    float rand = java.security.SecureRandom.getInstance(\"SHA1PRNG\").nextFloat();    // Use of SecureRandom here\n    String rememberMeKey = Float.toString(rand).substring(2); // Trim off the 0. at the front.\n    \n    String user = \"Floyd\";\n    String fullClassName = this.getClass().getName();\n    String testCaseNumber = fullClassName.substring(fullClassName.lastIndexOf('.')+1+\"BenchmarkTest\".length());\n    user+= testCaseNumber;\n    \n    String cookieName = \"rememberMe\" + testCaseNumber;\n    \n    boolean foundUser = false;\n    javax.servlet.http.Cookie[] cookies = request.getCookies();\n    if (cookies != null) {\n        for (int i = 0; !foundUser && i < cookies.length; i++) {\n            javax.servlet.http.Cookie cookie = cookies[i];\n            if (cookieName.equals(cookie.getName())) {\n                if (cookie.getValue().equals(request.getSession().getAttribute(cookieName))) {\n                    foundUser = true;\n                }\n            }\n        }\n    }\n    \n    if (foundUser) {\n        response.getWriter().println(\"Welcome back: \" + user + \"<br/>\");\n    } else {            \n        javax.servlet.http.Cookie rememberMe = new javax.servlet.http.Cookie(cookieName, rememberMeKey);\n        rememberMe.setSecure(true);\n        rememberMe.setHttpOnly(true);\n        rememberMe.setDomain(new java.net.URL(request.getRequestURL().toString()).getHost());\n        rememberMe.setPath(request.getRequestURI()); // i.e., set path to JUST this servlet \n                                                     // e.g., /benchmark/sql-01/BenchmarkTest01001\n        request.getSession().setAttribute(cookieName, rememberMeKey);\n        response.addCookie(rememberMe);\n        response.getWriter().println(\n            user + \" has been remembered with cookie: \" + rememberMe.getName() \n                + \" whose value is: \" + rememberMe.getValue() + \"<br/>\"\n        );\n    }\n    \n    response.getWriter().println(\"Weak Randomness Test java.util.Random.nextFloat() executed\");\n}",
+    "sample": "@Override\npublic void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n    response.setContentType(\"text/html;charset=UTF-8\");\n\n    float rand = new java.util.Random().nextFloat();\n    String rememberMeKey = Float.toString(rand).substring(2); // Trim off the 0. at the front.\n    \n    String user = \"Floyd\";\n    String fullClassName = this.getClass().getName();\n    String testCaseNumber = fullClassName.substring(fullClassName.lastIndexOf('.')+1+\"BenchmarkTest\".length());\n    user+= testCaseNumber;\n    \n    String cookieName = \"rememberMe\" + testCaseNumber;\n    \n    boolean foundUser = false;\n    javax.servlet.http.Cookie[] cookies = request.getCookies();\n    if (cookies != null) {\n        for (int i = 0; !foundUser && i < cookies.length; i++) {\n            javax.servlet.http.Cookie cookie = cookies[i];\n            if (cookieName.equals(cookie.getName())) {\n                if (cookie.getValue().equals(request.getSession().getAttribute(cookieName))) {\n                    foundUser = true;\n                }\n            }\n        }\n    }\n    \n    if (foundUser) {\n        response.getWriter().println(\"Welcome back: \" + user + \"<br/>\");\n    } else {            \n        javax.servlet.http.Cookie rememberMe = new javax.servlet.http.Cookie(cookieName, rememberMeKey);\n        rememberMe.setSecure(true);\n        rememberMe.setHttpOnly(true);\n        rememberMe.setDomain(new java.net.URL(request.getRequestURL().toString()).getHost());\n        rememberMe.setPath(request.getRequestURI()); // i.e., set path to JUST this servlet \n                                                     // e.g., /benchmark/sql-01/BenchmarkTest01001\n        request.getSession().setAttribute(cookieName, rememberMeKey);\n        response.addCookie(rememberMe);\n        response.getWriter().println(\n            user + \" has been remembered with cookie: \" + rememberMe.getName() \n                + \" whose value is: \" + rememberMe.getValue() + \"<br/>\"\n        );\n    }\n    \n    response.getWriter().println(\"Weak Randomness Test java.util.Random.nextFloat() executed\");\n}",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure using sufficient random values for cookies",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066430,
+            "name": "CWE-330 - Use of Insufficiently Random Values",
+            "href": "AIP/technical-criteria/1066430",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063153,
+            "name": "PCI-DSS4-Requirement-3.6.1 - Procedures are defined and implemented to protect cryptographic keys",
+            "href": "AIP/technical-criteria/1063153",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063108,
+            "name": "PCI-Requirement-3.6.1 - Generation of strong cryptographic keys",
+            "href": "AIP/technical-criteria/1063108",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-330",
+            "name": "Use of Insufficiently Random Values",
+            "href": "AIP/quality-standards/CWE/items/CWE-330",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-13",
+            "name": "Cryptographic Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-13",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-13",
+            "name": "Cryptographic Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-13",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-3.6.1",
+            "name": "Generation of strong cryptographic keys",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-3.6.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-3.6.1",
+            "name": "Generation of strong cryptographic keys",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-3.6.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-3.6.1",
+            "name": "Procedures are defined and implemented to protect cryptographic keys",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-3.6.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

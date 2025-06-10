@@ -1,0 +1,63 @@
+{
+    "id": 6150,
+    "name": "Avoid Menus, UserObjects and Windows that have no inheritance relations with other objects",
+    "href": "AIP/quality-rules/6150",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "associatedValueName": "Inheritance level",
+    "description": "Menus, user objects and windows that have no inheritance: no ancestor, no descendant.",
+    "rationale": "Applications should benefit from the framework provided or used, and therefore should use the inheritance capabilities of the language to benefit from the used of the Framework.",
+    "total": "Number of menu, user objects and windows",
+    "alternativeName": "Avoid Menus, UserObjects and Windows that have no inheritance relations with other objects",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61010",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

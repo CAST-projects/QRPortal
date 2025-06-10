@@ -1,0 +1,152 @@
+{
+    "id": 1020102,
+    "name": "Always use JSON.parse & JSON.stringify with try/catch block (Javascript)",
+    "href": "AIP/quality-rules/1020102",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of JSON.parse and JSON.stringify into a try/catch block.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "JSON.parse and JSON.stringify methods are used to analyse JSON data. Since JSON data often comes from external sources (such as from a web service callback), there is a risk that this data is poorly formatted which would lead to an error and unexpected behavior unless the JSON.parse and JSON.stringify are within a try/catch block handling the error.",
+    "reference": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/JSON_bad_parse",
+    "remediation": "Always use JSON.parse in try/catch block",
+    "remediationSample": "function readJSON(filePath, callback) {\n\n  fs.readFile(filePath, function(err, data) {\n\n    var parsedJson;\n\n    // Handle error\n    if (err) {\n      return callback(err);\n    }\n\n    // Parse JSON\n    try {\n      parsedJson = JSON.parse(data);\n    } catch (exception) {\n      return callback(exception);\n    }\n\n    // Everything is ok\n    return callback(null, parsedJson);\n  });\n}",
+    "sample": "function readJSON(filePath, callback) {\n\n  fs.readFile(filePath, function(err, data) {\n\n    var parsedJson;\n\n    // Handle error\n    if (err) {\n      return callback(err);\n    }\n\n    // Parse JSON\n    parsedJson = JSON.parse(data);\n\n    return (parsedJson !== 'undefined');\n  });\n}",
+    "total": "Number of javascript function using JSON.parse or JSON.stringify",
+    "alternativeName": "Always use JSON.parse &amp; JSON.stringify with try/catch block because of the synchronous call(Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061040,
+            "name": "CWE-390 - Detection of Error Condition Without Action",
+            "href": "AIP/technical-criteria/1061040",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066490,
+            "name": "CWE-390 - Detection of Error Condition Without Action",
+            "href": "AIP/technical-criteria/1066490",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-390",
+            "name": "Detection of Error Condition Without Action",
+            "href": "AIP/quality-standards/CWE/items/CWE-390",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-390",
+            "name": "Detection of Error Condition Without Action",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-390",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-390",
+            "name": "Detection of Error Condition Without Action",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-390",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

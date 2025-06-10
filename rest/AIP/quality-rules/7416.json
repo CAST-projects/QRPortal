@@ -1,0 +1,157 @@
+{
+    "id": 7416,
+    "name": "Struts1: Avoid Action Form Field without Validator",
+    "href": "AIP/quality-rules/7416",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric reports all forms with fields that are not validated. Forms taken into account are forms defined as form-bean in the struts-config.xml (it can be a regular form bean or a dynamic form bean).\n\nNote that: \n1- In the case where the form is shared among multiple actions, the validation declaration of the form will be associated to the action.\nNote that in a case of a dynamic form-bean, the fields are declared in the struts-config.xml while the fields of regular form-bean are defined in the implementation class itself and deduced from the setters of the class.\n\n2- When the form bean is associated to several form validator. In this case, a field will be considered as validated when all form validator validate this field. This case may happen when the validator form is associated to action mapping or when internationalization is used.\n\n3- When a form bean is not associated to any validator form all its fields or setter methods will be reported.\n\n\nThis rule is only for Struts1 based application.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Input validation is required to secure an application. Moreover, the web interface is exposed to anyone. Non validating input may allow injecting arbitrary web script, HTML, SQL... Consequences can be severe, like erasing the content of a database.\nOnly one invalidated input can be exploited by an attacker.\n\nNote that unused fields should be constrained so that they can only be empty or undefined. If unused fields are not validated, shared business logic in an action may allow attackers to bypass the validation checks that are performed for other uses of the form.",
+    "reference": "http://cwe.mitre.org/data/definitions/105.html\nhttps://www.owasp.org/index.php/Improper_Data_Validation#Struts:_Form_Field_Without_Validator",
+    "remediation": "Validate each field of a form. When a form is shared among different action, you have to use the type org.apache.struts.validator.DynaValidatorActionForm for your Form Bean definition in the struts-config.xml file to be able to define a specific validation for each action.",
+    "remediationSample": "----> validation.xml:\n\n<form-validation>\n  <formset>\n    <form name=\"logonForm\">\n      <field property=\"username\" \n            depends=\"required\">\n        <arg0 key=\"prompt.username\"/>\n      </field>\n      <field property=\"password\" // FIXED\n            depends=\"required\">\n        <arg0 key=\"prompt.password\"/>\n      </field>\n    </form>\n  </formset>\n</form-validation>",
+    "sample": "====>  For concrete Form Bean\n\n--> logonForm.java (for concrete Form Bean) :\npublic class LogonForm extends ValidatorForm {\n  private String username;\n  private String password;\n  \n  public String getUsername() {\n    return username;\n  }\n  \n  public void setUsername(String username) {\n    this.username = username;\n  }\n\n  public String getPassword() {\n    return password;\n  }\n\npublic void setPassword(String password) {\n    this.password = password;\n  }\n}\n\n--> struts-config.xml (for concrete Form Bean)\n<form-beans>\n  <form-bean name=\"logonForm\"\n            type=\"com.cast.struts.sample.LogonForm\"/>\n</form-beans>\n\n====>  for dynamic Form Bean\n--> struts-config.xml (for dynamic Form Bean)\n<form-beans>\n  <form-bean name=\"logonForm\"\n            type=\"org.apache\n.struts.validator.DynaValidatorForm\">\n    <form-property name=\"username\"\n            type=\"java.lang.String\"/>\n    <form-property name=\"password\"\n            type=\"java.lang.String\"/>\n  </form-bean>\n</form-beans>\n\n====>  for both dynamic and concrete Form Bean\n\n--> validation.xml:\n\n<form-validation>\n  <formset>\n    <form name=\"logonForm\"> // VIOLATION: password field is not validated\n      <field property=\"username\" \n            depends=\"required\">\n        <arg0 key=\"prompt.username\"/>\n      </field>\n    </form>\n  </formset>\n</form-validation>",
+    "total": "Number of form fields or Java setter methods, when defined with struts or 0 if no object of type \"Struts Configuration File\" is present",
+    "alternativeName": "Ensure to validate each field of a form",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066205,
+            "name": "CWE-105 - Struts: Form Field Without Validator",
+            "href": "AIP/technical-criteria/1066205",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-105",
+            "name": "Struts: Form Field Without Validator",
+            "href": "AIP/quality-standards/CWE/items/CWE-105",
+            "standard": "CWE"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2023",
+            "name": "Security misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API8-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "id": 1600674,
+    "name": "Language records should have the same type as the base record (PeopleSoft)",
+    "href": "AIP/quality-rules/1600674",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Based record",
+    "description": "List all language Records that don't have the same type as the base Record.",
+    "output": "This report lists all the Language Records with a wrong type",
+    "rationale": "There is a one-to-one relationship between the base record and the related language record. Also, the record type of the base record and the related language record should be the same.\nFailure to do so can lead to inconsistency in display and data corruption.",
+    "reference": "https://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tgbl/concept_UnderstandingRelatedLanguageTables-076916.html",
+    "remediation": "Related Language records are defined in PeopleSoft Application Designer just like any other record definitions. However, as they often contain many of the same fields as their base language table, it is often quicker to create the related language table by cloning the base table.",
+    "total": "Number of PeopleSoft Related language records",
+    "alternativeName": "Language records should have the same type as the base record (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

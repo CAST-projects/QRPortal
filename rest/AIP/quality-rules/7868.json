@@ -1,0 +1,166 @@
+{
+    "id": 7868,
+    "name": "Avoid Open SQL queries in loops",
+    "href": "AIP/quality-rules/7868",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule searches for SELECT, INSERT, UPDATE, MODIFY, DELETE statements that are contained in loops. These loops are:\n- SELECT ... ENDSELECT\n- LOOP ... ENDLOOP\n- DO ... ENDDO\n- WHILE ... ENDWHILE\n- PROVIDE ... ENDPROVIDE",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "For performance reason, it is better to avoid accessing database in loops.",
+    "reference": "SAP",
+    "sample": "loop at i_incl.\n      select single * from trdir into s_trdir\n      where name = i_incl-rep\n        and cdat in s_cdat\n        and udat in s_udat.\n    if sy-subrc ne 0.\n      continue.\n    endif.\nendloop",
+    "total": "Number of ABAP Artifacts containing OpenSQL statements",
+    "alternativeName": "Avoid Open SQL queries in loops",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062115,
+            "name": "ASCMM-MNT-14 - Callable and Method Control Element Excessive Number of Control Elements involving Data Element from Data Manager or File Resource",
+            "href": "AIP/technical-criteria/1062115",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062143,
+            "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/technical-criteria/1062143",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061113,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1061113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067150,
+            "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/technical-criteria/1067150",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061135,
+            "name": "CWE-1084 - Invokable Control Element with Excessive File or Data Access Operations",
+            "href": "AIP/technical-criteria/1061135",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067184,
+            "name": "CWE-1084 - Invokable Control Element with Excessive File or Data Access Operations",
+            "href": "AIP/technical-criteria/1067184",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "href": "AIP/technical-criteria/66068",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AIP-CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/AIP-STRUCTURAL-FLAW/items/AIP-CWE-1050",
+            "standard": "AIP-STRUCTURAL-FLAW"
+        },
+        {
+            "id": "ASCMM-MNT-14",
+            "name": "Callable and Method Control Element Excessive Number of Control Elements involving Data Element from Data Manager or File Resource",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-14",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-8",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/CWE/items/CWE-1050",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1084",
+            "name": "Invokable Control Element with Excessive File or Data Access Operations",
+            "href": "AIP/quality-standards/CWE/items/CWE-1084",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1050",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1084",
+            "name": "Invokable Control Element with Excessive File or Data Access Operations",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1084",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1050",
+            "name": "Excessive Platform Resource Consumption within a Loop",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1050",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-1084",
+            "name": "Invokable Control Element with Excessive File or Data Access Operations",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1084",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

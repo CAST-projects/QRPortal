@@ -1,0 +1,108 @@
+{
+    "id": 8094,
+    "name": "Avoid locking of Objects with weak identities",
+    "href": "AIP/quality-rules/8094",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The quality rule searches all the methods or functions having threads that try to lock objects with weak identity.",
+    "output": "This report lists all the methods having threads that try to lock objects with weak identity.\nIt provides following information:\n-  Method name or Function name",
+    "rationale": "Applications, having threads that try to acquire a lock, on an object that has a weak identity, can have reliability issues. This is because the thread can be blocked by a second thread in a different application domain that has a lock on the same object. An object is said to have a weak identity when it can be directly accessed across application domain boundaries. The following types have a weak identity and are flagged by the rule:\n* MarshalByRefObject \n* ExecutionEngineException \n* OutOfMemoryException \n* StackOverflowException \n* String \n* MemberInfo \n* ParameterInfo \n* Thread",
+    "reference": "http://msdn.microsoft.com/en-us/library/ms182290.aspx",
+    "remediation": "Try and avoid using weak identities.",
+    "remediationSample": "using System;\nusing System.IO;\nusing System.Reflection;\nusing System.Threading;\n\nnamespace ReliabilityLibrary\n{\n   class WeakIdentities\n   {\n      void LockOnWeakId2() \n      {\n         Object obj = new Object()\n         MemoryStream stream = new MemoryStream();\n         lock(obj) {} \n      }\n}",
+    "sample": "using System;\nusing System.IO;\nusing System.Reflection;\nusing System.Threading;\n\nnamespace ReliabilityLibrary\n{\n   class WeakIdentities\n   {\n      void LockOnWeakId1()\n      { \n         lock(typeof(WeakIdentities)) {}\n      }\n\n      void LockOnWeakId2() \n      {\n         MemoryStream stream = new MemoryStream();\n         lock(stream) {} \n      }\n}",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid locking of Objects with weak identities",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "href": "AIP/technical-criteria/66065",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

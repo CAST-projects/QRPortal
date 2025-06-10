@@ -1,0 +1,77 @@
+{
+    "id": 7596,
+    "name": "Avoid Classes implementing too many Interfaces (ABAP)",
+    "href": "AIP/quality-rules/7596",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "associatedValueName": "Number of implemented interfaces",
+    "description": "Classes should implement less than a defined number of interfaces.\nThe threshold is a parameter and can be changed at will.",
+    "output": "Associated to each ABAP Class with violations, the Quality Rule provides:\n- The number of implemented interfaces",
+    "remediation": "Review the design to reduce the number of implementations.",
+    "total": "Number of ABAP Classes",
+    "alternativeName": "Avoid Classes implementing too many Interfaces (ABAP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61010",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "max_interface",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        4
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

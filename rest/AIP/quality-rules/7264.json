@@ -1,0 +1,136 @@
+{
+    "id": 7264,
+    "name": "Avoid namespaces with High Afferent Coupling (CA)",
+    "href": "AIP/quality-rules/7264",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Afferent Coupling",
+    "description": "Afferent Coupling (also known as Incoming Dependencies and Number of Types outside a namespace that Depend on Types of the namespace) indicates The number of other namespaces that depend upon classes within the analyzed namespace. Afferent Coupling is a time consuming determination of couplings between namespaces, hence showing which namespaces that depend upon each other. The number of namespaces that depend upon the analyzed namespace is an indication of the analyzed namespace's level of responsibility. In order to improve modularity and promote encapsulation, inter-object class couples should be kept to a minimum. If the namespace is relatively abstract then a large number of incoming dependencies is acceptable but the larger the number of couples, the higher the sensitivity to changes in other parts of the design, and therefore maintenance is difficult. Excessive coupling between concrete object classes is detrimental to modular design and prevents reuse.\nA namespace will always be counted as one entity for coupling, even if it contains both C# and VB code.",
+    "output": "Number of namespaces having Afferent Coupling greater than given parameter",
+    "rationale": "If a namespace is highly abstract then it should be very stable.  If the namespace is highly concrete (un-abstract), then it would be acceptably unstable as it already has reached its maximum specialization. If a category is to be stable, it should also consist of abstract classes so that it can be extended. Stable categories that are extensible are flexible and do not constrain the design.",
+    "reference": "- https://dzone.com/articles/measuring-code-complexity\n- https://en.wikipedia.org/wiki/Software_package_metrics\n- http://www.arisa.se/compendium/node104.html\n     \n- C., Martin, Robert (2018). Clean architecture : a craftsman's guide to software structure and design. Boston. ISBN 9780134494166. OCLC 1003645626.\n- Robert Cecil Martin (2002). Agile Software Development: Principles, Patterns and Practices. Pearson Education. ISBN 0-13-597444-5.",
+    "remediation": "Review the architecture",
+    "total": "Number of namespaces",
+    "alternativeName": "Avoid namespaces with High Afferent Coupling (CA)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062112,
+            "name": "ASCMM-MNT-11 - Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/technical-criteria/1062112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "href": "AIP/technical-criteria/61013",
+            "weight": 4,
+            "critical": false
+        },
+        {
+            "id": 1061149,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1061149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067221,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1067221",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/CWE/items/CWE-1121",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1121",
+            "standard": "ISO-5055"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Afferent Coupling maximum value",
+            "description": "CA max value",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        15
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "id": 1600284,
+    "name": "Avoid using comments in SQL queries (PeopleSoft)",
+    "href": "AIP/quality-rules/1600284",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "Using pattern-matching engine, this rule reports PeopleSoft SQL Definitions having comments inside the SQL statement.\nThe 2 styles of comment are searched (/* and --).",
+    "output": "This report lists all PeopleSoft SQL Definitions having comments. It provides the following information:\n- PeopleSoft SQL Definitions full name.",
+    "rationale": "PeopleSoft treats the SQL in a SQL object as a single line no matter how you've formatted it in the editor.\nSo the comment inside the SQL Definition invalidates the statement.",
+    "reference": "Rules of construction of SQL Query.\nhttps://it.toolbox.com/question/what-is-the-comment-symbol-in-sql-editor-100114",
+    "remediation": "Remove the comment from the SQL statement, and place it in the Comment Field of the SQL definition itself.",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "Avoid using comments in SQL queries (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61011,
+            "name": "Complexity - SQL Queries",
+            "href": "AIP/technical-criteria/61011",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

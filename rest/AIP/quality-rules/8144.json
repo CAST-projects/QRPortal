@@ -1,0 +1,76 @@
+{
+    "id": 8144,
+    "name": "Avoid using INITIALIZE statement on data structures",
+    "href": "AIP/quality-rules/8144",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol Programs using the INITIALIZE statement on data structures.",
+    "output": "The report lists all Cobol Programs using the INITIALIZE verb. \n\nIt provides the following information: \n- Cobol Program full name \n- Number of violations \n\nIt also provides bookmarks for violation occurrences found in source code: \n- INITIALIZE statement  ",
+    "rationale": "The INITIALIZE generates a MOVE for every non-filler data item and can sometimes use a lot of CPU, especially for data items using the OCCURS clause. \nMoreover, the INITIALIZE statement cannot assign values to items with variable-length tables (that is, a table that was defined using the OCCURS DEPENDING ON clause). \nAs a consequence, using this statement can impact the performance of the program and it is possible that some data items not be initialized correctly.",
+    "reference": "IBM Cobol - Best Practices and Recommendations",
+    "remediation": "Try to replace the INITIALIZE statement by specific MOVE statements or to copy an initialized variable into the group or table to initialize. \nFor instance, move spaces to the group and then move zeroes to numeric items.\n        ",
+    "remediationSample": "   DATA DIVISION. \n       WORKING-STORAGE SECTION. \n       01 A. \n           05 A1 PIC 9(5). \n           05 A2 PIC X(10). \n           05 B OCCURS 10. \n               10 B1 PIC X(10). \n               10 B2 PIC X(30). \n           05 FILLER PIC X(10) \n      * \n       PROCEDURE DIVISION. \n       INIT. \n           MOVE SPACES TO A. \n           MOVE ZERO TO A1. \n           GOBACK.  ",
+    "sample": "  DATA DIVISION. \n       WORKING-STORAGE SECTION. \n       01 A. \n           05 A1 PIC 9(5). \n           05 A2 PIC X(10). \n           05 B OCCURS 10. \n               10 B1 PIC X(10). \n               10 B2 PIC X(30). \n           05 FILLER PIC X(10) \n      * \n       PROCEDURE DIVISION. \n       INIT. \n           INITIALIZE A. \n     ",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid using INITIALIZE statement on data structures",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "threshold",
+            "description": null,
+            "technologies": [
+                {
+                    "id": -4,
+                    "name": "Cobol",
+                    "href": "AIP/technologies/-4",
+                    "values": [
+                        100
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

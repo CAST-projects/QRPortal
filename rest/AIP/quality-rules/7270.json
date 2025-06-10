@@ -1,0 +1,77 @@
+{
+    "id": 7270,
+    "name": "Methods that do not use instance fields\\methods should be static (.NET)",
+    "href": "AIP/quality-rules/7270",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "All methods that don't use instance fields will be reported except if they have been extended in a subclass or inherit from their parents.\n\nFor all .Net Classes, including .Net Forms : \nIf a method doesn't use an instance field or const, it should be declared static except if the method is overriden or override another method.",
+    "output": "All methods that don't use instance fields (either const or not) will be reported except if they have been extended in a subclass or inherit from their parents.",
+    "rationale": "When an object is created:\n    * Memory is allocated to all the fields\n    * All super class fields are also allocated memory\n    * All sub class fields, super class fields are initialized .\n    * The constructor is invoked.\nMake use of static and avoid to create an object that takes resources which is unnecessary.",
+    "reference": "https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-3.0/ms245046(v=vs.80)",
+    "remediation": "Make the method static if not using instance members.",
+    "remediationSample": "class Example {\n    protected double pi = 3.14;\n\n    static int min (int x, int y) { // FIXED\n      return (x>y?y:x);\n    }\n\n    double getPi() {  // OK\n       return pi;\n    }",
+    "sample": "class Example {\n    protected double pi = 3.14;\n\n    int min (int x, int y) { // VIOLATION\n      return (x>y?y:x);\n    }\n\n    double getPi() {  // OK\n       return pi;\n    }",
+    "total": "Number of methods",
+    "alternativeName": "Methods that do not use instance fields\\methods should be static (.NET)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

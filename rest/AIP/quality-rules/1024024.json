@@ -1,0 +1,181 @@
+{
+    "id": 1024024,
+    "name": "Always use HTTPS traffic to particular domains",
+    "href": "AIP/quality-rules/1024024",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.android",
+        "href": "AIP/extensions/com.castsoftware.android"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the option in the network's security settings via configuration file.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.\n\nApplications intending to connect to destinations using only secure connections can opt-out of supporting cleartext (using the unencrypted HTTP protocol instead of HTTPS) to those destinations. setting cleartextTrafficPermitted to false helps prevent accidental regressions in apps due to changes in URLs provided by external sources such as backend servers. \n\nThe configuration of this option is done in the network's security settings via configuration file \n\nThis path of this configuration file is in manifest file by setting android:networkSecurityConfig tag as follow \n\n<manifest ... > \n    <application \n        android:networkSecurityConfig=\"@xml/network_security_config\" \n        ... > \n        <!-- Place child elements of <application> element here. --> \n    </application> \n</manifest> \nThis check should be applied only to Android Application 8.1 (API level 27) or lower. Starting with Android 9 (API level 28), cleartext support is disabled by default.",
+    "reference": "https://cwe.mitre.org/data/definitions/404.html \nhttps://developer.android.com/training/articles/security-config",
+    "remediation": "Ensure you use HTTPS protocol for traffic to particular domains with Android 8.1 and older",
+    "remediationSample": "For example, an app may want to ensure that all connections to secure.example.com are always done over HTTPS to protect sensitive traffic from hostile networks. \nso you need to proceed as follow : \n1- Declare the configuration in your app's manifest: \n<manifest ... > \n    <application \n        android:networkSecurityConfig=\"@res/xml/network_security_config.xml:\" \n        ... > \n        <!-- Place child elements of <application> element here. --> \n    </application> \n</manifest> \n\n\n2- In the res/xml/network_security_config.xml, set cleartextTrafficPermitted option to false: \n\nres/xml/network_security_config.xml: \n\n<?xml version=\"1.0\" encoding=\"utf-8\"?> \n<network-security-config> \n    <domain-config cleartextTrafficPermitted=\"false\"> \n        <domain includeSubdomains=\"true\">secure.example.com</domain> \n    </domain-config> \n</network-security-config>",
+    "sample": "<?xml version=\"1.0\" encoding=\"utf-8\"?> \n<network-security-config> \n    <domain-config cleartextTrafficPermitted=\"True\"> \n        <domain includeSubdomains=\"true\">secure.example.com</domain> \n    </domain-config> \n</network-security-config> \n\n\nor \n<?xml version=\"1.0\" encoding=\"utf-8\"?> \n<network-security-config>\n    <domain-config> \n       <domain includeSubdomains=\"true\">secure.example.com</domain> \n    </domain-config> \n</network-security-config>",
+    "total": "Number of Android manifests",
+    "alternativeName": "Ensure you use HTTPS protocol for traffic to particular domains with Android 8.1 and older",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066419,
+            "name": "CWE-319 - Cleartext Transmission of Sensitive Information",
+            "href": "AIP/technical-criteria/1066419",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-319",
+            "name": "Cleartext Transmission of Sensitive Information",
+            "href": "AIP/quality-standards/CWE/items/CWE-319",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API10-2023",
+            "name": "Unsafe Consumption of APIs",
+            "href": "AIP/quality-standards/OWASP/items/API10-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "href": "AIP/quality-standards/OWASP/items/M3-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

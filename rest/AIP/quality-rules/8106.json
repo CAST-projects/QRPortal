@@ -1,0 +1,67 @@
+{
+    "id": 8106,
+    "name": "Avoid empty IF-ENDIF blocks",
+    "href": "AIP/quality-rules/8106",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches in ABAP code for empty IF-ENDIF statements. An empty IF block is a combination of:\nIF <cond>.\nENDIF.\n\nELSIF <cond>.\nENDIF.\n\nELSE\nENDIF.",
+    "output": "This report lists all ABAP artifacts containing an empty IF-ENDIF block. \n\nIt provides the following information : \n- Artifact fullname\n- Number of violations",
+    "rationale": "An empty IF-ENDIF block defeats the purpose of error management or, more generally, pollutes the code with a piece of code that does nothing. Regarding error handling, when a function or an Open SQL query reports a problem via the SY-SUBRC, nothing happens and the program may dysfunction. Moreover, these empty IF-ENDIF blocks may not be detected easily.",
+    "remediation": "Insert statements in all IF blocks to manage the situation properly.",
+    "remediationSample": "READ TABLE P_EVENTS WITH KEY NAME = SLIS_EV\n                           INTO LS_EVENT.\nIF SY-SUBRC = 0.\n    MOVE TOP_OF_PAGE TO LS_EVENT-FORM.\nENDIF.",
+    "sample": "READ TABLE P_EVENTS WITH KEY NAME = SLIS_EV\n                           INTO LS_EVENT.\nIF SY-SUBRC = 0\nENDIF.\n...\nMOVE TOP_OF_PAGE TO LS_EVENT-FORM.",
+    "total": "Number of ABAP artifacts",
+    "alternativeName": "Avoid empty IF-ENDIF blocks",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 6,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

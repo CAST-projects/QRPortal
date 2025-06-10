@@ -1,0 +1,79 @@
+{
+    "id": 8060,
+    "name": "A pointer to a base Class shall only be cast to a pointer to a derived Class by means of 'dynamic_cast'",
+    "href": "AIP/quality-rules/8060",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "associatedValueName": "Pointer incorrectly casted",
+    "description": "This rule searches for functions that do not use a 'dynamic_cast' to cast a pointer to a base class to a pointer to a derived class.",
+    "output": "Associated to each C++ method, constructor, and destructor with violations, the Quality Rule provides:\n- pointer incorrectly casted\n- Bookmarks for violation occurrences found in source code:\n  - pointer cast\n  - source class\n  - target class",
+    "rationale": "You can cast from pointer to base to pointer to derived only if the pointed-to object really is of the derived type (or a type derived from the derived type). Using a 'static_cast' will always succeed, even when the pointed-to object is of the wrong type. Using 'dynamic_cast' will check the real type of this object before performing the cast and is safer to use.\n\nSee also rule \"Casting from pointer to base Class to pointer to derived Class should be done through 'dynamic_cast' or 'static_cast'\" (id 8078).\n\nAdditionally, casting from a base class to a derived class is often a sign of base design and should usually be avoided.",
+    "reference": "MISRA C++\n\"C++ coding standard\":http://www.gotw.ca/publications/c++cs.htm (Sutter/Alexandrescu) Item 93",
+    "remediation": "Use 'dynamic_cast' to cast pointers to base class to pointer to derived class.",
+    "remediationSample": "void f(A *p)\n{\n    B* pb = dynamic_cast<B*>(p);\n    if (!pb)\n    {\n        // Not the expected type, handle the error \n    }\n    else\n    {\n        // Use pb\n    }\n}",
+    "sample": "class A\n{\n};\n\nclass B : public A\n{\n};\n\nvoid f(A *p)\n{\n    B* pb = static_cast<B*>(p); // Violation\n    // Use pb\n}",
+    "total": "Number of C++ methods, constructors, and destructors",
+    "alternativeName": "A pointer to a base Class shall only be cast to a pointer to a derived Class by means of 'dynamic_cast'",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Expressions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Expressions",
+            "standard": "C-CPP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

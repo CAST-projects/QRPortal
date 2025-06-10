@@ -1,0 +1,124 @@
+{
+    "id": 7734,
+    "name": "Avoid using debug() method without calling isDebugEnabled() method",
+    "href": "AIP/quality-rules/7734",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Invoking a debug method in production must be preceded by a call to its corresponding isDebugEnabled method. If not, a violation will be reported by this rule.\n\nFollow, the list of debug and corresponding isDebugEnabled methods considered in this rule : \n- org.apache.log4j.Category.debug corresponding to org.apache.log4j.Category. isDebugEnabled().\n- org.apache.commons.logging.Log.debug corresponding to org.apache.commons.logging.Log.isDebugEnabled().\n- java.util.logging.Logger.finest corresponding to java.util.logging.Logger.isLoggable\n- org.slf4j.logger.debug corresponding to org.slf4j.logger.isDebugEnabled()\n\nPlease note that two thresholds permit to add a list of fully qualified debug methods and isDebugEnabled methods name. A debug method name in the list must have its corresponding isDebugEnabled name at the same index.",
+    "output": "This report lists all methods that violate this rule.\nIt provides the following information:\n Method Full Name, the number of call to debug() without a call to  isDebugEnabled()",
+    "rationale": "While disabling debug logging level in production, it still impacts performance of your application because the method invocation involves the hidden cost of parameter construction.\n\nFor example: << cat.debug(\"Entry number: \" + i + \" is \" + String.valueOf(entry[i])) >> incurs the cost of constructing the message parameter that is converting both integer i and entry[i] to a String and concatenating intermediate strings, regardless of whether the message will be logged or not.",
+    "reference": "http://burtbeckwith.com/blog/?cat=8",
+    "remediation": "Add a if condition with a call to  isDebugEnabled() before calling any .debug().",
+    "remediationSample": "Remediation Sample#1\n\n\npackage com.JAVAEMNDS006;\n\nimport java.util.function.Predicate;\nimport java.util.logging.Level;\n\npublic class Logdebug_OkFinest\n{\n    private java.util.logging.Logger    logger;\n    \n    /**\n     * this method is OK because log to FINEST level is performed after checking taht FINEST level is active).\n     */\n    public void okFinestLog()\n    {\n        Predicate<String> log = x -> {\n        if (logger.isLoggable(Level.FINEST))\n            logger.finest(\"XXX\");\n        return true;\n        };\n    }\n    \n    public void okNotFinestLog()\n    {\n        logger.info(\"XXX\");\n    }\n}\n\n----------------------------------------------------------------------------------------------------------\nRemediation Sample#2\n\npackage com.JAVAEMNDS006;\n\nimport java.util.function.Predicate;\n\nimport org.apache.log4j.Logger;\n\n/**\n * oKDebugCommons is OK because it tests isDebugEnabled() before calling debug\n * \n *\n */\npublic class Logdebug_OkDebugCommons\n{\n    public boolean koDebugCommons1_1()\n    {\n    Predicate<String> log = x -> {\n        \n        Logger logger = Logger.getLogger(\"xxx\");\n        if(logger.isDebugEnabled())\n            logger.debug(\"XXXX\");    \n            return true;\n        };\n        return log.test(\"com\");\n    }\n}\n---------------------------------------------------------------------------------------------------------------Remediation \nRemediation Sample#3\n\n\npackage com.JAVAEMNDS006;\n\nimport java.util.function.Predicate;\n\nimport org.apache.log4j.Category;\n\n/**\n * all three methods are OK, because they properly test isDebugEnabled\n *  *\n */\npublic class Logdebug_Ok4jClass\n{\n    private Category tracer = Category.getInstance(this.getClass());\n    public void okDebug(String message)\n    {\n        Predicate<String> log = x -> {\n            if (tracer.isDebugEnabled())\n            tracer.debug(message+\" \"+System.currentTimeMillis());\n            return true;\n        };\n    }\n    \n    public void okDebug(Exception exception)\n    {\n        Predicate<String> log = x -> {\n            if (tracer.isDebugEnabled())\n            tracer.debug(exception);\n            return true;\n        };\n    }\n    \n    public void okDebug2(Exception exception)\n    {\n        Predicate<String> log = x -> {\n            if (!tracer.isDebugEnabled())\n            tracer.debug(exception);\n            return true;\n    };\n    }\n    \n    public void okNotDebugging(Exception exception)\n    {\n        tracer.fatal(exception);\n    }\n}",
+    "sample": "Sample#1\n\npackage com.JAVAEMNDS006;\n\nimport java.util.function.Predicate;\n\nimport org.apache.log4j.Category;\n\n/**\n * all 3 methods are KO\n *     none of them test isDebugEnabled before calling debug\n \n */\npublic class Logdebug_Ko4jClass\n{\n    private Category    tracer    = Category.getInstance(this.getClass());\n\n    public boolean koDebug1_3(String message)\n    {\n        Predicate<String> log = x -> {\n            \n            tracer.debug(message + \" \" + System.currentTimeMillis());\n        \n        return true;\n        };\n        return log.test(\"com\");\n    }\n\n    public boolean koDebug2_3(Exception exception)\n    {\n        Predicate<String> log = x -> {\n            \n            tracer.debug(exception);\n            return true;\n        };\n        return log.test(\"com\");\n    }\n\n    public boolean koDebug3_3(Exception exception)\n    {\n        Predicate<String> log = x -> {\n            if (tracer.isInfoEnabled())\n        \n            tracer.debug(exception);\n            return true;\n    };\n    return log.test(\"com\");\n    }\n}\n------------------------------------------------------------------------------------------------------------\nSample#2\n\npackage com.JAVAEMNDS006;\n\nimport java.util.function.Predicate;\n\nimport org.apache.log4j.Logger;\n\n/**\n * the koDebugCommons method is KO because it does not test log.isDebugEnabled() \n * \n *\n */\npublic class Logdebug_KoDebugCommons\n{\n     \n    public boolean koDebugCommons1_1()\n    {\n    Predicate<String> log = x -> {\n        Logger logger = Logger.getLogger(\"xxx\");\n    \n            logger.debug(\"XXXX\");    \n            return true;\n        };\n        return log.test(\"com\");\n    }\n}\n--------------------------------------------------------------------------------------------------------\nSample#3\n\npackage com.JAVAEMNDS006;\n\nimport java.util.function.Predicate;\nimport java.util.logging.Logger;\n\npublic class Logdebug_KoFinest\n{\n\n    private Logger    logger;\n\n    /**\n     * This method is KO,because log is performed to Finest level without testing that this level is enabled\n     */\n    public void koFinestLog1_1()\n    {\n        Predicate<String> log = x -> {\n        logger.finest( \"XXX\");\n        return true;\n    };\n    \n}\n}",
+    "total": "Number of methods that call debug() methods",
+    "alternativeName": "Ensure that debug method invocation is usually preceded by a call to its corresponding isDebugEnabled method",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066879,
+            "name": "CWE-779 - Logging of Excessive Data",
+            "href": "AIP/technical-criteria/1066879",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-779",
+            "name": "Logging of Excessive Data",
+            "href": "AIP/quality-standards/CWE/items/CWE-779",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "java.util.logging.Logger.finest",
+            "description": "full qualified debug method name",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "java.util.logging.Logger.isLoggable"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "org.apache.commons.logging.Log.debug",
+            "description": "full qualified debug method name",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "org.apache.commons.logging.Log.isDebugEnabled"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "org.apache.log4j.Category.debug",
+            "description": "full qualified debug method name",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "org.apache.log4j.Category.isDebugEnabled"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

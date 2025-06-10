@@ -1,0 +1,71 @@
+{
+    "id": 4618,
+    "name": "Avoid instantiating a Boolean object",
+    "href": "AIP/quality-rules/4618",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "The rule reports all artifacts instantiating a Boolean object.",
+    "output": "This report lists all java artifacts instantiating a Boolean\nIt provides the following information:\n Artifact full name",
+    "rationale": "Instantiating a Boolean object consumes memory and CPU but does not bring value.\n\nJava artifacts should not instantiate Booleans.\nExample of instantiation:\n'Boolean b = new Boolean();'",
+    "reference": "http://www.programmr.com/blogs/two-things-every-java-developer-should-know-about-booleans",
+    "remediation": "Use Boolean.TRUE or Boolean.FALSE instead.",
+    "remediationSample": "Boolean b = Boolean.FALSE;\n\nor\n\nBoolean variable = Boolean.valueOf(false);",
+    "sample": "Boolean b = new Boolean( false);",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure that the boolean are not instantiated",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

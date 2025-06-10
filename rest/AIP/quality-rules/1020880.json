@@ -1,0 +1,157 @@
+{
+    "id": 1020880,
+    "name": "Ensure the express X-Powered-By header is disabled (TypeScript)",
+    "href": "AIP/quality-rules/1020880",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.typescript",
+        "href": "AIP/extensions/com.castsoftware.typescript"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Attackers can use the X-Powered-By header (which is enabled by default) to detect apps running Express and then launch specifically-targeted attacks.\n\nThis rule checks that the X-Powered-By header has been disabled either explicitly or by using helmet.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must be patched/upgraded in a timely fashion.",
+    "reference": "https://expressjs.com/en/advanced/best-practice-security.html \nhttps://www.owasp.org/index.php/Content_Security_Policy",
+    "remediation": "Use helmet or disable explicitly X-Powered-By header.",
+    "remediationSample": "//Manually disable the X-Powered-By in your express instance or use third-party helmet package: \n\nimport * as express from \"express\";\nvar app = express(); \n\napp.disable('x-powered-by'); \n\n// or use the hide powered by middleware\nimport * as hidePoweredBy from \"hide-powered-by\";\napp.use(hidePoweredBy()) \n\n// or use helmet (which disabled the X-Powered-By header by default)\nimport * as helmet from \"helmet\";\napp.use(helmet()) \n\n// do not disable the hidePoweredBy middleware:\n// app.use(helmet({ hidePoweredBy: false})) \n\n// to activate explicitely the hidePoweredBy middleware \napp.use(helmet.hidePoweredBy()); \n\napp.listen(3000);",
+    "sample": "import * as express from \"express\";\nvar app = express(); \n\napp.listen(3000);",
+    "total": "Number of TypeScript source codes using express",
+    "alternativeName": "Ensure disabling X-Powered-By header in your express instance or use third-party helmet package to prevent specifically-targeted attacks on running applications",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066300,
+            "name": "CWE-200 - Exposure of Sensitive Information to an Unauthorized Actor",
+            "href": "AIP/technical-criteria/1066300",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-200",
+            "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+            "href": "AIP/quality-standards/CWE/items/CWE-200",
+            "standard": "CWE"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2023",
+            "name": "Security misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API8-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

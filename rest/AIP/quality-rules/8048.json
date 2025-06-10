@@ -1,0 +1,73 @@
+{
+    "id": 8048,
+    "name": "Invoke 'delete' with the same form as the matching 'new'",
+    "href": "AIP/quality-rules/8048",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for C++ classes that allocate and deallocate objects with incoherent new/delete forms.",
+    "output": "Associated to each C++ function, method, constructor, and destructor with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - object deallocation (delete)\n  - object allocation (new)",
+    "rationale": "Not deallocating an object by using the same form for the 'delete' operator than for the 'new' operator used to allocate it leads to memory leaks. \n\nThis can also make the program terminate abnormally.",
+    "reference": "High Integrity C++ Coding Standard Manual",
+    "remediation": "Use 'delete' with same form of 'new' to deallocate memory.",
+    "remediationSample": "void f()\n{\n int *i = new int[10];\n delete[] i;\n}",
+    "sample": "void f()\n{\n int *i = new int[10];\n delete i;\n}",
+    "total": "Number of C++ functions, methods, constructors, and destructors",
+    "alternativeName": "Invoke 'delete' with the same form as the matching 'new'",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

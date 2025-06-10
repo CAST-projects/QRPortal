@@ -1,0 +1,72 @@
+{
+    "id": 8082,
+    "name": "Avoid Tables without Primary Key",
+    "href": "AIP/quality-rules/8082",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 5,
+    "description": "This metric displays the list of tables and materialized views without Primary key constraints",
+    "output": "This report lists all tables and materialized views without a primary key defined. it provides the following information:\n- full name",
+    "rationale": "In relational database design, a candidate key is just a unique identifier. Next a primary key is a candidate key that's been singled out to uniquely identify each row in a table or materialized view. \nA unique key or primary key comprises a single column or set of columns. No two distinct rows in a table or materialized view can have the same value (or combination of values) in those columns. \n\nDepending on its design, a table or materialized view may have arbitrarily many unique keys but at most one primary key.\n\n=> Primary keys are defined in the ANSI SQL Standard, through the PRIMARY KEY constraint.",
+    "reference": "https://stackoverflow.com/questions/39649981/why-is-it-a-bad-idea-to-have-a-table-without-a-primary-key/39650093",
+    "remediation": "Check the statement and if so, add primary key.",
+    "remediationSample": "ALTER TABLE <table identifier> \n      ADD [ CONSTRAINT <constraint identifier> ] \n      PRIMARY KEY ( <column expression> {, <column expression>}... )",
+    "sample": "CREATE TABLE table_name (\n     id_col  INT,\n     col2    CHARACTER VARYING(20),\n     ...\n  )",
+    "total": "Number of tables and materialized views of the scoped container (schema or database depending of the DBMS)",
+    "alternativeName": "Make sure to include Primary Key(PK) in your tables to enforce referential integrity of data and better performance through clustered indexing",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

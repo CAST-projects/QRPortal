@@ -1,0 +1,142 @@
+{
+    "id": 7660,
+    "name": "Never use SQL queries with a cartesian product on XXL Tables",
+    "href": "AIP/quality-rules/7660",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "XXL Table Name",
+    "description": "List all SQL Artifacts except tables having a query on XXL tables that has a cartesian join, i.e; that does not explicitly state a join condition among the tables\nA cartesian join is found if, for any of the table in the from clause, no column of the table is found in a join (either in the from or where clause).\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
+    "output": "The output lists all SQL Artifacts using at least one SQL query with a Cartesian product on XXL tables. \nIt provides the following information: \nArtifact full name",
+    "rationale": "Cartesian joins which lead to cartesian products is an absolute performance killer, especially when large data sets are involved which is the case when extremely large tables are involved.\nA cartesian join is a multiple-table query that does not explicitly state a join condition among the tables, it creates a Cartesian product. A Cartesian product consists of every possible combination of rows from the tables. This result set is usually extremely large and unwieldy, killing application performance.\nIn addition, most of the time, this is also a functional bug.",
+    "remediation": "Check the statement and if so, add a join's clause  between the tables.",
+    "remediationSample": "Select * from table1 T1 inner join table2 T2 on (T1.C = T2.C)\n\nexample of non cartesian product:\nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r \nWhere\n p.pub_id = t.pub_id AND\n t.title_id = r.title_id\n--> 87 rows",
+    "sample": "Select * from table1, table2\n\nother exemple:\n\nhypothsis\nSelect count(*) from publishers\n->3 rows\nSelect count(*) from roysched\n->87 rows\nSelect count(*) from Titles\n-> 18 rows\nexample of cartesian  product \n \nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r\n--> 4698 rows( 87 x 18 x 3)\n \nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r \nWhere\n p.pub_id = t.pub_id\n--> 1566 rows ( 87 x 18)\n \nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r \nWhere\n p.pub_id = t.pub_id AND\n r.royalty = 14 \n--> 252 rows",
+    "total": "Number of Client-Server artifacts using XXL Tables or views based on XXL tables",
+    "alternativeName": "Never use SQL queries with a cartesian product on XXL Tables",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 1062202,
+            "name": "MIPS-Reduction - focus on data access efficiency",
+            "href": "AIP/technical-criteria/1062202",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-400",
+            "name": "Uncontrolled Resource Consumption",
+            "href": "AIP/quality-standards/CWE/items/CWE-400",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "API4-2023",
+            "name": "Unlimited Resource Consumption",
+            "href": "AIP/quality-standards/OWASP/items/API4-2023",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Minimum number of rows to consider a table as XXL",
+            "description": "tables are considered as XXL if the number of rows is greater than this value",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        100000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

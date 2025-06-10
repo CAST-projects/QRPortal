@@ -1,0 +1,167 @@
+{
+    "id": 1043084,
+    "name": "Avoid XML schemas with unbounded occurrences",
+    "href": "AIP/quality-rules/1043084",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnetweb",
+        "href": "AIP/extensions/com.castsoftware.dotnetweb"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule will raise a violation when XML schemas are declared with unbounded occurrence",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Setting maxoccurs as unbounded in xml schema can cause Denial Of Service and expending of resources.\n\nThe XMLs typically take huge resources to be processed, if an attacker supplies large number of elements then the system resource processing the XML can be exhausted and lead to DoS.",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/api/system.xml.schema.xmlschema?view=netcore-3.1\n\nRoger L. Costello Constrain the Number of Occurrences of Elements in your XML Schema\n\nStandards Mapping - Common Weakness Enumeration CWE ID 400, CWE ID 770",
+    "remediation": "set maxoccurence to a finite value",
+    "remediationSample": "using System;\nusing System.Xml;\nusing System.Xml.Schema;\n\nclass XMLSchemaExamples\n{\n    public static void Main()\n    {\n\n        XmlSchema schema = new XmlSchema();\n\n        // <xs:element name=\"cat\" type=\"xs:string\"/>\n        XmlSchemaElement elementCat = new XmlSchemaElement();\n        schema.Items.Add(elementCat);\n        elementCat.Name = \"cat\";\n        elementCat.SchemaTypeName = new XmlQualifiedName(\"string\", \"http://www.w3.org/2001/XMLSchema\");\n\n// <xs:choice minOccurs=\"0\" maxOccurs=\"unbounded\">\n        XmlSchemaChoice choice = new XmlSchemaChoice();\n        complexType.Particle = choice;\n        choice.MinOccurs = 0;\n        choice.MaxOccurs = 1000; //Fixed\n.\n.\n.\n}",
+    "sample": "using System;\nusing System.Xml;\nusing System.Xml.Schema;\n\nclass XMLSchemaExamples\n{\n    public static void Main()\n    {\n\n        XmlSchema schema = new XmlSchema();\n\n        // <xs:element name=\"cat\" type=\"xs:string\"/>\n        XmlSchemaElement elementCat = new XmlSchemaElement();\n        schema.Items.Add(elementCat);\n        elementCat.Name = \"cat\";\n        elementCat.SchemaTypeName = new XmlQualifiedName(\"string\", \"http://www.w3.org/2001/XMLSchema\");\n\n// <xs:choice minOccurs=\"0\" maxOccurs=\"unbounded\">\n        XmlSchemaChoice choice = new XmlSchemaChoice();\n        complexType.Particle = choice;\n        choice.MinOccurs = 0;\n        choice.MaxOccursString = \"unbounded\"; //Violation\n.\n.\n.\n}\n\nResulting Schema:\n---------------\n\n<?xml version=\"1.0\" encoding=\"IBM437\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n    <xs:element name=\"cat\" type=\"xs:string\"/>\n <xs:element name=\"pets\">\n      <xs:complexType>\n        <xs:choice minOccurs=\"0\" maxOccurs=\"unbounded\">\n          <xs:element ref=\"cat\"/>",
+    "total": "Number of methods",
+    "alternativeName": "Avoid XML schemas with unbounded occurrences",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066870,
+            "name": "CWE-770 - Allocation of Resources Without Limits or Throttling",
+            "href": "AIP/technical-criteria/1066870",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062344,
+            "name": "OWASP-2021-A04 - Insecure Design",
+            "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-400",
+            "name": "Uncontrolled Resource Consumption",
+            "href": "AIP/quality-standards/CWE/items/CWE-400",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-770",
+            "name": "Allocation of Resources Without Limits or Throttling",
+            "href": "AIP/quality-standards/CWE/items/CWE-770",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A04-2021",
+            "name": "Insecure Design",
+            "href": "AIP/quality-standards/OWASP/items/A04-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API4-2019",
+            "name": "Lack of Resources & Rate Limiting",
+            "href": "AIP/quality-standards/OWASP/items/API4-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222609",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222609",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

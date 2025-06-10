@@ -1,0 +1,122 @@
+{
+    "id": 7126,
+    "name": "Avoid Artifacts with high Commented-out Code Lines/Code Lines ratio",
+    "href": "AIP/quality-rules/7126",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "associatedValueName": "Ratio of Commented-out Code Lines / Code Lines",
+    "description": "Commented-out Code Lines/Code Lines ratio measures the amount of code left in comments versus the size of the source code (excluding comments and blank lines) this is done for a given artifact. \n\nPlease note that the number of Commented-out Code Lines is measured as the number of all comment lines that contain code only. \n\nThe processing is based on statistics and is done in 3 steps, technology per technology: \n1. All source files are scanned to build 2 databases of vectors: one for code lines and one for comment lines \n2. The metric is triggered if, and only if, the following criteria are met: \n- the source code contains at least 80 artifacts that have more than 10 lines (code + comment) each \n- the source code contains more than 20 \"clean\" comment lines (e.g a text with either >4 words that contain less than 40% of words not present in the code, or <=4 words that contain 0 or 1 word present in the code) \n3. If the metric is triggered, then the identification is performed by comparing each comment line to the data in both databases: \n- If the comment line vector has a value that is more similar to the values in the database for code lines, then it is considered as a commented-out code line \n- If the comment line vector has a value that is more similar to the values in the database for comment lines, then it is considered as a simple comment line \n\nNote that this Quality rule is based on a statistical algorithm and therefore the accuracy of the results depends largely on the quantity of source code that will be analyzed: the larger the source code, the more accurate the results.\n\nNote that a change in one file can affect the grades of objects located in other files within the same application, even if the objects located in other files are unchanged themselves. This is because this rule uses source code comparison methods to produce grades and therefore relies on statistics for the entire application, rather than for individual objects.",
+    "output": "Associated to each artifact with violations, the Quality Rule provides: \n- The Ratio of Commented-out Code Lines / Code Lines",
+    "rationale": "Commented-out code makes source code much more difficult to read and understand. Indeed, when too much source code is commented out, the valid executable code is easily lost in the sea of comments and it becomes very difficult to locate and read the real source code. This is the reason why it should be avoided as much as possible.\nThis measure also helps evaluate the comments that are, in fact, used for documentation purposes.",
+    "reference": "CISQ rule: ASCMM-MNT-6.",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid Artifacts with high Commented-out Code Lines/Code Lines ratio",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062126,
+            "name": "ASCMM-MNT-6 - Commented-out Code Element Excessive Volume",
+            "href": "AIP/technical-criteria/1062126",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061136,
+            "name": "CWE-1085 - Invokable Control Element with Excessive Volume of Commented-out Code",
+            "href": "AIP/technical-criteria/1061136",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067185,
+            "name": "CWE-1085 - Invokable Control Element with Excessive Volume of Commented-out Code",
+            "href": "AIP/technical-criteria/1067185",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61007,
+            "name": "Documentation - Bad Comments",
+            "href": "AIP/technical-criteria/61007",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-6",
+            "name": "Commented-out Code Element Excessive Volume",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-6",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1085",
+            "name": "Invokable Control Element with Excessive Volume of Commented-out Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-1085",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1085",
+            "name": "Invokable Control Element with Excessive Volume of Commented-out Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1085",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1085",
+            "name": "Invokable Control Element with Excessive Volume of Commented-out Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1085",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum % Commented-out / Code Ratio",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        2.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

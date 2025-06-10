@@ -1,0 +1,57 @@
+{
+    "id": 1106096,
+    "name": "Ensure PARTITION is not used in ALTER TABLE statements",
+    "href": "AIP/quality-rules/1106096",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if the following sql statements exist into DB2 SQL files:\n   ALTER TABLE ADD PARTITION\n   ALTER TABLE DETACH PARTITION\n   ALTER TABLE ATTACH PARTITION",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "AWS SCT can convert Db2 LUW tables to partitioned tables in PostgreSQL 10. There are several restrictions when converting a Db2 LUW partitioned table to PostgreSQL:\n\nYou can create a partitioned table with a nullable column in Db2 LUW, and you can specify a partition to store NULL values. However, PostgreSQL doesn\u2019t support NULL values for RANGE partitioning.\n\nDb2 LUW can use an INCLUSIVE or EXCLUSIVE clause to set range boundary values. PostgreSQL only supports INCLUSIVE for a starting boundary and EXCLUSIVE for an ending boundary. The converted partition name is in the format <original_table_name>_<original_partition_name>.\n\nYou can create primary or unique keys for partitioned tables in Db2 LUW. PostgreSQL requires you to create primary or unique key for each partition directly. Primary or unique key constraints must be removed from the parent table. The converted key name is in the format <original_key_name>_<original_partition _name>.\n\nYou can create a foreign key constraint from and to a partitioned table in Db2 LUW. However, PostgreSQL doesn\u2019t support foreign keys references in partitioned tables. PostgreSQL also doesn\u2019t support foreign key references from a partitioned table to another table.\n\nYou can create an index on a partitioned table in Db2 LUW. However, PostgreSQL requires you to create an index for each partition directly. Indexes must be removed from the parent table. The converted index name is in the format <original_index_name>_<original_partition_name>.\n\nYou must define row triggers on individual partitions, not on the partitioned table. Triggers must be removed from the parent table. The converted trigger name is in the format <original_trigger_name>_<original_partition_name>.",
+    "reference": "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.DB2LUW.ToPostgreSQL.html\nhttps://www.ibm.com/docs/en/db2/11.5?topic=ranges-adding-data-partitions\nhttps://www.ibm.com/docs/en/db2/11.5?topic=ranges-attaching-data-partitions\nhttps://www.ibm.com/docs/en/db2/11.5?topic=ranges-detaching-data-partitions",
+    "remediation": "The remediation is to remove unsupported options.",
+    "remediationSample": "Remove statements.",
+    "sample": "ALTER TABLE hole ADD PARTITION STARTING 15;\n\nALTER TABLE orders ATTACH PARTITION part_jan2009\n   STARTING FROM ('01/01/2009')\n   ENDING AT ('01/31/2009') FROM TABLE neworders;\n\nALTER TABLE parent DETACH PARTITION p0 INTO TABLE pdet;",
+    "total": "Number of SQL Tables",
+    "alternativeName": "",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61044,
+            "name": "Database Migration - DB2 Database to PostgreSQL",
+            "href": "AIP/technical-criteria/61044",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

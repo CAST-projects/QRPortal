@@ -1,0 +1,177 @@
+{
+    "id": 8092,
+    "name": "Avoid Objects having exposed pointers allowed to access unmanaged memory",
+    "href": "AIP/quality-rules/8092",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches all the objects having IntPtr,UIntPtr, int* types as public or protected fields that are used to access unmanaged memory.",
+    "output": "This report lists all the classes  and structures having IntPtr and UIntPtr types as public or protected fields that are used to access unmanaged memory.\n\nIt provides following information:\n- Class name or Structure name",
+    "rationale": "For an application, if the pointers are exposed malicious code can change the value of the pointer, potentially allowing access to arbitrary locations in memory or causing application or system failures.",
+    "reference": "http://msdn.microsoft.com/en-us/library/ms182306.aspx",
+    "remediation": "try and always have these pointers as  read-only, internal, or private.",
+    "remediationSample": "using System;\n\nnamespace SecurityRulesLibrary\n{\n\n   public class ExposedPointers\n   {\n    \n      // Violation Corrected\n      internal UIntPtr Pointer1;\n      private UIntPtr privatePointer2;\n\n   }\n}",
+    "sample": "using System;\n\nnamespace SecurityRulesLibrary\n{\n\n   public class ExposedPointers\n   {\n      // Violation. The pointers should not be visibles\n      public IntPtr Pointer1;\n      public UIntPtr Pointer2;\n    \n\n}",
+    "total": "Number of Classes and Structures",
+    "alternativeName": "Avoid Objects having exposed pointers allowed to access unmanaged memory",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062154,
+            "name": "ASCRM-CWE-788 - Memory Location Access After End of Buffer",
+            "href": "AIP/technical-criteria/1062154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061091,
+            "name": "CWE-788 - Access of Memory Location After End of Buffer",
+            "href": "AIP/technical-criteria/1061091",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066888,
+            "name": "CWE-788 - Access of Memory Location After End of Buffer",
+            "href": "AIP/technical-criteria/1066888",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063116,
+            "name": "PCI-Requirement-6.5.2 - Buffer overflows",
+            "href": "AIP/technical-criteria/1063116",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "href": "AIP/technical-criteria/66066",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-788",
+            "name": "Memory Location Access After End of Buffer",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-788",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-788",
+            "name": "Access of Memory Location After End of Buffer",
+            "href": "AIP/quality-standards/CWE/items/CWE-788",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-788",
+            "name": "Access of Memory Location After End of Buffer",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-788",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-788",
+            "name": "Access of Memory Location After End of Buffer",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-788",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222612",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222612",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,135 @@
+{
+    "id": 7288,
+    "name": "Avoid cyclic calls with PERFORM statements",
+    "href": "AIP/quality-rules/7288",
+    "critical": false,
+    "severity": 30,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs containing cycles without at least one PERFORM statement in the paragraph call graph.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n    - PERFORM statements that belong to the cycle\n    - GO TO statements that could belong to the cycle\n\nNote: Last bookmark refers to the same statement than the first one.",
+    "rationale": "A PERFORM statement must not cause itself to be executed into a cycle. A cyclic PERFORM statement can cause unpredictable results.",
+    "reference": "IBM Enterprise Cobol for z/OS - Language Reference",
+    "remediation": "Try to remove cyclic algorithms in the program and replace them by iterative algorithms.",
+    "remediationSample": "PROCEDURE DIVISION.\n       PROCESS.\n           MOVE 0 TO A.\n           PERFORM PROC-01 UNTIL A = 13.\n           GOBACK.\n\n       PROC-01.\n           ADD 1 TO A.",
+    "sample": "PROCEDURE DIVISION.\n       PROCESS.\n           MOVE 0 TO A.\n           PERFORM PROC-01.\n           GOBACK.\n\n       PROC-01.\n           ADD 1 TO A.\n           PERFORM PROC-02.\n\n       PROC-02.\n      * If condition is true then there is a recursive call\n           IF A < 13 THEN\n               PERFORM PROC-01\n           END-IF",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid cyclic calls with PERFORM statements",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062127,
+            "name": "ASCMM-MNT-7 - Inter-Module Dependency Cycles",
+            "href": "AIP/technical-criteria/1062127",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062159,
+            "name": "ASCRM-RLB-13 - Inter-Module Dependency Cycles",
+            "href": "AIP/technical-criteria/1062159",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061110,
+            "name": "CWE-1047 - Modules with Circular Dependencies",
+            "href": "AIP/technical-criteria/1061110",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067147,
+            "name": "CWE-1047 - Modules with Circular Dependencies",
+            "href": "AIP/technical-criteria/1067147",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-7",
+            "name": "Inter-Module Dependency Cycles",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-7",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCRM-RLB-13",
+            "name": "Inter-Module Dependency Cycles",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-13",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1047",
+            "name": "Modules with Circular Dependencies",
+            "href": "AIP/quality-standards/CWE/items/CWE-1047",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1047",
+            "name": "Modules with Circular Dependencies",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1047",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1047",
+            "name": "Modules with Circular Dependencies",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1047",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

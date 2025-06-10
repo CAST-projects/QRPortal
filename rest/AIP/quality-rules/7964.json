@@ -1,0 +1,66 @@
+{
+    "id": 7964,
+    "name": "Avoid directly instantiating a Class used as a managed bean",
+    "href": "AIP/quality-rules/7964",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule reports Managed bean and Java methods that call a constructor of the class used to define this Managed bean. \nThe class can be instantiated directly (by new) or also by getBean. \n\nNote: Even though the getBean method is part of the Spring framework, it is considered as a bad practice to use it since it bypasses the Spring inversion of control mechanism. It will access directly the Bean factory, to either retreive the singleton instance of the bean, or create another instance of that bean. \nThe behavior is implicit, dependent on the way the bean is configured, and cannot be known by the caller. That's why this call is considered as an explicit instantiation. \nInstead, the developer should rely on Spring's injection to wire the bean to the proper location, and access it with an accessor.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When a class is used to instantiate a managed bean, this bean benefits from different key features of the underlying framework :\n    * Each bean is a component which can take advantage of all services of the framework (for instance, declarative transaction management in Spring)\n    * With CDI or Spring, the bean is eligible for injection into other objects.\n \nSo, if a class is instantiated as a managed bean and as a direct Java instance at the same time, for these two instances, you may see different and unpredictable behavior.",
+    "remediation": "Use only managed beans and when you need different instances of the same class, use the prototype mode attribute.",
+    "remediationSample": "In the case of Spring \n    <bean id=\"myBean\" class=\"sample.MyBean\">\n    <property name=\"url\">\n        <value>http://localhost/myBeanService</value>\n    </property>\n</bean>\n\npublic class MyBean{\n    private String url;\n\n    public String getUrl() {\n        return url;\n    }\n\n    public void setUrl(String url) {\n        this.url = url;\n    }\n}\n\npublic class AnotherClass {\n    MyBean bean = context.getBean(\"myBean\" , MyBean.class); //Fixed\n    void check() {\n      System.out.println(bean.getUrl());\n    }\n}\n\n------------------------------------------------------\nAnnotation Based Configuration\n\n@Component(@repository or @controller or @Service)\npublic class MyBean implements MyBeanInterface {\nprivate String url;\n\n  public String getUrl() {\n    return url;\n  }\n\n  public void setUrl(String url) {\n    this.url = url;\n  }\n}\n\npublic class AnotherClass {\n   @Autowired \n   MyBeanInterface bean; //Fixed\n    \n    public MyBeanInterface getBean() {\n        return bean;\n    }\n    \n    public void setBean(MyBeanInterface bean) {\n        this.bean = bean;\n    }\n}\n\n----------------------------------------------------------\npublic class ServiceLimits {\n\n    private List<Services> services;\n\n    public List<Services> getServices() {\n        return services;\n    }\n\n    public void setServiceLimits(List<Services> services) {\n        this.services = services;\n    }\n\n}\n\n@Configuration\npublic class Temp {\n\n    @Bean\n    public ServiceLimits serviceLimits(){\n        return new ServiceLimits();    \n    }\n \n}\n\n@Service\npublic class A {\n\n    @Autowired    \n    ServiceLimits serviceLimits;\n\n    public void acheck() {\n          System.out.println(serviceLimits.services);\n    }\n}",
+    "sample": "XML Configuration\n    <bean id=\"myBean\" class=\"sample.MyBean\">\n  <property name=\"url\">\n     <value>http://localhost/myBeanService</value>\n  </property>\n</bean>\n\npublic class MyBean{\n  private String url;\n\n  public String getUrl() {\n    return url;\n  }\n\n  public void setUrl(String url) {\n    this.url = url;\n  }\n}\n\npublic class AnotherClass {\n    MyBean bean;\n\n    void check() {\n      bean = new MyBean();   // VIOLATION\n      System.out.println(bean.getUrl());\n    }\n}\n\n------------------------------------------------------\nAnnotation Based Configuration\n\n@Component(@repository or @controller or @Service)\npublic class MyBean implements MyBeanInterface {\nprivate String url;\n\n  public String getUrl() {\n    return url;\n  }\n\n  public void setUrl(String url) {\n    this.url = url;\n  }\n}\n\npublic class AnotherClass {\n    MyBean bean;\n\n    AnotherClass() {\n      bean = new MyBean();   // VIOLATION\n    }\n}\n\n----------------------------------------------------------\n\npublic class ServiceLimits {\n\n    private List<Services> services;\n\n    public List<Services> getServices() {\n        return services;\n    }\n\n    public void setServiceLimits(List<Services> services) {\n        this.services = services;\n    }\n}\n\n@Configuration\npublic class Temp {\n\n    @Bean\n    public ServiceLimits serviceLimits(){\n        return new ServiceLimits();    \n    }\n \n}\n\n@Service\npublic class A {\n    \n    public void acheck() {\n        ServiceLimits serviceLimits = new ServiceLimits();   //Violation\n        System.out.println(serviceLimits.services);\n    }\n}",
+    "total": "Number of Non Abstract Java Artifacts",
+    "alternativeName": "Ensure that directly instantiating a Class used as a managed bean  are not used as they lead to unpredictable behavior",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

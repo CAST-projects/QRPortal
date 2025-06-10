@@ -1,0 +1,66 @@
+{
+    "id": 5068,
+    "name": "Avoid STOP RUN (use GOBACK instead)",
+    "href": "AIP/quality-rules/5068",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs using STOP RUN statements. Main batch programs (e.g: called by a JCL STEP) are not taken into account.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - STOP RUN statement",
+    "rationale": "STOP RUN stops the current process. In subprogram or in CICS programs, do not use STOP RUN but use GOBACK instead in order to return control to the calling process.",
+    "reference": "IBM Enterprise Cobol for z/OS",
+    "remediation": "Replace the STOP RUN statements by GOBACK in subprograms and in CICS programs.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid STOP RUN (use GOBACK instead)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

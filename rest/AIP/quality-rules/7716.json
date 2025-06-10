@@ -1,0 +1,175 @@
+{
+    "id": 7716,
+    "name": "Avoid defining singleton or factory classes when using Spring",
+    "href": "AIP/quality-rules/7716",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Reports all JAVA singleton and factory classes for Spring based application \n\nA singleton is defined as:\n- a class with a static member with the same type as the class\n- a static method that refers the instance and return an object of same or a parent type\n(extended or implemented)\n- a class that has only private constructors\n\nA factory is defined as:\n- a class with a public static method that return a Java interface\n- a class that has only private or protected constructors",
+    "output": "The metric will list singleton or factories classes when Spring is used.\nIt provides the following information:\n  Class Full Name",
+    "rationale": "On large software applications, the number of factory classes can become quite large. There is lot of code duplication because constructors are private and the usage of static methods and variables make the class not extendable. Thus very singleton must re-implement the same basic structure. \nSpring provides a core factory pattern, which eliminates the need to manually program factory objects (usually realized as singletons). It allows you to decouple the configuration and specification of dependencies from your actual program logic. You will remove the need of your own glue code and gain a much more robust factory implementation with better error handling and fully de-coupled configuration mechanism\n\nIt will also avoid to fall into the classic double-checked locking issue where you can easily have more than one singleton instance when invoked into a multi-threaded application.",
+    "reference": "http://www.devx.com/Java/Article/21665/1763/page/2\nhttp://static.springframework.org/spring/docs/2.0.x/reference/beans.html#beans-factory-scopes-singleton",
+    "remediation": "Prefer using the core factory pattern provided by Spring to eliminate the need to manually program factory objects",
+    "remediationSample": "----> Spring XML file\n// FIXED with Spring\n<beans>\n     <bean name=\"theInterface\"\n          class=\"MyConcrete\">\n</beans>\n\n----> Java Client code\nInputStream is = new FileInputStream(\"spring_beans.xml\");\nBeanFactory factory = new XmlBeanFactory(is);\n\nMyInterface theInterface = (MyInterface) factory.getBean(\"theInterface\");\nString name = theInterface.getAName();\n\n------------------------------------------------------\n-----> Spring XML File\n<bean id=\"scopeTest\" class=\"com.example.scope.Scope\" scope=\"singleton\">\n        <property name=\"name\" value=\"Shamik Mitra\"/>    \n</bean> \n\n-----> Java File\n\n@Component\n@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)\npublic class TwitterMessageService implements MessageService {\n\n    private String message;\n\n    @Override\n    public String getMessage() {\n        return message;\n    }\n\n    @Override\n    public void setMessage(String message) {\n        this.message = message;\n    }\n}",
+    "sample": "-----> MyInterface.java\ninterface MyInterface {\n  public String getAName();\n}\n-----> MyConcrete.java\nclass MyConcrete extends MyInterface {\n  public MyConcrete() {\n    ...\n  }\n  public String getAName() {\n    ...\n  }\n}\n-----> MyFactory.java\n// VIOLATION: the factory pattern is detected\nclass MyFactory {\n  private MyFactory() {\n    ...\n  }\n  public static MyInterface getMyInterface () {\n    ...\n  }\n}\n----> Java Client code\nMyInterface theInterface = MyFactory.getMyInterface ();\nString name = theInterface.getAName();\n\n----------------------------------------------\nclass Singleton \n{ \n    // static variable single_instance of type Singleton \n    private static Singleton single_instance = null; \n  \n    // variable of type String \n    public String s; \n  \n    // private constructor restricted to this class itself \n    private Singleton() //VIOLATION Detected\n    { \n        s = \"Hello I am a string part of Singleton class\"; \n    } \n  \n    // static method to create instance of Singleton class \n    public static Singleton getInstance() \\\\ //VIOLATION Detected\n    { \n        if (single_instance == null) \n            single_instance = new Singleton(); \n  \n        return single_instance; \n    } \n}",
+    "total": "Number of Java singleton, factory and Spring beans when Spring is used",
+    "alternativeName": "Ensure not using/defining singleton or factory for Spring Based application",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062158,
+            "name": "ASCRM-RLB-12 - Singleton Class Instance Creation without Proper Lock Element Management",
+            "href": "AIP/technical-criteria/1062158",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "href": "AIP/technical-criteria/66009",
+            "weight": 7,
+            "critical": false
+        },
+        {
+            "id": 1061146,
+            "name": "CWE-1096 - Singleton Class Instance Creation without Proper Locking or Synchronization",
+            "href": "AIP/technical-criteria/1061146",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067196,
+            "name": "CWE-1096 - Singleton Class Instance Creation without Proper Locking or Synchronization",
+            "href": "AIP/technical-criteria/1067196",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061060,
+            "name": "CWE-543 - Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/technical-criteria/1061060",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066643,
+            "name": "CWE-543 - Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/technical-criteria/1066643",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61010",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-12",
+            "name": "Singleton Class Instance Creation without Proper Lock Element Management",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-12",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-543",
+            "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/quality-standards/CWE/items/CWE-543",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1096",
+            "name": "Singleton Class Instance Creation without Proper Locking or Synchronization",
+            "href": "AIP/quality-standards/CWE/items/CWE-1096",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-543",
+            "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-543",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1096",
+            "name": "Singleton Class Instance Creation without Proper Locking or Synchronization",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1096",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-543",
+            "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-543",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-1096",
+            "name": "Singleton Class Instance Creation without Proper Locking or Synchronization",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1096",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

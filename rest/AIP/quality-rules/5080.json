@@ -1,0 +1,60 @@
+{
+    "id": 5080,
+    "name": "Avoid Procedure Paragraphs that contains no statements",
+    "href": "AIP/quality-rules/5080",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs containing empty paragraphs.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - Empty paragraph",
+    "rationale": "For maintainability aspect, avoid procedure paragraphs that contains no statements",
+    "remediation": "Check if the paragraph is referenced. If yes, then see why this empty paragraph is called. Otherwise remove it.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid Procedure Paragraphs that contains no statements",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61031,
+            "name": "Complexity - Empty Code",
+            "href": "AIP/technical-criteria/61031",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "id": 1025024,
+    "name": "Avoid disabling the expiration time validation of a JWT token",
+    "href": "AIP/quality-rules/1025024",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.securityanalyzer",
+        "href": "AIP/extensions/com.castsoftware.securityanalyzer"
+    },
+    "associatedValueName": "Call stack from user input source down to the target method",
+    "description": "Using CAST data-flow engine, this metric detects JWT token having the expiration time validation disabled",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If the expiration time validation is disabled, a JWT token will be valid beyond its expiry time. An attacker would be able to authenticate with an expired token.",
+    "reference": "CWE-613: Insufficient Session Expiration\nhttps://cwe.mitre.org/data/definitions/613.html",
+    "remediation": "Do not disable the expiration time validation of a JWT token.",
+    "remediationSample": "services\n    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)\n    .AddJwtBearer(options =>\n    {\n        options.TokenValidationParameters = new TokenValidationParameters\n        {\n            ValidateIssuer = true,\n            ValidateAudience = true,\n            ValidateLifetime = true, // OK\n            RequireSignedTokens = true,\n            RequireExpirationTime = true,\n            ValidateIssuerSigningKey = true,\n        };\n    });",
+    "sample": "services\n    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)\n    .AddJwtBearer(options =>\n    {\n        options.TokenValidationParameters = new TokenValidationParameters\n        {\n            ValidateIssuer = true,\n            ValidateAudience = true,\n            ValidateLifetime = false, // issue\n            RequireSignedTokens = true,\n            RequireExpirationTime = true,\n            ValidateIssuerSigningKey = true,\n        };\n    });",
+    "total": "Number of potentially vulnerable methods",
+    "alternativeName": "Ensure your application does not disable the expiration time validation of a JWT token",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066713,
+            "name": "CWE-613 - Insufficient Session Expiration",
+            "href": "AIP/technical-criteria/1066713",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062302,
+            "name": "OWASP-2013-A2 - Broken Authentication and Session Management",
+            "href": "AIP/technical-criteria/1062302",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062322,
+            "name": "OWASP-2017-A2 - Broken Authentication",
+            "href": "AIP/technical-criteria/1062322",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062347,
+            "name": "OWASP-2021-A07 - Identification and Authentication Failures",
+            "href": "AIP/technical-criteria/1062347",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-613",
+            "name": "Insufficient Session Expiration",
+            "href": "AIP/quality-standards/CWE/items/CWE-613",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-12",
+            "name": "Session Termination",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-12",
+            "name": "Session Termination",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "href": "AIP/quality-standards/OWASP/items/A2-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/A2-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A07-2021",
+            "name": "Identification and Authentication Failures",
+            "href": "AIP/quality-standards/OWASP/items/A07-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API2-2019",
+            "name": "Broken User Authentication",
+            "href": "AIP/quality-standards/OWASP/items/API2-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API2-2023",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/API2-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "href": "AIP/quality-standards/OWASP/items/M4-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

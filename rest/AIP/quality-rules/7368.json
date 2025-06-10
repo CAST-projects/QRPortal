@@ -1,0 +1,80 @@
+{
+    "id": 7368,
+    "name": "When using binary data items (COMP), then use the SYNCHRONIZED clause",
+    "href": "AIP/quality-rules/7368",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs in which binary numeric data are not defined with the SYNCHRONIZED clause.\n\nThe SYNCHRONIZED clause can be used on the data declaration itself or on the declaration of its parent structure.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - Binary numeric data definition that is not used with the SYNC clause",
+    "rationale": "When using binary (COMP) data items, the use of the SYNCHRONIZED clause specifies that the binary data items will be properly aligned on halfword, fullword, or doubleword boundaries. This may enhance the performance of certain operations on some machines.",
+    "reference": "IBM Enterprise Cobol - Performance Tuning",
+    "remediation": "Add the SYNCHRONIZED (SYNC) clause to data items declared with the COMP usage.",
+    "remediationSample": "01 DATA PIC 9(5) COMP SYNC.",
+    "sample": "01 DATA PIC 9(5) COMP.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "When using binary data items (COMP), then use the SYNCHRONIZED clause",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 2,
+            "critical": false
+        },
+        {
+            "id": 1062201,
+            "name": "MIPS-Reduction - focus on algorithmic costs",
+            "href": "AIP/technical-criteria/1062201",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": 5082,
+    "name": "Avoid Procedure Sections that contain no Paragraph",
+    "href": "AIP/quality-rules/5082",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs containing sections without any paragraph in PROCEDURE division.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n  - Section without any paragraph",
+    "rationale": "For maintainability aspect, avoid procedure sections that contain no paragraphs. Statements should be located in paragraphs.",
+    "remediation": "Create at least one paragraph in the section to include all its statements. Furthermore, it could be then the opportunity to simplify the implementation of the logic and the readability of the code by structuring the statements in several paragraphs.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid Procedure Sections that contain no Paragraph",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61031,
+            "name": "Complexity - Empty Code",
+            "href": "AIP/technical-criteria/61031",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

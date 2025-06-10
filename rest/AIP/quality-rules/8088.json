@@ -1,0 +1,66 @@
+{
+    "id": 8088,
+    "name": "Avoid override artifacts not having link demands identical to base",
+    "href": "AIP/quality-rules/8088",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches all the public or protected methods that in a public type overrides a method or implements an interface, and does not have the same Link Demands as the interface or virtual method.",
+    "output": "This report lists all the public or protected methods that in a public type overrides a method or implements an interface, and does not have the same Link Demands as the interface or virtual methods.\n\nThis rule is relevant for any overridable methods : class/interface methods, property accessors, indexer accessors, event accessors. The .NET analyzer does not manage neither the arguments values of external security attributes (i.e. the security attributes comming with objects from external assemblies), nor the arguments values of any external attributes coming from assemblies compiled for framework 1.x., that is these values are not available to the analyzer. This implies some possible false negative when overriden objects involved in a violation pattern are external (i.e. come from external assemblies), because these argument values can not be compared. Nevertheless even in that case some violations may still be raised when the attribute type of the link demand is different between the two objects (overriding and overriden), or when there is no security attrbute at all on the overriden object (external). Another limitation is that link demands present at a type or an assembly level are not taken into account.",
+    "rationale": "An application with a public or a protected method in a public type, which overrides a method or implements an interface and does not have the same Link Demands as the interface or virtual method, can lead to security issues.",
+    "reference": "https://docs.microsoft.com/en-us/visualstudio/code-quality/ca2123?view=vs-2019",
+    "remediation": "Always try and apply the same link demand to the overide method or implementation. If this is not possible, mark the method with a full demand or remove the attribute altogether",
+    "sample": "using System.Security;\nusing System.Security.Permissions;\nusing System;\n\nnamespace SecurityRulesLibrary\n{\n   public interface ITestOverrides\n   {  \n      [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted=true)]\n      Object GetFormat(Type formatType);\n   }\n\n   public class OverridesAndSecurity : ITestOverrides\n   {\n      // Rule violation: The interface has security, and this implementation does not. \n      object ITestOverrides.GetFormat(Type formatType)\n      {\n         return (formatType == typeof(OverridesAndSecurity) ? this : null);\n      }\n\n      // These two methods are overridden by DerivedClass and DoublyDerivedClass.\n      [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted=true)]\n      public virtual void DoSomething()\n      {\n         Console.WriteLine(\"Doing something.\");\n      }\n\n      public virtual void DoSomethingElse()\n      {\n         Console.WriteLine(\"Doing some other thing.\");\n      }\n   }\n\n   public class DerivedClass : OverridesAndSecurity, ITestOverrides\n   {\n      //  Rule violation: The interface has security, and this implementation does not. \n      public object GetFormat(Type formatType)\n      {\n         return (formatType == typeof(OverridesAndSecurity) ? this : null);\n      }\n\n      // Rule violation: This does not have security, but the base class version does. \n      public override void DoSomething()\n      {\n         Console.WriteLine(\"Doing some derived thing.\");\n      }\n\n      // Rule violation: This has security, but the base class version does not.\n      [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted=true)]\n      public override void DoSomethingElse()\n      {\n         Console.WriteLine(\"Doing some other derived thing.\");\n      }\n   }\n\n   public class DoublyDerivedClass : DerivedClass\n   {\n      // The OverridesAndSecurity version of this method does not have security.  \n      // Base class DerivedClass's version does.  \n        public override void DoSomethingElse()\n      {\n         Console.WriteLine(\"Doing some other derived thing.\");\n      }\n   }\n}",
+    "total": "Number of Methods",
+    "alternativeName": "Avoid override artifacts not having link demands identical to base",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "href": "AIP/technical-criteria/66066",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

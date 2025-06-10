@@ -1,0 +1,72 @@
+{
+    "id": 1600106,
+    "name": "Avoid using the SQLExec statements in the PeopleCode (PeopleSoft)",
+    "href": "AIP/quality-rules/1600106",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Number of SQLExec",
+    "description": "Only the use of the SQLExec is checked here.\nFor data corruption, the use of insert, delete, update, commit statements should be also checked",
+    "output": "Failed checks give the number of objects that contain a call to the SQLExec function",
+    "rationale": "The SQLExec function allows execution of a SQL statement inside PeopleCode and is often used by developers because they only need to copy the query.\nThe SQLExec function has some limitations:\n-limited to 1000 characters\n-possible data corruption because it directly impacts the database\n-the server is queried for each call\n-only get one line\n-SQL code is static. If the table structure change, you need to rewrite it.\n-it doesn't handle the multi-language\n\nImpacts are:\n-performance: it only gets one line if the query contains a join. If the query returns more than one line, only the first one is used but the query execution is for all rows\n-maintenance: during upgrades and maintenance, the SQL string is considered a black box. If field names or table names change during an upgrade, table and field references within the SQL string are not updated automatically. For these reasons, you should use a SQL definition and the meta-SQL statements provided in PeopleTools 8.0 and above.\n-development: the multi-language is not handled by the framework. The join must be written by the developer.",
+    "reference": "https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tpcr/chapter.htm?File=tpcr/htm/tpcr41.htm",
+    "remediation": "To get one full data row for a table, use the SQL object or the Record class enable in version 8.4. \n- The SQL object is dedicated to the SELECT statement.\n- The Record class enables to instanciate tables not in the component processor and to execute every DML operation DML (update, insert or delete).  \nTo get more than one row, use functions CreateSQL, GetSQL or Fetch.\nThe use of ScrollSelect or the use of a method Select on a Rowset object enables to read lines from a Scroll.\nThe record name in the SQL SELECT must be in uppercase. For example: select 'X' from PS_AE_STMT_B_TBL where ...;",
+    "remediationSample": "&rs = CreateRowset (record.PS_S1_ITM_LD_CP_EC);\n&NbEnregLus = &rs.fill ( \"WHERE A.EIP_CTL_ID LIKE 'R%' and S1_NUM_LOT = :1 AND ((:2 = 'OUI' AND :1  = 0) OR (:2 <> 'OUI' AND :1  = 0) OR (:2 <> 'OUI' AND :1  = A.S1_NUM_LOT))\",S1_ITM_VAR_AET.S1_NUM_LOT, S1_RUNCNTL_AET.S1_TOPINIT_CD );",
+    "sample": "SQLExec(\"SELECT count(*) FROM PS_S1_ITM_LD_CP_EC A WHERE A.EIP_CTL_ID LIKE 'R%' and S1_NUM_LOT = :1 AND ((:2 = 'OUI' AND :1  = 0) OR (:2 <> 'OUI' AND :1  = 0) OR (:2 <> 'OUI' AND :1  = A.S1_NUM_LOT))\", S1_ITM_VAR_AET.S1_NUM_LOT , S1_RUNCNTL_AET.S1_TOPINIT_CD , &NbEnregLus);",
+    "total": "Number of PeopleSoft Events, Functions and Methods",
+    "alternativeName": "Avoid using the SQLExec statements in the PeopleCode (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

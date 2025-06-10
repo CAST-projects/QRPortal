@@ -1,0 +1,107 @@
+{
+    "id": 1008088,
+    "name": "Avoid using obsolete \"Definition/Allocation/Array Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+    "href": "AIP/quality-rules/1008088",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.rpg",
+        "href": "AIP/extensions/com.castsoftware.rpg"
+    },
+    "description": "This rule identifies legacy operation codes in RPG IV programs that are considered obsolete or deprecated.\nThese include operations related to variable definition, memory allocation, and array handling that were commonly used in RPG/400 and early RPG IV but have since been replaced by more modern, free-form syntax.\n\nThe following fixed-format op-codes are considered obsolete:\n- ALLOC\n--- Purpose: Allocates memory dynamically.\n--- Note: Usage is discouraged in modern applications\n\n- DEALLOC\n--- Purpose: Deallocates dynamically allocated memory.\n--- Note: Usage is discouraged in modern applications\n\n- REALLOC\n--- Purpose: Reallocates memory to a different size.\n--- Note: Usage is discouraged in modern applications\n\n- DEFINE\n--- Purpose: Defines variables or constants\n--- Replaced By: DCL-S and DCL-C\n\n- KLIST\n--- Purpose: Begins a key list for file operations\n--- Replaced By: Extended file specifications\n\n- KFLD\n--- Purpose: Specifies a field within a key list\n--- Replaced By: Extended file specifications\n\n- LOOKUP\n--- Purpose: Searches for a value in an array\n--- Replaced By: Built-in functions like %LOOKUP\n\n- OCCUR\n--- Purpose: Sets the occurrence of a multiple-occurrence data structure\n--- Replaced By: %OCCUR\n\n- SHTDN\n--- Purpose: Initiates a controlled system shutdown\n--- Note: Usage is discouraged in modern applications",
+    "output": "This report lists RPG400 programs using obsolete \"Definition/Allocation/Array Operations\" statements in RPG Programs (RPG-IV only)\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Over the evolution of RPG from fixed-format (RPG/400) to free-format (RPG IV and beyond), many op-codes have been deprecated or removed entirely.\nContinuing to use these statements increases maintenance cost, reduces code readability, and may cause incompatibilities in future upgrades. Identifying and replacing obsolete operations ensures better forward compatibility and modernization of the codebase.",
+    "reference": "IBM ILE RPG Programmer's Guide IBM i 7.6 - \u00a7What's New in V5R1? page 64\nhttps://www.ibm.com/docs/fr/ssw_ibm_i_76/pdf/sc092507.pdf",
+    "remediation": "Wherever these obsolete operations are found, replace them with modern free-format equivalents. Free-format syntax is more readable, modular, and aligns with current RPG best practices.",
+    "remediationSample": "Here an example of remediation:\n\n\"\"\"\ndcl-s ptr1 pointer;\nptr1 = %alloc(1000);\n\nchain (field1) file;\n\nif %lookup(value: array) > 0;\n   // Value found\nendif;\n\"\"\"",
+    "sample": "Here an example:\n\n\n\"\"\"\n      C                   ALLOC     1000       PTR1\n      C                   KLIST     MYLIST\n      C                   KFLD      FIELD1\n      C                   LOOKUP    VALUE      ARRAY\n\"\"\"",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid using obsolete \"Definition/Allocation/Array Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061055,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1061055",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066577,
+            "name": "CWE-477 - Use of Obsolete Function",
+            "href": "AIP/technical-criteria/1066577",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "id": 7676,
+    "name": "DEPRECATED: Avoid too many packages referencing Mainframe",
+    "href": "AIP/quality-rules/7676",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "This quality rule retrieves all packages that are making Mainframe invocation. This number must not exceed 1 (The threshold is a parameter and can be changed at will.)",
+    "output": "This report lists all packages that reference Mainframe.\nIt provides the following information:\n package full name",
+    "rationale": "All calls to Mainframe  must be encapsulated into one or more specific packages. It separates design concerns decreasing code duplication, centralizing control, and making the application more easily modifiable.",
+    "remediation": "Review the design of these package to decrease the number of package that are referencing Mainframe.",
+    "total": "Number of packages",
+    "alternativeName": "Ensure that there are not too many packages referencing Mainframe",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of packages referencing Mainframe",
+            "description": "Maximum number of packages referencing Mainframe",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        1
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

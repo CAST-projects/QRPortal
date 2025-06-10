@@ -1,0 +1,81 @@
+{
+    "id": 1600292,
+    "name": "In an INSERT statement, define explicitly the values for all the table columns (PeopleSoft)",
+    "href": "AIP/quality-rules/1600292",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rules detects SQL Definition with INSERT statement without explicit specification of target column list.\nPlease note that the %BIND construct is not considered as valid w.r.t. this best practice : column names are not defined.",
+    "output": "This quality rules reports PeopleSoft SQL Definitions with INSERT statement not specifying the column names.\nIt provides the PeopleSoft SQL Definitions fullname.",
+    "rationale": "While valid at some time, an INSERT statement without column names is error prone, when the table structure is updated.\nProblems can occur when the table structure changes (like adding or dropping a column, changing the order of columns, ...).\nIt can result in SQL error (statement not executed), or in data corruption (wrong column updated).",
+    "reference": "https://www.red-gate.com/hub/product-learning/sql-prompt/insert-statement-without-column-list-bp004\n\n%Bind reference : https://docs.oracle.com/cd/E13292_01/pt849pbr0/eng/psbooks/tape/chapter.htm?File=tape/htm/tape06.htm",
+    "remediation": "Add column names in the INSERT statement.",
+    "remediationSample": "INSERT INTO Customers (CustomerName, City, Country)     // FIXED\nVALUES ('Cardinal', 'Stavanger', 'Norway');",
+    "sample": "INSERT INTO Customers                             // VIOLATION\nVALUES ('Cardinal', 'Stavanger', 'Norway');",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "In an INSERT statement, define explicitly the values for all the table columns (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61011,
+            "name": "Complexity - SQL Queries",
+            "href": "AIP/technical-criteria/61011",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

@@ -1,0 +1,234 @@
+{
+    "id": 8584,
+    "name": "Prefer using OPEN DATASET statement with file Path instead of file name",
+    "href": "AIP/quality-rules/8584",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "The OPEN DATASET statement is commonly used to open a file for reading, writing, or appending\nThis rule reports violations for all ABAP artifacts where OPEN DATASET statement is used with file name instead of a full file path.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Using the File name instead of a full file path in ABAP's OPEN DATASET statement can pose potential security issues, primarily due to unintended File Access (Path Traversal Vulnerability):\nIf only a file name is used, and the system uses a default or current directory, there's a risk that an attacker could manipulate file paths to access files outside the intended directory. This is known as a path traversal attack.\n\nFor example, if an input like ../../etc/passwd is used as a file name, it could potentially access sensitive files on the server, depending on the system's configuration and permissions.",
+    "reference": "https://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abendyn_file_scrty.htm",
+    "remediation": "Use OPEN DATASET with path instead of the file name.",
+    "remediationSample": "DATA: lv_file TYPE string.\n\nlv_file = '/usr/sap/host/data/my_file.txt'. \n\nOPEN DATASET lv_file FOR INPUT.",
+    "sample": "DATA: lv_file TYPE string.\n\nlv_file = 'my_file.txt'. \n\nOPEN DATASET lv_file FOR INPUT.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Potential file name manipulation in the statement OPEN DATASET",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062177,
+            "name": "ASCSM-CWE-22 - Path Traversal Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062177",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061010,
+            "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/technical-criteria/1061010",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066122,
+            "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/technical-criteria/1066122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062341,
+            "name": "OWASP-2021-A01 - Broken Access Control",
+            "href": "AIP/technical-criteria/1062341",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-22",
+            "name": "Path Traversal Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-22",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-22",
+            "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/quality-standards/CWE/items/CWE-22",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-35",
+            "name": "Path Traversal: '.../...//'",
+            "href": "AIP/quality-standards/CWE/items/CWE-35",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-73",
+            "name": "External Control of File Name or Path",
+            "href": "AIP/quality-standards/CWE/items/CWE-73",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-22",
+            "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-22",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-22",
+            "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-22",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API10-2023",
+            "name": "Unsafe Consumption of APIs",
+            "href": "AIP/quality-standards/OWASP/items/API10-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222609",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222609",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ]
+}

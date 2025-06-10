@@ -1,0 +1,117 @@
+{
+    "id": 620,
+    "name": "Avoid base Classes without virtual Destructors",
+    "href": "AIP/quality-rules/620",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for classes that are derived in sub-classes and that do not provide a virtual destructor.",
+    "output": "Associated to each C++ class with violations, the Quality Rule provides:\n- Bookmarks for violation occurrences found in source code:\n  - Class definition\n  - Non-virtual destructor if any",
+    "rationale": "If an object is handled through a pointer to its base class (handled through a generic interface that is certainly a major objective in object-oriented programming), memory and stability problems occur when the object is to be deleted and when the object has been created on the heap with new. If the pointer is to the base class, the compiler can only know to call the base-class version of the destructor during the delete. Any memory clean up or functional actions that must take place when derived classes are deleted will not take place provoking memory leaks, resource losses and stability issues.",
+    "reference": "Bruce Eckel's \"Thinking in C++\"\nhttp://www.cs.huji.ac.il/labs/parallel/Docs/C++/Guide/tic0161.html\n\nBruce Eckel's \"Thinking in C++\"\nhttp://www.cs.huji.ac.il/labs/parallel/Docs/C++/Guide/",
+    "remediation": "Add a virtual destructor to the base class.",
+    "remediationSample": "class CParent\n{\n    CParent() { ... }\n    virtual ~CParent() { ... }\n};\n\nclass CDerived : public CParent\n{\n...\n};",
+    "sample": "class CParent\n{\n    CParent() { ... }\n    ~CParent() { ... }\n};\n\nclass CDerived : public CParent\n{\n...\n};",
+    "total": "Number of C++ classes",
+    "alternativeName": "Avoid base Classes without virtual Destructors",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062162,
+            "name": "ASCRM-RLB-16 - Parent Class Element without Virtual Destructor Method Element",
+            "href": "AIP/technical-criteria/1062162",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061131,
+            "name": "CWE-1079 - Parent Class without Virtual Destructor Method",
+            "href": "AIP/technical-criteria/1061131",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067179,
+            "name": "CWE-1079 - Parent Class without Virtual Destructor Method",
+            "href": "AIP/technical-criteria/1067179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-16",
+            "name": "Parent Class Element without Virtual Destructor Method Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-16",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1079",
+            "name": "Parent Class without Virtual Destructor Method",
+            "href": "AIP/quality-standards/CWE/items/CWE-1079",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1079",
+            "name": "Parent Class without Virtual Destructor Method",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1079",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1079",
+            "name": "Parent Class without Virtual Destructor Method",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1079",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

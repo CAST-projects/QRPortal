@@ -1,0 +1,102 @@
+{
+    "id": 7762,
+    "name": "Avoid undocumented Triggers, Functions and Procedures",
+    "href": "AIP/quality-rules/7762",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "N/A",
+    "description": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the triggers, functions and Procedures.",
+    "output": "The Quality Rule does not provide additional information.",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. \nThis rule will ensure there are comments within the triggers, functions and Procedures.",
+    "remediation": "Enrich each trigger, function and procedure code with meaningful comments",
+    "total": "Number of SQL procedures, triggers",
+    "alternativeName": "Ensure you add meaningful comments foreach trigger, function and procedure",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067153,
+            "name": "CWE-1053 - Missing Documentation for Design",
+            "href": "AIP/technical-criteria/1067153",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 1107000,
+            "name": "FormsReportAnalyzer",
+            "href": "AIP/technologies/1107000"
+        },
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        },
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1053",
+            "name": "Missing Documentation for Design",
+            "href": "AIP/quality-standards/CWE/items/CWE-1053",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

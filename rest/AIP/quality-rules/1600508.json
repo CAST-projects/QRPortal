@@ -1,0 +1,64 @@
+{
+    "id": 1600508,
+    "name": "Use as possible SQL section rather than PeopleCode in the application engine (PeopleSoft)",
+    "href": "AIP/quality-rules/1600508",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "PeopleCode step",
+    "description": "When programs must verify that a certain condition is true before they run a particular section, PeopleCode enables you to set state record variables dynamically. For example, if the hourly wage is less than or equal to X, do Step A; if not, fetch the next row. In certain instances, you must modify variables that exist in a state record. \n\nLoading data into a rowset can use a significant amount of memory, which this formula approximates:\nmem = nrows * (row overhead + nrecords * (rec overhead + nfields * (field overhead) + average cumulative fielddata))\nwhere\n-mem is the amount of memory required to store the rowset.\n-nrows is the number of rows.\n-row overhead is the overhead per row.\n-nrecords is the number of records per row.\n-rec overhead is the record overhead (approximately 40 bytes).\n-nfields is the number of fields in the record.\n-field overhead is the overhead per field (approximately 80 bytes).\n-average cumulative fielddata is the average amount of data per field.\nUsing this formula, a rowset containing 500,000 rows with one record per row, 50 fields, and 200 bytes per field would require approximately 2.3 gigabytes of memory",
+    "output": "This report lists all Application Engines with PeopleCode steps",
+    "rationale": "Application Engine is not intended to run programs that include only PeopleCode actions. The primary purpose of Application Engine is to run SQL against your data.\n\nUse PeopleCode primarily for setting If, Then, Else logic constructs, performing data preparation tasks, and building dynamic portions of SQL statements; rely on SQL to complete the bulk of actual program processing. Also use PeopleCode to reuse previously developed online logic. PeopleCode is the tool to use to take advantage of new technologies such as component interfaces and application classes.\n\nAvoid rowset processing in an Application Engine program. Loading data into a rowset can use a significant amount of memory.",
+    "remediation": "Inserting PeopleCode into Application Engine programs only when you want to reuse common function libraries and improve performance. In these cases, a small PeopleCode program used instead of Application Engine PeopleCode is an excellent way to build dynamic SQL, perform simple If/Else edits, set defaults, and perform other tasks that do not require a trip to the database.",
+    "total": "Number of PeopleSoft Application Engines",
+    "alternativeName": "Use as possible SQL section rather than PeopleCode in the application engine (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

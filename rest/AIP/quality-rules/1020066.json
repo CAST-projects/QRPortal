@@ -1,0 +1,216 @@
+{
+    "id": 1020066,
+    "name": "Avoid using Javascript Function constructor",
+    "href": "AIP/quality-rules/1020066",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Each time the Function constructor is called on a string representing source code, the script engine must start the machinery that converts the source code to executable code. This can lead to instability issues and it can lead to a code injection that will compromise the security of the application",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using the Function constructor to create functions is not recommended since it needs the function body as a string which may prevent some JS engine optimizations, code injection and can also cause other problems.",
+    "reference": "https://jsperf.com/function-vs-function/2 \nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions",
+    "remediation": "Do not use Function constructor.",
+    "remediationSample": "var f1 = function() { \n var x = 1; \n console.log('1'); \n}",
+    "sample": "var f2 = new Function('var x = 1;console.log(\"2\");');",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Ensure to not use Javascript Function constructor calling a string represented source code to prevent impaired performance and code injection.",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062195,
+            "name": "ASCSM-CWE-99 - Name or Reference Resolution Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062195",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061020,
+            "name": "CWE-99 - Improper Control of Resource Identifiers ('Resource Injection')",
+            "href": "AIP/technical-criteria/1061020",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066199,
+            "name": "CWE-99 - Improper Control of Resource Identifiers ('Resource Injection')",
+            "href": "AIP/technical-criteria/1066199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-99",
+            "name": "Name or Reference Resolution Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-99",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-99",
+            "name": "Improper Control of Resource Identifiers ('Resource Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-99",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-99",
+            "name": "Improper Control of Resource Identifiers ('Resource Injection')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-99",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-99",
+            "name": "Improper Control of Resource Identifiers ('Resource Injection')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-99",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API10-2023",
+            "name": "Unsafe Consumption of APIs",
+            "href": "AIP/quality-standards/OWASP/items/API10-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222604",
+            "name": "The application must protect from command injection.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222604",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222604",
+            "name": "The application must protect from command injection.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222604",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

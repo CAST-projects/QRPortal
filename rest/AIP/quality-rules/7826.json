@@ -1,0 +1,110 @@
+{
+    "id": 7826,
+    "name": "Forms naming convention - prefix control",
+    "href": "AIP/quality-rules/7826",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "description": "Names of Forms should start with X. \nThe prefix value is a parameter that can be changed at will",
+    "output": "This report lists all Forms whose name is not starting with the prefix.",
+    "rationale": "For readability aspects, naming conventions must be respected",
+    "remediation": "Change name according to the naming convention",
+    "total": "Number of forms",
+    "alternativeName": "Ensure you have used the right prefix for your Forms",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 1107000,
+            "name": "FormsReportAnalyzer",
+            "href": "AIP/technologies/1107000"
+        },
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Prefix",
+            "description": "Form naming convention",
+            "technologies": [
+                {
+                    "id": -10,
+                    "name": "Forms",
+                    "href": "AIP/technologies/-10",
+                    "values": [
+                        "FRM"
+                    ]
+                },
+                {
+                    "id": 1107000,
+                    "name": "FormsReportAnalyzer",
+                    "href": "AIP/technologies/1107000",
+                    "values": [
+                        "FRM"
+                    ]
+                },
+                {
+                    "id": -9,
+                    "name": "Visual Basic",
+                    "href": "AIP/technologies/-9",
+                    "values": [
+                        "frm"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

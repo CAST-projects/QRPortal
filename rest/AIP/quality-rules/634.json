@@ -1,0 +1,55 @@
+{
+    "id": 634,
+    "name": "Avoid using VARIANT Structures",
+    "href": "AIP/quality-rules/634",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "associatedValueName": "The VARIANT structure",
+    "description": "This rule searches for C++ code that contains VARIANT structures. Note: these structures are like \"struct tagVARIANT { union   {\".",
+    "output": "Associated to each C++ Class/Member/Method/Constructor/Destructor/Function/Variable with violations, the Quality Rule provides: the VARIANT structure",
+    "rationale": "Do not use VARIANT Structures. Unions provide a way to alter the type ascribed to a value without changing its representation. Using VARIANT Structures reduces type safety and is usually unnecessary.",
+    "remediation": "Try to create a safe abstraction using polymorphic types.",
+    "total": "Number of C++ Classes, Members, Methods, Constructors, Destructors, Functions and Variables",
+    "alternativeName": "Avoid using VARIANT Structures",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

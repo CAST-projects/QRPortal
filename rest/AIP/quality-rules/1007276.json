@@ -1,0 +1,135 @@
+{
+    "id": 1007276,
+    "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
+    "href": "AIP/quality-rules/1007276",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "associatedValueName": "Reasoning",
+    "description": "Cookies are often used to store a session identifier of the web application's state for a specific user. In order to harden against related attacks, such as session riding that can lead to the compromise of user data or the takeover of adminstrator sessions, a secure configuration of sensitive cookies is crucial. It has been detected that a new cookie is set insecure within the HTTP response header which can be improved by enabling additional flags.",
+    "output": "This report lists all artifacts that cause cookie misconfiguration. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "The specified path for cookie should not be broad than necessary.",
+    "reference": "https://cwe.mitre.org/data/definitions/287.html",
+    "remediation": "In order to increase security, the validity of the cookie can be limited to a more specific application path in the 4th parameter.",
+    "total": "Number of Artifacts",
+    "alternativeName": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066387,
+            "name": "CWE-287 - Improper Authentication",
+            "href": "AIP/technical-criteria/1066387",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062347,
+            "name": "OWASP-2021-A07 - Identification and Authentication Failures",
+            "href": "AIP/technical-criteria/1062347",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-287",
+            "name": "Improper Authentication",
+            "href": "AIP/quality-standards/CWE/items/CWE-287",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A07-2021",
+            "name": "Identification and Authentication Failures",
+            "href": "AIP/quality-standards/OWASP/items/A07-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "href": "AIP/quality-standards/OWASP/items/M4-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

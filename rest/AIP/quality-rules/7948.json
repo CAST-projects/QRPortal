@@ -1,0 +1,68 @@
+{
+    "id": 7948,
+    "name": "Do not mix Ansi joins syntax  with Oracle proprietary joins syntax in the same query",
+    "href": "AIP/quality-rules/7948",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all statements that include join clause(s) defined with both Oracle proprietary notation & ANSI join notation",
+    "output": "This report lists all queries using  mix of both ANSI & proprietary syntax notation.",
+    "rationale": "ANSI syntax allow a clear separation between joins clause and the where clause restrictions.  The ANSI notation makes the relations between the tables explicit, and saves you from coding equality tests for join conditions in the WHERE clause. \nThus the mix of both join notations makes the readability & maintainability of the code more complex. Moreover ANSI joins allows having optimization hints. And last, this historic syntax notation will probably be deprecated in a future release",
+    "reference": "Oracle  SQL Student Guide Volume 1",
+    "remediation": "Transform the queries including the two different notations  with  only the use of the ANSI syntax\n\n As a consequence Reconsider tthe statement. For that  check the business rule(s) to fully understand the objective of the statement in term of result set. Use ANSI Join syntax notation to rewrite the part of the code.",
+    "remediationSample": "Select * \nFrom T1 JOIN  T2 \nON T1.c1=T2.c1\nWhere  T1.c2 in \n (select T3.c1 from T4 left outer JOIN T3 on T3.c4=T4.c4)",
+    "sample": "Select *\nFrom T1, T2\nWhere\nT1.c1=T2.c1 AND\n T1.c2 in \n (select T3.c1 from T4 left outer JOIN T3 on T3.c4=T4.c4)",
+    "total": "Number of SQL Artifacts",
+    "alternativeName": "Ensure you do not mix Ansi joins syntax with Oracle proprietary joins syntax in the same query",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": 4568,
+    "name": "DEPRECATED: Avoid declaring Public Instance Variables",
+    "href": "AIP/quality-rules/4568",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "A public instance variable is just an instance variable that is public. That is, you are allowed to use the instance variable from outside the class. \nThis rule reports a violation when Public Instance Variable is detected in source files.\n\nInstance Variables are Non Static Fields.",
+    "output": "This report lists all Public and Non Static Fields. It provides the following information: Field full name",
+    "rationale": "A Public Instance Variable can be accessed by any other Class, therefore its value can be modified at any time, without control by the Class itself. This is contrary to OO Encapsulation concepts.",
+    "remediation": "Ensure to declare instance variables as 'private' in order to obey Encapsulation.",
+    "remediationSample": "Change the Field's visibility or make it Static Final.",
+    "sample": "public class Person {\n    public int age;\n    public String hairColor;\n}",
+    "total": "Number of Java attributes",
+    "alternativeName": "Prefer using Protected or Private Instance Variables to control the accessibility",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "href": "AIP/technical-criteria/61020",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

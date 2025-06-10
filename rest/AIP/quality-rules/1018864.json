@@ -1,0 +1,226 @@
+{
+    "id": 1018864,
+    "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+    "href": "AIP/quality-rules/1018864",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.tibco",
+        "href": "AIP/extensions/com.castsoftware.tibco"
+    },
+    "description": "For Security reason, Password should not be of string type. A password type should be used instead.",
+    "output": "This report lists all  JDBC resources having  password type as string.\nIt provides the following information:\nJDBC Resource full name.\nThe associated value is the number of  JDBC Resources",
+    "rationale": "For security reasons, JDBC Resources should use Password type for the Password parameter in the configuration.",
+    "remediation": "Verify the JDBC Resource password type",
+    "total": "Number of JDBC Resources",
+    "alternativeName": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062192,
+            "name": "ASCSM-CWE-798 - Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/technical-criteria/1062192",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061036,
+            "name": "CWE-259 - Use of Hard-coded Password",
+            "href": "AIP/technical-criteria/1061036",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066359,
+            "name": "CWE-259 - Use of Hard-coded Password",
+            "href": "AIP/technical-criteria/1066359",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063151,
+            "name": "PCI-DSS4-Requirement-2.2.2 - Vendor default accounts are managed",
+            "href": "AIP/technical-criteria/1063151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063113,
+            "name": "PCI-Requirement-6.3.1 - Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/technical-criteria/1063113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-798",
+            "name": "Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-798",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-259",
+            "name": "Use of Hard-coded Password",
+            "href": "AIP/quality-standards/CWE/items/CWE-259",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-259",
+            "name": "Use of Hard-coded Password",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-259",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-259",
+            "name": "Use of Hard-coded Password",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-259",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2023",
+            "name": "Security misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API8-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.2",
+            "name": "Vendor default accounts are managed",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.2",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222642",
+            "name": "The application must not contain embedded authentication data.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222642",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222642",
+            "name": "The application must not contain embedded authentication data.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222642",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

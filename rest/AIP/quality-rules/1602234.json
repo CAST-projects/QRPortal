@@ -1,0 +1,165 @@
+{
+    "id": 1602234,
+    "name": "Never use PS and VP1 login to develop - Menu (PeopleSoft)",
+    "href": "AIP/quality-rules/1602234",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Name of the Development Login used for the last update",
+    "description": "Identify each object that has been modified with the login PS or VP1",
+    "output": "This report lists all the Menus last updated with PS or VP1 login.\nIt provides the following information: \n- Menu full name.\n- The associated value is the name of the Development Login.",
+    "rationale": "The delivered PeopleSoft logins, such as PS, VP1, should not be used to develop. Using these default logins defeats the purpose of tracing and thus it disables to possibility to identify the real committer.\nAny violation to this principle disable the possibility to precisely identify the author of unwanted code or eventually of malicous code.",
+    "reference": "Securing Your PeopleSoft Application Environment (PeopleSoft Red Paper Series)",
+    "remediation": "A specific login has to be created and used to identify precisely who has modified the object.",
+    "total": "Number of PeopleSoft Menu",
+    "alternativeName": "Never use PS and VP1 login to develop - Menu (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066350,
+            "name": "CWE-250 - Execution with Unnecessary Privileges",
+            "href": "AIP/technical-criteria/1066350",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063151,
+            "name": "PCI-DSS4-Requirement-2.2.2 - Vendor default accounts are managed",
+            "href": "AIP/technical-criteria/1063151",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063113,
+            "name": "PCI-Requirement-6.3.1 - Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/technical-criteria/1063113",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-250",
+            "name": "Execution with Unnecessary Privileges",
+            "href": "AIP/quality-standards/CWE/items/CWE-250",
+            "standard": "CWE"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.3.1",
+            "name": "Remove Development and Test Accounts, User IDs, and Passwords Before Release",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.3.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.2",
+            "name": "Vendor default accounts are managed",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.2",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222661",
+            "name": "Unnecessary built-in application accounts must be disabled.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222661",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222661",
+            "name": "Unnecessary built-in application accounts must be disabled.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222661",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

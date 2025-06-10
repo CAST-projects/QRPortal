@@ -1,0 +1,67 @@
+{
+    "id": 1600320,
+    "name": "Avoid creating unused Field label (PeopleSoft)",
+    "href": "AIP/quality-rules/1600320",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rule lists all 'DBField label' that are not referenced.",
+    "rationale": "Dead code must be avoided, it makes source code less readable, and increases the maintenance cost.",
+    "remediation": "Check that the artifacts are truly necessary, suppress them if they are not needed.",
+    "total": "Number of PeopleSoft DBField Label",
+    "alternativeName": "Avoid creating unused Field label (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "href": "AIP/technical-criteria/61027",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

@@ -1,0 +1,161 @@
+{
+    "id": 7852,
+    "name": "Database view naming convention - prefix control",
+    "href": "AIP/quality-rules/7852",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "description": "Names of Views should start with X or by 'ZV' for SAP database views.\nThis reports shows all the database views not starting with the prefix. \nThe prefix value is a parameter and can be changed at will.",
+    "output": "This report lists all views that does not respect the naming conventions.\nIt provides the following information:\nView full name",
+    "rationale": "For readability aspects, naming conventions must be respected.",
+    "reference": "Enhancing the Quality of ABAP Development, \nMeijs-Krouwels-Heulmans-Sommen, SAP Press\nISBN 1-59229-030-2",
+    "remediation": "Change name according to the naming convention.",
+    "remediationSample": "The name should be ZVMATERIAL or ZV_MATERIAL.",
+    "sample": "The following name does not respect naming conventions for SAP database views: ZMATERIAL",
+    "total": "Number of Views",
+    "alternativeName": "Database view naming convention - prefix control",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": -20,
+            "name": "SAP SQL",
+            "href": "AIP/technologies/-20"
+        },
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        },
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Prefix",
+            "description": "View naming convention",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        
+                    ]
+                },
+                {
+                    "id": 140998,
+                    "name": "Microsoft T-SQL",
+                    "href": "AIP/technologies/140998",
+                    "values": [
+                        "v_"
+                    ]
+                },
+                {
+                    "id": 139287,
+                    "name": "PL/SQL",
+                    "href": "AIP/technologies/139287",
+                    "values": [
+                        "V_"
+                    ]
+                },
+                {
+                    "id": -20,
+                    "name": "SAP SQL",
+                    "href": "AIP/technologies/-20",
+                    "values": [
+                        "ZV"
+                    ]
+                },
+                {
+                    "id": 1101000,
+                    "name": "SQL",
+                    "href": "AIP/technologies/1101000",
+                    "values": [
+                        "v_",
+                        "V_"
+                    ]
+                },
+                {
+                    "id": -13,
+                    "name": "SQL Server",
+                    "href": "AIP/technologies/-13",
+                    "values": [
+                        "v_"
+                    ]
+                },
+                {
+                    "id": 141001,
+                    "name": "Sybase T-SQL",
+                    "href": "AIP/technologies/141001",
+                    "values": [
+                        "v_"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

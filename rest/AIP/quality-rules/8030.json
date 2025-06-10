@@ -1,0 +1,110 @@
+{
+    "id": 8030,
+    "name": "Check alphanumeric data before moving it into numeric data",
+    "href": "AIP/quality-rules/8030",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs containing assignments from an alphanumeric variable to a numeric variable where the content of the source data is not previously tested.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n    - MOVE statement from an alphanumeric variable to a numeric variable not enclosed in a test IS NUMERIC\n    - Declaration of the alphanumeric variable\n    - Declaration of the numeric variable",
+    "rationale": "In a MOVE statement using a numeric target data (ex: PIC S9(5) COMP-3) and an alphanumeric source data (ex: PIC X(5)), if the source data contains a value that is not numeric (alphabetic, LOW-VALUE, HIGH-VALUE...) and is used in arithmetic operations, then an abend S0C7 will occur. It is important to control the value that will be moved in the numeric variable.",
+    "remediation": "For MOVE statement where the target is numeric and the source is alphanumeric, check the type of the value in the source data with an IF NUMERIC condition.",
+    "remediationSample": "01 FILE-REC.\n    05 SRC-DATA PIC X(5).\n...\n01 TGT-DATA PIC S9(5) COMP-3.\n...\nREAD MY-FILE INTO FILE-REC.\nIF SRC-DATA IS NUMERIC\n    MOVE SRC-DATA TO TGT-DATA\nELSE\n    DISPLAY \"INVALID VALUE: \" SRC-DATA\nEND-IF",
+    "sample": "01 FILE-REC.\n    05 SRC-DATA PIC X(5).\n...\n01 TGT-DATA PIC S9(5) COMP-3.\n...\nREAD MY-FILE INTO FILE-REC.\nMOVE SRC-DATA TO TGT-DATA.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Check alphanumeric data before moving it into numeric data",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062203,
+            "name": "MIPS-Reduction - focus on avoiding transaction failure",
+            "href": "AIP/technical-criteria/1062203",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

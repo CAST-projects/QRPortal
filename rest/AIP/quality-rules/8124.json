@@ -1,0 +1,62 @@
+{
+    "id": 8124,
+    "name": "Do not use function module DB_EXISTS_INDEX (HANA)",
+    "href": "AIP/quality-rules/8124",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for artifacts calling the function module DB_EXIST_INDEX.\nNote: The rule is applicable in SAP HANA context.",
+    "output": "Associated to each ABAP artifact in violation, the Quality Rule provides: \n- The number of calls to this function module\n- Bookmarks for violation occurrences found in source code: \n  - CALL FUNCTION \"DB_EXISTS_INDEX\"",
+    "rationale": "If existing ABAP code checks for the existence of database indices (e.g. via the function module DB_EXISTS_INDEX), you should be aware that during the migration to SAP HANA exclusion entries are generated for existing secondary indices as they are not needed on SAP HANA in most cases (see SAP Note 1794297 for further information).",
+    "reference": "SAP - Considerations for Custom ABAP Code When Migrating to SAP HANA - Best Practices and Recommendations",
+    "remediation": "Validate the artifacts and try to remove the calls to this function module.",
+    "sample": "CALL FUNCTION 'DB_EXISTS_INDEX' \n* EXPORTING \n* dbindex = \" dd12l-dbindex Name of the index on the DB \n* dbindex = \" dd12l-dbindex \n* tabname = \" dd12l-sqltab Table Name \n* indexname = \" dd12l-indexname Name of the index to be checked \n  IMPORTING \n    constraint = \" dd12l-dbindex \n    realname = \" dd12l-dbindex Real name in the database \n    subrc = \" sy-subrc 0: index created; 4: index not created \n    subrc = \" sy-subrc \n    unique = \" dd12l-uniqueflag \n    unique = \" dd12l-uniqueflag X: unique; space: not unique (if subrc = 0) \n  EXCEPTIONS \n    PARAMETER_ERROR = 1 \n    . \" DB_EXISTS_INDEX",
+    "total": "Number of ABAP Artifacts containing OpenSQL statements",
+    "alternativeName": "Do not use function module DB_EXISTS_INDEX (HANA)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

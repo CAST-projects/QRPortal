@@ -1,0 +1,61 @@
+{
+    "id": 7890,
+    "name": "Web Dynpro - Never use INCLUDE statement",
+    "href": "AIP/quality-rules/7890",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks Web Dynpro source code for \"INCLUDE\" statements.",
+    "output": "Associated to each ABAP Web Dynpro Method/Event Handler/Supply Function with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "The implementation of Web Dynpro routines (Supply methods for example) is governed by special conventions. Some ABAP language statements cannot be used.\nInserting source text using the INCLUDE statement is not allowed. If this rule is violated, the integrity of the Web Dynpro application cannot be guaranteed. Where source text is inserted with INCLUDE, the changes are not validated. This results in undefined behaviour when running the routines.",
+    "reference": "SAP",
+    "remediation": "All occurrences of the INCLUDE statement are to be removed. It is advisable to provide the functionality implemented in the INCLUDE in a class pool and to call it from the Web Dynpro component.",
+    "total": "Number of Web Dynpro Methods, Web Dynpro Event Handlers and Web Dynpro Supply Functions",
+    "alternativeName": "Web Dynpro - Never use INCLUDE statement",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

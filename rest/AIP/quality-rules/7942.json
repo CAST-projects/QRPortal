@@ -1,0 +1,78 @@
+{
+    "id": 7942,
+    "name": "Avoid EJBs using 'synchronized' qualifier, 'wait', 'notify' and 'notifyAll' Methods",
+    "href": "AIP/quality-rules/7942",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "To avoid unpredictable behavior, this rule raises violation when an EJB artifact (Entity Java Bean , Session Java Bean ,Message Driven Java Bean) \n- is calling one of following methods 'wait()', 'notify()' and notifyAll() \nor \n- is defining method(s) with the 'synchronized' qualifier ( Note that for synchronized qualifier, we only check the keyword synchronized but we don't consider the case where there is a block synchronized in the method)",
+    "output": "This report lists all EJB artifact that use 'synchronized' keyword or call 'wait', 'notify' or 'notifyAll' methods.\nIt provides the following information:\n Artifact full name",
+    "rationale": "The Enterprise JavaBeans specification requires that every bean provider follow a set of programming guidelines designed to ensure that the bean will be portable and behave consistently in any EJB container. In this case, the program violates the following EJB guideline: \"An enterprise bean must not use thread synchronization primitives to synchronize execution of multiple instances.\" The specification justifies this requirement in the following way: \"This rule is required to ensure consistent runtime semantics because while some EJB containers may use a single JVM to execute all enterprise bean's instances, others may distribute the instances across multiple JVMs.\"\nAlso, calling 'wait', 'notify' and 'notifyAll' from EJB methods might corrupt the normal behavior of the application server as It is ambiguous which thread will wake up when notify() is called for exemple.",
+    "reference": "https://cwe.mitre.org/data/definitions/574.html",
+    "remediation": "Review EJB design",
+    "remediationSample": "@Entity\npublic class Customer implements Serializable {\nprivate String id;\nprivate String firstName;\nprivate String lastName;\nprivate Address address;\npublic Customer() {...}\npublic Customer(String id, String firstName, String lastName) {...}\n\n@Id\npublic String getCustomerId() {...}\npublic  void setCustomerId(String id) {...}\npublic String getFirstName() {...}\npublic  void setFirstName(String firstName) {...}\npublic String getLastName() {...}\npublic  void setLastName(String lastName) {...}\n@OneToOne()\npublic Address getAddress() {...}\npublic void setAddress(Address address) {...}\n}",
+    "sample": "@Entity\npublic class Customer implements Serializable {\nprivate String id;\nprivate String firstName;\nprivate String lastName;\nprivate Address address;\npublic Customer() {...}\npublic Customer(String id, String firstName, String lastName) {...}\n\n@Id\npublic String getCustomerId() {...}\npublic synchronized void setCustomerId(String id) {...}\npublic String getFirstName() {...}\npublic synchronized void setFirstName(String firstName) {...}\npublic String getLastName() {...}\npublic synchronized void setLastName(String lastName) {...}\n@OneToOne()\npublic Address getAddress() {...}\npublic synchronized void setAddress(Address address) {...}\n}\n\nThe use of synchronized methods violate the restriction of the EJB specification against the use synchronization primitives within EJBs. This may cause inconsistent behavior of the EJB when used within different EJB containers.",
+    "total": "Number of EJB Artifacts",
+    "alternativeName": "Ensure not having EJBs using 'synchronized' qualifier or calling 'wait', 'notify' and 'notifyAll' Methods as this might corrupt the normal behavior",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066674,
+            "name": "CWE-574 - EJB Bad Practices: Use of Synchronization Primitives",
+            "href": "AIP/technical-criteria/1066674",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-574",
+            "name": "EJB Bad Practices: Use of Synchronization Primitives",
+            "href": "AIP/quality-standards/CWE/items/CWE-574",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

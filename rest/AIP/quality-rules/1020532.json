@@ -1,0 +1,71 @@
+{
+    "id": 1020532,
+    "name": "Use Angular factory() instead of service()",
+    "href": "AIP/quality-rules/1020532",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.angularjs",
+        "href": "AIP/extensions/com.castsoftware.angularjs"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Because factories are singletons and return an object that contains the members of the service, it is highly recommanded to use factory() instead of service()",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The Factory recipe adds the following abilities:\n\n-ability to use other services (have dependencies)\n-service initialization\n-delayed/lazy initialization\nThe Factory recipe constructs a new service using a function with zero or more arguments (these are dependencies on other services). The return value of this function is the service instance created by this recipe.",
+    "reference": "ASCPEM-PRF-03, ASCRM-RLB-12",
+    "remediationSample": "angular.module('todomvc') \n.factory('todoStorage', function ($http, $injector) { \n});",
+    "sample": "angular.module('todomvc') \n.service('todoStorage', function ($http, $injector) { \n});",
+    "total": "Number of angular services and factories",
+    "alternativeName": "Prefer using Factory() provider recipe instead of Service() to ensure structuredness and efficiency",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

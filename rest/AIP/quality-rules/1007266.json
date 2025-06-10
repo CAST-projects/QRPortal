@@ -1,0 +1,223 @@
+{
+    "id": 1007266,
+    "name": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command within single quotes (PHP)",
+    "href": "AIP/quality-rules/1007266",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "associatedValueName": "Reasoning",
+    "description": "A sql injection vulnerability occurs when user input is embedded unsanitized into a SQL query.",
+    "output": "This report lists all artifacts that raw user input that could lead to SQL injection.\nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "An attacker can modify the SQL syntax and alter the query's target or result. This can lead to the retrieval of sensitive information from the database or to an attack against the underlying web server by using SQL file operations. An attacker can also elevate privileges if the SQL query is used for authentication. It is recommended to use prepared statements and to run the database user with the least privileges necessary.",
+    "reference": "https://cwe.mitre.org/data/definitions/89.html",
+    "remediation": "The detected injection point in the SQL query occurs within single quotes. Thus, the user input can be sanitized by using the built-in function addslashes() that escapes the data and prevents breaking out of the quotes.",
+    "remediationSample": "<?php\n\n$getid  = \"SELECT first_name, last_name FROM users WHERE user_id = '$id' LIMIT 1;\";\n\n?>",
+    "sample": "<?php\n\n$getid  = \"SELECT first_name, last_name FROM users WHERE user_id = '\".addslashes($id).\"' LIMIT 1;\";\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command within single quotes (PHP)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062194,
+            "name": "ASCSM-CWE-89 - SQL Injection Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062194",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061017,
+            "name": "CWE-89 - Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/technical-criteria/1061017",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066189,
+            "name": "CWE-89 - Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/technical-criteria/1066189",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-89",
+            "name": "SQL Injection Improper Input Neutralization",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-89",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-89",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-89",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-89",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API10-2023",
+            "name": "Unsafe Consumption of APIs",
+            "href": "AIP/quality-standards/OWASP/items/API10-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222607",
+            "name": "The application must not be vulnerable to SQL Injection.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222607",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222607",
+            "name": "The application must not be vulnerable to SQL Injection.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222607",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

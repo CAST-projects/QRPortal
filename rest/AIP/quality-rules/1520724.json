@@ -1,0 +1,70 @@
+{
+    "id": 1520724,
+    "name": "Siebel: Length of the Column should not exceed the length of the Field",
+    "href": "AIP/quality-rules/1520724",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.siebel",
+        "href": "AIP/extensions/com.castsoftware.siebel"
+    },
+    "associatedValueName": "Size of field, name and size of the column",
+    "description": "This rule reports Business Component Fields having a length exceeding the length of the Column.\nThe properties compared are BC Field's TextLength and Siebel Column's Length.",
+    "output": "This rule reports Fields having a length exceeding the length of the column.\nIt provides the following information:\n- BC Field full name\n- the associated value is : (BC Field TextLength) -> Siebel Column Name (Column Length)",
+    "rationale": "Business Component Fields displays Column content, as well as accepts user input for insert and update.\nBoth length should be aligned to avoid truncation and unexpected behavior.",
+    "reference": "https://docs.oracle.com/cd/B40099_02/books/ToolsDevRef/ToolsDevRef_UserProps169.html\nhttps://blogs.perficient.com/2017/10/04/how-to-change-the-column-text-length-in-siebel/",
+    "remediation": "Align both length or use Text Length Override user property.",
+    "total": "Number of added or modified Fields or Multi-Value Fields in Business Components",
+    "alternativeName": "Siebel: Length of the Column should not exceed the length of the Field",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

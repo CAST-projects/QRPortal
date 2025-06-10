@@ -1,0 +1,130 @@
+{
+    "id": 1021084,
+    "name": "Avoid XPath injection (Python)",
+    "href": "AIP/quality-rules/1021084",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.python",
+        "href": "AIP/extensions/com.castsoftware.python"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric detects paths from user input methods or API requests down to methods which are open to Xpath injection flaws, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n - Bookmarks for violation occurrences of user input source",
+    "rationale": "An attacker could include input that changes the XPath query which allows unintended commands or code to be executed, allows sensitive data to be read or modified or causes other unintended behavior.",
+    "reference": "CWE-91: XML Injection (aka Blind XPath Injection)\nhttps://cwe.mitre.org/data/definitions/91.html\n\nCWE-643: Improper Neutralization of Data within XPath Expressions ('XPath Injection')\nhttps://cwe.mitre.org/data/definitions/643\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A1-Injection\n\nOWASP Top 10:2021 - A03:2021 \u2013 Injection\nhttps://owasp.org/Top10/fr/A03_2021-Injection/",
+    "remediation": "Input sanitization: when available in the library, use parameterized or precompiled XPath queries.\n\nInput validation.\n\nAssume all input is malicious. Use an \"accept known good\" input validation strategy, i.e., use a white-list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does.\n\nWhen performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, \"boat\" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if the input is only expected to contain colors such as \"red\" or \"blue.\"",
+    "remediationSample": "id = input(\"Enter user ID\")\n\nresult = tree.xpath(\"/tag[@id='$param']\", param=id)           // user input is now neutralized",
+    "sample": "id = input(\"Enter user ID\")\n\nresult = tree.xpath(\"/tag[@id='%s']\" % id)",
+    "total": "Number of Python artifacts",
+    "alternativeName": "Ensure your application properly neutralize an XPath query before it is processed",
+    "businessCriteria": [
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061072,
+            "name": "CWE-643 - Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+            "href": "AIP/technical-criteria/1061072",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066743,
+            "name": "CWE-643 - Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+            "href": "AIP/technical-criteria/1066743",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061019,
+            "name": "CWE-91 - XML Injection (aka Blind XPath Injection)",
+            "href": "AIP/technical-criteria/1061019",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066191,
+            "name": "CWE-91 - XML Injection (aka Blind XPath Injection)",
+            "href": "AIP/technical-criteria/1066191",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-91",
+            "name": "XML Injection (aka Blind XPath Injection)",
+            "href": "AIP/quality-standards/CWE/items/CWE-91",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-643",
+            "name": "Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-643",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-91",
+            "name": "XML Injection (aka Blind XPath Injection)",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-91",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-643",
+            "name": "Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-643",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-91",
+            "name": "XML Injection (aka Blind XPath Injection)",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-91",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-643",
+            "name": "Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-643",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

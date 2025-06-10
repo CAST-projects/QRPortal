@@ -1,0 +1,117 @@
+{
+    "id": 7532,
+    "name": "Avoid nested SELECT ... ENDSELECT statements",
+    "href": "AIP/quality-rules/7532",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric retrieves all ABAP artifacts using nested SELECT ... ENDSELECT statement on tables and views.",
+    "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "The SELECT ... ENDSELECT works as a loop fetching single record for every loop pause. Basically, it works like a client cursor which will generate to much traffic on the network and communications between the application server and the database server. Having nested  SELECT ... ENDSELECT is equivalent to have an SQL query  inside a loops which number of iterations is based on the number of rows returned by the SQL query. Having a such a nested statement means having an SQL query inside a loop which number of iterations can be very high (dependent on the data returned from the database).\nThis iterative pattern has proved to be dangerous for application performance and scalability. Database servers handle in a much better set-oriented pattern rather than pure iterative ones.\nLoad data in internal tables instead.",
+    "reference": "MIT ABAP Check List\nhttp://web.mit.edu/fss/dev/abap_review_check_list.htm",
+    "remediation": "It is recommended either to modify the queries in order to use one single query using a set-oriented pattern rather than pure iterative one.\nOr to use SAP ABAP internal tables instead :\n \"SELECT... INTO TABLE...+ LOOP AT Table\" statement.",
+    "remediationSample": "Remediation example:\n\nSELECT vbeln auart FROM vbak INTO TABLE ts_vbak\n         WHERE vbeln IN so_vbeln.\n         \nIF lines( ts_vbak ) > 0\n  SELECT vbeln posnr matnr kwmeng vrkme\n         FROM vbap\n         INTO TABLE ts_vbap\n         FOR ALL ENTRIES IN ts_vbak\n         WHERE vbeln = ts_vbak-vbeln.\n         \n  LOOP AT ts_vbak INTO wa_vbak.\n    LOOP AT ts_vbap INTO wa_vbap\n         WHERE vbeln EQ wa_vbak-vbeln.\n      SELECT SINGLE * FROM mara INTO wa_mara\n         WHERE matnr EQ wa_vbap-matnr.\n    ENDLOOP.\n  ENDLOOP.\nENDIF.",
+    "sample": "SELECT * FROM vbak INTO wa_vbak\n         WHERE vbeln IN so_vbeln.\n  SELECT * FROM vbap INTO wa_vbap\n         WHERE vbeln = wa_vbak-vbeln.\n    SELECT SINGLE * FROM mara INTO wa_mara\n         WHERE matnr EQ wa_vbap-matnr.\n  ENDSELECT.\nENDSELECT.",
+    "total": "Number of ABAP Artifacts using SAP Tables and SAP Views.",
+    "alternativeName": "Avoid nested SELECT ... ENDSELECT statements",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062139,
+            "name": "ASCPEM-PRF-4 - Data Resource Read and Write Access Excessive Complexity",
+            "href": "AIP/technical-criteria/1062139",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061112,
+            "name": "CWE-1049 - Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/technical-criteria/1061112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067149,
+            "name": "CWE-1049 - Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/technical-criteria/1067149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "href": "AIP/technical-criteria/66068",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-4",
+            "name": "Data Resource Read and Write Access Excessive Complexity",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-4",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1049",
+            "name": "Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/quality-standards/CWE/items/CWE-1049",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1049",
+            "name": "Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1049",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1049",
+            "name": "Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1049",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

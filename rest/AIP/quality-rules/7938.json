@@ -1,0 +1,62 @@
+{
+    "id": 7938,
+    "name": "Override all overloads of a base Class virtual Method",
+    "href": "AIP/quality-rules/7938",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "associatedValueName": "Number of missing overridden methods",
+    "description": "This rule searches for derived C++ classes containing at least one virtual method which should be redeclared for the following reasons:\n- They overload one or several overload(s)/signature(s) of a given virtual method of the parent classes (ex: 'mymethod()' and 'mymethod(int)')\n- Only some of these overloads/signatures (of the given virtual method) are redefined in the child class (i.e. for a given method at least one signature/overload is missing).",
+    "output": "Associated to each C++ class with violations, the Quality Rule provides:\n- The number of missing overridden methods\n- Bookmarks for violation occurrences found in the source code:\n  - Parent class method which must be overridden",
+    "rationale": "When a virtual method is overridden then the overloads of that method in the base class are not visible from the derived class. If all overloaded functions are not brought into the derived class by overriding them or using a declaration, then you can get surprising results when calling member methods with the same name.",
+    "reference": "Industrial Strength C++ 7.16\nEffective C++, Item 37",
+    "remediation": "Redefine the method in the child class.",
+    "sample": "class Base \n{ \n   public: \n       virtual void foo( short ); \n       virtual void foo( double ); \n}; \nclass Derived : public Base \n{ \n   public: \n       virtual void foo( short );  // => VIOLATION foo(double) not redefined!\n       void bar() \n       { \n         foo( 0.1 ); // calls Derived::foo( short )! \n       } \n};",
+    "total": "Number of C++ classes having at least one virtual method",
+    "alternativeName": "Override all overloads of a base Class virtual Method",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

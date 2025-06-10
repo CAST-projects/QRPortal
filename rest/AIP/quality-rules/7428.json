@@ -1,0 +1,73 @@
+{
+    "id": 7428,
+    "name": "Avoid SQL queries not using the first column of a composite index in the WHERE clause",
+    "href": "AIP/quality-rules/7428",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Name of the table having a misused composite index",
+    "description": "This metric retrieves all client-server artifacts that contain an SQL query with a WHERE clause not using the first column of composite index (multiple column base index).\n\nThe value of the metric is number of client-server artifacts that contain an SQL query not using the first column of a composite index divided by the number of client-server artifacts using a composite index.\nAn artifacts using a composite index means here artifacts containing a query that uses at least one column of a compostite index.",
+    "output": "Associated to each artifact with violations, the Quality Rule provides: \n- Name of the table having a misused  composite index.",
+    "rationale": "Whenever a query with a WHERE clause does not use the first column of composite index (multiple column base index), the database engine will not use the composite index to retrieve the data, potentially leading to very poor performance.",
+    "remediation": "Depending on the context, the user has to evaluate if the fact that the composite index is not is leading to poor performance.\nIf the query does not use other indexes, the fact that the query does not use the first column of a composite index is most probably an error that needs to be fixed.",
+    "sample": "The table T is defined the 4 following columns : A, B, C, D\n\nThe analyzed application  has one artifact that contains the following query : \nSELECT * FROM T WHERE B = 'X'\n\nExample 1 : \nTable T has the following index defined i1 on (A, B, C) columns.\nThe artifact  will be part of the output of this metric to inform the user that i1 will not be used by the query processor engine. \n\nExample 2 : \nTable T has the following indexes defined  i2 (B, C) and i3 (B).\nThe artifact  will not  be part of the output of this metric (first column (i3)  or composite index( i2) is used).\n\nNote  artifact  is part of the scope and is counted by the total procedure.\n\nExample 3 : \nTable T has the following index defined i3 (B).\nThe artifact is not ignored by this metric.",
+    "total": "Number of client-server artifacts using tables that contain a query using columns of a composite index in the WHERE clause of the query",
+    "alternativeName": "Avoid SQL queries not using the first column of a composite index in the WHERE clause",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1062200,
+            "name": "MIPS-Reduction-Index",
+            "href": "AIP/business-criteria/1062200"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 6,
+            "critical": false
+        },
+        {
+            "id": 1062202,
+            "name": "MIPS-Reduction - focus on data access efficiency",
+            "href": "AIP/technical-criteria/1062202",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

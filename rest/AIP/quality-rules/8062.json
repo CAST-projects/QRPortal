@@ -1,0 +1,182 @@
+{
+    "id": 8062,
+    "name": "An unconditional 'throw', 'return' or 'break' shall terminate every non-empty switch-clause",
+    "href": "AIP/quality-rules/8062",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks for a 'switch'-clause that does not end with a 'break', a 'return' or a 'throw'. This construct should be at the top level in the 'switch'-clause. The rule is not triggered if the last 'switch'-clause of a 'switch' statement is 'default', and does not explicitly end with 'break', 'return' or 'throw'.",
+    "output": "Associated to each C function, C++ method, constructor, and destructor with violations, the Quality Rule provides:\n- The number of violations patterns\n- Bookmarks for violation occurrences found in source code:\n  - case clause",
+    "rationale": "By default, when the program reaches the end of a 'switch'-clause, it continues to the next clause. While this may prove useful in some cases, it is very uncommon and not at all obvious.",
+    "reference": "MISRA C++, 2008 Rule 6-4-5:  An unconditional throw or break statement shall terminate every non-empty switch-clause.\n\nAUTOSAR 2014, C++, Rule 6-4-5: An unconditional throw or break statement shall terminate every non-empty switch-clause.",
+    "remediation": "Add a 'break', 'return' or 'throw' statement to end 'case' clauses.",
+    "sample": "int main()\n{\n    int i = 2;\n    switch(i)\n    {\n    case 0:\n        cout << \"0\" << endl;\n        // Violation\n    case 1:\n        // No violation: Empty clause\n    case 2:\n        cout << \"1 or 2\" << endl;\n        break; // No violation: A break\n    default:\n        cout << \"Other\" << endl;\n        // No violation: Last clause is default\n    }\n}",
+    "total": "Number of C functions, C++ methods, constructors, and destructors",
+    "alternativeName": "An unconditional 'throw', 'return' or 'break' shall terminate every non-empty switch-clause",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062110,
+            "name": "ASCMM-MNT-1 - Control Flow Transfer Control Element outside Switch Block",
+            "href": "AIP/technical-criteria/1062110",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061129,
+            "name": "CWE-1075 - Unconditional Control Flow Transfer outside of Switch Block",
+            "href": "AIP/technical-criteria/1061129",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067175,
+            "name": "CWE-1075 - Unconditional Control Flow Transfer outside of Switch Block",
+            "href": "AIP/technical-criteria/1067175",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061058,
+            "name": "CWE-484 - Omitted Break Statement in Switch",
+            "href": "AIP/technical-criteria/1061058",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066584,
+            "name": "CWE-484 - Omitted Break Statement in Switch",
+            "href": "AIP/technical-criteria/1066584",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Statements",
+            "name": "Statements",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Statements",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-C-2012-Statements",
+            "name": "Statements",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-C-2012-Statements",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Statements",
+            "name": "Statements",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Statements",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "ASCMM-MNT-1",
+            "name": "Control Flow Transfer Control Element outside Switch Block",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-1",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-484",
+            "name": "Omitted Break Statement in Switch",
+            "href": "AIP/quality-standards/CWE/items/CWE-484",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1075",
+            "name": "Unconditional Control Flow Transfer outside of Switch Block",
+            "href": "AIP/quality-standards/CWE/items/CWE-1075",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-484",
+            "name": "Omitted Break Statement in Switch",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-484",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1075",
+            "name": "Unconditional Control Flow Transfer outside of Switch Block",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1075",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-484",
+            "name": "Omitted Break Statement in Switch",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-484",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-1075",
+            "name": "Unconditional Control Flow Transfer outside of Switch Block",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1075",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

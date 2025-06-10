@@ -1,0 +1,132 @@
+{
+    "id": 1043068,
+    "name": "Avoid using RequireHttpsAttribute on Web APIs that receive sensitive information",
+    "href": "AIP/quality-rules/1043068",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.dotnetweb",
+        "href": "AIP/extensions/com.castsoftware.dotnetweb"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of RequireHttpsAttribute on Web APIs accessing sensitive data.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Do not use RequireHttpsAttribute on Web APIs that receive sensitive information.\nRequireHttpsAttribute uses HTTP status codes to redirect browsers from HTTP to HTTPS. API clients may not understand or obey redirects from HTTP to HTTPS.",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\nhttps://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl",
+    "remediation": "Web API must only listen HTTPS or do not serve the request by returning Error 400",
+    "remediationSample": "// no violation here because\npublic class HomeController : Controller\n{\n   public ActionResult Index()\n   {\n      return View();\n   }\n\n   public ActionResult Contact()\n   {\n      var contacts = db.Contacts.Include(c => c.Directory)\n\n      return View(contacts.ToList());\n   }\n}",
+    "sample": "[RequireHttps] // violation here because some data are accessed\npublic class HomeController : Controller\n{\n   public ActionResult Index()\n   {\n      return View();\n   }\n\n   public ActionResult Contact()\n   {\n      var contacts = db.Contacts.Include(c => c.Directory)\n\n      return View(contacts.ToList());\n   }\n}",
+    "total": "Number of Methods",
+    "alternativeName": "Ensure you do not use RequireHttpsAttribute on Web APIs accessing sensitive data",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063118,
+            "name": "PCI-Requirement-6.5.4 - Insecure communications",
+            "href": "AIP/technical-criteria/1063118",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

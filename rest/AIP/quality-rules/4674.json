@@ -1,0 +1,62 @@
+{
+    "id": 4674,
+    "name": "Public Methods must have appropriate JavaDoc @return tags",
+    "href": "AIP/quality-rules/4674",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When enforcing the utilization of JavaDoc Comments to document an application, the @return tags should be used to document the return type of a given Method.",
+    "output": "This report lists all Methods not having the appropriate @return JavaDoc comments.\nThis report provides the following information:\n Method full name",
+    "rationale": "There is no dispute that these comments contribute to a developer's understanding and help a developer write reliable applications more quickly. Without documenting returned value, it is dififcult for anyone else than the author to guess its purpose except by looking at the code that is using it.",
+    "reference": "https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#@exception\nhttps://developer.atlassian.com/server/confluence/javadoc-standards/",
+    "remediation": "Add @return tag for every method that returns something other than void",
+    "remediationSample": "Remediation Sample:\n------------------\n\npublic class AddNum {\n   /**\n   * This method is used to add two integers. This is\n   * a the simplest form of a class method, just to\n   * show the usage of various javadoc Tags.\n   * @param numA This is the first paramter to addNum method\n   * @param numB  This is the second parameter to addNum method\n   * @return int This returns sum of numA and numB.                //Fixed\n   */\n   public int addNum(int numA, int numB) {\n      return numA + numB;\n   }\n}",
+    "sample": "public class AddNum {\n   \n   public int addNum(int numA, int numB) {     //VIOLATION:No @return tag.\n      return numA + numB;\n   }\n\n   /**\n   * This is the main method which makes use of addNum method.\n   * @param args Unused.\n   * @exception IOException On input error.\n   * @see IOException\n   */\n\n   public static void main(String args[]) throws IOException {    //No Violation since the method is not returning anything.\n      AddNum obj = new AddNum();\n      int sum = obj.addNum(10, 20);\n\n      System.out.println(\"Sum of 10 and 20 is :\" + sum);\n   }\n}",
+    "total": "Number of methods that return a value",
+    "alternativeName": "Ensure you add a @return with a description for each method.",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61008,
+            "name": "Documentation - Automated Documentation",
+            "href": "AIP/technical-criteria/61008",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

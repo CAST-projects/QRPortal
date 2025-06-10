@@ -1,0 +1,73 @@
+{
+    "id": 7082,
+    "name": "Avoid Function pools with too many functions",
+    "href": "AIP/quality-rules/7082",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "associatedValueName": "Number of Functions",
+    "description": "This rule searches for Function Pools having more than X functions. X is a parameter which default value is 20.",
+    "output": "Associated to each Function Pools with violations, the Quality Rule provides:\n- The number of Function Modules",
+    "rationale": "Each time a function of a function pool is accessed, the entire function pool is put in memory. For performance reason, it is better to avoid having too many functions in the same function pool.",
+    "remediation": "Try to have coherent Function Pools.",
+    "total": "Number of Function Pools",
+    "alternativeName": "Avoid Function pools with too many functions",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "href": "AIP/technical-criteria/61022",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Number of functions",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

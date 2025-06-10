@@ -1,0 +1,63 @@
+{
+    "id": 1602012,
+    "name": "Record Temp should have a Description (PeopleSoft)",
+    "href": "AIP/quality-rules/1602012",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rule detects objects having empty description field.",
+    "output": "This report lists all PeopleSoft Menu popup that have no description.\nIt provides the following information:\n- PeopleSoft Record Temp full name.",
+    "rationale": "The description should be used to clearly identify the purpose of the object",
+    "remediation": "Fill the object's description with a sentence describing the purpose of the object.",
+    "total": "Number of PeopleSoft Record Temp",
+    "alternativeName": "Record Temp should have a Description (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

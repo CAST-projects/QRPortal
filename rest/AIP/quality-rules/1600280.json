@@ -1,0 +1,79 @@
+{
+    "id": 1600280,
+    "name": "Avoid placing PeopleCode into Fields, prefer Component Level (PeopleSoft)",
+    "href": "AIP/quality-rules/1600280",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Number of %Component or %CompIntfcName",
+    "description": "This quality rule reports RecordField Event referencing the system variable %Component or %CompIntfcName.\nThe latter returns the name of the Component Interface, if the currently executing PeopleCode program is being run from a Component Interface.\nThis is a sign the code need to be moved to the parent Component.",
+    "rationale": "Restrict the use of RecordField level PeopleCode as it hinders on-line performance.\n\nAlso, for question of code organization and hence maintenance, it is better to manage the events centrally, at the Component Level.\nIt avoids to jump from one place to another.",
+    "reference": "Efficiency:  TOBE.\nMaintainance: Effectively Organizing your PeopleCode: https://www.cedarhillsgroup.com/knowledge-base/kbarticles/effectively-organizing-your-peoplecode/",
+    "remediation": "Move the Peoplecode from RecordField level to parent Component level.",
+    "total": "Number of PeopleSoft RecordField Event",
+    "alternativeName": "Avoid placing PeopleCode into Fields, prefer Component Level (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61011,
+            "name": "Complexity - SQL Queries",
+            "href": "AIP/technical-criteria/61011",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

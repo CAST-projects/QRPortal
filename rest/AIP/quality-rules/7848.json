@@ -1,0 +1,162 @@
+{
+    "id": 7848,
+    "name": "Interface naming convention - prefix",
+    "href": "AIP/quality-rules/7848",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "description": "Interfaces should always begin with the prefix as defined in the naming convention.\nThis reports shows all the Interfaces not starting with the defined prefix.\n\nThe prefix is a parameter and can be changed at will.\nPrefix for ABAP : IF_ \nPrefix for VB .Net Technology I \nPrefix for C# Technology I \nPrefix for C++ Technology I\n\nInterfaces in C++ are defined as Classes that have at least one Pure Virtual method.\nThe prefix for C++ is set to I",
+    "output": "This report lists all Interfaces that does not respect the naming conventions.\nIt provides the following information:\nInterface full name",
+    "rationale": "For readability aspects, naming conventions must be respected.",
+    "reference": "help.sap.com\nNaming Conventions in ABAP Objects\nVB: http://msdn.microsoft.com/en-us/library/0b283bse.aspx",
+    "remediation": "Change name according to the naming convention.",
+    "total": "Number of Interfaces",
+    "alternativeName": "Ensure you have used the right prefix for your interface",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067199,
+            "name": "CWE-1099 - Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/technical-criteria/1067199",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-1099",
+            "name": "Inconsistent Naming Conventions for Identifiers",
+            "href": "AIP/quality-standards/CWE/items/CWE-1099",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Name is case sensitive",
+            "description": "Name is Case sensitive",
+            "technologies": [
+                {
+                    "id": -15,
+                    "name": "ABAP",
+                    "href": "AIP/technologies/-15",
+                    "values": [
+                        "No"
+                    ]
+                },
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "Yes"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Prefix",
+            "description": "Interface naming convention",
+            "technologies": [
+                {
+                    "id": 141901,
+                    "name": ".NET (Legacy Analyzer)",
+                    "href": "AIP/technologies/141901",
+                    "values": [
+                        "I"
+                    ]
+                },
+                {
+                    "id": -15,
+                    "name": "ABAP",
+                    "href": "AIP/technologies/-15",
+                    "values": [
+                        "IF_"
+                    ]
+                },
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        
+                    ]
+                },
+                {
+                    "id": 138383,
+                    "name": "C#",
+                    "href": "AIP/technologies/138383",
+                    "values": [
+                        "I"
+                    ]
+                },
+                {
+                    "id": -3,
+                    "name": "C++",
+                    "href": "AIP/technologies/-3",
+                    "values": [
+                        "I"
+                    ]
+                },
+                {
+                    "id": 138385,
+                    "name": "VB.NET",
+                    "href": "AIP/technologies/138385",
+                    "values": [
+                        "I"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "id": 1027064,
+    "name": "Always override 'Equals' and Comparison operators with IComparable implementation",
+    "href": "AIP/quality-rules/1027064",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "description": "The rule will raise a violation where IComparable or IComparable <T> is implemented without overriding 'Equals' and comparison operators: ==, <, >, !=",
+    "rationale": "Types that define a custom sort order implement the IComparable interface. The CompareTo method returns an integer value that indicates the correct sort order for two instances of the type. This rule identifies types that set a sort order. Setting a sort order implies that the ordinary meaning of equality, inequality, less-than, and greater-than don't apply. When you provide an implementation of IComparable, you must usually also override Equals so that it returns values that are consistent with CompareTo.\nThe CLR does not implement static methods in interface contracts or double-virtual dispatch, or the ability to put an operator constraint on a generic type parameter. And therefore multiple solutions have evolved to solve the equality/inequality problem.",
+    "reference": "https://cwe.mitre.org/data/definitions/581\nhttps://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1036",
+    "remediation": "Override the 'Equals' and the comparison operators",
+    "remediationSample": "public class Foo: IComparable\n{\n  public int CompareTo(object obj) { /* ... */ }\n  public override bool Equals(object obj)\n  {\n    var other = obj as Foo;\n    if (object.ReferenceEquals(other, null))\n    {\n      return false;\n    }\n    return this.CompareTo(other) == 0;\n  }\n  public int GetHashCode() { /* ... */ }\n  public static bool operator == (Foo left, Foo right)\n  {\n    if (object.ReferenceEquals(left, null))\n    {\n      return object.ReferenceEquals(right, null);\n    }\n    return left.Equals(right);\n  }\n  public static bool operator > (Foo left, Foo right)\n  {\n    return Compare(left, right) > 0;\n  }\n  public static bool operator < (Foo left, Foo right)\n  {\n    return Compare(left, right) < 0;\n  }\n  public static bool operator != (Foo left, Foo right)\n  {\n    return !(left == right);\n  }\n}",
+    "sample": "public class Foo: IComparable  \n{\n  public int CompareTo(object obj) { /* ... */ }\n} //Violation: No overriding of Equals and comparison operators",
+    "alternativeName": "Always override 'Equals' and Comparison operators with IComparable implementation",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062168,
+            "name": "ASCRM-RLB-4 - Persistant Storable Data Element without Proper Comparison Control Element",
+            "href": "AIP/technical-criteria/1062168",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061147,
+            "name": "CWE-1097 - Persistent Storable Data Element without Associated Comparison Control Element",
+            "href": "AIP/technical-criteria/1061147",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067197,
+            "name": "CWE-1097 - Persistent Storable Data Element without Associated Comparison Control Element",
+            "href": "AIP/technical-criteria/1067197",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066681,
+            "name": "CWE-581 - Object Model Violation: Just One of Equals and Hashcode Defined",
+            "href": "AIP/technical-criteria/1066681",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-4",
+            "name": "Persistant Storable Data Element without Proper Comparison Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-4",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-581",
+            "name": "Object Model Violation: Just One of Equals and Hashcode Defined",
+            "href": "AIP/quality-standards/CWE/items/CWE-581",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1097",
+            "name": "Persistent Storable Data Element without Associated Comparison Control Element",
+            "href": "AIP/quality-standards/CWE/items/CWE-1097",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1097",
+            "name": "Persistent Storable Data Element without Associated Comparison Control Element",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1097",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1097",
+            "name": "Persistent Storable Data Element without Associated Comparison Control Element",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1097",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

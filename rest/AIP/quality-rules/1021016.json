@@ -1,0 +1,280 @@
+{
+    "id": 1021016,
+    "name": "Avoid weak encryption algorithm (Python)",
+    "href": "AIP/quality-rules/1021016",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.python",
+        "href": "AIP/extensions/com.castsoftware.python"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A violation is raised when detected the usage of MD5 and SHA1 algorithms to hash a password or a passphrase.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The RSA's MD5 hashing algorithm is commonly used in different contexts such as checking data-integrity or simple indexing. However these algorithms should not be used for data encryption. The use of a non security-standard algorithm for hashing a password is dangerous because a determined attacker may be able to break the algorithm with well-known techniques and compromise whatever data has been protected.",
+    "reference": "CWE-326: Inadequate Encryption Strength\nhttps://cwe.mitre.org/data/definitions/326.html",
+    "remediation": "Avoid using MD5 and SHA1 hashes as input to cryptographic functions or to store passwords. Python offers the following hashing algorithms: SHA224, SHA256, SHA384, and SHA512. Make sure you choose the most appropriate one, depending on your use case, security requirements and runtime constraints.",
+    "remediationSample": ">>> import hashlib\n>>> secure_hash = hashlib.sha512()\n>>> md5_hash.update(password)  # This hash is secure\n>>> md5_hash.digest()",
+    "sample": ">>> import hashlib\n>>> md5_hash = hashlib.md5()\n>>> md5_hash.update(password)  # \"This hash can be exploited\"\n>>> md5_hash.digest()",
+    "total": "Number of Python artifacts using hashlib library",
+    "alternativeName": "Ensure you use SHA224, SHA256, SHA384, and SHA512 algorithms.",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062179,
+            "name": "ASCSM-CWE-327 - Broken or Risky Cryptographic Algorithm Usage",
+            "href": "AIP/technical-criteria/1062179",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067340,
+            "name": "CWE-1240 - Use of a Cryptographic Primitive with a Risky Implementation",
+            "href": "AIP/technical-criteria/1067340",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066427,
+            "name": "CWE-327 - Use of a Broken or Risky Cryptographic Algorithm",
+            "href": "AIP/technical-criteria/1066427",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063154,
+            "name": "PCI-DSS4-Requirement-4.2.1 - Strong cryptography and security protocols are implemented",
+            "href": "AIP/technical-criteria/1063154",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063157,
+            "name": "PCI-DSS4-Requirement-8.3.2 - Strong cryptography is used to render all authentication factors unreadable during transmission and storage on all system components.",
+            "href": "AIP/technical-criteria/1063157",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063109,
+            "name": "PCI-Requirement-4.1 - Use strong cryptography and security protocols",
+            "href": "AIP/technical-criteria/1063109",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063126,
+            "name": "PCI-Requirement-8.2.1 - Using strong cryptography",
+            "href": "AIP/technical-criteria/1063126",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "href": "AIP/technical-criteria/66063",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCSM-CWE-327",
+            "name": "Broken or Risky Cryptographic Algorithm Usage",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-327",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-327",
+            "name": "Use of a Broken or Risky Cryptographic Algorithm",
+            "href": "AIP/quality-standards/CWE/items/CWE-327",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1240",
+            "name": "Use of a Cryptographic Primitive with a Risky Implementation",
+            "href": "AIP/quality-standards/CWE/items/CWE-1240",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-8.2.1",
+            "name": "Using strong cryptography",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-8.2.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-4.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-Requirement-8.2.1",
+            "name": "Using strong cryptography",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-8.2.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-4.2.1",
+            "name": "Strong cryptography and security protocols are implemented",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-4.2.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-8.3.2",
+            "name": "Strong cryptography is used to render all authentication factors unreadable during transmission and storage on all system components.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-8.3.2",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222543",
+            "name": "The application must transmit only cryptographically-protected passwords.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222543",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222570",
+            "name": "The application must utilize FIPS-validated cryptographic modules when signing application components.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222570",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222598",
+            "name": "The application must maintain the confidentiality and integrity of information during preparation for transmission.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222598",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222599",
+            "name": "The application must maintain the confidentiality and integrity of information during reception.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222599",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222543",
+            "name": "The application must transmit only cryptographically-protected passwords.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222543",
+            "standard": "STIG-V6"
+        },
+        {
+            "id": "STIG-V-222570",
+            "name": "The application must utilize FIPS-validated cryptographic modules when signing application components.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222570",
+            "standard": "STIG-V6"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        },
+        {
+            "id": "STIG-V-222598",
+            "name": "The application must maintain the confidentiality and integrity of information during preparation for transmission.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222598",
+            "standard": "STIG-V6"
+        },
+        {
+            "id": "STIG-V-222599",
+            "name": "The application must maintain the confidentiality and integrity of information during reception.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222599",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

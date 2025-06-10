@@ -1,0 +1,194 @@
+{
+    "id": 1034034,
+    "name": "Avoid second order cookie injection (PHP)",
+    "href": "AIP/quality-rules/1034034",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.php.security",
+        "href": "AIP/extensions/com.castsoftware.php.security"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric uses Psalm data-flow engine to detect a call path where input data from the user is used to create a cookie without prior validation and sanitization.\n\nVetted database query validations can be specified to Psalm data-flow engine using the \"@psalm-taint-escape cookie\" annotation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software constructs all or part of cookie via user-controllable inputs. These inputs are not neutralized or are incorrectly neutralized. As a consequence, the cookie value may be completely altered.\nThe risk of setting arbitrary cookies depends on further application configuration. For instance :\n- Session Fixation: If the authentication cookie doesn't change after a successful login an attacker could fixate the session cookie. If a victim logs in with a fixated cookie, the attacker can now take over the session of the user.\n- Cross-Site-Scripting (XSS): Some application code could read cookies and print it out unsanitized to the user.",
+    "reference": "CWE-384: Session Fixation\nhttps://cwe.mitre.org/data/definitions/384.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10-2017_A1-Injection\n\nOWASP Top Ten 2021 Category A03:2021 - Injection\nhttps://owasp.org/Top10/A03_2021-Injection/\n\nOWASP Cheat Sheet Series - Session Management Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+    "remediation": "If this is required functionality, limit the cookie setting to values and not the name. (e.g. authtoken in the example)\n\nMake sure to change session tokens after authentication attempts.",
+    "remediationSample": "<?php\n\n/**\n* @psalm-taint-escape cookie\n*/\nfunction my_escaping_function_for_cookies(string input) : string {\n    // Check that input is safe for my cookies\n};",
+    "sample": "<?php\n\nfunction setCookies(PDOStatement $stmt) : void {\n    $stmt->execute();\n    $row = $stmt->fetchAll();\n    foreach ($rows as $row) {\n        $name = $row['name'];\n        $value = $row['value'];\n        setcookie($name, $value);    // VIOLATION\n    }\n}",
+    "total": "Number of PHP artifacts",
+    "alternativeName": "Ensure you sanitize cookie values constructed from database query",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066213,
+            "name": "CWE-113 - Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
+            "href": "AIP/technical-criteria/1066213",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066193,
+            "name": "CWE-93 - Improper Neutralization of CRLF Sequences ('CRLF Injection')",
+            "href": "AIP/technical-criteria/1066193",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062301,
+            "name": "OWASP-2013-A1 - Injection",
+            "href": "AIP/technical-criteria/1062301",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062321,
+            "name": "OWASP-2017-A1 - Injection",
+            "href": "AIP/technical-criteria/1062321",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-93",
+            "name": "Improper Neutralization of CRLF Sequences ('CRLF Injection')",
+            "href": "AIP/quality-standards/CWE/items/CWE-93",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-113",
+            "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
+            "href": "AIP/quality-standards/CWE/items/CWE-113",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A1-2013",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A1-2017",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A1-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2019",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/API8-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API10-2023",
+            "name": "Unsafe Consumption of APIs",
+            "href": "AIP/quality-standards/OWASP/items/API10-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222609",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222609",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222609",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

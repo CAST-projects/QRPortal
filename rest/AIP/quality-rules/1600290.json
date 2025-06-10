@@ -1,0 +1,79 @@
+{
+    "id": 1600290,
+    "name": "Avoid using ROWNUM and ORDER BY together (PeopleSoft)",
+    "href": "AIP/quality-rules/1600290",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This rule detects SQL Definitions using ROWNUM in a WHERE clause, and having and ORDER BY clause.",
+    "output": "This rule reports PeopleSoft SQL Definitions using ROWNUM in the WHERE clause and ORDER BY.\nIt provides the following information:\n- PeopleSoft SQL Definitions full name",
+    "rationale": "ROWNUM must not be used in a WHERE clause if the results are sorted with the ORDER BY clause.\nYou would expect the ROWNUM to be applied after the results have been ordered by the column, but instead it applies the ROWNUM and then does an order by.\nThe bottom line is unexpected results.",
+    "reference": "https://blogs.oracle.com/oraclemagazine/on-rownum-and-limiting-results\nhttps://sanaulla.info/2013/01/23/using-rownum-with-order-by-in-oracle-sql/",
+    "remediation": "The idea here is to first order the rows/records by moving the ORDER BY query as a nested SQL and then applying ROWNUM on the resultant data.",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "Avoid using ROWNUM and ORDER BY together (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61011,
+            "name": "Complexity - SQL Queries",
+            "href": "AIP/technical-criteria/61011",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

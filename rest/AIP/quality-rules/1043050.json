@@ -1,0 +1,192 @@
+{
+    "id": 1043050,
+    "name": "Avoid having long timeout for HttpCookie (> 5 mn)",
+    "href": "AIP/quality-rules/1043050",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnetweb",
+        "href": "AIP/extensions/com.castsoftware.dotnetweb"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks for the Session Time value 5 min in the ASP.Net MVC.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Enables to attacker to comprise the user accounts if the session time is set to more than required (5mn).",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication\nhttps://cwe.mitre.org/data/definitions/613.html\n\nOWASP Top 10 2004 -A10-Insecure Configuration Management\nOWASP Top 10 2007 -A7-Broken Authentication and Session Management\nOWASP Top 10 2010 -A6-Security Misconfiguration\nOWASP Top 10 2013 -A2-Broken Authentication and Session Management",
+    "remediation": "Set the time out to less than 5 min or less.",
+    "remediationSample": "<configuration>\n  <system.web>\n  <authentication>\n    <forms\n      timeout=\"5\" />\n  </authentication>\n  </system.web>\n</configuration>",
+    "sample": "<configuration>\n  <system.web>\n  <authentication>\n    <forms\n      timeout=\"60\" />\n  </authentication>\n  </system.web>\n</configuration>",
+    "total": "Number of config files",
+    "alternativeName": "Ensure you set the time out to less than 5 min or less.",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066713,
+            "name": "CWE-613 - Insufficient Session Expiration",
+            "href": "AIP/technical-criteria/1066713",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062302,
+            "name": "OWASP-2013-A2 - Broken Authentication and Session Management",
+            "href": "AIP/technical-criteria/1062302",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062322,
+            "name": "OWASP-2017-A2 - Broken Authentication",
+            "href": "AIP/technical-criteria/1062322",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062347,
+            "name": "OWASP-2021-A07 - Identification and Authentication Failures",
+            "href": "AIP/technical-criteria/1062347",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063115,
+            "name": "PCI-Requirement-6.5.10 - Broken authentication and session management",
+            "href": "AIP/technical-criteria/1063115",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-613",
+            "name": "Insufficient Session Expiration",
+            "href": "AIP/quality-standards/CWE/items/CWE-613",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-AC-12",
+            "name": "Session Termination",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-AC-12",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-AC-12",
+            "name": "Session Termination",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-AC-12",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-IA-9",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "href": "AIP/quality-standards/OWASP/items/A2-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/A2-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A07-2021",
+            "name": "Identification and Authentication Failures",
+            "href": "AIP/quality-standards/OWASP/items/A07-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API2-2019",
+            "name": "Broken User Authentication",
+            "href": "AIP/quality-standards/OWASP/items/API2-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API2-2023",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/API2-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "href": "AIP/quality-standards/OWASP/items/M4-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.10",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

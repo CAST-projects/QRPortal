@@ -1,0 +1,64 @@
+{
+    "id": 1600510,
+    "name": "Always prefer joining tables to subqueries (PeopleSoft)",
+    "href": "AIP/quality-rules/1600510",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rule reports all PeopleSoft SQL Definitions having subqueries.",
+    "output": "This report lists all PeopleSoft SQL Definitions having subqueries. It provides the following information:\n- PeopleSoft SQL Definitions full name.",
+    "rationale": "Having complex queries can cause performance problems. Queries with Subqueries is considered complex.\nQuery with Subqueries are often costlier than the query using Joins.",
+    "reference": "Best Practices - Querying - Avoiding Sub Queries : http://strictlysql.blogspot.com/2008/12/best-practices-querying-avoiding-sub.html\nConverting Subqueries to Joins: https://learnsql.com/blog/converting-subqueries-joins/",
+    "remediation": "You can use an Explain Plan to get an objective answer.\nIf appropriate, replace the subquery by a JOIN.",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "Always prefer joining tables to subqueries (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

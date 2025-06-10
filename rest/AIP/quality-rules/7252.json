@@ -1,0 +1,83 @@
+{
+    "id": 7252,
+    "name": "Call 'super.finalize ()' in the \"finally\" block of 'finalize ()' methods",
+    "href": "AIP/quality-rules/7252",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "Calling the super.finalize() in the \"finally\" block of 'finalize ()' method is highly recommended in case parent implementations must also dispose some system resources.\n\nThis rule reports finalize method with no try finally block or with no call to super.finalize() within the finally block.",
+    "output": "This report lists all Methods  'finalize()' with no try finally block or with no call to super.finalize() within the finally block.\nIt provides the following information:\n Method full name",
+    "rationale": "The Java Language Specification states that it is a good practice for a finalize() method to call super.finalize().\n\nThe finalize method is careful to call super.finalize from a finally block. All finalize methods should call super.finalize to ensure that any superclass finalize methods are invoked. Unlike superclass constructors that are invoked automatically, finalize methods must be chained manually. The super.finalize call is made from a finally block to ensure that it is called regardless of whether the call to the cleanup method generates an exception.",
+    "reference": "https://cwe.mitre.org/data/definitions/568.html\nhttps://wiki.sei.cmu.edu/confluence/display/java/MET12-J.+Do+not+use+finalizers",
+    "remediation": "Add a try finally block.",
+    "remediationSample": "class Test\n{\n // ...\n  protected void finalize() throws Throwable  {\n    try {\n      cleanup();\n    } finally { \n      super.finalize();  // FIXED: the finalize method will\n                               // execute the superclass finalizer \n                               // before re-throwing the IOException\n                               // object.\n    }\n  }",
+    "sample": "class Test\n{\n // ...\n  protected void finalize() throws Throwable {\n    cleanup();\n    super.finalize(); // VIOLATION\n  }\n}",
+    "total": "Number of finalize methods",
+    "alternativeName": "Ensure to add a try finally bloc",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066668,
+            "name": "CWE-568 - finalize() Method Without super.finalize()",
+            "href": "AIP/technical-criteria/1066668",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-568",
+            "name": "finalize() Method Without super.finalize()",
+            "href": "AIP/quality-standards/CWE/items/CWE-568",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

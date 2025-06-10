@@ -1,0 +1,71 @@
+{
+    "id": 2584,
+    "name": "Avoid using late binding",
+    "href": "AIP/quality-rules/2584",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "description": "Avoid using late binding.\n\nLate binding is done when a call to CreateObject is done AND that the variables are of type Object/Variant.\nWhenever  a variable is typed during the definition (dim var as MyObject) it becomes early binding.",
+    "output": "This report lists all uses of late binding",
+    "rationale": "Even if late binding offer advantages (like being version independent), it suffers from several disadvantages compared to early binding. \nWith early binding:\n- Code is much faster\n- Compiler can detect error at compilation time rather than execution time\n- Intellisense is available",
+    "remediation": "Use early binding.",
+    "remediationSample": "dim xl  as Excel.Application\nSet xl = CreateObject(\"Excel.Application\")",
+    "sample": "dim xl  as object\nSet xl = CreateObject(\"Excel.Application\")",
+    "total": "Number of VB functions, methods and events",
+    "alternativeName": "Avoid using late binding",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61029,
+            "name": "Complexity - Dynamic Instantiation",
+            "href": "AIP/technical-criteria/61029",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

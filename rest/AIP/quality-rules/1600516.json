@@ -1,0 +1,63 @@
+{
+    "id": 1600516,
+    "name": "SELECT ... FROM ... WHERE alias.col LIKE '%xxx' (PeopleSoft)",
+    "href": "AIP/quality-rules/1600516",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "Only the use of LIKE '%xxx' is checked",
+    "rationale": "In the WHERE clause, if a LIKE statement is used and the clause starts with %, no index will be used.",
+    "reference": "https://stackoverflow.com/questions/6142235/sql-like-vs-performance\nhttp://www.dba-oracle.com/t_sql_like_clause_index_usage.htm",
+    "remediation": "Validate the query by a DBA and test it in a real environment",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "SELECT ... FROM ... WHERE alias.col LIKE '%xxx' (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

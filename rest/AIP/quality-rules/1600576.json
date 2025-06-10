@@ -1,0 +1,58 @@
+{
+    "id": 1600576,
+    "name": "New field added in a standard record must be done in a specific KEY sub-record (PeopleSoft)",
+    "href": "AIP/quality-rules/1600576",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 2,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Record fields directly defined in the record",
+    "description": "New field added in a standard record must be done in a specific <KEY> sub-record, always at the end of the record; except when the last field have type long, then add the new field before this field.\nFor new record, it's not mandatory to add a specific sub-record. You can add a standard sub-record to a new record.",
+    "output": "This report lists all the Records with added fields not defined in a sub-record",
+    "rationale": "New field added in a standard record must be done in a specific KEY sub-record",
+    "total": "Number of PeopleSoft Records with added fields (MODIFIED)",
+    "alternativeName": "New field added in a standard record must be done in a specific KEY sub-record (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "href": "AIP/technical-criteria/61015",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

@@ -1,0 +1,227 @@
+{
+    "id": 3612,
+    "name": "Avoid missing release of SQL connection after an effective lifetime (C#, VB.NET)",
+    "href": "AIP/quality-rules/3612",
+    "critical": true,
+    "severity": 30,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "SQL connection should be closed within the Method / Function / Sub that opened it",
+    "output": "This report lists all Methods / Functions / Subs that do not close the SQL connections they opened\nIt provides the following information:  Method / Function / Sub full name",
+    "rationale": "A frequent issue when dealing with database resource is resource leak. This mainly comes from an incorrect code that miss to close the connection in any cases. Incorrect resource management is a common source of failures in production applications, with the usual pitfalls being database connections and file descriptors remaining opened after an exception has occurred somewhere else in the code. This leads to application servers being frequently restarted when resource exhaustion occurs, because operating systems and server applications generally have an upper-bound limit for resources.",
+    "reference": "https://cwe.mitre.org/data/definitions/772.html\nASCPEM-PRF-15,\nASCRM-CWE-772.",
+    "remediation": "Close the SQL connection within the same Method\n      a) call close()/dispose() on connection exclusively in a finally block \n      b) using block with resource to declare the resource that must be closed",
+    "remediationSample": "//call close()/dispose() on connection in finally block:\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nprivate static void Read_OK_1(){\n    SqlConnection conn = new SqlConnection(connString);\n    try{\n        conn.Open();\n        SqlCommand cmd = new SqlCommand(queryString,conn);\n        command.ExecuteNonQuery();\n    }\n    catch{ \n    }\n    finally{\n        if (conn != null)\n            {  conn.Close(); }     // FIX : closed in finally block\n    }\n}\n\n\n//using block :\n//~~~~~~~~~~~~~~~\nprivate static void Read_OK_2(){\n    using (SqlConnection conn = new SqlConnection(connectionString))\n            {\n            conn.Open();\n            SqlCommand cmd = new SqlCommand(queryString,conn);\n            command.ExecuteNonQuery();\n            // FIX : connection closed on following line.\n            }\n}",
+    "sample": "//no close()/dispose() operation:\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nprivate static void Read_KO_1(){\n    SqlConnection conn = new SqlConnection(connString);\n    conn.Open();\n    SqlCommand cmd = new SqlCommand(queryString,conn);\n    command.ExecuteNonQuery();  //VIOLATION - \n}\n\n//No Exception Handling - close/dispose is there but not surrounded with try catch : \n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nprivate static void Read_KO_2(){\n    SqlConnection conn = new SqlConnection(connString);\n    conn.Open();\n    SqlCommand cmd = new SqlCommand(queryString,conn);\n    command.ExecuteNonQuery();\n    conn.Close();    // VIOLATION  \n}",
+    "total": "Total number of methods opening a connection",
+    "alternativeName": "Ensure you have released your SQL connection after an effective lifetime",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062136,
+            "name": "ASCPEM-PRF-15 - Storable and Member Data Element Reference Missing De-Referencing Control Element",
+            "href": "AIP/technical-criteria/1062136",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062153,
+            "name": "ASCRM-CWE-772 - Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/technical-criteria/1062153",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062188,
+            "name": "ASCSM-CWE-772 - Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/technical-criteria/1062188",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061045,
+            "name": "CWE-404 - Improper Resource Shutdown or Release",
+            "href": "AIP/technical-criteria/1061045",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066504,
+            "name": "CWE-404 - Improper Resource Shutdown or Release",
+            "href": "AIP/technical-criteria/1066504",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061085,
+            "name": "CWE-772 - Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/technical-criteria/1061085",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066872,
+            "name": "CWE-772 - Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/technical-criteria/1066872",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 8,
+            "critical": true
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-15",
+            "name": "Storable and Member Data Element Reference Missing De-Referencing Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-15",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCRM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-772",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCSM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-772",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-404",
+            "name": "Improper Resource Shutdown or Release",
+            "href": "AIP/quality-standards/CWE/items/CWE-404",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/quality-standards/CWE/items/CWE-772",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-404",
+            "name": "Improper Resource Shutdown or Release",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-404",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-772",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-404",
+            "name": "Improper Resource Shutdown or Release",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-404",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-772",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

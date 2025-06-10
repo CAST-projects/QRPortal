@@ -1,0 +1,76 @@
+{
+    "id": 8154,
+    "name": "Avoid using GC.Collect()",
+    "href": "AIP/quality-rules/8154",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule list all the artifacts that use GC.Collect().",
+    "output": "This report lists all artifacts using GC.Collect(). It provides the following information: Artifact full name.",
+    "rationale": ".Net framework use a garbage collector that release the memory at the most appropriate time in order to optimize the memory usage.\nThe GC.Collect() is a very expensive method which should be avoided.",
+    "reference": "https://docs.microsoft.com/en-us/archive/blogs/ricom/when-to-call-gc-collect\nhttps://stackoverflow.com/questions/478167/when-is-it-acceptable-to-call-gc-collect/21961777#21961777",
+    "remediation": "Review the Function / Procedure design",
+    "sample": "using System; \n\nclass MyGCCollectClass \n{ \n   private const int maxGarbage = 1000; \n\n   static void Main() \n   { \n      // Put some objects in memory. \n      MyGCCollectClass.MakeSomeGarbage(); \n      Console.WriteLine(\"Memory used before collection: {0:N0}\", \n                        GC.GetTotalMemory(false)); \n\n      // Collect all generations of memory. \n      GC.Collect(); \n      Console.WriteLine(\"Memory used after full collection: {0:N0}\", \n                        GC.GetTotalMemory(true)); \n   } \n\n   static void MakeSomeGarbage() \n   { \n      Version vt; \n\n      // Create objects and release them to fill up memory with unused objects. \n      for(int i = 0; i < maxGarbage; i++) { \n         vt = new Version(); \n      } \n   } \n} \n// The output from the example resembles the following: \n// Memory used before collection: 79,392\n// Memory used after full collection: 52,640",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid using GC.Collect()",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

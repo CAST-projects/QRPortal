@@ -1,0 +1,110 @@
+{
+    "id": 7850,
+    "name": "Avoid raising an exception in a Web Dynpro Supply Function or in a Method called by a Supply Function",
+    "href": "AIP/quality-rules/7850",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "description": "This rule checks all supply functions of Web Dynpro for ABAP and methods called by these supply functions to verify if they do not raise exceptions.",
+    "output": "This report lists all Web Dynpro supply functions that raise exceptions or that call methods raising exceptions.\nIt provides the following information:\n- Supply Function full name",
+    "rationale": "If possible, avoid raising an exception in a supply function or in a method called by a supply function. Since supply functions are often called during rendering, these exceptions cannot be processed efficiently. This can impact the error handling and the performance of the component.",
+    "reference": "NetWeaver Web Dynpro for Abap\nhttp://help.sap.com/saphelp_nw2004s/helpdata/en/f1/177741adb7167de10000000a155106/frameset.htm",
+    "remediation": "Since runtime controls when the supply function is called (and not the code created by the application developer), it is especially important that no errors occur when the data is retrieved. For this reason, use the supply function only if you know that the data is available and correct in the back end.",
+    "remediationSample": "method BOOKINGS_READ .\n\n  data:\n    Stru_flight             type IF_COMPONENTCONTROLLER=>Element_Flightinfo,\n    Itab_Booking            type IF_COMPONENTCONTROLLER=>Elements_Bookingtab.\n\n* Get Parent Element\nCALL METHOD parent_element->get_static_attributes\n  IMPORTING\n    STATIC_ATTRIBUTES = Stru_flight.\n\n* read bookings\nselect * from sbook\n  into corresponding fields of table Itab_Booking\n  where carrid = Stru_flight-carrid\n    and connid = Stru_flight-connid\n    and fldate = Stru_flight-fldate.\n\nif sy-subrc = 0.\n* bind all the elements\n  Node->Bind_Table(\n    New_Items =  Itab_Booking\n    Set_Initial_Elements = Abap_True ).\nendif.\nendmethod.",
+    "sample": "method BOOKINGS_READ .\n\n  data:\n    Stru_flight             type IF_COMPONENTCONTROLLER=>Element_Flightinfo,\n    Itab_Booking            type IF_COMPONENTCONTROLLER=>Elements_Bookingtab.\n\n* Get Parent Element\nCALL METHOD parent_element->get_static_attributes\n  IMPORTING\n    STATIC_ATTRIBUTES = Stru_flight.\n\n* read bookings\nselect * from sbook\n  into corresponding fields of table Itab_Booking\n  where carrid = Stru_flight-carrid\n    and connid = Stru_flight-connid\n    and fldate = Stru_flight-fldate.\n\nif sy-subrc NE 0.\n  RAISE NO_DATA_FOUND.\nelse.\n* bind all the elements\n  Node->Bind_Table(\n    New_Items =  Itab_Booking\n    Set_Initial_Elements = Abap_True ).\nendif.\nendmethod.",
+    "total": "Number of Web Dynpro Supply Functions",
+    "alternativeName": "Avoid raising an exception in a Web Dynpro Supply Function or in a Method called by a Supply Function",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

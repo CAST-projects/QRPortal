@@ -1,0 +1,157 @@
+{
+    "id": 7382,
+    "name": "Struts1: Avoid Struts Validator field without Form Field",
+    "href": "AIP/quality-rules/7382",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Form Field Name",
+    "description": "Validation fields that do not appear in forms they are associated with indicate that the validation logic is out of date.\n\nThis rule reports all validation forms that contain field property which has no field reference in associated java class\nNote that it can be related to a form name or an action name (in the case of a form shared among different actions)",
+    "output": "This report lists all validator form with fields that are not related to a form bean field. It provides the following information:\n  - Validation Form\n  - Form Field",
+    "rationale": "It is easy for developers to forget to update validation logic when they make changes to an ActionForm class. One indication that validation logic is not being properly maintained is inconsistencies between the action form and the validation form.\n\nAlthough JEE applications are not generally susceptible to memory corruption attacks, if a JEE application interfaces with native code that does not perform array bounds checking, an attacker may be able to use an input validation mistake in the JEE application to launch a buffer overflow attack.",
+    "reference": "http://cwe.mitre.org/data/definitions/110.html",
+    "remediation": "Update the validation.xml's entries according to the form used in your application and review the validation logic of the form.",
+    "remediationSample": "----> validation.xml:\n\n<form-validation>\n  <formset>\n    <form name=\"logonForm\">\n      <field property=\"username\" \n            depends=\"required\">\n        <arg0 key=\"prompt.username\"/>\n      </field>\n      <field property=\"password\" \n            depends=\"required\">\n        <arg0 key=\"prompt.password\"/>\n      </field>\n     // FIXED: passphrase has been removed\n    </form>\n  </formset>\n</form-validation>",
+    "sample": "====>  For concrete Form Bean\n\n--> logonForm.java (for concrete Form Bean) :\npublic class LogonForm extends ValidatorForm {\n  private String username;\n  private String password;\n  \n  public String getUsername() {\n    return username;\n  }\n  \n  public void setUsername(String username) {\n    this.username = username;\n  }\n\n  public String getPassword() {\n    return password;\n  }\n\npublic void setPassword(String password) {\n    this.password = password;\n  }\n}\n\n--> struts-config.xml (for concrete Form Bean)\n<form-beans>\n  <form-bean name=\"logonForm\"\n            type=\"com.cast.struts.sample.LogonForm\"/>\n</form-beans>\n\n====>  for dynamic Form Bean\n\n--> struts-config.xml (for dynamic Form Bean)\n<form-beans>\n  <form-bean name=\"logonForm\"\n            type=\"org.apache\n.struts.validator.DynaValidatorForm\">\n    <form-property name=\"username\"\n            type=\"java.lang.String\"/>\n    <form-property name=\"password\"\n            type=\"java.lang.String\"/>\n  </form-bean>\n</form-beans>\n\n====>  for both dynamic and concrete Form Bean\n\n----> validation.xml:\n\n<form-validation>\n  <formset>\n    <form name=\"logonForm\"> \n      <field property=\"username\" \n            depends=\"required\">\n        <arg0 key=\"prompt.username\"/>\n      </field>\n      <field property=\"password\"\n            depends=\"required\">\n        <arg0 key=\"prompt.password\"/>\n      </field>\n      <field property=\"passphrase\" // VIOLATION\n            depends=\"required\">\n        <arg0 key=\"prompt.passphrase\"/>\n      </field>\n    </form>\n  </formset>\n</form-validation>",
+    "total": "Number of Validation Forms",
+    "alternativeName": "Ensure to update the validation.xml's entries according to the form used in your application",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066210,
+            "name": "CWE-110 - Struts: Validator Without Form Field",
+            "href": "AIP/technical-criteria/1066210",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062305,
+            "name": "OWASP-2013-A5 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062305",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062326,
+            "name": "OWASP-2017-A6 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062326",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062345,
+            "name": "OWASP-2021-A05 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062345",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063152,
+            "name": "PCI-DSS4-Requirement-2.2.6 - System security parameters are configured to prevent misuse",
+            "href": "AIP/technical-criteria/1063152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063103,
+            "name": "PCI-Requirement-2.2.4 - Configure system security parameters to prevent misuse.",
+            "href": "AIP/technical-criteria/1063103",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-110",
+            "name": "Struts: Validator Without Form Field",
+            "href": "AIP/quality-standards/CWE/items/CWE-110",
+            "standard": "CWE"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2023",
+            "name": "Security misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API8-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-2.2.6",
+            "name": "System security parameters are configured to prevent misuse",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-2.2.6",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

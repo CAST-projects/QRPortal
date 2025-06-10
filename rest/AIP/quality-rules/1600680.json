@@ -1,0 +1,71 @@
+{
+    "id": 1600680,
+    "name": "Move PeopleCode to a Component or Page Definition (PeopleSoft)",
+    "href": "AIP/quality-rules/1600680",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This metric reports all PeopleCode artifacts testing the Component name.\nIt detects the following branching statement constructs:\n- If %Component = ...Then\n- If boolean_expr1 and/or boolean_expr2 and/or %Component = ... Then\n- Evaluate %Component When = ...",
+    "output": "This report lists all artifacts testing the Component name.\nIt provides the following information:\n- PeopleCode artifacts full name\n- The associated value is the number of of test occurrences found in the artifact source code",
+    "rationale": "Analyze transactions and move PeopleCode that is specific to a component from the record definition to the component or page definition. This action eliminates the need to execute conditional statements, such as If %Component = .\nThis action helps only if you are able to move all the PeopleCode in a program from the record to a component or page, and multiple components access that record.",
+    "reference": "Oracle PeopleCode Developer's Guide: https://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tpcd/task_UsingBetterCodingTechniquesforImprovedPerformance-0749c3.html",
+    "remediation": "Move PeopleCode to a Component or Page Definition",
+    "remediationSample": "same code, without the test for If %Component, inside the Component definition itself.",
+    "sample": "inside a RecordFieldEvent, for instance RowInit :\n\nIf %Component = \"AE_TEMPTBL_USE\" Then // VIOLATION\n&SQL = GetSQL(SQL.RECUSE_BITCHECK, PSAEAPPLDEFN.AE_APPLID, 1);\nIf &SQL.Fetch(&CHK) Then\nAE_DERIVED.AE_TEMP_ABORT_FLAG = &CHK;\nElse\nAE_DERIVED.AE_TEMP_ABORT_FLAG = \"N\";\nEnd-If;\n&SQL.Close();\nEnd-If;",
+    "total": "Number of PeopleSoft Events, Functions and Methods",
+    "alternativeName": "Move PeopleCode to a Component or Page Definition (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

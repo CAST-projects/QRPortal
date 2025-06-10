@@ -1,0 +1,77 @@
+{
+    "id": 1600282,
+    "name": "Write UNION ALL instead of UNION statement (PeopleSoft)",
+    "href": "AIP/quality-rules/1600282",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rule lists all PeopleSoft SQL Definitions using UNION (without ALL).",
+    "rationale": "In SQL the UNION operator combines the results of two SQL queries into a single table of all matching rows. The two queries must have matching fields and data types in order to join them.\nAny duplicate records are automatically removed unless UNION ALL is used.\nThe problem is that MOST of the time it is unnecessary to remove duplicate as there are none and doing the search for duplicate rows can be very costly.",
+    "remediation": "Add the ALL keyword after the UNION keyword (ensure that this does not change the returned data).",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "Write UNION ALL instead of UNION statement (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61011,
+            "name": "Complexity - SQL Queries",
+            "href": "AIP/technical-criteria/61011",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

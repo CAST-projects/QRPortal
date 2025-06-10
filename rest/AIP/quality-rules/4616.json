@@ -1,0 +1,78 @@
+{
+    "id": 4616,
+    "name": "'super.finalize()' should be invoked when overriding finalize() method",
+    "href": "AIP/quality-rules/4616",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "description": "When overriding the 'finalize()' Method, a call to 'super.finalize()' is necessary to ensure disposing system resources.\n\nThis rule report a violation when a method overriding 'finalize()' and not calling 'super.finalize()'.",
+    "output": "This report lists all Methods overriding 'finalize()' and not calling 'super.finalize()'. It provides the following information: Method full name",
+    "rationale": "finalize() method is a pre-defined method in the Object class and it is protected. The purpose of a finalize() method can be overridden for an object to include the cleanup code or to dispose of the system resources that can be done before the object is garbage collected. One of the most important points of finalize method is that it's not automatically chained like constructors. If you are overriding finalize method then it's your responsibility to call finalize() method of the superclass, if you forgot to call then finalize of super class will never be called. so it becomes critical to remember this and provide an opportunity to finalize of super class to perform cleanup",
+    "reference": "https://javarevisited.blogspot.com/2012/03/finalize-method-in-java-tutorial.html\nhttps://howtodoinjava.com/java/basics/why-not-to-use-finalize-method-in-java\nhttps://cwe.mitre.org/data/definitions/568.html",
+    "remediation": "Review the Method's definition: Ensure to call 'super.finalize()' at the end, while overriding finalize() method. \nIt's usually recommended to call superclass finalize method in the finally block.",
+    "remediationSample": "protected void finalize()\n{\n  releaseSomeResources();\n  super.finalize();\n}\n\nWe can also add call to super.finalize() in a finally block: \n\nprotected void finalize()throws Throwable\n{try {\n         releaseSomeResources();\n      } catch(Throwable th) {\n           throw th;\n      } finally {  \n         super.finalize();\n}",
+    "sample": "protected void finalize() \n{  \n  SomeSystemResourcesRelease(); //Violation: no call to super.finalize();\n}\n---------------------------------------------------------------------\nprotected void finalize()\n{\n  super.finalize();  // Violation as the call should be done at end of the method\n  SomeSystemResourcesRelease();\n}",
+    "total": "All methods overriding finalize()",
+    "alternativeName": "Prefer calling \"super.finalize()\" at the end of \"Object.finalize()\" implementations",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066668,
+            "name": "CWE-568 - finalize() Method Without super.finalize()",
+            "href": "AIP/technical-criteria/1066668",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-568",
+            "name": "finalize() Method Without super.finalize()",
+            "href": "AIP/quality-standards/CWE/items/CWE-568",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

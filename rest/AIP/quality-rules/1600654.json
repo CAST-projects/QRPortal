@@ -1,0 +1,67 @@
+{
+    "id": 1600654,
+    "name": "Attribute No colon should be check for visible label (PeopleSoft)",
+    "href": "AIP/quality-rules/1600654",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "Only for CRM 8.9\nVisible label must be left align and don't use \":\" (attribute \"No colon\" check into designer).",
+    "rationale": "Improve look & feel for the user",
+    "remediation": "Open the page in application deisgner and use the left alignment function and use an existant label ID using the rule PFLr03, if it is not possible to use an existing label ID so don't use \":\" for the text property of the field",
+    "total": "Number of PeopleSoft Page Fields",
+    "alternativeName": "Attribute No colon should be check for visible label (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

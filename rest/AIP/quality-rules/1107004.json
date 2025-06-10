@@ -1,0 +1,67 @@
+{
+    "id": 1107004,
+    "name": "Oracle Forms Table Based Data Blocks naming convention",
+    "href": "AIP/quality-rules/1107004",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.formsreport",
+        "href": "AIP/extensions/com.castsoftware.formsreport"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Table Based Data Blocks need to have the same name as the mapped table.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "For readability aspects, naming conventions must be respected. Coding naming conventions allow teams to collaborate efficiently.",
+    "reference": "Oracle Forms objects Naming Standards : https://docs.oracle.com/cd/E18727_01/doc.121/e12897/T302934T458266.htm#I_devnameform.",
+    "remediation": "Change name according to the naming convention.",
+    "remediationSample": "<Block Name=\"TABLE_NAME\" QueryDataSourceName=\"TABLE_NAME\"",
+    "sample": "<Block Name=\"DB_TABLE_NAME\" QueryDataSourceName=\"TABLE_NAME\"",
+    "total": "Number of Table Based Oracle Forms Data Blocks",
+    "alternativeName": "Oracle Forms Table Based Data Blocks naming convention",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "href": "AIP/technical-criteria/61017",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1107000,
+            "name": "FormsReportAnalyzer",
+            "href": "AIP/technologies/1107000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

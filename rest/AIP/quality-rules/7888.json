@@ -1,0 +1,61 @@
+{
+    "id": 7888,
+    "name": "Web Dynpro - Never use direct calls to routine via \"me->\", use \"wd_This->\" instead",
+    "href": "AIP/quality-rules/7888",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks Web Dynpro source code for direct calls to routine using the \"me-->\" instance.",
+    "output": "Associated to each ABAP Web Dynpro Method/Event Handler/Supply Function with violations, the Quality Rule provides:\n- The number of violation occurrences",
+    "rationale": "Special rules apply for the implementation of Web Dynpro routines, such as \"wd_Do_Init\" methods. Some ABAP language statements cannot be used.\nOther routines cannot be called directly - instead they must be called with the \"wd_This\" instance. The reason for this is that a direct call makes any extensions made from restructured layers impossible.",
+    "reference": "SAP",
+    "remediation": "Replace the \"me->\" calls with a delegation using \"wd_This->\".",
+    "total": "Number of Web Dynpro Methods, Web Dynpro Event Handlers and Web Dynpro Supply Functions",
+    "alternativeName": "Web Dynpro - Never use direct calls to routine via \"me->\", use \"wd_This->\" instead",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

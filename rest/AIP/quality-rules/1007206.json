@@ -1,0 +1,150 @@
+{
+    "id": 1007206,
+    "name": "Avoid using @error suppression (PHP)",
+    "href": "AIP/quality-rules/1007206",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "description": "This rule searches for all artifacts having @ in order to hide the errors. Artifacts considered for this QR are PHP Secion, method, constructor and functions.",
+    "output": "This report lists all the artifacts having @ in order to hide the errors.\n      \nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Use of @ decreases the performance of application. Instead of trying to hide the errors it is much better to handle them.",
+    "remediation": "Try to reduce use of @ and instead provide a mechanism for error handling.",
+    "remediationSample": "<?php\n      \nfunction getFiles($dir) {\n   if (file_exists($dir)) {\n      return scandir($dir);\n   } else {\n      return null;\n   }\n}\n \n$files = getFiles(\"C:\\\\non-existant\");\n \nif (null === $files) {\n   echo \"Could not get files!\", PHP_EOL;\n}\n\n?>",
+    "sample": "<?php\n\nfunction getFiles($dir) {\n   return @scandir($dir);\n   } \n$files = getFiles(\"C:\\\\non-existant\");\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using @error suppression (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061042,
+            "name": "CWE-392 - Missing Report of Error Condition",
+            "href": "AIP/technical-criteria/1061042",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066492,
+            "name": "CWE-392 - Missing Report of Error Condition",
+            "href": "AIP/technical-criteria/1066492",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 5,
+            "critical": true
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063119,
+            "name": "PCI-Requirement-6.5.5 - Improper error handling",
+            "href": "AIP/technical-criteria/1063119",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-392",
+            "name": "Missing Report of Error Condition",
+            "href": "AIP/quality-standards/CWE/items/CWE-392",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-392",
+            "name": "Missing Report of Error Condition",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-392",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-392",
+            "name": "Missing Report of Error Condition",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-392",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

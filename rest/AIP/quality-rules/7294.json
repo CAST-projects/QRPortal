@@ -1,0 +1,156 @@
+{
+    "id": 7294,
+    "name": "Avoid cyclical calls and inheritances between namespaces content",
+    "href": "AIP/quality-rules/7294",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Cyclically called / inherited namespace full name",
+    "description": "This metric reports all namespaces that have one-on-one and more static circular dependencies.\nDependencies mean:\n - references through static methods call\n - references through class fields\n - references through inheritance\n\nNote that all these links are static links and not runtime.\nThe threshold parameter permit to define the maximal number of namespaces to cross for a cycle.\n\nNote that cycle notion means here a directed path in a graph that is directed by dependencies relations.",
+    "output": "This report lists all namespaces with static cyclical call to or inheritance with another .NET namespace.\nIt provides the following information:\n  * namespace full name \n  * cyclically called / inherited namespace full name",
+    "rationale": "When two namespaces refer to each other through a call, the result is a circular dependency. Neither namespaces can function without the other, and so neither is reusable without the other. In some cases, a redesign may eliminate these dependencies. When circular references are necessary, redesign it to ensure reusability. The same problem happens when some classes from a namespace A inherit from classes of a namespace B and other classes from namespace B inherit from other classes from namespace A. This rule can be extended to circular dependencies for more than 2 namespaces (for example a namespace A call a namespace B that call a namespace C, that call namespace A).",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/visual-basic/misc/bc30907",
+    "remediation": "If there are circular relationships among namespaces, the partitioning is not clear and should be redesigned. Use CAST Enlighten to see all dependencies to fix.",
+    "sample": "* Direct call sample:\n\nnamespace CyclicalCallsA\n{\n    public static class ClassA\n    {\n        public static void f()\n        {\n            CyclicalCallsB.ClassB.g();\n        }\n    }\n}\n\nnamespace CyclicalCallsB\n{\n    public static class ClassB\n    {\n        public static void g()\n        {\n            CyclicalCallsA.ClassA.f();\n        }\n    }\n}\n\n\n* Call due to inheritance:\nnamespace CyclicalCallsWIA\n{\n    public class ClassWIA\n    {\n        public static void f()\n        {\n            CyclicalCallsWIB.ClassWIB.g();\n        }\n    }\n}\n\nnamespace CyclicalCallsWIB\n{\n    public class ClassWIB : CyclicalCallsWIA.ClassWIA\n    {\n        public static void g()\n        {\n        }\n    }\n}",
+    "total": "Number of namespaces",
+    "alternativeName": "Avoid cyclical calls and inheritances between namespaces content",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062127,
+            "name": "ASCMM-MNT-7 - Inter-Module Dependency Cycles",
+            "href": "AIP/technical-criteria/1062127",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062159,
+            "name": "ASCRM-RLB-13 - Inter-Module Dependency Cycles",
+            "href": "AIP/technical-criteria/1062159",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 7,
+            "critical": false
+        },
+        {
+            "id": 1061110,
+            "name": "CWE-1047 - Modules with Circular Dependencies",
+            "href": "AIP/technical-criteria/1061110",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067147,
+            "name": "CWE-1047 - Modules with Circular Dependencies",
+            "href": "AIP/technical-criteria/1067147",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-7",
+            "name": "Inter-Module Dependency Cycles",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-7",
+            "standard": "CISQ"
+        },
+        {
+            "id": "ASCRM-RLB-13",
+            "name": "Inter-Module Dependency Cycles",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-13",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1047",
+            "name": "Modules with Circular Dependencies",
+            "href": "AIP/quality-standards/CWE/items/CWE-1047",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1047",
+            "name": "Modules with Circular Dependencies",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1047",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1047",
+            "name": "Modules with Circular Dependencies",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1047",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max_LEVEL",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        100
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

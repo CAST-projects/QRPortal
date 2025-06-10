@@ -1,0 +1,64 @@
+{
+    "id": 1600460,
+    "name": "Isolate common expressions (PeopleSoft)",
+    "href": "AIP/quality-rules/1600460",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This metric detects all PeopleCode objects that compute expression inside loops and fail to compute them once outside of the loop.",
+    "output": "This report lists all PeopleCode objects having common expressions. inside loops\nIt provides the following information:\n- Record full name\n- The associated value is the number of violation inside the violating PeopleCode object",
+    "rationale": "The PeopleCode compiler is not an optimizing compiler, unlike some current compilers for languages such as C++. For example, the PeopleCode compiler does not do common subexpression analysis. So, sometimes, if you have a complicated bit of PeopleCode that is used often, you can isolate the common expression yourself. This isolation can make your code look cleaner and make your code faster, especially if it is in a loop.\nThe compiler has to evaluate each occurrence of the expression, even though it would only execute it once.",
+    "reference": "Oracle PeopleCode Developer's Guide : https://docs.oracle.com/cd/E41633_01/pt853pbh1/eng/pt/tpcd/task_WritingMoreEfficientCode-0749ba.html",
+    "remediation": "Reorganize the code inside the artifact, and isolate common expressions.",
+    "total": "Number of PeopleSoft Events, Functions and Methods",
+    "alternativeName": "Isolate common expressions (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "href": "AIP/technical-criteria/66068",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

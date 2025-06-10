@@ -1,0 +1,73 @@
+{
+    "id": 7626,
+    "name": "Avoid large Classes - too many Methods (ABAP)",
+    "href": "AIP/quality-rules/7626",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Number of Methods/Event Methods/Constructors",
+    "description": "Classes should have less than a defined number of Methods.\nThe threshold is a parameter and can be changed at will.",
+    "output": "Associated to each ABAP Class with violations, the Quality Rule provides:\n- The number of Methods/Event Methods/Constructors",
+    "rationale": "For maintainability and readability reasons, Classes should not have too many Methods.",
+    "remediation": "Review the Class design to reduce the number of Methods",
+    "total": "Number of ABAP Classes",
+    "alternativeName": "Avoid large Classes - too many Methods (ABAP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "href": "AIP/technical-criteria/61022",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "max_method",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

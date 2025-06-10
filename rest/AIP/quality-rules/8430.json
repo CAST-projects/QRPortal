@@ -1,0 +1,152 @@
+{
+    "id": 8430,
+    "name": "Avoid using hard-coded seed or no seed at all for random values generation",
+    "href": "AIP/quality-rules/8430",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Functions that generate random or pseudorandom values, which are passed a seed, should not be called with a constant argument. If a pseudorandom number generator (such as CL_ABAP_RANDOM class or its variants) is seeded with a specific constant value, the values returned by GET_NEXT, INT and similar methods which return or assign values are predictable for an attacker that can collect a number of PRNG outputs.\n\nIf no seed is provided at all, the generation is also not random.\n\nClasses used to generate random /pseudorandom numbers:\n\nCL_ABAP_RANDOM\nCL_ABAP_RANDOM_DECFLOAT16\nCL_ABAP_RANDOM_DECFLOAT34\nCL_ABAP_RANDOM_FLOAT\nCL_ABAP_RANDOM_INT\nCL_ABAP_RANDOM_PACKED\nCL_ABAP_RANDOM_PACKED_DEC1\nCL_ABAP_RANDOM_PACKED_DEC2\nCL_ABAP_RANDOM_PACKED_DEC3\nCL_ABAP_RANDOM_PACKED_DEC4\nCL_ABAP_RANDOM_PACKED_DEC5\nCL_ABAP_RANDOM_PACKED_DEC6\nCL_ABAP_RANDOM_PACKED_DEC7\nCL_ABAP_RANDOM_PACKED_DEC8\nCL_ABAP_RANDOM_PACKED_DEC9\nCL_ABAP_RANDOM_PACKED_DEC10\nCL_ABAP_RANDOM_PACKED_DEC11\nCL_ABAP_RANDOM_PACKED_DEC12\nCL_ABAP_RANDOM_PACKED_DEC13\nCL_ABAP_RANDOM_PACKED_DEC14",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If an attacker can guess (or knows) the seed, then the attacker may be able to determine the random numbers that will be produced from the PRNG.",
+    "reference": "https://cwe.mitre.org/data/definitions/336.html\nhttps://software-heroes.com/en/blog/abap-quick-random-numbers",
+    "remediation": "Functions that generate random or pseudorandom values must provide a seed argument which is not constant.\nExample:\n  GET TIME STAMP FIELD l_now.\n  g_seed = FRAC( l_now ) * 10000.\n  gcl_prng = cl_abap_random=>create( seed = g_seed ).",
+    "sample": "In this sample : the values produced by the object r are predictable from the object s.\n\nDATA: s TYPE REF TO cl_abap_random,\n  r TYPE REF TO cl_abap_random,\n  var1 TYPE i,\n  var2 TYPE i.\n\ns = cl_abap_random=>create( seed = 12 ).\n\nDO 10 TIMES.\n  CALL METHOD s->int RECEIVING value = var1.\n  WRITE:/ var1.\nENDDO.\n\nr = cl_abap_random=>create( seed = 12 ).\n\nDO 10 TIMES.\n  CALL METHOD r->int RECEIVING value = var2.\n  WRITE:/ var2.\nENDDO.\n\nIn this example, pseudorandom number generators: r and s were identically seeded, so var1 = var2\n--------------------------\nSame thing with this code:\n\nDATA: s TYPE REF TO cl_abap_random,\n  r TYPE REF TO cl_abap_random,\n  var1 TYPE i,\n  var2 TYPE i.\n\ns = cl_abap_random=>create(  ).\n\nDO 10 TIMES.\n  CALL METHOD s->int RECEIVING value = var1.\n  WRITE:/ var1.\nENDDO.\n\nr = cl_abap_random=>create(  ).\n\nDO 10 TIMES.\n  CALL METHOD r->int RECEIVING value = var2.\n  WRITE:/ var2.\nENDDO.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid using hard-coded seed or no seed at all for random values generation",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066436,
+            "name": "CWE-336 - Same Seed in Pseudo-Random Number Generator (PRNG)",
+            "href": "AIP/technical-criteria/1066436",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062306,
+            "name": "OWASP-2013-A6 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062306",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062323,
+            "name": "OWASP-2017-A3 - Sensitive Data Exposure",
+            "href": "AIP/technical-criteria/1062323",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062342,
+            "name": "OWASP-2021-A02 - Cryptographic Failures",
+            "href": "AIP/technical-criteria/1062342",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063153,
+            "name": "PCI-DSS4-Requirement-3.6.1 - Procedures are defined and implemented to protect cryptographic keys",
+            "href": "AIP/technical-criteria/1063153",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063108,
+            "name": "PCI-Requirement-3.6.1 - Generation of strong cryptographic keys",
+            "href": "AIP/technical-criteria/1063108",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-336",
+            "name": "Same Seed in Pseudo-Random Number Generator (PRNG)",
+            "href": "AIP/quality-standards/CWE/items/CWE-336",
+            "standard": "CWE"
+        },
+        {
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A3-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "href": "AIP/quality-standards/OWASP/items/A6-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A02-2021",
+            "name": "Cryptographic Failures",
+            "href": "AIP/quality-standards/OWASP/items/A02-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-3.6.1",
+            "name": "Generation of strong cryptographic keys",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-3.6.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-3.6.1",
+            "name": "Generation of strong cryptographic keys",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-3.6.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-3.6.1",
+            "name": "Procedures are defined and implemented to protect cryptographic keys",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-3.6.1",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222596",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222596",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222596",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

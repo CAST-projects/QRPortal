@@ -1,0 +1,71 @@
+{
+    "id": 1600658,
+    "name": "Display control field must be before the related display field that depends on it (PeopleSoft)",
+    "href": "AIP/quality-rules/1600658",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Formatted string in the form of: 'Related=<Page Field Number> before Control= <Page Field Number>'",
+    "description": "This quality rule detects related Display Controls having a Page Field Number lower (displayed before) than the Display Controls governing.",
+    "output": "This report lists all the related Display Controls having a Page Field Number lower than the Display Controls governing.\nThe associated value is a string giving Page Field Numbers of both related Display Control and Display Control governing:\n'Related=' || T4.METRIC_VALUE || ' before Control=' || T3.METRIC_VALUE",
+    "rationale": "You should place display controls before related displays that they govern. The related display controls don't have to follow the display controls immediately, but they must be inside the same scroll area or scroll. However, if you have more than one related display control, placing each immediately following its display control makes the order page easier to read and understand.\nFailure to do do can result in page incorrect display or even blocking timeout.",
+    "reference": "Application Designer Developer's Guide",
+    "remediation": "Open the page in PeopleSoft Application Designer, choose order tab and modifiy the order of the concerned fields",
+    "remediationSample": "Related=' || T4.METRIC_VALUE || ' before Control=' || T3.METRIC_VALUE",
+    "total": "Number of PeopleSoft Display controls",
+    "alternativeName": "Display control field must be before the related display field that depends on it (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

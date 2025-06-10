@@ -1,0 +1,153 @@
+{
+    "id": 1027070,
+    "name": "Avoid if statements and blocks that are always TRUE or FALSE",
+    "href": "AIP/quality-rules/1027070",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules will raise a violation when if/else statements are found to be always TRUE or FALSE.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Unconditional if statements create results that are not expected by the developer. \nIf the 'if' statement always resolves to FALSE then the enclosed code block is never executed on the other hand an 'if' statement always resolving to TRUE makes the code block to be always executed which indicates redundancy in code and fault in logic.\nOne of the possible reasons this happens is that developer tries to debug the code and replaces the condition but later forgets to revert the condition back to a valid one.\n\nThis rule focus on conditional testing boolean directly, like \"if(true)\", or variable initialized but not modified afterward.",
+    "reference": "https://cwe.mitre.org/data/definitions/570.html\nhttps://cwe.mitre.org/data/definitions/571.html\nhttps://cwe.mitre.org/data/definitions/489.html",
+    "remediation": "Review the code and remove the unconditional statement OR add a valid condition.",
+    "remediationSample": "foo();",
+    "sample": "bool isValidProduct = false;\nbool isValidCustomer = true;\nif(isValidProduct)\n{\nfoo(); //Violation: Function is never called\n}\n\nif(isValidCustomer)\n{\nfoo();   //Violation: Function is always called\n}",
+    "total": "Number of methods and fields and properties initialized using a lambda function",
+    "alternativeName": "Avoid if statements and blocks that are always TRUE or FALSE",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066589,
+            "name": "CWE-489 - Active Debug Code",
+            "href": "AIP/technical-criteria/1066589",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061065,
+            "name": "CWE-570 - Expression is Always False",
+            "href": "AIP/technical-criteria/1061065",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066670,
+            "name": "CWE-570 - Expression is Always False",
+            "href": "AIP/technical-criteria/1066670",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061066,
+            "name": "CWE-571 - Expression is Always True",
+            "href": "AIP/technical-criteria/1061066",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066671,
+            "name": "CWE-571 - Expression is Always True",
+            "href": "AIP/technical-criteria/1066671",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-489",
+            "name": "Active Debug Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-489",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-570",
+            "name": "Expression is Always False",
+            "href": "AIP/quality-standards/CWE/items/CWE-570",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-571",
+            "name": "Expression is Always True",
+            "href": "AIP/quality-standards/CWE/items/CWE-571",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-570",
+            "name": "Expression is Always False",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-570",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-571",
+            "name": "Expression is Always True",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-571",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-570",
+            "name": "Expression is Always False",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-570",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-571",
+            "name": "Expression is Always True",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-571",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,122 @@
+{
+    "id": 1601516,
+    "name": "Avoid unused Page (PeopleSoft)",
+    "href": "AIP/quality-rules/1601516",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "List of Pages that are not called",
+    "output": "List all the unreferenced PeopleSoft Page",
+    "rationale": "Dead code must be avoided, it makes source code less readable, and increases the maintenance cost.",
+    "remediation": "Check that the artefacts are truly necessary, suppress them if they are not needed",
+    "total": "Number of PeopleSoft Page (ADDED)",
+    "alternativeName": "Avoid unused Page (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062122,
+            "name": "ASCMM-MNT-20 - Unreachable Named Callable or Method Control Element",
+            "href": "AIP/technical-criteria/1062122",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061061,
+            "name": "CWE-561 - Dead Code",
+            "href": "AIP/technical-criteria/1061061",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066661,
+            "name": "CWE-561 - Dead Code",
+            "href": "AIP/technical-criteria/1066661",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "href": "AIP/technical-criteria/61027",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-20",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-561",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-561",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-561",
+            "name": "Dead Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-561",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

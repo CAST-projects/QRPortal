@@ -1,0 +1,69 @@
+{
+    "id": 7148,
+    "name": "DEPRECATED: JSP pages should always be accessed through their tiles definition",
+    "href": "AIP/quality-rules/7148",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "JSP Tiles Definition or JSP Tiles Attributes",
+    "description": "Reports any direct references to JSP pages except those from Tiles.",
+    "output": "This report lists all JSP pages that are not accessed through their tiles.\nIt provides the following information:\n - Page name\n - JSP Tiles Definition or JSP Tiles Attributes",
+    "rationale": "To ease changes to the presentation layer, JSP Pages should always be accessed through their tiles definition. The Tiles framework makes it very easy to add and remove view components and to rearrange things.",
+    "remediation": "Review the source code and update it in order to have the JSP pages  accessed through their tiles definition",
+    "total": "Number of JSP pages, when the tiles technology is used (object of type  \"Tiles Configuration File\" is present)",
+    "alternativeName": "Ensure that JSP Pages are accessed through their tiles definition",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "href": "AIP/technical-criteria/61001",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

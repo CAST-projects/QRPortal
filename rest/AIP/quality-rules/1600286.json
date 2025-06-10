@@ -1,0 +1,79 @@
+{
+    "id": 1600286,
+    "name": "Avoid using the Hints to force Oracle to use a specific access method (PeopleSoft)",
+    "href": "AIP/quality-rules/1600286",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "description": "This quality rule reports SQL Definitions using an Oracle Hint in the SQL statement.\nIt detects the specific start of comment '/*+' without further checks on the hint syntax.",
+    "rationale": "To force Oracle to use a specific access method a common practive is to use the Hints. But do so knowingly (Oracle will not use the right index...) and be aware of the consequences (if tomorrow the indexes change, you may degrade database performance without knowing).\nSo, when you know what you are doing, you might use the hints....as the last chance tuning.\nOTOH and for instance, for certain SQL constructs, the use of the FIRST_ROWS hint can severely degrade performance.\n\nThis quality rule reports all SQL definition using an Oracle hint, in order to help a senior DBA check if the hints are effective.",
+    "reference": "Oracle Database Performance Tuning Guide: https://docs.oracle.com/cd/B19306_01/server.102/b14211/hintsref.htm#i8327\nPeopleSoft Application Server Domain Parameter OracleDisableFirstRowsHint :https://docs.oracle.com/cd/E13292_01/pt849pbr0/eng/psbooks/tsvt/chapter.htm?File=tsvt/htm/tsvt05.htm%23g037ee99c9453fb39_ef90c_10c791ddc07_ec7",
+    "remediation": "No generic remediation, this is a report for information and deep manual review.\nIf the Oracle hint degrades the performance, remove it.\nIf it is not effective, then adapt the hint (using tkprof for instance) to make it effective.",
+    "sample": "The Hints are enclosed in comment :\n{DELETE|INSERT|SELECT|UPDATE} /*+ hint [text] [hint[text]]... */\nlocated between the SELECT clause and the first column in the list.\n\nSELECT  /*+ parallel (4) */ TO_CHAR(D.PAY_BEGIN_DT,:\"SYS_B_000\"),\u2026\u2026\u2026",
+    "total": "Number of PeopleSoft SQL Definitions",
+    "alternativeName": "Avoid using the Hints to force Oracle to use a specific access method (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61011,
+            "name": "Complexity - SQL Queries",
+            "href": "AIP/technical-criteria/61011",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

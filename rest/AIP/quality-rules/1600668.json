@@ -1,0 +1,70 @@
+{
+    "id": 1600668,
+    "name": "Do not define a recordField EFFDT or EFF_STATUS without the other (PeopleSoft)",
+    "href": "AIP/quality-rules/1600668",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.peoplesoft",
+        "href": "AIP/extensions/com.castsoftware.peoplesoft"
+    },
+    "associatedValueName": "Either 'Missing EFF_STATUS' or 'Missing EFFDT'",
+    "description": "This quality rule reports PeopleSoft Records with EFFDT alone or EFFSTATUS alone.",
+    "output": "This report lists all the PeopleSoft Records with either EFFDT or EFF_STATUS but not the other",
+    "rationale": "As PeopleSoft generates automatically the SQL query to handle the effective date, both columns should be defined.\nWhen EFFDT is used on a non-employee data record, the EFF_STATUS field should also be defined for the record. Do not define only one without the other.",
+    "reference": "http://peoplesoft.wikidot.com/effective-dates-sequence-status",
+    "remediation": "Define the missing recordField :\ndefine EFFDT if not defined.\ndefine EFF_STATUS if not defined.",
+    "total": "Number of PeopleSoft Records with EFFDT or EFF_STATUS",
+    "alternativeName": "Do not define a recordField EFFDT or EFF_STATUS without the other (PeopleSoft)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1600000,
+            "name": "PeopleSoft",
+            "href": "AIP/technologies/1600000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

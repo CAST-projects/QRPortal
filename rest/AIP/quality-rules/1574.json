@@ -1,0 +1,60 @@
+{
+    "id": 1574,
+    "name": "Use at most one statement per line",
+    "href": "AIP/quality-rules/1574",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "associatedValueName": "Number of lines with more than 1 statement",
+    "description": "List of all Procedures and Functions with more than 1 statement per line",
+    "output": "This report lists all Procedures and Functions with more than 1 statement per line\nIt provides the following information: \n- Function / Procedure full name,\n- Number of lines with more than 1 statement",
+    "rationale": "There should not be more than one statement per line of code.\nStatements are separated by ';'\n\nWhen writing  many statements on the same line, code becomes more difficult to read and therefore more difficult to maintain.",
+    "remediation": "Edit code to have one single statement per line",
+    "total": "Number of SQL procedures and functions that are stored in the schema",
+    "alternativeName": "Use at most one statement per line",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "href": "AIP/technical-criteria/61006",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

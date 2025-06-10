@@ -1,0 +1,131 @@
+{
+    "id": 7136,
+    "name": "DEPRECATED: Each method in an Action Class should have a small complexity",
+    "href": "AIP/quality-rules/7136",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jee",
+        "href": "AIP/extensions/com.castsoftware.jee"
+    },
+    "associatedValueName": "Cyclomatic Complexity",
+    "description": "Each method in an Action Class (and inherited methods) that are referenced in the struts-config.xml through the tag 'action-mapping' (in struts 1.x) or in struts.xml and its included files through the tag 'action' (in struts 2.x) should have a small cyclomatic complexity.",
+    "output": "This report lists all Action methods with Cyclomatic complexity greater than X\nIt provides the following information:\n - Action Method full name\n - Cyclomatic Complexity",
+    "rationale": "It is wise to avoid creating lengthy and complex Action classes. If you start to embed too much logic in the Action class itself, you will begin to find the Action class hard to understand, maintain, and impossible to reuse. Rather than creating overly complex Action classes, it is generally a good practice to move most of the persistence, and \"business logic\" to a separate application layer.\nCyclomatic Complexity equals the minimum number of tests to check the Action Class's behavior. High CC means more testing and higher risk of errors.",
+    "reference": "http://struts.apache.org/1.x/userGuide/building_controller.html",
+    "remediation": "Refactor your application architecture and move some of this logic to another conceptual layer; otherwise, you may be left with an inflexible application which can only be accessed in a web-application environment.",
+    "total": "Number of methods of classes and parent classes that are referenced as an action in the XML configuration file",
+    "alternativeName": "Ensure that application architecture in not too complex and move some of this logic to another conceptual layer",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062112,
+            "name": "ASCMM-MNT-11 - Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/technical-criteria/1062112",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061149,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1061149",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067221,
+            "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/technical-criteria/1067221",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/CWE/items/CWE-1121",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1121",
+            "standard": "ISO-5055"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Cyclomatic Complexity",
+            "description": "Maximum Cyclomatic Complexity",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

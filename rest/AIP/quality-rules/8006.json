@@ -1,0 +1,115 @@
+{
+    "id": 8006,
+    "name": "Avoid Classes with a copy Constructor and the default Destructor or assignment operator",
+    "href": "AIP/quality-rules/8006",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for classes which implement a copy constructor but which let the compiler generate a default version for the destructor or the assignment operator (operator=).",
+    "output": "Associated to each C++ class with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - copy constructor",
+    "rationale": "If you need a copy constructor, you also need a destructor and operator=. If you need a copy constructor, it's because you need something like a deep copy, or some other management of resources. Thus it is almost certain that you will need a destructor and assignment operator. \n\nIf you don't need a copy constructor (because the default-generated copy constructor would be correct), you should let the compiler generate it: it will not contain bugs, and you will often not have to update it when the class is modified.",
+    "reference": "\"C++ Notes: OOP: Copy Constructors\":http://www.fredosaurus.com/notes-cpp/oop-condestructors/copyconstructors.html",
+    "remediation": "Prevent default generation of the destructor and assignment operator:\n- Provide your own version\n- Or declare it private without implementing it to prevent the operation (for assignment operator)",
+    "total": "Number of C++ classes",
+    "alternativeName": "Avoid Classes with a copy Constructor and the default Destructor or assignment operator",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062170,
+            "name": "ASCRM-RLB-6 - Storable or Member Data Element containing Pointer Item Element without Proper Copy Control Element",
+            "href": "AIP/technical-criteria/1062170",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061148,
+            "name": "CWE-1098 - Data Element containing Pointer Item without Proper Copy Control Element",
+            "href": "AIP/technical-criteria/1061148",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067198,
+            "name": "CWE-1098 - Data Element containing Pointer Item without Proper Copy Control Element",
+            "href": "AIP/technical-criteria/1067198",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-6",
+            "name": "Storable or Member Data Element containing Pointer Item Element without Proper Copy Control Element",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-6",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1098",
+            "name": "Data Element containing Pointer Item without Proper Copy Control Element",
+            "href": "AIP/quality-standards/CWE/items/CWE-1098",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1098",
+            "name": "Data Element containing Pointer Item without Proper Copy Control Element",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1098",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1098",
+            "name": "Data Element containing Pointer Item without Proper Copy Control Element",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1098",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

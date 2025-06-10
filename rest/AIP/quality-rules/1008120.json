@@ -1,0 +1,125 @@
+{
+    "id": 1008120,
+    "name": "Avoid Subroutines with more than X lines of code  (RPG400)",
+    "href": "AIP/quality-rules/1008120",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.rpg",
+        "href": "AIP/extensions/com.castsoftware.rpg"
+    },
+    "description": "This rule searches all the subroutines having more than X  lines of code.\nX is a parameter and can be changed at will.",
+    "output": "This report lists RPG400 Subroutines with more than X lines of code.\nIt provides the following information:\nRPG400 Subroutine full name",
+    "rationale": "Maintainability of the code is facilitated if there the subroutines are not too big.",
+    "remediation": "Review the source code in order to have subroutines with less than X lines of code.",
+    "total": "Total number of RPG400 Subroutines",
+    "alternativeName": "Avoid Subroutines with more than X lines of code  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062128,
+            "name": "ASCMM-MNT-8 - Source Element Excessive Size",
+            "href": "AIP/technical-criteria/1062128",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061132,
+            "name": "CWE-1080 - Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/technical-criteria/1061132",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067180,
+            "name": "CWE-1080 - Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/technical-criteria/1067180",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "href": "AIP/technical-criteria/61023",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-8",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1080",
+            "name": "Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/quality-standards/CWE/items/CWE-1080",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1080",
+            "name": "Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1080",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1080",
+            "name": "Source Code File with Excessive Number of Lines of Code",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1080",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max LOC",
+            "description": "Max LOC",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        500.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": 7694,
+    "name": "Avoid calling the same paragraph with PERFORM and GO TO statements",
+    "href": "AIP/quality-rules/7694",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for Cobol programs containing paragraphs called by GO TO statements and by PERFORM statements.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in source code:\n    - The PERFORM statements\n    - The GO TO statements",
+    "rationale": "For code structuration and mantainability reasons, a paragraph should not be called by PERFORM and GO TO statements. In the first case, the paragraph receives the control and return it just after its last statement. Its position in the program does not impact the execution of the program. In the second case, the paragraph receives the control by a fall-through logic and so the position of the paragraph impacts the execution of the code.\nFurthermore, the logic of the program is going to become difficult to understand, to maintain and so to test. As a result, the program could have unanticipated behavior.",
+    "remediation": "Try to adapt the logic in order to remove the GO TO statement. If necessary, then copy the code of paragraph that is called by PERFORM and GO TO into a new paragraph and change the target of the PERFORM statements.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid calling the same paragraph with PERFORM and GO TO statements",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "href": "AIP/technical-criteria/61024",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

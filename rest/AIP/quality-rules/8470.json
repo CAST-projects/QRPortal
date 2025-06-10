@@ -1,0 +1,178 @@
+{
+    "id": 8470,
+    "name": "Avoid using STRING without overflow check",
+    "href": "AIP/quality-rules/8470",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "STRING verb is used to combine multiple strings into one. \nThe ON OVERFLOW condition specifies what needs to be done when the overflow conditions occurred. \nThis rule checks if the STRING verb is used with ON OVERFLOW condition and reports violation if not.\n\nAn overflow condition occurs in the following conditions: \nThe pointer-Integer is not pointing the character position within the destination string when STRING executes i-e less than 1 or exceeds a value equal to the length of the receiving field\nIf all strings together are not accommodated to string destination then the overflow occurs.",
+    "output": "Associated to each COBOL Program with violations, the Quality Rule provides: \n\n- The number of using STRING without overflow check. \n- Bookmarks for violation occurrences found in source code: STRING syntax without overflow check",
+    "rationale": "When writing data to a memory buffer, it is vital to ensure that the size of the data does not exceed the size of the destination buffer. There tends to be loss of data or data being overwritten and disclosure of confidential information when the system goes into an unexpected state due to a buffer overflow exception. Failure to follow this guideline could allow attackers to control the flow of execution of your program and run arbitrary code at the same level of privilege as enjoyed by your program.",
+    "reference": "https://cwe.mitre.org/data/definitions/787.html\nhttps://www.owasp.org/index.php/A5_2004_Buffer_Overflow",
+    "remediation": "Ensure adding ON OVERFLOW option when using STRING verb",
+    "remediationSample": "100000 PROGRAM-ID. OVERRUN.\n100900\n101000 DATA DIVISION.\n101100   WORKING-STORAGE SECTION.\n101200     01 WS-PTR      PIC 99.\n101300     01 WS-FIRST    PIC X(5) VALUE 'FIRST'.\n101400     01 WS-SECOND   PIC X(6) VALUE 'SECOND'.\n101500     01 WS-THIRD    PIC X(5) VALUE 'THIRD'.\n101600     01 WS-RESULT   PIC X(15).\n101700\n101800 PROCEDURE DIVISION.\n101900     STRING WS-FIRST DELIMITED BY SIZE\n102000       WS-SECOND DELIMITED BY SIZE\n102100       WS-THIRD DELIMITED BY SPACE\n102200       INTO WS-RESULT\n102300       WITH POINTER WS-PTR\n102400       ON OVERFLOW DISPLAY 'OVERFLOW - POINTER OUT OF RANGE'.\n102500 STOP RUN.",
+    "sample": "100000 PROGRAM-ID. OVERRUN.\n100900\n101000 DATA DIVISION.\n101100   WORKING-STORAGE SECTION.\n101200     01 WS-PTR      PIC 99.\n101300     01 WS-FIRST    PIC X(5) VALUE 'FIRST'.\n101400     01 WS-SECOND   PIC X(6) VALUE 'SECOND'.\n101500     01 WS-THIRD    PIC X(5) VALUE 'THIRD'.\n101600     01 WS-RESULT   PIC X(15).\n101700\n101800 PROCEDURE DIVISION.\n101900     STRING WS-FIRST DELIMITED BY SIZE\n102000       WS-SECOND DELIMITED BY SIZE\n102100       WS-THIRD DELIMITED BY SPACE\n102200       INTO WS-RESULT\n102300       WITH POINTER WS-PTR\n102400 STOP RUN.",
+    "total": "Number of Cobol Programs",
+    "alternativeName": "Avoid using STRING without overflow check",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062145,
+            "name": "ASCRM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062145",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061090,
+            "name": "CWE-787 - Out-of-bounds Write",
+            "href": "AIP/technical-criteria/1061090",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066887,
+            "name": "CWE-787 - Out-of-bounds Write",
+            "href": "AIP/technical-criteria/1066887",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 8,
+            "critical": true
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063116,
+            "name": "PCI-Requirement-6.5.2 - Buffer overflows",
+            "href": "AIP/technical-criteria/1063116",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-120",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-787",
+            "name": "Out-of-bounds Write",
+            "href": "AIP/quality-standards/CWE/items/CWE-787",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-787",
+            "name": "Out-of-bounds Write",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-787",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-16",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-787",
+            "name": "Out-of-bounds Write",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-787",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222612",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222612",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222612",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

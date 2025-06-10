@@ -1,0 +1,137 @@
+{
+    "id": 1007036,
+    "name": "Avoid classes having excessive number of derived classes(PHP)",
+    "href": "AIP/quality-rules/1007036",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.php",
+        "href": "AIP/extensions/com.castsoftware.php"
+    },
+    "description": "This rule searches for all classes with excessive number of derived classes. A class is considered as having excessive number of derived classes if number of derived classes are more than 15.",
+    "output": "This report lists all classes with excessive number of derived classes.\n\nThis QR provides the following information:\nClass full name.",
+    "rationale": "A class with excessive number of derived classes is an indicator of unbalanced class hierarchy. You should consider refactoring this class hierarchy.",
+    "reference": "PHPMD - http://phpmd.org/rules/design.html#numberofchildren",
+    "remediation": "Review the architecture of the application.",
+    "sample": "<?php\n\nclass BaseClass {\n}\n\nClass DerivedClass1 extends BaseClass {\n}\n\nClass DerivedClass2 extends BaseClass {\n}\n\n\u2026\n\nClass DerivedClass16 extends BaseClass {\n}\n\n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes having excessive number of derived classes(PHP)",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062119,
+            "name": "ASCMM-MNT-18 - Class Element Excessive Number of Children",
+            "href": "AIP/technical-criteria/1062119",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061137,
+            "name": "CWE-1086 - Class with Excessive Number of Child Classes",
+            "href": "AIP/technical-criteria/1061137",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067186,
+            "name": "CWE-1086 - Class with Excessive Number of Child Classes",
+            "href": "AIP/technical-criteria/1067186",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61010",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-18",
+            "name": "Class Element Excessive Number of Children",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-18",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1086",
+            "name": "Class with Excessive Number of Child Classes",
+            "href": "AIP/quality-standards/CWE/items/CWE-1086",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1086",
+            "name": "Class with Excessive Number of Child Classes",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1086",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1086",
+            "name": "Class with Excessive Number of Child Classes",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1086",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of acceptable child classes",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        15.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

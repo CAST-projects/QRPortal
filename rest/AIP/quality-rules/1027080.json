@@ -1,0 +1,158 @@
+{
+    "id": 1027080,
+    "name": "Always use ConfigureAwait(false) in library code awaited tasks",
+    "href": "AIP/quality-rules/1027080",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule raises an issue when code in a class library awaits a Task and continues execution in the original calling thread.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "ConfigureAwait(false) is used to avoid forcing the callback to be invoked on the original context or scheduler. It helps in avoiding Context Switching, preventing deadlocks and improving performance.",
+    "reference": "https://devblogs.microsoft.com/dotnet/configureawait-faq/#why-would-i-want-to-use-configureawaitfalse",
+    "remediation": "Use ConfigureAwait(false) in Library Classes awaiting tasks",
+    "remediationSample": "var res = await httpClient.GetAsync(url).ConfigureAwait(false);  // Violation Fixed",
+    "sample": "var res = await httpClient.GetAsync(url);  // Violation",
+    "total": "Number of Artifacts",
+    "alternativeName": "Always use ConfigureAwait(false) in library code awaited tasks",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062165,
+            "name": "ASCRM-RLB-19 - Synchronous Call Time-Out Absence",
+            "href": "AIP/technical-criteria/1062165",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061139,
+            "name": "CWE-1088 - Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/technical-criteria/1061139",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067188,
+            "name": "CWE-1088 - Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/technical-criteria/1067188",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061096,
+            "name": "CWE-821 - Incorrect Synchronization",
+            "href": "AIP/technical-criteria/1061096",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066921,
+            "name": "CWE-821 - Incorrect Synchronization",
+            "href": "AIP/technical-criteria/1066921",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-19",
+            "name": "Synchronous Call Time-Out Absence",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-19",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-821",
+            "name": "Incorrect Synchronization",
+            "href": "AIP/quality-standards/CWE/items/CWE-821",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1088",
+            "name": "Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/quality-standards/CWE/items/CWE-1088",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-821",
+            "name": "Incorrect Synchronization",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-821",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1088",
+            "name": "Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1088",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-821",
+            "name": "Incorrect Synchronization",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-821",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-1088",
+            "name": "Synchronous Access of Remote Resource without Timeout",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1088",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

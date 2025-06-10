@@ -1,0 +1,147 @@
+{
+    "id": 1043082,
+    "name": "Avoid client provided dictionaries to have high request sizes",
+    "href": "AIP/quality-rules/1043082",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.dotnetweb",
+        "href": "AIP/extensions/com.castsoftware.dotnetweb"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will raise a violation if client provided dictionaries listed below have a large number of elements. The default limit will be 1000 and should be customizable.\nHttpRequest.Files, \nHttpRequest.Form, \nHttpRequest.Cookies, \nHttpRequest.QueryString, \nHttpRequest.Headers, \nHttpRequest.ServerVariables.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When web pages have a large amount of post data it can potentially lead to exhaustion of resources even with lesser number of sessions/calls. \nAttackers can hence make possible Denial of Service with less number of requests.\nThe default limit for the following client side dictionaries is 1000 but changing them to a higher number poses a security risk.",
+    "reference": "https://docs.microsoft.com/en-us/previous-versions/aspnet/hh975440(v=vs.120)?redirectedfrom=MSDN\n\nhttps://cwe.mitre.org/data/definitions/730.html",
+    "remediation": "Never change the maxHttpCollectionKeys to more than <x>, X being the customizable limit",
+    "remediationSample": "...\n  <appSettings>\n    <add key=\"aspnet:MaxHttpCollectionKeys\" value=\"<less than 1000>\" /> //fixed\n  </appSettings>\n...\nOR\nDo not specify MaxHttpCollectionKeys at all",
+    "sample": "...\n  <appSettings>\n    <add key=\"aspnet:MaxHttpCollectionKeys\" value=\"21474836\" />\n  </appSettings>\n...",
+    "total": "Number of Root web.config file",
+    "alternativeName": "Avoid client provided dictionaries to have high request sizes",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "href": "AIP/technical-criteria/61018",
+            "weight": 3,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-400",
+            "name": "Uncontrolled Resource Consumption",
+            "href": "AIP/quality-standards/CWE/items/CWE-400",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-5",
+            "name": "Denial-of-service Protection",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-5",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "API4-2019",
+            "name": "Lack of Resources & Rate Limiting",
+            "href": "AIP/quality-standards/OWASP/items/API4-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max number for maxHttpCollectionKeys",
+            "description": "Max number for maxHttpCollectionKeys",
+            "technologies": [
+                {
+                    "id": 138636,
+                    "name": "ASP.NET",
+                    "href": "AIP/technologies/138636",
+                    "values": [
+                        1000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

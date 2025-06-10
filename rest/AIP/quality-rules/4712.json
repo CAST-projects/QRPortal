@@ -1,0 +1,60 @@
+{
+    "id": 4712,
+    "name": "Avoid inheritance down the Package path",
+    "href": "AIP/quality-rules/4712",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "associatedValueName": "Inherited Class Full Name",
+    "description": "Classes should not inherit from another Class which is located in a subpackage. For example: given the Package path com.castsoftware.product.p1.p2.p3.p4 a Class c1 in p1 is not allowed to inherit from a Class c2 in p2, p3 or p4.",
+    "output": "This report lists all Classes inheriting from a Class lower down in the Package path. It provides the following information: Class full name, Inherited Class Full Name",
+    "rationale": "Each package is seen as completely independent by the JVM, sub-packages are seen just like any other package. It is, however, good practice to respect this hierarchy so that any package acts as a container of sub-packages. The advantages of this for other modules are that it is only necessary to import the parent package to benefit from the service offered by this parent package, and, as such, there is no obligation to import other sub-packages. The package is then seen as a unit of abstraction of the implementation of a service implemented by the classes in this package and sub-packages. This will ease the maintainability and transferability of the packages.",
+    "remediation": "Review the design of the Class.",
+    "total": "Number of classes",
+    "alternativeName": "Ensure you respect the hierarchy of packages so that any package acts as a container of sub-packages",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

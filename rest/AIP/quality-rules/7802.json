@@ -1,0 +1,169 @@
+{
+    "id": 7802,
+    "name": "Avoid Classes with a High Depth of Inheritance Tree",
+    "href": "AIP/quality-rules/7802",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 6,
+    "associatedValueName": "Depth of Inheritance Tree",
+    "description": "Avoid Classes and Interfaces with a High Depth of Inheritance Tree (DIT greater than X+1).\nThis means that the inheritance tree should have at most X levels. Depth of Inheritance Tree (DIT) is the maximum length of a path from a class (or interface) to a root class (or root interface) in the inheritance structure of a system. DIT measures how many super-classes can affect a class.",
+    "output": "This report lists all Classes and interfaces with a Depth of Inheritance Tree greater than X+1\nIt provides the following information: Class or interface full name, DIT",
+    "rationale": "Changing a class (or interface) requires prior understanding, which, in turn, is more complicated for classes (or interface) with many methods. Classes (or interfaces) that are deep down in the classes (or interfaces) hierarchy potentially inherit many methods from super-classes (or super-interfaces). Moreover, the definitions of inherited methods are not local to the class making it even harder to understand it.\n\nComplete testing requires coverage of all execution paths. The number of possible execution paths of a class increases with the number of methods and their control flow complexity. Classes (or interfaces) that are deep down in the classes hierarchy potentially inherit many methods from super-classes (super-interfaces). Due to late binding, super-class (or super-interfaces) methods need to be tested again in the sub-class (or sub-interfaces) context. This makes it potentially harder to test classes (interfaces) deep down in the classes (interfaces) hierarchy.\n\nTechnical or framework classes which are evolving and will not be changed often should not be concerned by this rule.",
+    "reference": "https://it-cisq.org/\nCISQ : ASCMM-MNT-17\n\nA Metrics Suite for Object Oriented Design\nChidamber, S.R. and C.F. Kemerer\nIEEE Transactions on Software Engineering, 1994",
+    "remediation": "Review the design of the Class hierarchy.",
+    "total": "Number of classes and interfaces",
+    "alternativeName": "Avoid Classes with a High Depth of Inheritance Tree",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062118,
+            "name": "ASCMM-MNT-17 - Class Element Excessive Inheritance Level",
+            "href": "AIP/technical-criteria/1062118",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061128,
+            "name": "CWE-1074 - Class with Excessively Deep Inheritance",
+            "href": "AIP/technical-criteria/1061128",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067174,
+            "name": "CWE-1074 - Class with Excessively Deep Inheritance",
+            "href": "AIP/technical-criteria/1067174",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61010",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        },
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-17",
+            "name": "Class Element Excessive Inheritance Level",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-17",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1074",
+            "name": "Class with Excessively Deep Inheritance",
+            "href": "AIP/quality-standards/CWE/items/CWE-1074",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1074",
+            "name": "Class with Excessively Deep Inheritance",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1074",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1074",
+            "name": "Class with Excessively Deep Inheritance",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1074",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Depth of Inheritance Tree",
+            "description": "Max Depth Inheritance Tree per class",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        4
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
