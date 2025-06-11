@@ -4,7 +4,7 @@
     "href": "AIP/quality-rules/1065136",
     "critical": false,
     "severity": 10,
-    "maxWeight": 1,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.cpp",
         "href": "AIP/extensions/com.castsoftware.cpp"
@@ -21,9 +21,19 @@
     "alternativeName": "Avoid incoherent sizeof calculation",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "Green",
             "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
         },
         {
             "id": 60013,
@@ -37,6 +47,48 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062145,
+            "name": "ASCRM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062145",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062174,
+            "name": "ASCSM-CWE-120 - Buffer Copy without Checking Size of Input",
+            "href": "AIP/technical-criteria/1062174",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061022,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1061022",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066220,
+            "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "href": "AIP/technical-criteria/1066220",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063116,
+            "name": "PCI-Requirement-6.5.2 - Buffer overflows",
+            "href": "AIP/technical-criteria/1063116",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66069,
             "name": "Programming Practices - Unexpected Behavior",

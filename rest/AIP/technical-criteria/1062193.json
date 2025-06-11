@@ -1,0 +1,14 @@
+{
+    "id": 1062193,
+    "name": "ASCSM-CWE-835 - Loop with Unreachable Exit Condition ('Infinite Loop')",
+    "href": "AIP/technical-criteria/1062193",
+    "description": "Objective\nAvoid infinite iterations\n\nConsequence\nSoftware unaware of iteration control incurs the risk of unexpected consumption of resources, such as CPU cycles or memory, possibly leading to a crash or program exit due to exhaustion of resources\n\nMeasure Element\nNumber of instances where the named callable control element or method control element features the executioon path whose entry element is found again in the path, while it has no path whatsoever to not return to itself and exit the recursion\n\n",
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/technical-criteria/1062193/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/technical-criteria/1062193/quality-templates"
+    }
+}

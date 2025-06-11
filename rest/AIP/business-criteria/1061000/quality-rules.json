@@ -1647,17 +1647,6 @@
         ]
     },
     {
-        "id": 7982,
-        "name": "Avoid using strlen() function family",
-        "href": "AIP/quality-rules/7982",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C",
-            "C++"
-        ]
-    },
-    {
         "id": 7984,
         "name": "Avoid using strecpy() function",
         "href": "AIP/quality-rules/7984",
@@ -7226,6 +7215,28 @@
         "id": 1065128,
         "name": "Avoid having unused labels in your program (C/C++)",
         "href": "AIP/quality-rules/1065128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065134,
+        "name": "Avoid returning address of local variable",
+        "href": "AIP/quality-rules/1065134",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065136,
+        "name": "Avoid incoherent sizeof calculation",
+        "href": "AIP/quality-rules/1065136",
         "critical": false,
         "severity": 10,
         "technologyNames": [
