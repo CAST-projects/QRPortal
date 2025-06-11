@@ -1,0 +1,86 @@
+{
+    "id": 8586,
+    "name": "Avoid Insecure dynamic call of a function module through variable P_NAME",
+    "href": "AIP/quality-rules/8586",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "This rule identifies the call of a function module through variable P_NAME",
+    "output": "This report lists all ABAP artifacts containing an empty CATCH clause in a TRY...ENDTRY statement. \n\nIt provides the following information : \n- Artifact fullname\n- Number of violations",
+    "rationale": "Exposing dynamic function calls through variables potentially allows the Risk of \n- Calling dangerous or unauthorized functions at runtime\n- Code Injection as Malicious users could inject names of dangerous function modules or execute unintended system functions leading to Potential for system manipulation or data corruption",
+    "reference": "https://cwe.mitre.org/data/definitions/749.html",
+    "remediation": "1- Maintain a strict whitelist of allowed function modules",
+    "remediationSample": "TRY.\n      p_name = cl_abap_dyn_prg=>check_whitelist_str( val       = p_name\n                                                     whitelist = 'XXXX' ).\n\n      CALL FUNCTION p_name\n        EXPORTING\n          query_table          = 'YYYY'\n        TABLES\n          options              = lt_options\n          fields               = lt_fields\n          data                 = lt_t_data\n        EXCEPTIONS\n          OTHERS               = 1.\n      IF sy-subrc <> 0.\n* Implement suitable error handling here\n      ENDIF.\n    CATCH cx_abap_not_in_whitelist.\n      MESSAGE 'Error Whitelist' TYPE 'E'.\n  ENDTRY.",
+    "sample": "CALL FUNCTION p_name  \" Security risk: Could call any function\n   EXPORTING\n      query_table          = 'YYYY'\n   TABLES\n      options              = lt_options\n      fields               = lt_fields\n      data                 = lt_t_data\n   EXCEPTIONS\n          OTHERS               = 1.",
+    "total": "Number of ABAP Artifacts",
+    "alternativeName": "Avoid Insecure dynamic call of a function module through variable P_NAME",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066849,
+            "name": "CWE-749 - Exposed Dangerous Method or Function",
+            "href": "AIP/technical-criteria/1066849",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067013,
+            "name": "CWE-913 - Improper Control of Dynamically-Managed Code Resources",
+            "href": "AIP/technical-criteria/1067013",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-749",
+            "name": "Exposed Dangerous Method or Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-749",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-913",
+            "name": "Improper Control of Dynamically-Managed Code Resources",
+            "href": "AIP/quality-standards/CWE/items/CWE-913",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -2,7 +2,7 @@
     "id": 1062127,
     "name": "ASCMM-MNT-7 - Inter-Module Dependency Cycles",
     "href": "AIP/technical-criteria/1062127",
-    "description": "Objective\nAvoid circular dependencies between modules\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a module has references that cycle back to itself via the module callable or data relations cycle (for example, with JAVA this pattern means cycles between packages)\n\n",
+    "description": "Objective\nAvoid circular dependencies between modules\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a module has references that cycle back to itself via the module callable or data relations cycle (for example, with JAVA this pattern means cycles between packages)",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/technical-criteria/1062127/quality-rules"

@@ -2,7 +2,7 @@
     "id": 1062183,
     "name": "ASCSM-CWE-456 - Storable and Member Data Element Missing Initialization",
     "href": "AIP/technical-criteria/1062183",
-    "description": "Objective\nAvoid failure to explicitly initialize software data elements in use\n\nConsequence\nSoftware featuring weak initialization practices incurs the risk of logic errors within the program, possibly leading to a security problem\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared by the \u2018Create\u2019 action, then is evaluated in a \u2018Read\u2019 action without ever being initialized by a \u2018Write\u2019 action prior to the evaluation\n\n",
+    "description": "Objective\nAvoid failure to explicitly initialize software data elements in use\n\nConsequence\nSoftware featuring weak initialization practices incurs the risk of logic errors within the program, possibly leading to a security problem\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared by the \u2018Create\u2019 action, then is evaluated in a \u2018Read\u2019 action without ever being initialized by a \u2018Write\u2019 action prior to the evaluation",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/technical-criteria/1062183/quality-rules"

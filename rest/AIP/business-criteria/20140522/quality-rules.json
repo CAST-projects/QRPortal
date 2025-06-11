@@ -125,16 +125,6 @@
         ]
     },
     {
-        "id": 2242,
-        "name": "DEPRECATED: Avoid direct definition of JavaScript Functions in a Web page (JEE)",
-        "href": "AIP/quality-rules/2242",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 2278,
         "name": "DEPRECATED: Check the use of \"foreach\" custom tag library",
         "href": "AIP/quality-rules/2278",
@@ -627,17 +617,6 @@
         ]
     },
     {
-        "id": 7208,
-        "name": "DEPRECATED: Avoid the use of is inside loops",
-        "href": "AIP/quality-rules/7208",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 7210,
         "name": "Avoid instantiations inside loops",
         "href": "AIP/quality-rules/7210",
@@ -986,7 +965,7 @@
     },
     {
         "id": 7470,
-        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
+        "name": "Avoid doing select on Datatable in loop",
         "href": "AIP/quality-rules/7470",
         "critical": true,
         "severity": 20,
@@ -1080,16 +1059,6 @@
         "id": 7496,
         "name": "DEPRECATED: Use table-per-subclass strategy when subclasses have many properties",
         "href": "AIP/quality-rules/7496",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 7498,
-        "name": "DEPRECATED: Avoid Incorrect implementation of getters and setters for Collection Type",
-        "href": "AIP/quality-rules/7498",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -3037,6 +3006,16 @@
         "severity": 20,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 8586,
+        "name": "Avoid Insecure dynamic call of a function module through variable P_NAME",
+        "href": "AIP/quality-rules/8586",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     },
     {
@@ -5651,7 +5630,7 @@
     },
     {
         "id": 1020800,
-        "name": "Avoid jump statements in finally ",
+        "name": "Avoid jump statements in finally",
         "href": "AIP/quality-rules/1020800",
         "critical": false,
         "severity": 10,
@@ -5661,7 +5640,7 @@
     },
     {
         "id": 1020802,
-        "name": "Avoid having errors without throwing them ",
+        "name": "Avoid having errors without throwing them",
         "href": "AIP/quality-rules/1020802",
         "critical": false,
         "severity": 10,
@@ -5671,7 +5650,7 @@
     },
     {
         "id": 1020804,
-        "name": "Avoid using console logging ",
+        "name": "Avoid using console logging",
         "href": "AIP/quality-rules/1020804",
         "critical": false,
         "severity": 10,
@@ -5681,7 +5660,7 @@
     },
     {
         "id": 1020806,
-        "name": "Avoid using NaN in comparison ",
+        "name": "Avoid using NaN in comparison",
         "href": "AIP/quality-rules/1020806",
         "critical": false,
         "severity": 10,
@@ -7316,7 +7295,7 @@
         "id": 1042030,
         "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
         "href": "AIP/quality-rules/1042030",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -7326,7 +7305,7 @@
         "id": 1042036,
         "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
         "href": "AIP/quality-rules/1042036",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"

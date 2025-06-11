@@ -2,7 +2,7 @@
     "id": 1062158,
     "name": "ASCRM-RLB-12 - Singleton Class Instance Creation without Proper Lock Element Management",
     "href": "CARL/technical-criteria/1062158",
-    "description": "Objective\nAvoid incorrect implementation of singleton patterns caused by improperly-locked instantiations\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a singleton class element, (that is, a class element that can be used only once in the 'to' association of a \u2018Create\u2019 action) is instantiated with the \u2018Creates\u2019 action element without any prior locking mechanism activation\n\n",
+    "description": "Objective\nAvoid incorrect implementation of singleton patterns caused by improperly-locked instantiations\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a singleton class element, (that is, a class element that can be used only once in the 'to' association of a \u2018Create\u2019 action) is instantiated with the \u2018Creates\u2019 action element without any prior locking mechanism activation",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/technical-criteria/1062158/quality-rules"

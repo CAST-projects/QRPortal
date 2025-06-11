@@ -2,7 +2,7 @@
     "id": 1042036,
     "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
     "href": "AIP/quality-rules/1042036",
-    "critical": true,
+    "critical": false,
     "severity": 30,
     "maxWeight": 5,
     "extension": {
@@ -79,7 +79,7 @@
             "name": "Secure Coding - Weak Security Features",
             "href": "AIP/technical-criteria/66064",
             "weight": 1,
-            "critical": true
+            "critical": false
         }
     ],
     "technologies": [
@@ -143,9 +143,9 @@
         
     ],
     "thresholds": [
-        98.0,
-        99.0,
-        99.5,
-        99.99
+        50.0,
+        90.0,
+        95.0,
+        99.0
     ]
 }

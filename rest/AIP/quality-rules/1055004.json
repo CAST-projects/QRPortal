@@ -15,8 +15,8 @@
     "rationale": "Insecure data storage vulnerabilities occur when development teams assume that users or malware will not have access to a mobile device's filesystem and subsequent sensitive information in data-stores on the device. \nIf the program does not ensure that the user is only requesting private files, then the user might be able to access other files on the system.",
     "reference": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M2-Insecure_Data_Storage",
     "remediation": "Instead of using FileProtectionType.none or URLFileProtection.none options, please use one of the following option:\n\nFileProtection.complete\nFileProtection.completeUnlessOpen\nFileProtection.completeUntilFirstUserAuthentication\n\nURLFileProtection.complete\nURLFileProtection.completeUnlessOpen\nURLFileProtection.completeUntilFirstUserAuthentication",
-    "remediationSample": "FileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:FileProtection.complete])\n\nFileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:URLFileProtection.complete])\n\n",
-    "sample": "FileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:FileProtection.none])\n\nFileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:URLFileProtection.none])\n\n",
+    "remediationSample": "FileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:FileProtection.complete])\n\nFileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:URLFileProtection.complete])",
+    "sample": "FileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:FileProtection.none])\n\nFileManager.default.createFile(atPath:PATH, contents:someData, attributes:[FileProtectionKey.protectionKey:URLFileProtection.none])",
     "total": "Number of Swift artifacts",
     "alternativeName": "Avoid creating file without protection (Swift)",
     "businessCriteria": [

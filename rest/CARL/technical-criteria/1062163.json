@@ -2,7 +2,7 @@
     "id": 1062163,
     "name": "ASCRM-RLB-17 - Child Class Element wihout Virtual Destructor unlike its Parent Class Element",
     "href": "CARL/technical-criteria/1062163",
-    "description": "Objective\nAvoid failing to include a virtual destructor in a child class despite the existence of a virtual destructor in the parent class\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where, for languages in which custom destructors can be written, the child class element used in the 'from' association of a Extends class relation does not have its own virtual destructor, while its parent class element that is used in the 'to' association of the Extends class relation has a virtual destructor\n\n",
+    "description": "Objective\nAvoid failing to include a virtual destructor in a child class despite the existence of a virtual destructor in the parent class\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where, for languages in which custom destructors can be written, the child class element used in the 'from' association of a Extends class relation does not have its own virtual destructor, while its parent class element that is used in the 'to' association of the Extends class relation has a virtual destructor",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/technical-criteria/1062163/quality-rules"

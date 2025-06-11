@@ -2,7 +2,7 @@
     "id": 1062187,
     "name": "ASCSM-CWE-681 - Numeric Types Incorrect Conversion",
     "href": "AIP/technical-criteria/1062187",
-    "description": "Objective\nAvoid numerical data corruption during incompatible mutation\n\nConsequence\nSoftware featuring weak numerical conversion practices incurs the risk of using the wrong number and generating incorrect results, possibly introducing new vulnerability when related to resource allocation and security decision\n\nMeasure Element\nNumber of instances where a storable element or member element is declared with a numerical data type in the \u2018Create\u2019 action, and then is updated with a value which is cast via a type cast action into a second numerical data type, which is incompatible with the first data type\n\n",
+    "description": "Objective\nAvoid numerical data corruption during incompatible mutation\n\nConsequence\nSoftware featuring weak numerical conversion practices incurs the risk of using the wrong number and generating incorrect results, possibly introducing new vulnerability when related to resource allocation and security decision\n\nMeasure Element\nNumber of instances where a storable element or member element is declared with a numerical data type in the \u2018Create\u2019 action, and then is updated with a value which is cast via a type cast action into a second numerical data type, which is incompatible with the first data type",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/technical-criteria/1062187/quality-rules"

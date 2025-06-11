@@ -2,7 +2,7 @@
     "id": 1062157,
     "name": "ASCRM-RLB-11 - Named Callable and Method Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
     "href": "CARL/technical-criteria/1062157",
-    "description": "Objective\nAvoid unsafe implementations in multi-thread environments that fail to protect state\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a named callable control element or method control element owns an unsafe non-final static storable or member data element while it operates in a multi-threaded environment\n\n",
+    "description": "Objective\nAvoid unsafe implementations in multi-thread environments that fail to protect state\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a named callable control element or method control element owns an unsafe non-final static storable or member data element while it operates in a multi-threaded environment",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/technical-criteria/1062157/quality-rules"

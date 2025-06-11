@@ -10,7 +10,7 @@
         "href": "AIP/extensions/com.castsoftware.systemlevelrules"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This rule identifies client-side control elements that embed a number of data resource access actions that exceed a threshold value.\nThe threshold for the number of SQL Calls is a parameter and can be changed.\nSee the parameter of rule #8110 in order to change the parameter (default value is 2).\n",
+    "description": "This rule identifies client-side control elements that embed a number of data resource access actions that exceed a threshold value.\nThe threshold for the number of SQL Calls is a parameter and can be changed.\nSee the parameter of rule #8110 in order to change the parameter (default value is 2).",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "Software that does not leverage database capabilities to efficiently run data processing (such as stored procedures and functions) requires excessive computational resources.\nWhen the artifacts have a high fan-in the risk is highly increased.",
     "reference": "http://it-cisq.org/\nASCPEM 1.0, Automated Source Code Performance Efficiency Measure, Object Management Group.\nCISQ: ASCPEM-PRF-10",

@@ -2,539 +2,539 @@
     {
         "id": 1062110,
         "name": "ASCMM-MNT-1 - Control Flow Transfer Control Element outside Switch Block",
-        "description": "Objective\nAvoid the unconditional transfer of control flow outside of switch structures\n\nConsequence\nSoftware that does not follow the principles of structured programming degrades comprehensibility\n\nMeasure Element\nNumber of instances where an unconditional transfer of control is located outside the branching based on the value of a storable element\n\n",
+        "description": "Objective\nAvoid the unconditional transfer of control flow outside of switch structures\n\nConsequence\nSoftware that does not follow the principles of structured programming degrades comprehensibility\n\nMeasure Element\nNumber of instances where an unconditional transfer of control is located outside the branching based on the value of a storable element",
         "href": "CARL/technical-criteria/1062110",
         "weight": 5
     },
     {
         "id": 1062111,
         "name": "ASCMM-MNT-10 - Named Callable and Method Control Element Multi-Layer Span",
-        "description": "Objective\nAvoid unclear allocation of software elements to a single architectural layer\n\nConsequence\nSoftware that does not follow the principles of layered architectures (such as strict partitioning and strict call hierarchy) decreases comprehensibility as well as simplicity to evolve the code\n\nMeasure Element\nNumber of instances where a callable or method control element is part of two architectural layers\n\n",
+        "description": "Objective\nAvoid unclear allocation of software elements to a single architectural layer\n\nConsequence\nSoftware that does not follow the principles of layered architectures (such as strict partitioning and strict call hierarchy) decreases comprehensibility as well as simplicity to evolve the code\n\nMeasure Element\nNumber of instances where a callable or method control element is part of two architectural layers",
         "href": "CARL/technical-criteria/1062111",
         "weight": 5
     },
     {
         "id": 1062112,
         "name": "ASCMM-MNT-11 - Callable and Method Control Element Excessive Cyclomatic Complexity Value",
-        "description": "Objective\nAvoid overly complex control flow\n\nConsequence\nSoftware that does not follow the principles of structured programming degrades comprehensibility\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a control flow with a Cyclomatic Complexity number that exceeds a threshold value. Default threshold value for Cyclomatic Complexity is 20\n\n",
+        "description": "Objective\nAvoid overly complex control flow\n\nConsequence\nSoftware that does not follow the principles of structured programming degrades comprehensibility\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a control flow with a Cyclomatic Complexity number that exceeds a threshold value. Default threshold value for Cyclomatic Complexity is 20",
         "href": "CARL/technical-criteria/1062112",
         "weight": 5
     },
     {
         "id": 1062113,
         "name": "ASCMM-MNT-12 - Named Callable and Method Control Element with Layer-skipping Call",
-        "description": "Objective\nAvoid breaches of layered architecture principles due to layer-skipping references\n\nConsequence\nSoftware that does not follow the principles of layered architectures (such as strict partitioning and strict call hierarchy) decreases comprehensibility as well as simplicity to evolve the code\n\nMeasure Element\nNumber of instances where a named callable or method control element from a higher horizontal layer directly calls a named callable or method control element in a lower horizontal layer that is not adjacent to the upper layer making the call, as defined in a model of the application\u2019s architectural layers (this excludes the vertical utility layers that can be referenced from any horizontal layer)\n\n",
+        "description": "Objective\nAvoid breaches of layered architecture principles due to layer-skipping references\n\nConsequence\nSoftware that does not follow the principles of layered architectures (such as strict partitioning and strict call hierarchy) decreases comprehensibility as well as simplicity to evolve the code\n\nMeasure Element\nNumber of instances where a named callable or method control element from a higher horizontal layer directly calls a named callable or method control element in a lower horizontal layer that is not adjacent to the upper layer making the call, as defined in a model of the application\u2019s architectural layers (this excludes the vertical utility layers that can be referenced from any horizontal layer)",
         "href": "CARL/technical-criteria/1062113",
         "weight": 5
     },
     {
         "id": 1062114,
         "name": "ASCMM-MNT-13 - Callable and Method Control Element Excessive Number of Parameters",
-        "description": "Objective\nAvoid over-parameterization\n\nConsequence\nSoftware that does not cap the number of parameters degrades comprehensibility\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a number of parameters in its signature that exceeds a threshold value. Default threshold value for the number of parameters is 7.\n\n",
+        "description": "Objective\nAvoid over-parameterization\n\nConsequence\nSoftware that does not cap the number of parameters degrades comprehensibility\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a number of parameters in its signature that exceeds a threshold value. Default threshold value for the number of parameters is 7.",
         "href": "CARL/technical-criteria/1062114",
         "weight": 5
     },
     {
         "id": 1062115,
         "name": "ASCMM-MNT-14 - Callable and Method Control Element Excessive Number of Control Elements involving Data Element from Data Manager or File Resource",
-        "description": "Objective\nAvoid the existence of control elements with too many data operations\n\nConsequence\nSoftware that does not cap the number of data operations degrades comprehensibility by requiring the understanding of too many external data structures\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a number of operations involving a data manager or a file resource that exceeds a threshold value. Default threshold value for the number of data operations is 7\n\n",
+        "description": "Objective\nAvoid the existence of control elements with too many data operations\n\nConsequence\nSoftware that does not cap the number of data operations degrades comprehensibility by requiring the understanding of too many external data structures\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a number of operations involving a data manager or a file resource that exceeds a threshold value. Default threshold value for the number of data operations is 7",
         "href": "CARL/technical-criteria/1062115",
         "weight": 5
     },
     {
         "id": 1062116,
         "name": "ASCMM-MNT-15 - Public Member Element",
-        "description": "Objective\nAvoid openly accessible data elements\n\nConsequence\nSoftware that does not follow the principles of data encapsulation incurs the risk of data corruption\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared as public through a Create action\n\n",
+        "description": "Objective\nAvoid openly accessible data elements\n\nConsequence\nSoftware that does not follow the principles of data encapsulation incurs the risk of data corruption\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared as public through a Create action",
         "href": "CARL/technical-criteria/1062116",
         "weight": 5
     },
     {
         "id": 1062117,
         "name": "ASCMM-MNT-16 - Method Control Element Usage of Member Element from other Class Element",
-        "description": "Objective\nAvoid direct access to data elements of another entity\n\nConsequence\nSoftware that does not follow the principles of data encapsulation incurs the risk of data corruption\n\nMeasure Element\nNumber of instances where a method control element from a class element accesses a member element from another class element\n\n",
+        "description": "Objective\nAvoid direct access to data elements of another entity\n\nConsequence\nSoftware that does not follow the principles of data encapsulation incurs the risk of data corruption\n\nMeasure Element\nNumber of instances where a method control element from a class element accesses a member element from another class element",
         "href": "CARL/technical-criteria/1062117",
         "weight": 5
     },
     {
         "id": 1062118,
         "name": "ASCMM-MNT-17 - Class Element Excessive Inheritance Level",
-        "description": "Objective\nAvoid overly complex object-oriented inheritance capabilities when dealing with the number of levels of inheritance of classes\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where the inheritance level of a class element (that is, the number of parent class units) exceeds a threshold value. The default threshold value for number of inheritance levels is 7\n\n",
+        "description": "Objective\nAvoid overly complex object-oriented inheritance capabilities when dealing with the number of levels of inheritance of classes\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where the inheritance level of a class element (that is, the number of parent class units) exceeds a threshold value. The default threshold value for number of inheritance levels is 7",
         "href": "CARL/technical-criteria/1062118",
         "weight": 5
     },
     {
         "id": 1062119,
         "name": "ASCMM-MNT-18 - Class Element Excessive Number of Children",
-        "description": "Objective\nAvoid overly complex object-oriented inheritance capabilities when dealing with the number of direct children of classes\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where the number of children of a class element (that is, its number of child classes) exceeds a threshold value. The default threshold value for number of children of a class element is 10\n\n",
+        "description": "Objective\nAvoid overly complex object-oriented inheritance capabilities when dealing with the number of direct children of classes\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where the number of children of a class element (that is, its number of child classes) exceeds a threshold value. The default threshold value for number of children of a class element is 10",
         "href": "CARL/technical-criteria/1062119",
         "weight": 5
     },
     {
         "id": 1062120,
         "name": "ASCMM-MNT-19 - Named Callable and Method Control Element Excessive Similarity",
-        "description": "Objective\nAvoid software element redundancy\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where a named callable control element or method control element contains multiple computational objects that are identical to computational objects in another named callable or method control element in the application (the application determines the scope of the search for the second code item)\n\n",
+        "description": "Objective\nAvoid software element redundancy\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where a named callable control element or method control element contains multiple computational objects that are identical to computational objects in another named callable or method control element in the application (the application determines the scope of the search for the second code item)",
         "href": "CARL/technical-criteria/1062120",
         "weight": 5
     },
     {
         "id": 1062121,
         "name": "ASCMM-MNT-2 - Class Element Excessive Inheritance of Class Elements with Concrete Implementation",
-        "description": "Objective\nAvoid the multiple inheritance of classes with concrete implementations\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where the number of inheritances of concrete classes of a class element is considered too large, based on exceeding a threshold value. Default value for the number of concrete class Inheritances is 1.\n\n",
+        "description": "Objective\nAvoid the multiple inheritance of classes with concrete implementations\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where the number of inheritances of concrete classes of a class element is considered too large, based on exceeding a threshold value. Default value for the number of concrete class Inheritances is 1.",
         "href": "CARL/technical-criteria/1062121",
         "weight": 5
     },
     {
         "id": 1062122,
         "name": "ASCMM-MNT-20 - Unreachable Named Callable or Method Control Element",
-        "description": "Objective\nAvoid inactive code blocks that can mistakenly be considered as active and that can hide the active code in noise\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where a named callable control element or method control element is unreferenced by any other code item in the application (the application determines the scope of the search for code items that could call a callable or method control element)\n\n",
+        "description": "Objective\nAvoid inactive code blocks that can mistakenly be considered as active and that can hide the active code in noise\n\nConsequence\nSoftware that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code\n\nMeasure Element\nNumber of instances where a named callable control element or method control element is unreferenced by any other code item in the application (the application determines the scope of the search for code items that could call a callable or method control element)",
         "href": "CARL/technical-criteria/1062122",
         "weight": 5
     },
     {
         "id": 1062124,
         "name": "ASCMM-MNT-4 - Callable and Method Control Element Number of Outward Calls",
-        "description": "Objective\nAvoid overly complex outward dependencies\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a Fan-Out value that is too large, that is, its number of references to other objects within the application exceeds a threshold value (the application determines the scope of the search for the referenced objects). Default threshold value for the number of references to other objects within the application is 5\n\n",
+        "description": "Objective\nAvoid overly complex outward dependencies\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a named callable control element or method control element has a Fan-Out value that is too large, that is, its number of references to other objects within the application exceeds a threshold value (the application determines the scope of the search for the referenced objects). Default threshold value for the number of references to other objects within the application is 5",
         "href": "CARL/technical-criteria/1062124",
         "weight": 5
     },
     {
         "id": 1062125,
         "name": "ASCMM-MNT-5 - Loop Value Update within the Loop",
-        "description": "Objective\nAvoid overly complex behaviors of loop indices\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a value of a local storable data element used in the condition of the loop control flow is updated within the \u2018Write\u2019 action located in the loop body block\n\n",
+        "description": "Objective\nAvoid overly complex behaviors of loop indices\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a value of a local storable data element used in the condition of the loop control flow is updated within the \u2018Write\u2019 action located in the loop body block",
         "href": "CARL/technical-criteria/1062125",
         "weight": 5
     },
     {
         "id": 1062126,
         "name": "ASCMM-MNT-6 - Commented-out Code Element Excessive Volume",
-        "description": "Objective\nAvoid code blocks found in comments\n\nConsequence\nSoftware that does contain commented-out code that can mistakenly be considered as active code and that can hide a lack of comments causes excessive modification effort\n\nMeasure Element\nNumber of instances where a named callable control element or method control element contains too many commented-out code items compared to a threshold that is based on the percentage of instructions in the callable control element or method control element that are in comments. Default threshold value for the percentage of commented-out out instructions is 2%.\n\n",
+        "description": "Objective\nAvoid code blocks found in comments\n\nConsequence\nSoftware that does contain commented-out code that can mistakenly be considered as active code and that can hide a lack of comments causes excessive modification effort\n\nMeasure Element\nNumber of instances where a named callable control element or method control element contains too many commented-out code items compared to a threshold that is based on the percentage of instructions in the callable control element or method control element that are in comments. Default threshold value for the percentage of commented-out out instructions is 2%.",
         "href": "CARL/technical-criteria/1062126",
         "weight": 5
     },
     {
         "id": 1062127,
         "name": "ASCMM-MNT-7 - Inter-Module Dependency Cycles",
-        "description": "Objective\nAvoid circular dependencies between modules\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a module has references that cycle back to itself via the module callable or data relations cycle (for example, with JAVA this pattern means cycles between packages)\n\n",
+        "description": "Objective\nAvoid circular dependencies between modules\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a module has references that cycle back to itself via the module callable or data relations cycle (for example, with JAVA this pattern means cycles between packages)",
         "href": "CARL/technical-criteria/1062127",
         "weight": 5
     },
     {
         "id": 1062128,
         "name": "ASCMM-MNT-8 - Source Element Excessive Size",
-        "description": "Objective\nAvoid over-sizing of software elements\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a file has too many lines of code based on a threshold value. The default threshold value for number of lines of code is 1000\n\n",
+        "description": "Objective\nAvoid over-sizing of software elements\n\nConsequence\nSoftware that does not follow the principles of modularity causes excessive propagation of modification impacts\n\nMeasure Element\nNumber of instances where a file has too many lines of code based on a threshold value. The default threshold value for number of lines of code is 1000",
         "href": "CARL/technical-criteria/1062128",
         "weight": 5
     },
     {
         "id": 1062131,
         "name": "ASCPEM-PRF-10 - Non-SQL Named Callable and Method Control Element with Excessive Number of Data Resource Access",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by the existence of software elements requiring too many data access outside of the data manager.\n\nConsequence\nSoftware that does not leverage database capabilities to efficiently run data processing (such as stored procedures and functions) requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by the existence of software elements requiring too many data access outside of the data manager.\n\nConsequence\nSoftware that does not leverage database capabilities to efficiently run data processing (such as stored procedures and functions) requires excessive computational resources",
         "href": "CARL/technical-criteria/1062131",
         "weight": 5
     },
     {
         "id": 1062133,
         "name": "ASCPEM-PRF-12 - Storable and Member Data Element Excessive Number of Aggregated Storable and Member Data Elements",
-        "description": "Objective\nDetection of occurrences of this pattern helps reducing response time to end-users by preventing the creation of too large data elements.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps reducing response time to end-users by preventing the creation of too large data elements.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources",
         "href": "CARL/technical-criteria/1062133",
         "weight": 5
     },
     {
         "id": 1062134,
         "name": "ASCPEM-PRF-13 - Data Resource Access not using Connection Pooling capability",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing the sharing of database connections via a connection pool.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing the sharing of database connections via a connection pool.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources",
         "href": "CARL/technical-criteria/1062134",
         "weight": 5
     },
     {
         "id": 1062135,
         "name": "ASCPEM-PRF-14 - Storable and Member Data Element Memory Allocation Missing De-Allocation Control Element",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing proper release of used memory.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing proper release of used memory.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources",
         "href": "CARL/technical-criteria/1062135",
         "weight": 5
     },
     {
         "id": 1062136,
         "name": "ASCPEM-PRF-15 - Storable and Member Data Element Reference Missing De-Referencing Control Element",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing proper release of used data elements.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing proper release of used data elements.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources",
         "href": "CARL/technical-criteria/1062136",
         "weight": 5
     },
     {
         "id": 1062137,
         "name": "ASCPEM-PRF-2 - Immutable Storable and Member Data Element Creation",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing unnecessary usage of additional immutable data elements.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing unnecessary usage of additional immutable data elements.\n\nConsequence\nSoftware featuring known under-efficient coding practices requires excessive computational resources",
         "href": "CARL/technical-criteria/1062137",
         "weight": 5
     },
     {
         "id": 1062139,
         "name": "ASCPEM-PRF-4 - Data Resource Read and Write Access Excessive Complexity",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the execution of overly complex data queries.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the execution of overly complex data queries.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources",
         "href": "CARL/technical-criteria/1062139",
         "weight": 5
     },
     {
         "id": 1062140,
         "name": "ASCPEM-PRF-5 - Data Resource Read Access Unsupported by Index Element",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing unnecessary full scan of data tables.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing unnecessary full scan of data tables.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources",
         "href": "CARL/technical-criteria/1062140",
         "weight": 5
     },
     {
         "id": 1062141,
         "name": "ASCPEM-PRF-6 - Large Data Resource ColumnSet Excessive Number of Index Elements",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the existence of too many indices on very large data tables.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the existence of too many indices on very large data tables.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources",
         "href": "CARL/technical-criteria/1062141",
         "weight": 5
     },
     {
         "id": 1062142,
         "name": "ASCPEM-PRF-7 - Large Data Resource ColumnSet with Index Element of Excessive Size",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the existence of overly large indices on very large data tables.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the existence of overly large indices on very large data tables.\n\nConsequence\nSoftware featuring known under-efficient SQL Query and Data Access constructs requires excessive computational resources",
         "href": "CARL/technical-criteria/1062142",
         "weight": 5
     },
     {
         "id": 1062143,
         "name": "ASCPEM-PRF-8 - Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the repeated consumption of resource due to resource consuming operations found directly or indirectly within loops.\n\nConsequence\nSoftware that is coded so as to execute expensive computations repeatedly (such as in loops) requires excessive computational resources when the usage and data volume grow\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by preventing the repeated consumption of resource due to resource consuming operations found directly or indirectly within loops.\n\nConsequence\nSoftware that is coded so as to execute expensive computations repeatedly (such as in loops) requires excessive computational resources when the usage and data volume grow",
         "href": "CARL/technical-criteria/1062143",
         "weight": 5
     },
     {
         "id": 1062144,
         "name": "ASCPEM-PRF-9 - Non-Stored SQL Callable Control Element with Excessive Number of Data Resource Access",
-        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing the use of dedicated stored procedures when multiple data access are needed.\n\nConsequence\nSoftware that does not leverage database capabilities to efficiently run data processing (such as stored procedures and functions) requires excessive computational resources\n\n",
+        "description": "Objective\nDetection of occurrences of this pattern helps decrease software resource waste by enforcing the use of dedicated stored procedures when multiple data access are needed.\n\nConsequence\nSoftware that does not leverage database capabilities to efficiently run data processing (such as stored procedures and functions) requires excessive computational resources",
         "href": "CARL/technical-criteria/1062144",
         "weight": 5
     },
     {
         "id": 1062145,
         "name": "ASCRM-CWE-120 - Buffer Copy without Checking Size of Input",
-        "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.\n\n",
+        "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.",
         "href": "CARL/technical-criteria/1062145",
         "weight": 5
     },
     {
         "id": 1062146,
         "name": "ASCRM-CWE-252-data - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
-        "description": "Objective\nAvoid improper processing of the execution status of data handling operations\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a CRUD SQL statement with an action, yet the value of the return parameter from the action is not used by any check control element\n\n",
+        "description": "Objective\nAvoid improper processing of the execution status of data handling operations\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a CRUD SQL statement with an action, yet the value of the return parameter from the action is not used by any check control element",
         "href": "CARL/technical-criteria/1062146",
         "weight": 5
     },
     {
         "id": 1062147,
         "name": "ASCRM-CWE-252-resource - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Platform Resource",
-        "description": "Objective\nAvoid improper processing of the execution status of resource handling operations\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a \u2018Read\u2019, \u2018Write\u2019, or \u2018Manage Access\u2019 action, yet the value of the return parameter from the action is not used by any check control element\n\n",
+        "description": "Objective\nAvoid improper processing of the execution status of resource handling operations\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a \u2018Read\u2019, \u2018Write\u2019, or \u2018Manage Access\u2019 action, yet the value of the return parameter from the action is not used by any check control element",
         "href": "CARL/technical-criteria/1062147",
         "weight": 5
     },
     {
         "id": 1062148,
         "name": "ASCRM-CWE-396 - Declaration of Catch for Generic Exception",
-        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where the named callable control element or method control element contains a catch unit which declares to catch an exception parameter whose data type is part of a list of overly broad exception data types\n\n",
+        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where the named callable control element or method control element contains a catch unit which declares to catch an exception parameter whose data type is part of a list of overly broad exception data types",
         "href": "CARL/technical-criteria/1062148",
         "weight": 5
     },
     {
         "id": 1062149,
         "name": "ASCRM-CWE-397 - Declaration of Throws for Generic Exception",
-        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where the named callable control element or method control element throws an exception parameter whose data type is part of a list of overly broad exception data types\n\n",
+        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where the named callable control element or method control element throws an exception parameter whose data type is part of a list of overly broad exception data types",
         "href": "CARL/technical-criteria/1062149",
         "weight": 5
     },
     {
         "id": 1062150,
         "name": "ASCRM-CWE-456 - Storable and Member Data Element Missing Initialization",
-        "description": "Objective\nAvoid failure to explicitly initialize software data elements in use\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared by the \u2018Create\u2019 action, then is evaluated in a \u2018Read\u2019 action without ever being initialized by a \u2018Write\u2019 action prior to the evaluation\n\n",
+        "description": "Objective\nAvoid failure to explicitly initialize software data elements in use\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared by the \u2018Create\u2019 action, then is evaluated in a \u2018Read\u2019 action without ever being initialized by a \u2018Write\u2019 action prior to the evaluation",
         "href": "CARL/technical-criteria/1062150",
         "weight": 5
     },
     {
         "id": 1062151,
         "name": "ASCRM-CWE-674 - Uncontrolled Recursion",
-        "description": "Objective\nAvoid infinite recursions\n\nConsequence\nSoftware that is unaware of recursion incurs the risk of exceeding resource and capacity limits\n\nMeasure Element\nNumber of instances where the named callable control element or method control element starts the execution path which containts itself\n\n",
+        "description": "Objective\nAvoid infinite recursions\n\nConsequence\nSoftware that is unaware of recursion incurs the risk of exceeding resource and capacity limits\n\nMeasure Element\nNumber of instances where the named callable control element or method control element starts the execution path which containts itself",
         "href": "CARL/technical-criteria/1062151",
         "weight": 5
     },
     {
         "id": 1062152,
         "name": "ASCRM-CWE-704 - Incorrect Type Conversion or Cast",
-        "description": "Objective\nAvoid data corruption during incompatible mutation\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a storable element or member element is declared with a data type in the \u2018Create\u2019 action, and then is updated with a value which is cast via a type cast action into a second data type, which is incompatible with the first data type\n\n",
+        "description": "Objective\nAvoid data corruption during incompatible mutation\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a storable element or member element is declared with a data type in the \u2018Create\u2019 action, and then is updated with a value which is cast via a type cast action into a second data type, which is incompatible with the first data type",
         "href": "CARL/technical-criteria/1062152",
         "weight": 5
     },
     {
         "id": 1062153,
         "name": "ASCRM-CWE-772 - Missing Release of Resource after Effective Lifetime",
-        "description": "Objective\nAvoid resource hoarding and consequently resource depletion\n\nConsequence\nSoftware that is unaware of resource bounds or fails to monitor resources incurs the risk of exceeding resource and capacity limits\n\nMeasure Element\nNumber of instances where a platform resource is allocated and assigned a unique resource handler value via a manage resource action, and its unique resource handler value is used throughout the application along a transformation sequence composed of action elements with data relations, some of which are part of named callable and method control elements, but none of which is a resource release statement\n\n",
+        "description": "Objective\nAvoid resource hoarding and consequently resource depletion\n\nConsequence\nSoftware that is unaware of resource bounds or fails to monitor resources incurs the risk of exceeding resource and capacity limits\n\nMeasure Element\nNumber of instances where a platform resource is allocated and assigned a unique resource handler value via a manage resource action, and its unique resource handler value is used throughout the application along a transformation sequence composed of action elements with data relations, some of which are part of named callable and method control elements, but none of which is a resource release statement",
         "href": "CARL/technical-criteria/1062153",
         "weight": 5
     },
     {
         "id": 1062154,
         "name": "ASCRM-CWE-788 - Memory Location Access After End of Buffer",
-        "description": "Objective\nAvoid resource out-of-bound access\n\nConsequence\nSoftware that is unaware of resource bounds or fails to monitor resources incurs the risk of exceeding resource and capacity limits\n\nMeasure Element\nNumber of instances where a value element is transformed throughout the application along a sequence composed of action elements with data relations, some of which are part of named callable and method control elements, and ultimately used as an index element to access a storable or member data element in a buffer \u2018Read\u2019 or \u2018Write\u2019 access action; yet none of the callable or method control elements of the transformation sequence perform a range check on the buffer whose maximum size was defined in the buffer creation action\n\n",
+        "description": "Objective\nAvoid resource out-of-bound access\n\nConsequence\nSoftware that is unaware of resource bounds or fails to monitor resources incurs the risk of exceeding resource and capacity limits\n\nMeasure Element\nNumber of instances where a value element is transformed throughout the application along a sequence composed of action elements with data relations, some of which are part of named callable and method control elements, and ultimately used as an index element to access a storable or member data element in a buffer \u2018Read\u2019 or \u2018Write\u2019 access action; yet none of the callable or method control elements of the transformation sequence perform a range check on the buffer whose maximum size was defined in the buffer creation action",
         "href": "CARL/technical-criteria/1062154",
         "weight": 5
     },
     {
         "id": 1062155,
         "name": "ASCRM-RLB-1 - Empty Exception Block",
-        "description": "Objective\nAvoid improper responses to unusual and unexpected situations\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where an exception handling block (such as Catch and Finally blocks) of the named callable and method control elements does not contain any other control element\n\n",
+        "description": "Objective\nAvoid improper responses to unusual and unexpected situations\n\nConsequence\nSoftware without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.\n\nMeasure Element\nNumber of instances where an exception handling block (such as Catch and Finally blocks) of the named callable and method control elements does not contain any other control element",
         "href": "CARL/technical-criteria/1062155",
         "weight": 5
     },
     {
         "id": 1062157,
         "name": "ASCRM-RLB-11 - Named Callable and Method Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
-        "description": "Objective\nAvoid unsafe implementations in multi-thread environments that fail to protect state\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a named callable control element or method control element owns an unsafe non-final static storable or member data element while it operates in a multi-threaded environment\n\n",
+        "description": "Objective\nAvoid unsafe implementations in multi-thread environments that fail to protect state\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a named callable control element or method control element owns an unsafe non-final static storable or member data element while it operates in a multi-threaded environment",
         "href": "CARL/technical-criteria/1062157",
         "weight": 5
     },
     {
         "id": 1062158,
         "name": "ASCRM-RLB-12 - Singleton Class Instance Creation without Proper Lock Element Management",
-        "description": "Objective\nAvoid incorrect implementation of singleton patterns caused by improperly-locked instantiations\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a singleton class element, (that is, a class element that can be used only once in the 'to' association of a \u2018Create\u2019 action) is instantiated with the \u2018Creates\u2019 action element without any prior locking mechanism activation\n\n",
+        "description": "Objective\nAvoid incorrect implementation of singleton patterns caused by improperly-locked instantiations\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a singleton class element, (that is, a class element that can be used only once in the 'to' association of a \u2018Create\u2019 action) is instantiated with the \u2018Creates\u2019 action element without any prior locking mechanism activation",
         "href": "CARL/technical-criteria/1062158",
         "weight": 5
     },
     {
         "id": 1062159,
         "name": "ASCRM-RLB-13 - Inter-Module Dependency Cycles",
-        "description": "Objective\nAvoid circular dependencies between modules\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a module has references that cycle back to itself via the module callable or data relations cycle (for example, with JAVA this pattern means cycles between packages)\n\n",
+        "description": "Objective\nAvoid circular dependencies between modules\n\nConsequence\nSoftware deployed in multi-thread environments that does not protect their state can experience deadlock or livelock\n\nMeasure Element\nNumber of instances where a module has references that cycle back to itself via the module callable or data relations cycle (for example, with JAVA this pattern means cycles between packages)",
         "href": "CARL/technical-criteria/1062159",
         "weight": 5
     },
     {
         "id": 1062160,
         "name": "ASCRM-RLB-14 - Parent Class Element with References to Child Class Element",
-        "description": "Objective\nAvoid parent class references to child class(es)\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where a parent class element that is used in the 'to' association of an Extends class relation, references the child class element used in the 'from' association of an Extends class relation, directly or indirectly through a parent and child class element, using a callable or data relation (the reference statement is made directly to the child class element or to any one of its own method or member elements)\n\n",
+        "description": "Objective\nAvoid parent class references to child class(es)\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where a parent class element that is used in the 'to' association of an Extends class relation, references the child class element used in the 'from' association of an Extends class relation, directly or indirectly through a parent and child class element, using a callable or data relation (the reference statement is made directly to the child class element or to any one of its own method or member elements)",
         "href": "CARL/technical-criteria/1062160",
         "weight": 5
     },
     {
         "id": 1062161,
         "name": "ASCRM-RLB-15 - Class Element with Virtual Method Element wihout Virtual Destructor",
-        "description": "Objective\nAvoid failing to include a virtual destructor in a class that includes a virtual method(s)\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where a class element contains a virtual method element yet does not declare any virtual destructor\n\n",
+        "description": "Objective\nAvoid failing to include a virtual destructor in a class that includes a virtual method(s)\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where a class element contains a virtual method element yet does not declare any virtual destructor",
         "href": "CARL/technical-criteria/1062161",
         "weight": 5
     },
     {
         "id": 1062162,
         "name": "ASCRM-RLB-16 - Parent Class Element without Virtual Destructor Method Element",
-        "description": "Objective\nAvoid failing to include a virtual destructor in a parent class\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where, for languages in which custom destructors can be written, the parent class of a child class element via an Extends class relation has no virtual destructor\n\n",
+        "description": "Objective\nAvoid failing to include a virtual destructor in a parent class\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where, for languages in which custom destructors can be written, the parent class of a child class element via an Extends class relation has no virtual destructor",
         "href": "CARL/technical-criteria/1062162",
         "weight": 5
     },
     {
         "id": 1062163,
         "name": "ASCRM-RLB-17 - Child Class Element wihout Virtual Destructor unlike its Parent Class Element",
-        "description": "Objective\nAvoid failing to include a virtual destructor in a child class despite the existence of a virtual destructor in the parent class\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where, for languages in which custom destructors can be written, the child class element used in the 'from' association of a Extends class relation does not have its own virtual destructor, while its parent class element that is used in the 'to' association of the Extends class relation has a virtual destructor\n\n",
+        "description": "Objective\nAvoid failing to include a virtual destructor in a child class despite the existence of a virtual destructor in the parent class\n\nConsequence\nSoftware that does not follow the principles of inheritance and polymorphism results in unexpected behaviors\n\nMeasure Element\nNumber of instances where, for languages in which custom destructors can be written, the child class element used in the 'from' association of a Extends class relation does not have its own virtual destructor, while its parent class element that is used in the 'to' association of the Extends class relation has a virtual destructor",
         "href": "CARL/technical-criteria/1062163",
         "weight": 5
     },
     {
         "id": 1062164,
         "name": "ASCRM-RLB-18 - Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
-        "description": "Objective\nAvoid the existence of hard-coded network configuration elements\n\nConsequence\nSoftware featuring network configuration within its own code incurs the risk of failure when the remote resource change\n\nMeasure Element\nNumber of instances where a storable data element or member data element is initialized by a \u2018Write\u2019 action with a hard-coded value corresponding to network resource identifications\n\n",
+        "description": "Objective\nAvoid the existence of hard-coded network configuration elements\n\nConsequence\nSoftware featuring network configuration within its own code incurs the risk of failure when the remote resource change\n\nMeasure Element\nNumber of instances where a storable data element or member data element is initialized by a \u2018Write\u2019 action with a hard-coded value corresponding to network resource identifications",
         "href": "CARL/technical-criteria/1062164",
         "weight": 5
     },
     {
         "id": 1062165,
         "name": "ASCRM-RLB-19 - Synchronous Call Time-Out Absence",
-        "description": "Objective\nAvoid synchronous remote resource access without handling time-out capabilities\n\nConsequence\nSoftware featuring blocking calls to remote systems incurs the risk of own failure when the remote systems fails to process the call correctly.\n\nMeasure Element\nNumber of instances where a synchronous call instruction is initiated but the time-out argument is not set or is set to infinite time\n\n",
+        "description": "Objective\nAvoid synchronous remote resource access without handling time-out capabilities\n\nConsequence\nSoftware featuring blocking calls to remote systems incurs the risk of own failure when the remote systems fails to process the call correctly.\n\nMeasure Element\nNumber of instances where a synchronous call instruction is initiated but the time-out argument is not set or is set to infinite time",
         "href": "CARL/technical-criteria/1062165",
         "weight": 5
     },
     {
         "id": 1062166,
         "name": "ASCRM-RLB-2 - Serializable Storable Data Element without Serialization Control Element",
-        "description": "Objective\nAvoid failure to implement serialization capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the serializable storable element has no serialization control element in its list of control elements (in the case of technologies with class and interface elements, this means situations where the serializable storable data element is a class that implements a serializable interface element but does not implement a serialization method element as part of its list composed of method elements) (the serializable nature of an element is technology dependent, for example, serializable capabilities come from sources such as a serializable attribute in .NET and inheritance from the java.io.Serializable interface in Java)\n\n",
+        "description": "Objective\nAvoid failure to implement serialization capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the serializable storable element has no serialization control element in its list of control elements (in the case of technologies with class and interface elements, this means situations where the serializable storable data element is a class that implements a serializable interface element but does not implement a serialization method element as part of its list composed of method elements) (the serializable nature of an element is technology dependent, for example, serializable capabilities come from sources such as a serializable attribute in .NET and inheritance from the java.io.Serializable interface in Java)",
         "href": "CARL/technical-criteria/1062166",
         "weight": 5
     },
     {
         "id": 1062167,
         "name": "ASCRM-RLB-3 - Serializable Storable Data Element with non-Serializable Item Elements",
-        "description": "Objective\nAvoid imcomplete implementation of serialization capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a serializable storable element is composed of a non-serializable item element (in case of technologies with class and interface elements, this means situations where the serializable storable data element is a class that is serializable but owns the element that is a non-serializable member element) (the serializable nature of an element is technology dependent; for example, serializable capabilities come from a serializable attribute in .NET and the inheritance from the java.io.Serializable interface in Java)\n\n",
+        "description": "Objective\nAvoid imcomplete implementation of serialization capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a serializable storable element is composed of a non-serializable item element (in case of technologies with class and interface elements, this means situations where the serializable storable data element is a class that is serializable but owns the element that is a non-serializable member element) (the serializable nature of an element is technology dependent; for example, serializable capabilities come from a serializable attribute in .NET and the inheritance from the java.io.Serializable interface in Java)",
         "href": "CARL/technical-criteria/1062167",
         "weight": 5
     },
     {
         "id": 1062168,
         "name": "ASCRM-RLB-4 - Persistant Storable Data Element without Proper Comparison Control Element",
-        "description": "Objective\nAvoid improper comparison capabilities of persistent data\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the persistent storable element has no dedicated control element handling comparison action elements from the required comparison control element list. (in case of technologies with class elements, this means situations where a persistent storable data element is a class that is made persistent while it does not implement method elements from the required comparison control element list now composed of method elements: for example, with JAVA, a required comparison control element list is {'hashCode()','equals()'} method elements)\n\n",
+        "description": "Objective\nAvoid improper comparison capabilities of persistent data\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the persistent storable element has no dedicated control element handling comparison action elements from the required comparison control element list. (in case of technologies with class elements, this means situations where a persistent storable data element is a class that is made persistent while it does not implement method elements from the required comparison control element list now composed of method elements: for example, with JAVA, a required comparison control element list is {'hashCode()','equals()'} method elements)",
         "href": "CARL/technical-criteria/1062168",
         "weight": 5
     },
     {
         "id": 1062169,
         "name": "ASCRM-RLB-5 - Runtime Resource Management Control Element in a Component Built to Run on Application Servers",
-        "description": "Objective\nAvoid unproven platform capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the application uses deployed components from application servers, yet uses control elements from the list of low-level resource management API\n\n",
+        "description": "Objective\nAvoid unproven platform capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the application uses deployed components from application servers, yet uses control elements from the list of low-level resource management API",
         "href": "CARL/technical-criteria/1062169",
         "weight": 5
     },
     {
         "id": 1062170,
         "name": "ASCRM-RLB-6 - Storable or Member Data Element containing Pointer Item Element without Proper Copy Control Element",
-        "description": "Objective\nAvoid improper copy capabilities when handling data pointers\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a storable data element or member data element contains a pointer data element but no dedicated copy operation or copy constructor element\n\n",
+        "description": "Objective\nAvoid improper copy capabilities when handling data pointers\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a storable data element or member data element contains a pointer data element but no dedicated copy operation or copy constructor element",
         "href": "CARL/technical-criteria/1062170",
         "weight": 5
     },
     {
         "id": 1062171,
         "name": "ASCRM-RLB-7 - Class Instance Self Destruction Control Element",
-        "description": "Objective\nAvoid self-destruction capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a class element can execute a self-destruction control element to destroy itself (an example of a self-destruction control element in C++ is the 'delete this' control)\n\n",
+        "description": "Objective\nAvoid self-destruction capabilities\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where a class element can execute a self-destruction control element to destroy itself (an example of a self-destruction control element in C++ is the 'delete this' control)",
         "href": "CARL/technical-criteria/1062171",
         "weight": 5
     },
     {
         "id": 1062172,
         "name": "ASCRM-RLB-8 - Named Callable and Method Control Elements with Variadic Parameter Element",
-        "description": "Objective\nAvoid using variadic parameter elements\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element has a variable number of parameters because of the variadic parameter in its signature\n\n",
+        "description": "Objective\nAvoid using variadic parameter elements\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element has a variable number of parameters because of the variadic parameter in its signature",
         "href": "CARL/technical-criteria/1062172",
         "weight": 5
     },
     {
         "id": 1062173,
         "name": "ASCRM-RLB-9 - Float Type Storable and Member Data Element Comparison with Equality Operator",
-        "description": "Objective\nAvoid the use of fault-prone comparison operations between numerical values\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the values of storable or member data elements of float type are compared for equality using regular comparison operators in the comparison control element\n\n",
+        "description": "Objective\nAvoid the use of fault-prone comparison operations between numerical values\n\nConsequence\nSoftware featuring known weak coding practices results in unexpected and erroneous behaviors\n\nMeasure Element\nNumber of instances where the values of storable or member data elements of float type are compared for equality using regular comparison operators in the comparison control element",
         "href": "CARL/technical-criteria/1062173",
         "weight": 5
     },
     {
         "id": 1062174,
         "name": "ASCSM-CWE-120 - Buffer Copy without Checking Size of Input",
-        "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware that is unaware of buffer bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.\n\n",
+        "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware that is unaware of buffer bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.",
         "href": "CARL/technical-criteria/1062174",
         "weight": 5
     },
     {
         "id": 1062175,
         "name": "ASCSM-CWE-129 - Array Index Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to check range of user input in use as array index\n\nConsequence\nSoftware that is unaware of array index bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the read or write action to access the array; none of the callable or method control element of the transformation sequence being a range check callable and method control element with regards to the array index.\n\n",
+        "description": "Objective\nAvoid failure to check range of user input in use as array index\n\nConsequence\nSoftware that is unaware of array index bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the read or write action to access the array; none of the callable or method control element of the transformation sequence being a range check callable and method control element with regards to the array index.",
         "href": "CARL/technical-criteria/1062175",
         "weight": 5
     },
     {
         "id": 1062176,
         "name": "ASCSM-CWE-134 - Format String Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to sanitize user input in use in formatting operations\n\nConsequence\nSoftware that is unaware of formatting control incurs the risk of execution of arbitrary code and the risk of information disclosure which can severely simplify exploitation of the software\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the formating statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
+        "description": "Objective\nAvoid failure to sanitize user input in use in formatting operations\n\nConsequence\nSoftware that is unaware of formatting control incurs the risk of execution of arbitrary code and the risk of information disclosure which can severely simplify exploitation of the software\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the formating statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.",
         "href": "CARL/technical-criteria/1062176",
         "weight": 5
     },
     {
         "id": 1062177,
         "name": "ASCSM-CWE-22 - Path Traversal Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to sanitize user input in use in path manipulation operations\n\nConsequence\nSoftware that is unaware of file path control incurs the risk of exposition of sensitive data, the risk of corruption of critical files, such as programs, libraries, or important data used in protection mechanisms\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the file path creation statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
+        "description": "Objective\nAvoid failure to sanitize user input in use in path manipulation operations\n\nConsequence\nSoftware that is unaware of file path control incurs the risk of exposition of sensitive data, the risk of corruption of critical files, such as programs, libraries, or important data used in protection mechanisms\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the file path creation statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.",
         "href": "CARL/technical-criteria/1062177",
         "weight": 5
     },
     {
         "id": 1062178,
         "name": "ASCSM-CWE-252-resource - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Platform Resource",
-        "description": "Objective\nAvoid improper processing of the execution status of resource handling operations\n\nConsequence\nSoftware unaware of execution status control incurs the risk of bad data being used in operations, possibly leading to a crash or other unintended behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a \u2018Read\u2019, \u2018Write\u2019, or \u2018Manage Access\u2019 action, yet the value of the return parameter from the action is not used by any check control element\n\n",
+        "description": "Objective\nAvoid improper processing of the execution status of resource handling operations\n\nConsequence\nSoftware unaware of execution status control incurs the risk of bad data being used in operations, possibly leading to a crash or other unintended behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element executes a \u2018Read\u2019, \u2018Write\u2019, or \u2018Manage Access\u2019 action, yet the value of the return parameter from the action is not used by any check control element",
         "href": "CARL/technical-criteria/1062178",
         "weight": 5
     },
     {
         "id": 1062179,
         "name": "ASCSM-CWE-327 - Broken or Risky Cryptographic Algorithm Usage",
-        "description": "Objective\nAvoid failure to use vetted cryptographic libraries\n\nConsequence\nSoftware using broken or risky cryptographic algorithm incurs the risk of sensitive data being compromised\n\nMeasure Element\nNumber of instances where the application uses the cryptographic deployed component which is not part of the list of vetted cryptographic deployed components.\n\n",
+        "description": "Objective\nAvoid failure to use vetted cryptographic libraries\n\nConsequence\nSoftware using broken or risky cryptographic algorithm incurs the risk of sensitive data being compromised\n\nMeasure Element\nNumber of instances where the application uses the cryptographic deployed component which is not part of the list of vetted cryptographic deployed components.",
         "href": "CARL/technical-criteria/1062179",
         "weight": 5
     },
     {
         "id": 1062180,
         "name": "ASCSM-CWE-396 - Declaration of Catch for Generic Exception",
-        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware unaware of accurate execution status control incurs the risk of bad data being used in operations, possibly leading to a crash or other unintended behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element contains a catch unit which declares to catch an exception parameter whose data type is part of a list of overly broad exception data types\n\n",
+        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware unaware of accurate execution status control incurs the risk of bad data being used in operations, possibly leading to a crash or other unintended behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element contains a catch unit which declares to catch an exception parameter whose data type is part of a list of overly broad exception data types",
         "href": "CARL/technical-criteria/1062180",
         "weight": 5
     },
     {
         "id": 1062181,
         "name": "ASCSM-CWE-397 - Declaration of Throws for Generic Exception",
-        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware unaware of accurate execution status control incurs the risk of bad data being used in operations, possibly leading to a crash or other unintended behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element throws an exception parameter whose data type is part of a list of overly broad exception data types\n\n",
+        "description": "Objective\nAvoid failure to use dedicated exception types\n\nConsequence\nSoftware unaware of accurate execution status control incurs the risk of bad data being used in operations, possibly leading to a crash or other unintended behaviors\n\nMeasure Element\nNumber of instances where the named callable control element or method control element throws an exception parameter whose data type is part of a list of overly broad exception data types",
         "href": "CARL/technical-criteria/1062181",
         "weight": 5
     },
     {
         "id": 1062182,
         "name": "ASCSM-CWE-434 - File Upload Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to sanitize user input in use in file upload operations\n\nConsequence\nSoftware unaware of file upload control incurs the risk of arbitrary code execution\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the file file upload action; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
+        "description": "Objective\nAvoid failure to sanitize user input in use in file upload operations\n\nConsequence\nSoftware unaware of file upload control incurs the risk of arbitrary code execution\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the file file upload action; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.",
         "href": "CARL/technical-criteria/1062182",
         "weight": 5
     },
     {
         "id": 1062183,
         "name": "ASCSM-CWE-456 - Storable and Member Data Element Missing Initialization",
-        "description": "Objective\nAvoid failure to explicitly initialize software data elements in use\n\nConsequence\nSoftware featuring weak initialization practices incurs the risk of logic errors within the program, possibly leading to a security problem\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared by the \u2018Create\u2019 action, then is evaluated in a \u2018Read\u2019 action without ever being initialized by a \u2018Write\u2019 action prior to the evaluation\n\n",
+        "description": "Objective\nAvoid failure to explicitly initialize software data elements in use\n\nConsequence\nSoftware featuring weak initialization practices incurs the risk of logic errors within the program, possibly leading to a security problem\n\nMeasure Element\nNumber of instances where a storable data element or member data element is declared by the \u2018Create\u2019 action, then is evaluated in a \u2018Read\u2019 action without ever being initialized by a \u2018Write\u2019 action prior to the evaluation",
         "href": "CARL/technical-criteria/1062183",
         "weight": 5
     },
     {
         "id": 1062185,
         "name": "ASCSM-CWE-667 - Shared Resource Improper Locking",
-        "description": "Objective\nAvoid data corruption during concurrent access\n\nConsequence\nSoftware featuring inconsistent locking discipline incurs the risk of deadlock\n\nMeasure Element\nNumber of instances where the shared storable data element or member data element, declared with the Create action, is accessed outside a critical section of the application via the Read or Write action.\n\n",
+        "description": "Objective\nAvoid data corruption during concurrent access\n\nConsequence\nSoftware featuring inconsistent locking discipline incurs the risk of deadlock\n\nMeasure Element\nNumber of instances where the shared storable data element or member data element, declared with the Create action, is accessed outside a critical section of the application via the Read or Write action.",
         "href": "CARL/technical-criteria/1062185",
         "weight": 5
     },
     {
         "id": 1062186,
         "name": "ASCSM-CWE-672 - Expired or Released Resource Usage",
-        "description": "Objective\nAvoid access to a released, revoked, or expired resource\n\nConsequence\nSoftware unaware of resource lifecycle incurs the risk of unauthorized access to sensitive data that is associated with a different user or entity, and the risk of erroneous later attempts to access the resource, possibly leading to a crash\n\nMeasure Element\nNumber of instances where the platform resource is deallocated in the Manage action using its unique resource handler value which is transported throughout the application via the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, then used later within the application to try and access the resource in the Read or Write action.\n\n",
+        "description": "Objective\nAvoid access to a released, revoked, or expired resource\n\nConsequence\nSoftware unaware of resource lifecycle incurs the risk of unauthorized access to sensitive data that is associated with a different user or entity, and the risk of erroneous later attempts to access the resource, possibly leading to a crash\n\nMeasure Element\nNumber of instances where the platform resource is deallocated in the Manage action using its unique resource handler value which is transported throughout the application via the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, then used later within the application to try and access the resource in the Read or Write action.",
         "href": "CARL/technical-criteria/1062186",
         "weight": 5
     },
     {
         "id": 1062187,
         "name": "ASCSM-CWE-681 - Numeric Types Incorrect Conversion",
-        "description": "Objective\nAvoid numerical data corruption during incompatible mutation\n\nConsequence\nSoftware featuring weak numerical conversion practices incurs the risk of using the wrong number and generating incorrect results, possibly introducing new vulnerability when related to resource allocation and security decision\n\nMeasure Element\nNumber of instances where a storable element or member element is declared with a numerical data type in the \u2018Create\u2019 action, and then is updated with a value which is cast via a type cast action into a second numerical data type, which is incompatible with the first data type\n\n",
+        "description": "Objective\nAvoid numerical data corruption during incompatible mutation\n\nConsequence\nSoftware featuring weak numerical conversion practices incurs the risk of using the wrong number and generating incorrect results, possibly introducing new vulnerability when related to resource allocation and security decision\n\nMeasure Element\nNumber of instances where a storable element or member element is declared with a numerical data type in the \u2018Create\u2019 action, and then is updated with a value which is cast via a type cast action into a second numerical data type, which is incompatible with the first data type",
         "href": "CARL/technical-criteria/1062187",
         "weight": 5
     },
     {
         "id": 1062188,
         "name": "ASCSM-CWE-772 - Missing Release of Resource after Effective Lifetime",
-        "description": "Objective\nAvoid resource hoarding and consequently resource depletion\n\nConsequence\nSoftware unaware of resource lifecycle incurs the risk of preventing all other processes from accessing the same type of resource\n\nMeasure Element\nNumber of instances where a platform resource is allocated and assigned a unique resource handler value via a manage resource action, and its unique resource handler value is used throughout the application along a transformation sequence composed of action elements with data relations, some of which are part of named callable and method control elements, but none of which is a resource release statement\n\n",
+        "description": "Objective\nAvoid resource hoarding and consequently resource depletion\n\nConsequence\nSoftware unaware of resource lifecycle incurs the risk of preventing all other processes from accessing the same type of resource\n\nMeasure Element\nNumber of instances where a platform resource is allocated and assigned a unique resource handler value via a manage resource action, and its unique resource handler value is used throughout the application along a transformation sequence composed of action elements with data relations, some of which are part of named callable and method control elements, but none of which is a resource release statement",
         "href": "CARL/technical-criteria/1062188",
         "weight": 5
     },
     {
         "id": 1062189,
         "name": "ASCSM-CWE-78 - OS Command Injection Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to sanitize user input in use as operating system commands\n\nConsequence\nSoftware unaware of OS command control incurs the risk of unauthorized command execution, possibly used to disable the software, or possibly leading to unauthorized read and modify data access\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the platform action to be executed by the execution environment; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
+        "description": "Objective\nAvoid failure to sanitize user input in use as operating system commands\n\nConsequence\nSoftware unaware of OS command control incurs the risk of unauthorized command execution, possibly used to disable the software, or possibly leading to unauthorized read and modify data access\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the platform action to be executed by the execution environment; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.",
         "href": "CARL/technical-criteria/1062189",
         "weight": 5
     },
     {
         "id": 1062191,
         "name": "ASCSM-CWE-79 - Cross-site Scripting Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to sanitize user input in use in output generation operations\n\nConsequence\nSoftware featuring weak output generation practices incurs the risk of arbitrary code execution, the risk of sensitive data being compromised, and many other nefarious consequences\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the user interface WritesUI action; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
+        "description": "Objective\nAvoid failure to sanitize user input in use in output generation operations\n\nConsequence\nSoftware featuring weak output generation practices incurs the risk of arbitrary code execution, the risk of sensitive data being compromised, and many other nefarious consequences\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the user interface WritesUI action; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.",
         "href": "CARL/technical-criteria/1062191",
         "weight": 5
     },
     {
         "id": 1062192,
         "name": "ASCSM-CWE-798 - Hard-Coded Credentials Usage for Remote Authentication",
-        "description": "Objective\nAvoid the existence of hard-coded credentials elements\n\nConsequence\nSoftware featuring weak authentication practices incurs the risk of exposing resources and functionality to unintended actors, possibly leading to compromised sensitive information and even the execution of arbitrary code\n\nMeasure Element\nNumber of instances where a storable data element or member data element is initialized by a \u2018Write\u2019 action, transported throughout the application along the transport sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the remote resource management action ; the transport sequence is composed of assignment operations as updates to the value would not be considered as hard-coded (literal) any more.\n\n",
+        "description": "Objective\nAvoid the existence of hard-coded credentials elements\n\nConsequence\nSoftware featuring weak authentication practices incurs the risk of exposing resources and functionality to unintended actors, possibly leading to compromised sensitive information and even the execution of arbitrary code\n\nMeasure Element\nNumber of instances where a storable data element or member data element is initialized by a \u2018Write\u2019 action, transported throughout the application along the transport sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the remote resource management action ; the transport sequence is composed of assignment operations as updates to the value would not be considered as hard-coded (literal) any more.",
         "href": "CARL/technical-criteria/1062192",
         "weight": 5
     },
     {
         "id": 1062194,
         "name": "ASCSM-CWE-89 - SQL Injection Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to sanitize user input in use in SQL compilation operations\n\nConsequence\nSoftware unaware of SQL command control incurs the risk of unauthorized read, modify, and delete access to sensitive data\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the SQL compilation statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
+        "description": "Objective\nAvoid failure to sanitize user input in use in SQL compilation operations\n\nConsequence\nSoftware unaware of SQL command control incurs the risk of unauthorized read, modify, and delete access to sensitive data\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the SQL compilation statement; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.",
         "href": "CARL/technical-criteria/1062194",
         "weight": 5
     },
     {
         "id": 1062195,
         "name": "ASCSM-CWE-99 - Name or Reference Resolution Improper Input Neutralization",
-        "description": "Objective\nAvoid failure to sanitize user input in use as resource names or references\n\nConsequence\nSoftware unaware of resource identification control incurs the risk of unauthorized access to or modification of sensitive data and system resources, including configuration files and files containing sensitive information\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the platform action to access a resource by its name; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.\n\n",
+        "description": "Objective\nAvoid failure to sanitize user input in use as resource names or references\n\nConsequence\nSoftware unaware of resource identification control incurs the risk of unauthorized access to or modification of sensitive data and system resources, including configuration files and files containing sensitive information\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the in the platform action to access a resource by its name; none of the callable or method control element of the transformation sequence being a vetted sanitization control element from the list of vetted sanitization control elements.",
         "href": "CARL/technical-criteria/1062195",
         "weight": 5
     }

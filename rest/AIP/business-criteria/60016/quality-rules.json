@@ -136,16 +136,6 @@
         ]
     },
     {
-        "id": 2242,
-        "name": "DEPRECATED: Avoid direct definition of JavaScript Functions in a Web page (JEE)",
-        "href": "AIP/quality-rules/2242",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 2278,
         "name": "DEPRECATED: Check the use of \"foreach\" custom tag library",
         "href": "AIP/quality-rules/2278",
@@ -246,28 +236,6 @@
         ]
     },
     {
-        "id": 3570,
-        "name": "DEPRECATED: Avoid using Keywords as names",
-        "href": "AIP/quality-rules/3570",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 3576,
-        "name": "Avoid declaring public Fields",
-        "href": "AIP/quality-rules/3576",
-        "critical": true,
-        "severity": 20,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
         "id": 3612,
         "name": "Avoid missing release of SQL connection after an effective lifetime (C#, VB.NET)",
         "href": "AIP/quality-rules/3612",
@@ -282,17 +250,6 @@
         "id": 3614,
         "name": "Avoid using String.Empty for empty string tests",
         "href": "AIP/quality-rules/3614",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 3616,
-        "name": "DELETED: Data Access must be based on Stored Procedure Calls",
-        "href": "AIP/quality-rules/3616",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -371,29 +328,9 @@
         ]
     },
     {
-        "id": 4566,
-        "name": "Avoid declaring Instance Variables without defined access type",
-        "href": "AIP/quality-rules/4566",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 4570,
         "name": "Avoid declaring Non Final Class Variables with Public, Protected or Package access type",
         "href": "AIP/quality-rules/4570",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 4572,
-        "name": "DEPRECATED : Avoid declaring Final Instance Variables that are not initialized",
-        "href": "AIP/quality-rules/4572",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -1037,26 +974,6 @@
         "technologyNames": [
             "C#",
             "VB.NET"
-        ]
-    },
-    {
-        "id": 7306,
-        "name": "DEPRECATED: Avoid declaring Inner Classes",
-        "href": "AIP/quality-rules/7306",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 7308,
-        "name": "DEPRECATED: Avoid using Inner Classes",
-        "href": "AIP/quality-rules/7308",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
         ]
     },
     {
@@ -3714,6 +3631,16 @@
         "severity": 20,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 8586,
+        "name": "Avoid Insecure dynamic call of a function module through variable P_NAME",
+        "href": "AIP/quality-rules/8586",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
         ]
     },
     {
@@ -6748,7 +6675,7 @@
     },
     {
         "id": 1020800,
-        "name": "Avoid jump statements in finally ",
+        "name": "Avoid jump statements in finally",
         "href": "AIP/quality-rules/1020800",
         "critical": false,
         "severity": 10,
@@ -6758,7 +6685,7 @@
     },
     {
         "id": 1020802,
-        "name": "Avoid having errors without throwing them ",
+        "name": "Avoid having errors without throwing them",
         "href": "AIP/quality-rules/1020802",
         "critical": false,
         "severity": 10,
@@ -6768,7 +6695,7 @@
     },
     {
         "id": 1020804,
-        "name": "Avoid using console logging ",
+        "name": "Avoid using console logging",
         "href": "AIP/quality-rules/1020804",
         "critical": false,
         "severity": 10,
@@ -6778,7 +6705,7 @@
     },
     {
         "id": 1020806,
-        "name": "Avoid using NaN in comparison ",
+        "name": "Avoid using NaN in comparison",
         "href": "AIP/quality-rules/1020806",
         "critical": false,
         "severity": 10,
@@ -6798,7 +6725,7 @@
     },
     {
         "id": 1020810,
-        "name": "Avoid bypassing angular security trust ",
+        "name": "Avoid bypassing angular security trust",
         "href": "AIP/quality-rules/1020810",
         "critical": true,
         "severity": 20,
@@ -7928,7 +7855,7 @@
     },
     {
         "id": 1024036,
-        "name": "Always check all the BiometricPrompt acquired options in the onAuthenticationSucceeded method ",
+        "name": "Always check all the BiometricPrompt acquired options in the onAuthenticationSucceeded method",
         "href": "AIP/quality-rules/1024036",
         "critical": true,
         "severity": 20,
@@ -8438,17 +8365,6 @@
         "href": "AIP/quality-rules/1027024",
         "critical": true,
         "severity": 30,
-        "technologyNames": [
-            "C#",
-            "VB.NET"
-        ]
-    },
-    {
-        "id": 1027026,
-        "name": "Avoid Connection String Parameter Pollution",
-        "href": "AIP/quality-rules/1027026",
-        "critical": true,
-        "severity": 20,
         "technologyNames": [
             "C#",
             "VB.NET"
@@ -9942,7 +9858,7 @@
     },
     {
         "id": 1042016,
-        "name": "Avoid Struts action Mapping with disabled validator ",
+        "name": "Avoid Struts action Mapping with disabled validator",
         "href": "AIP/quality-rules/1042016",
         "critical": true,
         "severity": 20,
@@ -10004,7 +9920,7 @@
         "id": 1042030,
         "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
         "href": "AIP/quality-rules/1042030",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"
@@ -10014,7 +9930,7 @@
         "id": 1042036,
         "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
         "href": "AIP/quality-rules/1042036",
-        "critical": true,
+        "critical": false,
         "severity": 30,
         "technologyNames": [
             "JEE"

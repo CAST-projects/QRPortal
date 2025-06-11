@@ -2,7 +2,7 @@
     "id": 1062174,
     "name": "ASCSM-CWE-120 - Buffer Copy without Checking Size of Input",
     "href": "AIP/technical-criteria/1062174",
-    "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware that is unaware of buffer bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.\n\n",
+    "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware that is unaware of buffer bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.",
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/technical-criteria/1062174/quality-rules"
