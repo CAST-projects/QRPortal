@@ -10053,6 +10053,22 @@
     ],
     "com.castsoftware.sql.movetocloud": [
         {
+            "version": "1.0.4-funcrel",
+            "addedRules": [
+                {
+                    "id": 1106278,
+                    "name": "Ensure CREATE OR REPLACE PROCEDURE name statement is not used"
+                },
+                {
+                    "id": 1106276,
+                    "name": "Ensure FOR READ ONLY  is not used in SELECT statement"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
             "version": "1.0.3-funcrel",
             "addedRules": [
                 {
