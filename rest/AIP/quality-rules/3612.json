@@ -10,7 +10,7 @@
         "href": "AIP/extensions/com.castsoftware.dotnet"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "SQL connection should be closed within the Method / Function / Sub that opened it",
+    "description": "SQL connection should be closed within the Method / Function / Sub that opened it, unless:\n   * it is returned then it should be closed in a catch block;\n   * it is used as argument of a method call in a finally block;\n   * it is assigned to the current class field or property;",
     "output": "This report lists all Methods / Functions / Subs that do not close the SQL connections they opened\nIt provides the following information:  Method / Function / Sub full name",
     "rationale": "A frequent issue when dealing with database resource is resource leak. This mainly comes from an incorrect code that miss to close the connection in any cases. Incorrect resource management is a common source of failures in production applications, with the usual pitfalls being database connections and file descriptors remaining opened after an exception has occurred somewhere else in the code. This leads to application servers being frequently restarted when resource exhaustion occurs, because operating systems and server applications generally have an upper-bound limit for resources.",
     "reference": "https://cwe.mitre.org/data/definitions/772.html\nASCPEM-PRF-15,\nASCRM-CWE-772.",

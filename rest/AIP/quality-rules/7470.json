@@ -1,10 +1,14 @@
 {
     "id": 7470,
-    "name": "Avoid doing select on Datatable in loop",
+    "name": "DEPRECATED: Avoid doing select on Datatable in loop",
     "href": "AIP/quality-rules/7470",
     "critical": true,
     "severity": 20,
     "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
     "description": "This metric lists all the location where a call to a Select method is done on a DataTable in a loop.",
     "output": "List all artifacts where a call to a Select method of a datatable is done in a loop.",
     "rationale": "Calling the Select method on a DataTable in a loop generally involves performance problems because the data is not indexed.\nIt is better to use indexed access methods.",
