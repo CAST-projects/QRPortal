@@ -1,0 +1,120 @@
+{
+    "id": 1027104,
+    "name": "Ensure anti-forgery token validation for POST, PUT, PATCH, and DELETE methods",
+    "href": "AIP/quality-rules/1027104",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.dotnet",
+        "href": "AIP/extensions/com.castsoftware.dotnet"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will raise a violation for each POST, PUT, PATCH and DELETE method which fail to require anti-forgery token for Asp.Net MVC and Asp.Net Core MVC applications.\nThis rule ensures that anti-forgery token validation is applied in ASP.NET MVC and ASP.NET Core MVC applications for:\n\n  *  All state-changing HTTP methods (Post, Put, Patch, Delete) decorated with [HttpPost], [HttpPut], [HttpPatch], or [HttpDelete].\n\n  *  Any method accessing sensitive request data, even if not explicitly marked with an HTTP attribute. This includes:\n\n       - Accessing Request.Form, Request.Query, Request.Cookies, Request.Headers, or Request.Body.\n\n       - Using parameter binding attributes like [FromForm], [FromBody], or [FromQuery].\n\nA violation is raised if such methods lack anti-forgery protection (e.g., [ValidateAntiForgeryToken] or [AutoValidateAntiforgeryToken]). This ensures robust CSRF protection for both explicitly declared and potentially vulnerable endpoints.\n \n\nLimitation : In scenarios, where one might need to disable Antiforgerytoken requirements and decorate those actions or controllers with IgnoreAntiforgeryToken attribute, there will be no violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Cross-Site Request Forgery (CSRF) is an attack where a malicious site sends a request to a vulnerable site where the user is currently logged in.\n\nTo prevent CSRF attacks, use anti-forgery tokens with any authentication protocol where the browser silently sends credentials after the user logs in. This includes cookie-based authentication protocols, such as forms authentication, as well as protocols such as Basic and Digest authentication.\n\nYou should require anti-forgery tokens for any nonsafe methods (POST, PUT, PATCH, DELETE).",
+    "reference": "Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET MVC Application\nhttps://learn.microsoft.com/en-us/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks\n\nPrevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core\nhttps://learn.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?source=recommendations&view=aspnetcore-7.0\n\nCA5391: Use antiforgery tokens in ASP.NET Core MVC controllers\nhttps://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca5391\n\nCWE-352: Cross-Site Request Forgery (CSRF)\nhttp://cwe.mitre.org/data/definitions/352.html\n\nOWASP Cheat Sheet Series - Cross-Site Request Forgery Prevention Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+    "remediation": "Use ValidateAntiForgeryToken and AutoValidateAntiforgeryToken (Asp.net Core) attributes to require anti-forgery tokens for any POST, PUT, PATCH and DELETE methods.\nFor Ajax request call the AntiForgery.Validate method to validate the tokens.",
+    "remediationSample": "public class XSRFController : Controller\n    {\n        // GET: XSRF\n        public ActionResult Index()\n        {\n            return View();\n        }\n\n        /* CWE 352 : XSRF */\n        [ValidateAntiForgeryToken]\n        public void foo(MySqlConnection connection, HttpRequest Request)\n        {\n            string input = Request.QueryString[\"user\"];// No Violation\n            string sql = \"insert into Comments(comment) values (@user)\";\n            MySqlCommand cmd = new MySqlCommand(sql, connection);\n            cmd.Parameters.AddWithValue(input, User);\n            connection.Open();\n            MySqlDataReader reader = cmd.ExecuteReader();\n        }\n    }",
+    "sample": "public class XSRFController : Controller\n    {\n        // GET: XSRF\n        public ActionResult Index()\n        {\n            return View();\n        }\n\n        /* CWE 352 : XSRF */\n        public void foo(MySqlConnection connection, HttpRequest Request)\n        {\n            string input = Request.QueryString[\"user\"];// Violation\n            string sql = \"insert into Comments(comment) values (@user)\";\n            MySqlCommand cmd = new MySqlCommand(sql, connection);\n            cmd.Parameters.AddWithValue(input, User);\n            connection.Open();\n            MySqlDataReader reader = cmd.ExecuteReader();\n        }\n    }",
+    "total": "Number of .Net methods",
+    "alternativeName": "Ensure to require anti-forgery token for POST, PUT, PATCH and DELETE methods",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-352",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "href": "AIP/quality-standards/CWE/items/CWE-352",
+            "standard": "CWE"
+        },
+        {
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "href": "AIP/quality-standards/OWASP/items/A2-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A8-2013",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "href": "AIP/quality-standards/OWASP/items/A8-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A01-2021",
+            "name": "Broken Access Control",
+            "href": "AIP/quality-standards/OWASP/items/A01-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.9",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.9",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        },
+        {
+            "id": "STIG-V-222603",
+            "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V5/items/STIG-V-222603",
+            "standard": "STIG-V5"
+        },
+        {
+            "id": "STIG-V-222603",
+            "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
+            "href": "AIP/quality-standards/STIG-V6/items/STIG-V-222603",
+            "standard": "STIG-V6"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
