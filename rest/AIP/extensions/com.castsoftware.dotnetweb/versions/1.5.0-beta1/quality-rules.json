@@ -25,7 +25,7 @@
     },
     {
         "id": 1043010,
-        "name": "Ensure not to disable HttpOnly attribute while creating cookie (C#)",
+        "name": "Avoid creating cookie without setting httpOnly option (C#)",
         "href": "AIP/quality-rules/1043010",
         "status": "renewed",
         "critical": true,
@@ -37,7 +37,7 @@
     },
     {
         "id": 1043012,
-        "name": "Always enable HttpOnly for cookies in Config file (ASP.NET)",
+        "name": "Avoid creating cookie without setting httpOnly option in Config file (ASP.NET)",
         "href": "AIP/quality-rules/1043012",
         "status": "renewed",
         "critical": true,
@@ -49,7 +49,7 @@
     },
     {
         "id": 1043014,
-        "name": "Avoid disabling ValidateRequest in Config file",
+        "name": "Avoid disabling ValidateRequest in Config file (ASP.NET)",
         "href": "AIP/quality-rules/1043014",
         "status": "renewed",
         "critical": true,
@@ -96,7 +96,7 @@
     },
     {
         "id": 1043022,
-        "name": "Ensure not to disable Secure attribute while creating cookie (C#)",
+        "name": "Avoid using unsecured cookie (C#)",
         "href": "AIP/quality-rules/1043022",
         "status": "renewed",
         "critical": false,
@@ -120,7 +120,7 @@
     },
     {
         "id": 1043026,
-        "name": "Avoid disabling EnableViewStateMac in Config file",
+        "name": "Avoid disabling EnableViewStateMac in Config file (ASP.NET)",
         "href": "AIP/quality-rules/1043026",
         "status": "renewed",
         "critical": false,
@@ -155,7 +155,7 @@
     },
     {
         "id": 1043032,
-        "name": "Avoid having aspx pages with tracing activated",
+        "name": "Avoid having ASPX pages with tracing activated",
         "href": "AIP/quality-rules/1043032",
         "status": "renewed",
         "critical": false,
@@ -178,7 +178,7 @@
     },
     {
         "id": 1043036,
-        "name": "Avoid Impersonate Globally",
+        "name": "Avoid using Impersonate identity (ASP.NET)",
         "href": "AIP/quality-rules/1043036",
         "status": "renewed",
         "critical": false,
@@ -202,7 +202,7 @@
     },
     {
         "id": 1043044,
-        "name": "Ensure that CSRF Protection is enabled (ASP.NET MVC)",
+        "name": "Avoid disabling the XSRF/CSRF Protection (ASP.NET MVC)",
         "href": "AIP/quality-rules/1043044",
         "status": "renewed",
         "critical": true,
@@ -298,11 +298,136 @@
     },
     {
         "id": 1043062,
-        "name": "Ensure to limit users access only to authorized resources (C#)",
+        "name": "Avoid having all users accessing resources (.NET)",
         "href": "AIP/quality-rules/1043062",
         "status": "renewed",
         "critical": false,
         "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043066,
+        "name": "Always use HTTPS Redirection Middleware and HSTS Middleware in your ASP.NET Core application",
+        "href": "AIP/quality-rules/1043066",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1043068,
+        "name": "Avoid using RequireHttpsAttribute on Web APIs that receive sensitive information",
+        "href": "AIP/quality-rules/1043068",
+        "status": "renewed",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1043070,
+        "name": "Avoid disabling the XSRF/CSRF Protection (ASP.NET Core MVC)",
+        "href": "AIP/quality-rules/1043070",
+        "status": "renewed",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1043072,
+        "name": "Avoid creating unsecured HTTPS GET metadata endpoint in code",
+        "href": "AIP/quality-rules/1043072",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1043074,
+        "name": "Avoid creating unsecured HTTPS GET metadata endpoint in configuration",
+        "href": "AIP/quality-rules/1043074",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ASP.NET"
+        ]
+    },
+    {
+        "id": 1043076,
+        "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data",
+        "href": "AIP/quality-rules/1043076",
+        "status": "renewed",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043078,
+        "name": "Avoid debug binaries that include detailed debug information",
+        "href": "AIP/quality-rules/1043078",
+        "status": "renewed",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043080,
+        "name": "Avoid disabling OR not defining encryption behavior for encryption when connecting with Database",
+        "href": "AIP/quality-rules/1043080",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ASP.NET"
+        ]
+    },
+    {
+        "id": 1043082,
+        "name": "Avoid client provided dictionaries to have high request sizes",
+        "href": "AIP/quality-rules/1043082",
+        "status": "renewed",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET"
+        ]
+    },
+    {
+        "id": 1043084,
+        "name": "Avoid XML schemas with unbounded occurrences",
+        "href": "AIP/quality-rules/1043084",
+        "status": "renewed",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043086,
+        "name": "Avoid using Html.Raw() or HtmlHelper.Raw()",
+        "href": "AIP/quality-rules/1043086",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "ASP.NET",
             "C#"
