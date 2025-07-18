@@ -18,7 +18,7 @@
     "remediationSample": "fis = new FileInputStream(cfg.getProperty(\"sub\")+\".txt\");\n//code a validate function for the input recieved \"sub\"\namt = fis.read(arr);\nout.println(arr);",
     "sample": "The following code uses input from a configuration file to determine which file to open and echo back to the user. If the program runs with privileges and malicious users can change the configuration file, they can use the program to read any file on the system that ends with the extension .txt.\n\nfis = new FileInputStream(cfg.getProperty(\"sub\")+\".txt\");\namt = fis.read(arr);\nout.println(arr);",
     "total": "Number of potentially vulnerable methods",
-    "alternativeName": "Ensure you do file path manipulation without including untrusted data",
+    "alternativeName": "Ensure you do file path manipulation with trusted data",
     "businessCriteria": [
         {
             "id": 1062100,
