@@ -34,7 +34,7 @@
     },
     {
         "id": 1020006,
-        "name": "Avoid calling a function in a termination loop",
+        "name": "Avoid calling a function in a termination loop (Javascript)",
         "href": "AIP/quality-rules/1020006",
         "status": "renewed",
         "critical": true,
@@ -320,7 +320,7 @@
     },
     {
         "id": 1020058,
-        "name": "Avoid using eval()",
+        "name": "Avoid using eval() (Javascript)",
         "href": "AIP/quality-rules/1020058",
         "status": "renewed",
         "critical": true,
@@ -331,7 +331,7 @@
     },
     {
         "id": 1020060,
-        "name": "Avoid using console.log()",
+        "name": "Avoid using console.log() (Javascript)",
         "href": "AIP/quality-rules/1020060",
         "status": "renewed",
         "critical": false,
@@ -386,7 +386,7 @@
     },
     {
         "id": 1020070,
-        "name": "Avoid hardcoded network resource names (Javascript)",
+        "name": "Avoid hard-coded network resource names (Javascript)",
         "href": "AIP/quality-rules/1020070",
         "status": "renewed",
         "critical": false,
@@ -430,7 +430,7 @@
     },
     {
         "id": 1020078,
-        "name": "Avoid using setTimeout()",
+        "name": "Avoid using setTimeout() (Javascript)",
         "href": "AIP/quality-rules/1020078",
         "status": "renewed",
         "critical": true,
@@ -441,7 +441,7 @@
     },
     {
         "id": 1020080,
-        "name": "Avoid using setInterval()",
+        "name": "Avoid using setInterval() (Javascript)",
         "href": "AIP/quality-rules/1020080",
         "status": "renewed",
         "critical": true,
@@ -452,7 +452,7 @@
     },
     {
         "id": 1020082,
-        "name": "Avoid undocumented Functions (Javascript)",
+        "name": "Avoid undocumented Functions and Methods (Javascript/Typescript)",
         "href": "AIP/quality-rules/1020082",
         "status": "renewed",
         "critical": false,
@@ -573,11 +573,44 @@
     },
     {
         "id": 1020104,
-        "name": "Avoid hardcoded passwords (Javascript)",
+        "name": "Avoid hard-coded passwords (Javascript)",
         "href": "AIP/quality-rules/1020104",
-        "status": "added",
+        "status": "renewed",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020106,
+        "name": "Avoid hidden form fields to prevent parameter tampering (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020106",
+        "status": "renewed",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020108,
+        "name": "Avoid dangerous file inclusion (JSTL) (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020108",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020110,
+        "name": "Avoid cross-site scripting within events such as onclick, onmouseover ... events (Razor)",
+        "href": "AIP/quality-rules/1020110",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "HTML5"
         ]

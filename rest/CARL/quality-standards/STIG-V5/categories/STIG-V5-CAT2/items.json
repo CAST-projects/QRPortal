@@ -1,5 +1,11 @@
 [
     {
+        "id": "STIG-V-222387",
+        "name": "The application must provide a capability to limit the number of logon sessions per user.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222387",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222388",
         "name": "The application must clear temporary storage and cookies when the session is terminated.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222388",
@@ -10,6 +16,36 @@
         "name": "The application must automatically terminate the non-privileged user session and log off non-privileged users after a 15 minute idle time period has elapsed.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222389",
         "count": 1
+    },
+    {
+        "id": "STIG-V-222390",
+        "name": "The application must automatically terminate the admin user session and log off admin users after a 10 minute idle time period is exceeded.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222390",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222391",
+        "name": "Applications requiring user access authentication must provide a logoff capability for user initiated communication session.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222391",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222393",
+        "name": "The application must associate organization-defined types of security attributes having organization-defined security attribute values with information in storage.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222393",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222394",
+        "name": "The application must associate organization-defined types of security attributes having organization-defined security attribute values with information in process.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222394",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222395",
+        "name": "The application must associate organization-defined types of security attributes having organization-defined security attribute values with information in transmission.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222395",
+        "count": 0
     },
     {
         "id": "STIG-V-222396",
@@ -24,10 +60,166 @@
         "count": 1
     },
     {
+        "id": "STIG-V-222398",
+        "name": "Applications with SOAP messages requiring integrity must include the following message elements:-Message ID-Service Request-Timestamp-SAML Assertion (optionally included in messages) and all eleme...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222398",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222401",
+        "name": "The application must ensure each unique asserting party provides unique assertion ID references for each SAML assertion.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222401",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222402",
+        "name": "The application must ensure encrypted assertions, or equivalent confidentiality protections are used when assertion data is passed through an intermediary, and confidentiality of the assertion dat...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222402",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222405",
+        "name": "The application must ensure if a OneTimeUse element is used in an assertion, there is only one of the same used in the Conditions element portion of an assertion.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222405",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222406",
         "name": "The application must ensure messages are encrypted when the SessionIndex is tied to privacy data.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222406",
         "count": 1
+    },
+    {
+        "id": "STIG-V-222407",
+        "name": "The application must provide automated mechanisms for supporting account management functions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222407",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222408",
+        "name": "Shared/group account credentials must be terminated when members leave the group.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222408",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222409",
+        "name": "The application must automatically remove or disable temporary user accounts 72 hours after account creation.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222409",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222412",
+        "name": "Unnecessary application accounts must be disabled, or deleted.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222412",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222413",
+        "name": "The application must automatically audit account creation.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222413",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222414",
+        "name": "The application must automatically audit account modification.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222414",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222415",
+        "name": "The application must automatically audit account disabling actions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222415",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222416",
+        "name": "The application must automatically audit account removal actions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222416",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222421",
+        "name": "The application must automatically audit account enabling actions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222421",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222423",
+        "name": "Application data protection requirements must be identified and documented.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222423",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222424",
+        "name": "The application must utilize organization-defined data mining detection techniques for organization-defined data storage objects to adequately detect data mining attempts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222424",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222426",
+        "name": "The application must enforce organization-defined discretionary access control policies over defined subjects and objects.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222426",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222427",
+        "name": "The application must enforce approved authorizations for controlling the flow of information within the system based on organization-defined information flow control policies.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222427",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222428",
+        "name": "The application must enforce approved authorizations for controlling the flow of information between interconnected systems based on organization-defined information flow control policies.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222428",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222429",
+        "name": "The application must prevent non-privileged users from executing privileged functions to include disabling, circumventing, or altering implemented security safeguards/countermeasures.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222429",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222431",
+        "name": "The application must audit the execution of privileged functions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222431",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222433",
+        "name": "The application administrator must follow an approved process to unlock locked user accounts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222433",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222438",
+        "name": "The application must protect against an individual (or process acting on behalf of an individual) falsely denying having performed organization-defined actions to be covered by non-repudiation.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222438",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222439",
+        "name": "For applications providing audit record aggregation, the application must compile audit records from organization-defined information system components into a system-wide audit trail that is time-...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222439",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222441",
+        "name": "The application must provide audit record generation capability for the creation of session IDs.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222441",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222442",
+        "name": "The application must provide audit record generation capability for the destruction of session IDs.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222442",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222443",
+        "name": "The application must provide audit record generation capability for the renewal of session IDs.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222443",
+        "count": 0
     },
     {
         "id": "STIG-V-222444",
@@ -36,10 +228,520 @@
         "count": 9
     },
     {
+        "id": "STIG-V-222445",
+        "name": "The application must provide audit record generation capability for session timeouts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222445",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222446",
+        "name": "The application must record a time stamp indicating when the event occurred.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222446",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222447",
+        "name": "The application must provide audit record generation capability for HTTP headers including User-Agent, Referer, GET, and POST.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222447",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222448",
+        "name": "The application must provide audit record generation capability for connecting system IP addresses.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222448",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222449",
+        "name": "The application must record the username or user ID of the user associated with the event.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222449",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222450",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to grant privileges occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222450",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222451",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to access security objects occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222451",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222452",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to access security levels occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222452",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222453",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222453",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222454",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to modify privileges occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222454",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222455",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to modify security objects occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222455",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222456",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to modify security levels occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222456",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222457",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to modify categories of information (e.g., classification levels) occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222457",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222458",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to delete privileges occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222458",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222459",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to delete security levels occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222459",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222460",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to delete application database security objects occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222460",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222461",
+        "name": "The application must generate audit records when successful/unsuccessful attempts to delete categories of information (e.g., classification levels) occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222461",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222462",
+        "name": "The application must generate audit records when successful/unsuccessful logon attempts occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222462",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222463",
+        "name": "The application must generate audit records for privileged activities or other system-level access.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222463",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222464",
+        "name": "The application must generate audit records showing starting and ending time for user access to the system.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222464",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222465",
+        "name": "The application must generate audit records when successful/unsuccessful accesses to objects occur.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222465",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222466",
+        "name": "The application must generate audit records for all direct access to the information system.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222466",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222467",
+        "name": "The application must generate audit records for all account creations, modifications, disabling, and termination events.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222467",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222468",
+        "name": "The application must initiate session auditing upon startup.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222468",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222469",
+        "name": "The application must log application shutdown events.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222469",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222470",
+        "name": "The application must log destination IP addresses.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222470",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222471",
+        "name": "The application must log user actions involving access to data.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222471",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222472",
+        "name": "The application must log user actions involving changes to data.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222472",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222473",
+        "name": "The application must produce audit records containing information to establish when (date and time) the events occurred.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222473",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222474",
+        "name": "The application must produce audit records containing enough information to establish which component, feature or function of the application triggered the audit event.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222474",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222475",
+        "name": "When using centralized logging; the application must include a unique identifier in order to distinguish itself from other application logs.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222475",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222476",
+        "name": "The application must produce audit records that contain information to establish the outcome of the events.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222476",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222477",
+        "name": "The application must generate audit records containing information that establishes the identity of any individual or process associated with the event.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222477",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222478",
+        "name": "The application must generate audit records containing the full-text recording of privileged commands or the individual identities of group account users.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222478",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222479",
+        "name": "The application must implement transaction recovery logs when transaction based.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222479",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222480",
+        "name": "The application must provide centralized management and configuration of the content to be captured in audit records generated by all application components.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222480",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222481",
+        "name": "The application must off-load audit records onto a different system or media than the system being audited.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222481",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222482",
+        "name": "The application must be configured to write application logs to a centralized log repository.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222482",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222483",
+        "name": "The application must provide an immediate warning to the SA and ISSO (at a minimum) when allocated audit record storage volume reaches 75% of repository maximum audit record storage capacity.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222483",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222484",
+        "name": "Applications categorized as having a moderate or high impact must provide an immediate real-time alert to the SA and ISSO (at a minimum) for all audit failure events.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222484",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222485",
+        "name": "The application must alert the ISSO and SA (at a minimum) in the event of an audit processing failure.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222485",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222486",
+        "name": "The application must shut down by default upon audit failure (unless availability is an overriding concern).",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222486",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222487",
+        "name": "The application must provide the capability to centrally review and analyze audit records from multiple components within the system.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222487",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222488",
+        "name": "The application must provide the capability to filter audit records for events of interest based upon organization-defined criteria.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222488",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222489",
+        "name": "The application must provide an audit reduction capability that supports on-demand reporting requirements.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222489",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222490",
+        "name": "The application must provide an audit reduction capability that supports on-demand audit review and analysis.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222490",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222491",
+        "name": "The application must provide an audit reduction capability that supports after-the-fact investigations of security incidents.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222491",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222492",
+        "name": "The application must provide a report generation capability that supports on-demand audit review and analysis.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222492",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222493",
+        "name": "The application must provide a report generation capability that supports on-demand reporting requirements.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222493",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222494",
+        "name": "The application must provide a report generation capability that supports after-the-fact investigations of security incidents.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222494",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222495",
+        "name": "The application must provide an audit reduction capability that does not alter original content or time ordering of audit records.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222495",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222496",
+        "name": "The application must provide a report generation capability that does not alter original content or time ordering of audit records.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222496",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222497",
+        "name": "The applications must use internal system clocks to generate time stamps for audit records.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222497",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222498",
+        "name": "The application must record time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT).",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222498",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222499",
+        "name": "The application must record time stamps for audit records that meet a granularity of one second for a minimum degree of precision.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222499",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222500",
+        "name": "The application must protect audit information from any type of unauthorized read access.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222500",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222501",
+        "name": "The application must protect audit information from unauthorized modification.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222501",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222502",
+        "name": "The application must protect audit information from unauthorized deletion.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222502",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222503",
+        "name": "The application must protect audit tools from unauthorized access.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222503",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222504",
+        "name": "The application must protect audit tools from unauthorized modification.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222504",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222505",
+        "name": "The application must protect audit tools from unauthorized deletion.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222505",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222506",
+        "name": "The application must back up audit records at least every seven days onto a different system or system component than the system or component being audited.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222506",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222507",
+        "name": "The application must use cryptographic mechanisms to protect the integrity of audit information.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222507",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222508",
+        "name": "Application audit tools must be cryptographically hashed.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222508",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222509",
+        "name": "The integrity of the audit tools must be validated by checking the files for changes in the cryptographic hash value.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222509",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222510",
+        "name": "The application must prohibit user installation of software without explicit privileged status.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222510",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222511",
+        "name": "The application must enforce access restrictions associated with changes to application configuration.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222511",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222512",
+        "name": "The application must audit who makes configuration changes to the application.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222512",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222513",
+        "name": "The application must have the capability to prevent the installation of patches, service packs, or application components without verification the software component has been digitally signed usin...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222513",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222514",
+        "name": "The applications must limit privileges to change the software resident within software libraries.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222514",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222515",
+        "name": "An application vulnerability assessment must be conducted.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222515",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222516",
+        "name": "The application must prevent program execution in accordance with organization-defined policies regarding software program usage and restrictions, and/or rules authorizing the terms and conditions...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222516",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222517",
         "name": "The application must employ a deny-all, permit-by-exception (whitelist) policy to allow the execution of authorized software programs.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222517",
         "count": 2
+    },
+    {
+        "id": "STIG-V-222518",
+        "name": "The application must be configured to disable non-essential capabilities.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222518",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222519",
+        "name": "The application must be configured to use only functions, ports, and protocols permitted to it in the PPSM CAL.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222519",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222520",
+        "name": "The application must require users to reauthenticate when organization-defined circumstances or situations require reauthentication.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222520",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222521",
+        "name": "The application must require devices to reauthenticate when organization-defined circumstances or situations requiring reauthentication.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222521",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222523",
+        "name": "The application must use multifactor (Alt. Token) authentication for network access to privileged accounts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222523",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222524",
+        "name": "The application must accept Personal Identity Verification (PIV) credentials.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222524",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222525",
+        "name": "The application must electronically verify Personal Identity Verification (PIV) credentials.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222525",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222526",
+        "name": "The application must use multifactor (e.g., CAC, Alt. Token) authentication for network access to non-privileged accounts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222526",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222527",
+        "name": "The application must use multifactor (Alt. Token) authentication for local access to privileged accounts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222527",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222528",
+        "name": "The application must use multifactor (e.g., CAC, Alt. Token) authentication for local access to nonprivileged accounts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222528",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222529",
+        "name": "The application must ensure users are authenticated with an individual authenticator prior to using a group authenticator.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222529",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222530",
+        "name": "The application must implement replay-resistant authentication mechanisms for network access to privileged accounts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222530",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222531",
+        "name": "The application must implement replay-resistant authentication mechanisms for network access to nonprivileged accounts.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222531",
+        "count": 0
     },
     {
         "id": "STIG-V-222532",
@@ -48,16 +750,220 @@
         "count": 2
     },
     {
+        "id": "STIG-V-222533",
+        "name": "The application must authenticate all network connected endpoint devices before establishing any connection.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222533",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222534",
         "name": "Service-Oriented Applications handling non-releasable data must authenticate endpoint devices via mutual SSL/TLS.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222534",
         "count": 2
     },
     {
+        "id": "STIG-V-222535",
+        "name": "The application must disable device identifiers after 35 days of inactivity unless a cryptographic certificate is used for authentication.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222535",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222537",
+        "name": "The application must enforce password complexity by requiring that at least one uppercase character be used.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222537",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222538",
+        "name": "The application must enforce password complexity by requiring that at least one lowercase character be used.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222538",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222539",
+        "name": "The application must enforce password complexity by requiring that at least one numeric character be used.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222539",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222540",
+        "name": "The application must enforce password complexity by requiring that at least one special character be used.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222540",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222541",
+        "name": "The application must require the change of at least eight of the total number of characters when passwords are changed.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222541",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222544",
+        "name": "The application must enforce 24 hours/1 day as the minimum password lifetime.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222544",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222545",
+        "name": "The application must enforce a 60-day maximum password lifetime restriction.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222545",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222546",
+        "name": "The application must prohibit password reuse for a minimum of five generations.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222546",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222547",
+        "name": "The application must allow the use of a temporary password for system logons with an immediate change to a permanent password.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222547",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222548",
+        "name": "The application password must not be changeable by users other than the administrator or the user with which the password is associated.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222548",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222549",
+        "name": "The application must terminate existing user sessions upon account deletion.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222549",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222552",
+        "name": "The application must map the authenticated identity to the individual user or group account for PKI-based authentication.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222552",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222553",
+        "name": "The application, for PKI-based authentication, must implement a local cache of revocation data to support path discovery and validation in case of the inability to access revocation information vi...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222553",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222555",
+        "name": "The application must use mechanisms meeting the requirements of applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance for authentication to a crypto...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222555",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222556",
+        "name": "The application must uniquely identify and authenticate non-organizational users (or processes acting on behalf of non-organizational users).",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222556",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222557",
+        "name": "The application must accept Personal Identity Verification (PIV) credentials from other federal agencies.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222557",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222558",
+        "name": "The application must electronically verify Personal Identity Verification (PIV) credentials from other federal agencies.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222558",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222559",
+        "name": "The application must accept Federal Identity, Credential, and Access Management (FICAM)-approved third-party credentials.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222559",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222560",
+        "name": "The application must conform to Federal Identity, Credential, and Access Management (FICAM)-issued profiles.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222560",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222561",
+        "name": "Applications used for non-local maintenance sessions must audit non-local maintenance and diagnostic sessions for organization-defined auditable events.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222561",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222562",
+        "name": "Applications used for non-local maintenance sessions must implement cryptographic mechanisms to protect the integrity of non-local maintenance and diagnostic communications.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222562",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222563",
+        "name": "Applications used for non-local maintenance sessions must implement cryptographic mechanisms to protect the confidentiality of non-local maintenance and diagnostic communications.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222563",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222564",
+        "name": "Applications used for non-local maintenance sessions must verify remote disconnection at the termination of non-local maintenance and diagnostic sessions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222564",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222565",
+        "name": "The application must employ strong authenticators in the establishment of non-local maintenance and diagnostic sessions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222565",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222566",
+        "name": "The application must terminate all sessions and network connections when nonlocal maintenance is completed.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222566",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222567",
+        "name": "The application must not be vulnerable to race conditions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222567",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222568",
+        "name": "The application must terminate all network connections associated with a communications session at the end of the session.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222568",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222569",
+        "name": "The application must implement NSA-approved cryptography to protect classified information in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and stan...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222569",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222570",
         "name": "The application must utilize FIPS-validated cryptographic modules when signing application components.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222570",
         "count": 1
+    },
+    {
+        "id": "STIG-V-222571",
+        "name": "The application must utilize FIPS-validated cryptographic modules when generating cryptographic hashes.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222571",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222572",
+        "name": "The application must utilize FIPS-validated cryptographic modules when protecting unclassified information that requires cryptographic protection.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222572",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222573",
+        "name": "Applications making SAML assertions must use FIPS-approved random numbers in the generation of SessionIndex in the SAML element AuthnStatement.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222573",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222574",
+        "name": "The application user interface must be either physically or logically separated from data storage and management interfaces.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222574",
+        "count": 0
     },
     {
         "id": "STIG-V-222575",
@@ -78,16 +984,100 @@
         "count": 0
     },
     {
+        "id": "STIG-V-222580",
+        "name": "Applications must validate session identifiers.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222580",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222581",
         "name": "Applications must not use URL embedded session IDs.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222581",
         "count": 1
     },
     {
+        "id": "STIG-V-222582",
+        "name": "The application must not re-use or recycle session IDs.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222582",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222583",
+        "name": "The application must use the Federal Information Processing Standard (FIPS) 140-2-validated cryptographic modules and random number generator if the application implements encryption, key exchange...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222583",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222584",
+        "name": "The application must only allow the use of DoD-approved certificate authorities for verification of the establishment of protected sessions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222584",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222586",
+        "name": "In the event of a system failure, applications must preserve any information necessary to determine cause of failure and any information necessary to return to operations with least disruption to ...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222586",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222587",
+        "name": "The application must protect the confidentiality and integrity of stored information when required by DoD policy or the information owner.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222587",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222588",
+        "name": "The application must implement approved cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest on organization-defined information system compone...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222588",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222589",
+        "name": "The application must use appropriate cryptography in order to protect stored DoD information when required by the information owner or DoD policy.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222589",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222590",
+        "name": "The application must isolate security functions from non-security functions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222590",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222591",
+        "name": "The application must maintain a separate execution domain for each executing process.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222591",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222592",
+        "name": "Applications must prevent unauthorized and unintended information transfer via shared system resources.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222592",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222593",
         "name": "XML-based applications must mitigate DoS attacks by using XML filters, parser options, or gateways.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222593",
         "count": 15
+    },
+    {
+        "id": "STIG-V-222594",
+        "name": "The application must restrict the ability to launch Denial of Service (DoS) attacks against itself or other information systems.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222594",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222595",
+        "name": "The web service design must include redundancy mechanisms when used with high-availability systems.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222595",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222597",
+        "name": "The application must implement cryptographic mechanisms to prevent unauthorized disclosure of information and/or detect changes to information during transmission unless otherwise protected by alt...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222597",
+        "count": 0
     },
     {
         "id": "STIG-V-222598",
@@ -102,10 +1092,22 @@
         "count": 2
     },
     {
+        "id": "STIG-V-222600",
+        "name": "The application must not disclose unnecessary information to users.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222600",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222603",
         "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222603",
         "count": 7
+    },
+    {
+        "id": "STIG-V-222605",
+        "name": "The application must protect from canonical representation vulnerabilities.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222605",
+        "count": 0
     },
     {
         "id": "STIG-V-222606",
@@ -120,15 +1122,279 @@
         "count": 3
     },
     {
+        "id": "STIG-V-222611",
+        "name": "The application must reveal error messages only to the ISSO, ISSM, or SA.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222611",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222613",
+        "name": "The application must remove organization-defined software components after updated versions have been installed.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222613",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222614",
+        "name": "Security-relevant software updates and patches must be kept up to date.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222614",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222615",
+        "name": "The application performing organization-defined security functions must verify correct operation of security functions.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222615",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222616",
+        "name": "The application must perform verification of the correct operation of security functions: upon system startup and/or restart; upon command by a user with privileged access; and/or every 30 days.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222616",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222618",
+        "name": "Unsigned Category 1A mobile code must not be used in the application in accordance with DoD policy.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222618",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222619",
+        "name": "The ISSO must ensure an account management process is implemented, verifying only authorized users can gain access to the application, and individual accounts designated as inactive, suspended, or...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222619",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222621",
+        "name": "The ISSO must ensure application audit trails are retained for at least 1 year for applications without SAMI data, and 5 years for applications including SAMI data.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222621",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222622",
+        "name": "The ISSO must review audit trails periodically based on system documentation recommendations or immediately upon system security events.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222622",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222623",
+        "name": "The ISSO must report all suspected violations of IA policies in accordance with DoD information system IA procedures.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222623",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222624",
+        "name": "The ISSO must ensure active vulnerability testing is performed.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222624",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222625",
+        "name": "Execution flow diagrams and design documents must be created to show how deadlock and recursion issues in web services are being mitigated.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222625",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222626",
+        "name": "The designer must ensure the application does not store configuration and control files in the same directory as user data.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222626",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222627",
+        "name": "The ISSO must ensure if a DoD STIG or NSA guide is not available, a third-party product will be configured by following available guidance.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222627",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222628",
+        "name": "New IP addresses, data services, and associated ports used by the application must be submitted to the appropriate approving authority for the organization, which in turn will be submitted through...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222628",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222629",
+        "name": "The application must be registered with the DoD Ports and Protocols Database.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222629",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222630",
+        "name": "The Configuration Management (CM) repository must be properly patched and STIG compliant.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222630",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222631",
+        "name": "Access privileges to the Configuration Management (CM) repository must be reviewed every three months.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222631",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222632",
+        "name": "A Software Configuration Management (SCM) plan describing the configuration control and change management process of application objects developed by the organization and the roles and responsibil...",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222632",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222633",
+        "name": "A Configuration Control Board (CCB) that meets at least every release cycle, for managing the Configuration Management (CM) process must be established.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222633",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222634",
+        "name": "The application services and interfaces must be compatible with and ready for IPv6 networks.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222634",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222635",
+        "name": "The application must not be hosted on a general purpose machine if the application is designated as critical or high availability by the ISSO.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222635",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222636",
+        "name": "A disaster recovery/continuity plan must exist in accordance with DoD policy based on the applications availability requirements.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222636",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222637",
+        "name": "Recovery procedures and technical system features must exist so recovery is performed in a secure and verifiable manner. The ISSO will document circumstances inhibiting a trusted recovery.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222637",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222638",
+        "name": "Data backup must be performed at required intervals in accordance with DoD policy.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222638",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222639",
+        "name": "Back-up copies of the application software or source code must be stored in a fire-rated container or stored separately (offsite).",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222639",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222640",
+        "name": "Procedures must be in place to assure the appropriate physical and technical protection of the backup and restoration of the application.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222640",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222641",
+        "name": "The application must use encryption to implement key exchange and authenticate endpoints prior to establishing a communication channel for key exchange.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222641",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222645",
+        "name": "Application files must be cryptographically hashed prior to deploying to DoD operational networks.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222645",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222646",
+        "name": "At least one tester must be designated to test for security flaws in addition to functional testing.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222646",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222648",
+        "name": "An application code review must be performed on the application.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222648",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222650",
+        "name": "Flaws found during a code review must be tracked in a defect tracking system.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222650",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222651",
+        "name": "The changes to the application must be assessed for IA and accreditation impact prior to implementation.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222651",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222652",
+        "name": "Security flaws must be fixed or addressed in the project plan.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222652",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222655",
+        "name": "Threat models must be documented and reviewed for each application release and updated as required by design and functionality changes or when new threats are discovered.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222655",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222656",
         "name": "The application must not be subject to error handling vulnerabilities.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222656",
         "count": 17
     },
     {
+        "id": "STIG-V-222657",
+        "name": "The application development team must provide an application incident response plan.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222657",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222661",
         "name": "Unnecessary built-in application accounts must be disabled.",
         "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222661",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222663",
+        "name": "An Application Configuration Guide must be created and included with the application.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222663",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222664",
+        "name": "If the application contains classified data, a Security Classification Guide must exist containing data elements and their classification.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222664",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222665",
+        "name": "The designer must ensure uncategorized or emerging mobile code is not used in applications.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222665",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222666",
+        "name": "Production database exports must have database administration credentials and sensitive data removed before releasing the export.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222666",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222667",
+        "name": "Protections against DoS attacks must be implemented.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222667",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222668",
+        "name": "The system must alert an administrator when low resource conditions are encountered.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222668",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222671",
+        "name": "Connections between the DoD enclave and the Internet or other public or commercial wide area networks must require a DMZ.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222671",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222673",
+        "name": "The Program Manager must verify all levels of program management, designers, developers, and testers receive annual security training pertaining to their job function.",
+        "href": "CARL/quality-standards/STIG-V5/items/STIG-V-222673",
         "count": 0
     }
 ]

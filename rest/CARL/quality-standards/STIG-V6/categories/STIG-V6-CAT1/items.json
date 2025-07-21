@@ -1,8 +1,56 @@
 [
     {
+        "id": "STIG-V-222399",
+        "name": "Messages protected with WS_Security must use time stamps with creation and expiration times.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222399",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222400",
+        "name": "Validity periods must be verified on all application messages using WS-Security or SAML assertions.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222400",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222403",
+        "name": "The application must use the NotOnOrAfter condition when using the SubjectConfirmation element in a SAML assertion.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222403",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222404",
+        "name": "The application must use both the NotBefore and NotOnOrAfter elements or OneTimeUse element when using the Conditions element in a SAML assertion.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222404",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222425",
         "name": "The application must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.",
         "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222425",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222430",
+        "name": "The application must execute without excessive account permissions.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222430",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222432",
+        "name": "The application must enforce the limit of three consecutive invalid logon attempts by a user during a 15 minute time period.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222432",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222522",
+        "name": "The application must uniquely identify and authenticate organizational users (or processes acting on behalf of organizational users).",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222522",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222536",
+        "name": "The application must enforce a minimum 15-character password length.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222536",
         "count": 0
     },
     {
@@ -18,10 +66,28 @@
         "count": 1
     },
     {
+        "id": "STIG-V-222550",
+        "name": "The application, when utilizing PKI-based authentication, must validate certificates by constructing a certification path (which includes status information) to an accepted trust anchor.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222550",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222551",
+        "name": "The application, when using PKI-based authentication, must enforce authorized access to the corresponding private key.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222551",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222554",
         "name": "The application must not display passwords/PINs as clear text.",
         "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222554",
         "count": 1
+    },
+    {
+        "id": "STIG-V-222555",
+        "name": "The application must use mechanisms meeting the requirements of applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance for authentication to a crypto...",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222555",
+        "count": 0
     },
     {
         "id": "STIG-V-222577",
@@ -34,6 +100,12 @@
         "name": "The application must destroy the session ID value and/or cookie on logoff or browser close.",
         "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222578",
         "count": 2
+    },
+    {
+        "id": "STIG-V-222585",
+        "name": "The application must fail to a secure state if system initialization fails, shutdown fails, or aborts fail.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222585",
+        "count": 0
     },
     {
         "id": "STIG-V-222596",
@@ -84,9 +156,39 @@
         "count": 18
     },
     {
+        "id": "STIG-V-222620",
+        "name": "Application web servers must be on a separate network segment from the application and database servers if it is a tiered application operating in the DoD DMZ.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222620",
+        "count": 0
+    },
+    {
         "id": "STIG-V-222642",
         "name": "The application must not contain embedded authentication data.",
         "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222642",
         "count": 8
+    },
+    {
+        "id": "STIG-V-222643",
+        "name": "The application must have the capability to mark sensitive/classified output when required.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222643",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222658",
+        "name": "All products must be supported by the vendor or the development team.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222658",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222659",
+        "name": "The application must be decommissioned when maintenance or support is no longer available.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222659",
+        "count": 0
+    },
+    {
+        "id": "STIG-V-222662",
+        "name": "Default passwords must be changed.",
+        "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222662",
+        "count": 0
     }
 ]
