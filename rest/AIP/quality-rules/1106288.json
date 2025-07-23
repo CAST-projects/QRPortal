@@ -1,0 +1,57 @@
+{
+    "id": 1106288,
+    "name": "Ensure SqlMail is not used",
+    "href": "AIP/quality-rules/1106288",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "SQL Mail, an older feature used to send email messages directly from SQL Server using MAPI (Messaging Application Programming Interface), has been discontinued and is not available in Azure SQL Database. This feature was deprecated in favor of Database Mail in on-premises SQL Server versions and has been fully removed in Azure SQL Database.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "SQL Mail relied on the MAPI subsystem and direct interaction with email clients like Microsoft Outlook installed on the SQL Server host machine. These dependencies are incompatible with Azure SQL Database\u2019s sandboxed and cloud-native architecture, which does not provide access to host-level resources or client-side software. Additionally, SQL Mail was considered less secure, less reliable, and harder to manage compared to modern email solutions.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#SqlMail",
+    "remediation": "To address the discontinuation of SQL Mail:\n\nMigrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines if you require email capabilities directly within the database using Database Mail.\n\nFor Azure SQL Database:\n\nImplement Azure Functions or application logic to handle email notifications.\n\nUse services like SendGrid, SMTP Relay, or Microsoft Graph API for secure and scalable email delivery.\n\nStore relevant metadata (e.g., recipient, subject, message) in a logging table and trigger email logic from external components.",
+    "remediationSample": "Remediation Sample (Using Application or Azure Function with SendGrid):\n\n1. Store the email details in a custom log table:\n\n-- Custom email logging for external processing\n\nCREATE TABLE EmailQueue (\n    EmailID INT IDENTITY(1,1) PRIMARY KEY,\n    Recipient NVARCHAR(255),\n    Subject NVARCHAR(255),\n    MessageBody NVARCHAR(MAX),\n    Status NVARCHAR(50),\n    CreatedAt DATETIME2 DEFAULT GETDATE()\n);\n\nINSERT INTO EmailQueue (Recipient, Subject, MessageBody, Status)\nVALUES ('user@example.com', 'Monthly Report', 'Report has been generated.', 'Pending');\n\n2. Use an Azure Function or application to poll this table and send emails via SendGrid or SMTP.\n\nThis cloud-native design separates email delivery from database logic while preserving traceability and scalability.",
+    "sample": "-- SQL Mail example (unsupported and obsolete)\n\nEXEC xp_sendmail\n    @recipients = 'user@example.com',\n    @subject = 'Monthly Report',\n    @message = 'Report has been generated.';\n\nThis syntax relies on SQL Mail and will not function in Azure SQL Database.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure SqlMail is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -10054,6 +10054,30 @@
     ],
     "com.castsoftware.sql.movetocloud": [
         {
+            "version": "1.0.5-funcrel",
+            "addedRules": [
+                {
+                    "id": 1106288,
+                    "name": "Ensure SqlMail is not used"
+                },
+                {
+                    "id": 1106286,
+                    "name": "Ensure SystemProcedures110 is not used"
+                },
+                {
+                    "id": 1106282,
+                    "name": "Ensure SYS.DATABASE_PRINCIPAL_ALIASES is not used"
+                },
+                {
+                    "id": 1106280,
+                    "name": "Ensure XpCmdshell is not used"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
             "version": "1.0.4-funcrel",
             "addedRules": [
                 {

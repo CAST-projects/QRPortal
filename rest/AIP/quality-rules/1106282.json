@@ -1,0 +1,57 @@
+{
+    "id": 1106282,
+    "name": "Ensure SYS.DATABASE_PRINCIPAL_ALIASES is not used",
+    "href": "AIP/quality-rules/1106282",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules checks that SYS.DATABASE_PRINCIPAL_ALIASES is not used in SQL Server side.\n\nThe system view sys.database_principal_aliases, which was used in earlier versions of SQL Server to manage aliasing of database principals, has been deprecated and is not available in Azure SQL Database. Any references to this view will result in an error during or after migration.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The use of aliases for database principals has been eliminated to simplify security management and improve role-based access control. Azure SQL Database emphasizes modern and robust access control mechanisms through roles and permissions, offering clearer audit trails and easier management. Relying on legacy views like sys.database_principal_aliases is no longer viable or necessary in the cloud model.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#DatabasePrincipalAlias",
+    "remediation": "To resolve this issue:\n\nReplace all logic that queries or depends on sys.database_principal_aliases with role-based access control (RBAC) using built-in or custom database roles.\n\nAudit any aliasing logic and refactor it to use explicit user-role mappings.\n\nUse views like sys.database_principals and sys.database_role_members to inspect user-role relationships.",
+    "remediationSample": "-- Check role memberships for a given user in Azure SQL Database\n\nSELECT dp.name AS RoleName, dp2.name AS MemberName\nFROM sys.database_role_members drm\nJOIN sys.database_principals dp ON drm.role_principal_id = dp.principal_id\nJOIN sys.database_principals dp2 ON drm.member_principal_id = dp2.principal_id\nWHERE dp2.name = 'SomeUser';\n\nThis query inspects user-role mappings, offering a secure and modern approach to managing and evaluating database access.",
+    "sample": "-- Querying the deprecated system view (unsupported in Azure SQL Database)\n\nSELECT * FROM sys.database_principal_aliases\nWHERE alias_principal_id = USER_ID('SomeUser');\n\nThis query will fail in Azure SQL Database because the referenced view has been removed.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure SYS.DATABASE_PRINCIPAL_ALIASES is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

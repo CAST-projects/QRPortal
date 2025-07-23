@@ -1,0 +1,57 @@
+{
+    "id": 1106286,
+    "name": "Ensure SystemProcedures110 is not used",
+    "href": "AIP/quality-rules/1106286",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Certain system and extended stored procedures that were used in legacy SQL Server environments are no longer available in Azure SQL Database. These include procedures like sp_dboption, sp_addserver, sp_dropalias, sp_activedirectory_obj, sp_activedirectory_scp, and sp_activedirectory_start. Any references to these procedures in scripts or applications will result in errors after migration to Azure SQL Database.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database is a Platform-as-a-Service (PaaS) offering that restricts access to instance-level and system-level operations to maintain platform security and consistency. The removed procedures are either deprecated, tied to on-premises functionality (e.g., Active Directory integration, server configuration), or manipulate instance metadata not applicable in a cloud database. Continuing to use these procedures leads to incompatibility, errors, and unsupported behavior in Azure.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#SystemProcedures110",
+    "remediation": "To resolve this issue:\n\n1. Identify and remove any references to unsupported stored procedures in database code.\n\n2. Replace or reimplement required functionality using supported alternatives:\n\n-> Use ALTER DATABASE or sys.databases views instead of sp_dboption.\n\n-> Use Azure Active Directory integration features for identity management rather than sp_activedirectory_* procedures.\n\n-> For aliases and server metadata changes, handle logic at the application or Azure portal level.\n\n3. If continued use of these procedures is essential, consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.",
+    "remediationSample": "-- Use ALTER DATABASE instead of sp_dboption\n\nALTER DATABASE MyDatabase\nSET AUTO_SHRINK ON;\n\nFor Active Directory integration in Azure SQL:\n\n-> Use Azure AD authentication managed via Azure Portal, PowerShell, or Azure CLI.\n-> Roles and user mappings should be defined using:\n\nCREATE USER [aad_user@domain.com] FROM EXTERNAL PROVIDER;\nALTER ROLE db_datareader ADD MEMBER [aad_user@domain.com];\n\nThis approach modernizes your authentication and configuration model for cloud compatibility.",
+    "sample": "-- Legacy system procedure (unsupported in Azure SQL Database)\n\nEXEC sp_dboption 'MyDatabase', 'autoshrink', 'true';\n\n-- Active Directory system procedure (unsupported)\n\nEXEC sp_activedirectory_obj 'MyServerObject';\n\nThese procedures will result in errors in Azure SQL Database.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure SystemProcedures110 is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "id": 1106280,
+    "name": "Ensure XpCmdshell is not used",
+    "href": "AIP/quality-rules/1106280",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The extended stored procedure xp_cmdshell allows SQL Server to execute operating system-level commands from within T-SQL by invoking the Windows command shell. This capability is not supported in Azure SQL Database, as the platform restricts direct access to the underlying operating system and external shell commands.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "xp_cmdshell introduces significant security risks and is tightly coupled to the server\u2019s operating system. It allows execution of arbitrary commands, which can expose the system to unauthorized access, data leaks, or other forms of compromise. Since Azure SQL Database is a Platform-as-a-Service (PaaS) offering that runs in a sandboxed, multi-tenant environment, it prohibits such operations to maintain isolation, performance consistency, and security.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#XpCmdshell",
+    "remediation": "To resolve this issue:\n\n1. Identify all usages of xp_cmdshell via code scans or tools like Azure Migrate.\n\n2. Remove or replace logic that depends on executing OS-level commands from SQL.\n\n3. Use Azure-native alternatives such as:\n\n-> Azure Automation for running scripts and administrative tasks.\n\n-> Azure Functions or Logic Apps for running external jobs or integrations.\n\n-> Implement file operations, data movement, or backups via PowerShell or Azure CLI, triggered externally.\n\n4. If OS-level command execution is essential within the SQL environment, consider migrating to SQL Server on Azure Virtual Machines, which fully supports xp_cmdshell.",
+    "remediationSample": "Remediation Sample (Alternative Using Azure Automation):\n\n1. Move the shell command to an Azure Automation Runbook or PowerShell script.\n\n2. Use an external process or trigger (like a scheduled Azure Function) to execute the command logic.\n\nFor example, if the original command was copying a file:\n\nReplace it with an Azure Runbook or Function like:\n\npowershell\nCopy\n# Azure PowerShell runbook example\nCopy-Item -Path \"https://storageaccount1.blob.core.windows.net/container1/file.csv\" `\n          -Destination \"https://storageaccount2.blob.core.windows.net/container2/file.csv\" `\n          -Force\n\n3. Store the status or logs in Azure SQL Database if needed.",
+    "sample": "-- Attempt to run a shell command from T-SQL (not supported in Azure SQL Database)\n\nEXEC xp_cmdshell 'dir C:\\Backup';\nThis command will fail in Azure SQL Database due to lack of OS access and support for extended stored procedures.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure XpCmdshell is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
