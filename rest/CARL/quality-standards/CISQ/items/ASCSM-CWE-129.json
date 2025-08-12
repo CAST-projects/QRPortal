@@ -5,9 +5,6 @@
     "url": null,
     "description": "Objective\nAvoid failure to check range of user input in use as array index\n\nConsequence\nSoftware that is unaware of array index bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances where an external value is entered into the application through the user interface ReadsUI action, transformed throughout the application along the sequence composed of ActionElements with DataRelations relations, some of which being part of named callable and method control elements, and ultimately used in the read or write action to access the array; none of the callable or method control element of the transformation sequence being a range check callable and method control element with regards to the array index.\n\n",
     "isoPatterns": null,
-    "count": 1,
-    "qualityRules": {
-        "name": "Quality Rules in numeric ID order",
-        "href": "CARL/quality-standards/CISQ/items/ASCSM-CWE-129/quality-rules"
-    }
+    "count": 0,
+    "qualityRules": null
 }

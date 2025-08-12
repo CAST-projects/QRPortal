@@ -1,14 +1,10 @@
 {
     "id": 7988,
-    "name": "DEPRECATED: Avoid using snprintf() function family",
+    "name": "Avoid using snprintf() function family",
     "href": "AIP/quality-rules/7988",
     "critical": false,
     "severity": 10,
     "maxWeight": 6,
-    "extension": {
-        "name": "com.castsoftware.cpp",
-        "href": "AIP/extensions/com.castsoftware.cpp"
-    },
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for C/C++ functions, methods, constructors, and destructors that call the 'snprintf' group of functions.",
     "output": "Associated to each C/C++ function/method/constructor/destructor with violations, the Quality Rule provides:\n- Number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - 'snprintf()' functio call",
@@ -208,9 +204,9 @@
         
     ],
     "thresholds": [
-        10.0,
-        70.0,
+        50.0,
         90.0,
+        95.0,
         99.0
     ]
 }

@@ -5,7 +5,7 @@
     "url": null,
     "description": "Objective\nAvoid buffer operations among buffers with incompatible sizes\n\nConsequence\nSoftware that is unaware of buffer bounds incurs the risk of corruption of relevant memory, and perhaps instructions, possibly leading to a crash, the risk of data integrity loss, and the risk of unauthorized access to sensitive data\n\nMeasure Element\nNumber of instances in which the content of the first buffer is moved into the content of the second buffer while the size of the first buffer is greater than the size of the second buffer.\n\n",
     "isoPatterns": null,
-    "count": 22,
+    "count": 18,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "AIP/quality-standards/CISQ/items/ASCSM-CWE-120/quality-rules"

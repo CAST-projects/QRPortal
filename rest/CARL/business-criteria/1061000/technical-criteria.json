@@ -77,24 +77,10 @@
         "weight": 5
     },
     {
-        "id": 1061021,
-        "name": "CWE-119 - Improper Restriction of Operations within the Bounds of a Memory Buffer",
-        "description": "The product performs operations on a memory buffer, but it reads from or writes to a memory location outside the buffer's intended boundary. This may result in read or write operations on unexpected memory locations that could be linked to other variables, data structures, or internal program data.",
-        "href": "CARL/technical-criteria/1061021",
-        "weight": 5
-    },
-    {
         "id": 1061022,
         "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
         "description": "The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer, leading to a buffer overflow.",
         "href": "CARL/technical-criteria/1061022",
-        "weight": 5
-    },
-    {
-        "id": 1061025,
-        "name": "CWE-129 - Improper Validation of Array Index",
-        "description": "The product uses untrusted input when calculating or using an array index, but the product does not validate or incorrectly validates the index to ensure the index references a valid position within the array.",
-        "href": "CARL/technical-criteria/1061025",
         "weight": 5
     },
     {
@@ -350,13 +336,6 @@
         "weight": 5
     },
     {
-        "id": 1061083,
-        "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
-        "description": "The product uses an API function, data structure, or other entity in a way that relies on properties that are not always guaranteed to hold for that entity.",
-        "href": "CARL/technical-criteria/1061083",
-        "weight": 5
-    },
-    {
         "id": 1061085,
         "name": "CWE-772 - Missing Release of Resource after Effective Lifetime",
         "description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
@@ -396,13 +375,6 @@
         "name": "CWE-798 - Use of Hard-coded Credentials",
         "description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
         "href": "CARL/technical-criteria/1061093",
-        "weight": 5
-    },
-    {
-        "id": 1061094,
-        "name": "CWE-805 - Buffer Access with Incorrect Length Value",
-        "description": "The product uses a sequential operation to read or write a buffer, but it uses an incorrect length value that causes it to access memory that is outside of the bounds of the buffer.",
-        "href": "CARL/technical-criteria/1061094",
         "weight": 5
     },
     {
@@ -578,13 +550,6 @@
         "name": "CWE-1075 - Unconditional Control Flow Transfer outside of Switch Block",
         "description": "The product performs unconditional control transfer (such as a goto) in code outside of a branching structure such as a switch block.",
         "href": "CARL/technical-criteria/1061129",
-        "weight": 5
-    },
-    {
-        "id": 1061130,
-        "name": "CWE-1077 - Floating Point Comparison with Incorrect Operator",
-        "description": "The code performs a comparison such as an equality test between two float (floating point) values, but it uses comparison operators that do not account for the possibility of loss of precision.",
-        "href": "CARL/technical-criteria/1061130",
         "weight": 5
     },
     {
