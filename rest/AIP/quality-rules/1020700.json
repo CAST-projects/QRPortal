@@ -15,7 +15,7 @@
     "rationale": "Ensure that each web service callback is going to be properly checked in order to make sure you will not miss any problem that occurred in your application and you will give the information to the user.",
     "remediationSample": "function loadData (err, data) { \n    if (err) { \n        console.log(err.stack); \n    } \n    doSomething(); \n} \n\nfunction generateError (err) { \n    if (err) {} \n}",
     "sample": "function loadData (err, data) { \n    doSomething(); // forgot to handle error \n}",
-    "total": "Number of NodeJS artifacts (javascript functions inside NodeJS files)",
+    "total": "Number of NodeJS callback functions having an error parameter",
     "alternativeName": "Ensure you check the returned error in Node.js callbacks",
     "businessCriteria": [
         {
