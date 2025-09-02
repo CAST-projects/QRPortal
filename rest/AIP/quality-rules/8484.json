@@ -18,7 +18,7 @@
     "remediationSample": "//Sample 1\nimport org.owasp.esapi.Encoder;\nString rawInputData; // value given by an API request\nresponse.addHeader(HEADER_NAME, Encoder.encodeForHTML(rawInputData)); // Sanitization\n\n\n//Sample 2:\nimport org.owasp.esapi.Encoder;\nString header; // value given by an API request\nCookie cookie = new Cookie(\"header\", Encoder.encodeForHTML(header)); // Sanitization\nresponse.addCookie(cookie);",
     "sample": "//Sample 1\nString rawInputData; // value given by an API request\nresponse.addHeader(HEADER_NAME, rawInputData);\n\n//Sample 2\nString header; // value given by an API request\nCookie cookie = new Cookie(\"header\", header);\nresponse.addCookie(cookie);",
     "total": "Number of potentially vulnerable methods",
-    "alternativeName": "Avoid HTTP response splitting through API requests",
+    "alternativeName": "avoid weak",
     "businessCriteria": [
         {
             "id": 66031,
