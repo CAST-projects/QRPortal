@@ -235,7 +235,7 @@
     },
     {
         "id": 8424,
-        "name": "Avoid using hard-coded HMAC keys",
+        "name": "Avoid hard-coded HMAC and cryptographic key",
         "href": "AIP/quality-rules/8424",
         "status": "renewed",
         "critical": true,
@@ -1064,7 +1064,7 @@
         "name": "Avoid hard-coded password in connection string",
         "href": "AIP/quality-rules/1025048",
         "status": "renewed",
-        "critical": false,
+        "critical": true,
         "severity": 30,
         "technologyNames": [
             "C#",
@@ -1105,6 +1105,71 @@
         "status": "renewed",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025056,
+        "name": "Avoid running SQL queries inside a loop",
+        "href": "AIP/quality-rules/1025056",
+        "status": "renewed",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025058,
+        "name": "Avoid numeric user inputs in SQL queries",
+        "href": "AIP/quality-rules/1025058",
+        "status": "renewed",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025060,
+        "name": "Avoid second order numeric user inputs in SQL queries",
+        "href": "AIP/quality-rules/1025060",
+        "status": "renewed",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025062,
+        "name": "Avoid numeric user inputs in SQL queries through API requests",
+        "href": "AIP/quality-rules/1025062",
+        "status": "renewed",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025064,
+        "name": "Avoid weak encoding for password",
+        "href": "AIP/quality-rules/1025064",
+        "status": "renewed",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "C#",
             "JEE",
