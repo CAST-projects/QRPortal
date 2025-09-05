@@ -1,0 +1,83 @@
+{
+    "id": 1065104,
+    "name": "Converting a multiplication to a larger type should be done before the multiplication takes place",
+    "href": "AIP/quality-rules/1065104",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "This rule will raise a violation when the result of integer multiplication is converted to a larger type.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Since the conversion applies after the multiplication, arithmetic overflow may still occur.\nExplicit Conversion is considered as an indication that the final result may be larger than type range.",
+    "reference": "http://www.cplusplus.com/articles/DE18T05o/      - Multiplication\nhttps://cwe.mitre.org/data/definitions/190.html",
+    "remediation": "Cast the elements to larger type also.",
+    "remediationSample": "long k = (long) i * i; //Fixed",
+    "sample": "int i = 2000000000;\nlong j = i * i;//Violation",
+    "total": "Number of C++ methods and Functions",
+    "alternativeName": "Converting a multiplication to a larger type should be done before the multiplication takes place",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066290,
+            "name": "CWE-190 - Integer Overflow or Wraparound",
+            "href": "AIP/technical-criteria/1066290",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-190",
+            "name": "Integer Overflow or Wraparound",
+            "href": "AIP/quality-standards/CWE/items/CWE-190",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

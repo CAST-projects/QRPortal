@@ -4062,7 +4062,7 @@
     },
     {
         "id": 7988,
-        "name": "Avoid using snprintf() function family",
+        "name": "DEPRECATED: Avoid using snprintf() function family",
         "href": "AIP/quality-rules/7988",
         "critical": false,
         "severity": 10,
@@ -13900,6 +13900,332 @@
         "severity": 10,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1065000,
+        "name": "Avoid using \"continue\" statement",
+        "href": "AIP/quality-rules/1065000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065002,
+        "name": "\"enum\" members other than the first one should not be explicitly initialized unless all members are explicitly initialized.",
+        "href": "AIP/quality-rules/1065002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065004,
+        "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
+        "href": "AIP/quality-rules/1065004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065008,
+        "name": "Avoid use of unvalidated input in array indexing and memory allocation",
+        "href": "AIP/quality-rules/1065008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065012,
+        "name": "Avoid using 'setjmp' or 'longjmp' (C/C++)",
+        "href": "AIP/quality-rules/1065012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065026,
+        "name": "Ensure exception objects are always caught by reference (C++)",
+        "href": "AIP/quality-rules/1065026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065028,
+        "name": "Ensure Switch statements have at least 2 case clauses (C/C++)",
+        "href": "AIP/quality-rules/1065028",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065030,
+        "name": "All if \u2026 else if constructs shall be terminated with an else clause (C/C++)",
+        "href": "AIP/quality-rules/1065030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065032,
+        "name": "Avoid flexible array members (C/C++)",
+        "href": "AIP/quality-rules/1065032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065034,
+        "name": "Avoid throwing an exception object of pointer type (C++)",
+        "href": "AIP/quality-rules/1065034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065040,
+        "name": "Avoid anonymous namespaces in header files (C++)",
+        "href": "AIP/quality-rules/1065040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065048,
+        "name": "Where multiple handlers are provided in a single try-catch statement or function-try-block, any ellipsis (catch-all) handler shall occur last.",
+        "href": "AIP/quality-rules/1065048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065056,
+        "name": "Avoid throwing exceptions outside of main()",
+        "href": "AIP/quality-rules/1065056",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065058,
+        "name": "Ensure that there is at least one exception handler to catch-all otherwise unhandled exceptions in the main function(C++)",
+        "href": "AIP/quality-rules/1065058",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065060,
+        "name": "Avoid loops with floating point counter (C/C++)",
+        "href": "AIP/quality-rules/1065060",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065064,
+        "name": "Avoid doing assignments in sub-expressions (C++)",
+        "href": "AIP/quality-rules/1065064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065066,
+        "name": "Avoid having  a method call or additional expressions in a statement using \"++\" or \"--\" operators (C/C++)",
+        "href": "AIP/quality-rules/1065066",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065076,
+        "name": "Avoid declaring data members in non-POD classes as public or protected",
+        "href": "AIP/quality-rules/1065076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065078,
+        "name": "A base class shall be declared virtual only if it is used in a diamond hierarchy",
+        "href": "AIP/quality-rules/1065078",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065080,
+        "name": "Avoid using C-style and functional notation casts (C++)",
+        "href": "AIP/quality-rules/1065080",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065082,
+        "name": "Handlers of a function-try-block implementation of a class constructor ordestructor shall not reference non-static members from this class or its bases.",
+        "href": "AIP/quality-rules/1065082",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065084,
+        "name": "Avoid performing conversion from a function pointer to any other type (C/C++)",
+        "href": "AIP/quality-rules/1065084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065086,
+        "name": "Avoid casting and converting a pointer type to an integral type (C/C++)",
+        "href": "AIP/quality-rules/1065086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065088,
+        "name": "Member functions shall not return non-const handles to class-data.",
+        "href": "AIP/quality-rules/1065088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065090,
+        "name": "Avoid using 'enum' types as operands for arithmetic contexts",
+        "href": "AIP/quality-rules/1065090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065096,
+        "name": "Avoid dynamic_cast to convert current object to its derived class from its constructor or destructor",
+        "href": "AIP/quality-rules/1065096",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065098,
+        "name": "Avoid delete operators to exit with an exception.",
+        "href": "AIP/quality-rules/1065098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065100,
+        "name": "Avoid move constructor and move assignment operator to exit with an exception",
+        "href": "AIP/quality-rules/1065100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065126,
+        "name": "Avoid using goto to jump backwards into a statement in the same function(C/C++)",
+        "href": "AIP/quality-rules/1065126",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065128,
+        "name": "Avoid having unused labels in your program (C/C++)",
+        "href": "AIP/quality-rules/1065128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065132,
+        "name": "Avoid using typeid in polymorphic class from the body of its constructor or destructor.",
+        "href": "AIP/quality-rules/1065132",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
         ]
     },
     {

@@ -1,0 +1,88 @@
+{
+    "id": 1065052,
+    "name": "Avoid using Octal constants or escape sequences (C/C++)",
+    "href": "AIP/quality-rules/1065052",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 4,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "This rule will raise a violation in case Octal Constants are used in the code.\n\n\nAn exception will be considered in case of the following syntax:\ncode[1] = 0",
+    "output": "Information will be provided on:\n1. Methods where Octal Constants are used\n2. Bookmarks for violation occurrences found in the source code",
+    "rationale": "Any integer constant beginning with a \u201c0\u201d (zero) is treated as octal. Because of this, it is possible\nfor a zero-prefixed constant that is intended to be a decimal number to be incorrectly entered as an\noctal number, contrary to developer expectations.\nOctal escape sequences can also be problematic because of the inadvertent introduction of a decimal\ndigit (i.e. \u201c8\u201d or \u201c9\u201d) ends the octal escape and introduces another character.\nThe integer constant zero (written as a single numeric digit), is strictly speaking an octal constant but is a permitted exception to this rule. Additionally, \u201c\\0\u201d is the only permitted octal escape\nsequence.",
+    "reference": "Standards Reference:\nMISRA C++ 2008, 2-13-2: Octal constants (other than zero) and octal escape sequences (other than \"\\0\") shall not be used",
+    "remediation": "Use decimal integers rather than Octal constants",
+    "remediationSample": "code[ 1 ] =52; // Compliant - decimal 52\ncode[ 2 ] =71; // Compliant - decimal 71\n________________________________________________\n\nException\ncode[1] = 0",
+    "sample": "code[ 3 ] = 052; // Non-compliant - equivalent to decimal 42\ncode[ 4 ] = 071; // Non-compliant - equivalent to decimal 57\n\ncode[ 5 ] = '\\109'; // Non-compliant - implementation-defined,\n// two character constant\ncode[ 6 ] = '\\100'; // Non-compliant - set to 64.",
+    "total": "Number of Methods or Functions",
+    "alternativeName": "Prefer using Integers rather than Octal Constants",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Lexical-Conventions",
+            "name": "Lexical Conventions",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Lexical-Conventions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-C-2012-Lexical-Conventions",
+            "name": "Lexical Conventions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-C-2012-Lexical-Conventions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Lexical-Conventions",
+            "name": "Lexical Conventions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Lexical-Conventions",
+            "standard": "C-CPP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -100,7 +100,7 @@
     },
     {
         "id": 7988,
-        "name": "Avoid using snprintf() function family",
+        "name": "DEPRECATED: Avoid using snprintf() function family",
         "href": "AIP/quality-rules/7988",
         "critical": false,
         "weight": 5,
@@ -200,6 +200,37 @@
         "weight": 5,
         "technologyNames": [
             "Objective-C"
+        ]
+    },
+    {
+        "id": 1065046,
+        "name": "Avoid using the unbounded functions of <cstring> library",
+        "href": "AIP/quality-rules/1065046",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065110,
+        "name": "Ensure arrays and containers are accessed using unsigned values",
+        "href": "AIP/quality-rules/1065110",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065112,
+        "name": "Avoid passing empty container iterators to std algorithms as destinations",
+        "href": "AIP/quality-rules/1065112",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C++"
         ]
     }
 ]

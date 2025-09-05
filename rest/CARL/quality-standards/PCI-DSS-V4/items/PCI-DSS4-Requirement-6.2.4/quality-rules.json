@@ -3789,6 +3789,120 @@
         ]
     },
     {
+        "id": 1065004,
+        "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
+        "href": "AIP/quality-rules/1065004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065008,
+        "name": "Avoid use of unvalidated input in array indexing and memory allocation",
+        "href": "AIP/quality-rules/1065008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065026,
+        "name": "Ensure that a class type exception is always be caught by reference to avoid slicing",
+        "href": "AIP/quality-rules/1065026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065056,
+        "name": "Ensure to handle exceptions inside main()",
+        "href": "AIP/quality-rules/1065056",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065058,
+        "name": "Ensure that there is at least one exception handler to catch-all otherwise unhandled exceptions in the main function(C++)",
+        "href": "AIP/quality-rules/1065058",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065082,
+        "name": "Handlers of a function-try-block implementation of a class constructor ordestructor shall not reference non-static members from this class or its bases.",
+        "href": "AIP/quality-rules/1065082",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065098,
+        "name": "Avoid delete operators to exit with an exception.",
+        "href": "AIP/quality-rules/1065098",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065100,
+        "name": "Avoid move constructor and move assignment operator to exit with an exception",
+        "href": "AIP/quality-rules/1065100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065102,
+        "name": "Avoid checking Integer overflow without explicit cast",
+        "href": "AIP/quality-rules/1065102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065110,
+        "name": "Ensure arrays and containers are accessed using unsigned values",
+        "href": "AIP/quality-rules/1065110",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065112,
+        "name": "Avoid passing empty container iterators to std algorithms as destinations",
+        "href": "AIP/quality-rules/1065112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
         "id": 1101000,
         "name": "Prefer using a Join with a consition when making SQL queries so that performance is not adversely impacted due to cartesian/cross join",
         "href": "AIP/quality-rules/1101000",

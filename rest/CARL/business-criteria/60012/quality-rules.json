@@ -2198,6 +2198,210 @@
         ]
     },
     {
+        "id": 1065000,
+        "name": "Avoid using \"continue\" statement",
+        "href": "AIP/quality-rules/1065000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065002,
+        "name": "\"enum\" members other than the first one should not be explicitly initialized unless all members are explicitly initialized.",
+        "href": "AIP/quality-rules/1065002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065012,
+        "name": "Avoid using 'setjmp' or 'longjmp' (C/C++)",
+        "href": "AIP/quality-rules/1065012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065028,
+        "name": "Ensure that Switch statements have at least 2 case clauses",
+        "href": "AIP/quality-rules/1065028",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065030,
+        "name": "All if \u2026 else if constructs shall be terminated with an else clause (C/C++)",
+        "href": "AIP/quality-rules/1065030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065032,
+        "name": "Ensure to declare arrays with a defined size",
+        "href": "AIP/quality-rules/1065032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065040,
+        "name": "Make sure to not use unnamed namespaces in header files so that results are as expected",
+        "href": "AIP/quality-rules/1065040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065044,
+        "name": "Ensure that in global space only extern linkages, namespace and main function are present",
+        "href": "AIP/quality-rules/1065044",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065048,
+        "name": "Where multiple handlers are provided in a single try-catch statement or function-try-block, any ellipsis (catch-all) handler shall occur last.",
+        "href": "AIP/quality-rules/1065048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065060,
+        "name": "Ensure to use an integral value to iterate in loops",
+        "href": "AIP/quality-rules/1065060",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065064,
+        "name": "Ensure to split the expressions and assignments into multiple lines for better readability and maintainability.",
+        "href": "AIP/quality-rules/1065064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065066,
+        "name": "Avoid having  a method call or additional expressions in a statement using \"++\" or \"--\" operators (C/C++)",
+        "href": "AIP/quality-rules/1065066",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065076,
+        "name": "Avoid declaring data members in non-POD classes as public or protected",
+        "href": "AIP/quality-rules/1065076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065080,
+        "name": "Ensure to use C++ style notation casts to avoid unexpected type conversions",
+        "href": "AIP/quality-rules/1065080",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065086,
+        "name": "Ensure that pointer types are not cast to integral types",
+        "href": "AIP/quality-rules/1065086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065088,
+        "name": "Member functions shall not return non-const handles to class-data.",
+        "href": "AIP/quality-rules/1065088",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065090,
+        "name": "Ensure that you use 'enum' types with  [ ], =, == and !=, the unary & operator, and <, <=, >, >=.",
+        "href": "AIP/quality-rules/1065090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065126,
+        "name": "Avoid using goto to jump backwards into a statement in the same function(C/C++)",
+        "href": "AIP/quality-rules/1065126",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065128,
+        "name": "Mke sure you do not have unused labels in your code",
+        "href": "AIP/quality-rules/1065128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
         "id": 1101016,
         "name": "Ensure that you have a limited number of paramenters in OR clauses or IN statements to ensure good query performance",
         "href": "AIP/quality-rules/1101016",

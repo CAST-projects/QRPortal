@@ -1,0 +1,148 @@
+{
+    "id": 1065084,
+    "name": "Avoid performing conversion from a function pointer to any other type (C/C++)",
+    "href": "AIP/quality-rules/1065084",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "A pointer to a function shall only be converted into or from a pointer to a function with a compatible type.\n\nAn exception to the rule:\n1. A null pointer constant may be converted into a pointer to a function;\n2. A pointer to a function may be converted into void;\n3. A function type may be implicitly converted into a pointer to that function type.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The conversion of a function pointer into or from any of:\n\u2022 Pointer to object;\n\u2022 Pointer to incomplete;\n\u2022 void *\nresults in undefined behaviour.\nIf a function is called by means of a pointer whose type is not compatible with the called function, the behaviour is undefined. Conversion of a pointer to a function into a pointer to a function with a different type is permitted by The Standard. Conversion of an integer into a pointer to a function is also permitted by The Standard. However, both are prohibited by this rule in order to avoid the undefined behaviour that would result from calling a function using an incompatible pointer type.",
+    "reference": "Standards Reference:\nMISRA 2012 C - 11.1: Conversions shall not be performed between a pointer to a function and any other type\nMISRA 2008, C++,5-2-6: A cast shall not convert a pointer to a function to any other pointer type, including a pointer to function type.\nAUTOSAR 2014, C++, Rule M5-2-6: A cast shall not convert a pointer to a function to any other pointer type, including a pointer to function type.",
+    "remediationSample": "fp16 fp1 = NULL; /* Compliant - exception 1 */\n\nif ( fp2 != NULL ) /* Compliant - exception 1 */\n{\n}\n\n\ntypedef fp16 ( *pfp16 ) ( void );\npfp16 pfp1;\n( void ) ( *pfp1 ( ) ); /* Compliant - exception 2 - cast function\n* pointer into void\n\n\n\n\nextern void f ( int16_t n );\nf ( 1 ); /* Compliant - exception 3 - implicit conversion\n* of f into pointer to function */\nfp16 fp5 = f; /* Compliant - exception 3",
+    "sample": "typedef void ( *fp16 ) ( int16_t n );\ntypedef void ( *fp32 ) ( int32_t n );\n#include <stdlib.h> /* To obtain macro NULL */\n\nfp32 fp2 = ( fp32 ) fp1; /* Non-compliant - function\n* pointer into different\n* function pointer */\n\nfp16 fp3 = ( fp16 ) 0x8000; /* Non-compliant - integer into\n* function pointer */\nfp16 fp4 = ( fp16 ) 1.0e6F; /* Non-compliant - float into\n* function pointer */",
+    "total": "Total number of methods C/C++",
+    "alternativeName": "Ensure that you do not convert a function pointer to any other type to avoid unexpected behavior",
+    "businessCriteria": [
+        {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1062152,
+            "name": "ASCRM-CWE-704 - Incorrect Type Conversion or Cast",
+            "href": "AIP/technical-criteria/1062152",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061081,
+            "name": "CWE-704 - Incorrect Type Conversion or Cast",
+            "href": "AIP/technical-criteria/1061081",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066804,
+            "name": "CWE-704 - Incorrect Type Conversion or Cast",
+            "href": "AIP/technical-criteria/1066804",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "href": "AIP/technical-criteria/61003",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Expressions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-C-2012-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-C-2012-Expressions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Expressions",
+            "name": "Expressions",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Expressions",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "ASCRM-CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-704",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/CWE/items/CWE-704",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-704",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-704",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -541,9 +541,6 @@
         {
             "version": "2.3.0-beta1",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065132,
                     "name": "Avoid using typeid in polymorphic class from the body of its constructor or destructor."
@@ -580,14 +577,14 @@
                     "id": 1065114,
                     "name": "Avoid lines starting with \"#\" with invalid pre-processing directive"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
             "version": "2.3.0-alpha1",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065110,
                     "name": "Ensure arrays and containers are accessed using unsigned values"
@@ -608,14 +605,14 @@
                     "id": 1065102,
                     "name": "Avoid checking Integer overflow without explicit cast"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
             "version": "2.2.0-beta1",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065100,
                     "name": "Avoid move constructor and move assignment operator to exit with an exception"
@@ -660,14 +657,14 @@
                     "id": 1065080,
                     "name": "Avoid using C-style and functional notation casts (C++)"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
             "version": "2.2.0-alpha1",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065078,
                     "name": "A base class shall be declared virtual only if it is used in a diamond hierarchy"
@@ -696,17 +693,14 @@
                     "id": 1065066,
                     "name": "Avoid having  a method call or additional expressions in a statement using \"++\" or \"--\" operators (C/C++)"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
             "version": "2.1.0-beta1",
             "addedRules": [
-                {
-                    "id": 7988,
-                    "name": "DEPRECATED: Avoid using snprintf() function family"
-                }
-            ],
-            "detachedRules": [
                 {
                     "id": 1065064,
                     "name": "Avoid doing assignments in sub-expressions (C++)"
@@ -718,15 +712,19 @@
                 {
                     "id": 1065060,
                     "name": "Avoid loops with floating point counter (C/C++)"
+                },
+                {
+                    "id": 7988,
+                    "name": "DEPRECATED: Avoid using snprintf() function family"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
             "version": "2.1.0-alpha2",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065058,
                     "name": "Ensure that there is at least one exception handler to catch-all otherwise unhandled exceptions"
@@ -755,14 +753,14 @@
                     "id": 1065046,
                     "name": "Avoid using the unbounded functions of <cstring> library"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
             "version": "2.1.0-alpha1",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065044,
                     "name": "Avoid other than main(), namespace declarations and extern \"C\" declarations in the global namespace (C/C++)"
@@ -835,14 +833,14 @@
                     "id": 1065010,
                     "name": "Avoid using <cstdio> stream input output library (C++)"
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
             "version": "2.0.1-funcrel",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065008,
                     "name": "Avoid use of unvalidated input in array indexing and memory allocation"
@@ -855,6 +853,9 @@
                     "id": 1065004,
                     "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed."
                 }
+            ],
+            "detachedRules": [
+                
             ]
         },
         {
@@ -872,9 +873,6 @@
         {
             "version": "2.0.0-alpha3",
             "addedRules": [
-                
-            ],
-            "detachedRules": [
                 {
                     "id": 1065002,
                     "name": "\"enum\" members other than the first one should not be explicitly initialized unless all members are explicitly initialized."
@@ -883,6 +881,9 @@
                     "id": 1065000,
                     "name": "\"continue\" statement should not be used."
                 }
+            ],
+            "detachedRules": [
+                
             ]
         }
     ],

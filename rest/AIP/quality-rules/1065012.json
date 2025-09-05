@@ -1,0 +1,129 @@
+{
+    "id": 1065012,
+    "name": "Avoid using 'setjmp' or 'longjmp' (C/C++)",
+    "href": "AIP/quality-rules/1065012",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "None of the facilities that are specified as being provided by <setjmp.h> shall be used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "setjmp and longjmp allow the normal function call mechanisms to be bypassed. Their use may lead to undefined and unspecified behavior.",
+    "reference": "Standards Reference\nMISRA C 2012 - 21.4: The standard header file <setjmp.h> shall not be used\nMISRA C++ 2008 17-0-5: The setjmp macro and the longjmp function shall not be used.\nAUTOSAR C++ 2014, Rule M17-0-5: The setjmp macro and the longjmp function shall not be used.",
+    "remediation": "Use exception handling",
+    "sample": "#include <setjmp.h>\nvoid f2 ( );\njmp_buf buf;\nvoid f1 ( )\n{\nif ( !setjmp ( buf ) ) // Non-compliant\n{\nf2 ( );\n}\nelse\n{\n}\n}\nvoid f2 ( )\n{\nlongjmp ( buf, 10 ); // Non-compliant\n}",
+    "total": "Number of C/C++ methods",
+    "alternativeName": "Avoid using 'setjmp' or 'longjmp' (C/C++)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1061083,
+            "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+            "href": "AIP/technical-criteria/1061083",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066858,
+            "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+            "href": "AIP/technical-criteria/1066858",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "AUTOSAR-CPP-2014-Libraries",
+            "name": "Libraries",
+            "href": "AIP/quality-standards/C-CPP/items/AUTOSAR-CPP-2014-Libraries",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-C-2012-Libraries",
+            "name": "Libraries",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-C-2012-Libraries",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "MISRA-CPP-2008-Libraries",
+            "name": "Libraries",
+            "href": "AIP/quality-standards/C-CPP/items/MISRA-CPP-2008-Libraries",
+            "standard": "C-CPP"
+        },
+        {
+            "id": "CWE-758",
+            "name": "Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+            "href": "AIP/quality-standards/CWE/items/CWE-758",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-758",
+            "name": "Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-758",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-758",
+            "name": "Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-758",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

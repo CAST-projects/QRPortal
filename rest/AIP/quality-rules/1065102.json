@@ -1,0 +1,110 @@
+{
+    "id": 1065102,
+    "name": "Avoid checking Integer overflow without explicit cast",
+    "href": "AIP/quality-rules/1065102",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
+    "description": "The rule will raise a violation when a comparison check on integers (with one operand as an addition) is done without explicitly defining cast for compared items.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Typically when performing integer overflow check the addition is compared with one of the values. The type for added operands automatically get promoted to a higher type and hence a overflow check may be faulty if it is not ensured that the output of the addition in the comparison expression is of the same type as the individual operands, explicitly.\n\nThis becomes security-critical when the result is used to control looping, make a security decision, or determine the offset or size in behaviors such as memory allocation, copying, concatenation, etc.",
+    "reference": "https://cwe.mitre.org/data/definitions/190.html",
+    "remediation": "Explicitly declare all the operands of comparison as the same type",
+    "remediationSample": "bool OverFlowcheck(unsigned short int x, unsigned short int y) {\n  return (static_cast <unsigned short int>(x + y) < x); //Fixed\n}",
+    "sample": "bool OverFlowcheck(unsigned short x, unsigned short y) {\n  return (x + y < x); \n}",
+    "total": "Number of C++ methods and Functions",
+    "alternativeName": "Avoid checking Integer overflow without explicit cast",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066290,
+            "name": "CWE-190 - Integer Overflow or Wraparound",
+            "href": "AIP/technical-criteria/1066290",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063120,
+            "name": "PCI-Requirement-6.5.6 - All high risk vulnerabilities",
+            "href": "AIP/technical-criteria/1063120",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-190",
+            "name": "Integer Overflow or Wraparound",
+            "href": "AIP/quality-standards/CWE/items/CWE-190",
+            "standard": "CWE"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.6",
+            "name": "All high risk vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.6",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -5,6 +5,10 @@
     "critical": false,
     "severity": 10,
     "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.cpp",
+        "href": "AIP/extensions/com.castsoftware.cpp"
+    },
     "associatedValueName": "Number of violation occurrences",
     "description": "This rule searches for C and C++ functions, methods, constructors, and destructors that call the 'strcat()' function.",
     "output": "Associated to each C/C++ function/method/constructor/destructor with violations, the Quality Rule provides:\n- Number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - function call",

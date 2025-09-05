@@ -759,7 +759,7 @@
     },
     {
         "id": 7988,
-        "name": "Avoid using snprintf() function family",
+        "name": "DEPRECATED: Avoid using snprintf() function family",
         "href": "AIP/quality-rules/7988",
         "critical": false,
         "severity": 10,
@@ -1045,6 +1045,490 @@
         "id": 8078,
         "name": "Casting from pointer to base Class to pointer to derived Class should be done through 'dynamic_cast' or 'static_cast'",
         "href": "AIP/quality-rules/8078",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065000,
+        "name": "Avoid using \"continue\" statement",
+        "href": "AIP/quality-rules/1065000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065002,
+        "name": "\"enum\" members other than the first one should not be explicitly initialized unless all members are explicitly initialized.",
+        "href": "AIP/quality-rules/1065002",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065004,
+        "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
+        "href": "AIP/quality-rules/1065004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065008,
+        "name": "Avoid use of unvalidated input in array indexing and memory allocation",
+        "href": "AIP/quality-rules/1065008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065012,
+        "name": "Avoid using 'setjmp' or 'longjmp' (C/C++)",
+        "href": "AIP/quality-rules/1065012",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065014,
+        "name": "Avoid using the library functions bsearch and qsort from <stdlib.h> (C/C++)",
+        "href": "AIP/quality-rules/1065014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065016,
+        "name": "Avoid using atof,atol, atoll or atoi functions from <stdlib.h> (C/C++)",
+        "href": "AIP/quality-rules/1065016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065022,
+        "name": "Avoid using <stdio.h> (C/C++)",
+        "href": "AIP/quality-rules/1065022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065024,
+        "name": "Avoid using the standard library time and date functions from \"<time.h>\" (C/C++)",
+        "href": "AIP/quality-rules/1065024",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065028,
+        "name": "Ensure Switch statements have at least 2 case clauses (C/C++)",
+        "href": "AIP/quality-rules/1065028",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065030,
+        "name": "All if \u2026 else if constructs shall be terminated with an else clause (C/C++)",
+        "href": "AIP/quality-rules/1065030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065032,
+        "name": "Avoid flexible array members (C/C++)",
+        "href": "AIP/quality-rules/1065032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065036,
+        "name": "Avoid using '//' and  '/*' within comments (C/C++)",
+        "href": "AIP/quality-rules/1065036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065038,
+        "name": "Avoid using 'signal.h' (C/C++)",
+        "href": "AIP/quality-rules/1065038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065042,
+        "name": "Avoid non-void return type function without an explicit return of an expression (C/C++)",
+        "href": "AIP/quality-rules/1065042",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065044,
+        "name": "Avoid other than main(), namespace declarations and extern \"C\" declarations in the global namespace (C/C++)",
+        "href": "AIP/quality-rules/1065044",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065050,
+        "name": "Avoid using \"sizeof\" on expressions that contain side effects",
+        "href": "AIP/quality-rules/1065050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065052,
+        "name": "Avoid using Octal constants or escape sequences (C/C++)",
+        "href": "AIP/quality-rules/1065052",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065054,
+        "name": "Do not override the standard library functions (C/C++)",
+        "href": "AIP/quality-rules/1065054",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065060,
+        "name": "Avoid loops with floating point counter (C/C++)",
+        "href": "AIP/quality-rules/1065060",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065062,
+        "name": "Avoid testing floating point numbers for equality",
+        "href": "AIP/quality-rules/1065062",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065064,
+        "name": "Avoid doing assignments in sub-expressions (C++)",
+        "href": "AIP/quality-rules/1065064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065066,
+        "name": "Avoid having  a method call or additional expressions in a statement using \"++\" or \"--\" operators (C/C++)",
+        "href": "AIP/quality-rules/1065066",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065068,
+        "name": "Avoid using Digraphs (C++)",
+        "href": "AIP/quality-rules/1065068",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065070,
+        "name": "Avoid using Trigraphs",
+        "href": "AIP/quality-rules/1065070",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065072,
+        "name": "Avoid using Unions",
+        "href": "AIP/quality-rules/1065072",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065084,
+        "name": "Avoid performing conversion from a function pointer to any other type (C/C++)",
+        "href": "AIP/quality-rules/1065084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065086,
+        "name": "Avoid casting and converting a pointer type to an integral type (C/C++)",
+        "href": "AIP/quality-rules/1065086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065090,
+        "name": "Avoid using 'enum' types as operands for arithmetic contexts",
+        "href": "AIP/quality-rules/1065090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065092,
+        "name": "Avoid having boolean operators with non-boolean operands (C/C++)",
+        "href": "AIP/quality-rules/1065092",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065094,
+        "name": "Avoid having expressions with bool type to be used as operands on operators other than =, &&, ||, !, ==, !=, the unary & operator, and the conditional operator",
+        "href": "AIP/quality-rules/1065094",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065102,
+        "name": "Avoid checking Integer overflow without explicit cast",
+        "href": "AIP/quality-rules/1065102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065104,
+        "name": "Converting a multiplication to a larger type should be done before the multiplication takes place",
+        "href": "AIP/quality-rules/1065104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065106,
+        "name": "Avoid comparing types of different widths in a loop",
+        "href": "AIP/quality-rules/1065106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065108,
+        "name": "Bit-fields shall be either unsigned integral, or enumeration (with underlying type of unsigned integral type).",
+        "href": "AIP/quality-rules/1065108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065110,
+        "name": "Ensure arrays and containers are accessed using unsigned values",
+        "href": "AIP/quality-rules/1065110",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065114,
+        "name": "Avoid lines starting with \"#\" with invalid pre-processing directive",
+        "href": "AIP/quality-rules/1065114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065116,
+        "name": "Undefined macro identifiers shall not be used in #if or #elif preprocessor directives, except as operands to the defined operator",
+        "href": "AIP/quality-rules/1065116",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065118,
+        "name": "Arguments to a function-like macro shall not contain tokens that look like preprocessing directives.",
+        "href": "AIP/quality-rules/1065118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065120,
+        "name": "Avoid using # OR ## operators more than once while defining macros",
+        "href": "AIP/quality-rules/1065120",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065122,
+        "name": "Avoid #define or #undef macros anywhere other than global namespace",
+        "href": "AIP/quality-rules/1065122",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065126,
+        "name": "Avoid using goto to jump backwards into a statement in the same function(C/C++)",
+        "href": "AIP/quality-rules/1065126",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065128,
+        "name": "Avoid having unused labels in your program (C/C++)",
+        "href": "AIP/quality-rules/1065128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065130,
+        "name": "Avoid defining, redefining or undefining standard macros from standard library",
+        "href": "AIP/quality-rules/1065130",
         "critical": false,
         "severity": 10,
         "technologyNames": [
