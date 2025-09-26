@@ -1,0 +1,57 @@
+{
+    "id": 1106294,
+    "name": "Ensure SQL CLR assemblies are not used",
+    "href": "AIP/quality-rules/1106294",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules checks that SQL CLR is not used in SQL Server side.\nIt detects stored functions/procedures having : EXTERNAL NAME <method_specifier>.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database does not support SQL CLR (Common Language Runtime) assemblies. These are .NET-based components integrated into SQL Server for extending functionality with managed code. Any solution relying on these assemblies will not function after migrating to Azure SQL Database.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#ClrAssemblies",
+    "remediation": "SQL CLR assemblies enable advanced logic within SQL Server, including string manipulation, encryption, and integration with external systems. However, Azure SQL Database restricts the use of external assemblies for security and platform consistency. Continuing to rely on SQL CLR prevents smooth migration and may lead to unsupported behavior or failure in the cloud environment.\n\nThe recommended path is to refactor logic into the application layer or use T-SQL equivalents wherever feasible. For full SQL CLR support, consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines, which offer broader compatibility.",
+    "remediationSample": "Option 1: Move the logic to the application code (recommended)\nInstead of calling .NET logic from within SQL, refactor it into your application layer (C#, Python, Java, etc.), and execute SQL queries separately. This provides better separation of concerns and aligns with the capabilities of Azure SQL Database.\n\nOption 2: Rewrite the logic using native T-SQL\nIf the CLR logic is basic (e.g., string manipulation, math), you can convert it to T-SQL.\n\nExample Rewrite (String Reverse Logic):\n\n- T-SQL equivalent of a simple CLR-based string reverse function\n\nCREATE FUNCTION dbo.ReverseString(@input NVARCHAR(MAX))\nRETURNS NVARCHAR(MAX)\nAS\nBEGIN\n    DECLARE @output NVARCHAR(MAX) = ''\n    DECLARE @i INT = LEN(@input)\n    WHILE @i > 0\n    BEGIN\n        SET @output += SUBSTRING(@input, @i, 1)\n        SET @i -= 1\n    END\n    RETURN @output\nEND;\nThis alternative is fully supported in Azure SQL Database and eliminates dependency on CLR integration.",
+    "sample": "-- Deploying a SQL CLR assembly (NOT supported in Azure SQL Database)\n\nCREATE ASSEMBLY MyCLRAssembly\nFROM 'C:\\assemblies\\MyCLRAssembly.dll'\nWITH PERMISSION_SET = SAFE;\n\nCREATE FUNCTION dbo.MyNetFunction(@input NVARCHAR(100))\nRETURNS NVARCHAR(100)\nAS EXTERNAL NAME MyCLRAssembly.MyCLRFunctions.StringReverse;",
+    "total": "Number of SQL Server Procedures and Functions.",
+    "alternativeName": "Ensure SQL CLR assemblies are not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

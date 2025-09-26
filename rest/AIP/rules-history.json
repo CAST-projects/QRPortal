@@ -10055,6 +10055,94 @@
     ],
     "com.castsoftware.sql.movetocloud": [
         {
+            "version": "1.0.6-funcrel",
+            "addedRules": [
+                {
+                    "id": 1106326,
+                    "name": "Ensure BEGIN DISTRIBUTED TRANSACTION is not used"
+                },
+                {
+                    "id": 1106324,
+                    "name": "Ensure BULK INSERT Using Non-Azure Blob Sources is not used"
+                },
+                {
+                    "id": 1106322,
+                    "name": "Ensure COMPATIBILITY_LEVEL is not less than 100"
+                },
+                {
+                    "id": 1106320,
+                    "name": "Ensure COMPUTE Clause is not used"
+                },
+                {
+                    "id": 1106318,
+                    "name": "Ensure CrossDatabaseReferences is not used"
+                },
+                {
+                    "id": 1106316,
+                    "name": "Ensure DISABLE_DEF_CNST_CHK is not used"
+                },
+                {
+                    "id": 1106314,
+                    "name": "Ensure Database Mail is not used"
+                },
+                {
+                    "id": 1106312,
+                    "name": "Ensure FASTFIRSTROW is not used"
+                },
+                {
+                    "id": 1106310,
+                    "name": "Ensure FILESTREAM is not used"
+                },
+                {
+                    "id": 1106308,
+                    "name": "Ensure LinkedServer is not used"
+                },
+                {
+                    "id": 1106306,
+                    "name": "Ensure NEXT is not used as table or column name"
+                },
+                {
+                    "id": 1106304,
+                    "name": "Ensure NonANSILeftOuterJoinSyntax *= operator is not used"
+                },
+                {
+                    "id": 1106302,
+                    "name": "Ensure NonANSIRightOuterJoinSyntax =* operator is not used"
+                },
+                {
+                    "id": 1106300,
+                    "name": "Ensure OpenRowsetWithNonBlobDataSourceBulk is not used"
+                },
+                {
+                    "id": 1106298,
+                    "name": "Ensure OpenRowsetWithSQLAndNonSQLProvider is not used"
+                },
+                {
+                    "id": 1106296,
+                    "name": "Ensure RAISERROR is not used"
+                },
+                {
+                    "id": 1106294,
+                    "name": "Ensure SQL CLR assemblies are not used"
+                },
+                {
+                    "id": 1106292,
+                    "name": "Ensure AgentJobs is not used"
+                },
+                {
+                    "id": 1106290,
+                    "name": "Ensure ServerScopedTriggers is not used"
+                },
+                {
+                    "id": 1106284,
+                    "name": "Ensure TraceFlags is not used"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
             "version": "1.0.5-funcrel",
             "addedRules": [
                 {

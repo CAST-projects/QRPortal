@@ -1,0 +1,57 @@
+{
+    "id": 1106300,
+    "name": "Ensure OpenRowsetWithNonBlobDataSourceBulk is not used",
+    "href": "AIP/quality-rules/1106300",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The OPENROWSET function, when used with the BULK option, allows SQL Server to read data directly from a file and return it as a result set. However, Azure SQL Database does not support accessing local file systems or network shares. As a result, OPENROWSET(BULK...) can only be used with data stored in Azure Blob Storage. Any attempts to use file paths pointing to local drives or network shares will result in errors.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database is a fully managed, sandboxed environment that does not allow access to external or on-premises file systems. Supporting only Azure Blob Storage ensures secure, cloud-native data access and consistent performance. To perform bulk data imports, organizations must transition their file storage to cloud-based blob storage and reference these sources using a supported DATA_SOURCE.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#OpenRowsetWithNonBlobDataSourceBulk",
+    "remediation": "To ensure compatibility with Azure SQL Database:\n\nUpload your data files to Azure Blob Storage.\n\nCreate a database-scoped credential and external data source in Azure SQL Database to securely reference the blob storage.\n\nUse OPENROWSET with the BULK option and the DATA_SOURCE pointing to your blob container.\n\nIf access to local file systems is critical, consider migrating to SQL Server on Azure Virtual Machines, which supports the full set of file I/O operations.",
+    "remediationSample": "Remediation Sample (Using Azure Blob Storage):\n\n-- Step 1: Create a credential for Azure Blob Storage\n\nCREATE DATABASE SCOPED CREDENTIAL MyAzureBlobCredential\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\nSECRET = 'sv=2024-01-01&ss=b&srt=sco&sp=rl&se=2024-12-31T23:59:59Z&st=2024-01-01T00:00:00Z&spr=https&sig=yourSASsignature';\n\n-- Step 2: Create an external data source\n\nCREATE EXTERNAL DATA SOURCE MyAzureBlobStorage\nWITH (\n    TYPE = BLOB_STORAGE,\n    LOCATION = 'https://yourstorageaccount.blob.core.windows.net/yourcontainer',\n    CREDENTIAL = MyAzureBlobCredential\n);\n\n-- Step 3: Use OPENROWSET to read the file from Blob Storage\n\nSELECT *\nFROM OPENROWSET(\n    BULK 'sales.csv',\n    DATA_SOURCE = 'MyAzureBlobStorage',\n    FORMAT = 'CSV',\n    FIRSTROW = 2\n) AS SalesData;\n\nThis approach is fully supported in Azure SQL Database and aligns with cloud-native practices.",
+    "sample": "-- Attempting to use OPENROWSET with a local file path (unsupported)\n\nSELECT *\nFROM OPENROWSET(BULK 'C:\\Data\\sales.csv', SINGLE_CLOB) AS SalesData;\n\nThis will not work in Azure SQL Database due to lack of access to local file systems.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure OpenRowsetWithNonBlobDataSourceBulk is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

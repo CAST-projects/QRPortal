@@ -1,0 +1,57 @@
+{
+    "id": 1106314,
+    "name": "Ensure Database Mail is not used",
+    "href": "AIP/quality-rules/1106314",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules checks that Database Mail is not used in SQL Server side.\n\nThe Database Mail feature, commonly used in SQL Server to send email notifications directly from the database, is not available in Azure SQL Database. Scripts, stored procedures, or alerts configured to use Database Mail will not work after migrating to the Azure SQL Database environment.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database is a fully managed platform with built-in constraints to promote isolation, scalability, and security. As part of this design, it does not provide access to OS-level services like the Database Mail engine, which depends on the SQL Server Agent and external SMTP configurations. Applications that rely on direct database-triggered email must be redesigned using Azure-native alternatives.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#DatabaseMail",
+    "remediation": "To replicate Database Mail functionality in Azure SQL Database, you can:\n\nUse Azure Functions with SendGrid or SMTP services: Logic within stored procedures can trigger HTTP requests to an Azure Function that sends emails using SendGrid or other APIs.\n\nMigrate to Azure SQL Managed Instance: If retaining Database Mail is a strict requirement, consider Azure SQL Managed Instance, which supports most on-prem SQL Server features including Database Mail.\n\nApplication-layer email logic: Move email notification logic to the application layer, decoupling it from the database entirely.",
+    "remediationSample": "Remediation Sample (Using Azure Function and SendGrid):\n\nCreate an Azure Function that sends an email using SendGrid or another mail service.\n\nExpose the function as a REST API.\n\nModify the T-SQL code to call the API using sp_invoke_external_rest_endpoint (available via Azure extensions) or implement the call in the application code.\n\nExample approach via application logic or external tool:\n\n-- Pseudo T-SQL logic to simulate external call (actual implementation should be in app layer)\n-- Example: log an event to be picked up by a trigger/service that sends mail\n\nINSERT INTO EmailQueue (Recipient, Subject, Body, CreatedAt)\nVALUES ('admin@example.com', 'Job Status', 'The job completed successfully.', GETDATE());\n\nA background job or Azure Function can monitor EmailQueue and handle email dispatch accordingly.",
+    "sample": "-- This uses Database Mail, which is unsupported in Azure SQL Database\n\nEXEC msdb.dbo.sp_send_dbmail  \n    @profile_name = 'DefaultProfile',  \n    @recipients = 'admin@example.com',  \n    @subject = 'Job Status',  \n    @body = 'The job completed successfully.';\n\nThis code depends on system components not available in Azure SQL Database.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure Database Mail is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

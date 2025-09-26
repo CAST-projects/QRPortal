@@ -1,0 +1,57 @@
+{
+    "id": 1106308,
+    "name": "Ensure LinkedServer is not used",
+    "href": "AIP/quality-rules/1106308",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Linked servers allow SQL Server to execute queries against external data sources such as other SQL Server instances or OLE DB-compatible systems. This feature is often used for distributed queries, data federation, and remote data manipulation. However, Azure SQL Database does not support linked servers, and any use of this feature will fail after migration.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Linked servers depend on system-level configurations and OLE DB providers, which are not accessible in the isolated, managed environment of Azure SQL Database. This design choice ensures platform security, performance consistency, and reduced administrative complexity. As an alternative, Azure encourages cloud-native methods like Elastic Database Query, Azure Data Factory, or external services to access remote datasets.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#LinkedServer",
+    "remediation": "To address the removal of linked server functionality in Azure SQL Database:\n\nConsolidate remote data into the target database where feasible.\n\nUse Elastic Database Query to access tables across Azure SQL databases using external tables.\n\nLeverage Azure Data Factory or Logic Apps for data movement and transformation across systems.\n\nIf linked server support is a strict requirement, consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines, both of which support this feature.",
+    "remediationSample": "Remediation Sample (Using Elastic Database Query):\n\nCopy\n-- Step 1: Create an external data source to the remote Azure SQL database\n\nCREATE EXTERNAL DATA SOURCE RemoteAzureDb\nWITH (\n    TYPE = RDBMS,\n    LOCATION = 'remoteservername.database.windows.net',\n    DATABASE_NAME = 'SalesDB',\n    CREDENTIAL = SqlCredential -- Defined with a database-scoped credential\n);\n\n-- Step 2: Define an external table referencing the remote table\n\nCREATE EXTERNAL TABLE Orders (\n    OrderId INT,\n    OrderDate DATETIME,\n    Amount DECIMAL(10,2)\n)\nWITH (\n    DATA_SOURCE = RemoteAzureDb\n);\n\n-- Step 3: Query as if it were a local table\n\nSELECT * FROM Orders;\nThis approach maintains compatibility within the Azure SQL Database platform while allowing distributed queries.",
+    "sample": "-- Querying a table through a linked server (not supported in Azure SQL Database)\n\nSELECT *\nFROM [RemoteServer].[SalesDB].[dbo].[Orders];\n\nThis syntax will not work in Azure SQL Database due to the lack of linked server support.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure LinkedServer is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

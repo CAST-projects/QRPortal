@@ -1,0 +1,57 @@
+{
+    "id": 1106298,
+    "name": "Ensure OpenRowsetWithSQLAndNonSQLProvider is not used",
+    "href": "AIP/quality-rules/1106298",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The OPENROWSET function can be used with a SQL or non-SQL OLE DB provider to access remote data in an ad hoc manner, without creating a linked server. This is typically used to query remote SQL Servers, Excel files, or other data sources. However, Azure SQL Database does not support the use of OPENROWSET with SQL or non-SQL providers due to its isolated, managed environment.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The use of OLE DB providers in OPENROWSET requires access to system-level components and drivers that are not available in Azure SQL Database. To ensure platform security, performance consistency, and multi-tenant isolation, Azure SQL Database limits OPENROWSET usage to BULK imports from Azure Blob Storage only. For scenarios requiring integration with remote data sources, other cloud-native or IaaS alternatives must be used.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#OpenRowsetWithSQLAndNonSQLProvider",
+    "remediation": "To resolve this issue:\n\nRemove all uses of OPENROWSET with OLE DB providers from your code.\n\nFor importing external files, use OPENROWSET(BULK...) with Azure Blob Storage and define a proper external data source.\n\nFor querying external databases:\n\nUse Elastic Database Query if working across Azure SQL Databases.\n\nUse Azure Data Factory, Azure Functions, or application-side integration to bring remote data into the database.\n\nIf you require full support for OLE DB-based OPENROWSET, migrate to SQL Server on Azure Virtual Machines.",
+    "remediationSample": "Remediation Sample (Using Azure-Approved Method \u2013 Azure Blob Storage Only):\n\n-- Create the necessary credential\n\nCREATE DATABASE SCOPED CREDENTIAL MyBlobCredential\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\nSECRET = 'yourSASTokenHere';\n\n-- Define the external data source\n\nCREATE EXTERNAL DATA SOURCE MyBlobSource\nWITH (\n    TYPE = BLOB_STORAGE,\n    LOCATION = 'https://yourstorageaccount.blob.core.windows.net/yourcontainer',\n    CREDENTIAL = MyBlobCredential\n);\n\n-- Use OPENROWSET for bulk import from Azure Blob Storage\n\nSELECT *\nFROM OPENROWSET(\n    BULK 'products.csv',\n    DATA_SOURCE = 'MyBlobSource',\n    FORMAT = 'CSV',\n    FIRSTROW = 2\n) AS ProductData;\n\nThis method is supported within Azure SQL Database and ensures compliance with platform limitations.",
+    "sample": "-- Attempting to use OPENROWSET with a SQL OLE DB provider (unsupported in Azure SQL Database)\n\nSELECT *\nFROM OPENROWSET('SQLOLEDB',\n                'Server=RemoteSQL;Trusted_Connection=yes;',\n                'SELECT * FROM RemoteDB.dbo.Products');\n\nThis will fail in Azure SQL Database due to the unsupported use of external providers.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure OpenRowsetWithSQLAndNonSQLProvider is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

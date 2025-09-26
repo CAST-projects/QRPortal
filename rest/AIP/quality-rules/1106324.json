@@ -1,0 +1,57 @@
+{
+    "id": 1106324,
+    "name": "Ensure BULK INSERT Using Non-Azure Blob Sources is not used",
+    "href": "AIP/quality-rules/1106324",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules checks if BULK INSERT Using Non-Azure Blob Sources is used in SQL Server side.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database does not support accessing local directories or network file shares. Any BULK INSERT operations that reference sources outside of Azure Blob Storage will fail post-migration. Refer to the \"Affected Objects\" section for details on the impacted BULK INSERT statements.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#BulkInsert",
+    "remediation": "To ensure compatibility with Azure SQL Database, modify BULK INSERT commands to source data exclusively from Azure Blob Storage. If this is not feasible, consider moving your workload to SQL Server hosted on Azure Virtual Machines, which supports file-based data import from local or network paths.",
+    "remediationSample": "Option 1:\nUse Azure Blob Storage with BULK INSERT and a SAS Token\nBefore using this, ensure:\n\nThe file is uploaded to an Azure Blob container.\n\nA Shared Access Signature (SAS) URL is generated with read permissions.\n\n-- Compliant BULK INSERT using Azure Blob Storage and SAS Token\n\nBULK INSERT dbo.Sales\nFROM 'sales_data.csv'\nWITH (\n    DATA_SOURCE = 'MyAzureBlobStorage',\n    FORMAT = 'CSV',\n    FIRSTROW = 2,\n    FIELDTERMINATOR = ',',\n    ROWTERMINATOR = '\\n'\n);\nYou must first create an external data source pointing to your blob storage:\n\n-- Create an external data source referencing Azure Blob Storage\n\nCREATE EXTERNAL DATA SOURCE MyAzureBlobStorage\nWITH (\n    TYPE = BLOB_STORAGE,\n    LOCATION = 'https://yourstorageaccount.blob.core.windows.net/yourcontainer',\n    CREDENTIAL = MyStorageCredential -- a database scoped credential with SAS token\n);\nAnd the credential:\n\n-- Create a database scoped credential with SAS token\n\nCREATE DATABASE SCOPED CREDENTIAL MyStorageCredential\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\nSECRET = 'sv=2024-01-01&ss=b&srt=sco&sp=rl&se=2024-12-31T23:59:59Z&st=2024-01-01T00:00:00Z&spr=https&sig=yourSASsignature';\n\n\nOption 2:\nUse Azure Data Factory or Azure Data Factory Pipelines\nIf handling complex data or automation across multiple databases/files, you can use Azure Data Factory to:\n\nIngest local files into Azure Blob or Azure SQL\n\nAutomate mapping, transformation, and loading",
+    "sample": "-- This statement uses a local file path, which is not supported in Azure SQL Database\n\nBULK INSERT dbo.Sales\nFROM 'C:\\Data\\sales_data.csv'\nWITH (\n    FIELDTERMINATOR = ',',\n    ROWTERMINATOR = '\\n',\n    FIRSTROW = 2\n);\n\nAzure SQL Database cannot access local file systems or on-premises shared folders. Using a file path like C:\\Data\\... results in a failure once migrated to the cloud.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure BULK INSERT Using Non-Azure Blob Sources is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

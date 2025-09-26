@@ -1,0 +1,57 @@
+{
+    "id": 1106316,
+    "name": "Ensure DISABLE_DEF_CNST_CHK is not used",
+    "href": "AIP/quality-rules/1106316",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules checks that DISABLE_DEF_CNST_CHK is not used in SQL Server side.\n\nThe SET DISABLE_DEF_CNST_CHK option, previously used in SQL Server to temporarily disable the enforcement of default constraints during bulk operations, is no longer supported in Azure SQL Database. This setting has been discontinued and removed entirely from the platform.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "DISABLE_DEF_CNST_CHK was a non-standard and rarely used option that allowed ignoring default constraints during data manipulation, particularly in bulk insert scenarios. Azure SQL Database promotes strict data integrity and predictable behavior. By eliminating support for this option, Azure ensures that all default constraints are consistently applied, maintaining referential and domain integrity without exception. This shift also aligns with modern SQL standards and promotes cleaner application logic.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#AgentJobs",
+    "remediation": "To address this issue:\n\nRemove any SET DISABLE_DEF_CNST_CHK statements from scripts or stored procedures.\n\nRefactor the data-loading logic to conform to the default constraints defined on the tables.\n\nIf bypassing default behavior is necessary, explicitly handle values within your insert statements instead of relying on disabling constraints.",
+    "remediationSample": "-- Insert values while allowing default constraints to function normally\n\nINSERT INTO Orders (OrderID, OrderDate)\nVALUES (1, DEFAULT);\nOr explicitly insert values if needed:\n\nINSERT INTO Orders (OrderID, OrderDate)\nVALUES (1, GETDATE());\n\nBy relying on default values as defined in the schema or setting values explicitly, you preserve data integrity without needing deprecated options.",
+    "sample": "-- This option is not supported in Azure SQL Database\n\nSET DISABLE_DEF_CNST_CHK ON;\n\nINSERT INTO Orders (OrderID, OrderDate)\nVALUES (1, DEFAULT);\n\nThis statement will result in an error in Azure SQL Database due to the use of a discontinued SET option.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure DISABLE_DEF_CNST_CHK is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

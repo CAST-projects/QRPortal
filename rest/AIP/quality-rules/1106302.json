@@ -1,0 +1,57 @@
+{
+    "id": 1106302,
+    "name": "Ensure NonANSIRightOuterJoinSyntax =* operator is not used",
+    "href": "AIP/quality-rules/1106302",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Azure SQL Database does not support the legacy =* operator, which was previously used to perform right outer joins in older versions of SQL Server. This non-ANSI syntax has been deprecated and removed. Any queries using this join style will not execute in Azure SQL Database.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The =* operator was part of a legacy, non-ANSI join syntax that is less readable and more prone to ambiguity. Azure SQL Database enforces ANSI-standard SQL syntax, which promotes consistency, portability, and better optimization. Replacing legacy joins with ANSI-style RIGHT OUTER JOIN clauses ensures compatibility and helps modernize the database codebase.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#NonANSIRightOuterJoinSyntax",
+    "remediation": "To resolve this issue:\n\nIdentify all queries using the =* syntax for right outer joins.\n\nRefactor them using the ANSI RIGHT OUTER JOIN ... ON format.\n\nVerify the updated queries return the correct results, especially where join conditions were previously implicit.",
+    "remediationSample": "-- ANSI-compliant right outer join syntax\n\nSELECT A.EmployeeID, B.DepartmentName\nFROM Employees A\nRIGHT OUTER JOIN Departments B\nON A.DepartmentID = B.DepartmentID;\n\nThis ANSI-compliant form ensures proper behavior and compatibility within Azure SQL Database.",
+    "sample": "-- Using non-ANSI right outer join syntax (unsupported in Azure SQL Database)\n\nSELECT A.EmployeeID, B.DepartmentName\nFROM Employees A, Departments B\nWHERE A.DepartmentID =* B.DepartmentID;\n\nThis query will fail in Azure SQL Database due to use of the =* operator.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure NonANSIRightOuterJoinSyntax =* operator is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

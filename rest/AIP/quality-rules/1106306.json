@@ -1,0 +1,57 @@
+{
+    "id": 1106306,
+    "name": "Ensure NEXT is not used as table or column name",
+    "href": "AIP/quality-rules/1106306",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In Azure SQL Database, the use of NEXT as a table or column name can cause conflicts with the ANSI-standard NEXT VALUE FOR function used with sequences. If NEXT is used without proper aliasing syntax\u2014particularly when combined with the alias name VALUE and without the AS keyword\u2014it may be incorrectly interpreted as a NEXT VALUE FOR expression, leading to a syntax error during query execution.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database adheres strictly to ANSI SQL standards. The NEXT VALUE FOR clause is used to fetch the next value from a sequence object. If developers name tables or columns as NEXT, and subsequently alias them as VALUE without the AS keyword, the parser may misinterpret the command as a NEXT VALUE FOR sequence expression. This can break query logic and cause runtime errors. Using the explicit AS keyword prevents this misinterpretation and ensures compatibility with the ANSI SQL parser.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#NextColumn",
+    "remediation": "To prevent syntax conflicts:\n\nAvoid naming tables or columns as NEXT.\n\nIf you must use NEXT as an identifier, always use the ANSI AS keyword when aliasing it in queries.\n\nReview and refactor existing queries that omit the AS keyword and use NEXT and VALUE together.",
+    "remediationSample": "-- Correct use with the AS keyword for column aliasing\n\nSELECT NEXT AS VALUE FROM MyTable;\n\n-- Correct use with the AS keyword for table aliasing\n\nSELECT Col1 FROM NEXT AS VALUE;\n\nBy explicitly using AS, the parser correctly identifies NEXT as an object name and avoids confusion with sequence operations.",
+    "sample": "-- This will throw an error in Azure SQL Database due to parsing conflict\n\nSELECT NEXT VALUE FROM MyTable;\n\nIn this example, SQL misinterprets NEXT VALUE as an attempt to retrieve a value from a sequence, not as a column named NEXT aliased as VALUE.\n\n-- Another example using a table named NEXT\n\nSELECT Col1 FROM NEXT VALUE;\n\nAgain, SQL assumes this is a NEXT VALUE FOR expression and throws an error.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure NEXT is not used as table or column name",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

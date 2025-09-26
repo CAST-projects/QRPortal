@@ -1,0 +1,57 @@
+{
+    "id": 1106318,
+    "name": "Ensure CrossDatabaseReferences is not used",
+    "href": "AIP/quality-rules/1106318",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rules checks that Cross database references are not used in SQL Server code.\n\nCross-database queries, which involve referencing objects from one database while connected to another, are not supported in Azure SQL Database. Scripts or procedures that rely on multi-database access using three-part names or linked databases will not function as expected after migration.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database is a Platform-as-a-Service (PaaS) offering designed for high availability, scalability, and isolation. To preserve these characteristics, it enforces strict database boundaries, disallowing direct access to other databases on the same or different logical servers. This ensures tenant isolation and simplifies performance and security management. Applications using cross-database joins, stored procedures, or views must be refactored or redesigned for Azure SQL compatibility.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#CrossDatabaseReferences",
+    "remediation": "To resolve issues arising from cross-database dependencies in Azure SQL Database, consider one of the following approaches:\n\nElastic Database Query: Move dependent databases to Azure SQL and use Elastic Database Query to access remote tables. This allows T-SQL queries across databases while preserving Azure SQL Database boundaries.\n\nData Consolidation: Merge related data into a single database to eliminate cross-database references.\n\nAlternate Deployment Options: If refactoring is not feasible, migrate to Azure SQL Managed Instance or SQL Server on Azure VMs, both of which support cross-database queries.",
+    "remediationSample": "Remediation Sample (Option 1 - Using Elastic Database Query):\n\n-- Assuming 'RemoteDatabase' is configured as a remote data source\n\nCREATE EXTERNAL DATA SOURCE RemoteDbSource\nWITH (\n    TYPE=RDBMS,\n    LOCATION='servername.database.windows.net',\n    DATABASE_NAME='RemoteDatabase',\n    CREDENTIAL=SqlUserCredential\n);\n\n-- Create external table mapping the remote table structure\n\nCREATE EXTERNAL TABLE Customers\n(\n    CustomerID INT,\n    CustomerName NVARCHAR(100),\n    Email NVARCHAR(100)\n)\nWITH (\n    DATA_SOURCE = RemoteDbSource\n);\n\n-- Query the external table as if it were local\n\nSELECT * FROM Customers;\n\nAlternatively, consolidate data into one database or migrate to a platform like Azure SQL Managed Instance that supports traditional cross-database syntax.",
+    "sample": "-- Querying another database using a three-part name (unsupported in Azure SQL Database)\n\nSELECT * FROM OtherDatabase.dbo.Customers;\n\nThis syntax will fail in Azure SQL Database due to the lack of support for cross-database access.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure CrossDatabaseReferences is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "id": 1106326,
+    "name": "Ensure BEGIN DISTRIBUTED TRANSACTION is not used",
+    "href": "AIP/quality-rules/1106326",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The BEGIN DISTRIBUTED TRANSACTION statement is used to initiate transactions that span multiple servers or databases, and is managed by the Microsoft Distributed Transaction Coordinator (MS DTC). Azure SQL Database does not support distributed transactions, and any use of this feature will not function within this platform.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Distributed transactions rely on MS DTC, which requires access to system-level services and coordination between multiple SQL Server instances or other transactional systems. These services are not available in Azure SQL Database, which is a fully managed PaaS offering with sandboxed resources. This limitation enforces a more isolated and secure architecture. Applications that rely on distributed transaction support must be rearchitected or migrated to services that support them, such as Azure SQL Managed Instance or SQL Server on Azure VMs.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#MSDTCTransactSQL",
+    "remediation": "To resolve this issue:\n\nIdentify all usage of BEGIN DISTRIBUTED TRANSACTION using tools like Azure Migrate or code analysis.\n\nRefactor the logic to use local transactions wherever possible.\n\nFor scenarios requiring cross-database or cross-server transactions:\n\nMigrate to Azure SQL Managed Instance, which supports distributed transactions across databases.\n\nOr move to SQL Server on Azure Virtual Machines for full MS DTC support.\n\nWhere distributed transactions are unavoidable, consider implementing eventual consistency models using queues, compensating transactions, or logic in the application layer.",
+    "remediationSample": "Remediation Sample (Local Transaction or Use on Azure SQL Managed Instance):\n\nOption 1: Local Transaction (Azure SQL Database)\n\n-- Single-database transaction (supported in Azure SQL Database)\n\nBEGIN TRANSACTION;\n\nUPDATE Stock SET Quantity = Quantity - 1 WHERE ProductID = 101;\nUPDATE OrderDetails SET Status = 'Confirmed' WHERE OrderID = 202;\n\nCOMMIT TRANSACTION;\n\nOption 2: Full distributed transaction (Azure SQL Managed Instance only)\n\nIf multiple databases or servers must be involved, migrate to Azure SQL Managed Instance and continue using:\n\nBEGIN DISTRIBUTED TRANSACTION;\n\n-- operations across different databases on managed instance\n\nCOMMIT TRANSACTION;",
+    "sample": "-- Starting a distributed transaction (not supported in Azure SQL Database)\n\nBEGIN DISTRIBUTED TRANSACTION;\n\nUPDATE Inventory.dbo.Stock SET Quantity = Quantity - 1 WHERE ProductID = 101;\nUPDATE Orders.dbo.OrderDetails SET Status = 'Confirmed' WHERE OrderID = 202;\n\nCOMMIT TRANSACTION;\n\nThis will fail in Azure SQL Database because distributed transactions cannot be initiated.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure BEGIN DISTRIBUTED TRANSACTION is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

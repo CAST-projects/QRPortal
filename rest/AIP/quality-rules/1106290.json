@@ -1,0 +1,57 @@
+{
+    "id": 1106290,
+    "name": "Ensure ServerScopedTriggers is not used",
+    "href": "AIP/quality-rules/1106290",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A trigger is a special kind of stored procedure that automatically executes in response to data modification or definition language events. Server-scoped triggers, such as those created for LOGON events or with the ALL SERVER option, are not supported in Azure SQL Database. Additionally, Azure SQL Database does not support trigger features like ENCRYPTION, NOT FOR REPLICATION, WITH APPEND, EXTERNAL NAME, or CLR-based triggers.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Azure SQL Database is a single-database, fully managed PaaS environment, which restricts instance-level functionality for the sake of security, isolation, and scalability. Server-scoped triggers require access to instance-level events and objects that are not available in this model. These include global DDL triggers and logon event monitoring, which Azure SQL Database does not support. Instead, database-scoped DDL triggers should be used where applicable, or logic should be implemented at the application level.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#ServerScopedTriggers",
+    "remediation": "To resolve this issue:\n\nRemove or replace any server-scoped triggers (e.g., CREATE TRIGGER ... ON ALL SERVER, FOR LOGON).\n\nUse database-scoped DDL triggers if the intent is to monitor schema changes or certain database-level operations.\n\nMove logon-based logic or auditing to the application layer or consider alternatives like Azure AD Sign-in Logs.\n\nIf server-scoped triggers are essential to your architecture, consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines, both of which support full trigger capabilities.",
+    "remediationSample": "Remediation Sample (Using Database-scoped DDL Trigger):\n\n-- Database-scoped DDL trigger (supported in Azure SQL Database)\n\nCREATE TRIGGER PreventTableDrop\nON DATABASE\nFOR DROP_TABLE\nAS\nBEGIN\n    PRINT 'Dropping tables is not permitted in this database.';\n    ROLLBACK;\nEND;\n\nThis version runs within the database context and prevents table drops, achieving similar protection without requiring server-level access.",
+    "sample": "-- Server-scoped DDL trigger (unsupported in Azure SQL Database)\n\nCREATE TRIGGER PreventDropTable\nON ALL SERVER\nFOR DROP_TABLE\nAS\nBEGIN\n    PRINT 'Dropping tables is not allowed!';\n    ROLLBACK;\nEND;\n\nThis trigger will not work in Azure SQL Database due to the unsupported ALL SERVER scope.",
+    "total": "Number of Triggers.",
+    "alternativeName": "Ensure ServerScopedTriggers is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

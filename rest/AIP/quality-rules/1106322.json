@@ -1,0 +1,57 @@
+{
+    "id": 1106322,
+    "name": "Ensure COMPATIBILITY_LEVEL is not less than 100",
+    "href": "AIP/quality-rules/1106322",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The compatibility level of a database allows it to behave like an earlier version of SQL Server, even when running on a newer engine. This can help maintain application functionality during version upgrades. However, Azure SQL Database does not support compatibility levels below 100, which corresponds to SQL Server 2008. Any attempt to use a lower compatibility level will fail during migration.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Compatibility levels below 100 include behaviors, syntax, and query processing models that are outdated and no longer supported in modern platforms. By disallowing these legacy levels, Azure SQL Database promotes modern standards, improved performance, and greater security. Maintaining compatibility level 100 or higher ensures that the database benefits from newer optimizer models, features, and performance improvements, while still preserving broad backward compatibility for older applications.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#DbCompatLevelLowerThan100",
+    "remediation": "To resolve this issue:\n\nUpgrade the compatibility level of the database to 100 or higher before migrating to Azure SQL Database.\n\nTest application functionality under the new compatibility level to ensure there are no breaking changes.\n\nIf critical application components depend on behavior from older compatibility levels, consider migrating to Azure SQL Managed Instance or SQL Server on Azure VMs, which may offer more flexibility for gradual upgrades.",
+    "remediationSample": "-- Set the database compatibility level to a supported value (minimum 100)\n\nALTER DATABASE SalesDB\nSET COMPATIBILITY_LEVEL = 100;\n\nALTER DATABASE SalesDB\nSET COMPATIBILITY_LEVEL = 150; -- Corresponds to SQL Server 2019\n\nBe sure to validate application behavior after changing compatibility level, particularly for older queries and stored procedures.",
+    "sample": "-- Setting a compatibility level below 100 (not allowed in Azure SQL Database)\n\nALTER DATABASE SalesDB\nSET COMPATIBILITY_LEVEL = 90;\n\nThis statement will not execute successfully on Azure SQL Database, as level 90 (SQL Server 2005) is unsupported.",
+    "total": "Number of SQL Databases.",
+    "alternativeName": "Ensure COMPATIBILITY_LEVEL is not less than 100",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

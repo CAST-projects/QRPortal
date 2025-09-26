@@ -1,0 +1,57 @@
+{
+    "id": 1106310,
+    "name": "Ensure FILESTREAM is not used",
+    "href": "AIP/quality-rules/1106310",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The FILESTREAM feature, which allows SQL Server to store and manage unstructured data (such as images, documents, and videos) directly in the file system while maintaining transactional consistency, is not supported in Azure SQL Database. Any attempt to use FILESTREAM in Azure SQL Database will result in failure during deployment or execution.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "FILESTREAM depends on integration with the Windows NTFS file system and requires access to the operating system and local disk storage. Since Azure SQL Database is a managed PaaS service with strict sandboxing and no access to the underlying file system, it cannot support features that rely on OS-level file handling. To support unstructured data in cloud-native architectures, Azure promotes the use of Azure Blob Storage, which is scalable, secure, and purpose-built for this use case.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#FileStream",
+    "remediation": "To migrate applications that use FILESTREAM:\n\nMove unstructured data (e.g., images, videos, PDFs) to Azure Blob Storage.\n\nStore file metadata (file name, path, content type, size, access key, etc.) in Azure SQL Database tables.\n\nUpdate the application logic to upload, retrieve, and stream files from Azure Blob Storage using SDKs or REST APIs.\n\nIf maintaining FILESTREAM behavior is necessary, consider migrating to SQL Server on Azure Virtual Machines, which supports full FILESTREAM functionality.",
+    "remediationSample": "-- Table storing metadata of files stored in Azure Blob Storage\n\nCREATE TABLE DocumentMetadata (\n    DocumentId UNIQUEIDENTIFIER PRIMARY KEY,\n    DocumentName NVARCHAR(100),\n    FileUrl NVARCHAR(2083),\n    ContentType NVARCHAR(100),\n    UploadedAt DATETIME2 DEFAULT GETDATE()\n);\nIn the application layer (e.g., C#), use the Azure Blob Storage SDK to upload and download the actual file content. SQL holds only references and relevant metadata, maintaining performance and compatibility.",
+    "sample": "-- Attempting to create a table with FILESTREAM (not supported in Azure SQL Database)\n\nCREATE TABLE Documents (\n    DocumentId UNIQUEIDENTIFIER ROWGUIDCOL NOT NULL UNIQUE,\n    DocumentName NVARCHAR(100),\n    DocumentData VARBINARY(MAX) FILESTREAM\n);\nThis statement will not execute in Azure SQL Database.",
+    "total": "Number of SQL Server Tables.",
+    "alternativeName": "Ensure FILESTREAM is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

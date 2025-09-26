@@ -1,0 +1,57 @@
+{
+    "id": 1106284,
+    "name": "Ensure TraceFlags is not used",
+    "href": "AIP/quality-rules/1106284",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.sql.movetocloud",
+        "href": "AIP/extensions/com.castsoftware.sql.movetocloud"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Trace flags are used in SQL Server to enable or disable specific behaviors at the server level, such as overriding default optimizations, altering query execution behavior, or assisting with debugging and diagnostics. However, Azure SQL Database does not support the use of trace flags, including those enabled via T-SQL, command line, or startup options.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Trace flags are typically used to control internal behaviors of the SQL Server engine or to bypass default system configurations. These flags operate at the instance or server level, which are inaccessible in Azure SQL Database, a sandboxed, single-database PaaS environment. Allowing trace flags would break Azure\u2019s isolation model and potentially destabilize performance or security guarantees. Azure SQL instead promotes controlled, cloud-native methods for performance tuning and diagnostics.",
+    "reference": "https://learn.microsoft.com/en-us/data-migration/sql-server/database/assessment-rules#TraceFlags",
+    "remediation": "To resolve this issue:\n\n1. Identify all usage of trace flags using T-SQL commands like DBCC TRACEON, DBCC TRACESTATUS\n\n2. Evaluate the purpose of each trace flag, and look for supported alternatives:\n\n-> Use query hints or Query Store for plan control.\n\n-> Use Dynamic Management Views (DMVs) for diagnostics.\n\n-> Use Azure Monitor and Intelligent Performance features for tuning and troubleshooting.\n\n3. If the trace flag addresses a non-negotiable business need, consider using Azure SQL Managed Instance (which supports a limited set of trace flags) or SQL Server on Azure Virtual Machines.",
+    "remediationSample": "Scenario-Based Alternative:\n\nInstead of using TRACEON(1117) to enable auto-grow behavior across all files in a filegroup, configure filegroups and growth behavior manually during database design.\n\nFor query tuning:\nUse Query Store and plan forcing features:\n\n-- Enable Query Store (if not already enabled)\n\nALTER DATABASE MyDatabase\nSET QUERY_STORE = ON;\n\nThen force a known good plan using:\n\nEXEC sp_query_store_force_plan @query_id = 12345, @plan_id = 67890;\nThese approaches provide safer and supported alternatives to trace flags in Azure SQL Database.",
+    "sample": "-- Enabling a trace flag (unsupported in Azure SQL Database)\n\nDBCC TRACEON(1117, -1);\nThis command will not execute in Azure SQL Database due to trace flag restrictions.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Ensure TraceFlags is not used",
+    "businessCriteria": [
+        {
+            "id": 60018,
+            "name": "Cloud Migration",
+            "href": "AIP/business-criteria/60018"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61050,
+            "name": "Database Migration - SQL Server Database to Azure SQL",
+            "href": "AIP/technical-criteria/61050",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
