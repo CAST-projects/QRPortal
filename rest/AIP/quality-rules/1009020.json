@@ -9,9 +9,10 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
+    "associatedValueName": "Fan-Out",
     "description": "This rule searches for the programs having High Fan-Out.",
     "output": "This report lists RPG300 Programs with High Fan-Out.\nIt provides the following information:\nRPG300 Program full name",
-    "rationale": "The higher the number of referenced Programs, the more difficult the maintenance and evolution as all updates in referenced Programs will have to be tested and taken into account.",
+    "rationale": "The higher the number of referenced programs, the more difficult the maintenance and evolution as all updates in referenced programs will have to be tested and taken into account.",
     "remediation": "Reduce the number of referenced programs",
     "total": "Total number of RPG300 Programs",
     "alternativeName": "Avoid Programs with High Fan-Out  (RPG300)",

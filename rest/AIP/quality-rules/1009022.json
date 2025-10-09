@@ -9,9 +9,10 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
+    "associatedValueName": "Fan-Out",
     "description": "This rule searches for the subroutines having High Fan-Out.",
     "output": "This report lists RPG300 Subroutines with High Fan-Out.\nIt provides the following information:\n RPG300 Subroutine full name",
-    "rationale": "The higher the number of referenced Soubroutines, the more difficult the maintenance and evolution as all updates in referenced Soubroutines  will have to be tested and taken into account",
+    "rationale": "The higher the number of referenced subroutines, the more difficult the maintenance and evolution as all updates in referenced subroutines will have to be tested and taken into account.",
     "remediation": "Reduce the number of referenced subroutines",
     "total": "Total number of RPG300 Subroutines",
     "alternativeName": "Avoid Subroutines with High Fan-Out  (RPG300)",

@@ -9,9 +9,10 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
+    "associatedValueName": "Fan-In",
     "description": "This rule searches all the subroutines with High Fan-In.",
     "output": "This report lists RPG400 Subroutines with High Fan-In.\nIt provides the following information:\nRPG400 Subroutine full name",
-    "rationale": "The higher the number of reference to a subroutines, the more difficult the maintenance as all referencing. Artifacts will have to be updated or tested.",
+    "rationale": "The higher the number of reference to a subroutines, the more difficult the maintenance as all referencing artifacts will have to be updated or tested.",
     "remediation": "Try to reduce the number of references to the subroutine.",
     "total": "Total number of RPG400 Subroutines",
     "alternativeName": "Avoid Subroutines with High Fan-In  (RPG400)",

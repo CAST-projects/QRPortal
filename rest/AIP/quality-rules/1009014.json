@@ -9,9 +9,10 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
+    "associatedValueName": "Fan-In",
     "description": "This rule searches for the programs having High Fan-In.",
     "output": "This report lists RPG300 Programs with High Fan-In.\nIt provides the following information:\nRPG300 Program full name",
-    "rationale": "The higher the number of reference to an Program, the more difficult the maintenance as all referencing. Artifacts will have to be updated or tested.",
+    "rationale": "The higher the number of reference to a program, the more difficult the maintenance as all referencing artifacts will have to be updated or tested.",
     "remediation": "Reduce the number of references to the program",
     "total": "Total number of RPG300 Programs",
     "alternativeName": "Avoid Programs with High Fan-In   (RPG300)",

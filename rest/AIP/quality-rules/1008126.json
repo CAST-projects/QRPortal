@@ -1,6 +1,6 @@
 {
     "id": 1008126,
-    "name": "Avoid defining File Disk if not used  (RPG400)",
+    "name": "Avoid defining F-Spec File type if not used (RPG400)",
     "href": "AIP/quality-rules/1008126",
     "critical": false,
     "severity": 10,
@@ -9,13 +9,13 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
-    "description": "This rule searches all the unreferenced file disks.",
-    "output": "This report lists RPG400 unreferenced file disks.\nIt provides the following information:\nRPG400 File Disk full name",
-    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance. \nWarning: \nUnreferenced code can also be the symptom of missing code.",
-    "remediation": "Verify that the unreferenced file disks are not dead code. If it is the case remove it. If it is not the case, report it to the CAST administrator.",
+    "description": "This rule searches all the unreferenced F-Spec files.\nF-Spec files are :\nFile Disk, Printer File, File Seq, File Special, File Workstn.",
+    "output": "This report lists RPG400 unreferenced F-Spec files.\nIt provides the following information:\nRPG400 File Disk full name\nRPG400 Printer File full name\nRPG400 File Seq full name\nRPG400 File Special full name\nRPG400 File Workstn full name",
+    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance.\nWarning:\nUnreferenced code can also be the symptom of missing code.",
+    "remediation": "Verify that the unreferenced F-Spec files are not dead code. If it is the case remove it. If it is not the case, report it to the CAST administrator.",
     "remediationSample": "Sample1: File Disk defined in a Program.\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\n\n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1\n\n     C               OPEN(E)        DISK_NAME2\n     C      *LOVAL   SETLL          RECORD2\n\n     Sample2: File Disk defined in a Copy Member included by a Program.\nCOPY1\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\nCOPY2\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\nPGM1\n      /COPY COPYSRC,COPY1\n      /COPY COPYSRC,COPY2\n     \n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1\n\n     C               OPEN(E)        DISK_NAME2\n     C      *LOVAL   SETLL          RECORD2",
     "sample": "Sample1: File Disk defined in a Program.\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\n\n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1\n\n     Sample2: File Disk defined in a Copy Member included by a Program.\nCOPY1\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\nCOPY2\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\nPGM1\n      /COPY COPYSRC,COPY1\n      /COPY COPYSRC,COPY2\n     \n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1",
-    "total": "Total number of RPG400 File Disks",
+    "total": "Total number of RPG400 F-Spec Files",
     "alternativeName": "Avoid defining F-Spec File type if not used (RPG400)",
     "businessCriteria": [
         {

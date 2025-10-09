@@ -9,6 +9,7 @@
         "name": "com.castsoftware.rpg",
         "href": "AIP/extensions/com.castsoftware.rpg"
     },
+    "associatedValueName": "Cyclomatic complexity",
     "description": "This rule searches all the subroutines  having High Cyclomatic Complexity",
     "output": "This report lists RPG400 Subroutines having High Cyclomatic Complexity.\nIt provides the following information:\nRPG400 Subroutine full name",
     "rationale": "The effort and time for diagnosis of deficiencies or causes of failures, or for identification of parts to be modified is directly related to the number of execution paths, i.e. the complexity of the control flow. \nAnalyzability declines with increasing Cyclomatic Complexity. \nEach modification must be correct for all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. \nChangeability declines with increasing Cyclomatic Complexity. \nComplete testing requires coverage of all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. \nTestability declines with increasing Cyclomatic Complexity.",
