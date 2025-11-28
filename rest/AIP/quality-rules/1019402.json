@@ -1,0 +1,66 @@
+{
+    "id": 1019402,
+    "name": "Avoid using Entity DbContext.Update() in loops",
+    "href": "AIP/quality-rules/1019402",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.entity",
+        "href": "AIP/extensions/com.castsoftware.entity"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of Entity DbContext Update() in loop followed by a SaveChanges()",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When updating or inserting thousands of records, EF's change tracking and individual update statements become a bottleneck.\n\nSlow performance due to individual SQL statements\nHigh memory usage",
+    "reference": "https://github.com/borisdj/EFCore.BulkExtensions",
+    "remediation": "Use frameworks like EFCore.BulkExtensions to issue efficient bulk operations.\nUse BulkUpdate() or ExecuteUpdate() in EF Core 7+",
+    "remediationSample": "foreach (var entity in largeList)\n{\n    entity.Status = \"Processed\";\n}\ndbContext.BulkUpdate(largeList); // requires EFCore.BulkExtensions",
+    "sample": "foreach (var entity in largeList)\n{\n    entity.Status = \"Processed\";\n    dbContext.Update(entity);         // \u26a0\ufe0f VIOLATION\n}\ndbContext.SaveChanges(); // inefficient for thousands of rows",
+    "alternativeName": "Prefer BulkUpdate/BulkInsert for large datasets over EF Update() or SaveChanges() in loops",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "href": "AIP/technical-criteria/66068",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

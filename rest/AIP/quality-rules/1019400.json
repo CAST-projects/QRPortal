@@ -1,0 +1,66 @@
+{
+    "id": 1019400,
+    "name": "Avoid calling Entity DbContext SaveChanges() inside loops",
+    "href": "AIP/quality-rules/1019400",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.entity",
+        "href": "AIP/extensions/com.castsoftware.entity"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of Entity SaveChanges() inside loops",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Calling SaveChanges() inside a loop causes multiple database transactions, each incurring:\n\n- Higher latency and I/O overhead\n- Increased risk of partial updates\n- Degraded performance at scale",
+    "reference": "https://learn.microsoft.com/en-us/ef/core/saving/basic\n\nCWE-1050: Excessive Platform Resource Consumption within a Loop\nhttps://cwe.mitre.org/data/definitions/1050.html\n\nOMG ASCPEM ASCPEM-PRF-8\nhttps://www.omg.org/spec/ASCPEM/1.0/PDF  page 31",
+    "remediation": "To address this issue, consider the following remediation steps:\n\n- Move the context call outside the loop if the operation does not depend on loop variables.\n- If the operation is required within the loop, optimize the code to minimize the number of context calls by fetching the required data in bulk or using caching mechanisms.\n- Use appropriate error handling and transaction management to handle exceptions or errors that may occur during context calls within the loop.",
+    "remediationSample": "foreach (var item in items)\n{\n    // Do something with the Context\n}\ndbContext.SaveChanges(); // \u2713 FIXED: one batch save",
+    "sample": "foreach (var item in items)\n{\n    // Do something with the Context\n    dbContext.SaveChanges(); // \u26a0\ufe0f VIOLATON : called in every iteration\n}",
+    "alternativeName": "Avoid calling Entity DbContext SaveChanges() inside loops",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

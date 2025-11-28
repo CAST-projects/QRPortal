@@ -1801,6 +1801,36 @@
             ]
         }
     ],
+    "com.castsoftware.entity": [
+        {
+            "version": "2.4.0-beta1",
+            "addedRules": [
+                {
+                    "id": 1019408,
+                    "name": "Avoid using ToList() / ToArray() before applying further LINQ operators"
+                },
+                {
+                    "id": 1019406,
+                    "name": "Avoid using DbSet queries ToList()/ToArray()/ToDictionary() in foreach clause"
+                },
+                {
+                    "id": 1019404,
+                    "name": "Avoid calling Add() inside a loop when AddRange() is applicable"
+                },
+                {
+                    "id": 1019402,
+                    "name": "Avoid using Entity DbContext.Update() in loops"
+                },
+                {
+                    "id": 1019400,
+                    "name": "Avoid calling Entity DbContext SaveChanges() inside loops"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        }
+    ],
     "com.castsoftware.flex": [
         {
             "version": "1.0.2",
