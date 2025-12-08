@@ -18,7 +18,7 @@
     "remediationSample": "WHEN-BUTTON-PRESSED\n       MY_CALL_FORM('MODULE_B.FMX');\n\n...\n\nPROCEDURE MY_CALL_FORM( FORM_NAME VARCHAR2) IS\nBEGIN\n  -- Do Something\n  CALL_FORM( FORM_NAME);\nEND;",
     "sample": "WHEN-BUTTON-PRESSED\n     CALL_FORM('MODULE_B.FMX');",
     "total": "Number of Oracle Forms objects with code: Triggers, Procedure, and Functions",
-    "alternativeName": "Do not use CALL_FORM or OPEN_FORM built-in Oracle Forms Function",
+    "alternativeName": "Use CALL_FORM and OPEN_FORM built-in Oracle Forms Functions from a centralized location",
     "businessCriteria": [
         {
             "id": 66032,
