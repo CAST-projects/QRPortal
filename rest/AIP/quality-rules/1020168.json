@@ -1,0 +1,67 @@
+{
+    "id": 1020168,
+    "name": "Avoid using User-Agent based IE detection (Javascript)",
+    "href": "AIP/quality-rules/1020168",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of checks (MSIE, Trident, old Edge) in your javascript code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "UA sniffing is brittle and discouraged; IE-specific checks (MSIE, Trident, old Edge) are legacy.",
+    "reference": "\u2013 MDN \u2013 Browser detection using the user agent: https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent\n\u2013 MDN \u2013 navigator.userAgent: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgent",
+    "remediation": "Use feature detection (e.g., checking if a method exists) or standards-based behavior; avoid IE-only branches.",
+    "remediationSample": "if (\"fetch\" in window) {\n  modernImplementation();\n} else {\n  fallbackImplementation();\n}",
+    "sample": "var ua = navigator.userAgent;\nif (ua.indexOf(\"MSIE\") !== -1 || ua.indexOf(\"Trident\") !== -1) {\n  // IE-specific logic\n  useLegacyStuff();\n}",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Avoid using User-Agent based IE detection (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

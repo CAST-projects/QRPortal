@@ -1,0 +1,67 @@
+{
+    "id": 1020162,
+    "name": "Avoid using document.selection / createTextRange (Javascript)",
+    "href": "AIP/quality-rules/1020162",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of document.selection / createTextRange in javascript code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "IE-specific text selection APIs.",
+    "reference": "\u2013 MDN \u2013 window.getSelection() (standard selection API): https://developer.mozilla.org/en-US/docs/Web/API/Window/getSelection\n\u2013 MDN \u2013 Range API (standard DOM ranges): https://developer.mozilla.org/en-US/docs/Web/API/Range\nhttps://community.latenode.com/t/error-with-createtextrange-method-in-javascript/27985",
+    "remediation": "Use window.getSelection() and Range.",
+    "remediationSample": "var selection = window.getSelection();\nvar text = selection ? selection.toString() : \"\";",
+    "sample": "var range = document.selection.createRange();\nvar text = range.text;\nvar textRange = $(\"#orderTextArea\").createTextRange();",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Avoid using document.selection / createTextRange (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

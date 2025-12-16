@@ -1,0 +1,67 @@
+{
+    "id": 1020164,
+    "name": "Avoid changing DOM using outerHTML (Javascript)",
+    "href": "AIP/quality-rules/1020164",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of outerHTML in your javascript code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Historically non-standard and encourages brittle DOM replacement patterns.",
+    "reference": "\u2013 MDN \u2013 Element.outerHTML: https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML\n\u2013 MDN \u2013 Node.replaceWith() (standard replacement): https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith\n\u2013 MDN \u2013 document.createElement() (safe DOM construction): https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement\n\u2013 WHATWG DOM Standard \u2013 replaceWith: https://dom.spec.whatwg.org/#dom-childnode-replacewith",
+    "remediation": "Use DOM methods (replaceWith, createElement, appendChild, insertAdjacentHTML) or template rendering.",
+    "remediationSample": "var newEl = document.createElement(\"div\");\nnewEl.className = \"card\";\nnewEl.textContent = \"Updated\";\nelement.replaceWith(newEl);",
+    "sample": "element.outerHTML = '<div class=\"card\">Updated</div>';",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Avoid changing DOM using outerHTML (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

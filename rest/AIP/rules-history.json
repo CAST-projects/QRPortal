@@ -2909,6 +2909,142 @@
     ],
     "com.castsoftware.html5": [
         {
+            "version": "2.3.16-funcrel",
+            "addedRules": [
+                {
+                    "id": 1020174,
+                    "name": "Avoid using VBScript blocks (Javascript/HTML5)"
+                },
+                {
+                    "id": 1020172,
+                    "name": "Avoid using innerText (Javascript)"
+                },
+                {
+                    "id": 1020170,
+                    "name": "Avoid using XDomainRequest (Javascript)"
+                },
+                {
+                    "id": 1020168,
+                    "name": "Avoid using User-Agent based IE detection (Javascript)"
+                },
+                {
+                    "id": 1020166,
+                    "name": "Avoid using navigator.appName === \"Microsoft Internet Explorer\" (Javascript)"
+                },
+                {
+                    "id": 1020164,
+                    "name": "Avoid changing DOM using outerHTML (Javascript)"
+                },
+                {
+                    "id": 1020162,
+                    "name": "Avoid using document.selection / createTextRange (Javascript)"
+                },
+                {
+                    "id": 1020160,
+                    "name": "Avoid using document.documentMode (Javascript)"
+                },
+                {
+                    "id": 1020158,
+                    "name": "Avoid using element.currentStyle (Javascript)"
+                },
+                {
+                    "id": 1020156,
+                    "name": "Avoid using window.createPopup (Javascript)"
+                },
+                {
+                    "id": 1020154,
+                    "name": "Avoid using attachEvent (Javascript)"
+                },
+                {
+                    "id": 1020152,
+                    "name": "Avoid using window.showModalDialog() (Javascript)"
+                },
+                {
+                    "id": 1020150,
+                    "name": "Avoid using window.event (Javascript)"
+                },
+                {
+                    "id": 1020148,
+                    "name": "Avoid using vendor-prefixed requestAnimationFrame (webkit*, moz*, ms*, o*) (Javascript)"
+                },
+                {
+                    "id": 1020146,
+                    "name": "Avoid using synchronous XMLHttpRequest (async = false) (Javascript)"
+                },
+                {
+                    "id": 1020144,
+                    "name": "Avoid using vendor-prefixed RequestFullscreen(Element.ALLOW_KEYBOARD_INPUT) (Javascript)"
+                },
+                {
+                    "id": 1020142,
+                    "name": "Avoid using navigator.userAgent parsing for feature gates (Javascript)"
+                },
+                {
+                    "id": 1020140,
+                    "name": "Avoid using navigator.getUserMedia() (Javascript)"
+                },
+                {
+                    "id": 1020138,
+                    "name": "Avoid using Event.returnValue (Javascript)"
+                },
+                {
+                    "id": 1020136,
+                    "name": "Avoid using Event.keyCode / which / charCode (Javascript)"
+                },
+                {
+                    "id": 1020134,
+                    "name": "Avoid using escape() / unescape() (Javascript)"
+                },
+                {
+                    "id": 1020132,
+                    "name": "Avoid using document.write() (Javascript)"
+                },
+                {
+                    "id": 1020130,
+                    "name": "Avoid using document.execCommand() (Javascript)"
+                },
+                {
+                    "id": 1020128,
+                    "name": "Avoid using document.domain for same-site relaxation (Javascript)"
+                },
+                {
+                    "id": 1020126,
+                    "name": "Avoid using arguments.callee / Function.prototype.caller (Javascript)"
+                },
+                {
+                    "id": 1020124,
+                    "name": "Avoid using String.prototype.substr() (Javascript)"
+                },
+                {
+                    "id": 1020122,
+                    "name": "Avoid using Event.initEvent() / initMouseEvent() / initUIEvent() (Javascript)"
+                },
+                {
+                    "id": 1020120,
+                    "name": "Avoid using DOM Mutation Events (DOMNodeInserted, DOMSubtreeModified, \u2026) (Javascript)"
+                },
+                {
+                    "id": 1020118,
+                    "name": "Avoid using ActiveXObject / window.external (IE-only) (Javascript)"
+                },
+                {
+                    "id": 1020116,
+                    "name": "Avoid __proto__ and legacy getter/setter methods (Javascript)"
+                },
+                {
+                    "id": 1020114,
+                    "name": "Avoid using navigator.vibrate() (Javascript)"
+                },
+                {
+                    "id": 1020112,
+                    "name": "Avoid setting an event handler like onclick, onmouseover, onsubmit... using element.setAttribute() (Javascript)"
+                }
+            ],
+            "detachedRules": [
+                
+            ]
+        },
+        {
             "version": "2.3.5-funcrel",
             "addedRules": [
                 {

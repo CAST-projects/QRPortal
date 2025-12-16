@@ -1,0 +1,67 @@
+{
+    "id": 1020126,
+    "name": "Avoid using arguments.callee / Function.prototype.caller (Javascript)",
+    "href": "AIP/quality-rules/1020126",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of arguments.callee and Function.caller",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "This API is forbidden in strict mode, hampers optimization and clarity.",
+    "reference": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee\nhttps://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Function/caller",
+    "remediation": "Name your functions; pass functions explicitly.",
+    "remediationSample": "(function self(){ return self(); })();",
+    "sample": "(function(){ return arguments.callee(1); })();\n\nfunction maFonction() {\n  if (maFonction.caller == null) {\n    return \"Function called on top level !\";\n  } else {\n    return \"Function called by \" + maFonction.caller;\n  }\n}",
+    "total": "Number of Javascript functions and methods",
+    "alternativeName": "Avoid using arguments.callee / Function.prototype.caller (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

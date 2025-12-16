@@ -1,0 +1,67 @@
+{
+    "id": 1020174,
+    "name": "Avoid using VBScript blocks (Javascript/HTML5)",
+    "href": "AIP/quality-rules/1020174",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of VBScript",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "VBScript is obsolete and IE-only.",
+    "reference": "\u2013 Microsoft VBScript Deprecation: https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features\n\u2013 WHATWG HTML Living Standard \u2013 Scripting Languages: https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages\n\u2013 MDN <script> Element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script",
+    "remediation": "Rewrite logic in JavaScript and remove VBScript blocks.",
+    "remediationSample": "<script>\nfunction showMessage() {\n  alert(\"Hello from JavaScript\");\n}\n</script>\n\n<button onclick=\"showMessage()\">Click</button>",
+    "sample": "<script language=\"VBScript\">\nSub ShowMessage()\n  MsgBox \"Hello from VBScript\"\nEnd Sub\n</script>\n\n<button onclick=\"ShowMessage\">Click</button>",
+    "total": "Number of HTML5 source codes",
+    "alternativeName": "Avoid using VBScript blocks (Javascript/HTML5)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

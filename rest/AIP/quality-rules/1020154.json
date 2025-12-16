@@ -1,0 +1,67 @@
+{
+    "id": 1020154,
+    "name": "Avoid using attachEvent (Javascript)",
+    "href": "AIP/quality-rules/1020154",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of attachEvent API in you javascript code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "attachEvent is IE-only and not supported elsewhere.",
+    "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa703974(v=vs.85)",
+    "remediation": "Use addEventListener with appropriate feature detection (if you must support very old browsers, add a small wrapper).",
+    "remediationSample": "var btn = document.getElementById(\"saveBtn\");\nbtn.addEventListener(\"click\", function () {\n  save();\n});",
+    "sample": "var btn = document.getElementById(\"saveBtn\");\nbtn.attachEvent(\"onclick\", function () {\n  save();\n});",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Avoid using attachEvent (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

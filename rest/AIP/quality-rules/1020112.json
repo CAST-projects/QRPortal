@@ -1,0 +1,61 @@
+{
+    "id": 1020112,
+    "name": "Avoid setting an event handler like onclick, onmouseover, onsubmit... using element.setAttribute() (Javascript)",
+    "href": "AIP/quality-rules/1020112",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 9,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "description": "This rule will detect the use of element.setAttribute(...) to set an event handler.\n\nSetting an event handler like onclick using element.setAttribute() is dangerous because it essentially performs a mini-eval() on the string you provide. The browser doesn't treat the string as simple text; it parses and executes it as JavaScript code when the event (e.g., a click) occurs.\n\nThis creates a powerful injection sink for Cross-Site Scripting (XSS).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Imagine your code takes a username from a URL parameter to customize a button.\n\n// User-controlled input\nlet untrustedUsername = new URLSearchParams(window.location.search).get('username');\n\nlet myButton = document.getElementById('myButton');\n\n// DANGEROUS: The string is treated as code\nmyButton.setAttribute('onclick', `alert('Hello, ${untrustedUsername}')`);\nIf a user provides a normal username like Alice, the attribute becomes onclick=\"alert('Hello, Alice')\", which is fine.\n\nHowever, an attacker can provide a malicious string like: Alice'); alert(document.cookie); //\n\nThe resulting HTML attribute becomes:\n\n<button id=\"myButton\" onclick=\"alert('Hello, Alice'); alert(document.cookie); //')\">Click Me</button>\n\nWhen any user clicks this button, the browser will execute both alerts, stealing the user's cookie. The attacker successfully injected and executed arbitrary JavaScript.",
+    "reference": "https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html",
+    "remediation": "Ensure you don't set an event handler using element.setAttribute(), prefer using addEventListener().",
+    "remediationSample": "function showAlert() {\n  alert(`Hello, ${untrustedUsername}`);\n}\n\nmyButton.addEventListener('click', showAlert);",
+    "sample": "myButton.setAttribute('onclick', `alert('Hello, ${untrustedUsername}')`);",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Ensure you don't set an event handler using element.setAttribute()",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "href": "AIP/technical-criteria/66062",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

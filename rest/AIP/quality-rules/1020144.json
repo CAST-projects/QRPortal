@@ -1,0 +1,67 @@
+{
+    "id": 1020144,
+    "name": "Avoid using vendor-prefixed RequestFullscreen(Element.ALLOW_KEYBOARD_INPUT) (Javascript)",
+    "href": "AIP/quality-rules/1020144",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of requestFullscreen with Element.ALLOW_KEYBOARD_INPUT as argument",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The parameter was removed; ignored by modern browsers",
+    "reference": "MDN \u2013 Fullscreen API",
+    "remediation": "Call requestFullscreen() without arguments and handle permissions.",
+    "remediationSample": "await el.requestFullscreen();",
+    "sample": "el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);\nel.mozRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);\nel.msRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Avoid using vendor-prefixed RequestFullscreen(Element.ALLOW_KEYBOARD_INPUT) (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

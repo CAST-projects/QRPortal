@@ -1,0 +1,67 @@
+{
+    "id": 1020156,
+    "name": "Avoid using window.createPopup (Javascript)",
+    "href": "AIP/quality-rules/1020156",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of window.createPopup API in you javascript code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "window.createPopup is IE-specific and obsolete.",
+    "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa741342(v=vs.85)",
+    "remediation": "Use standard DOM overlays, tooltips, or floating elements styled with CSS",
+    "remediationSample": "-- HTML --\n<div id=\"popup\" class=\"popup hidden\">Legacy popup</div>\n\n-- CSS --\n.popup {\n  position: absolute;\n  padding: 8px;\n  border: 1px solid #ccc;\n  background: #fff;\n}\n.hidden {\n  display: none;\n}\n\n-- JS --\nfunction showPopup(x, y) {\n  var popup = document.getElementById(\"popup\");\n  popup.style.left = x + \"px\";\n  popup.style.top = y + \"px\";\n  popup.classList.remove(\"hidden\");\n}",
+    "sample": "var popup = window.createPopup();\nvar body = popup.document.body;\nbody.innerHTML = \"Legacy popup\";\npopup.show(100, 100, 200, 60, document.body);",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Avoid using window.createPopup (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
