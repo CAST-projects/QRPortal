@@ -1,0 +1,67 @@
+{
+    "id": 1045300,
+    "name": "Prefer using column index over column label for ResultSet getters parameter",
+    "href": "AIP/quality-rules/1045300",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.java.sql",
+        "href": "AIP/extensions/com.castsoftware.java.sql"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule detects usage of the following methods of interface java.sql.ResultSet:\n\ngetInt(String columnLabel)\ngetLong(String columnLabel)\n...\ngetString(String columnLabel)\ngetDate(String columnLabel)\ngetObject(..., Class<T> type) (since JDBC 4.1)\ngetBytes(String columnLabel))\n...",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "While the freedom to use your column names instead of numeric constants seems like an advantage, the database itself only knows how to deal with column indexes. Therefore, each getXXX method with a column name you call must be resolved by the JDBC driver before it can be passed to the database. Because getXXX methods are typically called inside loops that could be run millions of times, this little bit of overhead can rapidly accumulate.",
+    "reference": "IBM - Performance tips for the native JDBC driver\nhttps://www.ibm.com/docs/en/i/7.4.0?topic=driver-performance-tips-native-jdbc#jdbcperf__title__3\n\nJava\u00ae Platform, Standard Edition & Java Development Kit - Version 21 API Specification\nhttps://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/ResultSet.html",
+    "remediation": "Use the ResultSet getXXX methods that take numeric values instead of the versions that take column names.",
+    "remediationSample": "Statement st1 = con.createStatement();\nResultSet rs_new = st1.executeQuery(\"SELECT * FROM cars WHERE Company_name = Toyota\");\n\nSystem.out.println(\"\\nOutput of executeQuery() without prepareStatement-->\\n\");\nwhile (rs_new.next()) {\n    System.out.println(rs_new.getString(1) + \"\\n\");   // \u2705 FIXED : Column index used in ResultSet getters Method as parameter\n}",
+    "sample": "Statement st1 = con.createStatement();\nResultSet rs_new = st1.executeQuery(\"SELECT * FROM cars WHERE Company_name = Toyota\");\n\nSystem.out.println(\"\\nOutput of executeQuery() without prepareStatement-->\\n\");\nwhile (rs_new.next()) {\n    System.out.println(rs_new.getString(\"Company_name\") + \"\\n\");    // \u26a0\ufe0f VIOLATION: Column label used in ResultSet getters Method as parameter\n}",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Prefer using column index over column label for ResultSet getters parameter",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

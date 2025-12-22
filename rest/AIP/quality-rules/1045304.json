@@ -1,0 +1,67 @@
+{
+    "id": 1045304,
+    "name": "Avoid calling JDBC DatabaseMetaData costly methods",
+    "href": "AIP/quality-rules/1045304",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.java.sql",
+        "href": "AIP/extensions/com.castsoftware.java.sql"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule detects usage of the following methods:\n\njava.sql.DatabaseMetaData.getBestRowIdentifier\njava.sql.DatabaseMetaData.getCrossReference\njava.sql.DatabaseMetaData.getExportedKeys\njava.sql.DatabaseMetaData.getImportedKeys\njava.sql.DatabaseMetaData.getIndexInfo\njava.sql.DatabaseMetaData.getPrimaryKeys",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "They are considered potentially costly because each one typically issues catalog queries against the database system tables to retrieve metadata (indexes, foreign keys, constraints, etc.), which can be expensive depending on the DBMS, schema size, and indexes.\n\nand more TO ADD...",
+    "reference": "IBM native JDBC driver for Db2 for i. Performance tips for the native JDBC driver -\nhttps://www.ibm.com/docs/en/i/7.4.0?topic=driver-performance-tips-native-jdbc#jdbcperf__datametacalls__title__1\n\nJDK DatabaseMetaData (Java Platform SE 8)\nhttps://docs.oracle.com/javase/8/docs/api/java/sql/DatabaseMetaData.html",
+    "remediation": "Key tips to reduce cost:\n\nCache results if calling multiple times (e.g., store getPrimaryKeys/getIndexInfo results in a Map).\nLimit catalog/schema scope instead of using null for all.\nUse approximate=true for getIndexInfo if exact accuracy is not needed.\nAvoid calling inside tight loops; batch metadata retrieval instead.",
+    "remediationSample": "1. For this java.sql.DatabaseMetaData.getIndexInfo\n\n    DatabaseMetaData metaData = conn.getMetaData();\n    ResultSet rs = metaData.getIndexInfo(null, null, \"cars\", false, true);  // \u2705 FIXED: As  getIndexInfo(catalog, schema, table, unique, approximate=true)\n\n\n2. Avoid using below methods\n\n    java.sql.DatabaseMetaData.getBestRowIdentifier\n    java.sql.DatabaseMetaData.getCrossReference\n    java.sql.DatabaseMetaData.getExportedKeys\n    java.sql.DatabaseMetaData.getImportedKeys\n    java.sql.DatabaseMetaData.getPrimaryKeys",
+    "sample": "1. For this java.sql.DatabaseMetaData.getIndexInfo\n\n    DatabaseMetaData metaData = conn.getMetaData();\n    ResultSet rs = metaData.getIndexInfo(null, null, \"cars\", false, false);  // \u26a0\ufe0f VIOLATION : As getIndexInfo(catalog, schema, table, unique, approximate=false)\n\n\n2. If below methods were being used :\n\n    java.sql.DatabaseMetaData.getBestRowIdentifier // \u26a0\ufe0f VIOLATION if calling method\n    java.sql.DatabaseMetaData.getCrossReference // \u26a0\ufe0f VIOLATION if calling method\n    java.sql.DatabaseMetaData.getExportedKeys // \u26a0\ufe0f VIOLATION if calling method\n    java.sql.DatabaseMetaData.getImportedKeys // \u26a0\ufe0f VIOLATION if calling method\n    java.sql.DatabaseMetaData.getPrimaryKeys // \u26a0\ufe0f VIOLATION if calling method",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Avoid calling JDBC DatabaseMetaData costly methods",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

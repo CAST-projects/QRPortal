@@ -1,0 +1,90 @@
+{
+    "id": 1045302,
+    "name": "Ensure specifying fetch size for large queries",
+    "href": "AIP/quality-rules/1045302",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.java.sql",
+        "href": "AIP/extensions/com.castsoftware.java.sql"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule detects queries on XXL tables without giving a hint to the JDBC driver about the number of rows that should be fetched from the database.\n\nHowever, when using setFetchSize(int size), the quality rule check ony that the value size is > 0. (0 means ResultSet will fetch all rows at once).\nRecommanded values depends on the context : 50 \u2013 500 for OLTP , 500 - 5000 for Batch, even higher for Bulk ETL or Streaming...\n\n\u2705 Typical Ranges by Use Case\nEnvironment / Goal                   Recommended fetchSize range (rows)    Notes\nOLTP / Interactive queries           50 \u2013 500                              Prioritizes quick response and low memory.\nAnalytics / Batch processing         500 \u2013 5,000                           Good compromise between memory usage and network round-trips.\nBulk export / ETL on large datasets  5,000 \u2013 20,000                        Reduces round-trips; memory consumption must be monitored.\nStreaming massive results (100k+)    1,000 \u2013 10,000                        Typical range for long-running reads, especially with forward-only cursors.\n\nHINT : expand rule (or create another one ?) to ResultSet.\nFrom https://www.baeldung.com/jdbc-resultset :\nIf we don\u2019t specify the fetch size for our ResultSet, then the fetch size of the Statement is used. If we don\u2019t specify fetch size for either the Statement or the ResultSet, then the database default is used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When you don\u2019t set a fetch size (via Statement.setFetchSize(int) or similar APIs), the JDBC driver may default to loading the entire result set into memory at once.\nConsequences:\nMemory exhaustion / OutOfMemoryError:\nIf the result set is large (millions of rows), the JVM heap can be consumed, causing crashes or degraded performance.\nResource hogging:\nThe database server, JDBC driver, and client-side buffer will all allocate more memory than necessary.\nDenial of Service risk (CWE-770):\nAn attacker (or even a legitimate user running a wide query) can cause resource exhaustion by forcing the application to retrieve excessively large datasets.\nSlow response times:\nFetching everything at once introduces huge latency before the first row can be processed (vs. streaming row-by-row with a smaller fetch size).\nScalability issues:\nApplications with many concurrent queries can saturate memory and reduce throughput if each query pulls full result sets eagerly.",
+    "reference": "CWE-770: Allocation of Resources Without Limits or Throttling\nhttps://cwe.mitre.org/data/definitions/770.html\n\nOracle JDBC Performance Guide \u2013 Using Fetch Size\nhttps://docs.oracle.com/cd/A97335_01/apps.102/a83724/resltse5.htm#:~:text=To%20set%20the%20fetch%20size,each%20trip%20to%20the%20database.\n\nPostgreSQL JDBC Driver \u2013 Controlling fetch size\nhttps://jdbc.postgresql.org/documentation/query/#example52setting-fetch-size-to-turn-cursors-on-and-off\n\nBaeldung \u2013 JDBC Performance Optimization\nhttps://www.baeldung.com/jdbc-resultset#fetchsize",
+    "remediation": "Specify a fetch size (via Statement.setFetchSize(int) or similar APIs) when querying large tables (XXL tables).",
+    "remediationSample": "public class LargeResultSetFix {\n    public static void main(String[] args) throws Exception {\n        Connection conn = DriverManager.getConnection(\n            \"jdbc:postgresql://localhost:5432/mydb\", \"user\", \"password\");\n\n        Statement stmt = conn.createStatement(\n            ResultSet.TYPE_FORWARD_ONLY,\n            ResultSet.CONCUR_READ_ONLY\n        );\n\n        stmt.setFetchSize(500);  // \u2705 FIXED : Set fetch size (tune depending on DB and workload)\n\n        ResultSet rs = stmt.executeQuery(\"SELECT * FROM orders\");\n\n        while (rs.next()) ...\nFix :\nThe driver will fetch rows in chunks of 500 instead of all at once.\nMemory footprint stays bounded, processing starts faster.\nAdjust fetch size (100, 500, 1000) depending on DB performance and network latency.",
+    "sample": "public class LargeResultSetIssue {\n    public static void main(String[] args) throws Exception {\n        Connection conn = DriverManager.getConnection(\n            \"jdbc:postgresql://localhost:5432/mydb\", \"user\", \"password\");\n\n        Statement stmt = conn.createStatement();\n        ResultSet rs = stmt.executeQuery(\"SELECT * FROM orders\");  // \u26a0\ufe0f VIOLATION: \u274c No fetch size set \u2192 driver may fetch ALL rows into memory\n\n        while (rs.next()) ...",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure specifying fetch size for large queries",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-4",
+            "name": "Data Resource Read and Write Access Excessive Complexity",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-4",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1049",
+            "name": "Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/quality-standards/CWE/items/CWE-1049",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1049",
+            "name": "Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1049",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1049",
+            "name": "Excessive Data Query Operations in a Large Data Table",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1049",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
