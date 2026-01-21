@@ -17,6 +17,7 @@
     "remediation": "Use frameworks like EFCore.BulkExtensions to issue efficient bulk operations.\nUse BulkUpdate() or ExecuteUpdate() in EF Core 7+",
     "remediationSample": "foreach (var entity in largeList)\n{\n    entity.Status = \"Processed\";\n}\ndbContext.BulkUpdate(largeList); // requires EFCore.BulkExtensions",
     "sample": "foreach (var entity in largeList)\n{\n    entity.Status = \"Processed\";\n    dbContext.Update(entity);         // \u26a0\ufe0f VIOLATION\n}\ndbContext.SaveChanges(); // inefficient for thousands of rows",
+    "total": "Number of .Net methods",
     "alternativeName": "Prefer BulkUpdate/BulkInsert for large datasets over EF Update() or SaveChanges() in loops",
     "businessCriteria": [
         {

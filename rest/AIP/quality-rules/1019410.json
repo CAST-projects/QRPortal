@@ -1,0 +1,96 @@
+{
+    "id": 1019410,
+    "name": "Avoid Unnecessary .Include() Calls",
+    "href": "AIP/quality-rules/1019410",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.entity",
+        "href": "AIP/extensions/com.castsoftware.entity"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will detect the use of multiple Include() for a given query in Entity Framework Core.\nA violation will be raised only if more than one collection navigation is used in the calls.\nEven the use of two collection references is considered to be risky due to JOIN explosion.\nHowever, multiple use of reference navigation will not result in the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using .Include() to load many or deep navigation properties:\n\n- Generates large SQL JOINs\n- Increases query complexity and size\n- Causes duplication in result sets (Cartesian explosion)\n- Wastes memory by loading unnecessary data\n\nThis leads to significant performance issues, especially when loading related collections (1:N or N:N relationships).",
+    "reference": "https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager\nhttps://learn.microsoft.com/en-us/ef/core/querying/single-split-queries\nhttps://learn.microsoft.com/en-us/ef/core/performance/",
+    "remediation": "Only load what you actually need. Don\u2019t include navigation properties unless they are required by your logic or UI.\nYou can also project to a DTO.",
+    "remediationSample": "// Load necessary\nvar order = dbContext.Orders\n    .Include(o => o.OrderLines)               // \u2713 FIXED : only one .Include()\n    .FirstOrDefault(o => o.Id == id);\n\n// Or project to a DTO\n\nvar order = dbContext.Orders\n    .Where(o => o.Id == id)\n    .Select(o => new OrderDto {               // \u2713 FIXED : projection to a DTO\n        Id = o.Id,\n        Total = o.Total,\n        CustomerName = o.Customer.Name\n    }).FirstOrDefault();",
+    "sample": "var order = dbContext.Orders\n    .Include(o => o.Customer)\n    .Include(o => o.ShippingAddress)\n    .Include(o => o.OrderLines)\n    .Include(o => o.Payments)                 // \u26a0\ufe0f VIOLATION : use of multiple Include()\n    .FirstOrDefault(o => o.Id == id);",
+    "total": "Number of .Net methods",
+    "alternativeName": "Avoid Unnecessary .Include() Calls",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-400",
+            "name": "Uncontrolled Resource Consumption",
+            "href": "AIP/quality-standards/CWE/items/CWE-400",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-6",
+            "name": "Resource Availability",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-6",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-6",
+            "name": "Resource Availability",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-6",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "API4-2019",
+            "name": "Lack of Resources & Rate Limiting",
+            "href": "AIP/quality-standards/OWASP/items/API4-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API4-2023",
+            "name": "Unlimited Resource Consumption",
+            "href": "AIP/quality-standards/OWASP/items/API4-2023",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

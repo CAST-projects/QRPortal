@@ -1,0 +1,67 @@
+{
+    "id": 1019416,
+    "name": "Avoid using Count() when Any() is sufficient",
+    "href": "AIP/quality-rules/1019416",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.entity",
+        "href": "AIP/extensions/com.castsoftware.entity"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of Count() into a logical check.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using .Count() to check if a collection or queryable contains any elements is less efficient than using .Any().\n\nCount() enumerates the entire collection (or issues SELECT COUNT(*) in SQL)\nAny() stops at the first match (or generates SELECT TOP 1 1 WHERE EXISTS(...) in SQL)\nThis makes Any() faster, especially with large datasets or expensive queries.",
+    "reference": "https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1827",
+    "remediation": "Replace checks like if (collection.Count() > 0) with if (collection.Any()).\n\nExceptions & Notes\nUse Count() only when you actually need the number of elements.\nAny() is only for existence checks (i.e., \u201cat least one?\u201d).\n\nif (collection.Count() > 0)    replace by  if (collection.Any())\nif (collection.Count() == 0)    replace by if (!collection.Any())",
+    "remediationSample": "if (dbContext.Users.Any())  // \u2713 FIXED\n{\n    Console.WriteLine(\"Users exist\");\n}\n\n// OR\n\nif (list.Any()) { ... } // \u2713 FIXED",
+    "sample": "if (dbContext.Users.Count() > 0) //\u26a0\ufe0f VIOLATION\n{\n    Console.WriteLine(\"Users exist\");\n}\n\n// OR\n\nif (list.Count() > 0) { ... } //\u26a0\ufe0f VIOLATION",
+    "total": "Number of .Net methods",
+    "alternativeName": "Ensure you use Any() instead of Count() > 0 into logical checks",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

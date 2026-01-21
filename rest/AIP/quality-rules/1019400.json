@@ -17,6 +17,7 @@
     "remediation": "To address this issue, consider the following remediation steps:\n\n- Move the context call outside the loop if the operation does not depend on loop variables.\n- If the operation is required within the loop, optimize the code to minimize the number of context calls by fetching the required data in bulk or using caching mechanisms.\n- Use appropriate error handling and transaction management to handle exceptions or errors that may occur during context calls within the loop.",
     "remediationSample": "foreach (var item in items)\n{\n    // Do something with the Context\n}\ndbContext.SaveChanges(); // \u2713 FIXED: one batch save",
     "sample": "foreach (var item in items)\n{\n    // Do something with the Context\n    dbContext.SaveChanges(); // \u26a0\ufe0f VIOLATON : called in every iteration\n}",
+    "total": "Number of .Net methods",
     "alternativeName": "Avoid calling Entity DbContext SaveChanges() inside loops",
     "businessCriteria": [
         {

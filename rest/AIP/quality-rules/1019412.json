@@ -1,0 +1,96 @@
+{
+    "id": 1019412,
+    "name": "Use .AsSplitQuery() When Including Multiple Collections",
+    "href": "AIP/quality-rules/1019412",
+    "critical": true,
+    "severity": 20,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.entity",
+        "href": "AIP/extensions/com.castsoftware.entity"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will detect the presence of AsSplitQuery in a query with multiple Include() calls in Entity Framework Core.\nA violation will be raised for AsSplitQuery not used if more than one collection navigation is used in the calls.\nEven the use of two collection references is considered to be risky due to JOIN explosion.\nHowever, multiple use of reference navigation will not result in the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When you must include multiple collections (e.g., one-to-many or many-to-many), avoid a single huge JOIN by telling EF to use separate SQL queries.",
+    "reference": "https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager\nhttps://learn.microsoft.com/en-us/ef/core/querying/single-split-queries\nhttps://learn.microsoft.com/en-us/ef/core/performance/",
+    "remediation": "Only load what you actually need. Don\u2019t include navigation properties unless they are required by your logic or UI.\nYou can also project to a DTO",
+    "remediationSample": "// NO VIOLATION with local use of AsSplitQuery option\n\nvar blogs = dbContext.Blogs\n    .Include(b => b.Posts)\n    .Include(b => b.Tags)\n    .AsSplitQuery()         // \u2713 FIXED\n    .ToList();\n\n// OR NO VIOLATION if global setting is enabled for DbContext\n\noptionsBuilder.UseSqlServer(connectionString, o =>\n    o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));  // \u2713 FIXED",
+    "sample": "// VIOLATION, multiple Include() + conversion\n\nvar blogs = dbContext.Blogs\n    .Include(b => b.Posts)\n    .Include(b => b.Tags)\n    .ToList();   // \u26a0\ufe0f VIOLATION : AsSplitQuery() not used",
+    "total": "Number of .Net methods",
+    "alternativeName": "Use .AsSplitQuery() When Including Multiple Collections",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-400",
+            "name": "Uncontrolled Resource Consumption",
+            "href": "AIP/quality-standards/CWE/items/CWE-400",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-SC-6",
+            "name": "Resource Availability",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SC-6",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SC-6",
+            "name": "Resource Availability",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SC-6",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "API4-2019",
+            "name": "Lack of Resources & Rate Limiting",
+            "href": "AIP/quality-standards/OWASP/items/API4-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API4-2023",
+            "name": "Unlimited Resource Consumption",
+            "href": "AIP/quality-standards/OWASP/items/API4-2023",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

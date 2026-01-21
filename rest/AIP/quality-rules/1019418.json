@@ -1,0 +1,76 @@
+{
+    "id": 1019418,
+    "name": "Avoid Full Entity Projection in Entity Framework Queries",
+    "href": "AIP/quality-rules/1019418",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.entity",
+        "href": "AIP/extensions/com.castsoftware.entity"
+    },
+    "description": "This quality rule reports the Select Entity Operations retrieving all columns of the associated Table.\nThis rule is the EF flavor of the well known quality rule \"Avoid using SELECT *\", applicable only to CRUD operations modelized by SQL Query objects.",
+    "rationale": "A query that retrieves all columns of a table can potentially be the source of important changeability problems. One cannot control how the columns will be ordered and returned to the client. This can lead to important data inconsistencies and thus stability issues.\n\nAlso performance problems may arise when the execution of the query returns a large result sets (many row with all the columns may then become a huge amount of data to transport over the network). Thus optimizer module can't provide a correct execution.",
+    "reference": "Microsft Entity Framework - Efficient Querying - Project only properties you need\nhttps://learn.microsoft.com/en-us/ef/core/performance/efficient-querying#project-only-properties-you-need\n\nOptimizing database performance in Entity Framework\nhttps://www.site24x7.com/learn/optimize-entity-framework-performance.html",
+    "remediation": "Review the design of the query to select only useful columns.\nFor EF, this is achieved thanks to a LINQ Select clause: by using eager loading with the Include method, we reduce the number of database roundtrips, resulting in a significant improvement in query execution time.",
+    "remediationSample": "using System.Linq;\nusing YourDbContextNamespace;\n\npublic class YourProgramClass\n{\n    public static void Main(string[] args)\n    {\n        using (var context = new YourDbContextClass())\n        {\n            foreach (var url in context.Blogs.Select(b => b.Url)) // \u2713 FIXED: Retrieve only the Url column\n            {\n                Console.WriteLine(\"Blog URL: \" + url);\n            }\n        }\n    }\n}\n\nsample 2\n\nvar customer =\n (from cust in dataContext.Customers\n select new {                             // \u2713 FIXED : only 3 named columns are retrieved\n customer. CustomerID,\n customer.Name,\n customer.Address\n }). ToList ();",
+    "sample": "using System.Linq;\nusing YourDbContextNamespace;\n\npublic class YourProgramClass\n{\n    public static void Main(string[] args)\n    {\n        using (var context = new YourDbContextClass())\n        {\n            foreach (var blog in context.Blogs) // \u26a0\ufe0f VIOLATION : Retrieve all columns of all blogs\n                Console.WriteLine(\"Blog: \" + blog.Url);\n            }\n        }\n    }\n}\n\nsample 2\n\nvar customer =\n (from cust in dataContext.Customers    // \u26a0\ufe0f VIOLATION : all columns are retrieved\n select cust).ToList();",
+    "total": "Number of .Net methods",
+    "alternativeName": "Ensure you project only properties you need",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "API3-2023",
+            "name": "Broken Object Property Level Authorization",
+            "href": "AIP/quality-standards/OWASP/items/API3-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API6-2019",
+            "name": "Mass Assignment",
+            "href": "AIP/quality-standards/OWASP/items/API6-2019",
+            "standard": "OWASP"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

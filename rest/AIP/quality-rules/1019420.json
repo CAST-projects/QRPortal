@@ -1,0 +1,90 @@
+{
+    "id": 1019420,
+    "name": "Avoid doing bulk changes without disabling Entity changes Tracking",
+    "href": "AIP/quality-rules/1019420",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.entity",
+        "href": "AIP/extensions/com.castsoftware.entity"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if the DBContext changetracking has been disabled when doing bulk (loop) changes (added/modified/deleted)",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When doing bulk update/create you need to disabled EF's changetracking. This can easily be done by disabled AutoDetectChanges. Once you're done, you need to turn Changetracking back on otherwise you might have some unwanted behavior.",
+    "reference": "https://www.entityframeworktutorial.net/efcore/changetracker-in-ef-core.aspx",
+    "remediation": "Esnure you disable the changetracking option when doing bulk changes.",
+    "remediationSample": "Configuration.AutoDetectChangesEnabled = false;   // \u2713 FIXED\nforeach (var newDay in daysOf2019)\n    dayRepo.Add(newDay);\nChangeTracker.DetectChanges();\nSaveChanges();",
+    "sample": "foreach (var newDay in daysOf2019)\n    dayRepo.Add(newDay);             // \u26a0\ufe0f VIOLATION: Each Add will be saved in database",
+    "total": "Number of .Net methods",
+    "alternativeName": "Esnure you disable the changetracking option when doing bulk changes.",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-10",
+            "name": "Non-SQL Named Callable and Method Control Element with Excessive Number of Data Resource Access",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-10",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1073",
+            "name": "Non-SQL Invokable Control Element with Excessive Number of Data Resource Accesses",
+            "href": "AIP/quality-standards/CWE/items/CWE-1073",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1073",
+            "name": "Non-SQL Invokable Control Element with Excessive Number of Data Resource Accesses",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1073",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1073",
+            "name": "Non-SQL Invokable Control Element with Excessive Number of Data Resource Accesses",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1073",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

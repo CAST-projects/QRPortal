@@ -17,6 +17,7 @@
     "remediation": "Use AddRange() when it is applicable",
     "remediationSample": "// No violation when using the right API\n\ndbContext.Entities.AddRange(items);  // \u2713 FIXED",
     "sample": "foreach (var item in items)\n{\n    dbContext.Entities.Add(item);  // \u26a0\ufe0f VIOLATION\n}",
+    "total": "Number of .Net methods",
     "alternativeName": "Avoid calling Add() inside a loop when AddRange() is applicable",
     "businessCriteria": [
         {
