@@ -1,7 +1,7 @@
 {
     "com.castsoftware.android": [
         {
-            "version": "1.1.0-beta1",
+            "version": "2.0.0-funcrel",
             "addedRules": [
                 {
                     "id": 1024044,
@@ -9,7 +9,7 @@
                 },
                 {
                     "id": 1024042,
-                    "name": "CWE-327: Avoid using weak encryption algorithm (Android)"
+                    "name": "Avoid using weak encryption algorithm (Android)"
                 },
                 {
                     "id": 1024040,
@@ -18,15 +18,7 @@
                 {
                     "id": 1024038,
                     "name": "Avoid processing Google Sign In Client without catching error"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha3",
-            "addedRules": [
+                },
                 {
                     "id": 1024036,
                     "name": "Always check all the BiometricPrompt acquired options in the onAuthenticationSucceeded method"
@@ -38,15 +30,7 @@
                 {
                     "id": 1024032,
                     "name": "Always manage the BiometricPrompt onAuthenticationFailed method"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1024030,
                     "name": "Avoid using FingerprintManager as biometric API"
@@ -70,18 +54,10 @@
                 {
                     "id": 1024020,
                     "name": "Avoid using implicit intent"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1024018,
-                    "name": "A permission is required for securing Activities"
+                    "name": "Always provide a permission to secure Activities"
                 },
                 {
                     "id": 1024016,
@@ -147,7 +123,7 @@
             ]
         },
         {
-            "version": "2.0.0-beta2",
+            "version": "2.0.0-funcrel",
             "addedRules": [
                 {
                     "id": 1020552,
@@ -163,7 +139,7 @@
             ]
         },
         {
-            "version": "1.2.0-beta3",
+            "version": "1.7.3-funcrel",
             "addedRules": [
                 {
                     "id": 1020548,
@@ -192,15 +168,7 @@
                 {
                     "id": 1020536,
                     "name": "Avoid using $ or jQuery, use angular.element instead"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020534,
                     "name": "Avoid using a web service with AngularJS $resource inside a loop"
@@ -243,7 +211,7 @@
                 },
                 {
                     "id": 1020514,
-                    "name": "Avoid using Javascript undefined in AngularJS application"
+                    "name": "Only use the angular.isUndefined or angular.isDefined methods in AngularJS application"
                 },
                 {
                     "id": 1020512,
@@ -281,31 +249,23 @@
     ],
     "com.castsoftware.cfamily": [
         {
-            "version": "1.5.0-beta1",
+            "version": "1.5.4-funcrel",
             "addedRules": [
                 {
                     "id": 1050066,
-                    "name": "Avoid using unsecured cookie"
+                    "name": "Avoid using unsecured cookie (Objective-C)"
                 },
                 {
                     "id": 1050064,
-                    "name": "Avoid using risky cryptographic hash"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.4.0-funcrel",
-            "addedRules": [
+                    "name": "Avoid using risky cryptographic hash (Objective-C)"
+                },
                 {
                     "id": 1050062,
-                    "name": "Avoid empty catch blocks"
+                    "name": "Avoid empty catch blocks (Objective-C)"
                 },
                 {
                     "id": 1050060,
-                    "name": "Avoid using a break statement in 'for' loops"
+                    "name": "Avoid using a break statement in 'for' loops (Objective-C)"
                 },
                 {
                     "id": 1050054,
@@ -314,78 +274,46 @@
                 {
                     "id": 1050052,
                     "name": "Avoid empty finally block"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1050050,
-                    "name": "Avoid using cryptography hash without salt"
+                    "name": "Avoid using cryptography hash without salt (Objective-C)"
                 },
                 {
                     "id": 1050048,
-                    "name": "Avoid creating file without protection"
+                    "name": "Avoid creating file without protection (Objective-C)"
                 },
                 {
                     "id": 1050046,
-                    "name": "Avoid weak encryption algorithm"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-beta1",
-            "addedRules": [
+                    "name": "Avoid weak encryption algorithm (Objective-C)"
+                },
                 {
                     "id": 1050044,
-                    "name": "Avoid weak encryption providing sufficient key size"
+                    "name": "Avoid weak encryption providing sufficient key size (Objective-C)"
                 },
                 {
                     "id": 1050042,
-                    "name": "Avoid synchronizing the credentials with iCloud"
+                    "name": "Avoid synchronizing the credentials with iCloud (Objective-C)"
                 },
                 {
                     "id": 1050040,
                     "name": "Avoid using SecTransform API"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1050038,
-                    "name": "Avoid using NSURLRequestUseProtocolCachePolicy for NSURLRequest"
+                    "name": "Avoid using NSURLRequestUseProtocolCachePolicy for NSURLRequest (Objective-C)"
                 },
                 {
                     "id": 1050036,
                     "name": "Ensure that iOS Projects are ARC enabled"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta3",
-            "addedRules": [
+                },
                 {
                     "id": 1050034,
-                    "name": "Ensure that LAContext evaluatePolicy: reply block is not empty"
+                    "name": "Ensure that LAContext evaluatePolicy: reply block is not empty (Objective-C)"
                 },
                 {
                     "id": 1050032,
-                    "name": "Ensure that LAContext evaluatePolicy: reply block success is checked"
+                    "name": "Ensure that LAContext evaluatePolicy: reply block success is checked (Objective-C)"
                 },
                 {
                     "id": 1050030,
@@ -393,16 +321,8 @@
                 },
                 {
                     "id": 1050028,
-                    "name": "Always use LAContext canEvaluatePolicy: before using evaluatePolicy:"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta2",
-            "addedRules": [
+                    "name": "Always use LAContext canEvaluatePolicy: before using evaluatePolicy: (Objective-C)"
+                },
                 {
                     "id": 1050026,
                     "name": "Avoid using non thread-safe Objective-C singleton pattern"
@@ -413,39 +333,23 @@
                 },
                 {
                     "id": 1050022,
-                    "name": "Avoid using deprecated SSL protocol"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta1",
-            "addedRules": [
+                    "name": "Avoid using deprecated SSL protocol (Objective-C)"
+                },
                 {
                     "id": 1050020,
                     "name": "Avoid return statement in @finally block"
                 },
                 {
                     "id": 1050018,
-                    "name": "Never use strcpy() function"
+                    "name": "Never use strcpy() function (Objective-C)"
                 },
                 {
                     "id": 1050016,
-                    "name": "Never use strcat() function"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha4",
-            "addedRules": [
+                    "name": "Never use strcat() function (Objective-C)"
+                },
                 {
                     "id": 1050014,
-                    "name": "UIApplication delegate applicationDidEnterBackground: must delete sensitive data"
+                    "name": "UIApplication delegate applicationDidEnterBackground: must delete sensitive data (Objective-C)"
                 },
                 {
                     "id": 1050012,
@@ -454,15 +358,7 @@
                 {
                     "id": 1050010,
                     "name": "Avoid using NSURLRequest setAllowsAnyHTTPSCertificate:forHost"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha3",
-            "addedRules": [
+                },
                 {
                     "id": 1050008,
                     "name": "Avoid using NSMutableString appendFormat: on behalf of NSURL instance"
@@ -470,22 +366,14 @@
                 {
                     "id": 1050006,
                     "name": "Avoid using NSException raise:format: and raise:format:arguments:"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1050004,
-                    "name": "Avoid using the PredicateWithFormat in IOS/Objective-C"
+                    "name": "Avoid using NSPredicate predicateWithFormat"
                 },
                 {
                     "id": 1050002,
-                    "name": "Avoid using the String formatting in NSUrl in IOS/Objective-C"
+                    "name": "Avoid using NSString stringWithFormat on behalf of NSURL instance"
                 },
                 {
                     "id": 1050000,
@@ -516,30 +404,6 @@
         },
         {
             "version": "2.3.0-funcrel",
-            "addedRules": [
-                {
-                    "id": 7976,
-                    "name": "Never use gets() function"
-                },
-                {
-                    "id": 7972,
-                    "name": "Never use sprintf() or vsprintf() functions"
-                },
-                {
-                    "id": 7970,
-                    "name": "Never use strcpy() function (C/C++)"
-                },
-                {
-                    "id": 7968,
-                    "name": "Never use strcat() function (C/C++)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.3.0-beta1",
             "addedRules": [
                 {
                     "id": 1065132,
@@ -576,15 +440,7 @@
                 {
                     "id": 1065114,
                     "name": "Avoid lines starting with \"#\" with invalid pre-processing directive"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.3.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1065110,
                     "name": "Ensure arrays and containers are accessed using unsigned values"
@@ -604,6 +460,22 @@
                 {
                     "id": 1065102,
                     "name": "Avoid checking Integer overflow without explicit cast"
+                },
+                {
+                    "id": 7976,
+                    "name": "Never use gets() function"
+                },
+                {
+                    "id": 7972,
+                    "name": "Never use sprintf() or vsprintf() functions"
+                },
+                {
+                    "id": 7970,
+                    "name": "Never use strcpy() function (C/C++)"
+                },
+                {
+                    "id": 7968,
+                    "name": "Never use strcat() function (C/C++)"
                 }
             ],
             "detachedRules": [
@@ -611,7 +483,7 @@
             ]
         },
         {
-            "version": "2.2.0-beta1",
+            "version": "2.2.0",
             "addedRules": [
                 {
                     "id": 1065100,
@@ -656,15 +528,7 @@
                 {
                     "id": 1065080,
                     "name": "Avoid using C-style and functional notation casts (C++)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.2.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1065078,
                     "name": "A base class shall be declared virtual only if it is used in a diamond hierarchy"
@@ -692,15 +556,7 @@
                 {
                     "id": 1065066,
                     "name": "Avoid having  a method call or additional expressions in a statement using \"++\" or \"--\" operators (C/C++)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1065064,
                     "name": "Avoid doing assignments in sub-expressions (C++)"
@@ -714,20 +570,8 @@
                     "name": "Avoid loops with floating point counter (C/C++)"
                 },
                 {
-                    "id": 7988,
-                    "name": "DEPRECATED: Avoid using snprintf() function family"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.1.0-alpha2",
-            "addedRules": [
-                {
                     "id": 1065058,
-                    "name": "Ensure that there is at least one exception handler to catch-all otherwise unhandled exceptions"
+                    "name": "Ensure that there is at least one exception handler to catch-all otherwise unhandled exceptions in the main function(C++)"
                 },
                 {
                     "id": 1065056,
@@ -752,15 +596,7 @@
                 {
                     "id": 1065046,
                     "name": "Avoid using the unbounded functions of <cstring> library"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.1.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1065044,
                     "name": "Avoid other than main(), namespace declarations and extern \"C\" declarations in the global namespace (C/C++)"
@@ -832,6 +668,10 @@
                 {
                     "id": 1065010,
                     "name": "Avoid using <cstdio> stream input output library (C++)"
+                },
+                {
+                    "id": 7988,
+                    "name": "DEPRECATED: Avoid using snprintf() function family"
                 }
             ],
             "detachedRules": [
@@ -839,7 +679,7 @@
             ]
         },
         {
-            "version": "2.0.1-funcrel",
+            "version": "2.0.8-funcrel",
             "addedRules": [
                 {
                     "id": 1065008,
@@ -852,34 +692,18 @@
                 {
                     "id": 1065004,
                     "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed."
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-beta1",
-            "addedRules": [
-                {
-                    "id": 592,
-                    "name": "Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-alpha3",
-            "addedRules": [
+                },
                 {
                     "id": 1065002,
                     "name": "\"enum\" members other than the first one should not be explicitly initialized unless all members are explicitly initialized."
                 },
                 {
                     "id": 1065000,
-                    "name": "\"continue\" statement should not be used."
+                    "name": "Avoid using \"continue\" statement"
+                },
+                {
+                    "id": 592,
+                    "name": "Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor"
                 }
             ],
             "detachedRules": [
@@ -898,6 +722,10 @@
                 {
                     "id": 7470,
                     "name": "DEPRECATED: Avoid doing select on Datatable in loop"
+                },
+                {
+                    "id": 3570,
+                    "name": "DEPRECATED: Avoid using Keywords as names"
                 }
             ],
             "detachedRules": [
@@ -905,7 +733,7 @@
             ]
         },
         {
-            "version": "1.5.0-beta3",
+            "version": "1.5.0-funcrel",
             "addedRules": [
                 {
                     "id": 1027102,
@@ -917,7 +745,7 @@
             ]
         },
         {
-            "version": "1.4.9-funcrel",
+            "version": "1.4.10-funcrel",
             "addedRules": [
                 {
                     "id": 1027100,
@@ -929,7 +757,7 @@
             ]
         },
         {
-            "version": "1.4.0-beta1",
+            "version": "1.4.1-funcrel",
             "addedRules": [
                 {
                     "id": 1027098,
@@ -938,15 +766,7 @@
                 {
                     "id": 1027096,
                     "name": "Avoid raising exceptions in unexpected location"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.4.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1027094,
                     "name": "Always provide deserialization methods for optional fields"
@@ -964,24 +784,16 @@
                     "name": "Avoid non-public custom exception types"
                 },
                 {
+                    "id": 1027086,
+                    "name": "Avoid having the same implementation in a conditional structure"
+                },
+                {
                     "id": 1027084,
                     "name": "Avoid calling CoSetProxyBlanket and CoInitializeSecurity"
                 },
                 {
                     "id": 1027082,
                     "name": "Avoid using console logging"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.4.0-alpha1",
-            "addedRules": [
-                {
-                    "id": 1027086,
-                    "name": "Avoid having the same implementation in a conditional structure"
                 },
                 {
                     "id": 1027080,
@@ -997,7 +809,7 @@
                 },
                 {
                     "id": 1027074,
-                    "name": "Avoid hardcoded URIs (.NET)"
+                    "name": "Avoid hard-coded URIs (.NET)"
                 },
                 {
                     "id": 1027070,
@@ -1025,7 +837,7 @@
                 },
                 {
                     "id": 1027052,
-                    "name": "Avoid NULL Pointer Dereference (C#, VB.NET)"
+                    "name": "DEPRECATED: Avoid NULL Pointer Dereference (C#, VB.NET)"
                 },
                 {
                     "id": 1027050,
@@ -1057,7 +869,7 @@
                 },
                 {
                     "id": 1027036,
-                    "name": "Avoid rethrow exception explicitly"
+                    "name": "Avoid rethrowing exception explicitly"
                 },
                 {
                     "id": 1027034,
@@ -1065,11 +877,11 @@
                 },
                 {
                     "id": 1027032,
-                    "name": "Avoid hardcoded network resource names (.NET, VB)"
+                    "name": "Avoid hard-coded network resource names (.NET, VB)"
                 },
                 {
                     "id": 1027030,
-                    "name": "Avoid using Obsolete attributes without message"
+                    "name": "Avoid using \"Obsolete\" attribute without message"
                 },
                 {
                     "id": 1027024,
@@ -1081,7 +893,7 @@
                 },
                 {
                     "id": 1027020,
-                    "name": "Avoid using Count or LongCount where Any can be used"
+                    "name": "Prefer using Any() over Count() or LongCount()"
                 },
                 {
                     "id": 1027018,
@@ -1093,7 +905,7 @@
                 },
                 {
                     "id": 1027014,
-                    "name": "Avoid using Thread API to manage activities of threads"
+                    "name": "Avoid using Thread API (Suspend\\Resume) to manage thread state"
                 },
                 {
                     "id": 7208,
@@ -1105,7 +917,7 @@
             ]
         },
         {
-            "version": "1.3.0-beta1",
+            "version": "1.3.4-funcrel",
             "addedRules": [
                 {
                     "id": 8402,
@@ -1321,23 +1133,15 @@
             ]
         },
         {
-            "version": "1.2.0-beta2",
+            "version": "1.2.14",
             "addedRules": [
                 {
                     "id": 1027012,
                     "name": "Avoid storing Non-Serializable Object as HttpSessionState attributes."
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1027010,
-                    "name": "Avoid weak encryption providing sufficient key size (.NET)"
+                    "name": "Avoid weak encryption providing insufficient key size (.NET)"
                 },
                 {
                     "id": 1027008,
@@ -1346,15 +1150,7 @@
                 {
                     "id": 1027004,
                     "name": "Avoid using deprecated XmlTextReader .NET API"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1027002,
                     "name": "Avoid exposing methods that use Platform Invocation Services to access unmanaged code"
@@ -1362,30 +1158,10 @@
                 {
                     "id": 1027000,
                     "name": "Avoid Managed type declaration for Win32 API using Overlapped IO"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.6-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 7272,
                     "name": "Provide a private default Constructor for utility Classes (.NET)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.4",
-            "addedRules": [
-                {
-                    "id": 3570,
-                    "name": "Avoid using Keywords as names"
                 }
             ],
             "detachedRules": [
@@ -1407,7 +1183,7 @@
             ]
         },
         {
-            "version": "1.4.0-beta1",
+            "version": "1.4.0-funcrel",
             "addedRules": [
                 {
                     "id": 1043084,
@@ -1416,15 +1192,7 @@
                 {
                     "id": 1043082,
                     "name": "Avoid client provided dictionaries to have high request sizes"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.4.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1043080,
                     "name": "Avoid disabling OR not defining encryption behavior for encryption when connecting with Database"
@@ -1436,15 +1204,7 @@
                 {
                     "id": 1043076,
                     "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.4.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1043074,
                     "name": "Avoid creating unsecured HTTPS GET metadata endpoint in configuration"
@@ -1471,11 +1231,11 @@
             ]
         },
         {
-            "version": "1.2.0-alpha1",
+            "version": "1.2.5",
             "addedRules": [
                 {
                     "id": 1043062,
-                    "name": "Ensure to limit users access only to authorized resources (C#)"
+                    "name": "Avoid having all users accessing resources (.NET)"
                 },
                 {
                     "id": 1043060,
@@ -1490,24 +1250,12 @@
                     "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy"
                 },
                 {
-                    "id": 1043030,
-                    "name": "Ensure the X-Frame-Options header is setup (ASP.NET)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha3",
-            "addedRules": [
-                {
                     "id": 1043052,
                     "name": "Ensure aspnet:UseLegacyFormsAuthenticationTicketCompatibility is set to true"
                 },
                 {
                     "id": 1043050,
-                    "name": "Avoid having long timeout for HttpCookie(>5mts)"
+                    "name": "Avoid having long timeout for HttpCookie (> 5 mn)"
                 },
                 {
                     "id": 1043048,
@@ -1520,22 +1268,14 @@
                 {
                     "id": 1043044,
                     "name": "Ensure that CSRF Protection is enabled (ASP.NET MVC)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1043038,
                     "name": "Avoid having applications with the tracing activated in the source code"
                 },
                 {
                     "id": 1043036,
-                    "name": "Avoid Impersonate Globally"
+                    "name": "Avoid using Impersonate identity (ASP.NET)"
                 },
                 {
                     "id": 1043034,
@@ -1543,7 +1283,11 @@
                 },
                 {
                     "id": 1043032,
-                    "name": "Avoid having aspx pages with tracing activated"
+                    "name": "Avoid having ASPX pages with tracing activated"
+                },
+                {
+                    "id": 1043030,
+                    "name": "Ensure the X-Frame-Options header is setup (ASP.NET)"
                 },
                 {
                     "id": 1043028,
@@ -1551,7 +1295,7 @@
                 },
                 {
                     "id": 1043026,
-                    "name": "Avoid disabling EnableViewStateMac in Config file"
+                    "name": "Avoid disabling EnableViewStateMac in Config file (ASP.NET)"
                 },
                 {
                     "id": 1043024,
@@ -1559,39 +1303,31 @@
                 },
                 {
                     "id": 1043022,
-                    "name": "Ensure not to disable Secure attribute while creating cookie (C#)"
+                    "name": "Avoid using unsecured cookie (C#)"
                 },
                 {
                     "id": 1043020,
                     "name": "Avoid having applications with the debug mode activated"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1043018,
                     "name": "Avoid storing passwords in the config files"
                 },
                 {
                     "id": 1043016,
-                    "name": "Always enabled validateRequest in ASPX page"
+                    "name": "Avoid disabling ValidateRequest in ASPX page"
                 },
                 {
                     "id": 1043014,
-                    "name": "Avoid disabling ValidateRequest in Config file"
+                    "name": "Avoid disabling ValidateRequest in Config file (ASP.NET)"
                 },
                 {
                     "id": 1043012,
-                    "name": "Always enable HttpOnly for cookies in Config file"
+                    "name": "Avoid creating cookie without setting httpOnly option in Config file (ASP.NET)"
                 },
                 {
                     "id": 1043010,
-                    "name": "Avoid creating cookies without enabling httponly attribute"
+                    "name": "Avoid creating cookie without setting httpOnly option (C#)"
                 },
                 {
                     "id": 1043008,
@@ -1599,7 +1335,7 @@
                 },
                 {
                     "id": 1043006,
-                    "name": "Always enable validation input when doing ASP.NET Http Post/Put Request"
+                    "name": "Avoid disabling ValidateInput on ASP.NET Http Post/Put Request"
                 }
             ],
             "detachedRules": [
@@ -3089,7 +2825,7 @@
             ]
         },
         {
-            "version": "2.1.16-funcrel",
+            "version": "2.1.29-funcrel",
             "addedRules": [
                 {
                     "id": 1020108,
@@ -3098,39 +2834,15 @@
                 {
                     "id": 1020106,
                     "name": "Avoid hidden form fields to prevent parameter tampering (Javascript/HTML5)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.7-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020104,
-                    "name": "Avoid hardcoded passwords (Javascript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-beta4",
-            "addedRules": [
+                    "name": "Avoid hard-coded passwords (Javascript)"
+                },
                 {
                     "id": 1020102,
                     "name": "Always use JSON.parse & JSON.stringify with try/catch block (Javascript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.9.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020100,
                     "name": "Avoid having cookie with an overly broad domain (Javascript)"
@@ -3138,95 +2850,47 @@
                 {
                     "id": 1020098,
                     "name": "Avoid creating cookie with overly broad path (Javascript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.8.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020096,
                     "name": "Avoid using unsecured cookie (Javascript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.8.0-beta3",
-            "addedRules": [
+                },
                 {
                     "id": 1020094,
                     "name": "Avoid creating cookie without setting httpOnly option (Javascript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.8.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1020092,
                     "name": "Avoid direct definition of JavaScript Functions in a Web page (Javascript/HTML5)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.7.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020090,
-                    "name": "Avoid Artifacts with High Depth of Code"
+                    "name": "Avoid Artifacts with High Depth of Code (Javascript)"
                 },
                 {
                     "id": 1020088,
-                    "name": "Avoid Artifacts with lines longer than X characters"
+                    "name": "Avoid Artifacts with lines longer than X characters (Javascript/HTML5)"
                 },
                 {
                     "id": 1020086,
-                    "name": "Avoid Functions having a very low Comment/Code ratio"
+                    "name": "Avoid Functions having a very low Comment/Code ratio (Javascript)"
                 },
                 {
                     "id": 1020084,
-                    "name": "Avoid unreferenced Functions"
+                    "name": "Avoid unreferenced Functions (Javascript/HTML5)"
                 },
                 {
                     "id": 1020082,
-                    "name": "Avoid undocumented Functions"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.6.0-beta1",
-            "addedRules": [
+                    "name": "Avoid undocumented Functions (Javascript)"
+                },
                 {
                     "id": 1020080,
-                    "name": "Avoid using setInterval()"
+                    "name": "Avoid using setInterval() (Javascript)"
                 },
                 {
                     "id": 1020078,
-                    "name": "Avoid using setTimeout()"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.6.0-alpha1",
-            "addedRules": [
+                    "name": "Avoid using setTimeout() (Javascript)"
+                },
                 {
                     "id": 1020076,
                     "name": "Avoid Artifacts with too many parameters (Javascript)"
@@ -3241,11 +2905,11 @@
                 },
                 {
                     "id": 1020070,
-                    "name": "Avoid hardcoded network resource names in Javascript"
+                    "name": "Avoid hard-coded network resource names (Javascript)"
                 },
                 {
                     "id": 1020068,
-                    "name": "Avoid return statement in finally block"
+                    "name": "Avoid return statement in finally block (Javascript)"
                 },
                 {
                     "id": 1020066,
@@ -3253,7 +2917,7 @@
                 },
                 {
                     "id": 1020064,
-                    "name": "Avoid Superclass knowing Subclass in Javascript"
+                    "name": "Avoid Superclass knowing Subclass (Javascript)"
                 },
                 {
                     "id": 1020062,
@@ -3261,32 +2925,16 @@
                 },
                 {
                     "id": 1020060,
-                    "name": "Avoid using console.log()"
+                    "name": "Avoid using console.log() (Javascript)"
                 },
                 {
                     "id": 1020058,
-                    "name": "Avoid using eval()"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-funcrel",
-            "addedRules": [
+                    "name": "Avoid using eval() (Javascript)"
+                },
                 {
                     "id": 1020056,
                     "name": "Avoid using Javascript Document.all collection"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha6",
-            "addedRules": [
+                },
                 {
                     "id": 1020054,
                     "name": "Avoid using delete on arrays"
@@ -3322,15 +2970,7 @@
                 {
                     "id": 1020038,
                     "name": "Avoid defining and calling functions inside loops"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha5",
-            "addedRules": [
+                },
                 {
                     "id": 1020036,
                     "name": "Avoid using onscroll event with autofocus input"
@@ -3338,15 +2978,7 @@
                 {
                     "id": 1020034,
                     "name": "Avoid hosting HTML code in iframe srcdoc"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha4",
-            "addedRules": [
+                },
                 {
                     "id": 1020032,
                     "name": "Avoid using video poster attributes in combination with javascript"
@@ -3365,7 +2997,7 @@
                 },
                 {
                     "id": 1020024,
-                    "name": "Avoid \"id\" attributes for forms as well as submit"
+                    "name": "Avoid using submit markup related to \"form\" with id attribute"
                 },
                 {
                     "id": 1020022,
@@ -3373,7 +3005,7 @@
                 },
                 {
                     "id": 1020020,
-                    "name": "Avoid JavaScript to block page loading"
+                    "name": "Avoid blocking page loading with synchronous Javascript import"
                 },
                 {
                     "id": 1020018,
@@ -3397,35 +3029,19 @@
                 },
                 {
                     "id": 1020008,
-                    "name": "Avoid for-in loop"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
+                    "name": "Avoid using for-in loop"
+                },
                 {
                     "id": 1020006,
-                    "name": "Avoid to call a function in a termination loop"
+                    "name": "Avoid calling a function in a termination loop (Javascript)"
                 },
                 {
                     "id": 1020004,
-                    "name": "Avoid to use querySelectorAll"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-funcrel",
-            "addedRules": [
+                    "name": "Avoid using querySelectorAll"
+                },
                 {
                     "id": 1020002,
-                    "name": "Avoid programs with low comment / code ratio  (Shell)"
+                    "name": "Avoid programs with low comment / code ratio  (HTML5/Javascript)"
                 },
                 {
                     "id": 1020000,
@@ -3439,7 +3055,7 @@
     ],
     "com.castsoftware.ibatis": [
         {
-            "version": "1.1.0-alpha1",
+            "version": "1.1.1-funcrel",
             "addedRules": [
                 {
                     "id": 1677000,
@@ -3513,7 +3129,7 @@
     ],
     "com.castsoftware.jee": [
         {
-            "version": "1.3.0-beta2",
+            "version": "1.3.11-funcrel",
             "addedRules": [
                 {
                     "id": 8220,
@@ -3650,6 +3266,10 @@
                 {
                     "id": 7654,
                     "name": "Avoid database tables associated to more than one Hibernate Entity"
+                },
+                {
+                    "id": 7648,
+                    "name": "Avoid an explicit call to finalize()"
                 },
                 {
                     "id": 7640,
@@ -3837,7 +3457,7 @@
                 },
                 {
                     "id": 7134,
-                    "name": "Struts1: Avoid having Struts local forward with same name as Struts  global forward"
+                    "name": "DEPRECATED: Avoid having Struts local forward with same name as Struts  global forward"
                 },
                 {
                     "id": 7132,
@@ -3877,7 +3497,7 @@
                 },
                 {
                     "id": 4722,
-                    "name": "Avoid having classes referencing Database objects"
+                    "name": "DEPRECATED: Avoid having classes referencing Database objects"
                 },
                 {
                     "id": 4718,
@@ -3940,6 +3560,10 @@
                     "name": "Avoid instantiating a Boolean object"
                 },
                 {
+                    "id": 4616,
+                    "name": "'super.finalize()' should be invoked when overriding finalize() method"
+                },
+                {
                     "id": 4614,
                     "name": "DEPRECATED: Proper overriding of 'clone()'"
                 },
@@ -3949,7 +3573,7 @@
                 },
                 {
                     "id": 4606,
-                    "name": "Avoid using 'sun.*' and 'com.sun.*' Classes"
+                    "name": "Avoid using 'sun.*' Classes"
                 },
                 {
                     "id": 4604,
@@ -4081,23 +3705,115 @@
             ]
         },
         {
-            "version": "1.2.23",
+            "version": "1.2.26",
             "addedRules": [
                 {
-                    "id": 7254,
-                    "name": "Declare as Static all methods not using instance members"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.21",
-            "addedRules": [
+                    "id": 1022002,
+                    "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding)"
+                },
+                {
+                    "id": 1022000,
+                    "name": "Avoid using weak encryption algorithm as DES and triple DES"
+                },
+                {
+                    "id": 8216,
+                    "name": "Avoid using incompatible mutation"
+                },
+                {
+                    "id": 8214,
+                    "name": "Expired or Released Resource should not be used"
+                },
+                {
+                    "id": 8104,
+                    "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)"
+                },
+                {
+                    "id": 8102,
+                    "name": "Avoid hard-coded network resource names (JEE)"
+                },
+                {
+                    "id": 7964,
+                    "name": "Avoid directly instantiating a Class used as a managed bean"
+                },
+                {
+                    "id": 7730,
+                    "name": "Use declarative transaction"
+                },
                 {
                     "id": 7728,
                     "name": "Avoid thread creation for application running on application server"
+                },
+                {
+                    "id": 7714,
+                    "name": "Do not use auto-wiring"
+                },
+                {
+                    "id": 7706,
+                    "name": "Avoid table and column names that are too long (portability)"
+                },
+                {
+                    "id": 7652,
+                    "name": "Avoid throwing an exception in a catch block without chaining it"
+                },
+                {
+                    "id": 7650,
+                    "name": "All types of a serializable Class must be serializable"
+                },
+                {
+                    "id": 7504,
+                    "name": "Persistent classes should Implement hashCode() and equals()"
+                },
+                {
+                    "id": 7492,
+                    "name": "Avoid Hibernate and JPA Entities using many-to-many association."
+                },
+                {
+                    "id": 7446,
+                    "name": "Avoid double checked locking for JSE 4.x and previous version"
+                },
+                {
+                    "id": 7442,
+                    "name": "Avoid to use keyword 'this' within Constructor in multi-thread environment"
+                },
+                {
+                    "id": 7434,
+                    "name": "Ensure to override both equals() and hashCode()"
+                },
+                {
+                    "id": 7254,
+                    "name": "Declare as Static all methods not using instance members"
+                },
+                {
+                    "id": 7238,
+                    "name": "Avoid calls between JSP Pages"
+                },
+                {
+                    "id": 7210,
+                    "name": "Avoid instantiations inside loops"
+                },
+                {
+                    "id": 7202,
+                    "name": "Check usage of '==' and '!=' on objects"
+                },
+                {
+                    "id": 7200,
+                    "name": "Avoid String concatenation in loops (JEE)"
+                },
+                {
+                    "id": 7150,
+                    "name": "Favor PreparedStatement or CallableStatement over Statement"
+                },
+                {
+                    "id": 7146,
+                    "name": "JSP pages should only reference Java Objects associated to J2EE Scoped Bean"
+                },
+                {
+                    "id": 7144,
+                    "name": "Struts Action Artifacts should not directly use database objects"
+                },
+                {
+                    "id": 4702,
+                    "name": "Avoid using 'Throwable.printStackTrace()' with no argument"
                 },
                 {
                     "id": 4674,
@@ -4110,107 +3826,23 @@
                 {
                     "id": 4670,
                     "name": "Public Methods must have JavaDoc comments"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.17",
-            "addedRules": [
-                {
-                    "id": 7434,
-                    "name": "Ensure to override both equals() and hashCode()"
-                },
-                {
-                    "id": 7238,
-                    "name": "Avoid calls between JSP Pages"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.15",
-            "addedRules": [
-                {
-                    "id": 8102,
-                    "name": "Avoid hardcoded network resource names (JEE)"
                 },
                 {
                     "id": 4610,
                     "name": "Avoid using anonymous Classes"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.13",
-            "addedRules": [
-                {
-                    "id": 7964,
-                    "name": "Avoid directly instantiating a Class used as a managed bean"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.12-funcrel",
-            "addedRules": [
-                {
-                    "id": 7650,
-                    "name": "All types of a serializable Class must be serializable"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-funcrel",
-            "addedRules": [
-                {
-                    "id": 7150,
-                    "name": "Favor PreparedStatement or CallableStatement over Statement"
                 },
                 {
-                    "id": 7146,
-                    "name": "JSP pages should only reference Java Objects associated to J2EE Scoped Bean"
+                    "id": 4602,
+                    "name": "Avoid using Fields (non static final) from other Classes"
                 },
                 {
-                    "id": 7144,
-                    "name": "Struts Action Artifacts should not directly use database objects"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
-                {
-                    "id": 7648,
-                    "name": "CWE-586: Explicit Call to Finalize()"
+                    "id": 4594,
+                    "name": "Avoid using 'java.io.File'"
                 },
                 {
-                    "id": 4616,
-                    "name": "CWE-568: finalize() Method Without super.finalize()"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.28",
-            "addedRules": [
+                    "id": 4592,
+                    "name": "Avoid hiding static Methods"
+                },
                 {
                     "id": 4576,
                     "name": "Provide accessors to Private Fields"
@@ -4218,198 +3850,6 @@
             ],
             "detachedRules": [
                 
-            ]
-        },
-        {
-            "version": "1.0.27",
-            "addedRules": [
-                {
-                    "id": 7492,
-                    "name": "Avoid Hibernate and JPA Entities using many-to-many association."
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.22",
-            "addedRules": [
-                {
-                    "id": 7202,
-                    "name": "Check usage of '==' and '!=' on objects"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.20",
-            "addedRules": [
-                {
-                    "id": 7504,
-                    "name": "Persistent classes should Implement hashCode() and equals()"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.19",
-            "addedRules": [
-                {
-                    "id": 7652,
-                    "name": "Avoid throwing an exception in a catch block without chaining it"
-                },
-                {
-                    "id": 7200,
-                    "name": "Avoid String concatenation in loops (JEE)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.18",
-            "addedRules": [
-                {
-                    "id": 7706,
-                    "name": "Avoid table and column names that are too long (portability)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.15",
-            "addedRules": [
-                {
-                    "id": 7714,
-                    "name": "Do not use auto-wiring"
-                },
-                {
-                    "id": 4592,
-                    "name": "Avoid hiding static Methods"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.13",
-            "addedRules": [
-                {
-                    "id": 7442,
-                    "name": "Avoid to use this within Constructor in multi-thread environment"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.12",
-            "addedRules": [
-                {
-                    "id": 8216,
-                    "name": "CWE-681: Avoid numerical data corruption during incompatible mutation"
-                },
-                {
-                    "id": 8214,
-                    "name": "CWE-672: Expired or Released Resource should not be used"
-                },
-                {
-                    "id": 8104,
-                    "name": "Close database resources ASAP"
-                },
-                {
-                    "id": 7730,
-                    "name": "Use declarative transaction"
-                },
-                {
-                    "id": 4702,
-                    "name": "Avoid using 'Throwable.printStackTrace()' with no argument"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.10",
-            "addedRules": [
-                {
-                    "id": 4594,
-                    "name": "Avoid using 'java.io.File'"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.7",
-            "addedRules": [
-                {
-                    "id": 7210,
-                    "name": "Avoid instantiations inside loops"
-                },
-                {
-                    "id": 4602,
-                    "name": "Avoid using Fields (non static final) from other Classes"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.6",
-            "addedRules": [
-                {
-                    "id": 7446,
-                    "name": "Avoid double checked locking"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.4",
-            "addedRules": [
-                {
-                    "id": 1022002,
-                    "name": "Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding)"
-                },
-                {
-                    "id": 1022000,
-                    "name": "Avoid using weak encryption algorithm as DES and triple DES"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.4-funcrel",
-            "addedRules": [
-                
-            ],
-            "detachedRules": [
-                {
-                    "id": 1012002,
-                    "name": "Avoid using RSA Cryptographic algorithms without OAEP"
-                },
-                {
-                    "id": 1012000,
-                    "name": "Avoid Usage of weak encryption algorithm like DES"
-                }
             ]
         }
     ],
@@ -4484,15 +3924,7 @@
                 {
                     "id": 1039096,
                     "name": "Ensure httpOnly option is enabled when creating session (JEE)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.5.0-beta3",
-            "addedRules": [
+                },
                 {
                     "id": 1039094,
                     "name": "Avoid using XPathExpression without a configurable secure parser (XXE)"
@@ -4555,7 +3987,7 @@
             ]
         },
         {
-            "version": "1.2.2-funcrel",
+            "version": "1.4.4-funcrel",
             "addedRules": [
                 {
                     "id": 1039074,
@@ -4568,78 +4000,35 @@
                 {
                     "id": 1039070,
                     "name": "Avoid using URL.equals(Object obj) or URL.hashCode()"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.1-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1039068,
                     "name": "Avoid using the Non-Serializable Object Stored in Session"
                 },
                 {
                     "id": 1039066,
-                    "name": "Avoid creating cookie with overly broad path (JEE)"
+                    "name": "Avoid creating cookie with an overly broad path (JEE)"
                 },
                 {
                     "id": 1039064,
                     "name": "Avoid having cookie with an overly broad domain (JEE)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1039062,
-                    "name": "Avoid Explicitly not \"define final readObject()\" to prevent un-trusted deserialization"
+                    "name": "Always implement readObject() to prevent untrusted deserialization when loading from ObjectInputStream"
                 },
                 {
                     "id": 1039056,
-                    "name": "Avoid insecure use of YAML deserilization (java)"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1039058,
-                    "name": "Avoid Use of Insufficiently Random Generated keys in cookies"
-                }
-            ]
-        },
-        {
-            "version": "1.2.0-alpha1",
-            "addedRules": [
+                    "name": "Avoid insecure use of YAML deserialization when using SnakeYaml (JEE)"
+                },
                 {
                     "id": 1039052,
-                    "name": "Avoid Http Session never expires"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                    "name": "Avoid Http Session without expiration"
+                },
                 {
                     "id": 1039050,
                     "name": "Add @Override on methods overriding or implementing a method declared in a super type"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1039046,
                     "name": "Always use {@code} to wrap code statements or values such as null"
@@ -4650,23 +4039,8 @@
                 },
                 {
                     "id": 1039040,
-                    "name": "CWE-611: Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1039048,
-                    "name": "Always prefer set Array designators '[]' on the type and not at variable"
+                    "name": "Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)"
                 },
-                {
-                    "id": 1039042,
-                    "name": "'Optional.isPresent' should be used before invoking 'Optional.get' to access value"
-                }
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
                 {
                     "id": 1039038,
                     "name": "Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)"
@@ -4689,51 +4063,27 @@
                 },
                 {
                     "id": 1039028,
-                    "name": "CWE-327 : Avoid weak encryption providing not sufficient key size (JEE)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta3",
-            "addedRules": [
+                    "name": "Avoid weak encryption providing not sufficient key size (JEE)"
+                },
                 {
                     "id": 1039026,
-                    "name": "CWE-1004 : Avoid creating cookie without setting httpOnly option (JEE)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta2",
-            "addedRules": [
+                    "name": "Avoid creating cookie without setting httpOnly option (JEE)"
+                },
                 {
                     "id": 1039024,
-                    "name": "CWE-614 : Avoid using unsecured cookie (JEE)"
+                    "name": "Avoid using unsecured cookie (JEE)"
                 },
                 {
                     "id": 1039022,
-                    "name": "CWE-916:Cryptographic Hash:Avoid using Insecure PBE Iteration Count"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha1",
-            "addedRules": [
+                    "name": "Avoid using Insecure PBE Iteration Count"
+                },
                 {
                     "id": 1039020,
                     "name": "Avoid using javax.crypto.NullCipher"
                 },
                 {
                     "id": 1039018,
-                    "name": "Avoid using cryptography hash with hardcoded salt"
+                    "name": "Avoid using cryptography hash with hard-coded salt"
                 },
                 {
                     "id": 1039014,
@@ -4761,13 +4111,17 @@
                 },
                 {
                     "id": 1039002,
-                    "name": "Avoid using Deprecated SSL protocols to secure connection"
+                    "name": "Avoid using deprecated SSL protocols to secure connection"
                 }
             ],
             "detachedRules": [
                 {
+                    "id": 1039058,
+                    "name": "Avoid generating key with insufficient random generator in cookies"
+                },
+                {
                     "id": 1039016,
-                    "name": "Avoid Unvalidated Redirect"
+                    "name": "Avoid Unvalidated URL Redirect"
                 }
             ]
         }
@@ -4790,7 +4144,7 @@
             ]
         },
         {
-            "version": "2.1.0-beta1",
+            "version": "2.1.2-funcrel",
             "addedRules": [
                 {
                     "id": 1020338,
@@ -4809,85 +4163,33 @@
                     "name": "Avoid using .append() after() with jQuery 1.4.2 (or older)"
                 },
                 {
+                    "id": 1020330,
+                    "name": "Avoid using $(location.hash) with jQuery version older than 1.6.3"
+                },
+                {
                     "id": 1020328,
                     "name": "Avoid using html() with jQuery 1.9.0 (or older)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-funcrel",
-            "addedRules": [
-                {
-                    "id": 1020330,
-                    "name": "Avoid using jQuery $(location.hash) before 1.6.3"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-beta1",
-            "addedRules": [
-                
-            ],
-            "detachedRules": [
-                {
-                    "id": 1020326,
-                    "name": "Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)"
-                }
-            ]
-        },
-        {
-            "version": "1.7.1-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020324,
-                    "name": "Avoid using dialog with closeText parameter before jQuery UI 1.12"
+                    "name": "Avoid using dialog with closeText parameter with jQuery UI version older than 1.12"
                 },
                 {
                     "id": 1020322,
-                    "name": "Avoid using Ajax method without dataType before jQuery 3.0"
+                    "name": "Avoid using Ajax method without dataType with jQuery version older than 3.0.0"
                 },
                 {
                     "id": 1020320,
                     "name": "Avoid using jQuery $.cookie"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha6",
-            "addedRules": [
+                },
                 {
                     "id": 1020318,
                     "name": "Avoid using jQuery deprecated methods"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha2",
-            "addedRules": [
+                },
                 {
                     "id": 1020316,
                     "name": "Avoid Universal Selectors"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1020314,
                     "name": "Avoid using css() of many elements"
@@ -4907,35 +4209,31 @@
                 {
                     "id": 1020306,
                     "name": "Always use find for Id->Child nested selectors"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020302,
                     "name": "Avoid using element type in jQuery"
                 },
                 {
                     "id": 1020300,
-                    "name": "Avoid using the call of web service $.ajax inside a loop"
+                    "name": "Avoid using the call of web service jQuery ajax inside a loop"
                 }
             ],
             "detachedRules": [
                 {
+                    "id": 1020326,
+                    "name": "Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)"
+                },
+                {
                     "id": 1020304,
-                    "name": "Implement success and error callbacks when using $.ajax interface"
+                    "name": "Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0"
                 }
             ]
         }
     ],
     "com.castsoftware.kotlin": [
         {
-            "version": "1.0.0-beta2",
+            "version": "1.0.9-funcrel",
             "addedRules": [
                 {
                     "id": 1030022,
@@ -4947,11 +4245,11 @@
                 },
                 {
                     "id": 1030018,
-                    "name": "Avoid hardcoded network resource names (Kotlin)"
+                    "name": "Avoid hard-coded network resource names (Kotlin)"
                 },
                 {
                     "id": 1030016,
-                    "name": "Avoid hardcoded passwords and credentials (Kotlin)"
+                    "name": "Avoid hard-coded passwords and credentials (Kotlin)"
                 },
                 {
                     "id": 1030014,
@@ -4993,7 +4291,7 @@
     ],
     "com.castsoftware.nodejs": [
         {
-            "version": "2.3.0-beta4",
+            "version": "2.9.1-funcrel",
             "addedRules": [
                 {
                     "id": 1020788,
@@ -5002,15 +4300,7 @@
                 {
                     "id": 1020786,
                     "name": "Avoid using serialize-to-js 0.5.0 with Node.js"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.3.0-beta2",
-            "addedRules": [
+                },
                 {
                     "id": 1020784,
                     "name": "Avoid using node-serialize 0.0.4 with Node.js"
@@ -5022,47 +4312,23 @@
                 {
                     "id": 1020780,
                     "name": "Avoid using Node.js synchronous FileSystem API without try/catch block"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.2.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020778,
-                    "name": "Avoid having multiple artifacts deleting data on the same NoSQL collections"
+                    "name": "Avoid having multiple artifacts deleting data on the same NoSQL collections (Javascript)"
                 },
                 {
                     "id": 1020776,
-                    "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection"
+                    "name": "Avoid having multiple Artifacts inserting data on the same NoSQL Collection (Javascript)"
                 },
                 {
                     "id": 1020774,
-                    "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.2.0-beta1",
-            "addedRules": [
+                    "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection (Javascript)"
+                },
                 {
                     "id": 1020772,
                     "name": "Avoid Javascript string interpolations to prevent SQL injections"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1020770,
                     "name": "Avoid using Node.js query-mysql third-party before 0.0.3"
@@ -5090,47 +4356,23 @@
                 {
                     "id": 1020758,
                     "name": "Avoid using Buffer.fill() and/or Buffer.alloc() with vulnerable versions"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-alpha3",
-            "addedRules": [
+                },
                 {
                     "id": 1020750,
                     "name": "Avoid using the file path validation with Node.js 8.5.0"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1020748,
                     "name": "Avoid using the call of data service with Node.js inside a loop"
                 },
                 {
                     "id": 1020746,
-                    "name": "Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1"
+                    "name": "Avoid using HTTP/2 library with vulnerable versions"
                 },
                 {
                     "id": 1020744,
                     "name": "Avoid using TLS library before Node.js 9.11.2 and 10.4.1"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.8.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020742,
                     "name": "Avoid creating cookie with overly broad domain (Node.js)"
@@ -5146,15 +4388,7 @@
                 {
                     "id": 1020736,
                     "name": "Avoid bypassing self-signed ssl certificate (Node.js)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.7.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020734,
                     "name": "Avoid using unsecured cookie (Node.js)"
@@ -5162,26 +4396,18 @@
                 {
                     "id": 1020732,
                     "name": "Avoid using risky cryptographic hash (Node.js)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.5.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1020730,
                     "name": "Ensure Node.js filesystem are closed"
                 },
                 {
                     "id": 1020728,
-                    "name": "Avoid creating cookie without setting httpOnly option"
+                    "name": "Avoid creating cookie without setting httpOnly option (Node.js)"
                 },
                 {
                     "id": 1020726,
-                    "name": "Ensure that CSRF Protection is enabled"
+                    "name": "Ensure that CSRF Protection is enabled (Node.js)"
                 },
                 {
                     "id": 1020724,
@@ -5189,24 +4415,16 @@
                 },
                 {
                     "id": 1020722,
-                    "name": "Ensure to use secure HTTPS protocol"
+                    "name": "Avoid enabling unsecure Node.js server"
                 },
                 {
                     "id": 1020720,
-                    "name": "Allow only HTTPS communication"
+                    "name": "Avoid unsecure connection to the Node.js server"
                 },
                 {
                     "id": 1020718,
                     "name": "Ensure that browser cannot cache or store a page"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-beta3",
-            "addedRules": [
+                },
                 {
                     "id": 1020716,
                     "name": "Avoid using the call of web service with Node.js http.get or http.request inside a loop"
@@ -5214,18 +4432,10 @@
                 {
                     "id": 1020714,
                     "name": "Avoid having multiple routes for the same path with Node.js Express App"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1020712,
-                    "name": "Ensure the X-Frame-Options header is setup"
+                    "name": "Ensure the X-Frame-Options header is setup (Node.js)"
                 },
                 {
                     "id": 1020710,
@@ -5237,40 +4447,16 @@
                 },
                 {
                     "id": 1020706,
-                    "name": "Ensure the Content-Security-Policy is activated"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha6",
-            "addedRules": [
+                    "name": "Ensure the Content-Security-Policy is activated (Node.js)"
+                },
                 {
                     "id": 1020704,
                     "name": "Avoid using string concatenation when using __dirname and __filename"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1020702,
-                    "name": "Avoid using process.exit()"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-funcrel",
-            "addedRules": [
+                    "name": "Avoid using nodejs process.exit()"
+                },
                 {
                     "id": 1020700,
                     "name": "Avoid the lack of error handling in the Node.js callbacks"
@@ -5283,7 +4469,7 @@
     ],
     "com.castsoftware.nosqldotnet": [
         {
-            "version": "1.4.0-alpha1",
+            "version": "1.7.1-funcrel",
             "addedRules": [
                 {
                     "id": 1101972,
@@ -5296,15 +4482,7 @@
                 {
                     "id": 1101968,
                     "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha7",
-            "addedRules": [
+                },
                 {
                     "id": 1101964,
                     "name": "When using compound indexes, avoid having different index ordering in collection access"
@@ -5312,18 +4490,7 @@
                 {
                     "id": 1101962,
                     "name": "Avoid using explain() in production code"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1101966,
-                    "name": "Avoid having MongoDB databases access without authentication activated"
-                }
-            ]
-        },
-        {
-            "version": "1.0.0-alpha4",
-            "addedRules": [
+                },
                 {
                     "id": 1101958,
                     "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes"
@@ -5336,7 +4503,7 @@
     ],
     "com.castsoftware.nosqljava": [
         {
-            "version": "1.3.0-alpha2",
+            "version": "1.7.2-funcrel",
             "addedRules": [
                 {
                     "id": 1101926,
@@ -5349,37 +4516,18 @@
                 {
                     "id": 1101922,
                     "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection (JEE)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta2",
-            "addedRules": [
+                },
                 {
                     "id": 1101920,
                     "name": "Avoid using explain() in production code (JEE)"
+                },
+                {
+                    "id": 1101916,
+                    "name": "When using compound indexes, avoid having different index ordering in collection access"
                 }
             ],
             "detachedRules": [
                 
-            ]
-        },
-        {
-            "version": "1.0.0-alpha2",
-            "addedRules": [
-                {
-                    "id": 1101916,
-                    "name": "When using compound indexes, avoid having different indexes"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1101918,
-                    "name": "Avoid having MongoDB databases access without authentication activated"
-                }
             ]
         }
     ],
@@ -6471,134 +5619,107 @@
     ],
     "com.castsoftware.php": [
         {
-            "version": "3.0.0-funcrel",
+            "version": "3.0.6-funcrel",
             "addedRules": [
                 {
                     "id": 1007290,
-                    "name": "CWE-79: Avoid cross site scripting (single quoted attribute) (PHP)"
+                    "name": "DEPRECATED: CWE-79: Avoid cross site scripting (single quoted attribute) (PHP)"
                 },
                 {
                     "id": 1007288,
-                    "name": "CWE-489: Avoid debug code in the production system (PHP)"
+                    "name": "DEPRECATED: CWE-489: Avoid debug code in the production system (PHP)"
                 },
                 {
                     "id": 1007286,
-                    "name": "CWE-242: Avoid PHP Dangerous Feature (PHP)"
+                    "name": "DEPRECATED: CWE-242: Avoid PHP Dangerous Feature (PHP)"
                 },
                 {
                     "id": 1007284,
-                    "name": "CWE-200: Avoid Cookie Misconfiguration (httpOnly flag) (PHP)"
+                    "name": "DEPRECATED: CWE-200: Avoid Cookie Misconfiguration (httpOnly flag) (PHP)"
                 },
                 {
                     "id": 1007282,
-                    "name": "CWE-614: Avoid Cookie Misconfiguration (secure flag) (PHP)"
+                    "name": "DEPRECATED: CWE-614: Avoid Cookie Misconfiguration (secure flag) (PHP)"
                 },
                 {
                     "id": 1007280,
-                    "name": "CWE-214: Avoid System Information Leakage (PHP)"
+                    "name": "DEPRECATED: CWE-214: Avoid System Information Leakage (PHP)"
                 },
                 {
                     "id": 1007278,
-                    "name": "CWE-328: Avoid weak hash functions (PHP)"
+                    "name": "DEPRECATED: CWE-328: Avoid weak hash functions (PHP)"
                 },
                 {
                     "id": 1007276,
-                    "name": "CWE-287: Avoid Cookie Misconfiguration (path) (PHP)"
+                    "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)"
                 },
                 {
                     "id": 1007274,
-                    "name": "CWE-502: Avoid Object Injection (PHP)"
+                    "name": "DEPRECATED: CWE-502: Avoid Object Injection (PHP)"
                 },
                 {
                     "id": 1007272,
-                    "name": "CWE-384: Avoid Session Fixation (PHP)"
+                    "name": "DEPRECATED: CWE-384: Avoid Session Fixation (PHP)"
                 },
                 {
                     "id": 1007270,
-                    "name": "CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command in dynamic query (PHP)"
+                    "name": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command in dynamic query (PHP)"
                 },
                 {
                     "id": 1007268,
-                    "name": "CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command without quotes (PHP)"
+                    "name": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command without quotes (PHP)"
                 },
                 {
                     "id": 1007266,
-                    "name": "CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command within single quotes (PHP)"
+                    "name": "DEPRECATED: CWE-89: Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command within single quotes (PHP)"
                 },
                 {
                     "id": 1007264,
-                    "name": "CWE-434: Avoid unrestricted file upload (PHP)"
+                    "name": "DEPRECATED: CWE-434: Avoid unrestricted file upload (PHP)"
                 },
                 {
                     "id": 1007260,
-                    "name": "CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)"
+                    "name": "DEPRECATED: CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)"
                 },
                 {
                     "id": 1007258,
-                    "name": "CWE-79: Avoid cross-site scripting - Improper Neutralization of input during web page generation (PHP)"
+                    "name": "DEPRECATED: CWE-79: Avoid cross-site scripting - Improper Neutralization of input during web page generation (PHP)"
                 },
                 {
                     "id": 1007256,
-                    "name": "CWE-79: Avoid cross-site scripting - Improper Neutralization of input in script tag during web page generation (PHP)"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1007262,
-                    "name": "CWE-73: Avoid file name or path controlled by raw user input (PHP)"
-                }
-            ]
-        },
-        {
-            "version": "2.0.0-funcrel",
-            "addedRules": [
+                    "name": "DEPRECATED: CWE-79: Avoid cross-site scripting - Improper Neutralization of input in script tag during web page generation (PHP)"
+                },
                 {
                     "id": 1007254,
                     "name": "Avoid files that declare both symbols and execute logic with side effects (PHP)"
                 },
                 {
                     "id": 1007252,
-                    "name": "CWE-661: Avoid filesystem function calls without sanitizing user input (PHP)"
+                    "name": "Avoid filesystem function calls without sanitizing user input (PHP)"
                 },
                 {
                     "id": 1007250,
-                    "name": "CWE-624: Avoid preg_replace with /e option (PHP)"
+                    "name": "Avoid preg_replace with /e option (PHP)"
                 },
                 {
                     "id": 1007248,
-                    "name": "CWE-311: Use sufficient SSL\\TLS context (PHP)"
+                    "name": "Use sufficient SSL\\TLS context (PHP)"
                 },
                 {
                     "id": 1007246,
-                    "name": "CWE-98: Avoid use of user input that can expose Stream Injection vulnerability (PHP)"
+                    "name": "Avoid Remote File Inclusion - Improper Control of Filename for Include/Require Statement in PHP Program (PHP)"
                 },
                 {
                     "id": 1007244,
-                    "name": "CWE-79: Avoid use of raw user input that can expose XSS vulnerability (PHP)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0",
-            "addedRules": [
+                    "name": "Avoid cross-site scripting - Improper Neutralization of script-related HTML tags in a web page (PHP)"
+                },
                 {
                     "id": 1007242,
-                    "name": "Avoid artifacts having recursive calls (PHP)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0",
-            "addedRules": [
+                    "name": "Avoid Methods and Functions having recursive calls (PHP)"
+                },
                 {
                     "id": 1007240,
-                    "name": "Avoid having object not instantiated using parenthesis - Symfony STD (PHP)"
+                    "name": "Avoid artifacts having object instantiation without parenthesis - Symfony STD (PHP)"
                 },
                 {
                     "id": 1007238,
@@ -6606,7 +5727,7 @@
                 },
                 {
                     "id": 1007236,
-                    "name": "Avoid having class methods without scope modifiers - Symfony STD (PHP)"
+                    "name": "Avoid having Class Methods or Constructor without scope modifiers - Symfony STD (PHP)"
                 },
                 {
                     "id": 1007234,
@@ -6614,38 +5735,27 @@
                 },
                 {
                     "id": 1007232,
-                    "name": "Avoid having variables passed by reference when calling a function (PHP)"
+                    "name": "Avoid artifacts with variables passed by reference when calling a function (PHP)"
                 },
                 {
                     "id": 1007230,
-                    "name": "Avoid Having control structures without proper switch case declarations (PSR2) (PHP)"
+                    "name": "Avoid artifacts without proper switch case declarations (PSR2) (PHP)"
                 },
                 {
                     "id": 1007228,
-                    "name": "Avoid having control structures without proper spacing in the open and close brace - PSR2 (PHP)"
+                    "name": "Avoid control structures without proper spacing before and after open\\close braces - PSR2 (PHP)"
+                },
+                {
+                    "id": 1007220,
+                    "name": "Avoid artifacts with \"select *\" Sql statement (PHP)"
+                },
+                {
+                    "id": 1007218,
+                    "name": "Avoid fetching database rows as array and accessing using subscript (PHP)"
                 },
                 {
                     "id": 1007212,
                     "name": "Avoid having variables without naming conventions (PHP)"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1007226,
-                    "name": "Avoid having For-loops that use a function call in the test expression (PHP)"
-                }
-            ]
-        },
-        {
-            "version": "1.0.3",
-            "addedRules": [
-                {
-                    "id": 1007220,
-                    "name": "Avoid Select * queries in PHP Section (PHP)"
-                },
-                {
-                    "id": 1007218,
-                    "name": "Avoid using $row[xxx] (PHP)"
                 },
                 {
                     "id": 1007210,
@@ -6657,39 +5767,39 @@
                 },
                 {
                     "id": 1007202,
-                    "name": "Avoid copying needless the variables (PHP)"
+                    "name": "Avoid direct access to superglobals (PHP)"
                 },
                 {
                     "id": 1007192,
-                    "name": "Avoid using short tags like \"<?=$name>"
+                    "name": "Avoid using PHP short tags (PHP)"
                 },
                 {
                     "id": 1007190,
-                    "name": "Avoid using relative path"
+                    "name": "Avoid using relative path for including files (PHP)"
                 },
                 {
                     "id": 1007184,
-                    "name": "Avoid using count function inside a for loop"
+                    "name": "Avoid using size functions inside loops (PHP)"
                 },
                 {
                     "id": 1007180,
-                    "name": "Avoid using include_once"
+                    "name": "Use file inclusion based on API suitability (PHP)"
                 },
                 {
                     "id": 1007176,
-                    "name": "Avoid using break statement in FOR loops (PHP)"
+                    "name": "Avoid using break or continue statements in loops with high cyclomatic complexity (PHP)"
                 },
                 {
                     "id": 1007172,
-                    "name": "Avoid having constructors with a return value (PHP)"
+                    "name": "Avoid having constructors with return value (PHP)"
                 },
                 {
                     "id": 1007166,
-                    "name": "Avoid having properties with __get and no __set (PHP)"
+                    "name": "Avoid classes without matching __get and __set (PHP)"
                 },
                 {
                     "id": 1007158,
-                    "name": "Avoid using exit and die expressions (PHP)"
+                    "name": "Avoid artifacts using exit and die expressions (PHP)"
                 },
                 {
                     "id": 1007156,
@@ -6697,27 +5807,27 @@
                 },
                 {
                     "id": 1007154,
-                    "name": "Avoid using a goto statements (PHP)"
+                    "name": "Avoid using goto statements (PHP)"
                 },
                 {
                     "id": 1007150,
-                    "name": "Avoid unassigned default values in Functions (PHP)"
+                    "name": "Avoid artifacts with optional parameters before required parameters (PHP)"
                 },
                 {
                     "id": 1007148,
-                    "name": "Avoid useless overriding Methods (PHP)"
+                    "name": "Avoid methods and constructor overridden only with parent artifact call (PHP)"
                 },
                 {
                     "id": 1007146,
-                    "name": "Avoid unconditional IF and ELSEIF statements (PHP)"
+                    "name": "Avoid unconditional \"if\" and \"else if\\elseif\" statements (PHP)"
                 },
                 {
                     "id": 1007144,
-                    "name": "Avoid classes exceeding number of weighted methods (PHP)"
+                    "name": "Avoid classes with excessive number of weighted methods (PHP)"
                 },
                 {
                     "id": 1007142,
-                    "name": "Avoid unused private  methods (PHP)"
+                    "name": "Avoid unused private methods (PHP)"
                 },
                 {
                     "id": 1007140,
@@ -6725,35 +5835,35 @@
                 },
                 {
                     "id": 1007138,
-                    "name": "Avoid having unused variables (PHP)"
+                    "name": "Avoid unused local variables (PHP)"
                 },
                 {
                     "id": 1007136,
-                    "name": "Avoid classes having a  number of public methods and attributes exceeds maximum (PHP)"
+                    "name": "Avoid classes having with excessive number of public methods and fields (PHP)"
                 },
                 {
                     "id": 1007134,
-                    "name": "Avoid classes with too many methods (PHP)"
+                    "name": "Avoid classes with excessive number of methods (PHP)"
                 },
                 {
                     "id": 1007132,
-                    "name": "Avoid  classes with too many fields (PHP)"
+                    "name": "Avoid classes with excessive number of fields (PHP)"
                 },
                 {
                     "id": 1007130,
-                    "name": "Avoid methods having length exceeding the maximum (PHP)"
+                    "name": "Avoid Artifacts with excessive lines of code (PHP)"
                 },
                 {
                     "id": 1007128,
-                    "name": "Avoid methods having too many  parameters (PHP)"
+                    "name": "Avoid artifacts with excessive number of parameters (PHP)"
                 },
                 {
                     "id": 1007126,
-                    "name": "Avoid classes exceeding maximum length (PHP)"
+                    "name": "Avoid classes with excessive lines of code (PHP)"
                 },
                 {
                     "id": 1007124,
-                    "name": "Avoid Functions throwing exceptions and not having a @Throws tag (PHP)"
+                    "name": "Avoid artifacts throwing exceptions without @Throws tag in doc comments (PHP)"
                 },
                 {
                     "id": 1007122,
@@ -6761,27 +5871,27 @@
                 },
                 {
                     "id": 1007120,
-                    "name": "Avoid Sections with Group By (PHP)"
+                    "name": "Avoid artifacts with Group By sql statement (PHP)"
                 },
                 {
                     "id": 1007118,
-                    "name": "Avoid Sections With Queries on more than 4 Tables (PHP)"
+                    "name": "Avoid artifacts with sql statements referring more than 4 Tables (PHP)"
                 },
                 {
                     "id": 1007116,
-                    "name": "Avoid Methods with Object Instantiation in loops (PHP)"
+                    "name": "Avoid artifacts with Object Instantiation in loops (PHP)"
                 },
                 {
                     "id": 1007114,
-                    "name": "Avoid Sections with string concatenations (PHP)"
+                    "name": "Avoid unnecessary string concatenations (PHP)"
                 },
                 {
                     "id": 1007112,
-                    "name": "Avoid Script Functions with a very low comment/code ratio (PHP)"
+                    "name": "Avoid JavaScript Functions with a very low comment/code ratio (PHP)"
                 },
                 {
                     "id": 1007110,
-                    "name": "Avoid undocumented Script Functions (PHP)"
+                    "name": "Avoid undocumented JavaScript Functions (PHP)"
                 },
                 {
                     "id": 1007108,
@@ -6801,55 +5911,55 @@
                 },
                 {
                     "id": 1007100,
-                    "name": "Avoid Methods and Functions with a very low comment/code ratio (PHP)"
+                    "name": "Avoid artifacts with a very low comment/code ratio (PHP)"
                 },
                 {
                     "id": 1007098,
-                    "name": "Avoid undocumented Methods or Functions (PHP)"
+                    "name": "Avoid undocumented artifacts (PHP)"
                 },
                 {
                     "id": 1007096,
-                    "name": "Avoid ELSEIF statements. ELSE and IF should be separate (PHP)"
+                    "name": "Avoid \"elseif\" statements (PHP)"
                 },
                 {
                     "id": 1007094,
-                    "name": "Avoid Methods and Functions with lines of more than 120 characters (PHP)"
+                    "name": "Avoid Methods and Functions with lines more than 120 characters in length (PHP)"
                 },
                 {
                     "id": 1007092,
-                    "name": "Avoid Classes with lines of more than 120 characters (PHP)"
+                    "name": "Avoid Classes with lines more than 120 characters in length (PHP)"
                 },
                 {
                     "id": 1007090,
-                    "name": "Avoid having variable with a too long  name (PHP)"
+                    "name": "Avoid having variable with too long name (PHP)"
                 },
                 {
                     "id": 1007088,
-                    "name": "Avoid having variable with a too short name (PHP)"
+                    "name": "Avoid having variable with too short name (PHP)"
                 },
                 {
                     "id": 1007086,
-                    "name": "Avoid uppercase keywords for control structures in Functions and Methods(PHP)"
+                    "name": "Use lowercase for control structures (PHP)"
                 },
                 {
                     "id": 1007080,
-                    "name": "Avoid Classes not having the same name as the file  (PHP)"
+                    "name": "Avoid Class name not matching parent file name (PHP)"
                 },
                 {
                     "id": 1007078,
-                    "name": "A class name should start with a upper case letter (PHP)"
+                    "name": "A class name should start with an upper case letter (PHP)"
                 },
                 {
                     "id": 1007074,
-                    "name": "Avoid having Methods and Functions without a  naming convention (PHP)"
+                    "name": "Avoid having Methods and Functions without naming convention (PHP)"
                 },
                 {
                     "id": 1007072,
-                    "name": "Avoid having Files without a naming convention  (PHP)"
+                    "name": "Avoid files with names not following naming convention (PHP)"
                 },
                 {
                     "id": 1007070,
-                    "name": "Avoid artifacts not checking the ending comments on Methods and Functions (PHP)"
+                    "name": "Avoid method and functions without comments denoting scope end (PHP)"
                 },
                 {
                     "id": 1007064,
@@ -6865,7 +5975,7 @@
                 },
                 {
                     "id": 1007058,
-                    "name": "Avoid unused Function parameters (PHP)"
+                    "name": "Avoid artifacts with unused parameters (PHP)"
                 },
                 {
                     "id": 1007056,
@@ -6873,7 +5983,7 @@
                 },
                 {
                     "id": 1007054,
-                    "name": "Avoid unreferenced Script Functions (PHP)"
+                    "name": "Avoid unreferenced JavaScript Functions (PHP)"
                 },
                 {
                     "id": 1007052,
@@ -6881,27 +5991,27 @@
                 },
                 {
                     "id": 1007050,
-                    "name": "Avoid method invocation in a loop termination expression (PHP)"
+                    "name": "Avoid method invocation in loop termination expression (PHP)"
                 },
                 {
                     "id": 1007048,
-                    "name": "Avoid large Interfaces - too many Methods (PHP)"
+                    "name": "Avoid Interfaces with excessive number of methods (PHP)"
                 },
                 {
                     "id": 1007046,
-                    "name": "Avoid Classes and Interfaces with a High Depth of Inheritance Tree (PHP)"
+                    "name": "Avoid Classes with High Depth of Inheritance Tree (PHP)"
                 },
                 {
                     "id": 1007042,
-                    "name": "Avoid having Classes implementing too many Interfaces (PHP)"
+                    "name": "Avoid Classes implementing excessive number of Interfaces (PHP)"
                 },
                 {
                     "id": 1007038,
-                    "name": "Avoid classes having too many dependencies (PHP)"
+                    "name": "Avoid classes having excessive number of dependencies (PHP)"
                 },
                 {
                     "id": 1007036,
-                    "name": "Avoid classes having too many children (PHP)"
+                    "name": "Avoid classes having excessive number of derived classes(PHP)"
                 },
                 {
                     "id": 1007034,
@@ -6913,11 +6023,11 @@
                 },
                 {
                     "id": 1007028,
-                    "name": "Use Increment/decrement operators where possible"
+                    "name": "Use increment/decrement operators where possible (PHP)"
                 },
                 {
                     "id": 1007026,
-                    "name": "Use identical type operators rather than EQUAL operators (PHP)"
+                    "name": "Use identical type operator rather than \"equal\" operator (PHP)"
                 },
                 {
                     "id": 1007024,
@@ -6925,7 +6035,7 @@
                 },
                 {
                     "id": 1007022,
-                    "name": "Avoid FOR loops which can be simplified to a WHILE loop (PHP)"
+                    "name": "Avoid artifacts using \"for\" loops which can be simplified to a \"while\" loop (PHP)"
                 },
                 {
                     "id": 1007020,
@@ -6933,7 +6043,7 @@
                 },
                 {
                     "id": 1007016,
-                    "name": "Avoid Methods and Functions with High Cyclomatic Complexity (PHP)"
+                    "name": "Avoid artifacts with High Cyclomatic Complexity (PHP)"
                 },
                 {
                     "id": 1007014,
@@ -6945,11 +6055,11 @@
                 },
                 {
                     "id": 1007010,
-                    "name": "Avoid Script Functions with High Fan-Out (PHP)"
+                    "name": "Avoid JavaScript Functions with High Fan-Out (PHP)"
                 },
                 {
                     "id": 1007008,
-                    "name": "Avoid Script Functions with High Fan-In (PHP)"
+                    "name": "Avoid JavaScript Functions with High Fan-In (PHP)"
                 },
                 {
                     "id": 1007006,
@@ -6961,77 +6071,21 @@
                 },
                 {
                     "id": 1007002,
-                    "name": "Avoid Methods and Functions directly access to database tables (PHP)"
+                    "name": "Avoid artifacts directly accessing database tables (PHP)"
                 }
             ],
             "detachedRules": [
                 {
-                    "id": 1007214,
-                    "name": "Avoid using arrays as parameters of str functions (PHP)"
-                },
-                {
-                    "id": 1007204,
-                    "name": "Avoid passing the variables of a function by reference(PHP)"
-                },
-                {
-                    "id": 1007196,
-                    "name": "Avoid using period for echo function"
-                },
-                {
-                    "id": 1007188,
-                    "name": "Avoid using regular expressions"
-                },
-                {
-                    "id": 1007182,
-                    "name": "Avoid using double quote  for long strings without variables"
-                },
-                {
-                    "id": 1007178,
-                    "name": "Avoid using \"print\" function"
-                },
-                {
-                    "id": 1007174,
-                    "name": "Avoid having the assignment to \"$this\" (PHP)"
+                    "id": 1007262,
+                    "name": "Avoid file name or path controlled by raw user input (PHP)"
                 },
                 {
                     "id": 1007170,
-                    "name": "Avoid having call function return ignored (PHP)"
+                    "name": "Avoid function return value ignored (PHP)"
                 },
                 {
                     "id": 1007168,
-                    "name": "Avoid having functions with no return (PHP)"
-                },
-                {
-                    "id": 1007164,
-                    "name": "Avoid functions having the optional parameters before the others (PHP)"
-                },
-                {
-                    "id": 1007162,
-                    "name": "Avoid having lonely variables (PHP)"
-                },
-                {
-                    "id": 1007160,
-                    "name": "Avoid using variable without testing them for initialisation (PHP)"
-                },
-                {
-                    "id": 1007084,
-                    "name": "Avoid uppercase keywords for control structures in Sections(PHP)"
-                },
-                {
-                    "id": 1007040,
-                    "name": "Avoid classes having too many parents (PHP)"
-                },
-                {
-                    "id": 1007032,
-                    "name": "Avoid empty class definition (PHP)"
-                },
-                {
-                    "id": 1007018,
-                    "name": "Avoid Classes with High Cyclomatic Complexity (PHP)"
-                },
-                {
-                    "id": 1007000,
-                    "name": "Avoid Sections directly access to database tables (PHP)"
+                    "name": "Avoid using function or method return value that do not have return (PHP)"
                 }
             ]
         }
@@ -7170,7 +6224,7 @@
             ]
         },
         {
-            "version": "1.0.0-beta1",
+            "version": "1.0.1-funcrel",
             "addedRules": [
                 {
                     "id": 1034022,
@@ -7178,7 +6232,7 @@
                 },
                 {
                     "id": 1034020,
-                    "name": "Avoid improper neutralization of HTTP headers (PHP)"
+                    "name": "Avoid HTTP header injection (PHP)"
                 },
                 {
                     "id": 1034018,
@@ -7186,7 +6240,7 @@
                 },
                 {
                     "id": 1034016,
-                    "name": "Avoid reflected cross-site scripting (PHP)"
+                    "name": "Avoid reflected cross-site scripting (non persistent) (PHP)"
                 },
                 {
                     "id": 1034014,
@@ -7194,15 +6248,15 @@
                 },
                 {
                     "id": 1034012,
-                    "name": "Avoid code injection (PHP)"
+                    "name": "Avoid reflection injection (PHP)"
                 },
                 {
                     "id": 1034010,
-                    "name": "Avoid eval injection (PHP)"
+                    "name": "Avoid code injection (PHP)"
                 },
                 {
                     "id": 1034008,
-                    "name": "Avoid PHP Remote File Inclusion (PHP)"
+                    "name": "Avoid PHP Remote File Inclusion"
                 },
                 {
                     "id": 1034006,
@@ -7601,7 +6655,7 @@
     ],
     "com.castsoftware.python": [
         {
-            "version": "1.6.0-alpha9",
+            "version": "1.6.0-funcrel",
             "addedRules": [
                 {
                     "id": 1021136,
@@ -7618,15 +6672,7 @@
                 {
                     "id": 1021130,
                     "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy (Python)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.6.0-alpha8",
-            "addedRules": [
+                },
                 {
                     "id": 1021128,
                     "name": "Always protect against CSRF in Flask application"
@@ -7781,20 +6827,12 @@
             ]
         },
         {
-            "version": "1.3.2-funcrel",
+            "version": "1.4.1-funcrel",
             "addedRules": [
                 {
                     "id": 1021076,
                     "name": "Avoid mutable default parameter values"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.3.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1021074,
                     "name": "Avoid manipulating a list while iterating over it"
@@ -7802,31 +6840,15 @@
                 {
                     "id": 1021072,
                     "name": "Avoid shadowing class variables"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta2",
-            "addedRules": [
+                },
                 {
                     "id": 1021070,
-                    "name": "Avoid Superclass knowing Subclass"
+                    "name": "Avoid Superclass knowing Subclass (Python)"
                 },
                 {
                     "id": 1021068,
                     "name": "Avoid using global statement"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1021066,
                     "name": "Respect class naming conventions"
@@ -7861,95 +6883,55 @@
                 },
                 {
                     "id": 1021050,
-                    "name": "Avoid using unsecured cookie"
+                    "name": "Avoid using unsecured cookie (Python)"
                 },
                 {
                     "id": 1021048,
-                    "name": "Protect sensitive data in config files from disclosure"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha2",
-            "addedRules": [
+                    "name": "Always protect sensitive data in config files from disclosure"
+                },
                 {
                     "id": 1021046,
                     "name": "Avoid Not ... Is"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1021044,
-                    "name": "Avoid Python string interpolations to prevent SQL injections"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta2",
-            "addedRules": [
+                    "name": "Avoid string interpolations to prevent SQL injections (Python)"
+                },
                 {
                     "id": 1021042,
-                    "name": "Avoid hardcoded passwords"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta1",
-            "addedRules": [
+                    "name": "Avoid hard-coded passwords (Python)"
+                },
                 {
                     "id": 1021040,
                     "name": "Avoid instance attributes only differing by capitalization"
                 },
                 {
                     "id": 1021038,
-                    "name": "Avoid using exec"
+                    "name": "Avoid using exec (Python)"
                 },
                 {
                     "id": 1021036,
-                    "name": "Avoid using eval"
+                    "name": "Avoid using eval (Python)"
                 },
-                {
-                    "id": 1021032,
-                    "name": "Avoid disabling certificate check when requesting secured urls"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha5",
-            "addedRules": [
                 {
                     "id": 1021034,
                     "name": "Avoid inconsistent initialization when deriving a new exception"
                 },
                 {
+                    "id": 1021032,
+                    "name": "Avoid disabling certificate check when requesting secured urls"
+                },
+                {
                     "id": 1021030,
-                    "name": "Avoid hardcoded network resource names"
+                    "name": "Avoid hard-coded network resource names (Python)"
                 },
                 {
                     "id": 1021028,
-                    "name": "Avoid empty finally block"
+                    "name": "Avoid empty finally block (Python)"
                 },
                 {
                     "id": 1021026,
-                    "name": "Avoid return statement in finally block"
+                    "name": "Avoid leaving open file resources (Python)"
                 },
                 {
                     "id": 1021024,
@@ -7966,31 +6948,15 @@
                 {
                     "id": 1021018,
                     "name": "Avoid catch-all except blocks with empty handlers"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha3",
-            "addedRules": [
+                },
                 {
                     "id": 1021016,
-                    "name": "'Avoid using MD5 hashes to hash passwords or to encrypt data'"
+                    "name": "Avoid weak encryption algorithm (Python)"
                 },
                 {
                     "id": 1021014,
-                    "name": "'Avoid using yield and return with value inside a function'"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha2",
-            "addedRules": [
+                    "name": "Avoid using yield and return with value inside a function"
+                },
                 {
                     "id": 1021012,
                     "name": "Avoid using a web service with Python httplib2 Http inside a loop"
@@ -8014,15 +6980,7 @@
                 {
                     "id": 1021002,
                     "name": "Avoid using a web service with Python httplib HTTPConnection inside a loop"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1021000,
                     "name": "Avoid Artifacts with High Cyclomatic Complexity (Python)"
@@ -8047,7 +7005,7 @@
             ]
         },
         {
-            "version": "1.1.0-beta2",
+            "version": "1.1.0-funcrel",
             "addedRules": [
                 {
                     "id": 1020456,
@@ -8056,15 +7014,7 @@
                 {
                     "id": 1020454,
                     "name": "Avoid using React dangerouslySetInnerHTML"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1020452,
                     "name": "Avoid empty componentDidCatch blocks"
@@ -8081,7 +7031,7 @@
     ],
     "com.castsoftware.rpg": [
         {
-            "version": "2.0.0",
+            "version": "3.2.0-funcrel",
             "addedRules": [
                 {
                     "id": 1012026,
@@ -8205,15 +7155,15 @@
                 },
                 {
                     "id": 1008126,
-                    "name": "Avoid defining File Disk if not used  (RPG400)\""
+                    "name": "Avoid defining File Disk if not used  (RPG400)"
                 },
                 {
                     "id": 1008124,
-                    "name": "Avoid unreferenced Copy Members  (RPG400)"
+                    "name": "Avoid unreferenced Copy Members (RPG400)"
                 },
                 {
                     "id": 1008122,
-                    "name": "Avoid Procedures with more than X lines of code  (RPG400)"
+                    "name": "Avoid Procedures with more than N lines of code  (RPG400)"
                 },
                 {
                     "id": 1008120,
@@ -8237,15 +7187,15 @@
                 },
                 {
                     "id": 1008108,
-                    "name": "Avoid using GOTO statement in RPG Programs  (RPG400)"
+                    "name": "Avoid using GOTO statement in RPG artifact (RPG400)"
                 },
                 {
                     "id": 1008106,
-                    "name": "Avoid obsolete L-spec  (RPG400)"
+                    "name": "Avoid obsolete L-spec (RPG400)"
                 },
                 {
                     "id": 1008104,
-                    "name": "Avoid obsolete E-spec  (RPG400)"
+                    "name": "Avoid obsolete E-spec (RPG400)"
                 },
                 {
                     "id": 1008102,
@@ -8253,15 +7203,15 @@
                 },
                 {
                     "id": 1008100,
-                    "name": "Avoid using O-spec; use Printer Files instead  (RPG400)"
+                    "name": "Avoid using O-spec; use Printer Files instead (RPG400)"
                 },
                 {
                     "id": 1008098,
-                    "name": "Avoid using plain END statement, use the explained END statement like ENDIF, ENDDO, etc  (RPG400)"
+                    "name": "Use the corresponding END statement such as ENDIF, ENDDO instead of plain END statement (RPG400)"
                 },
                 {
                     "id": 1008096,
-                    "name": "Better to use QUALIFIED data structures  (RPG400)"
+                    "name": "Use QUALIFIED data structures (RPG400)"
                 },
                 {
                     "id": 1008092,
@@ -8365,618 +7315,7 @@
                 }
             ],
             "detachedRules": [
-                {
-                    "id": 1012010,
-                    "name": "MONMSG command must be formated    (CL400)"
-                },
-                {
-                    "id": 1011030,
-                    "name": "Avoid Physical files with fields defined locally  (DDS400)"
-                },
-                {
-                    "id": 1011024,
-                    "name": "Avoid Physical files with more than X fields  (DDS400)"
-                },
-                {
-                    "id": 1011022,
-                    "name": "Avoid Physical files with more than X associated LF  (DDS400)"
-                },
-                {
-                    "id": 1011018,
-                    "name": "Avoid Logical Files using DYNSLT  (DDS400)"
-                },
-                {
-                    "id": 1011016,
-                    "name": "Avoid unreferenced Logical file  (DDS400)"
-                },
-                {
-                    "id": 1011014,
-                    "name": "Avoid unreferenced Physical file  (DDS400)"
-                },
-                {
-                    "id": 1011010,
-                    "name": "Avoid Logical File without associated Physical File  (DDS400)"
-                },
-                {
-                    "id": 1009090,
-                    "name": "Avoid using obsolete \"Bit Operations\" statements in RPG Programs  (RPG300)"
-                },
-                {
-                    "id": 1009072,
-                    "name": "Avoid using dynamic SQL (EXECUTE IMMEDIATE)  (RPG300)"
-                },
-                {
-                    "id": 1009070,
-                    "name": "Avoid using NOT IN  (RPG300)"
-                },
-                {
-                    "id": 1009068,
-                    "name": "Avoid using NOT EXISTS  (RPG300)"
-                },
-                {
-                    "id": 1009066,
-                    "name": "Avoid Programs with too many WHERE Clauses  (RPG300)"
-                },
-                {
-                    "id": 1009064,
-                    "name": "Avoid Programs with too many FROM Clauses  (RPG300)"
-                },
-                {
-                    "id": 1009062,
-                    "name": "Avoid Programs with Subqueries  (RPG300)"
-                },
-                {
-                    "id": 1009060,
-                    "name": "Avoid Programs with SELECT * statement  (RPG300)"
-                },
-                {
-                    "id": 1009058,
-                    "name": "Avoid Programs With Queries using GROUP BY  (RPG300)"
-                },
-                {
-                    "id": 1009056,
-                    "name": "Avoid Programs With Queries on more than 4 Tables  (RPG300)"
-                },
-                {
-                    "id": 1009054,
-                    "name": "Avoid Programs with COUNT(*) statement  (RPG300)"
-                },
-                {
-                    "id": 1008072,
-                    "name": "Avoid using dynamic SQL (EXECUTE IMMEDIATE)  (RPG400)"
-                },
-                {
-                    "id": 1008070,
-                    "name": "Avoid using NOT IN  (RPG400)"
-                },
-                {
-                    "id": 1008068,
-                    "name": "Avoid using NOT EXISTS  (RPG400)"
-                },
-                {
-                    "id": 1008066,
-                    "name": "Avoid Programs with too many WHERE Clauses  (RPG400)"
-                },
-                {
-                    "id": 1008064,
-                    "name": "Avoid Programs with too many FROM Clauses  (RPG400)"
-                },
-                {
-                    "id": 1008062,
-                    "name": "Avoid Programs with Subqueries  (RPG400)"
-                },
-                {
-                    "id": 1008060,
-                    "name": "Avoid Programs with SELECT * statement  (RPG400)"
-                },
-                {
-                    "id": 1008058,
-                    "name": "Avoid Programs With Queries using GROUP BY  (RPG400)"
-                },
-                {
-                    "id": 1008056,
-                    "name": "Avoid Programs With Queries on more than 4 Tables  (RPG400)"
-                },
-                {
-                    "id": 1008054,
-                    "name": "Avoid Programs with COUNT(*) statement  (RPG400)"
-                }
-            ]
-        },
-        {
-            "version": "2.0.0-alpha1",
-            "addedRules": [
                 
-            ],
-            "detachedRules": [
-                {
-                    "id": 1004622,
-                    "name": "Avoid Physical files with more than X fields  (DDS400)"
-                },
-                {
-                    "id": 1004620,
-                    "name": "Avoid Physical files with more than X associated LF  (DDS400)"
-                },
-                {
-                    "id": 1004618,
-                    "name": "Avoid  Psysical Files using large buffers  (DDS400)"
-                },
-                {
-                    "id": 1004616,
-                    "name": "Avoid Logical Files using DYNSLT  (DDS400)"
-                },
-                {
-                    "id": 1004614,
-                    "name": "Avoid unreferenced Logical file  (DDS400)"
-                },
-                {
-                    "id": 1004612,
-                    "name": "Avoid unreferenced Physical file  (DDS400)"
-                },
-                {
-                    "id": 1004610,
-                    "name": "Avoid Physical File updated by multiple program  (DDS400)"
-                },
-                {
-                    "id": 1004608,
-                    "name": "Avoid Logical File without associated Physical File  (DDS400)"
-                }
-            ]
-        },
-        {
-            "version": "1.0.3",
-            "addedRules": [
-                
-            ],
-            "detachedRules": [
-                {
-                    "id": 1004848,
-                    "name": "Do not use MONMSG CPF0000 without EXEC  (CL400)"
-                },
-                {
-                    "id": 1004846,
-                    "name": "Avoid use of OPNQRYF  (CL400)"
-                },
-                {
-                    "id": 1004844,
-                    "name": "Avoid use of *NOMAX  (CL400)"
-                },
-                {
-                    "id": 1004842,
-                    "name": "Avoid use of RCLRSC  (CL400)"
-                },
-                {
-                    "id": 1004840,
-                    "name": "Avoid use of DLYJOB  (CL400)"
-                },
-                {
-                    "id": 1004826,
-                    "name": "Avoid unreferenced CL Programs  (CL400)"
-                },
-                {
-                    "id": 1004812,
-                    "name": "Avoid locking object by ALCOBJ command    (CL400)"
-                },
-                {
-                    "id": 1004810,
-                    "name": "Avoid Programs with High Cyclomatic Complexity    (CL400)"
-                },
-                {
-                    "id": 1004806,
-                    "name": "MONMSG command must be formated    (CL400)"
-                },
-                {
-                    "id": 1004628,
-                    "name": "Avoid unreferenced Printer Files  (DDS400)"
-                },
-                {
-                    "id": 1004626,
-                    "name": "Avoid unreferenced Display Files  (DDS400)"
-                },
-                {
-                    "id": 1004474,
-                    "name": "Avoid Physical files with more than X fields  (DB400)"
-                },
-                {
-                    "id": 1004472,
-                    "name": "Avoid Physical files with more than X associated LF  (DB400)"
-                },
-                {
-                    "id": 1004448,
-                    "name": "Avoid  Psysical Files using large buffers  (DB400)"
-                },
-                {
-                    "id": 1004446,
-                    "name": "Avoid Logical Files using DYNSLT  (DB400)"
-                },
-                {
-                    "id": 1004432,
-                    "name": "Avoid unreferenced Logical file  (DB400)"
-                },
-                {
-                    "id": 1004430,
-                    "name": "Avoid unreferenced Physical file  (DB400)"
-                },
-                {
-                    "id": 1004408,
-                    "name": "Avoid Physical File updated by multiple program  (DB400)"
-                },
-                {
-                    "id": 1004406,
-                    "name": "Avoid Logical File without associated Physical File  (DB400)"
-                },
-                {
-                    "id": 1004322,
-                    "name": "Avoid Subroutines with more than X lines of code  (RPG300)"
-                },
-                {
-                    "id": 1004320,
-                    "name": "Avoid Programs with more than X lines of code  (RPG300)"
-                },
-                {
-                    "id": 1004318,
-                    "name": "Avoid Programs with more than X LoC and no Subroutines  (RPG300)"
-                },
-                {
-                    "id": 1004316,
-                    "name": "Avoid Programs with more than X Subroutines  (RPG300)"
-                },
-                {
-                    "id": 1004306,
-                    "name": "Avoid using plain END statement, use the explained END statement like ENDIF, ENDDO, etc  (RPG300)"
-                },
-                {
-                    "id": 1004304,
-                    "name": "Better to use QUALIFIED datastructures  (RPG300)"
-                },
-                {
-                    "id": 1004302,
-                    "name": "Avoid using EXPORT(*ALL) in Service Programs (CRTSRVPGM) command)  (RPG300)"
-                },
-                {
-                    "id": 1004300,
-                    "name": "Avoid using obsolete \"Bit Operations\" statements in RPG Programs  (RPG300)"
-                },
-                {
-                    "id": 1004292,
-                    "name": "Specify Program Status Data Area  (RPG300)"
-                },
-                {
-                    "id": 1004290,
-                    "name": "Specify Error Subroutine for File Exception Handling  (RPG300)"
-                },
-                {
-                    "id": 1004284,
-                    "name": "Avoid using dynamic SQL (EXECUTE IMMEDIATE)  (RPG300)"
-                },
-                {
-                    "id": 1004282,
-                    "name": "Avoid using NOT IN  (RPG300)"
-                },
-                {
-                    "id": 1004280,
-                    "name": "Avoid using NOT EXISTS  (RPG300)"
-                },
-                {
-                    "id": 1004278,
-                    "name": "Avoid Programs with too many WHERE Clauses  (RPG300)"
-                },
-                {
-                    "id": 1004276,
-                    "name": "Avoid Programs with too many FROM Clauses  (RPG300)"
-                },
-                {
-                    "id": 1004274,
-                    "name": "Avoid Programs with Subqueries  (RPG300)"
-                },
-                {
-                    "id": 1004272,
-                    "name": "Avoid Programs with SELECT * statement  (RPG300)"
-                },
-                {
-                    "id": 1004270,
-                    "name": "Avoid Programs With Queries using GROUP BY  (RPG300)"
-                },
-                {
-                    "id": 1004268,
-                    "name": "Avoid Programs With Queries on more than 4 Tables  (RPG300)"
-                },
-                {
-                    "id": 1004266,
-                    "name": "Avoid Programs with COUNT(*) statement  (RPG300)"
-                },
-                {
-                    "id": 1004256,
-                    "name": "Avoid Subroutines with a very low comment/code ratio  (RPG300)"
-                },
-                {
-                    "id": 1004254,
-                    "name": "Avoid Programs with a very low comment/code ratio  (RPG300)"
-                },
-                {
-                    "id": 1004252,
-                    "name": "Avoid undocumented RPG300 Subroutines  (RPG300)"
-                },
-                {
-                    "id": 1004250,
-                    "name": "Avoid undocumented RPG300 Programs  (RPG300)"
-                },
-                {
-                    "id": 1004240,
-                    "name": "Avoid unreferenced Subroutines  (RPG300)"
-                },
-                {
-                    "id": 1004238,
-                    "name": "Avoid unreferenced Programs  (RPG300)"
-                },
-                {
-                    "id": 1004224,
-                    "name": "Avoid Subroutines with nested if Statements  (RPG300)"
-                },
-                {
-                    "id": 1004222,
-                    "name": "Avoid Subroutines with High Cyclomatic Complexity  (RPG300)"
-                },
-                {
-                    "id": 1004220,
-                    "name": "Avoid Programs with High Cyclomatic Complexity  (RPG300)"
-                },
-                {
-                    "id": 1004218,
-                    "name": "Avoid using internally described files  (RPG300)"
-                },
-                {
-                    "id": 1004214,
-                    "name": "Avoid Subroutines with High Fan-Out  (RPG300)"
-                },
-                {
-                    "id": 1004212,
-                    "name": "Avoid Programs with High Fan-Out  (RPG300)"
-                },
-                {
-                    "id": 1004210,
-                    "name": "Avoid Subroutines with High Fan-In  (RPG300)"
-                },
-                {
-                    "id": 1004208,
-                    "name": "Avoid Programs with High Fan-In   (RPG300)"
-                },
-                {
-                    "id": 1004206,
-                    "name": "Avoid Programs accessing more than X physical files  (RPG300)"
-                },
-                {
-                    "id": 1004204,
-                    "name": "Avoid Programs accessing directly to Physical Files   (RPG300)"
-                },
-                {
-                    "id": 1004164,
-                    "name": "Avoid Procedures with more than X lines of code  (RPG400)"
-                },
-                {
-                    "id": 1004162,
-                    "name": "Avoid Subroutines with more than X lines of code  (RPG400)"
-                },
-                {
-                    "id": 1004160,
-                    "name": "Avoid Programs with more than X lines of code  (RPG400)"
-                },
-                {
-                    "id": 1004158,
-                    "name": "Avoid Programs with more than X Procedures  (RPG400)"
-                },
-                {
-                    "id": 1004156,
-                    "name": "Avoid Programs with more than X Data Structures  (RPG400)"
-                },
-                {
-                    "id": 1004154,
-                    "name": "Avoid Programs with more than X LoC and no Subroutines  (RPG400)"
-                },
-                {
-                    "id": 1004152,
-                    "name": "Avoid Programs with more than X Subroutines  (RPG400)"
-                },
-                {
-                    "id": 1004144,
-                    "name": "Avoid using GOTO statement in RPG Programs  (RPG400)"
-                },
-                {
-                    "id": 1004142,
-                    "name": "Avoid obsolete L-spec  (RPG400)"
-                },
-                {
-                    "id": 1004140,
-                    "name": "Avoid obsolete E-spec  (RPG400)"
-                },
-                {
-                    "id": 1004138,
-                    "name": "Avoid using I-spec (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004136,
-                    "name": "Avoid using O-spec; use Printer Files instead  (RPG400)"
-                },
-                {
-                    "id": 1004134,
-                    "name": "Avoid using plain END statement, use the explained END statement like ENDIF, ENDDO, etc  (RPG400)"
-                },
-                {
-                    "id": 1004132,
-                    "name": "Better to use QUALIFIED data structures  (RPG400)"
-                },
-                {
-                    "id": 1004130,
-                    "name": "Avoid using EXPORT(*ALL) in Service Programs (CRTSRVPGM) command)  (RPG400)"
-                },
-                {
-                    "id": 1004128,
-                    "name": "Avoid using obsolete \"Call Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004126,
-                    "name": "Avoid using obsolete \"Bit Operations\" statements in RPG Programs  (RPG400)"
-                },
-                {
-                    "id": 1004124,
-                    "name": "Avoid using obsolete \"Definition/Allocation/Array Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004122,
-                    "name": "Avoid using obsolete \"Date Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004120,
-                    "name": "Avoid using obsolete \"Conditional Operations\" statements in RPG Subroutines (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004118,
-                    "name": "Avoid using obsolete \"Assignment Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004116,
-                    "name": "Avoid using obsolete \"String Operations\" statements in RPG Programs (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004114,
-                    "name": "Avoid using obsolete \"Arithmetic Operations\" Statement in RPG Programs (RPG-IV only)  (RPG400)"
-                },
-                {
-                    "id": 1004106,
-                    "name": "Specify Program Status Data Area  (RPG400)"
-                },
-                {
-                    "id": 1004104,
-                    "name": "Specify Error Subroutine for File Exception Handling  (RPG400)"
-                },
-                {
-                    "id": 1004098,
-                    "name": "Avoid using dynamic SQL (EXECUTE IMMEDIATE)  (RPG400)"
-                },
-                {
-                    "id": 1004096,
-                    "name": "Avoid using NOT IN  (RPG400)"
-                },
-                {
-                    "id": 1004094,
-                    "name": "Avoid using NOT EXISTS  (RPG400)"
-                },
-                {
-                    "id": 1004092,
-                    "name": "Avoid Programs with too many WHERE Clauses  (RPG400)"
-                },
-                {
-                    "id": 1004090,
-                    "name": "Avoid Programs with too many FROM Clauses  (RPG400)"
-                },
-                {
-                    "id": 1004088,
-                    "name": "Avoid Programs with Subqueries  (RPG400)"
-                },
-                {
-                    "id": 1004086,
-                    "name": "Avoid Programs with SELECT * statement  (RPG400)"
-                },
-                {
-                    "id": 1004084,
-                    "name": "Avoid Programs With Queries using GROUP BY  (RPG400)"
-                },
-                {
-                    "id": 1004082,
-                    "name": "Avoid Programs With Queries on more than 4 Tables  (RPG400)"
-                },
-                {
-                    "id": 1004080,
-                    "name": "Avoid Programs with COUNT(*) statement  (RPG400)"
-                },
-                {
-                    "id": 1004068,
-                    "name": "Avoid Procedures with a very low comment/code ratio  (RPG400)"
-                },
-                {
-                    "id": 1004066,
-                    "name": "Avoid Subroutines with a very low comment/code ratio  (RPG400)"
-                },
-                {
-                    "id": 1004064,
-                    "name": "Avoid Programs with a very low comment/code ratio  (RPG400)"
-                },
-                {
-                    "id": 1004062,
-                    "name": "Avoid undocumented RPG400 Procedures  (RPG400)"
-                },
-                {
-                    "id": 1004060,
-                    "name": "Avoid undocumented RPG400 Subroutines  (RPG400)"
-                },
-                {
-                    "id": 1004058,
-                    "name": "Avoid undocumented RPG400 Programs  (RPG400)"
-                },
-                {
-                    "id": 1004046,
-                    "name": "Avoid unreferenced Subroutines  (RPG400)"
-                },
-                {
-                    "id": 1004044,
-                    "name": "Avoid unreferenced Programs  (RPG400)"
-                },
-                {
-                    "id": 1004040,
-                    "name": "Avoid Programs with High RAW SQL Complexity  (RPG400)"
-                },
-                {
-                    "id": 1004030,
-                    "name": "Avoid Subroutines with nested IF  statements  (RPG400)"
-                },
-                {
-                    "id": 1004028,
-                    "name": "Avoid Procedures with High Cyclomatic Complexity  (RPG400)"
-                },
-                {
-                    "id": 1004026,
-                    "name": "Avoid Subroutines with High Cyclomatic Complexity  (RPG400)"
-                },
-                {
-                    "id": 1004024,
-                    "name": "Avoid Programs with High Cyclomatic Complexity  (RPG400)"
-                },
-                {
-                    "id": 1004022,
-                    "name": "Avoid using internally described files  (RPG400)"
-                },
-                {
-                    "id": 1004018,
-                    "name": "Avoid Procedures with High Fan-Out  (RPG400)"
-                },
-                {
-                    "id": 1004016,
-                    "name": "Avoid Subroutines with High Fan-Out  (RPG400)"
-                },
-                {
-                    "id": 1004014,
-                    "name": "Avoid Programs with High Fan-Out  (RPG400)"
-                },
-                {
-                    "id": 1004012,
-                    "name": "Avoid Procedures with High Fan-In  (RPG400)"
-                },
-                {
-                    "id": 1004010,
-                    "name": "Avoid Subroutines with High Fan-In  (RPG400)"
-                },
-                {
-                    "id": 1004008,
-                    "name": "Avoid Programs with High Fan-In  (RPG400)"
-                },
-                {
-                    "id": 1004006,
-                    "name": "Avoid Programs accessing more than X physical files  (RPG400)"
-                },
-                {
-                    "id": 1004004,
-                    "name": "Avoid Programs accessing directly to Physical Files  (RPG400)"
-                }
             ]
         }
     ],
@@ -9656,7 +7995,7 @@
     ],
     "com.castsoftware.shell": [
         {
-            "version": "1.0.2",
+            "version": "1.0.19",
             "addedRules": [
                 {
                     "id": 1006014,
@@ -9688,7 +8027,7 @@
                 },
                 {
                     "id": 1006000,
-                    "name": "Avoid scripts and functions using SQL static statements (Shell)"
+                    "name": "Avoid scripts using SQL static statements (Shell)"
                 }
             ],
             "detachedRules": [
@@ -10144,7 +8483,7 @@
     ],
     "com.castsoftware.springsecurity": [
         {
-            "version": "1.1.0-alpha3",
+            "version": "1.1.0-funcrel",
             "addedRules": [
                 {
                     "id": 1040048,
@@ -10156,33 +8495,25 @@
                 },
                 {
                     "id": 1040044,
-                    "name": "Avoid using Spring-integration-zip in versions prior to 1.0.1"
+                    "name": "Avoid using spring-integration-zip in versions prior to 1.0.1"
                 },
                 {
                     "id": 1040042,
                     "name": "Avoid using Spring Security in combination with Spring Framework 5.0.5"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1040038,
-                    "name": "Avoid using Spring Security Path Matching Inconsistency"
+                    "name": "Avoid using Spring Security Path Matching Inconsistency before Spring Framework 3.2.x, 4.0.x, 4.1.x, 4.2.x"
                 },
                 {
                     "id": 1040036,
-                    "name": "Avoid using STOMP Spring messaging module"
+                    "name": "Avoid using STOMP Spring messaging module before Spring 5.0.5 and 4.3.16"
                 }
             ],
             "detachedRules": [
                 {
                     "id": 1040040,
-                    "name": "The Endpoint URI must not include a fragment component (OAuth)"
+                    "name": "[DEACTIVATED] The Endpoint URI must not include a fragment component (OAuth)"
                 }
             ]
         },
@@ -10200,42 +8531,15 @@
                 {
                     "id": 1040030,
                     "name": "Avoid Using Generic Authentication Exception Class"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta2",
-            "addedRules": [
+                },
                 {
                     "id": 1040026,
-                    "name": "\"Ensure To Specify Http Methods In RequestMapping"
+                    "name": "RequestMapping methods should specify HTTP method"
                 },
                 {
                     "id": 1040024,
-                    "name": "Ensure Spring Boot MisConfiguration-Shutdown Actuator Endpoint is Enabled"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1040028,
-                    "name": "Never Enable Spring Boot Devtools in Production"
+                    "name": "Ensure Spring Boot Shutdown Actuator Endpoint is disabled"
                 },
-                {
-                    "id": 1040022,
-                    "name": "Ensure to enable Spring Boot Admin MBean"
-                },
-                {
-                    "id": 1040020,
-                    "name": "Ensure to enable Spring Boot Actuator Endpoint"
-                }
-            ]
-        },
-        {
-            "version": "1.0.0-alpha4",
-            "addedRules": [
                 {
                     "id": 1040018,
                     "name": "X-Frame-Option should be correctly set to avoid Clickjacking attack"
@@ -10246,19 +8550,11 @@
                 },
                 {
                     "id": 1040014,
-                    "name": "CWE-439:Avoid using Spring Security's debug mode"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha1",
-            "addedRules": [
+                    "name": "Avoid using Spring Security's debug mode"
+                },
                 {
                     "id": 1040012,
-                    "name": "Ensure that HTTP Session has been Invalidating during logout"
+                    "name": "Ensure that HTTP Session is invalidated during logout"
                 },
                 {
                     "id": 1040010,
@@ -10266,7 +8562,7 @@
                 },
                 {
                     "id": 1040008,
-                    "name": "Ensure that form login is declared after requesting authorization and authentication"
+                    "name": "Ensure that login form is declared after requesting authorization and authentication"
                 },
                 {
                     "id": 1040006,
@@ -10278,6 +8574,18 @@
                 }
             ],
             "detachedRules": [
+                {
+                    "id": 1040028,
+                    "name": "Never Enable Spring Boot Devtools in Production."
+                },
+                {
+                    "id": 1040022,
+                    "name": "Ensure to enable Spring Boot Admin MBean"
+                },
+                {
+                    "id": 1040020,
+                    "name": "Ensure to enable Spring Boot Actuator Endpoint"
+                },
                 {
                     "id": 1040004,
                     "name": "Ensure that any application request is authenticated with HTTP basic"
@@ -11049,32 +9357,16 @@
             ]
         },
         {
-            "version": "3.5.0-beta2",
+            "version": "3.5.10-funcrel",
             "addedRules": [
                 {
                     "id": 1101112,
                     "name": "Avoid LOCK TABLE statements in SQL code for COBOL Programs"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.5.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1101108,
-                    "name": "Avoid Cobol SQL Cursors without FOR READ ONLY or FOR FETCH ONLY or FOR UPDATE clauses"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.5.0-alpha1",
-            "addedRules": [
+                    "name": "Avoid Cobol SQL Cursors without FOR READ ONLY or FOR FETCH ONLY or FOR UPDATE or BROWSE ACCESS clauses"
+                },
                 {
                     "id": 1101106,
                     "name": "Avoid tables without primary key / unique key constraint / unique index"
@@ -11086,15 +9378,7 @@
                 {
                     "id": 1101102,
                     "name": "Avoid using LIKE conditions without wildcards"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.4.0-beta6",
-            "addedRules": [
+                },
                 {
                     "id": 1101100,
                     "name": "Avoid Functions and Procedures doing an Insert, Update or Delete without managing a transaction (SQL)"
@@ -11102,98 +9386,58 @@
                 {
                     "id": 1101098,
                     "name": "Avoid Artifacts with a Complex SELECT Clause (SQL)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.4.0-beta5",
-            "addedRules": [
+                },
                 {
                     "id": 1101096,
                     "name": "Avoid SQL injection in dynamic SQL for Oracle"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.4.0-beta4",
-            "addedRules": [
+                },
                 {
                     "id": 1101094,
-                    "name": "Stored Procedures should always RETURN a status value"
+                    "name": "Avoid Stored Procedures not returning a status value (SQL)"
                 },
                 {
                     "id": 1101092,
-                    "name": "Errors should be handled in stored procedures and functions"
+                    "name": "Avoid Procedures using an Insert, Update, Delete, Create Table or Select without including error management (SQL)"
                 },
                 {
                     "id": 1101090,
-                    "name": "Each table should have a clustered index"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.0.0-alpha5",
-            "addedRules": [
+                    "name": "Avoid Tables without a clustered Index (SQL)"
+                },
                 {
                     "id": 1101088,
-                    "name": "LONG and LONG RAW datatypes should no longer be used"
+                    "name": "Avoid using LONG and LONG RAW datatypes"
                 },
                 {
                     "id": 1101086,
-                    "name": "VARCHAR2 and NVARCHAR2 should be used"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.0.0-alpha4",
-            "addedRules": [
+                    "name": "Always use VARCHAR2 and NVARCHAR2 instead of CHAR, VARCHAR or NCHAR"
+                },
                 {
                     "id": 1101084,
-                    "name": "Avoid Cursors inside a loop"
+                    "name": "Avoid Cursors inside a loop (SQL)"
                 },
                 {
                     "id": 1101082,
                     "name": "Avoid looping chain of synonyms"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "3.0.0-alpha3",
-            "addedRules": [
+                },
                 {
                     "id": 1101080,
                     "name": "Avoid orphaned synonyms"
                 },
                 {
                     "id": 1101078,
-                    "name": "Prefer PRIVATE to PUBLIC synonym"
+                    "name": "Always prefer PRIVATE to PUBLIC synonym"
                 },
                 {
                     "id": 1101076,
-                    "name": "Column references should be qualified"
+                    "name": "Avoid unqualified column references"
                 },
                 {
                     "id": 1101074,
-                    "name": "Tables aliases should not end with a numeric suffix"
+                    "name": "Avoid Tables aliases ending with a numeric suffix"
                 },
                 {
                     "id": 1101072,
-                    "name": "Tables should be aliased"
+                    "name": "Avoid not aliased Tables"
                 },
                 {
                     "id": 1101070,
@@ -11209,23 +9453,23 @@
                 },
                 {
                     "id": 1101064,
-                    "name": "Avoid cascading Triggers"
+                    "name": "Avoid cascading Triggers (SQL)"
                 },
                 {
                     "id": 1101062,
-                    "name": "Use at most one statement per line"
+                    "name": "Avoid using multiple statements per line (SQL)"
                 },
                 {
                     "id": 1101060,
-                    "name": "LIKE operator should not start with a wildcard character"
+                    "name": "Avoid using LIKE conditions starting with a wildcard character"
                 },
                 {
                     "id": 1101058,
-                    "name": "Do not mix ANSI and non-ANSI JOIN syntax in the same query"
+                    "name": "Avoid mixing ANSI and non-ANSI JOIN syntax in the same query"
                 },
                 {
                     "id": 1101056,
-                    "name": "Avoid large Tables - too many columns"
+                    "name": "Avoid large Tables - too many columns (SQL)"
                 },
                 {
                     "id": 1101054,
@@ -11233,51 +9477,35 @@
                 },
                 {
                     "id": 1101052,
-                    "name": "Use WHEN OTHERS in exception management"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.4.0-funcrel",
-            "addedRules": [
+                    "name": "Use WHEN OTHERS in exception management (SQL)"
+                },
                 {
                     "id": 1101050,
-                    "name": "Package Stored Procedure naming convention - prefix control"
+                    "name": "Package Stored Procedure naming convention - prefix control (SQL)"
                 },
                 {
                     "id": 1101048,
-                    "name": "Package Function naming convention - prefix control"
+                    "name": "Package Function naming convention - prefix control (SQL)"
                 },
                 {
                     "id": 1101046,
-                    "name": "Package naming convention - prefix control"
+                    "name": "Package naming convention - prefix control (SQL)"
                 },
                 {
                     "id": 1101044,
-                    "name": "View naming convention - character set control"
+                    "name": "View naming convention - character set control (SQL)"
                 },
                 {
                     "id": 1101042,
-                    "name": "Table naming convention - character set control"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.3.0-funcrel",
-            "addedRules": [
+                    "name": "Table naming convention - character set control (SQL)"
+                },
                 {
                     "id": 1101040,
-                    "name": "Avoid empty catch blocks"
+                    "name": "Avoid empty catch blocks (SQL)"
                 },
                 {
                     "id": 1101038,
-                    "name": "Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition"
+                    "name": "Avoid OR conditions testing equality on the same identifier in SQL WHERE clauses"
                 },
                 {
                     "id": 1101036,
@@ -11285,32 +9513,16 @@
                 },
                 {
                     "id": 1101034,
-                    "name": "DISTINCT should not be used in SQL SELECT statements"
+                    "name": "Avoid using DISTINCT in SQL SELECT statements"
                 },
                 {
                     "id": 1101032,
-                    "name": "Avoid exists and not exists independent clauses"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-funcrel",
-            "addedRules": [
+                    "name": "Avoid exists and not exists independent clauses (SQL)"
+                },
                 {
                     "id": 1101030,
-                    "name": "Avoid Artifacts with queries on too many Tables and or Views"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-funcrel",
-            "addedRules": [
+                    "name": "Avoid Artifacts with queries on too many Tables and/or Views"
+                },
                 {
                     "id": 1101028,
                     "name": "Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries"
@@ -11318,22 +9530,14 @@
                 {
                     "id": 1101026,
                     "name": "Always define column names when inserting values"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta4",
-            "addedRules": [
+                },
                 {
                     "id": 1101024,
                     "name": "Avoid using dynamic SQL in SQL Artifacts"
                 },
                 {
                     "id": 1101022,
-                    "name": "Avoid Tables without Primary Key"
+                    "name": "Avoid Tables without Primary Key (SQL)"
                 },
                 {
                     "id": 1101020,
@@ -11345,24 +9549,16 @@
                 },
                 {
                     "id": 1101016,
-                    "name": "Avoid Artifacts with too many parameters"
+                    "name": "Avoid Artifacts with too many parameters (SQL)"
                 },
                 {
                     "id": 1101014,
-                    "name": "Avoid queries using old style join convention  instead of ANSI-Standard joins"
+                    "name": "Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)"
                 },
                 {
                     "id": 1101012,
-                    "name": "Specify column names instead of column numbers in ORDER BY clauses"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta3",
-            "addedRules": [
+                    "name": "Avoid specifying column numbers instead of column names in ORDER BY clauses"
+                },
                 {
                     "id": 1101010,
                     "name": "Avoid NATURAL JOIN queries"
@@ -11370,30 +9566,22 @@
                 {
                     "id": 1101008,
                     "name": "Avoid non-SARGable queries"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1101006,
-                    "name": "Avoid SQL queries on XXL tables that no index can support"
+                    "name": "Avoid non-indexed XXL SQL queries"
                 },
                 {
                     "id": 1101004,
-                    "name": "Avoid SQL queries that no index can support"
+                    "name": "Avoid non-indexed SQL queries"
                 },
                 {
                     "id": 1101002,
-                    "name": "Never use SQL queries with a cartesian product on XXL Tables"
+                    "name": "Never use SQL queries with a cartesian product on XXL Tables (SQL)"
                 },
                 {
                     "id": 1101000,
-                    "name": "Never use SQL queries with a cartesian product"
+                    "name": "Never use SQL queries with a cartesian product (SQL)"
                 }
             ],
             "detachedRules": [
@@ -11403,32 +9591,16 @@
     ],
     "com.castsoftware.struts": [
         {
-            "version": "1.3.0-alpha2",
+            "version": "1.3.2-funcrel",
             "addedRules": [
                 {
                     "id": 1042052,
                     "name": "Avoid using JSON-lib library for Rest Plugin of Struts 2.5 to 2.5.14"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1042050,
                     "name": "Avoid using special top object in struts 2.0.0 - struts 2.3.24"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1042046,
                     "name": "Avoid Using Dynamic Method Invocation for Apache Struts 2.x"
@@ -11436,76 +9608,34 @@
                 {
                     "id": 1042042,
                     "name": "Avoid using Rest Plugin with XStream handler to deserialise XML requests in Struts 2.1.2 - Struts 2.3.33, Struts 2.5 - Struts 2.5.12"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1042040,
-                    "name": "Avoid using default RegEx provided by the UrlValidator"
+                    "name": "Avoid using Struts URLValidator with version before 2.5.13"
                 },
                 {
                     "id": 1042036,
                     "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1042038,
-                    "name": "Avoid ClassLoader manipulation in Struts 2.0.0 to 2.3.16"
-                }
-            ]
-        },
-        {
-            "version": "1.1.0-beta2",
-            "addedRules": [
-                {
-                    "id": 1042030,
-                    "name": "Avoid Default exclude patterns (excludeParams) in Apache Struts 2.3.20"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1042034,
-                    "name": "Avoid using Struts REST plugin with XStream createXStream to deserialise XML requests in Struts 2.1.2 - Struts 2.3.33, Struts 2.5 - Struts 2.5.12"
                 },
                 {
-                    "id": 1042032,
-                    "name": "Avoid using setter on properties for the data coming from the user interface with Struts 2"
-                }
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                    "id": 1042030,
+                    "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)"
+                },
                 {
                     "id": 1042028,
-                    "name": "Avoid package configuration having no or wildcard namespace with Struts2"
+                    "name": "Avoid activating alwaysSelectFullNamespace when actions configured without namespace or with a wildcard namespace for Struts pre 2.3.34 and pre 2.5.1"
                 },
                 {
                     "id": 1042026,
-                    "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older versions"
+                    "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older"
                 },
                 {
                     "id": 1042024,
-                    "name": "Avoid Unescaped User-controlled Input attribute in Struts which Causes XSS"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha2",
-            "addedRules": [
+                    "name": "Avoid Unescaped User-controlled Input attribute in Struts 1.x and 2.x"
+                },
                 {
                     "id": 1042022,
-                    "name": "Avoid using CookieInterceptor with  2.3.16 (and Older)"
+                    "name": "Avoid using CookieInterceptor with Struts 2.3.16 (and Older)"
                 },
                 {
                     "id": 1042018,
@@ -11521,11 +9651,11 @@
                 },
                 {
                     "id": 1042010,
-                    "name": "Avoid using ParametersInterceptor with 2.3.16 (and older)"
+                    "name": "Avoid using ParametersInterceptor with class parameter for Struts 2.3.16 (and older)"
                 },
                 {
                     "id": 1042008,
-                    "name": "Avoid using  ActionForward with untrusted data source to prevent file path disclosure"
+                    "name": "Avoid using ActionForward with untrusted data source to prevent file path disclosure"
                 },
                 {
                     "id": 1042004,
@@ -11534,15 +9664,19 @@
             ],
             "detachedRules": [
                 {
+                    "id": 1042032,
+                    "name": "Avoid using setters with Struts 2"
+                },
+                {
                     "id": 1042020,
-                    "name": "Avoid Struts Invalidated  Action Form 1.x"
+                    "name": "Avoid Struts Invalidated Action Form 1.x"
                 }
             ]
         }
     ],
     "com.castsoftware.swift": [
         {
-            "version": "1.1.0-beta2",
+            "version": "1.1.3-funcrel",
             "addedRules": [
                 {
                     "id": 1055052,
@@ -11555,15 +9689,7 @@
                 {
                     "id": 1055048,
                     "name": "Avoid Artifacts with High Cyclomatic Complexity (Swift)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1055046,
                     "name": "Avoid dynamic code injection in WKWebView (Swift)"
@@ -11585,32 +9711,8 @@
                     "name": "Avoid weak encryption algorithm (Swift)"
                 },
                 {
-                    "id": 1055028,
-                    "name": "Avoid hard-coded network resource names (Swift)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.5-funcrel",
-            "addedRules": [
-                {
-                    "id": 1055026,
-                    "name": "Avoid Superclass knowing Subclass (Swift)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta2",
-            "addedRules": [
-                {
                     "id": 1055036,
-                    "name": "Avoid hardcoded passwords (Swift)"
+                    "name": "Avoid hard-coded passwords (Swift)"
                 },
                 {
                     "id": 1055034,
@@ -11618,20 +9720,24 @@
                 },
                 {
                     "id": 1055032,
-                    "name": "Avoid using NSPredicate(format:)"
+                    "name": "Avoid using NSPredicate(format:) (Swift)"
+                },
+                {
+                    "id": 1055028,
+                    "name": "Avoid hard-coded network resource names (Swift)"
+                },
+                {
+                    "id": 1055026,
+                    "name": "Avoid Superclass knowing Subclass (Swift)"
+                },
+                {
+                    "id": 1055022,
+                    "name": "UIApplicationDelegate applicationDidEnterBackground must delete sensitive data (Swift)"
                 },
                 {
                     "id": 1055020,
                     "name": "Avoid using kSecAttrAccessibleAlways attribute when storing data in the Keychain (Swift)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1055018,
                     "name": "Always use LAContext canEvaluatePolicy before using evaluatePolicy (Swift)"
@@ -11643,18 +9749,6 @@
                 {
                     "id": 1055014,
                     "name": "Ensure that LAContext evaluatePolicy reply block is not empty (Swift)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha5",
-            "addedRules": [
-                {
-                    "id": 1055022,
-                    "name": "UIApplicationDelegate applicationDidEnterBackground must delete sensitive data (Swift)"
                 },
                 {
                     "id": 1055012,
@@ -11666,11 +9760,11 @@
                 },
                 {
                     "id": 1055008,
-                    "name": "Avoid weak encryption providing sufficient key size (Swift)"
+                    "name": "Avoid weak encryption key size (Swift)"
                 },
                 {
                     "id": 1055006,
-                    "name": "Avoid using risky cryptographic hash (Swift)"
+                    "name": "Avoid weak cryptographic hash (Swift)"
                 },
                 {
                     "id": 1055004,
@@ -11679,18 +9773,10 @@
                 {
                     "id": 1055002,
                     "name": "Avoid using the call of web service with iOS/Swift API inside a loop"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-alpha4",
-            "addedRules": [
+                },
                 {
                     "id": 1055000,
-                    "name": "Avoid using unsecured cookie"
+                    "name": "Avoid using unsecured cookie (Swift)"
                 }
             ],
             "detachedRules": [
@@ -11736,7 +9822,7 @@
             ]
         },
         {
-            "version": "1.0.0-alpha1",
+            "version": "1.0.0-funcrel",
             "addedRules": [
                 {
                     "id": 1060022,
@@ -11871,32 +9957,12 @@
     ],
     "com.castsoftware.typescript": [
         {
-            "version": "1.11.0-alpha1",
-            "addedRules": [
-                {
-                    "id": 1020878,
-                    "name": "DELETED: Ensure the express X-XSS-Protection header is enabled (TypeScript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.9.1-funcrel",
+            "version": "1.12.0-funcrel",
             "addedRules": [
                 {
                     "id": 1020928,
                     "name": "Always unsubscribe events in Angular onDestroy method"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.4.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020926,
                     "name": "Avoid string interpolations to prevent SQL injections (TypeScript)"
@@ -11956,15 +10022,7 @@
                 {
                     "id": 1020898,
                     "name": "Avoid having multiple routes for the same path with Node.js Express App (TypeScript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.4.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1020896,
                     "name": "Avoid using risky cryptographic hash with nodejs (TypeScript)"
@@ -12010,27 +10068,12 @@
                     "name": "Avoid the lack of error handling in the Node.js callbacks (TypeScript)"
                 },
                 {
-                    "id": 1020870,
-                    "name": "Avoid using setTimeout() (TypeScript)"
-                },
-                {
-                    "id": 1020860,
-                    "name": "Avoid using setInterval() (TypeScript)"
-                }
-            ],
-            "detachedRules": [
-                {
-                    "id": 1020878,
-                    "name": "Ensure the express X-XSS-Protection header is enabled (TypeScript)"
-                }
-            ]
-        },
-        {
-            "version": "1.3.0-funcrel",
-            "addedRules": [
-                {
                     "id": 1020872,
                     "name": "Always use JSON.parse & JSON.stringify with try/catch block (TypeScript)"
+                },
+                {
+                    "id": 1020870,
+                    "name": "Avoid using setTimeout() (TypeScript)"
                 },
                 {
                     "id": 1020868,
@@ -12047,15 +10090,11 @@
                 {
                     "id": 1020862,
                     "name": "Avoid having cookie with an overly broad domain (TypeScript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.3.0-beta1",
-            "addedRules": [
+                },
+                {
+                    "id": 1020860,
+                    "name": "Avoid using setInterval() (TypeScript)"
+                },
                 {
                     "id": 1020858,
                     "name": "Avoid empty componentDidCatch blocks (Typescript)"
@@ -12071,83 +10110,31 @@
                 {
                     "id": 1020852,
                     "name": "Avoid using \"<script>\" tag in HTML template used by React.js components (Typescript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.3-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020850,
                     "name": "Always handle errors when using ajax with RxJS"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-funcrel",
-            "addedRules": [
+                },
                 {
                     "id": 1020848,
                     "name": "Always favour pipable operators in RxJS"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-beta2",
-            "addedRules": [
+                },
                 {
                     "id": 1020840,
                     "name": "Avoid using ngFor loop without TrackBy option"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1020838,
-                    "name": "Avoid using Rx.Observable.fromEvent without having a debouncetime set"
+                    "name": "Avoid using Rx.observable.fromEvent without having a debouncetime set"
                 },
                 {
                     "id": 1020836,
                     "name": "Avoid exporting namespaces"
                 },
                 {
-                    "id": 1020822,
-                    "name": "Always provide error callbacks when subscribing to HttpClient observables"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-alpha2",
-            "addedRules": [
-                {
                     "id": 1020834,
                     "name": "Avoid using \"<script>\" tag into HTML template used by Angular Application"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.2.0-alpha1",
-            "addedRules": [
+                },
                 {
                     "id": 1020832,
                     "name": "Avoid using javascript HTTP request in Angular Application"
@@ -12158,40 +10145,28 @@
                 },
                 {
                     "id": 1020828,
-                    "name": "Avoid string concatenation in loops"
+                    "name": "Avoid String concatenation in loops (Typescript)"
                 },
                 {
                     "id": 1020826,
-                    "name": "Avoid hardcoded network resource names (Typescript)"
+                    "name": "Avoid hard-coded network resource names (Typescript)"
+                },
+                {
+                    "id": 1020824,
+                    "name": "Avoid Superclass knowing Subclass (Typescript)"
+                },
+                {
+                    "id": 1020822,
+                    "name": "Always provide error callbacks when subscribing to HttpClient observables"
+                },
+                {
+                    "id": 1020820,
+                    "name": "Avoid hard-coded passwords (TypeScript)"
                 },
                 {
                     "id": 1020818,
                     "name": "Avoid disabling xsrf check in HttpClientXsrfModule"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-funcrel",
-            "addedRules": [
-                {
-                    "id": 1020824,
-                    "name": "Avoid super class knowing sub-class"
                 },
-                {
-                    "id": 1020820,
-                    "name": "Avoid hardcoded passwords (TypeScript)"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta2",
-            "addedRules": [
                 {
                     "id": 1020816,
                     "name": "Avoid using output of the function that does not return anything"
@@ -12199,15 +10174,7 @@
                 {
                     "id": 1020814,
                     "name": "Avoid using web service calls inside a loop"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-beta1",
-            "addedRules": [
+                },
                 {
                     "id": 1020812,
                     "name": "Avoid invoking super more than once in constructor"
@@ -12218,16 +10185,8 @@
                 },
                 {
                     "id": 1020808,
-                    "name": "Avoid having code dynamically executed"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha5",
-            "addedRules": [
+                    "name": "Avoid using eval() (Typescript)"
+                },
                 {
                     "id": 1020806,
                     "name": "Avoid using NaN in comparison"
@@ -12235,15 +10194,7 @@
                 {
                     "id": 1020804,
                     "name": "Avoid using console logging"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.1.0-alpha3",
-            "addedRules": [
+                },
                 {
                     "id": 1020802,
                     "name": "Avoid having errors without throwing them"
@@ -12260,7 +10211,7 @@
     ],
     "com.castsoftware.vuejs": [
         {
-            "version": "1.0.0-beta4",
+            "version": "1.0.4-funcrel",
             "addedRules": [
                 {
                     "id": 1020224,
@@ -12285,15 +10236,7 @@
                 {
                     "id": 1020212,
                     "name": "Avoid changing parent properties from child components using $parent"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "1.0.0-beta3",
-            "addedRules": [
+                },
                 {
                     "id": 1020210,
                     "name": "Avoid using v-show directive inside templates"
@@ -12326,7 +10269,7 @@
     ],
     "com.castsoftware.wbslinker": [
         {
-            "version": "1.6.1-alpha1",
+            "version": "1.6.13",
             "addedRules": [
                 {
                     "id": 1020950,
@@ -12347,28 +10290,20 @@
                     "name": "Avoid 'Service Contract' without any 'Operation Contract'"
                 },
                 {
-                    "id": 1019012,
-                    "name": "Avoid message security without authentication for an anonymous client"
-                },
-                {
-                    "id": 1019008,
-                    "name": "Avoid not enabling throttling while setting service behavior"
-                }
-            ],
-            "detachedRules": [
-                
-            ]
-        },
-        {
-            "version": "2.0.0-beta1",
-            "addedRules": [
-                {
                     "id": 1019016,
                     "name": "Avoid having the property IncludeExceptionDetailInFaults activated in the source code"
                 },
                 {
+                    "id": 1019012,
+                    "name": "Avoid message security without authentication for an anonymous client"
+                },
+                {
                     "id": 1019010,
                     "name": "Avoid disabling authentication mode messages when using MSMQ transport security"
+                },
+                {
+                    "id": 1019008,
+                    "name": "Avoid not enabling throttling while setting service behavior"
                 },
                 {
                     "id": 1019006,
@@ -12384,10 +10319,7 @@
                 }
             ],
             "detachedRules": [
-                {
-                    "id": 1019002,
-                    "name": "Avoid using debug information in production environment"
-                }
+                
             ]
         }
     ],
