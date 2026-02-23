@@ -16,7 +16,7 @@
     "reference": "https://www.w3schools.com/jsref/prop_doc_documentmode.asp\nMDN \u2013 Browser detection is discouraged: https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent",
     "remediation": "Remove IE-only branches; use feature detection instead.",
     "remediationSample": "if (!(\"querySelectorAll\" in document)) {\n  enableLegacyPolyfill();\n}",
-    "sample": "if (document.documentMode && document.documentMode < 9) {\n  enableIE8Polyfill();\n}",
+    "sample": "if (document.documentMode && document.documentMode < 9) {\n  enableIE8Polyfill();\n}\nif (window.document.documentMode && document.documentMode < 9) {\n  enableIE8Polyfill();\n}",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using document.documentMode (Javascript)",
     "businessCriteria": [

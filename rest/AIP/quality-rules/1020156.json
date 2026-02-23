@@ -16,7 +16,7 @@
     "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa741342(v=vs.85)",
     "remediation": "Use standard DOM overlays, tooltips, or floating elements styled with CSS",
     "remediationSample": "-- HTML --\n<div id=\"popup\" class=\"popup hidden\">Legacy popup</div>\n\n-- CSS --\n.popup {\n  position: absolute;\n  padding: 8px;\n  border: 1px solid #ccc;\n  background: #fff;\n}\n.hidden {\n  display: none;\n}\n\n-- JS --\nfunction showPopup(x, y) {\n  var popup = document.getElementById(\"popup\");\n  popup.style.left = x + \"px\";\n  popup.style.top = y + \"px\";\n  popup.classList.remove(\"hidden\");\n}",
-    "sample": "var popup = window.createPopup();\nvar body = popup.document.body;\nbody.innerHTML = \"Legacy popup\";\npopup.show(100, 100, 200, 60, document.body);",
+    "sample": "var popup = window.createPopup();\nvar popup = createPopup();",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using window.createPopup (Javascript)",
     "businessCriteria": [

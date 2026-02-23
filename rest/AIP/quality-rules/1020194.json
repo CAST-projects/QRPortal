@@ -1,0 +1,120 @@
+{
+    "id": 1020194,
+    "name": "Avoid using presentational HTML attributes (bgcolor, border, align, valign, nowrap)",
+    "href": "AIP/quality-rules/1020194",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of bgcolor, border, align, valign, nowrap attributes in HTML source code",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Presentational attributes mix style with structure and are deprecated.",
+    "reference": "MDN \u2013 Obsolete and deprecated HTML attributes:\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Attributes\n\nWHATWG HTML Living Standard \u2013 Obsolete attributes:\nhttps://html.spec.whatwg.org/multipage/obsolete.html\n\nW3C \u2013 Separation of structure and presentation (HTML vs CSS):\nhttps://www.w3.org/Style/CSS/Overview.en.html",
+    "remediation": "Move styling to CSS classes.",
+    "remediationSample": "<table class=\"table-default\">\n  <tr>\n    <td class=\"cell-centered no-wrap\">Content</td>\n  </tr>\n</table>\n\n# CSS\n\n.table-default {\n  background-color: #ffffff;\n  border: 1px solid #000;\n  border-collapse: collapse;\n}\n\n.cell-centered {\n  text-align: center;\n  vertical-align: top;\n}\n\n.no-wrap {\n  white-space: nowrap;\n}",
+    "sample": "<table bgcolor=\"#ffffff\" border=\"1\">\n  <tr>\n    <td align=\"center\" valign=\"top\" nowrap>Content</td>\n  </tr>\n</table>",
+    "total": "Number of HTML5 source codes",
+    "alternativeName": "Avoid using presentational HTML attributes (bgcolor, border, align, valign, nowrap)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.3.2",
+            "name": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.3.2",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

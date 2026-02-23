@@ -16,7 +16,7 @@
     "reference": "\u2013 MDN \u2013 Navigator.appName (deprecated): https://developer.mozilla.org/en-US/docs/Web/API/Navigator/appName\n\u2013 MDN \u2013 Browser detection is discouraged: https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent\n\u2013 WHATWG \u2013 Navigator object (legacy compatibility): https://html.spec.whatwg.org/multipage/system-state.html#the-navigator-object",
     "remediation": "Use feature detection (e.g., checking if a method exists) or standards-based behavior; avoid IE-only branches.",
     "remediationSample": "if (!(\"addEventListener\" in window)) {\n  enableLegacyWorkaround();\n}",
-    "sample": "if (navigator.appName === \"Microsoft Internet Explorer\") {\n  enableIEWorkaround();\n}",
+    "sample": "if (navigator.appName === \"Microsoft Internet Explorer\") {\n  enableIEWorkaround();\n}\nif (window.navigator.appName === \"Microsoft Internet Explorer\") {\n  enableIEWorkaround();\n}",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using navigator.appName === \"Microsoft Internet Explorer\" (Javascript)",
     "businessCriteria": [

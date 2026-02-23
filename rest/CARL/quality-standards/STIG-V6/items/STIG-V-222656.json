@@ -5,7 +5,7 @@
     "url": "https://www.stigviewer.com/stig/application_security_and_development/2024-06-05/finding/V-222656",
     "description": "Error handling is the failure to check the return values of functions or catch top level exceptions within a program. Improper error handling in an application can lead to an application failure or possibly result in the application entering an insecure state. \n\nThe primary way to detect error handling vulnerabilities is to perform code reviews. If a manual code review cannot be performed, static code analysis tools should be employed in conjunction with tests to help force the error conditions by specifying invalid input (such as fuzzed data and malformed filenames) and by using different accounts to run the application. These tests may give indications of vulnerability, but they are not comprehensive.\n\nIn order to minimize error handling errors, ensure proper return code and exception handling is implemented throughout the application.",
     "isoPatterns": null,
-    "count": 17,
+    "count": 18,
     "qualityRules": {
         "name": "Quality Rules in numeric ID order",
         "href": "CARL/quality-standards/STIG-V6/items/STIG-V-222656/quality-rules"

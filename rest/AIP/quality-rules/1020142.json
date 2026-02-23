@@ -1,6 +1,6 @@
 {
     "id": 1020142,
-    "name": "Avoid using navigator.userAgent parsing for feature gates (Javascript)",
+    "name": "Avoid using deprecated properties of navigator object (Javascript)",
     "href": "AIP/quality-rules/1020142",
     "critical": false,
     "severity": 10,
@@ -10,13 +10,13 @@
         "href": "AIP/extensions/com.castsoftware.html5"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This rule will check the use of navigator.userAgent",
+    "description": "This rule will check the use of:\n\n-navigator.userAgent\n-navigator.appCodeName\n-navigator.appVersion\n-navigator.appName\n-navigator.product\n-navigator.platform\n-navigator.vendor\n-navigator.productSub\n-navigator.vendorSub\n\nThese properties provide little to no useful information and can lead to incorrect feature detection, browser identification, or compatibility logic. Modern browsers have frozen or deprecated these values to prevent fingerprinting and improve user privacy.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
-    "rationale": "The User Agent string is frozen/unstable and the parsing is brittle",
-    "reference": "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgent",
-    "remediation": "Use feature detection or User-Agent Client Hints.",
+    "rationale": "-navigator.userAgent: The User Agent string is frozen/unstable and the parsing is brittle\n-navigator.appCodeName: Always returns the constant string \"Mozilla\", regardless of the actual browser\n-navigator.appVersion: Returns an ambiguous substring of the userAgent string that can be misleading\n-navigator.appName: Always returns \"Netscape\"\n-navigator.product: Always returns the constant string \"Gecko\", regardless of the rendering engine\n-navigator.platform: Simplified or spoofed due to privacy restrictions, making it unreliable for OS identification\n-navigator.vendor: Returns unreliable fixed strings (e.g., \"Google Inc.\", \"Apple Computer, Inc.\", or empty string)\n-navigator.productSub: Returns constant strings like \"20030107\" or \"20100101\" with no meaningful information\n-navigator.vendorSub: Always returns an empty string (\"\")",
+    "reference": "CWE-477: Use of Obsolete Function\nThis CWE covers the use of deprecated or obsolete functions, methods, or APIs that may lead to security vulnerabilities, unreliable behavior, or maintenance issues.",
+    "remediation": "Do not use these properties",
     "remediationSample": "if ('CSS' in window && CSS.supports('selector(:has(*))')) { /* \u2026 */ }",
-    "sample": "if (/Safari/.test(navigator.userAgent)) { /* \u2026 */ }",
+    "sample": "if (/Safari/.test(navigator.userAgent)) { /* \u2026 */ }\nif (/Safari/.test(window.navigator.userAgent)) { /* \u2026 */ }",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using deprecated properties of navigator object (Javascript)",
     "businessCriteria": [

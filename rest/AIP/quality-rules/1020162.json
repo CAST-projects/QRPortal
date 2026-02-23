@@ -16,7 +16,7 @@
     "reference": "\u2013 MDN \u2013 window.getSelection() (standard selection API): https://developer.mozilla.org/en-US/docs/Web/API/Window/getSelection\n\u2013 MDN \u2013 Range API (standard DOM ranges): https://developer.mozilla.org/en-US/docs/Web/API/Range\nhttps://community.latenode.com/t/error-with-createtextrange-method-in-javascript/27985",
     "remediation": "Use window.getSelection() and Range.",
     "remediationSample": "var selection = window.getSelection();\nvar text = selection ? selection.toString() : \"\";",
-    "sample": "var range = document.selection.createRange();\nvar text = range.text;\nvar textRange = $(\"#orderTextArea\").createTextRange();",
+    "sample": "var range = document.selection.createRange();\nvar range = window.document.selection.createRange();\nvar textRange = $(\"#orderTextArea\").createTextRange();",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using document.selection / createTextRange (Javascript)",
     "businessCriteria": [

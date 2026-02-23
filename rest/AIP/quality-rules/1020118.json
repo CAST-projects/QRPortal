@@ -16,7 +16,7 @@
     "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/desktop/automat/activex-objects\nhttps://developer.mozilla.org/en-US/docs/Web/API/Window/external",
     "remediation": "Use standard web APIs (fetch, WebAuthn, etc.).",
     "remediationSample": "const res = await fetch('/api');",
-    "sample": "var x = new ActiveXObject('Microsoft.XMLHTTP');\nwindow.external.IsSearchProviderInstalled();",
+    "sample": "var x = new ActiveXObject('Microsoft.XMLHTTP');\nvar x = new window.ActiveXObject('Microsoft.XMLHTTP');\nwindow.external.IsSearchProviderInstalled();\nexternal.IsSearchProviderInstalled();",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using ActiveXObject / window.external (IE-only) (Javascript)",
     "businessCriteria": [

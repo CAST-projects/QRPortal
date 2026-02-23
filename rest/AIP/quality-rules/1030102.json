@@ -1,0 +1,120 @@
+{
+    "id": 1030102,
+    "name": "Avoid using zoom for Layout (CSS)",
+    "href": "AIP/quality-rules/1030102",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.html5",
+        "href": "AIP/extensions/com.castsoftware.html5"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of zoom in css source code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "zoom is non-standard and originally IE-only.",
+    "reference": "MDN \u2013 zoom (non-standard):\nhttps://developer.mozilla.org/en-US/docs/Web/CSS/zoom\n\nMDN \u2013 CSS Layout (modern alternatives: Flexbox, Grid):\nhttps://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout\n\nW3C \u2013 CSS Box Model & Layout (standards context):\nhttps://www.w3.org/TR/CSS2/box.html",
+    "remediation": "Use standard layout mechanisms: display, float, flex, grid, overflow, etc.",
+    "remediationSample": ".container::after {\n  content: \"\";\n  display: block;\n  clear: both;\n}",
+    "sample": ".container {\n  zoom: 1; /* clearfix / hasLayout hack */\n}",
+    "total": "Number of CSS source codes",
+    "alternativeName": "Avoid using zoom for Layout (CSS)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.3.2",
+            "name": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.3.2",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

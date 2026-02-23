@@ -16,7 +16,7 @@
     "reference": "- https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/cc288132(v=vs.85)\n\u2013 MDN \u2013 fetch() API (standard replacement): https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
     "remediation": "Use fetch with proper CORS configuration.",
     "remediationSample": "fetch(\"https://api.example.com/data\")\n  .then(response => response.json())\n  .then(console.log)\n  .catch(console.error);",
-    "sample": "var xdr = new XDomainRequest();\nxdr.open(\"GET\", \"https://api.example.com/data\");\nxdr.onload = function () {\n  console.log(xdr.responseText);\n};\nxdr.send();",
+    "sample": "var xdr = new XDomainRequest();\nvar xdr = new window.XDomainRequest();",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using XDomainRequest (Javascript)",
     "businessCriteria": [

@@ -1,6 +1,6 @@
 {
     "id": 1020056,
-    "name": "Avoid using Javascript Document.all collection",
+    "name": "Avoid using Javascript document.all collection",
     "href": "AIP/quality-rules/1020056",
     "critical": false,
     "severity": 10,
@@ -15,7 +15,7 @@
     "rationale": "Using the Document.all collection is slow when retrieving its different objects into HTML, JS files as it collects - and loads in memory - all items.",
     "remediation": "Use the official method document.getElementById()",
     "remediationSample": "var temp = document.getElementById('foo'); temp.innerText = \"Hello\"",
-    "sample": "document.all['foo'].innerText = \"Hello\"",
+    "sample": "window.document.all['foo'].innerText = \"Hello\"\ndocument.all['foo'].innerText = \"Hello\"",
     "total": "Number of Javascript Functions",
     "alternativeName": "Ensure using document.getElementById() instead of documetn.all to avoid slow loading of DOM elements",
     "businessCriteria": [

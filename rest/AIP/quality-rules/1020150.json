@@ -16,7 +16,7 @@
     "reference": "https://developer.mozilla.org/fr/docs/Web/API/Window/event",
     "remediation": "Use the event parameter passed to the handler.",
     "remediationSample": "button.addEventListener('click', (e) => console.log(e));",
-    "sample": "button.onclick = function () { console.log(window.event); };",
+    "sample": "button.onclick = function () { console.log(window.event); }; --> violation\nbutton.onclick = function () { console.log(event); }; --> violation\nbutton.onclick = function () { console.log(event.<any_member>); }; --> violation\n\nfuntion f(event) {\n   button.onclick = function () { console.log(event); }; --> no violation (event is a parameter)",
     "total": "Number of Javascript artifacts",
     "alternativeName": "Avoid using window.event (Javascript)",
     "businessCriteria": [

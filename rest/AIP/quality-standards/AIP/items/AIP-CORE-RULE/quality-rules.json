@@ -5190,7 +5190,6 @@
         "technologyNames": [
             "ASP",
             "C#",
-            "HTML5",
             "JEE",
             "VB.NET"
         ]
@@ -5244,7 +5243,6 @@
         "technologyNames": [
             "ABAP",
             "C#",
-            "HTML5",
             "JEE",
             "VB.NET"
         ]
@@ -6688,7 +6686,6 @@
             "C",
             "C#",
             "C++",
-            "HTML5",
             "JEE",
             "Objective-C",
             "VB.NET"
@@ -6714,7 +6711,6 @@
             "C",
             "C#",
             "C++",
-            "HTML5",
             "JEE",
             "VB.NET"
         ]
@@ -14808,7 +14804,7 @@
     },
     {
         "id": 1020056,
-        "name": "Avoid using Javascript Document.all collection",
+        "name": "Avoid using Javascript document.all collection",
         "href": "AIP/quality-rules/1020056",
         "critical": false,
         "severity": 10,
@@ -15238,7 +15234,7 @@
     },
     {
         "id": 1020142,
-        "name": "Avoid using navigator.userAgent parsing for feature gates (Javascript)",
+        "name": "Avoid using deprecated properties of navigator object (Javascript)",
         "href": "AIP/quality-rules/1020142",
         "critical": false,
         "severity": 10,
@@ -15400,6 +15396,126 @@
         "id": 1020174,
         "name": "Avoid using VBScript blocks (Javascript/HTML5)",
         "href": "AIP/quality-rules/1020174",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020176,
+        "name": "Avoid empty catch blocks (Javascript)",
+        "href": "AIP/quality-rules/1020176",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020178,
+        "name": "Avoid empty finally blocks (Javascript)",
+        "href": "AIP/quality-rules/1020178",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020180,
+        "name": "Avoid missing default in switch statements (Javascript)",
+        "href": "AIP/quality-rules/1020180",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020182,
+        "name": "Avoid using break statement in FOR loops (Javascript)",
+        "href": "AIP/quality-rules/1020182",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020184,
+        "name": "Avoid using Meta X-UA-Compatible header",
+        "href": "AIP/quality-rules/1020184",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020186,
+        "name": "Avoid using <font> element",
+        "href": "AIP/quality-rules/1020186",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020188,
+        "name": "Avoid using <center> element",
+        "href": "AIP/quality-rules/1020188",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020190,
+        "name": "Avoid using <marquee> / <blink> elements",
+        "href": "AIP/quality-rules/1020190",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020192,
+        "name": "Avoid using <big> element",
+        "href": "AIP/quality-rules/1020192",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020194,
+        "name": "Avoid using presentational HTML attributes (bgcolor, border, align, valign, nowrap)",
+        "href": "AIP/quality-rules/1020194",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020196,
+        "name": "Avoid using outdated / quirks-mode DOCTYPE",
+        "href": "AIP/quality-rules/1020196",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020198,
+        "name": "Avoid using IE conditional comments",
+        "href": "AIP/quality-rules/1020198",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -19116,6 +19232,76 @@
         "severity": 10,
         "technologyNames": [
             "Kotlin"
+        ]
+    },
+    {
+        "id": 1030100,
+        "name": "Avoid using IE filters and -ms-filter (CSS)",
+        "href": "AIP/quality-rules/1030100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030102,
+        "name": "Avoid using zoom for Layout (CSS)",
+        "href": "AIP/quality-rules/1030102",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030104,
+        "name": "Avoid using CSS selector hacks: * html, *+html (CSS)",
+        "href": "AIP/quality-rules/1030104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030106,
+        "name": "Avoid using property name hacks (_property, *property) (CSS)",
+        "href": "AIP/quality-rules/1030106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030108,
+        "name": "Avoid using CSS hack values (\\9, \\0/) (CSS)",
+        "href": "AIP/quality-rules/1030108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030110,
+        "name": "Avoid using Vendor Prefix without Standard Fallback (CSS)",
+        "href": "AIP/quality-rules/1030110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030112,
+        "name": "Avoid using IE-only gradient (CSS)",
+        "href": "AIP/quality-rules/1030112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
         ]
     },
     {
