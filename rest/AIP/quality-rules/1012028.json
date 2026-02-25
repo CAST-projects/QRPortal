@@ -1,0 +1,155 @@
+{
+    "id": 1012028,
+    "name": "Avoid hard-coded IP addresses (CL400)",
+    "href": "AIP/quality-rules/1012028",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.rpg",
+        "href": "AIP/extensions/com.castsoftware.rpg"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule detects IP addresses hard-coded in CL source code (for example 192.168.0.10) in commands, variables, constants, literals or parameters. Any sequence matching a literal IPv4 address pattern is considered a violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Hard-coded IP addresses create tight coupling between the code and the underlying technical infrastructure. They make multi-environment deployments (DEV / TEST / PROD) difficult, increase configuration error risks, and complicate network architecture changes. From a security standpoint, a sensitive IP address written in clear text in the source code may reveal internal infrastructure information and will require a source code change whenever the configuration changes. Using parameters, configuration files or system descriptions is preferable.",
+    "reference": "CWE-1051: Initialization with Hard-Coded Network Resource Configuration Data\nhttps://cwe.mitre.org/data/definitions/1051.html\n\nCISQ Quality Measures - Reliability\nASCRM-RLB-18",
+    "remediation": "Replace every literal IP address with an external or indirect configuration mechanism:\nUse Data Areas, configuration files or system values to store IP addresses.\nRetrieve the value dynamically into a CL variable (for example with RTV or RTVDTAARA) before invoking the command or program.\nCentralize addresses in a single component (utility program, configuration table) referenced by CL programs instead of duplicating them in the code.",
+    "remediationSample": "PGM\n   /* Sample 1 */\n   DCL VAR(&IPADDR) TYPE(*CHAR) LEN(15)            //   Fixed: value is no more hard-coded\n\n   /* Get application server IP from configuration Data Area */\n   RTVDTAARA DTAARA(CONFIGLIB/IP_SRV_APP *ALL) RTNVAR(&IPADDR)   //   and it's retrieved from Data Area\n\n   /* Connect to application server with configurable IP */\n   CALL PGM(CONNECTSRV) PARM(&IPADDR)\n\n   /* Sample 2 */\n   /* Get DDM server IP from configuration */\n   DCL VAR(&DDMIP) TYPE(*CHAR) LEN(15)\n   RTVDTAARA DTAARA(CONFIGLIB/IP_DDM_SRV *ALL) RTNVAR(&DDMIP)\n\n   STRTCPSVR SERVER(*DDM) IPADDR(&DDMIP)                 //  Fixed: value is no more hard-coded\n\nENDPGM",
+    "sample": "PGM\n   /* Sample 1 */\n   DCL VAR(&IPADDR) TYPE(*CHAR) LEN(15) VALUE('192.168.001.010')   // Value is hard-coded\n\n   /* Connect to application server */\n   CALL PGM(CONNECTSRV) PARM(&IPADDR)\n\n   /* Sample 2 */\n   /* System command with hardcoded IP */\n   STRTCPSVR SERVER(*DDM) IPADDR('10.0.0.15')                // Value is hard-coded\n\nENDPGM",
+    "total": "Number of CL400 Programs or Subroutines.",
+    "alternativeName": "Avoid hard-coded IP addresses (CL400)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "href": "AIP/technical-criteria/61004",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-RLB-18",
+            "name": "Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-RLB-18",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/CWE/items/CWE-1051",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1051",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-CM-6",
+            "name": "Configuration Settings",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-CM-6",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-CM-6",
+            "name": "Configuration Settings",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-CM-6",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-1051",
+            "name": "Initialization with Hard-Coded Network Resource Configuration Data",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1051",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A5-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A6-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A05-2021",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A05-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API7-2019",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API7-2019",
+            "standard": "OWASP"
+        },
+        {
+            "id": "API8-2023",
+            "name": "Security misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/API8-2023",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-2.2.4",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-1.4.5",
+            "name": "The disclosure of internal IP addresses and routing information is limited to only authorized parties.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-1.4.5",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
