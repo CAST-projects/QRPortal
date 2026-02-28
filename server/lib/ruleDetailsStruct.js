@@ -90,10 +90,15 @@ const ProcessRuleDetailsRequest = ( req, res, errorHandler ) => {
 
 const getRulesDetailsFromFile = ( filePath ) => {
   if(!fs.existsSync(filePath)) return {};
-  const fileData = fs.readFileSync(filePath),
-    data = JSON.parse(fileData);
-
-  return QualityRuleObject(data);
+  try {
+    const fileData = fs.readFileSync(filePath),
+      data = JSON.parse(fileData);
+  
+    return QualityRuleObject(data);
+    
+  } catch (error) {
+    console.log(error.stack);
+  }
 };
 
 module.exports = {
