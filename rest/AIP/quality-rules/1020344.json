@@ -1,0 +1,123 @@
+{
+    "id": 1020344,
+    "name": "Avoid using jQuery 3.x deprecated methods",
+    "href": "AIP/quality-rules/1020344",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.jquery",
+        "href": "AIP/extensions/com.castsoftware.jquery"
+    },
+    "description": "Be careful when using deprecated methods. The deprecation period should be used to smoothly make the transition. The rule raises an issue when any of the following methods is used:\n- $(\"#foo\").bind()\n- $(\"#foo\").unbind()\n- $(\"#foo\").delegate()\n- $(\"#foo\").undelegate()\n- jQuery.parseJSON()\n- jQuery.unique()\n- jQuery.fx.interval\n- jQuery.isFunction()\n- jQuery.isNumeric()\n- jQuery.now()\n- jQuery.trim()",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using deprecated jQuery 3.x API could lead to security compliancy issues.\nDeprecated jQuery API may be removed in a future major-version update, or it is already removed.",
+    "reference": "jQuery API Documentation :\nhttps://api.jquery.com/\n\njQuery Core 3.0 Upgrade Guide :\nhttps://jquery.com/upgrade-guide/3.0/\nhttps://api.jquery.com/category/deprecated/deprecated-3.0/",
+    "remediation": "Replace the deprecated API function call by the new one, when applicable.  the JQuery documentation provides the remediations. For instance:\n.bind(), .unbind(), .delegate(), .undelegate() (deprecated 3.0) \u2192 use .on() / .off().\njQuery.parseJSON() (deprecated 3.0) \u2192 use JSON.parse.\njQuery.unique() (deprecated 3.0) \u2192 use jQuery.uniqueSort().\njQuery.fx.interval (deprecated 3.0).\njQuery.isFunction(), jQuery.isNumeric(), jQuery.now() (deprecated 3.3) \u2192 use typeof x === \"function\", Number checks/Number.isFinite, and Date.now().\njQuery.trim() (deprecated 3.5) \u2192 use String.prototype.trim().",
+    "total": "Number of JavaScript source codes using jQuery",
+    "alternativeName": "Ensure you don't use officially jQuery deprecated methods (before 3.x)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "href": "AIP/technical-criteria/66069",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/CWE/items/CWE-477",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-477",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-477",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2013",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "href": "AIP/quality-standards/OWASP/items/A9-2017",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A06-2021",
+            "name": "Vulnerable and Outdated Components",
+            "href": "AIP/quality-standards/OWASP/items/A06-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "href": "AIP/quality-standards/OWASP/items/M7-2016",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.2",
+            "name": "Ensure all Systems and Software are Protected from Known Vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.2",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.3.2",
+            "name": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.3.2",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
