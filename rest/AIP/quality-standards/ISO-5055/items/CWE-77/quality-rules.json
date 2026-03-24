@@ -1,5 +1,357 @@
 [
     {
+        "id": 4598,
+        "name": "Avoid using 'java.lang.Runtime.exec()'",
+        "href": "AIP/quality-rules/4598",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7748,
+        "name": "Avoid OS command injection",
+        "href": "AIP/quality-rules/7748",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8426,
+        "name": "Avoid calling database commands directly using system functions as \"C_DB_EXECUTE\" and \"C_DB_FUNCTION\"",
+        "href": "AIP/quality-rules/8426",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8434,
+        "name": "Avoid process control",
+        "href": "AIP/quality-rules/8434",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8436,
+        "name": "Avoid thread injection",
+        "href": "AIP/quality-rules/8436",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8438,
+        "name": "Avoid code injection",
+        "href": "AIP/quality-rules/8438",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8440,
+        "name": "Avoid reflection injection",
+        "href": "AIP/quality-rules/8440",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8494,
+        "name": "Avoid OS command injection through API requests",
+        "href": "AIP/quality-rules/8494",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8496,
+        "name": "Avoid process control through API requests",
+        "href": "AIP/quality-rules/8496",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8498,
+        "name": "Avoid thread injection through API requests",
+        "href": "AIP/quality-rules/8498",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8500,
+        "name": "Avoid code injection through API requests",
+        "href": "AIP/quality-rules/8500",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8502,
+        "name": "Avoid reflection injection through API requests",
+        "href": "AIP/quality-rules/8502",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8536,
+        "name": "Avoid expression language injection",
+        "href": "AIP/quality-rules/8536",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8538,
+        "name": "Avoid second order expression language injection",
+        "href": "AIP/quality-rules/8538",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8540,
+        "name": "Avoid expression language injection through API requests",
+        "href": "AIP/quality-rules/8540",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8546,
+        "name": "Avoid using ABAP command CALL 'SYSTEM'",
+        "href": "AIP/quality-rules/8546",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8548,
+        "name": "Avoid using ABAP command INSERT REPORT",
+        "href": "AIP/quality-rules/8548",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8550,
+        "name": "Avoid using ABAP command GENERATE SUBROUTINE POOL",
+        "href": "AIP/quality-rules/8550",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8552,
+        "name": "Avoid using ABAP command OPEN DATASET with the FILTER addition",
+        "href": "AIP/quality-rules/8552",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 1007250,
+        "name": "Avoid preg_replace with /e option (PHP)",
+        "href": "AIP/quality-rules/1007250",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007260,
+        "name": "DEPRECATED: CWE-78: Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)",
+        "href": "AIP/quality-rules/1007260",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1020058,
+        "name": "Avoid using eval() (Javascript)",
+        "href": "AIP/quality-rules/1020058",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020080,
+        "name": "Avoid using setInterval() (Javascript)",
+        "href": "AIP/quality-rules/1020080",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020808,
+        "name": "Avoid using eval() (Typescript)",
+        "href": "AIP/quality-rules/1020808",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020860,
+        "name": "Avoid using setInterval() (TypeScript)",
+        "href": "AIP/quality-rules/1020860",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021036,
+        "name": "Avoid using eval (Python)",
+        "href": "AIP/quality-rules/1021036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021038,
+        "name": "Avoid using exec (Python)",
+        "href": "AIP/quality-rules/1021038",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021112,
+        "name": "Avoid OS command injection (Python)",
+        "href": "AIP/quality-rules/1021112",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1025000,
+        "name": "Avoid second order OS command injection",
+        "href": "AIP/quality-rules/1025000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1034006,
+        "name": "Avoid OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034026,
+        "name": "Avoid second order code injection (PHP)",
+        "href": "AIP/quality-rules/1034026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034030,
+        "name": "Avoid second order OS command injection (PHP)",
+        "href": "AIP/quality-rules/1034030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1042026,
+        "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older",
+        "href": "AIP/quality-rules/1042026",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1042046,
         "name": "Avoid Using Dynamic Method Invocation for Apache Struts 2.x",
         "href": "AIP/quality-rules/1042046",

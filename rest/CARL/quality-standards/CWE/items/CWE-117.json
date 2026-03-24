@@ -1,9 +1,9 @@
 {
     "id": "CWE-117",
-    "name": "Improper Output Neutralization for Logs",
+    "name": "Improper Output Neutralization for Logs [Base]",
     "href": "CARL/quality-standards/CWE/items/CWE-117",
     "url": "https://cwe.mitre.org/data/definitions/117.html",
-    "description": "The product does not neutralize or incorrectly neutralizes output that is written to logs.",
+    "description": "The product constructs a log message from external input, but it does not neutralize or incorrectly neutralizes special elements when the message is written to a log file.",
     "isoPatterns": null,
     "count": 4,
     "qualityRules": {

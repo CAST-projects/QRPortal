@@ -1,6 +1,6 @@
 {
     "id": "CWE-820",
-    "name": "Missing Synchronization",
+    "name": "Missing Synchronization [Base]",
     "href": "CARL/quality-standards/CWE/items/CWE-820",
     "url": "https://cwe.mitre.org/data/definitions/820.html",
     "description": "The product utilizes a shared resource in a concurrent manner but does not attempt to synchronize access to the resource.",
@@ -9,6 +9,9 @@
             "name": "ASCQM Ban Resource Access without Proper Locking in Multi-Threaded Context"
         }
     ],
-    "count": 0,
-    "qualityRules": null
+    "count": 4,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "CARL/quality-standards/CWE/items/CWE-820/quality-rules"
+    }
 }

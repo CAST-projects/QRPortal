@@ -1,10 +1,40 @@
 [
     {
+        "id": 4702,
+        "name": "Ensure to not use default stream(System.Err) for printStackTrace to print throwable and its stack trace in order to protect sensitive information.",
+        "href": "AIP/quality-rules/4702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1020060,
+        "name": "Ensure you remove console.log() in your production code",
+        "href": "AIP/quality-rules/1020060",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020708,
         "name": "Ensure disabling X-Powered-By header in your express instance or use third-party helmet package to prevent specifically-targeted attacks on running applications",
         "href": "AIP/quality-rules/1020708",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020804,
+        "name": "Prefer refactoring the source code  instead of using console logging",
+        "href": "AIP/quality-rules/1020804",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -17,6 +47,16 @@
         "severity": 20,
         "technologyNames": [
             "HTML5"
+        ]
+    },
+    {
+        "id": 1024026,
+        "name": "Prefer not using MODE_WORLD_READABLE or MODE_WORLD_WRITABLE to share files with other apps",
+        "href": "AIP/quality-rules/1024026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -41,6 +81,50 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1027046,
+        "name": "Avoid storing passwords in Comments",
+        "href": "AIP/quality-rules/1027046",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027082,
+        "name": "Ensure you remove console.writeline() in your production code",
+        "href": "AIP/quality-rules/1027082",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1043020,
+        "name": "Ensure you have reviewed the web config file and update the value of debug property to false",
+        "href": "AIP/quality-rules/1043020",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043078,
+        "name": "Avoid debug binaries that include detailed debug information",
+        "href": "AIP/quality-rules/1043078",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
         ]
     }
 ]

@@ -1,11 +1,17 @@
 {
     "id": "CWE-694",
-    "name": "Use of Multiple Resources with Duplicate Identifier",
+    "name": "Use of Multiple Resources with Duplicate Identifier [Base]",
     "href": "AIP/quality-standards/CWE/items/CWE-694",
     "url": "https://cwe.mitre.org/data/definitions/694.html",
     "description": "The product uses multiple resources that can have the same identifier, in a context in which unique identifiers are required.",
     "isoPatterns": null,
-    "count": 0,
-    "qualityRules": null,
-    "qualityTemplates": null
+    "count": 1,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/CWE/items/CWE-694/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/CWE/items/CWE-694/quality-templates"
+    }
 }

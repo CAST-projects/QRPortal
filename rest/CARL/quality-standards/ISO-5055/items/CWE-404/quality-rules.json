@@ -11,6 +11,26 @@
         ]
     },
     {
+        "id": 4616,
+        "name": "Prefer calling \"super.finalize()\" at the end of \"Object.finalize()\" implementations",
+        "href": "AIP/quality-rules/4616",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7252,
+        "name": "Ensure to add a try finally bloc",
+        "href": "AIP/quality-rules/7252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7258,
         "name": "DataReader must be called using CommandBehavior.CloseConnection enumeration",
         "href": "AIP/quality-rules/7258",
@@ -19,6 +39,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 7562,
+        "name": "Ensure that static Field of type collection are not used",
+        "href": "AIP/quality-rules/7562",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -32,6 +62,17 @@
         ]
     },
     {
+        "id": 8086,
+        "name": "Avoid types that own disposable fields and are not disposable",
+        "href": "AIP/quality-rules/8086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8104,
         "name": "Ensure you have released your SQL connection after an effective lifetime",
         "href": "AIP/quality-rules/8104",
@@ -39,6 +80,18 @@
         "severity": 30,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 8108,
+        "name": "Ensure you have released your stream connection after an effective lifetime",
+        "href": "AIP/quality-rules/8108",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -53,6 +106,36 @@
         ]
     },
     {
+        "id": 1020214,
+        "name": "Ensure to clear event listeners after components are destroyed to prevent memory leaks",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020730,
+        "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
+        "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure you have closed  Node.js filesystem after using open or openSync.",
+        "href": "AIP/quality-rules/1020892",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1024022,
         "name": "Ensure to release media resorces at OnStop() and OnDestroy() to efficiently use resources",
         "href": "AIP/quality-rules/1024022",
@@ -60,6 +143,50 @@
         "severity": 10,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1027016,
+        "name": "Do not throw the exceptions in destructors",
+        "href": "AIP/quality-rules/1027016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027018,
+        "name": "Do not throw the exceptions in finally block",
+        "href": "AIP/quality-rules/1027018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027036,
+        "name": "Avoid rethrowing exception explicitly",
+        "href": "AIP/quality-rules/1027036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1065004,
+        "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
+        "href": "AIP/quality-rules/1065004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
         ]
     }
 ]

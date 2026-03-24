@@ -1,5 +1,214 @@
 [
     {
+        "id": 7130,
+        "name": "Avoid Artifacts with High Depth of Nested Subqueries",
+        "href": "AIP/quality-rules/7130",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7196,
+        "name": "Ensure to use StringBuilder or StringBuffer and StringBuilder.append() or StringBuffer.append() method instead",
+        "href": "AIP/quality-rules/7196",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7198,
+        "name": "Avoid String concatenation in loops (.NET)",
+        "href": "AIP/quality-rules/7198",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7200,
+        "name": "Ensure to create a StringBuilder or StringBuffer before entering the loop",
+        "href": "AIP/quality-rules/7200",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7204,
+        "name": "Avoid method invocation in a loop termination expression",
+        "href": "AIP/quality-rules/7204",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7206,
+        "name": "Ensure to have polymorphism over 'is' operator and downcasting",
+        "href": "AIP/quality-rules/7206",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7210,
+        "name": "Ensure to not do object initialization inside a loop since it reduces performance",
+        "href": "AIP/quality-rules/7210",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7212,
+        "name": "Ensure you don't instantiate objects in loops",
+        "href": "AIP/quality-rules/7212",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7346,
+        "name": "Avoid redundant indexes",
+        "href": "AIP/quality-rules/7346",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7348,
+        "name": "Avoid too many Indexes on one Table",
+        "href": "AIP/quality-rules/7348",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7358,
+        "name": "Avoid call to AcceptChanges in a loop",
+        "href": "AIP/quality-rules/7358",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7424,
+        "name": "Avoid using SQL queries inside a loop",
+        "href": "AIP/quality-rules/7424",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7470,
+        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
+        "href": "AIP/quality-rules/7470",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7642,
+        "name": "Avoid SQL queries on XXL tables not using the first column of a composite index in the WHERE clause",
+        "href": "AIP/quality-rules/7642",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7702,
+        "name": "Prefer using Hibernate-provided implementations from third parties for connection pool to increase database access performances.",
+        "href": "AIP/quality-rules/7702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7734,
+        "name": "Ensure that debug method invocation is usually preceded by a call to its corresponding isDebugEnabled method",
+        "href": "AIP/quality-rules/7734",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7808,
+        "name": "Avoid Artifacts with SQL statement including subqueries",
+        "href": "AIP/quality-rules/7808",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++",
+            "JEE",
+            "SQL"
+        ]
+    },
+    {
+        "id": 7954,
+        "name": "Ensure not having indirect String concatenation inside loops to avoid making your software performance slowly.",
+        "href": "AIP/quality-rules/7954",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7962,
+        "name": "Ensure not having direct or indirect remote calls inside a loop to avoid making your software performance slow",
+        "href": "AIP/quality-rules/7962",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8110,
+        "name": "Ensure using dedicated stored procedures when multiple data accesses are needed",
+        "href": "AIP/quality-rules/8110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8518,
         "name": "Ensure you don't have unsanitized regular expressions",
         "href": "AIP/quality-rules/8518",
@@ -43,6 +252,309 @@
         "severity": 30,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1020004,
+        "name": "Avoid using querySelectorAll, prefer getElementsByTagName() or getElementsByClassName() to have better performance.",
+        "href": "AIP/quality-rules/1020004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020006,
+        "name": "Make sure you do not execute a function inside loop termination to avoid performance issues, use a variable to store the value of a function instead",
+        "href": "AIP/quality-rules/1020006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020008,
+        "name": "Replace for-in loop with a regular for loop with index to avoid slower performance",
+        "href": "AIP/quality-rules/1020008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020012,
+        "name": "Ensure that the web-service calls made from the client are not inside a loop so that efficiency is not impacted due to communications overhead",
+        "href": "AIP/quality-rules/1020012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020014,
+        "name": "Ensure having a process queue that will manage all the requests with a limited number of concurrents when making calls to web services",
+        "href": "AIP/quality-rules/1020014",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020016,
+        "name": "Ensure to use intermediate variables for minimizing dot notations for references within a loop so that performance is not adversely impacted",
+        "href": "AIP/quality-rules/1020016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020038,
+        "name": "Ensure to assign a reference variable to a function output if it has to be used inside a loop to make performance better",
+        "href": "AIP/quality-rules/1020038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020056,
+        "name": "Ensure using document.getElementById() instead of documetn.all to avoid slow loading of DOM elements",
+        "href": "AIP/quality-rules/1020056",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020208,
+        "name": "Prefer using a computed property as a condition, if needed, instead of using v-for and v-if on the same element",
+        "href": "AIP/quality-rules/1020208",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020224,
+        "name": "Ensure that you are not making API/web service calls inside loops so that performance is not severely impacted",
+        "href": "AIP/quality-rules/1020224",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020300,
+        "name": "Ensure you minize the number of web service ajax calls inside a loop",
+        "href": "AIP/quality-rules/1020300",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020302,
+        "name": "Ensure you don't use the element type in your selector when using class selectors in jQuery.",
+        "href": "AIP/quality-rules/1020302",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020306,
+        "name": "Ensure using find for Id->Child nested selectors for better performance",
+        "href": "AIP/quality-rules/1020306",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020308,
+        "name": "Always cache your jQuery selector, based on class, returned objects in variables for reuse.",
+        "href": "AIP/quality-rules/1020308",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020310,
+        "name": "Prefer using \"type=\" notation instead of \":\".",
+        "href": "AIP/quality-rules/1020310",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020314,
+        "name": "Ensure you don't manipulate stylesheet with css() method to avoid performance issue",
+        "href": "AIP/quality-rules/1020314",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020316,
+        "name": "Ensure you don't universal selectors to avoid performance issue.",
+        "href": "AIP/quality-rules/1020316",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020504,
+        "name": "Ensure that you are not making API/web service calls inside loops so that performance is not severely impacted",
+        "href": "AIP/quality-rules/1020504",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020534,
+        "name": "Ensure that you are not using a web service inside loops so that performance is not severely impacted",
+        "href": "AIP/quality-rules/1020534",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020550,
+        "name": "Ensure your web application interactivity by using 'track by' option in 'ng-repeat' block",
+        "href": "AIP/quality-rules/1020550",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020714,
+        "name": "Ensure having only one routing handler per path to avoid an efficiency issue",
+        "href": "AIP/quality-rules/1020714",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020716,
+        "name": "\u201chttp.get\u201d or \u201chttp.request\u201d should not be used inside a loop to optimize the number of calls between the client application and web service server",
+        "href": "AIP/quality-rules/1020716",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020748,
+        "name": "Ensure you minize the number of api call especially inside a loop",
+        "href": "AIP/quality-rules/1020748",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020814,
+        "name": "",
+        "href": "AIP/quality-rules/1020814",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020828,
+        "name": "Always ensure not using the concatenation of the strings in a loop as  a costly operation.",
+        "href": "AIP/quality-rules/1020828",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020838,
+        "name": "Ensure you have provided a debounceTime after calling an Observable with using Rx.observable.fromEvent",
+        "href": "AIP/quality-rules/1020838",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020840,
+        "name": "Ensure you have added \"track by\" syntax into your ngFor block",
+        "href": "AIP/quality-rules/1020840",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020898,
+        "name": "Ensure having only one routing handler per path to avoid an efficiency issue",
+        "href": "AIP/quality-rules/1020898",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1025056,
+        "name": "Ensure you don't have SQL queries inside loops",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027040,
+        "name": "Ensure you don't use multiple \"OrderBy\"",
+        "href": "AIP/quality-rules/1027040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
         ]
     },
     {
@@ -90,6 +602,36 @@
         "id": 1101002,
         "name": "Prefer using a Join with a consition when making SQL queries on XXL tables so that performance is not adversely impacted due to cartesian/cross join",
         "href": "AIP/quality-rules/1101002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101004,
+        "name": "Ensure to include index in your SQL table so that performance of your app is not adversely impacted",
+        "href": "AIP/quality-rules/1101004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101006,
+        "name": "Ensure to include index in your SQL XXL tables so that performance of your app is not adversely impacted",
+        "href": "AIP/quality-rules/1101006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101116,
+        "name": "Avoid using SQL queries inside a loop (SQL)",
+        "href": "AIP/quality-rules/1101116",
         "critical": true,
         "severity": 30,
         "technologyNames": [

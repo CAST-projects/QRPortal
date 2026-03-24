@@ -1,0 +1,482 @@
+[
+    {
+        "id": 678,
+        "name": "Never throw an exception from a Destructor",
+        "href": "AIP/quality-rules/678",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 2232,
+        "name": "Prefer using shared error-page elements via web.xml to better control error handling",
+        "href": "AIP/quality-rules/2232",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4696,
+        "name": "Prefer using logging framework  as SLF4j instead of  'System.err' or 'System.out'",
+        "href": "AIP/quality-rules/4696",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4702,
+        "name": "Ensure to not use default stream(System.Err) for printStackTrace to print throwable and its stack trace in order to protect sensitive information.",
+        "href": "AIP/quality-rules/4702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7788,
+        "name": "Avoid empty catch blocks",
+        "href": "AIP/quality-rules/7788",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7824,
+        "name": "Always Subclass Exception and throw the subclassed Classes, do not throw the exception Exception.",
+        "href": "AIP/quality-rules/7824",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7862,
+        "name": "Ensure you catch subclass of Exception, RuntimeException or Throwable",
+        "href": "AIP/quality-rules/7862",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8000,
+        "name": "Avoid 'catch-all' statement",
+        "href": "AIP/quality-rules/8000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 8112,
+        "name": "Ensure data handling operations are properly encapsulated to provide clear status of the execution",
+        "href": "AIP/quality-rules/8112",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1020102,
+        "name": "Always use JSON.parse &amp; JSON.stringify with try/catch block because of the synchronous call(Javascript)",
+        "href": "AIP/quality-rules/1020102",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020176,
+        "name": "Avoid empty catch blocks (Javascript)",
+        "href": "AIP/quality-rules/1020176",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020340,
+        "name": "Ensure you have implemented expected $ajax callbacks",
+        "href": "AIP/quality-rules/1020340",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020342,
+        "name": "Ensure you have properly manage errors by using the error/fail callbacks",
+        "href": "AIP/quality-rules/1020342",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020450,
+        "name": "Ensure you have overwritten component methods to properly catch errors",
+        "href": "AIP/quality-rules/1020450",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020452,
+        "name": "Ensure you have properly use the componentDidCatch to better manage errors",
+        "href": "AIP/quality-rules/1020452",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020540,
+        "name": "Prefer using $http methods 'then' and 'catch' instead of 'success' and 'error' as the latter returns original promise when you chain off of them",
+        "href": "AIP/quality-rules/1020540",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020700,
+        "name": "Ensure you check the returned error in Node.js callbacks",
+        "href": "AIP/quality-rules/1020700",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020702,
+        "name": "You should set the process.exitCode to allow the process exiting naturally rather than calling process.exit() directly.",
+        "href": "AIP/quality-rules/1020702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020802,
+        "name": "Always throw all created error.",
+        "href": "AIP/quality-rules/1020802",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020822,
+        "name": "Ensure that you provide an error callback to the HttpClient  ubscribe method.",
+        "href": "AIP/quality-rules/1020822",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020850,
+        "name": "Always handle errors when using ajax with RxJS",
+        "href": "AIP/quality-rules/1020850",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020856,
+        "name": "Ensure you have overwritten component methods to properly catch errors",
+        "href": "AIP/quality-rules/1020856",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020858,
+        "name": "Ensure you have properly use the componentDidCatch to better manage errors",
+        "href": "AIP/quality-rules/1020858",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020872,
+        "name": "Always use JSON.parse and JSON.stringify with try/catch block because of the synchronous call (Typescript)",
+        "href": "AIP/quality-rules/1020872",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020874,
+        "name": "Ensure you check the returned error in Node.js callbacks",
+        "href": "AIP/quality-rules/1020874",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020876,
+        "name": "You should set the process.exitCode to allow the process exiting naturally rather than calling process.exit() directly.",
+        "href": "AIP/quality-rules/1020876",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1024034,
+        "name": "Ensure to check all the BiometricPrompt error options in the onAuthenticationError method",
+        "href": "AIP/quality-rules/1024034",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1024036,
+        "name": "Ensure to check all BiometricPrompt acquired options in the onAuthenticationSucceeded method",
+        "href": "AIP/quality-rules/1024036",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1027016,
+        "name": "Do not throw the exceptions in destructors",
+        "href": "AIP/quality-rules/1027016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027018,
+        "name": "Do not throw the exceptions in finally block",
+        "href": "AIP/quality-rules/1027018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027034,
+        "name": "Check if the variable is null before dereferencing it.",
+        "href": "AIP/quality-rules/1027034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027036,
+        "name": "Avoid rethrowing exception explicitly",
+        "href": "AIP/quality-rules/1027036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027048,
+        "name": "Avoid returning null from non-async Task/Task<T> method",
+        "href": "AIP/quality-rules/1027048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027050,
+        "name": "Split the method in two if it contains both ArgumentNullException and yield",
+        "href": "AIP/quality-rules/1027050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027052,
+        "name": "Always check the object is not null before using it or it is not used in a try block.",
+        "href": "AIP/quality-rules/1027052",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027066,
+        "name": "Ensure the getter is not stopped by throwing exception.",
+        "href": "AIP/quality-rules/1027066",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027068,
+        "name": "Avoid returning null from ToString()",
+        "href": "AIP/quality-rules/1027068",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1039008,
+        "name": "Ensure to manage an exception in servlet method using a try catch block to prevent exposing system vulnerabilities",
+        "href": "AIP/quality-rules/1039008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040030,
+        "name": "Prefer not using Generic Authentication Exception Class to promote easy error handling",
+        "href": "AIP/quality-rules/1040030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040032,
+        "name": "Ensure not using ControllerAdvice And HandlerExceptionResolver simultaneously to avoid unexpected behavior",
+        "href": "AIP/quality-rules/1040032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1043076,
+        "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data",
+        "href": "AIP/quality-rules/1043076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1065026,
+        "name": "Ensure that a class type exception is always be caught by reference to avoid slicing",
+        "href": "AIP/quality-rules/1065026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065042,
+        "name": "Ensure to return a proper expression for a non-void function",
+        "href": "AIP/quality-rules/1065042",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1101040,
+        "name": "Ensure to handle exception in a catch block and not leave it empty",
+        "href": "AIP/quality-rules/1101040",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101092,
+        "name": "Errors should be handled in stored procedures and functions",
+        "href": "AIP/quality-rules/1101092",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "SQL"
+        ]
+    }
+]

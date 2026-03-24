@@ -1,6 +1,6 @@
 {
     "id": "CWE-616",
-    "name": "Incomplete Identification of Uploaded File Variables (PHP)",
+    "name": "Incomplete Identification of Uploaded File Variables (PHP) [Variant]",
     "href": "AIP/quality-standards/CWE/items/CWE-616",
     "url": "https://cwe.mitre.org/data/definitions/616.html",
     "description": "The PHP application uses an old method for processing uploaded files by referencing the four global variables that are set for each file (e.g. $varname, $varname_size, $varname_name, $varname_type). These variables could be overwritten by attackers, causing the application to process unauthorized files.",

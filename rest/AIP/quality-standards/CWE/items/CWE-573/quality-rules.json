@@ -1,0 +1,250 @@
+[
+    {
+        "id": 4594,
+        "name": "Avoid using 'java.io.File'",
+        "href": "AIP/quality-rules/4594",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4612,
+        "name": "Avoid using native Methods (JNI)",
+        "href": "AIP/quality-rules/4612",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4614,
+        "name": "DEPRECATED: Proper overriding of 'clone()'",
+        "href": "AIP/quality-rules/4614",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4616,
+        "name": "'super.finalize()' should be invoked when overriding finalize() method",
+        "href": "AIP/quality-rules/4616",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7190,
+        "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
+        "href": "AIP/quality-rules/7190",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7192,
+        "name": "Avoid using Struts Form that cannot extend Validator Class",
+        "href": "AIP/quality-rules/7192",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7252,
+        "name": "Call 'super.finalize ()' in the \"finally\" block of 'finalize ()' methods",
+        "href": "AIP/quality-rules/7252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7434,
+        "name": "Ensure to override both equals() and hashCode()",
+        "href": "AIP/quality-rules/7434",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7444,
+        "name": "Avoid Using Non-Serialized Beans with Session Scope",
+        "href": "AIP/quality-rules/7444",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7504,
+        "name": "Persistent classes should Implement hashCode() and equals()",
+        "href": "AIP/quality-rules/7504",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7506,
+        "name": "equals() and hashCode() should be defined for Hibernate/JPA component",
+        "href": "AIP/quality-rules/7506",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7638,
+        "name": "Avoid directly managing the connection to the database by using DriverManager",
+        "href": "AIP/quality-rules/7638",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7942,
+        "name": "Avoid EJBs using 'synchronized' qualifier, 'wait', 'notify' and 'notifyAll' Methods",
+        "href": "AIP/quality-rules/7942",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8156,
+        "name": "Persistent classes should implement GetHashCode() and Equals()",
+        "href": "AIP/quality-rules/8156",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8436,
+        "name": "Avoid thread injection",
+        "href": "AIP/quality-rules/8436",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8498,
+        "name": "Avoid thread injection through API requests",
+        "href": "AIP/quality-rules/8498",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027012,
+        "name": "Avoid storing Non-Serializable Object as HttpSessionState attributes.",
+        "href": "AIP/quality-rules/1027012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027064,
+        "name": "Always override 'Equals' and Comparison operators with IComparable implementation",
+        "href": "AIP/quality-rules/1027064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1039068,
+        "name": "Avoid using the Non-Serializable Object Stored in Session",
+        "href": "AIP/quality-rules/1039068",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039110,
+        "name": "Ensure initializing cryptographic key generators (JEE)",
+        "href": "AIP/quality-rules/1039110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039114,
+        "name": "Avoid predictable initialization vector (JEE)",
+        "href": "AIP/quality-rules/1039114",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042004,
+        "name": "Avoid Duplicate Struts validation forms with the same name",
+        "href": "AIP/quality-rules/1042004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1050012,
+        "name": "Avoid Objective-C interface overriding only isEqual method or only hash method",
+        "href": "AIP/quality-rules/1050012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    }
+]

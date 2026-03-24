@@ -1,6 +1,6 @@
 {
     "id": "CWE-682",
-    "name": "Incorrect Calculation",
+    "name": "Incorrect Calculation [Pillar]",
     "href": "CARL/quality-standards/ISO-5055/items/CWE-682",
     "url": "https://cwe.mitre.org/data/definitions/682.html",
     "description": "The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.",
@@ -18,6 +18,9 @@
             "name": "ASCQM Check and Handle ZERO Value before Use as Divisor"
         }
     ],
-    "count": 0,
-    "qualityRules": null
+    "count": 4,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "CARL/quality-standards/ISO-5055/items/CWE-682/quality-rules"
+    }
 }

@@ -1,5 +1,239 @@
 [
     {
+        "id": 7130,
+        "name": "Avoid Artifacts with High Depth of Nested Subqueries",
+        "href": "AIP/quality-rules/7130",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7196,
+        "name": "Avoid large number of String concatenation (JEE)",
+        "href": "AIP/quality-rules/7196",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7198,
+        "name": "Avoid String concatenation in loops (.NET)",
+        "href": "AIP/quality-rules/7198",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7200,
+        "name": "Avoid String concatenation in loops",
+        "href": "AIP/quality-rules/7200",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7204,
+        "name": "Avoid method invocation in a loop termination expression",
+        "href": "AIP/quality-rules/7204",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7206,
+        "name": "Avoid the use of Instanceof inside loops",
+        "href": "AIP/quality-rules/7206",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7210,
+        "name": "Avoid instantiations inside loops",
+        "href": "AIP/quality-rules/7210",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7212,
+        "name": "Avoid instantiations inside loops (.NET)",
+        "href": "AIP/quality-rules/7212",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7218,
+        "name": "Avoid OPEN/CLOSE inside loops",
+        "href": "AIP/quality-rules/7218",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 7346,
+        "name": "Avoid redundant indexes",
+        "href": "AIP/quality-rules/7346",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7348,
+        "name": "Avoid too many Indexes on one Table",
+        "href": "AIP/quality-rules/7348",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7350,
+        "name": "Avoid Tables having Indexes with a too large Index definition",
+        "href": "AIP/quality-rules/7350",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7358,
+        "name": "Avoid call to AcceptChanges in a loop",
+        "href": "AIP/quality-rules/7358",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7424,
+        "name": "Avoid using SQL queries inside a loop",
+        "href": "AIP/quality-rules/7424",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7470,
+        "name": "DEPRECATED: Avoid doing select on Datatable in loop",
+        "href": "AIP/quality-rules/7470",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7532,
+        "name": "Avoid nested SELECT ... ENDSELECT statements",
+        "href": "AIP/quality-rules/7532",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7572,
+        "name": "Avoid accessing multiple times the same SAP Table or View in an SAP include (DELETE)",
+        "href": "AIP/quality-rules/7572",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7576,
+        "name": "Avoid accessing multiple times the same SAP Table or View in an SAP include (INSERT)",
+        "href": "AIP/quality-rules/7576",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7578,
+        "name": "Avoid accessing multiple times the same SAP Table or View in an SAP include (UPDATE)",
+        "href": "AIP/quality-rules/7578",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7580,
+        "name": "Avoid accessing multiple times the same SAP Table or View in an SAP Program (DELETE)",
+        "href": "AIP/quality-rules/7580",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7582,
+        "name": "Avoid accessing multiple times the same SAP Table or View in an SAP Program (INSERT)",
+        "href": "AIP/quality-rules/7582",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7584,
+        "name": "Avoid accessing multiple times the same SAP Table or View in an SAP Program (UPDATE)",
+        "href": "AIP/quality-rules/7584",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7642,
+        "name": "Avoid SQL queries on XXL tables not using the first column of a composite index in the WHERE clause",
+        "href": "AIP/quality-rules/7642",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
         "id": 7702,
         "name": "Hibernate-provided implementations from third parties should be used for connection pool",
         "href": "AIP/quality-rules/7702",
@@ -7,6 +241,751 @@
         "severity": 10,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 7790,
+        "name": "Avoid Cursors inside a loop",
+        "href": "AIP/quality-rules/7790",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Forms",
+            "Microsoft T-SQL",
+            "PL/SQL",
+            "SQL Server",
+            "Sybase T-SQL"
+        ]
+    },
+    {
+        "id": 7808,
+        "name": "Avoid Artifacts with SQL statement including subqueries",
+        "href": "AIP/quality-rules/7808",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "C",
+            "C++",
+            "Cobol",
+            "Forms",
+            "FormsReportAnalyzer",
+            "JEE",
+            "Microsoft T-SQL",
+            "PL/SQL",
+            "SQL",
+            "SQL Server",
+            "Sybase T-SQL",
+            "Visual Basic"
+        ]
+    },
+    {
+        "id": 7868,
+        "name": "Avoid Open SQL queries in loops",
+        "href": "AIP/quality-rules/7868",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7880,
+        "name": "Avoid nested loops",
+        "href": "AIP/quality-rules/7880",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 7902,
+        "name": "Avoid SQL queries that no index can support",
+        "href": "AIP/quality-rules/7902",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP",
+            "Cobol",
+            "Forms",
+            "Microsoft T-SQL",
+            "PL/SQL",
+            "SQL Server",
+            "Sybase T-SQL"
+        ]
+    },
+    {
+        "id": 7904,
+        "name": "Avoid SQL queries on XXL tables that no index can support",
+        "href": "AIP/quality-rules/7904",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP",
+            "Cobol",
+            "Microsoft T-SQL",
+            "PL/SQL",
+            "SQL Server",
+            "Sybase T-SQL"
+        ]
+    },
+    {
+        "id": 7954,
+        "name": "Avoid indirect String concatenation inside loops",
+        "href": "AIP/quality-rules/7954",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7962,
+        "name": "Avoid direct or indirect remote calls inside a loop",
+        "href": "AIP/quality-rules/7962",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8110,
+        "name": "Avoid not using dedicated stored procedures when processing multiple data accesses",
+        "href": "AIP/quality-rules/8110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8132,
+        "name": "Avoid using CHECK, EXIT,or RETURN in SELECT ... ENDSELECT loops",
+        "href": "AIP/quality-rules/8132",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 1005044,
+        "name": "Avoid Opening Cursor in a loop (EGL)",
+        "href": "AIP/quality-rules/1005044",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1007050,
+        "name": "Avoid method invocation in loop termination expression (PHP)",
+        "href": "AIP/quality-rules/1007050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007116,
+        "name": "Avoid artifacts with Object Instantiation in loops (PHP)",
+        "href": "AIP/quality-rules/1007116",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007184,
+        "name": "Avoid using size functions inside loops (PHP)",
+        "href": "AIP/quality-rules/1007184",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1019400,
+        "name": "Avoid calling Entity DbContext SaveChanges() inside loops",
+        "href": "AIP/quality-rules/1019400",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019402,
+        "name": "Avoid using Entity DbContext.Update() in loops",
+        "href": "AIP/quality-rules/1019402",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019404,
+        "name": "Avoid calling Add() inside a loop when AddRange() is applicable",
+        "href": "AIP/quality-rules/1019404",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019406,
+        "name": "Avoid using DbSet queries ToList()/ToArray()/ToDictionary() in foreach clause",
+        "href": "AIP/quality-rules/1019406",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019420,
+        "name": "Avoid doing bulk changes without disabling Entity changes Tracking",
+        "href": "AIP/quality-rules/1019420",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1020004,
+        "name": "Avoid using querySelectorAll",
+        "href": "AIP/quality-rules/1020004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020006,
+        "name": "Avoid calling a function in a termination loop (Javascript)",
+        "href": "AIP/quality-rules/1020006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020008,
+        "name": "Avoid using for-in loop",
+        "href": "AIP/quality-rules/1020008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020012,
+        "name": "Avoid using a web service with WebSocket inside a loop",
+        "href": "AIP/quality-rules/1020012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020014,
+        "name": "Avoid using a web service with XMLHttpRequest inside a loop",
+        "href": "AIP/quality-rules/1020014",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020016,
+        "name": "Avoid using too much dot notation in loop",
+        "href": "AIP/quality-rules/1020016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020038,
+        "name": "Avoid defining and calling functions inside loops",
+        "href": "AIP/quality-rules/1020038",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020056,
+        "name": "Avoid using Javascript document.all collection",
+        "href": "AIP/quality-rules/1020056",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020208,
+        "name": "Avoid using v-if on the same element as v-for",
+        "href": "AIP/quality-rules/1020208",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020224,
+        "name": "Avoid using the call of web service inside a loop (VueJS)",
+        "href": "AIP/quality-rules/1020224",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020300,
+        "name": "Avoid using the call of web service jQuery ajax inside a loop",
+        "href": "AIP/quality-rules/1020300",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020302,
+        "name": "Avoid using element type in jQuery",
+        "href": "AIP/quality-rules/1020302",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020306,
+        "name": "Always use find for Id->Child nested selectors",
+        "href": "AIP/quality-rules/1020306",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020308,
+        "name": "Always cache the returned objects in variables to be reused",
+        "href": "AIP/quality-rules/1020308",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020310,
+        "name": "Use \"type=\" to select elements by type",
+        "href": "AIP/quality-rules/1020310",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020314,
+        "name": "Avoid using css() of many elements",
+        "href": "AIP/quality-rules/1020314",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020316,
+        "name": "Avoid Universal Selectors",
+        "href": "AIP/quality-rules/1020316",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020504,
+        "name": "Avoid using the call of web service with AngularJS $http inside a loop",
+        "href": "AIP/quality-rules/1020504",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020534,
+        "name": "Avoid using a web service with AngularJS $resource inside a loop",
+        "href": "AIP/quality-rules/1020534",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020550,
+        "name": "Avoid using \"ng-repeat\" loop without \"track by\" option",
+        "href": "AIP/quality-rules/1020550",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020714,
+        "name": "Avoid having multiple routes for the same path with Node.js Express App",
+        "href": "AIP/quality-rules/1020714",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020716,
+        "name": "Avoid using the call of web service with Node.js http.get or http.request inside a loop",
+        "href": "AIP/quality-rules/1020716",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020748,
+        "name": "Avoid using the call of data service with Node.js inside a loop",
+        "href": "AIP/quality-rules/1020748",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020814,
+        "name": "Avoid using web service calls inside a loop",
+        "href": "AIP/quality-rules/1020814",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020828,
+        "name": "Avoid String concatenation in loops (Typescript)",
+        "href": "AIP/quality-rules/1020828",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020838,
+        "name": "Avoid using Rx.observable.fromEvent without having a debouncetime set",
+        "href": "AIP/quality-rules/1020838",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020840,
+        "name": "Avoid using ngFor loop without TrackBy option",
+        "href": "AIP/quality-rules/1020840",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020898,
+        "name": "Avoid having multiple routes for the same path with Node.js Express App (TypeScript)",
+        "href": "AIP/quality-rules/1020898",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021002,
+        "name": "Avoid using a web service with Python httplib HTTPConnection inside a loop",
+        "href": "AIP/quality-rules/1021002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021004,
+        "name": "Avoid using a web service with Python requests inside a loop",
+        "href": "AIP/quality-rules/1021004",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021006,
+        "name": "Avoid using a web service with Python aiohttp ClientSession inside a loop",
+        "href": "AIP/quality-rules/1021006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021008,
+        "name": "Avoid using a web service with Python urllib.request inside a loop",
+        "href": "AIP/quality-rules/1021008",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021010,
+        "name": "Avoid using a web service with Python urllib2 inside a loop",
+        "href": "AIP/quality-rules/1021010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021012,
+        "name": "Avoid using a web service with Python httplib2 Http inside a loop",
+        "href": "AIP/quality-rules/1021012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021110,
+        "name": "Avoid using regular expression vulnerable to ReDoS (Python)",
+        "href": "AIP/quality-rules/1021110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1025056,
+        "name": "Avoid running SQL queries inside a loop",
+        "href": "AIP/quality-rules/1025056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027040,
+        "name": "Avoid using multiple OrderBy calls",
+        "href": "AIP/quality-rules/1027040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1030004,
+        "name": "Avoid using \"foreach\" to iterate over a explicit range (Kotlin)",
+        "href": "AIP/quality-rules/1030004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1045302,
+        "name": "Ensure specifying fetch size for large queries",
+        "href": "AIP/quality-rules/1045302",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1050000,
+        "name": "Avoid using the call of web service with iOS/Objective-C API inside a loop",
+        "href": "AIP/quality-rules/1050000",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1055002,
+        "name": "Avoid using the call of web service with iOS/Swift API inside a loop",
+        "href": "AIP/quality-rules/1055002",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1060012,
+        "name": "Avoid SQL queries on XXL tables that no index can support for artifacts with high fan-in",
+        "href": "AIP/quality-rules/1060012",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1060014,
+        "name": "Avoid SQL queries that no index can support for artifacts with high fan-in",
+        "href": "AIP/quality-rules/1060014",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1060018,
+        "name": "Avoid String concatenation in loops for artifacts with high fan in",
+        "href": "AIP/quality-rules/1060018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1060022,
+        "name": "Avoid too many SQL calls for methods with high fan-in",
+        "href": "AIP/quality-rules/1060022",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1101004,
+        "name": "Avoid non-indexed SQL queries",
+        "href": "AIP/quality-rules/1101004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101006,
+        "name": "Avoid non-indexed XXL SQL queries",
+        "href": "AIP/quality-rules/1101006",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101084,
+        "name": "Avoid Cursors inside a loop (SQL)",
+        "href": "AIP/quality-rules/1101084",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "FormsReportAnalyzer",
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101116,
+        "name": "Avoid using SQL queries inside a loop (SQL)",
+        "href": "AIP/quality-rules/1101116",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1106004,
+        "name": "Ensure CLOB data type is not used",
+        "href": "AIP/quality-rules/1106004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1520732,
+        "name": "Siebel eScript: Use DeleteRecord method only inside Loops located in Functions",
+        "href": "AIP/quality-rules/1520732",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1600488,
+        "name": "Avoid tables having indexes with a too large index definition (PeopleSoft)",
+        "href": "AIP/quality-rules/1600488",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PeopleSoft"
         ]
     }
 ]

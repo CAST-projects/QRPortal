@@ -10,6 +10,16 @@
         ]
     },
     {
+        "id": 7526,
+        "name": "Avoid using hard-coded paths",
+        "href": "AIP/quality-rules/7526",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
         "id": 7932,
         "name": "Avoid Constructors not supplying an initial value for all non-static data members",
         "href": "AIP/quality-rules/7932",
@@ -34,6 +44,26 @@
         "id": 8034,
         "name": "Working-Storage variables must be initialized before being read",
         "href": "AIP/quality-rules/8034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 8102,
+        "name": "Avoid hard-coded network resource names (JEE)",
+        "href": "AIP/quality-rules/8102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8236,
+        "name": "Avoid using hard-coded values",
+        "href": "AIP/quality-rules/8236",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -78,6 +108,189 @@
         "severity": 10,
         "technologyNames": [
             "Fortran"
+        ]
+    },
+    {
+        "id": 1008128,
+        "name": "Avoid hard-coded IP addresses (RPG400)",
+        "href": "AIP/quality-rules/1008128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
+        "id": 1009128,
+        "name": "Avoid hard-coded IP addresses (RPG300)",
+        "href": "AIP/quality-rules/1009128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG300"
+        ]
+    },
+    {
+        "id": 1012028,
+        "name": "Avoid hard-coded IP addresses (CL400)",
+        "href": "AIP/quality-rules/1012028",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1019008,
+        "name": "Avoid not enabling throttling while setting service behavior",
+        "href": "AIP/quality-rules/1019008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "WCF"
+        ]
+    },
+    {
+        "id": 1019416,
+        "name": "Avoid using Count() when Any() is sufficient",
+        "href": "AIP/quality-rules/1019416",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1020070,
+        "name": "Avoid hard-coded network resource names (Javascript)",
+        "href": "AIP/quality-rules/1020070",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020826,
+        "name": "Avoid hard-coded network resource names (Typescript)",
+        "href": "AIP/quality-rules/1020826",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021022,
+        "name": "Initialize ancestors when overriding __init__",
+        "href": "AIP/quality-rules/1021022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021030,
+        "name": "Avoid hard-coded network resource names (Python)",
+        "href": "AIP/quality-rules/1021030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1027032,
+        "name": "Avoid hard-coded network resource names (.NET, VB)",
+        "href": "AIP/quality-rules/1027032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027074,
+        "name": "Avoid hard-coded URIs (.NET)",
+        "href": "AIP/quality-rules/1027074",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1030018,
+        "name": "Avoid hard-coded network resource names (Kotlin)",
+        "href": "AIP/quality-rules/1030018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1043084,
+        "name": "Avoid XML schemas with unbounded occurrences",
+        "href": "AIP/quality-rules/1043084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1045302,
+        "name": "Ensure specifying fetch size for large queries",
+        "href": "AIP/quality-rules/1045302",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1050036,
+        "name": "Ensure that iOS Projects are ARC enabled",
+        "href": "AIP/quality-rules/1050036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1055028,
+        "name": "Avoid hard-coded network resource names (Swift)",
+        "href": "AIP/quality-rules/1055028",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1520774,
+        "name": "Avoid setting field values using hard-coded values (Siebel)",
+        "href": "AIP/quality-rules/1520774",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Siebel"
+        ]
+    },
+    {
+        "id": 1600200,
+        "name": "Avoid using hard-coded message (PeopleSoft)",
+        "href": "AIP/quality-rules/1600200",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PeopleSoft"
         ]
     }
 ]

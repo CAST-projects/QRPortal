@@ -1,0 +1,66 @@
+[
+    {
+        "id": 4594,
+        "name": "Prefer not using 'java.io.File' to avoid violating the Enterprise JavaBeans (EJB) specification",
+        "href": "AIP/quality-rules/4594",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4612,
+        "name": "Ensure you don't use JNI for security reason",
+        "href": "AIP/quality-rules/4612",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7638,
+        "name": "Prefer using container's resource management facilities to obtain connections to resources instead of using DriverManager class allowing direct connection to the database",
+        "href": "AIP/quality-rules/7638",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7942,
+        "name": "Ensure not having EJBs using 'synchronized' qualifier or calling 'wait', 'notify' and 'notifyAll' Methods as this might corrupt the normal behavior",
+        "href": "AIP/quality-rules/7942",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8436,
+        "name": "Ensure your application does not process thread with unsanitized stream",
+        "href": "AIP/quality-rules/8436",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8498,
+        "name": "Ensure your application does not process thread with unsanitized stream",
+        "href": "AIP/quality-rules/8498",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    }
+]

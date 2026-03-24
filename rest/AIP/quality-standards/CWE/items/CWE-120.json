@@ -1,9 +1,9 @@
 {
     "id": "CWE-120",
-    "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+    "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') [Base]",
     "href": "AIP/quality-standards/CWE/items/CWE-120",
     "url": "https://cwe.mitre.org/data/definitions/120.html",
-    "description": "The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer, leading to a buffer overflow.",
+    "description": "The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer.",
     "isoPatterns": [
         {
             "name": "ASCQM Ban Input Acquisition Primitives without Boundary Checking Capabilities"

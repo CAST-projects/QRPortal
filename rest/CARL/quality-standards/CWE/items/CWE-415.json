@@ -1,9 +1,9 @@
 {
     "id": "CWE-415",
-    "name": "Double Free",
+    "name": "Double Free [Variant]",
     "href": "CARL/quality-standards/CWE/items/CWE-415",
     "url": "https://cwe.mitre.org/data/definitions/415.html",
-    "description": "The product calls free() twice on the same memory address, potentially leading to modification of unexpected memory locations.",
+    "description": "The product calls free() twice on the same memory address.",
     "isoPatterns": [
         {
             "name": "ASCQM Ban Double Free On Pointers"

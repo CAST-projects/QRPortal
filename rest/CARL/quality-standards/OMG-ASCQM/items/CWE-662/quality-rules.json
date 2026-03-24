@@ -1,0 +1,137 @@
+[
+    {
+        "id": 7152,
+        "name": "Ensure to store global information in HttpSession, or use stateful session beans that are specifically targeted for this purpose",
+        "href": "AIP/quality-rules/7152",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7438,
+        "name": "Ensure to declare the field that hold the unique instance as static final and initialize it in the declaration or synchronize the method that initialize the field",
+        "href": "AIP/quality-rules/7438",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7446,
+        "name": "Prefer not using Double checked locking for JSE 4.x and previous version",
+        "href": "AIP/quality-rules/7446",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7714,
+        "name": "Prefer not using auto-wiring to guarantee more flexibility and better performance of your application",
+        "href": "AIP/quality-rules/7714",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7716,
+        "name": "Ensure not using/defining singleton or factory for Spring Based application",
+        "href": "AIP/quality-rules/7716",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7942,
+        "name": "Ensure not having EJBs using 'synchronized' qualifier or calling 'wait', 'notify' and 'notifyAll' Methods as this might corrupt the normal behavior",
+        "href": "AIP/quality-rules/7942",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8054,
+        "name": "Avoid calling blocking functions with an infinite timeout",
+        "href": "AIP/quality-rules/8054",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 8100,
+        "name": "Ensure setting timeouts for blocking synchronous calls to prevent an infinite waiting time",
+        "href": "AIP/quality-rules/8100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8400,
+        "name": "Avoid having lock on this object",
+        "href": "AIP/quality-rules/8400",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1020062,
+        "name": "Make sure that you have only one instance created in class constructor and it has been frozen to avoid any changes.",
+        "href": "AIP/quality-rules/1020062",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1027014,
+        "name": "Do not use the Thread.resume or Thread.suspend APIs.",
+        "href": "AIP/quality-rules/1027014",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027058,
+        "name": "Ensure not using blocking async methods (.NET)",
+        "href": "AIP/quality-rules/1027058",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027080,
+        "name": "Always use ConfigureAwait(false) in library code awaited tasks",
+        "href": "AIP/quality-rules/1027080",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    }
+]

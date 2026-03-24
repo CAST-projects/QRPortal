@@ -1,11 +1,17 @@
 {
     "id": "CWE-183",
-    "name": "Permissive List of Allowed Inputs",
+    "name": "Permissive List of Allowed Inputs [Base]",
     "href": "AIP/quality-standards/CWE/items/CWE-183",
     "url": "https://cwe.mitre.org/data/definitions/183.html",
     "description": "The product implements a protection mechanism that relies on a list of inputs (or properties of inputs) that are explicitly allowed by policy because the inputs are assumed to be safe, but the list is too permissive - that is, it allows an input that is unsafe, leading to resultant weaknesses.",
     "isoPatterns": null,
-    "count": 0,
-    "qualityRules": null,
-    "qualityTemplates": null
+    "count": 3,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/CWE/items/CWE-183/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/CWE/items/CWE-183/quality-templates"
+    }
 }

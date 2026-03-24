@@ -1,9 +1,9 @@
 {
     "id": "CWE-662",
-    "name": "Improper Synchronization",
+    "name": "Improper Synchronization [Class]",
     "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-662",
     "url": "https://cwe.mitre.org/data/definitions/662.html",
-    "description": "The product utilizes multiple threads or processes to allow temporary access to a shared resource that can only be exclusive to one process at a time, but it does not properly synchronize these actions, which might cause simultaneous accesses of this resource by multiple threads or processes.",
+    "description": "The product utilizes multiple threads, processes, components, or systems to allow temporary access to a shared resource that can only be exclusive to one process at a time, but it does not properly synchronize these actions, which might cause simultaneous accesses of this resource by multiple threads or processes.",
     "isoPatterns": [
         {
             "name": "ASCQM Ban Creation of Lock On Inappropriate Object Type"
@@ -45,7 +45,13 @@
             "name": "ASCQM Singleton Creation without Proper Locking in Multi-Threaded Context"
         }
     ],
-    "count": 0,
-    "qualityRules": null,
-    "qualityTemplates": null
+    "count": 15,
+    "qualityRules": {
+        "name": "Quality Rules in numeric ID order",
+        "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-662/quality-rules"
+    },
+    "qualityTemplates": {
+        "name": "Quality Templates in numeric ID order",
+        "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-662/quality-templates"
+    }
 }

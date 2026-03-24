@@ -1,0 +1,220 @@
+[
+    {
+        "id": 4594,
+        "name": "Prefer not using 'java.io.File' to avoid violating the Enterprise JavaBeans (EJB) specification",
+        "href": "AIP/quality-rules/4594",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4612,
+        "name": "Ensure you don't use JNI for security reason",
+        "href": "AIP/quality-rules/4612",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4614,
+        "name": "A clone method that is overridden in a subclass should call super.clone. Not doing so causes the subclass clone to return an object of the wrong type.",
+        "href": "AIP/quality-rules/4614",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4616,
+        "name": "Prefer calling \"super.finalize()\" at the end of \"Object.finalize()\" implementations",
+        "href": "AIP/quality-rules/4616",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7190,
+        "name": "Struts1: Validate() Method of Struts Validator form must call super.validate()",
+        "href": "AIP/quality-rules/7190",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7192,
+        "name": "Ensure that Struts Forms extend a Validator Class",
+        "href": "AIP/quality-rules/7192",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7252,
+        "name": "Ensure to add a try finally bloc",
+        "href": "AIP/quality-rules/7252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7434,
+        "name": "Ensure to overrides equals() and hashCode()",
+        "href": "AIP/quality-rules/7434",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7444,
+        "name": "Ensure to implement serialization if your web container implements such mechanisms or ignore it in others cases",
+        "href": "AIP/quality-rules/7444",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7504,
+        "name": "Ensure that persistent classes implement hashCode() and equals()",
+        "href": "AIP/quality-rules/7504",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7506,
+        "name": "Ensure that equals() and hashCode() are defined for component as they do not have an identifier property",
+        "href": "AIP/quality-rules/7506",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7638,
+        "name": "Prefer using container's resource management facilities to obtain connections to resources instead of using DriverManager class allowing direct connection to the database",
+        "href": "AIP/quality-rules/7638",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7942,
+        "name": "Ensure not having EJBs using 'synchronized' qualifier or calling 'wait', 'notify' and 'notifyAll' Methods as this might corrupt the normal behavior",
+        "href": "AIP/quality-rules/7942",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8156,
+        "name": "Persistent classes should implement GetHashCode() and Equals()",
+        "href": "AIP/quality-rules/8156",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8436,
+        "name": "Ensure your application does not process thread with unsanitized stream",
+        "href": "AIP/quality-rules/8436",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8498,
+        "name": "Ensure your application does not process thread with unsanitized stream",
+        "href": "AIP/quality-rules/8498",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027012,
+        "name": "Ensure to declare the object as serializable if you are using it as a httpsessionstate attribute",
+        "href": "AIP/quality-rules/1027012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027064,
+        "name": "Always override 'Equals' and Comparison operators with IComparable implementation",
+        "href": "AIP/quality-rules/1027064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1039068,
+        "name": "Ensure to declare the object as serializable if you are using it as a httpsession attribute",
+        "href": "AIP/quality-rules/1039068",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042004,
+        "name": "Ensure not using the same name for multiple validation forms to avoid any validation error.",
+        "href": "AIP/quality-rules/1042004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    }
+]

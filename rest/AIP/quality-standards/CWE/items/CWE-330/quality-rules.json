@@ -1,5 +1,17 @@
 [
     {
+        "id": 8222,
+        "name": "Avoid hard-coded credentials",
+        "href": "AIP/quality-rules/8222",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8242,
         "name": "Avoid using insufficient random values for cookies",
         "href": "AIP/quality-rules/8242",
@@ -9,6 +21,90 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 8424,
+        "name": "Avoid hard-coded HMAC and cryptographic key",
+        "href": "AIP/quality-rules/8424",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8430,
+        "name": "Avoid using hard-coded seed or no seed at all for random values generation",
+        "href": "AIP/quality-rules/8430",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8554,
+        "name": "Avoid using insufficient random generator",
+        "href": "AIP/quality-rules/8554",
+        "critical": false,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018864,
+        "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+        "href": "AIP/quality-rules/1018864",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1020104,
+        "name": "Avoid hard-coded passwords (Javascript)",
+        "href": "AIP/quality-rules/1020104",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Avoid hard-coded passwords (TypeScript)",
+        "href": "AIP/quality-rules/1020820",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021042,
+        "name": "Avoid hard-coded passwords (Python)",
+        "href": "AIP/quality-rules/1021042",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Python"
         ]
     },
     {
@@ -22,6 +118,51 @@
         ]
     },
     {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027024,
+        "name": "Avoid comparing passwords against hard-coded strings",
+        "href": "AIP/quality-rules/1027024",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1030016,
+        "name": "Avoid hard-coded passwords and credentials (Kotlin)",
+        "href": "AIP/quality-rules/1030016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
         "id": 1034048,
         "name": "Avoid using insufficient random generator (PHP)",
         "href": "AIP/quality-rules/1034048",
@@ -29,6 +170,56 @@
         "severity": 30,
         "technologyNames": [
             "PHP"
+        ]
+    },
+    {
+        "id": 1034056,
+        "name": "Avoid using hard-coded HMAC keys (PHP)",
+        "href": "AIP/quality-rules/1034056",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1039006,
+        "name": "Avoid using predictable SecureRandom Seeds",
+        "href": "AIP/quality-rules/1039006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039114,
+        "name": "Avoid predictable initialization vector (JEE)",
+        "href": "AIP/quality-rules/1039114",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1055036,
+        "name": "Avoid hard-coded passwords (Swift)",
+        "href": "AIP/quality-rules/1055036",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1600840,
+        "name": "Avoid using hard-coded usernames (PeopleSoft)",
+        "href": "AIP/quality-rules/1600840",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PeopleSoft"
         ]
     }
 ]
