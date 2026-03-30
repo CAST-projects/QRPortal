@@ -34,8 +34,15 @@
     "technicalCriteria": [
         {
             "id": 1066601,
-            "name": "CWE-501 - Trust Boundary Violation",
+            "name": "CWE-501 - Trust Boundary Violation [Base]",
             "href": "AIP/technical-criteria/1066601",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066764,
+            "name": "CWE-664 - Improper Control of a Resource Through its Lifetime [Pillar]",
+            "href": "AIP/technical-criteria/1066764",
             "weight": 5,
             "critical": false
         },
@@ -57,6 +64,13 @@
             "id": 1062344,
             "name": "OWASP-2021-A04 - Insecure Design",
             "href": "AIP/technical-criteria/1062344",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062366,
+            "name": "OWASP-2025-A06 - Insecure Design",
+            "href": "AIP/technical-criteria/1062366",
             "weight": 5,
             "critical": false
         },

@@ -21,6 +21,11 @@
     "alternativeName": "Avoid preg_replace with /e option (PHP)",
     "businessCriteria": [
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -34,8 +39,36 @@
     "technicalCriteria": [
         {
             "id": 1066724,
-            "name": "CWE-624 - Executable Regular Expression Error",
+            "name": "CWE-624 - Executable Regular Expression Error [Base]",
             "href": "AIP/technical-criteria/1066724",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066807,
+            "name": "CWE-707 - Improper Neutralization [Pillar]",
+            "href": "AIP/technical-criteria/1066807",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066174,
+            "name": "CWE-74 - Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') [Class]",
+            "href": "AIP/technical-criteria/1066174",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061013,
+            "name": "CWE-77 - Improper Neutralization of Special Elements used in a Command ('Command Injection') [Class]",
+            "href": "AIP/technical-criteria/1061013",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066177,
+            "name": "CWE-77 - Improper Neutralization of Special Elements used in a Command ('Command Injection') [Class]",
+            "href": "AIP/technical-criteria/1066177",
             "weight": 5,
             "critical": false
         },
@@ -57,6 +90,13 @@
             "id": 1062343,
             "name": "OWASP-2021-A03 - Injection",
             "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062365,
+            "name": "OWASP-2025-A05 - Injection",
+            "href": "AIP/technical-criteria/1062365",
             "weight": 5,
             "critical": false
         },

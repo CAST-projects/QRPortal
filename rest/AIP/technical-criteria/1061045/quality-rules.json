@@ -11,6 +11,26 @@
         ]
     },
     {
+        "id": 4616,
+        "name": "'super.finalize()' should be invoked when overriding finalize() method",
+        "href": "AIP/quality-rules/4616",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7252,
+        "name": "Call 'super.finalize ()' in the \"finally\" block of 'finalize ()' methods",
+        "href": "AIP/quality-rules/7252",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7258,
         "name": "DataReader must be called using CommandBehavior.CloseConnection enumeration",
         "href": "AIP/quality-rules/7258",
@@ -19,6 +39,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 7562,
+        "name": "Avoid static Field of type collection",
+        "href": "AIP/quality-rules/7562",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -42,6 +72,17 @@
         ]
     },
     {
+        "id": 8086,
+        "name": "Avoid types that own disposable fields and are not disposable",
+        "href": "AIP/quality-rules/8086",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8104,
         "name": "Avoid missing release of SQL connection after an effective lifetime (JEE)",
         "href": "AIP/quality-rules/8104",
@@ -49,6 +90,18 @@
         "weight": 5,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 8108,
+        "name": "Avoid missing release of stream connection after an effective lifetime",
+        "href": "AIP/quality-rules/8108",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -63,6 +116,56 @@
         ]
     },
     {
+        "id": 1001104,
+        "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001104",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001108,
+        "name": "Avoid PLC Copybooks using variables with ALLOCATE and without FREE  (PL1)",
+        "href": "AIP/quality-rules/1001108",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1020214,
+        "name": "Ensure to turn off and clear event listeners after component is destroyed",
+        "href": "AIP/quality-rules/1020214",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020730,
+        "name": "Ensure Node.js filesystem are closed",
+        "href": "AIP/quality-rules/1020730",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020892,
+        "name": "Ensure Node.js filesystem are closed (TypeScript)",
+        "href": "AIP/quality-rules/1020892",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020928,
         "name": "Always unsubscribe events in Angular onDestroy method",
         "href": "AIP/quality-rules/1020928",
@@ -73,6 +176,16 @@
         ]
     },
     {
+        "id": 1021026,
+        "name": "Avoid leaving open file resources (Python)",
+        "href": "AIP/quality-rules/1021026",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1024022,
         "name": "Always released Media Resources",
         "href": "AIP/quality-rules/1024022",
@@ -80,6 +193,80 @@
         "weight": 5,
         "technologyNames": [
             "JEE"
+        ]
+    },
+    {
+        "id": 1027016,
+        "name": "Avoid throwing exceptions in destructors",
+        "href": "AIP/quality-rules/1027016",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027018,
+        "name": "Avoid throwing exceptions from finally block",
+        "href": "AIP/quality-rules/1027018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027036,
+        "name": "Avoid rethrowing exception explicitly",
+        "href": "AIP/quality-rules/1027036",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1039108,
+        "name": "Avoid leaving temporary files in directory (JEE)",
+        "href": "AIP/quality-rules/1039108",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1050014,
+        "name": "UIApplication delegate applicationDidEnterBackground: must delete sensitive data (Objective-C)",
+        "href": "AIP/quality-rules/1050014",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1055022,
+        "name": "UIApplicationDelegate applicationDidEnterBackground must delete sensitive data (Swift)",
+        "href": "AIP/quality-rules/1055022",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1065004,
+        "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
+        "href": "AIP/quality-rules/1065004",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
         ]
     }
 ]

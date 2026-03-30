@@ -1,770 +1,812 @@
 [
     {
         "id": 1061010,
-        "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+        "name": "CWE-22 - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') [Base]",
         "description": "The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
         "href": "AIP/technical-criteria/1061010",
         "weight": 5
     },
     {
         "id": 1061011,
-        "name": "CWE-23 - Relative Path Traversal",
+        "name": "CWE-23 - Relative Path Traversal [Base]",
         "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that directory.",
         "href": "AIP/technical-criteria/1061011",
         "weight": 5
     },
     {
         "id": 1061012,
-        "name": "CWE-36 - Absolute Path Traversal",
+        "name": "CWE-36 - Absolute Path Traversal [Base]",
         "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory.",
         "href": "AIP/technical-criteria/1061012",
         "weight": 5
     },
     {
         "id": 1061013,
-        "name": "CWE-77 - Improper Neutralization of Special Elements used in a Command ('Command Injection')",
+        "name": "CWE-77 - Improper Neutralization of Special Elements used in a Command ('Command Injection') [Class]",
         "description": "The product constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.",
         "href": "AIP/technical-criteria/1061013",
         "weight": 5
     },
     {
         "id": 1061014,
-        "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+        "name": "CWE-78 - Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') [Base]",
         "description": "The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.",
         "href": "AIP/technical-criteria/1061014",
         "weight": 5
     },
     {
         "id": 1061015,
-        "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+        "name": "CWE-79 - Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') [Base]",
         "description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
         "href": "AIP/technical-criteria/1061015",
         "weight": 5
     },
     {
         "id": 1061016,
-        "name": "CWE-88 - Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
+        "name": "CWE-88 - Improper Neutralization of Argument Delimiters in a Command ('Argument Injection') [Base]",
         "description": "The product constructs a string for a command to be executed by a separate component in another control sphere, but it does not properly delimit the intended arguments, options, or switches within that command string.",
         "href": "AIP/technical-criteria/1061016",
         "weight": 5
     },
     {
         "id": 1061017,
-        "name": "CWE-89 - Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+        "name": "CWE-89 - Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') [Base]",
         "description": "The product constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component. Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data.",
         "href": "AIP/technical-criteria/1061017",
         "weight": 5
     },
     {
         "id": 1061018,
-        "name": "CWE-90 - Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')",
+        "name": "CWE-90 - Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection') [Base]",
         "description": "The product constructs all or part of an LDAP query using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended LDAP query when it is sent to a downstream component.",
         "href": "AIP/technical-criteria/1061018",
         "weight": 5
     },
     {
         "id": 1061019,
-        "name": "CWE-91 - XML Injection (aka Blind XPath Injection)",
+        "name": "CWE-91 - XML Injection (aka Blind XPath Injection) [Base]",
         "description": "The product does not properly neutralize special elements that are used in XML, allowing attackers to modify the syntax, content, or commands of the XML before it is processed by an end system.",
         "href": "AIP/technical-criteria/1061019",
         "weight": 5
     },
     {
         "id": 1061020,
-        "name": "CWE-99 - Improper Control of Resource Identifiers ('Resource Injection')",
+        "name": "CWE-99 - Improper Control of Resource Identifiers ('Resource Injection') [Class]",
         "description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
         "href": "AIP/technical-criteria/1061020",
         "weight": 5
     },
     {
         "id": 1061021,
-        "name": "CWE-119 - Improper Restriction of Operations within the Bounds of a Memory Buffer",
+        "name": "CWE-119 - Improper Restriction of Operations within the Bounds of a Memory Buffer [Class]",
         "description": "The product performs operations on a memory buffer, but it reads from or writes to a memory location outside the buffer's intended boundary. This may result in read or write operations on unexpected memory locations that could be linked to other variables, data structures, or internal program data.",
         "href": "AIP/technical-criteria/1061021",
         "weight": 5
     },
     {
         "id": 1061022,
-        "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
-        "description": "The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer, leading to a buffer overflow.",
+        "name": "CWE-120 - Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') [Base]",
+        "description": "The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer.",
         "href": "AIP/technical-criteria/1061022",
         "weight": 5
     },
     {
         "id": 1061025,
-        "name": "CWE-129 - Improper Validation of Array Index",
+        "name": "CWE-129 - Improper Validation of Array Index [Variant]",
         "description": "The product uses untrusted input when calculating or using an array index, but the product does not validate or incorrectly validates the index to ensure the index references a valid position within the array.",
         "href": "AIP/technical-criteria/1061025",
         "weight": 5
     },
     {
         "id": 1061028,
-        "name": "CWE-134 - Use of Externally-Controlled Format String",
+        "name": "CWE-134 - Use of Externally-Controlled Format String [Base]",
         "description": "The product uses a function that accepts a format string as an argument, but the format string originates from an external source.",
         "href": "AIP/technical-criteria/1061028",
         "weight": 5
     },
     {
         "id": 1061033,
-        "name": "CWE-197 - Numeric Truncation Error",
+        "name": "CWE-197 - Numeric Truncation Error [Base]",
         "description": "Truncation errors occur when a primitive is cast to a primitive of a smaller size and data is lost in the conversion.",
         "href": "AIP/technical-criteria/1061033",
         "weight": 5
     },
     {
         "id": 1061034,
-        "name": "CWE-248 - Uncaught Exception",
+        "name": "CWE-248 - Uncaught Exception [Base]",
         "description": "An exception is thrown from a function, but it is not caught.",
         "href": "AIP/technical-criteria/1061034",
         "weight": 5
     },
     {
         "id": 1061035,
-        "name": "CWE-252 - Unchecked Return Value",
+        "name": "CWE-252 - Unchecked Return Value [Base]",
         "description": "The product does not check the return value from a method or function, which can prevent it from detecting unexpected states and conditions.",
         "href": "AIP/technical-criteria/1061035",
         "weight": 5
     },
     {
         "id": 1061036,
-        "name": "CWE-259 - Use of Hard-coded Password",
+        "name": "CWE-259 - Use of Hard-coded Password [Variant]",
         "description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
         "href": "AIP/technical-criteria/1061036",
         "weight": 5
     },
     {
         "id": 1061037,
-        "name": "CWE-321 - Use of Hard-coded Cryptographic Key",
-        "description": "The use of a hard-coded cryptographic key significantly increases the possibility that encrypted data may be recovered.",
+        "name": "CWE-321 - Use of Hard-coded Cryptographic Key [Variant]",
+        "description": "The product uses a hard-coded, unchangeable cryptographic key.",
         "href": "AIP/technical-criteria/1061037",
         "weight": 5
     },
     {
         "id": 1061040,
-        "name": "CWE-390 - Detection of Error Condition Without Action",
+        "name": "CWE-390 - Detection of Error Condition Without Action [Base]",
         "description": "The product detects a specific error, but takes no actions to handle the error.",
         "href": "AIP/technical-criteria/1061040",
         "weight": 5
     },
     {
         "id": 1061041,
-        "name": "CWE-391 - Unchecked Error Condition",
+        "name": "CWE-391 - Unchecked Error Condition [Base]",
         "description": "[PLANNED FOR DEPRECATION. SEE MAINTENANCE NOTES AND CONSIDER CWE-252, CWE-248, OR CWE-1069.] Ignoring exceptions and other error conditions may allow an attacker to induce unexpected behavior unnoticed.",
         "href": "AIP/technical-criteria/1061041",
         "weight": 5
     },
     {
         "id": 1061042,
-        "name": "CWE-392 - Missing Report of Error Condition",
+        "name": "CWE-392 - Missing Report of Error Condition [Base]",
         "description": "The product encounters an error but does not provide a status code or return value to indicate that an error has occurred.",
         "href": "AIP/technical-criteria/1061042",
         "weight": 5
     },
     {
         "id": 1061043,
-        "name": "CWE-394 - Unexpected Status Code or Return Value",
+        "name": "CWE-394 - Unexpected Status Code or Return Value [Base]",
         "description": "The product does not properly check when a function or operation returns a value that is legitimate for the function, but is not expected by the product.",
         "href": "AIP/technical-criteria/1061043",
         "weight": 5
     },
     {
         "id": 1061044,
-        "name": "CWE-401 - Missing Release of Memory after Effective Lifetime",
-        "description": "The product does not sufficiently track and release allocated memory after it has been used, which slowly consumes remaining memory.",
+        "name": "CWE-401 - Missing Release of Memory after Effective Lifetime [Variant]",
+        "description": "The product does not sufficiently track and release allocated memory after it has been used, making the memory unavailable for reallocation and reuse.",
         "href": "AIP/technical-criteria/1061044",
         "weight": 5
     },
     {
         "id": 1061045,
-        "name": "CWE-404 - Improper Resource Shutdown or Release",
+        "name": "CWE-404 - Improper Resource Shutdown or Release [Class]",
         "description": "The product does not release or incorrectly releases a resource before it is made available for re-use.",
         "href": "AIP/technical-criteria/1061045",
         "weight": 5
     },
     {
+        "id": 1061046,
+        "name": "CWE-407 - Inefficient Algorithmic Complexity [Class]",
+        "description": "An algorithm in a product has an inefficient worst-case computational complexity that may be detrimental to system performance and can be triggered by an attacker, typically using crafted manipulations that ensure that the worst case is being reached.",
+        "href": "AIP/technical-criteria/1061046",
+        "weight": 5
+    },
+    {
         "id": 1061049,
-        "name": "CWE-424 - Improper Protection of Alternate Path",
+        "name": "CWE-424 - Improper Protection of Alternate Path [Class]",
         "description": "The product does not sufficiently protect all possible paths that a user can take to access restricted functionality or resources.",
         "href": "AIP/technical-criteria/1061049",
         "weight": 5
     },
     {
         "id": 1061050,
-        "name": "CWE-434 - Unrestricted Upload of File with Dangerous Type",
+        "name": "CWE-434 - Unrestricted Upload of File with Dangerous Type [Base]",
         "description": "The product allows the upload or transfer of dangerous file types that are automatically processed within its environment.",
         "href": "AIP/technical-criteria/1061050",
         "weight": 5
     },
     {
         "id": 1061051,
-        "name": "CWE-456 - Missing Initialization of a Variable",
+        "name": "CWE-456 - Missing Initialization of a Variable [Variant]",
         "description": "The product does not initialize critical variables, which causes the execution environment to use unexpected values.",
         "href": "AIP/technical-criteria/1061051",
         "weight": 5
     },
     {
         "id": 1061052,
-        "name": "CWE-457 - Use of Uninitialized Variable",
+        "name": "CWE-457 - Use of Uninitialized Variable [Variant]",
         "description": "The code uses a variable that has not been initialized, leading to unpredictable or unintended results.",
         "href": "AIP/technical-criteria/1061052",
         "weight": 5
     },
     {
         "id": 1061053,
-        "name": "CWE-459 - Incomplete Cleanup",
+        "name": "CWE-459 - Incomplete Cleanup [Base]",
         "description": "The product does not properly clean up and remove temporary or supporting resources after they have been used.",
         "href": "AIP/technical-criteria/1061053",
         "weight": 5
     },
     {
         "id": 1061054,
-        "name": "CWE-476 - NULL Pointer Dereference",
+        "name": "CWE-476 - NULL Pointer Dereference [Base]",
         "description": "The product dereferences a pointer that it expects to be valid but is NULL.",
         "href": "AIP/technical-criteria/1061054",
         "weight": 5
     },
     {
         "id": 1061055,
-        "name": "CWE-477 - Use of Obsolete Function",
+        "name": "CWE-477 - Use of Obsolete Function [Base]",
         "description": "The code uses deprecated or obsolete functions, which suggests that the code has not been actively reviewed or maintained.",
         "href": "AIP/technical-criteria/1061055",
         "weight": 5
     },
     {
         "id": 1061056,
-        "name": "CWE-478 - Missing Default Case in Multiple Condition Expression",
+        "name": "CWE-478 - Missing Default Case in Multiple Condition Expression [Base]",
         "description": "The code does not have a default case in an expression with multiple conditions, such as a switch statement.",
         "href": "AIP/technical-criteria/1061056",
         "weight": 5
     },
     {
         "id": 1061057,
-        "name": "CWE-480 - Use of Incorrect Operator",
+        "name": "CWE-480 - Use of Incorrect Operator [Base]",
         "description": "The product accidentally uses the wrong operator, which changes the logic in security-relevant ways.",
         "href": "AIP/technical-criteria/1061057",
         "weight": 5
     },
     {
         "id": 1061058,
-        "name": "CWE-484 - Omitted Break Statement in Switch",
+        "name": "CWE-484 - Omitted Break Statement in Switch [Base]",
         "description": "The product omits a break statement within a switch or similar construct, causing code associated with multiple conditions to execute. This can cause problems when the programmer only intended to execute code associated with one condition.",
         "href": "AIP/technical-criteria/1061058",
         "weight": 5
     },
     {
         "id": 1061059,
-        "name": "CWE-502 - Deserialization of Untrusted Data",
+        "name": "CWE-502 - Deserialization of Untrusted Data [Base]",
         "description": "The product deserializes untrusted data without sufficiently ensuring that the resulting data will be valid.",
         "href": "AIP/technical-criteria/1061059",
         "weight": 5
     },
     {
         "id": 1061060,
-        "name": "CWE-543 - Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+        "name": "CWE-543 - Use of Singleton Pattern Without Synchronization in a Multithreaded Context [Variant]",
         "description": "The product uses the singleton pattern when creating a resource within a multithreaded environment.",
         "href": "AIP/technical-criteria/1061060",
         "weight": 5
     },
     {
         "id": 1061061,
-        "name": "CWE-561 - Dead Code",
+        "name": "CWE-561 - Dead Code [Base]",
         "description": "The product contains dead code, which can never be executed.",
         "href": "AIP/technical-criteria/1061061",
         "weight": 5
     },
     {
         "id": 1061062,
-        "name": "CWE-562 - Return of Stack Variable Address",
+        "name": "CWE-562 - Return of Stack Variable Address [Base]",
         "description": "A function returns the address of a stack variable, which will cause unintended program behavior, typically in the form of a crash.",
         "href": "AIP/technical-criteria/1061062",
         "weight": 5
     },
     {
         "id": 1061063,
-        "name": "CWE-564 - SQL Injection: Hibernate",
+        "name": "CWE-564 - SQL Injection: Hibernate [Variant]",
         "description": "Using Hibernate to execute a dynamic SQL statement built with user-controlled input can allow an attacker to modify the statement's meaning or to execute arbitrary SQL commands.",
         "href": "AIP/technical-criteria/1061063",
         "weight": 5
     },
     {
         "id": 1061064,
-        "name": "CWE-567 - Unsynchronized Access to Shared Data in a Multithreaded Context",
+        "name": "CWE-567 - Unsynchronized Access to Shared Data in a Multithreaded Context [Base]",
         "description": "The product does not properly synchronize shared data, such as static variables across threads, which can lead to undefined behavior and unpredictable data changes.",
         "href": "AIP/technical-criteria/1061064",
         "weight": 5
     },
     {
         "id": 1061065,
-        "name": "CWE-570 - Expression is Always False",
+        "name": "CWE-570 - Expression is Always False [Base]",
         "description": "The product contains an expression that will always evaluate to false.",
         "href": "AIP/technical-criteria/1061065",
         "weight": 5
     },
     {
         "id": 1061066,
-        "name": "CWE-571 - Expression is Always True",
+        "name": "CWE-571 - Expression is Always True [Base]",
         "description": "The product contains an expression that will always evaluate to true.",
         "href": "AIP/technical-criteria/1061066",
         "weight": 5
     },
     {
         "id": 1061067,
-        "name": "CWE-595 - Comparison of Object References Instead of Object Contents",
+        "name": "CWE-595 - Comparison of Object References Instead of Object Contents [Variant]",
         "description": "The product compares object references instead of the contents of the objects themselves, preventing it from detecting equivalent objects.",
         "href": "AIP/technical-criteria/1061067",
         "weight": 5
     },
     {
         "id": 1061068,
-        "name": "CWE-597 - Use of Wrong Operator in String Comparison",
+        "name": "CWE-597 - Use of Wrong Operator in String Comparison [Variant]",
         "description": "The product uses the wrong operator when comparing a string, such as using == when the .equals() method should be used instead.",
         "href": "AIP/technical-criteria/1061068",
         "weight": 5
     },
     {
         "id": 1061069,
-        "name": "CWE-606 - Unchecked Input for Loop Condition",
+        "name": "CWE-606 - Unchecked Input for Loop Condition [Base]",
         "description": "The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service or other consequences because of excessive looping.",
         "href": "AIP/technical-criteria/1061069",
         "weight": 5
     },
     {
         "id": 1061070,
-        "name": "CWE-611 - Improper Restriction of XML External Entity Reference",
+        "name": "CWE-611 - Improper Restriction of XML External Entity Reference [Base]",
         "description": "The product processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output.",
         "href": "AIP/technical-criteria/1061070",
         "weight": 5
     },
     {
         "id": 1061072,
-        "name": "CWE-643 - Improper Neutralization of Data within XPath Expressions ('XPath Injection')",
+        "name": "CWE-643 - Improper Neutralization of Data within XPath Expressions ('XPath Injection') [Base]",
         "description": "The product uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
         "href": "AIP/technical-criteria/1061072",
         "weight": 5
     },
     {
         "id": 1061073,
-        "name": "CWE-652 - Improper Neutralization of Data within XQuery Expressions ('XQuery Injection')",
+        "name": "CWE-652 - Improper Neutralization of Data within XQuery Expressions ('XQuery Injection') [Base]",
         "description": "The product uses external input to dynamically construct an XQuery expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.",
         "href": "AIP/technical-criteria/1061073",
         "weight": 5
     },
     {
+        "id": 1061074,
+        "name": "CWE-662 - Improper Synchronization [Class]",
+        "description": "The product utilizes multiple threads, processes, components, or systems to allow temporary access to a shared resource that can only be exclusive to one process at a time, but it does not properly synchronize these actions, which might cause simultaneous accesses of this resource by multiple threads or processes.",
+        "href": "AIP/technical-criteria/1061074",
+        "weight": 5
+    },
+    {
         "id": 1061075,
-        "name": "CWE-665 - Improper Initialization",
+        "name": "CWE-665 - Improper Initialization [Class]",
         "description": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
         "href": "AIP/technical-criteria/1061075",
         "weight": 5
     },
     {
         "id": 1061076,
-        "name": "CWE-667 - Improper Locking",
+        "name": "CWE-667 - Improper Locking [Class]",
         "description": "The product does not properly acquire or release a lock on a resource, leading to unexpected resource state changes and behaviors.",
         "href": "AIP/technical-criteria/1061076",
         "weight": 5
     },
     {
         "id": 1061077,
-        "name": "CWE-672 - Operation on a Resource after Expiration or Release",
+        "name": "CWE-672 - Operation on a Resource after Expiration or Release [Class]",
         "description": "The product uses, accesses, or otherwise operates on a resource after that resource has been expired, released, or revoked.",
         "href": "AIP/technical-criteria/1061077",
         "weight": 5
     },
     {
         "id": 1061078,
-        "name": "CWE-681 - Incorrect Conversion between Numeric Types",
+        "name": "CWE-681 - Incorrect Conversion between Numeric Types [Base]",
         "description": "When converting from one data type to another, such as long to integer, data can be omitted or translated in a way that produces unexpected values. If the resulting values are used in a sensitive context, then dangerous behaviors may occur.",
         "href": "AIP/technical-criteria/1061078",
         "weight": 5
     },
     {
+        "id": 1061079,
+        "name": "CWE-682 - Incorrect Calculation [Pillar]",
+        "description": "The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.",
+        "href": "AIP/technical-criteria/1061079",
+        "weight": 5
+    },
+    {
+        "id": 1061080,
+        "name": "CWE-703 - Improper Check or Handling of Exceptional Conditions [Pillar]",
+        "description": "The product does not properly anticipate or handle exceptional conditions that rarely occur during normal operation of the product.",
+        "href": "AIP/technical-criteria/1061080",
+        "weight": 5
+    },
+    {
         "id": 1061081,
-        "name": "CWE-704 - Incorrect Type Conversion or Cast",
+        "name": "CWE-704 - Incorrect Type Conversion or Cast [Class]",
         "description": "The product does not correctly convert an object, resource, or structure from one type to a different type.",
         "href": "AIP/technical-criteria/1061081",
         "weight": 5
     },
     {
         "id": 1061082,
-        "name": "CWE-732 - Incorrect Permission Assignment for Critical Resource",
+        "name": "CWE-732 - Incorrect Permission Assignment for Critical Resource [Class]",
         "description": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.",
         "href": "AIP/technical-criteria/1061082",
         "weight": 5
     },
     {
         "id": 1061083,
-        "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior",
+        "name": "CWE-758 - Reliance on Undefined, Unspecified, or Implementation-Defined Behavior [Class]",
         "description": "The product uses an API function, data structure, or other entity in a way that relies on properties that are not always guaranteed to hold for that entity.",
         "href": "AIP/technical-criteria/1061083",
         "weight": 5
     },
     {
         "id": 1061085,
-        "name": "CWE-772 - Missing Release of Resource after Effective Lifetime",
+        "name": "CWE-772 - Missing Release of Resource after Effective Lifetime [Base]",
         "description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
         "href": "AIP/technical-criteria/1061085",
         "weight": 5
     },
     {
         "id": 1061086,
-        "name": "CWE-775 - Missing Release of File Descriptor or Handle after Effective Lifetime",
+        "name": "CWE-775 - Missing Release of File Descriptor or Handle after Effective Lifetime [Variant]",
         "description": "The product does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.",
         "href": "AIP/technical-criteria/1061086",
         "weight": 5
     },
     {
         "id": 1061087,
-        "name": "CWE-778 - Insufficient Logging",
+        "name": "CWE-778 - Insufficient Logging [Base]",
         "description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
         "href": "AIP/technical-criteria/1061087",
         "weight": 5
     },
     {
         "id": 1061090,
-        "name": "CWE-787 - Out-of-bounds Write",
+        "name": "CWE-787 - Out-of-bounds Write [Base]",
         "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
         "href": "AIP/technical-criteria/1061090",
         "weight": 5
     },
     {
         "id": 1061091,
-        "name": "CWE-788 - Access of Memory Location After End of Buffer",
+        "name": "CWE-788 - Access of Memory Location After End of Buffer [Base]",
         "description": "The product reads or writes to a buffer using an index or pointer that references a memory location after the end of the buffer.",
         "href": "AIP/technical-criteria/1061091",
         "weight": 5
     },
     {
         "id": 1061092,
-        "name": "CWE-789 - Memory Allocation with Excessive Size Value",
+        "name": "CWE-789 - Memory Allocation with Excessive Size Value [Variant]",
         "description": "The product allocates memory based on an untrusted, large size value, but it does not ensure that the size is within expected limits, allowing arbitrary amounts of memory to be allocated.",
         "href": "AIP/technical-criteria/1061092",
         "weight": 5
     },
     {
         "id": 1061093,
-        "name": "CWE-798 - Use of Hard-coded Credentials",
+        "name": "CWE-798 - Use of Hard-coded Credentials [Base]",
         "description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
         "href": "AIP/technical-criteria/1061093",
         "weight": 5
     },
     {
         "id": 1061094,
-        "name": "CWE-805 - Buffer Access with Incorrect Length Value",
+        "name": "CWE-805 - Buffer Access with Incorrect Length Value [Base]",
         "description": "The product uses a sequential operation to read or write a buffer, but it uses an incorrect length value that causes it to access memory that is outside of the bounds of the buffer.",
         "href": "AIP/technical-criteria/1061094",
         "weight": 5
     },
     {
+        "id": 1061095,
+        "name": "CWE-820 - Missing Synchronization [Base]",
+        "description": "The product utilizes a shared resource in a concurrent manner but does not attempt to synchronize access to the resource.",
+        "href": "AIP/technical-criteria/1061095",
+        "weight": 5
+    },
+    {
         "id": 1061096,
-        "name": "CWE-821 - Incorrect Synchronization",
+        "name": "CWE-821 - Incorrect Synchronization [Base]",
         "description": "The product utilizes a shared resource in a concurrent manner, but it does not correctly synchronize access to the resource.",
         "href": "AIP/technical-criteria/1061096",
         "weight": 5
     },
     {
         "id": 1061101,
-        "name": "CWE-833 - Deadlock",
+        "name": "CWE-833 - Deadlock [Base]",
         "description": "The product contains multiple threads or executable segments that are waiting for each other to release a necessary lock, resulting in deadlock.",
         "href": "AIP/technical-criteria/1061101",
         "weight": 5
     },
     {
         "id": 1061102,
-        "name": "CWE-835 - Loop with Unreachable Exit Condition ('Infinite Loop')",
+        "name": "CWE-835 - Loop with Unreachable Exit Condition ('Infinite Loop') [Base]",
         "description": "The product contains an iteration or loop with an exit condition that cannot be reached, i.e., an infinite loop.",
         "href": "AIP/technical-criteria/1061102",
         "weight": 5
     },
     {
+        "id": 1061103,
+        "name": "CWE-908 - Use of Uninitialized Resource [Base]",
+        "description": "The product uses or accesses a resource that has not been initialized.",
+        "href": "AIP/technical-criteria/1061103",
+        "weight": 5
+    },
+    {
         "id": 1061104,
-        "name": "CWE-917 - Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')",
+        "name": "CWE-917 - Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection') [Base]",
         "description": "The product constructs all or part of an expression language (EL) statement in a framework such as a Java Server Page (JSP) using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended EL statement before it is executed.",
         "href": "AIP/technical-criteria/1061104",
         "weight": 5
     },
     {
         "id": 1061105,
-        "name": "CWE-1041 - Use of Redundant Code",
+        "name": "CWE-1041 - Use of Redundant Code [Base]",
         "description": "The product has multiple functions, methods, procedures, macros, etc. that contain the same code.",
         "href": "AIP/technical-criteria/1061105",
         "weight": 5
     },
     {
         "id": 1061107,
-        "name": "CWE-1043 - Data Element Aggregating an Excessively Large Number of Non-Primitive Elements",
+        "name": "CWE-1043 - Data Element Aggregating an Excessively Large Number of Non-Primitive Elements [Base]",
         "description": "The product uses a data element that has an excessively large number of sub-elements with non-primitive data types such as structures or aggregated objects.",
         "href": "AIP/technical-criteria/1061107",
         "weight": 5
     },
     {
         "id": 1061108,
-        "name": "CWE-1045 - Parent Class with a Virtual Destructor and a Child Class without a Virtual Destructor",
+        "name": "CWE-1045 - Parent Class with a Virtual Destructor and a Child Class without a Virtual Destructor [Base]",
         "description": "A parent class has a virtual destructor method, but the parent has a child class that does not have a virtual destructor.",
         "href": "AIP/technical-criteria/1061108",
         "weight": 5
     },
     {
         "id": 1061109,
-        "name": "CWE-1046 - Creation of Immutable Text Using String Concatenation",
+        "name": "CWE-1046 - Creation of Immutable Text Using String Concatenation [Base]",
         "description": "The product creates an immutable text string using string concatenation operations.",
         "href": "AIP/technical-criteria/1061109",
         "weight": 5
     },
     {
         "id": 1061110,
-        "name": "CWE-1047 - Modules with Circular Dependencies",
+        "name": "CWE-1047 - Modules with Circular Dependencies [Base]",
         "description": "The product contains modules in which one module has references that cycle back to itself, i.e., there are circular dependencies.",
         "href": "AIP/technical-criteria/1061110",
         "weight": 5
     },
     {
         "id": 1061111,
-        "name": "CWE-1048 - Invokable Control Element with Large Number of Outward Calls",
+        "name": "CWE-1048 - Invokable Control Element with Large Number of Outward Calls [Base]",
         "description": "The code contains callable control elements that contain an excessively large number of references to other application objects external to the context of the callable, i.e. a Fan-Out value that is excessively large.",
         "href": "AIP/technical-criteria/1061111",
         "weight": 5
     },
     {
         "id": 1061112,
-        "name": "CWE-1049 - Excessive Data Query Operations in a Large Data Table",
+        "name": "CWE-1049 - Excessive Data Query Operations in a Large Data Table [Base]",
         "description": "The product performs a data query with a large number of joins and sub-queries on a large data table.",
         "href": "AIP/technical-criteria/1061112",
         "weight": 5
     },
     {
         "id": 1061113,
-        "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop",
+        "name": "CWE-1050 - Excessive Platform Resource Consumption within a Loop [Base]",
         "description": "The product has a loop body or loop condition that contains a control element that directly or indirectly consumes platform resources, e.g. messaging, sessions, locks, or file descriptors.",
         "href": "AIP/technical-criteria/1061113",
         "weight": 5
     },
     {
         "id": 1061114,
-        "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data",
+        "name": "CWE-1051 - Initialization with Hard-Coded Network Resource Configuration Data [Base]",
         "description": "The product initializes data using hard-coded values that act as network resource identifiers.",
         "href": "AIP/technical-criteria/1061114",
         "weight": 5
     },
     {
         "id": 1061115,
-        "name": "CWE-1052 - Excessive Use of Hard-Coded Literals in Initialization",
+        "name": "CWE-1052 - Excessive Use of Hard-Coded Literals in Initialization [Base]",
         "description": "The product initializes a data element using a hard-coded literal that is not a simple integer or static constant element.",
         "href": "AIP/technical-criteria/1061115",
         "weight": 5
     },
     {
         "id": 1061116,
-        "name": "CWE-1054 - Invocation of a Control Element at an Unnecessarily Deep Horizontal Layer",
+        "name": "CWE-1054 - Invocation of a Control Element at an Unnecessarily Deep Horizontal Layer [Base]",
         "description": "The code at one architectural layer invokes code that resides at a deeper layer than the adjacent layer, i.e., the invocation skips at least one layer, and the invoked code is not part of a vertical utility layer that can be referenced from any horizontal layer.",
         "href": "AIP/technical-criteria/1061116",
         "weight": 5
     },
     {
         "id": 1061117,
-        "name": "CWE-1055 - Multiple Inheritance from Concrete Classes",
+        "name": "CWE-1055 - Multiple Inheritance from Concrete Classes [Base]",
         "description": "The product contains a class with inheritance from more than one concrete class.",
         "href": "AIP/technical-criteria/1061117",
         "weight": 5
     },
     {
         "id": 1061119,
-        "name": "CWE-1058 - Invokable Control Element in Multi-Thread Context with non-Final Static Storable or Member Element",
+        "name": "CWE-1058 - Invokable Control Element in Multi-Thread Context with non-Final Static Storable or Member Element [Base]",
         "description": "The code contains a function or method that operates in a multi-threaded environment but owns an unsafe non-final static storable or member data element.",
         "href": "AIP/technical-criteria/1061119",
         "weight": 5
     },
     {
         "id": 1061120,
-        "name": "CWE-1060 - Excessive Number of Inefficient Server-Side Data Accesses",
+        "name": "CWE-1060 - Excessive Number of Inefficient Server-Side Data Accesses [Base]",
         "description": "The product performs too many data queries without using efficient data processing functionality such as stored procedures.",
         "href": "AIP/technical-criteria/1061120",
         "weight": 5
     },
     {
         "id": 1061121,
-        "name": "CWE-1062 - Parent Class with References to Child Class",
+        "name": "CWE-1062 - Parent Class with References to Child Class [Base]",
         "description": "The code has a parent class that contains references to a child class, its methods, or its members.",
         "href": "AIP/technical-criteria/1061121",
         "weight": 5
     },
     {
         "id": 1061122,
-        "name": "CWE-1064 - Invokable Control Element with Signature Containing an Excessive Number of Parameters",
+        "name": "CWE-1064 - Invokable Control Element with Signature Containing an Excessive Number of Parameters [Base]",
         "description": "The product contains a function, subroutine, or method whose signature has an unnecessarily large number of parameters/arguments.",
         "href": "AIP/technical-criteria/1061122",
         "weight": 5
     },
     {
         "id": 1061123,
-        "name": "CWE-1066 - Missing Serialization Control Element",
+        "name": "CWE-1066 - Missing Serialization Control Element [Base]",
         "description": "The product contains a serializable data element that does not have an associated serialization method.",
         "href": "AIP/technical-criteria/1061123",
         "weight": 5
     },
     {
         "id": 1061124,
-        "name": "CWE-1067 - Excessive Execution of Sequential Searches of Data Resource",
+        "name": "CWE-1067 - Excessive Execution of Sequential Searches of Data Resource [Base]",
         "description": "The product contains a data query against an SQL table or view that is configured in a way that does not utilize an index and may cause sequential searches to be performed.",
         "href": "AIP/technical-criteria/1061124",
         "weight": 5
     },
     {
         "id": 1061125,
-        "name": "CWE-1070 - Serializable Data Element Containing non-Serializable Item Elements",
+        "name": "CWE-1070 - Serializable Data Element Containing non-Serializable Item Elements [Base]",
         "description": "The product contains a serializable, storable data element such as a field or member, but the data element contains member elements that are not serializable.",
         "href": "AIP/technical-criteria/1061125",
         "weight": 5
     },
     {
         "id": 1061126,
-        "name": "CWE-1072 - Data Resource Access without Use of Connection Pooling",
+        "name": "CWE-1072 - Data Resource Access without Use of Connection Pooling [Base]",
         "description": "The product accesses a data resource through a database without using a connection pooling capability.",
         "href": "AIP/technical-criteria/1061126",
         "weight": 5
     },
     {
         "id": 1061127,
-        "name": "CWE-1073 - Non-SQL Invokable Control Element with Excessive Number of Data Resource Accesses",
+        "name": "CWE-1073 - Non-SQL Invokable Control Element with Excessive Number of Data Resource Accesses [Base]",
         "description": "The product contains a client with a function or method that contains a large number of data accesses/queries that are sent through a data manager, i.e., does not use efficient database capabilities.",
         "href": "AIP/technical-criteria/1061127",
         "weight": 5
     },
     {
         "id": 1061128,
-        "name": "CWE-1074 - Class with Excessively Deep Inheritance",
+        "name": "CWE-1074 - Class with Excessively Deep Inheritance [Base]",
         "description": "A class has an inheritance level that is too high, i.e., it has a large number of parent classes.",
         "href": "AIP/technical-criteria/1061128",
         "weight": 5
     },
     {
         "id": 1061129,
-        "name": "CWE-1075 - Unconditional Control Flow Transfer outside of Switch Block",
+        "name": "CWE-1075 - Unconditional Control Flow Transfer outside of Switch Block [Base]",
         "description": "The product performs unconditional control transfer (such as a goto) in code outside of a branching structure such as a switch block.",
         "href": "AIP/technical-criteria/1061129",
         "weight": 5
     },
     {
         "id": 1061130,
-        "name": "CWE-1077 - Floating Point Comparison with Incorrect Operator",
+        "name": "CWE-1077 - Floating Point Comparison with Incorrect Operator [Variant]",
         "description": "The code performs a comparison such as an equality test between two float (floating point) values, but it uses comparison operators that do not account for the possibility of loss of precision.",
         "href": "AIP/technical-criteria/1061130",
         "weight": 5
     },
     {
         "id": 1061131,
-        "name": "CWE-1079 - Parent Class without Virtual Destructor Method",
+        "name": "CWE-1079 - Parent Class without Virtual Destructor Method [Base]",
         "description": "A parent class contains one or more child classes, but the parent class does not have a virtual destructor method.",
         "href": "AIP/technical-criteria/1061131",
         "weight": 5
     },
     {
         "id": 1061132,
-        "name": "CWE-1080 - Source Code File with Excessive Number of Lines of Code",
+        "name": "CWE-1080 - Source Code File with Excessive Number of Lines of Code [Base]",
         "description": "A source code file has too many lines of code.",
         "href": "AIP/technical-criteria/1061132",
         "weight": 5
     },
     {
         "id": 1061133,
-        "name": "CWE-1082 - Class Instance Self Destruction Control Element",
+        "name": "CWE-1082 - Class Instance Self Destruction Control Element [Base]",
         "description": "The code contains a class instance that calls the method or function to delete or destroy itself.",
         "href": "AIP/technical-criteria/1061133",
         "weight": 5
     },
     {
         "id": 1061135,
-        "name": "CWE-1084 - Invokable Control Element with Excessive File or Data Access Operations",
+        "name": "CWE-1084 - Invokable Control Element with Excessive File or Data Access Operations [Base]",
         "description": "A function or method contains too many operations that utilize a data manager or file resource.",
         "href": "AIP/technical-criteria/1061135",
         "weight": 5
     },
     {
         "id": 1061136,
-        "name": "CWE-1085 - Invokable Control Element with Excessive Volume of Commented-out Code",
+        "name": "CWE-1085 - Invokable Control Element with Excessive Volume of Commented-out Code [Base]",
         "description": "A function, method, procedure, etc. contains an excessive amount of code that has been commented out within its body.",
         "href": "AIP/technical-criteria/1061136",
         "weight": 5
     },
     {
         "id": 1061137,
-        "name": "CWE-1086 - Class with Excessive Number of Child Classes",
+        "name": "CWE-1086 - Class with Excessive Number of Child Classes [Base]",
         "description": "A class contains an unnecessarily large number of children.",
         "href": "AIP/technical-criteria/1061137",
         "weight": 5
     },
     {
         "id": 1061138,
-        "name": "CWE-1087 - Class with Virtual Method without a Virtual Destructor",
+        "name": "CWE-1087 - Class with Virtual Method without a Virtual Destructor [Base]",
         "description": "A class contains a virtual method, but the method does not have an associated virtual destructor.",
         "href": "AIP/technical-criteria/1061138",
         "weight": 5
     },
     {
         "id": 1061139,
-        "name": "CWE-1088 - Synchronous Access of Remote Resource without Timeout",
+        "name": "CWE-1088 - Synchronous Access of Remote Resource without Timeout [Base]",
         "description": "The code has a synchronous call to a remote resource, but there is no timeout for the call, or the timeout is set to infinite.",
         "href": "AIP/technical-criteria/1061139",
         "weight": 5
     },
     {
         "id": 1061140,
-        "name": "CWE-1089 - Large Data Table with Excessive Number of Indices",
+        "name": "CWE-1089 - Large Data Table with Excessive Number of Indices [Base]",
         "description": "The product uses a large data table that contains an excessively large number of indices.",
         "href": "AIP/technical-criteria/1061140",
         "weight": 5
     },
     {
         "id": 1061141,
-        "name": "CWE-1090 - Method Containing Access of a Member Element from Another Class",
+        "name": "CWE-1090 - Method Containing Access of a Member Element from Another Class [Base]",
         "description": "A method for a class performs an operation that directly accesses a member element from another class.",
         "href": "AIP/technical-criteria/1061141",
         "weight": 5
     },
     {
         "id": 1061142,
-        "name": "CWE-1091 - Use of Object without Invoking Destructor Method",
+        "name": "CWE-1091 - Use of Object without Invoking Destructor Method [Base]",
         "description": "The product contains a method that accesses an object but does not later invoke the element's associated finalize/destructor method.",
         "href": "AIP/technical-criteria/1061142",
         "weight": 5
     },
     {
         "id": 1061144,
-        "name": "CWE-1094 - Excessive Index Range Scan for a Data Resource",
+        "name": "CWE-1094 - Excessive Index Range Scan for a Data Resource [Base]",
         "description": "The product contains an index range scan for a large data table, but the scan can cover a large number of rows.",
         "href": "AIP/technical-criteria/1061144",
         "weight": 5
     },
     {
         "id": 1061145,
-        "name": "CWE-1095 - Loop Condition Value Update within the Loop",
+        "name": "CWE-1095 - Loop Condition Value Update within the Loop [Base]",
         "description": "The product uses a loop with a control flow condition based on a value that is updated within the body of the loop.",
         "href": "AIP/technical-criteria/1061145",
         "weight": 5
     },
     {
         "id": 1061146,
-        "name": "CWE-1096 - Singleton Class Instance Creation without Proper Locking or Synchronization",
+        "name": "CWE-1096 - Singleton Class Instance Creation without Proper Locking or Synchronization [Variant]",
         "description": "The product implements a Singleton design pattern but does not use appropriate locking or other synchronization mechanism to ensure that the singleton class is only instantiated once.",
         "href": "AIP/technical-criteria/1061146",
         "weight": 5
     },
     {
         "id": 1061147,
-        "name": "CWE-1097 - Persistent Storable Data Element without Associated Comparison Control Element",
+        "name": "CWE-1097 - Persistent Storable Data Element without Associated Comparison Control Element [Base]",
         "description": "The product uses a storable data element that does not have all of the associated functions or methods that are necessary to support comparison.",
         "href": "AIP/technical-criteria/1061147",
         "weight": 5
     },
     {
         "id": 1061148,
-        "name": "CWE-1098 - Data Element containing Pointer Item without Proper Copy Control Element",
+        "name": "CWE-1098 - Data Element containing Pointer Item without Proper Copy Control Element [Base]",
         "description": "The code contains a data element with a pointer that does not have an associated copy or constructor method.",
         "href": "AIP/technical-criteria/1061148",
         "weight": 5
     },
     {
         "id": 1061149,
-        "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity",
+        "name": "CWE-1121 - Excessive McCabe Cyclomatic Complexity [Base]",
         "description": "The code contains McCabe cyclomatic complexity that exceeds a desirable maximum.",
         "href": "AIP/technical-criteria/1061149",
         "weight": 5

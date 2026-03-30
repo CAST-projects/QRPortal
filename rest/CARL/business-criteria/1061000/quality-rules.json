@@ -50,6 +50,16 @@
         ]
     },
     {
+        "id": 678,
+        "name": "Never throw an exception from a Destructor",
+        "href": "AIP/quality-rules/678",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
         "id": 1058,
         "name": "Avoid large Files - too many Lines of Code",
         "href": "AIP/quality-rules/1058",
@@ -216,6 +226,36 @@
         ]
     },
     {
+        "id": 4616,
+        "name": "Prefer calling \"super.finalize()\" at the end of \"Object.finalize()\" implementations",
+        "href": "AIP/quality-rules/4616",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4696,
+        "name": "Prefer using logging framework  as SLF4j instead of  'System.err' or 'System.out'",
+        "href": "AIP/quality-rules/4696",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4702,
+        "name": "Ensure to not use default stream(System.Err) for printStackTrace to print throwable and its stack trace in order to protect sensitive information.",
+        "href": "AIP/quality-rules/4702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7126,
         "name": "Avoid Artifacts with high Commented-out Code Lines/Code Lines ratio",
         "href": "AIP/quality-rules/7126",
@@ -365,6 +405,16 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 7252,
+        "name": "Ensure to add a try finally bloc",
+        "href": "AIP/quality-rules/7252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -544,6 +594,16 @@
         ]
     },
     {
+        "id": 7446,
+        "name": "Prefer not using Double checked locking for JSE 4.x and previous version",
+        "href": "AIP/quality-rules/7446",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7470,
         "name": "DEPRECATED: Avoid doing select on Datatable in loop",
         "href": "AIP/quality-rules/7470",
@@ -628,6 +688,16 @@
         "id": 7710,
         "name": "Ensure implementing the Serializable interface for all Entity beans",
         "href": "AIP/quality-rules/7710",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7714,
+        "name": "Prefer not using auto-wiring to guarantee more flexibility and better performance of your application",
+        "href": "AIP/quality-rules/7714",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -868,6 +938,18 @@
         ]
     },
     {
+        "id": 7824,
+        "name": "Always Subclass Exception and throw the subclassed Classes, do not throw the exception Exception.",
+        "href": "AIP/quality-rules/7824",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 7830,
         "name": "Ensure all the interfaces are used",
         "href": "AIP/quality-rules/7830",
@@ -917,6 +999,18 @@
             "JEE",
             "JavaScript",
             "SQL"
+        ]
+    },
+    {
+        "id": 7862,
+        "name": "Ensure you catch subclass of Exception, RuntimeException or Throwable",
+        "href": "AIP/quality-rules/7862",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -987,6 +1081,16 @@
             "C++",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 7942,
+        "name": "Ensure not having EJBs using 'synchronized' qualifier or calling 'wait', 'notify' and 'notifyAll' Methods as this might corrupt the normal behavior",
+        "href": "AIP/quality-rules/7942",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -1149,6 +1253,16 @@
         "severity": 10,
         "technologyNames": [
             "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 8000,
+        "name": "Avoid 'catch-all' statement",
+        "href": "AIP/quality-rules/8000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
             "C++"
         ]
     },
@@ -2233,6 +2347,16 @@
         ]
     },
     {
+        "id": 1020094,
+        "name": "Always enable HttpOnly option when creating cookies so that sensitive information is not exposed to unsecured applications and domains",
+        "href": "AIP/quality-rules/1020094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020102,
         "name": "Always use JSON.parse &amp; JSON.stringify with try/catch block because of the synchronous call(Javascript)",
         "href": "AIP/quality-rules/1020102",
@@ -2248,6 +2372,26 @@
         "href": "AIP/quality-rules/1020104",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020176,
+        "name": "Avoid empty catch blocks (Javascript)",
+        "href": "AIP/quality-rules/1020176",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020180,
+        "name": "Ensure you don't forget the default clause in your switch statement",
+        "href": "AIP/quality-rules/1020180",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -2403,6 +2547,26 @@
         ]
     },
     {
+        "id": 1020344,
+        "name": "Ensure you don't use officially jQuery deprecated methods (before 3.x)",
+        "href": "AIP/quality-rules/1020344",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020450,
+        "name": "Ensure you have overwritten component methods to properly catch errors",
+        "href": "AIP/quality-rules/1020450",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020452,
         "name": "Ensure you have properly use the componentDidCatch to better manage errors",
         "href": "AIP/quality-rules/1020452",
@@ -2523,6 +2687,16 @@
         ]
     },
     {
+        "id": 1020540,
+        "name": "Prefer using $http methods 'then' and 'catch' instead of 'success' and 'error' as the latter returns original promise when you chain off of them",
+        "href": "AIP/quality-rules/1020540",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020542,
         "name": "Ensure activating Content-Security-Policy in you  angular applications to enforce client-side templates protection",
         "href": "AIP/quality-rules/1020542",
@@ -2593,6 +2767,16 @@
         ]
     },
     {
+        "id": 1020702,
+        "name": "You should set the process.exitCode to allow the process exiting naturally rather than calling process.exit() directly.",
+        "href": "AIP/quality-rules/1020702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020710,
         "name": "Ensure enabling X-XSS-Protection header to prevent attackers submitting malicious script to unsuspecting users",
         "href": "AIP/quality-rules/1020710",
@@ -2618,6 +2802,16 @@
         "href": "AIP/quality-rules/1020716",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020728,
+        "name": "Always enable HttpOnly when creating cookies to avoid Cross-site scripting attacks",
+        "href": "AIP/quality-rules/1020728",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "HTML5"
         ]
@@ -2696,6 +2890,16 @@
         "id": 1020800,
         "name": "Avoid jump statements in finally",
         "href": "AIP/quality-rules/1020800",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020802,
+        "name": "Always throw all created error.",
+        "href": "AIP/quality-rules/1020802",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -2883,6 +3087,16 @@
         ]
     },
     {
+        "id": 1020856,
+        "name": "Ensure you have overwritten component methods to properly catch errors",
+        "href": "AIP/quality-rules/1020856",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020858,
         "name": "Ensure you have properly use the componentDidCatch to better manage errors",
         "href": "AIP/quality-rules/1020858",
@@ -2903,6 +3117,16 @@
         ]
     },
     {
+        "id": 1020868,
+        "name": "Always enable HttpOnly option when creating cookies so that sensitive information is not exposed to unsecured applications and domains",
+        "href": "AIP/quality-rules/1020868",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020872,
         "name": "Always use JSON.parse and JSON.stringify with try/catch block because of the synchronous call (Typescript)",
         "href": "AIP/quality-rules/1020872",
@@ -2916,6 +3140,16 @@
         "id": 1020874,
         "name": "Ensure you check the returned error in Node.js callbacks",
         "href": "AIP/quality-rules/1020874",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020876,
+        "name": "You should set the process.exitCode to allow the process exiting naturally rather than calling process.exit() directly.",
+        "href": "AIP/quality-rules/1020876",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -2983,6 +3217,16 @@
         ]
     },
     {
+        "id": 1024026,
+        "name": "Prefer not using MODE_WORLD_READABLE or MODE_WORLD_WRITABLE to share files with other apps",
+        "href": "AIP/quality-rules/1024026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1024030,
         "name": "Prefer using BiometricPrompt API instead of FingerprintManager as the latter is deprecated",
         "href": "AIP/quality-rules/1024030",
@@ -3040,6 +3284,30 @@
         "id": 1025010,
         "name": "Ensure your application does not run LDAP methods without sanitization",
         "href": "AIP/quality-rules/1025010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025016,
+        "name": "Ensure you have set the HttpOnly flag for cookies",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025024,
+        "name": "Ensure your application does not disable the expiration time validation of a JWT token",
+        "href": "AIP/quality-rules/1025024",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -3117,6 +3385,28 @@
         ]
     },
     {
+        "id": 1027016,
+        "name": "Do not throw the exceptions in destructors",
+        "href": "AIP/quality-rules/1027016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027018,
+        "name": "Do not throw the exceptions in finally block",
+        "href": "AIP/quality-rules/1027018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027024,
         "name": "Ensure you don't compare passwords against hard-coded strings in the source file, hackers can steal the information by retro-engineering your application (C#)",
         "href": "AIP/quality-rules/1027024",
@@ -3139,6 +3429,28 @@
         ]
     },
     {
+        "id": 1027034,
+        "name": "Check if the variable is null before dereferencing it.",
+        "href": "AIP/quality-rules/1027034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027036,
+        "name": "Avoid rethrowing exception explicitly",
+        "href": "AIP/quality-rules/1027036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027038,
         "name": "Avoid if \u2026 else if constructs not terminated with an else clause (.NET, VB)",
         "href": "AIP/quality-rules/1027038",
@@ -3153,6 +3465,28 @@
         "id": 1027040,
         "name": "Ensure you don't use multiple \"OrderBy\"",
         "href": "AIP/quality-rules/1027040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027048,
+        "name": "Avoid returning null from non-async Task/Task<T> method",
+        "href": "AIP/quality-rules/1027048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027050,
+        "name": "Split the method in two if it contains both ArgumentNullException and yield",
+        "href": "AIP/quality-rules/1027050",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -3186,6 +3520,17 @@
         "id": 1027064,
         "name": "Always override 'Equals' and Comparison operators with IComparable implementation",
         "href": "AIP/quality-rules/1027064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027066,
+        "name": "Ensure the getter is not stopped by throwing exception.",
+        "href": "AIP/quality-rules/1027066",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -3271,6 +3616,37 @@
         ]
     },
     {
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1039008,
+        "name": "Ensure to manage an exception in servlet method using a try catch block to prevent exposing system vulnerabilities",
+        "href": "AIP/quality-rules/1039008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039026,
+        "name": "Always enable HttpOnly when creating cookies to avoid Cross-site scripting attacks",
+        "href": "AIP/quality-rules/1039026",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1039032,
         "name": "Ensure to preceed the call of DocumentBuilder by a call to the secure mode of the parser",
         "href": "AIP/quality-rules/1039032",
@@ -3316,6 +3692,16 @@
         "href": "AIP/quality-rules/1039040",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039052,
+        "name": "Always set an expiration time for an Http Session to improve security",
+        "href": "AIP/quality-rules/1039052",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]
@@ -3441,6 +3827,16 @@
         ]
     },
     {
+        "id": 1039096,
+        "name": "Avoid disabling http-only option in configuration file",
+        "href": "AIP/quality-rules/1039096",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1040006,
         "name": "Ensure activating Content-Security-Policy for Spring application to avoid untrusted source",
         "href": "AIP/quality-rules/1040006",
@@ -3461,11 +3857,41 @@
         ]
     },
     {
+        "id": 1040030,
+        "name": "Prefer not using Generic Authentication Exception Class to promote easy error handling",
+        "href": "AIP/quality-rules/1040030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040032,
+        "name": "Ensure not using ControllerAdvice And HandlerExceptionResolver simultaneously to avoid unexpected behavior",
+        "href": "AIP/quality-rules/1040032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1040044,
         "name": "Upgrade to the spring-integration-zip version 1.0.2 to unsafe unzip",
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042004,
+        "name": "Ensure not using the same name for multiple validation forms to avoid any validation error.",
+        "href": "AIP/quality-rules/1042004",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -3543,6 +3969,28 @@
         ]
     },
     {
+        "id": 1043010,
+        "name": "Always enable HttpOnly when creating cookies to avoid Cross-site scripting attacks",
+        "href": "AIP/quality-rules/1043010",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043012,
+        "name": "Always enable HttpOnly for cookies in Config file (ASP.NET)",
+        "href": "AIP/quality-rules/1043012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
         "id": 1043014,
         "name": "Ensure the validation request is always set to true in ASP.NET config file",
         "href": "AIP/quality-rules/1043014",
@@ -3582,6 +4030,39 @@
         "severity": 10,
         "technologyNames": [
             "ASP.NET"
+        ]
+    },
+    {
+        "id": 1043050,
+        "name": "Ensure you set the time out to less than 5 min or less.",
+        "href": "AIP/quality-rules/1043050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043076,
+        "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data",
+        "href": "AIP/quality-rules/1043076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043084,
+        "name": "Avoid XML schemas with unbounded occurrences",
+        "href": "AIP/quality-rules/1043084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
         ]
     },
     {
@@ -3702,6 +4183,16 @@
         ]
     },
     {
+        "id": 1065026,
+        "name": "Ensure that a class type exception is always be caught by reference to avoid slicing",
+        "href": "AIP/quality-rules/1065026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
         "id": 1065038,
         "name": "Avoid using 'signal.h' (C/C++)",
         "href": "AIP/quality-rules/1065038",
@@ -3789,6 +4280,50 @@
         "id": 1065086,
         "name": "Ensure that pointer types are not cast to integral types",
         "href": "AIP/quality-rules/1065086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065102,
+        "name": "Avoid checking Integer overflow without explicit cast",
+        "href": "AIP/quality-rules/1065102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065104,
+        "name": "Converting a multiplication to a larger type should be done before the multiplication takes place",
+        "href": "AIP/quality-rules/1065104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065106,
+        "name": "Avoid comparing types of different widths in a loop",
+        "href": "AIP/quality-rules/1065106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065108,
+        "name": "Bit-fields shall be either unsigned integral, or enumeration (with underlying type of unsigned integral type).",
+        "href": "AIP/quality-rules/1065108",
         "critical": false,
         "severity": 10,
         "technologyNames": [

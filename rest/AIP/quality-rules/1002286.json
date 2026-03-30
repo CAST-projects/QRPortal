@@ -19,6 +19,11 @@
             "href": "AIP/business-criteria/20140522"
         },
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -37,8 +42,36 @@
     "technicalCriteria": [
         {
             "id": 1066644,
-            "name": "CWE-544 - Missing Standardized Error Handling Mechanism",
+            "name": "CWE-544 - Missing Standardized Error Handling Mechanism [Base]",
             "href": "AIP/technical-criteria/1066644",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061080,
+            "name": "CWE-703 - Improper Check or Handling of Exceptional Conditions [Pillar]",
+            "href": "AIP/technical-criteria/1061080",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066803,
+            "name": "CWE-703 - Improper Check or Handling of Exceptional Conditions [Pillar]",
+            "href": "AIP/technical-criteria/1066803",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066855,
+            "name": "CWE-755 - Improper Handling of Exceptional Conditions [Class]",
+            "href": "AIP/technical-criteria/1066855",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062370,
+            "name": "OWASP-2025-A10 - Mishandling of Exceptional Conditions",
+            "href": "AIP/technical-criteria/1062370",
             "weight": 5,
             "critical": false
         },

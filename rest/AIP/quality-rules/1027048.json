@@ -25,6 +25,11 @@
             "href": "AIP/business-criteria/20140522"
         },
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 60013,
             "name": "Robustness",
             "href": "AIP/business-criteria/60013"
@@ -38,8 +43,43 @@
     "technicalCriteria": [
         {
             "id": 1066493,
-            "name": "CWE-393 - Return of Wrong Status Code",
+            "name": "CWE-393 - Return of Wrong Status Code [Base]",
             "href": "AIP/technical-criteria/1066493",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066784,
+            "name": "CWE-684 - Incorrect Provision of Specified Functionality [Class]",
+            "href": "AIP/technical-criteria/1066784",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061080,
+            "name": "CWE-703 - Improper Check or Handling of Exceptional Conditions [Pillar]",
+            "href": "AIP/technical-criteria/1061080",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066803,
+            "name": "CWE-703 - Improper Check or Handling of Exceptional Conditions [Pillar]",
+            "href": "AIP/technical-criteria/1066803",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066810,
+            "name": "CWE-710 - Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/technical-criteria/1066810",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062370,
+            "name": "OWASP-2025-A10 - Mishandling of Exceptional Conditions",
+            "href": "AIP/technical-criteria/1062370",
             "weight": 5,
             "critical": false
         },

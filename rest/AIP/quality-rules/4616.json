@@ -20,6 +20,11 @@
     "alternativeName": "Prefer calling \"super.finalize()\" at the end of \"Object.finalize()\" implementations",
     "businessCriteria": [
         {
+            "id": 1061000,
+            "name": "ISO-5055-Index",
+            "href": "AIP/business-criteria/1061000"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -37,9 +42,58 @@
     ],
     "technicalCriteria": [
         {
+            "id": 1061045,
+            "name": "CWE-404 - Improper Resource Shutdown or Release [Class]",
+            "href": "AIP/technical-criteria/1061045",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066504,
+            "name": "CWE-404 - Improper Resource Shutdown or Release [Class]",
+            "href": "AIP/technical-criteria/1066504",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1061053,
+            "name": "CWE-459 - Incomplete Cleanup [Base]",
+            "href": "AIP/technical-criteria/1061053",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066559,
+            "name": "CWE-459 - Incomplete Cleanup [Base]",
+            "href": "AIP/technical-criteria/1066559",
+            "weight": 5,
+            "critical": false
+        },
+        {
             "id": 1066668,
-            "name": "CWE-568 - finalize() Method Without super.finalize()",
+            "name": "CWE-568 - finalize() Method Without super.finalize() [Variant]",
             "href": "AIP/technical-criteria/1066668",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066673,
+            "name": "CWE-573 - Improper Following of Specification by Caller [Class]",
+            "href": "AIP/technical-criteria/1066673",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066764,
+            "name": "CWE-664 - Improper Control of a Resource Through its Lifetime [Pillar]",
+            "href": "AIP/technical-criteria/1066764",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066810,
+            "name": "CWE-710 - Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/technical-criteria/1066810",
             "weight": 5,
             "critical": false
         },

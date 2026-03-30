@@ -50,6 +50,16 @@
         ]
     },
     {
+        "id": 678,
+        "name": "Never throw an exception from a Destructor",
+        "href": "AIP/quality-rules/678",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
         "id": 1058,
         "name": "Avoid large Files - too many Lines of Code",
         "href": "AIP/quality-rules/1058",
@@ -247,6 +257,36 @@
         "href": "AIP/quality-rules/4602",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4616,
+        "name": "'super.finalize()' should be invoked when overriding finalize() method",
+        "href": "AIP/quality-rules/4616",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4696,
+        "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' within a try catch block",
+        "href": "AIP/quality-rules/4696",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4702,
+        "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
+        "href": "AIP/quality-rules/4702",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -504,6 +544,16 @@
         ]
     },
     {
+        "id": 7252,
+        "name": "Call 'super.finalize ()' in the \"finally\" block of 'finalize ()' methods",
+        "href": "AIP/quality-rules/7252",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7258,
         "name": "DataReader must be called using CommandBehavior.CloseConnection enumeration",
         "href": "AIP/quality-rules/7258",
@@ -737,6 +787,16 @@
         "id": 7438,
         "name": "Avoid non thread safe singleton",
         "href": "AIP/quality-rules/7438",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7446,
+        "name": "Avoid double checked locking for JSE 4.x and previous version",
+        "href": "AIP/quality-rules/7446",
         "critical": true,
         "severity": 20,
         "technologyNames": [
@@ -1018,6 +1078,16 @@
         "id": 7710,
         "name": "DEPRECATED: Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/7710",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7714,
+        "name": "Avoid using auto-wiring",
+        "href": "AIP/quality-rules/7714",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -1350,6 +1420,18 @@
         ]
     },
     {
+        "id": 7824,
+        "name": "Avoid directly throwing instance of Exception class",
+        "href": "AIP/quality-rules/7824",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 7830,
         "name": "Avoid unreferenced Interfaces",
         "href": "AIP/quality-rules/7830",
@@ -1418,6 +1500,18 @@
             "SQL",
             "Sybase T-SQL",
             "Visual Basic"
+        ]
+    },
+    {
+        "id": 7862,
+        "name": "Avoid catching an exception of type Exception, RuntimeException, or Throwable",
+        "href": "AIP/quality-rules/7862",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
         ]
     },
     {
@@ -1557,6 +1651,16 @@
             "C++",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 7942,
+        "name": "Avoid EJBs using 'synchronized' qualifier, 'wait', 'notify' and 'notifyAll' Methods",
+        "href": "AIP/quality-rules/7942",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -1719,6 +1823,16 @@
         "severity": 10,
         "technologyNames": [
             "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 8000,
+        "name": "Avoid 'catch-all' statement",
+        "href": "AIP/quality-rules/8000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
             "C++"
         ]
     },
@@ -2183,6 +2297,16 @@
             "C#",
             "JEE",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 8412,
+        "name": "\"CX_ROOT\" should not be used in TRY .. CATCH.. ENDTRY block",
+        "href": "AIP/quality-rules/8412",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {
@@ -3284,6 +3408,46 @@
         ]
     },
     {
+        "id": 1002282,
+        "name": "All ALLOCATE statements in Fortran-90 Programs must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002282",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002284,
+        "name": "All ALLOCATE statements in Fortran-90 Subroutines must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002284",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002286,
+        "name": "All ALLOCATE statements in Fortran-90 Functions must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002286",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
+        "id": 1002288,
+        "name": "All ALLOCATE statements in Fortran-90 Modules must use the return code STAT (FORTRAN)",
+        "href": "AIP/quality-rules/1002288",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Fortran"
+        ]
+    },
+    {
         "id": 1003026,
         "name": "Avoid too complex methods (Flex)",
         "href": "AIP/quality-rules/1003026",
@@ -3714,6 +3878,16 @@
         ]
     },
     {
+        "id": 1007250,
+        "name": "Avoid preg_replace with /e option (PHP)",
+        "href": "AIP/quality-rules/1007250",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
         "id": 1007256,
         "name": "DEPRECATED: CWE-79: Avoid cross-site scripting - Improper Neutralization of input in script tag during web page generation (PHP)",
         "href": "AIP/quality-rules/1007256",
@@ -3787,6 +3961,16 @@
         "id": 1007274,
         "name": "DEPRECATED: CWE-502: Avoid Object Injection (PHP)",
         "href": "AIP/quality-rules/1007274",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1007284,
+        "name": "DEPRECATED: CWE-200: Avoid Cookie Misconfiguration (httpOnly flag) (PHP)",
+        "href": "AIP/quality-rules/1007284",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -4074,6 +4258,16 @@
         ]
     },
     {
+        "id": 1008128,
+        "name": "Avoid hard-coded IP addresses (RPG400)",
+        "href": "AIP/quality-rules/1008128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
         "id": 1009020,
         "name": "Avoid Programs with High Fan-Out  (RPG300)",
         "href": "AIP/quality-rules/1009020",
@@ -4184,6 +4378,16 @@
         ]
     },
     {
+        "id": 1009128,
+        "name": "Avoid hard-coded IP addresses (RPG300)",
+        "href": "AIP/quality-rules/1009128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG300"
+        ]
+    },
+    {
         "id": 1011026,
         "name": "Avoid unreferenced Display Files  (DDS400)",
         "href": "AIP/quality-rules/1011026",
@@ -4217,6 +4421,16 @@
         "id": 1012016,
         "name": "Avoid unreferenced CL Programs  (CL400)",
         "href": "AIP/quality-rules/1012016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1012028,
+        "name": "Avoid hard-coded IP addresses (CL400)",
+        "href": "AIP/quality-rules/1012028",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -4281,6 +4495,76 @@
         "severity": 10,
         "technologyNames": [
             "WCF"
+        ]
+    },
+    {
+        "id": 1019008,
+        "name": "Avoid not enabling throttling while setting service behavior",
+        "href": "AIP/quality-rules/1019008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "WCF"
+        ]
+    },
+    {
+        "id": 1019400,
+        "name": "Avoid calling Entity DbContext SaveChanges() inside loops",
+        "href": "AIP/quality-rules/1019400",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019402,
+        "name": "Avoid using Entity DbContext.Update() in loops",
+        "href": "AIP/quality-rules/1019402",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019404,
+        "name": "Avoid calling Add() inside a loop when AddRange() is applicable",
+        "href": "AIP/quality-rules/1019404",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019406,
+        "name": "Avoid using DbSet queries ToList()/ToArray()/ToDictionary() in foreach clause",
+        "href": "AIP/quality-rules/1019406",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019416,
+        "name": "Avoid using Count() when Any() is sufficient",
+        "href": "AIP/quality-rules/1019416",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019420,
+        "name": "Avoid doing bulk changes without disabling Entity changes Tracking",
+        "href": "AIP/quality-rules/1019420",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#"
         ]
     },
     {
@@ -4624,6 +4908,16 @@
         ]
     },
     {
+        "id": 1020094,
+        "name": "Avoid creating cookie without setting httpOnly option (Javascript)",
+        "href": "AIP/quality-rules/1020094",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020102,
         "name": "Always use JSON.parse & JSON.stringify with try/catch block (Javascript)",
         "href": "AIP/quality-rules/1020102",
@@ -4639,6 +4933,436 @@
         "href": "AIP/quality-rules/1020104",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020110,
+        "name": "Avoid cross-site scripting within events such as onclick, onmouseover ... events (Razor)",
+        "href": "AIP/quality-rules/1020110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020112,
+        "name": "Avoid setting an event handler like onclick, onmouseover, onsubmit... using element.setAttribute() (Javascript)",
+        "href": "AIP/quality-rules/1020112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020114,
+        "name": "Avoid using navigator.vibrate() (Javascript)",
+        "href": "AIP/quality-rules/1020114",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020116,
+        "name": "Avoid __proto__ and legacy getter/setter methods (Javascript)",
+        "href": "AIP/quality-rules/1020116",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020118,
+        "name": "Avoid using ActiveXObject / window.external (IE-only) (Javascript)",
+        "href": "AIP/quality-rules/1020118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020120,
+        "name": "Avoid using DOM Mutation Events (DOMNodeInserted, DOMSubtreeModified, \u2026) (Javascript)",
+        "href": "AIP/quality-rules/1020120",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020122,
+        "name": "Avoid using Event.initEvent() / initMouseEvent() / initUIEvent() (Javascript)",
+        "href": "AIP/quality-rules/1020122",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020124,
+        "name": "Avoid using String.prototype.substr() (Javascript)",
+        "href": "AIP/quality-rules/1020124",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020126,
+        "name": "Avoid using arguments.callee / Function.prototype.caller (Javascript)",
+        "href": "AIP/quality-rules/1020126",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020128,
+        "name": "Avoid using document.domain for same-site relaxation (Javascript)",
+        "href": "AIP/quality-rules/1020128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020130,
+        "name": "Avoid using document.execCommand() (Javascript)",
+        "href": "AIP/quality-rules/1020130",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020132,
+        "name": "Avoid using document.write() (Javascript)",
+        "href": "AIP/quality-rules/1020132",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020134,
+        "name": "Avoid using escape() / unescape() (Javascript)",
+        "href": "AIP/quality-rules/1020134",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020136,
+        "name": "Avoid using Event.keyCode / which / charCode (Javascript)",
+        "href": "AIP/quality-rules/1020136",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020138,
+        "name": "Avoid using Event.returnValue (Javascript)",
+        "href": "AIP/quality-rules/1020138",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020140,
+        "name": "Avoid using navigator.getUserMedia() (Javascript)",
+        "href": "AIP/quality-rules/1020140",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020142,
+        "name": "Avoid using deprecated properties of navigator object (Javascript)",
+        "href": "AIP/quality-rules/1020142",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020144,
+        "name": "Avoid using vendor-prefixed RequestFullscreen(Element.ALLOW_KEYBOARD_INPUT) (Javascript)",
+        "href": "AIP/quality-rules/1020144",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020146,
+        "name": "Avoid using synchronous XMLHttpRequest (async = false) (Javascript)",
+        "href": "AIP/quality-rules/1020146",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020148,
+        "name": "Avoid using vendor-prefixed requestAnimationFrame (webkit*, moz*, ms*, o*) (Javascript)",
+        "href": "AIP/quality-rules/1020148",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020150,
+        "name": "Avoid using window.event (Javascript)",
+        "href": "AIP/quality-rules/1020150",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020152,
+        "name": "Avoid using window.showModalDialog() (Javascript)",
+        "href": "AIP/quality-rules/1020152",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020154,
+        "name": "Avoid using attachEvent (Javascript)",
+        "href": "AIP/quality-rules/1020154",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020156,
+        "name": "Avoid using window.createPopup (Javascript)",
+        "href": "AIP/quality-rules/1020156",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020158,
+        "name": "Avoid using element.currentStyle (Javascript)",
+        "href": "AIP/quality-rules/1020158",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020160,
+        "name": "Avoid using document.documentMode (Javascript)",
+        "href": "AIP/quality-rules/1020160",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020162,
+        "name": "Avoid using document.selection / createTextRange (Javascript)",
+        "href": "AIP/quality-rules/1020162",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020164,
+        "name": "Avoid changing DOM using outerHTML (Javascript)",
+        "href": "AIP/quality-rules/1020164",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020166,
+        "name": "Avoid using navigator.appName === \"Microsoft Internet Explorer\" (Javascript)",
+        "href": "AIP/quality-rules/1020166",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020168,
+        "name": "Avoid using User-Agent based IE detection (Javascript)",
+        "href": "AIP/quality-rules/1020168",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020170,
+        "name": "Avoid using XDomainRequest (Javascript)",
+        "href": "AIP/quality-rules/1020170",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020172,
+        "name": "Avoid using innerText (Javascript)",
+        "href": "AIP/quality-rules/1020172",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020174,
+        "name": "Avoid using VBScript blocks (Javascript/HTML5)",
+        "href": "AIP/quality-rules/1020174",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020176,
+        "name": "Avoid empty catch blocks (Javascript)",
+        "href": "AIP/quality-rules/1020176",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020180,
+        "name": "Avoid missing default in switch statements (Javascript)",
+        "href": "AIP/quality-rules/1020180",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020184,
+        "name": "Avoid using Meta X-UA-Compatible header",
+        "href": "AIP/quality-rules/1020184",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020186,
+        "name": "Avoid using <font> element",
+        "href": "AIP/quality-rules/1020186",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020188,
+        "name": "Avoid using <center> element",
+        "href": "AIP/quality-rules/1020188",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020190,
+        "name": "Avoid using <marquee> / <blink> elements",
+        "href": "AIP/quality-rules/1020190",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020192,
+        "name": "Avoid using <big> element",
+        "href": "AIP/quality-rules/1020192",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020194,
+        "name": "Avoid using presentational HTML attributes (bgcolor, border, align, valign, nowrap)",
+        "href": "AIP/quality-rules/1020194",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020196,
+        "name": "Avoid using outdated / quirks-mode DOCTYPE",
+        "href": "AIP/quality-rules/1020196",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020198,
+        "name": "Avoid using IE conditional comments",
+        "href": "AIP/quality-rules/1020198",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -4794,6 +5518,26 @@
         ]
     },
     {
+        "id": 1020344,
+        "name": "Avoid using jQuery 3.x deprecated methods",
+        "href": "AIP/quality-rules/1020344",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020450,
+        "name": "Ensure catching Javascript error in React components",
+        "href": "AIP/quality-rules/1020450",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020452,
         "name": "Avoid empty componentDidCatch blocks",
         "href": "AIP/quality-rules/1020452",
@@ -4914,6 +5658,16 @@
         ]
     },
     {
+        "id": 1020540,
+        "name": "Avoid using $http success and error function",
+        "href": "AIP/quality-rules/1020540",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020542,
         "name": "Enable Content Security Policy when creating an AngularJS application",
         "href": "AIP/quality-rules/1020542",
@@ -5004,6 +5758,16 @@
         ]
     },
     {
+        "id": 1020702,
+        "name": "Avoid using nodejs process.exit()",
+        "href": "AIP/quality-rules/1020702",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020710,
         "name": "Ensure the X-XSS-Protection header is enabled",
         "href": "AIP/quality-rules/1020710",
@@ -5029,6 +5793,16 @@
         "href": "AIP/quality-rules/1020716",
         "critical": true,
         "severity": 30,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020728,
+        "name": "Avoid creating cookie without setting httpOnly option (Node.js)",
+        "href": "AIP/quality-rules/1020728",
+        "critical": true,
+        "severity": 20,
         "technologyNames": [
             "HTML5"
         ]
@@ -5107,6 +5881,16 @@
         "id": 1020800,
         "name": "Avoid jump statements in finally",
         "href": "AIP/quality-rules/1020800",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020802,
+        "name": "Avoid having errors without throwing them",
+        "href": "AIP/quality-rules/1020802",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5294,6 +6078,16 @@
         ]
     },
     {
+        "id": 1020856,
+        "name": "Ensure catching Typescript error in React components",
+        "href": "AIP/quality-rules/1020856",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020858,
         "name": "Avoid empty componentDidCatch blocks (Typescript)",
         "href": "AIP/quality-rules/1020858",
@@ -5314,6 +6108,16 @@
         ]
     },
     {
+        "id": 1020868,
+        "name": "Avoid creating cookie without setting httpOnly option (TypeScript)",
+        "href": "AIP/quality-rules/1020868",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020872,
         "name": "Always use JSON.parse & JSON.stringify with try/catch block (TypeScript)",
         "href": "AIP/quality-rules/1020872",
@@ -5327,6 +6131,16 @@
         "id": 1020874,
         "name": "Avoid the lack of error handling in the Node.js callbacks (TypeScript)",
         "href": "AIP/quality-rules/1020874",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020876,
+        "name": "Avoid using nodejs process.exit() (TypeScript)",
+        "href": "AIP/quality-rules/1020876",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5634,6 +6448,16 @@
         ]
     },
     {
+        "id": 1021110,
+        "name": "Avoid using regular expression vulnerable to ReDoS (Python)",
+        "href": "AIP/quality-rules/1021110",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
         "id": 1021112,
         "name": "Avoid OS command injection (Python)",
         "href": "AIP/quality-rules/1021112",
@@ -5687,6 +6511,16 @@
         "id": 1024022,
         "name": "Always released Media Resources",
         "href": "AIP/quality-rules/1024022",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1024026,
+        "name": "Avoid using MODE_WORLD_READABLE and MODE_WORLD_WRITEABLE",
+        "href": "AIP/quality-rules/1024026",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5751,6 +6585,30 @@
         "id": 1025010,
         "name": "Avoid second order LDAP injection",
         "href": "AIP/quality-rules/1025010",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025016,
+        "name": "Avoid using cookie without the HttpOnly flag",
+        "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025024,
+        "name": "Avoid disabling the expiration time validation of a JWT token",
+        "href": "AIP/quality-rules/1025024",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -5828,6 +6686,28 @@
         ]
     },
     {
+        "id": 1027016,
+        "name": "Avoid throwing exceptions in destructors",
+        "href": "AIP/quality-rules/1027016",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027018,
+        "name": "Avoid throwing exceptions from finally block",
+        "href": "AIP/quality-rules/1027018",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027024,
         "name": "Avoid comparing passwords against hard-coded strings",
         "href": "AIP/quality-rules/1027024",
@@ -5850,6 +6730,28 @@
         ]
     },
     {
+        "id": 1027034,
+        "name": "Never catch NullReferenceException",
+        "href": "AIP/quality-rules/1027034",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027036,
+        "name": "Avoid rethrowing exception explicitly",
+        "href": "AIP/quality-rules/1027036",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027038,
         "name": "Avoid if \u2026 else if constructs not terminated with an else clause (.NET, VB)",
         "href": "AIP/quality-rules/1027038",
@@ -5864,6 +6766,28 @@
         "id": 1027040,
         "name": "Avoid using multiple OrderBy calls",
         "href": "AIP/quality-rules/1027040",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027048,
+        "name": "Avoid returning null from non-async Task/Task<T> method",
+        "href": "AIP/quality-rules/1027048",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027050,
+        "name": "Avoid throwing ArgumentException from yielding method.",
+        "href": "AIP/quality-rules/1027050",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5897,6 +6821,17 @@
         "id": 1027064,
         "name": "Always override 'Equals' and Comparison operators with IComparable implementation",
         "href": "AIP/quality-rules/1027064",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027066,
+        "name": "Avoid throwing exception from property getters",
+        "href": "AIP/quality-rules/1027066",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -5982,6 +6917,17 @@
         ]
     },
     {
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027100,
         "name": "Avoid dangerous File Upload",
         "href": "AIP/quality-rules/1027100",
@@ -5996,6 +6942,16 @@
         "id": 1030000,
         "name": "DEPRECATED: Avoid \"when\" statement or expression without an else (Kotlin)",
         "href": "AIP/quality-rules/1030000",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030002,
+        "name": "Avoid using \"Throwable.printStackTrace()\" with no argument (Kotlin)",
+        "href": "AIP/quality-rules/1030002",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -6060,6 +7016,86 @@
         "severity": 10,
         "technologyNames": [
             "Kotlin"
+        ]
+    },
+    {
+        "id": 1030020,
+        "name": "Avoid unhandled Exceptions in servlet methods (Kotlin)",
+        "href": "AIP/quality-rules/1030020",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1030100,
+        "name": "Avoid using IE filters and -ms-filter (CSS)",
+        "href": "AIP/quality-rules/1030100",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030102,
+        "name": "Avoid using zoom for Layout (CSS)",
+        "href": "AIP/quality-rules/1030102",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030104,
+        "name": "Avoid using CSS selector hacks: * html, *+html (CSS)",
+        "href": "AIP/quality-rules/1030104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030106,
+        "name": "Avoid using property name hacks (_property, *property) (CSS)",
+        "href": "AIP/quality-rules/1030106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030108,
+        "name": "Avoid using CSS hack values (\\9, \\0/) (CSS)",
+        "href": "AIP/quality-rules/1030108",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030110,
+        "name": "Avoid using Vendor Prefix without Standard Fallback (CSS)",
+        "href": "AIP/quality-rules/1030110",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1030112,
+        "name": "Avoid using IE-only gradient (CSS)",
+        "href": "AIP/quality-rules/1030112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
         ]
     },
     {
@@ -6253,6 +7289,56 @@
         ]
     },
     {
+        "id": 1034060,
+        "name": "Avoid uncontrolled import into the current symbol table (PHP)",
+        "href": "AIP/quality-rules/1034060",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034062,
+        "name": "Avoid creating cookie without setting httpOnly option (PHP)",
+        "href": "AIP/quality-rules/1034062",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1034064,
+        "name": "Ensure httpOnly option is enabled when creating session (PHP)",
+        "href": "AIP/quality-rules/1034064",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1039008,
+        "name": "Avoid thrown Exceptions in servlet methods",
+        "href": "AIP/quality-rules/1039008",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039026,
+        "name": "Avoid creating cookie without setting httpOnly option (JEE)",
+        "href": "AIP/quality-rules/1039026",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1039032,
         "name": "Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)",
         "href": "AIP/quality-rules/1039032",
@@ -6298,6 +7384,16 @@
         "href": "AIP/quality-rules/1039040",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039052,
+        "name": "Avoid Http Session without expiration",
+        "href": "AIP/quality-rules/1039052",
+        "critical": true,
+        "severity": 30,
         "technologyNames": [
             "JEE"
         ]
@@ -6423,6 +7519,16 @@
         ]
     },
     {
+        "id": 1039096,
+        "name": "Ensure httpOnly option is enabled when creating session (JEE)",
+        "href": "AIP/quality-rules/1039096",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1039106,
         "name": "Avoid disabling the automatic HTML escaping for Spring",
         "href": "AIP/quality-rules/1039106",
@@ -6464,11 +7570,41 @@
         ]
     },
     {
+        "id": 1040030,
+        "name": "Avoid Using Generic Authentication Exception Class",
+        "href": "AIP/quality-rules/1040030",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040032,
+        "name": "Avoid Using ControllerAdvice And HandlerExceptionResolver simultaneously",
+        "href": "AIP/quality-rules/1040032",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1040044,
         "name": "Avoid using UnZipTransformer of spring-integration-zip prior to version 1.0.1",
         "href": "AIP/quality-rules/1040044",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042004,
+        "name": "Avoid Duplicate Struts validation forms with the same name",
+        "href": "AIP/quality-rules/1042004",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "JEE"
         ]
@@ -6546,6 +7682,28 @@
         ]
     },
     {
+        "id": 1043010,
+        "name": "Avoid creating cookie without setting httpOnly option (C#)",
+        "href": "AIP/quality-rules/1043010",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043012,
+        "name": "Avoid creating cookie without setting httpOnly option in Config file (ASP.NET)",
+        "href": "AIP/quality-rules/1043012",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
         "id": 1043014,
         "name": "Avoid disabling ValidateRequest in Config file (ASP.NET)",
         "href": "AIP/quality-rules/1043014",
@@ -6588,6 +7746,39 @@
         ]
     },
     {
+        "id": 1043050,
+        "name": "Avoid having long timeout for HttpCookie (> 5 mn)",
+        "href": "AIP/quality-rules/1043050",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043076,
+        "name": "Avoid disabling custom errors mode to prevent exposure of exceptions and error data",
+        "href": "AIP/quality-rules/1043076",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
+        "id": 1043084,
+        "name": "Avoid XML schemas with unbounded occurrences",
+        "href": "AIP/quality-rules/1043084",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
         "id": 1043086,
         "name": "Avoid using Html.Raw() or HtmlHelper.Raw()",
         "href": "AIP/quality-rules/1043086",
@@ -6602,6 +7793,16 @@
         "id": 1045008,
         "name": "Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/1045008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045302,
+        "name": "Ensure specifying fetch size for large queries",
+        "href": "AIP/quality-rules/1045302",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -7083,6 +8284,16 @@
         ]
     },
     {
+        "id": 1065026,
+        "name": "Ensure exception objects are always caught by reference (C++)",
+        "href": "AIP/quality-rules/1065026",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
         "id": 1065038,
         "name": "Avoid using 'signal.h' (C/C++)",
         "href": "AIP/quality-rules/1065038",
@@ -7170,6 +8381,50 @@
         "id": 1065086,
         "name": "Avoid casting and converting a pointer type to an integral type (C/C++)",
         "href": "AIP/quality-rules/1065086",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065102,
+        "name": "Avoid checking Integer overflow without explicit cast",
+        "href": "AIP/quality-rules/1065102",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065104,
+        "name": "Converting a multiplication to a larger type should be done before the multiplication takes place",
+        "href": "AIP/quality-rules/1065104",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065106,
+        "name": "Avoid comparing types of different widths in a loop",
+        "href": "AIP/quality-rules/1065106",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 1065108,
+        "name": "Bit-fields shall be either unsigned integral, or enumeration (with underlying type of unsigned integral type).",
+        "href": "AIP/quality-rules/1065108",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -7299,6 +8554,16 @@
         "severity": 30,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1101112,
+        "name": "Avoid LOCK TABLE statements in SQL code for COBOL Programs",
+        "href": "AIP/quality-rules/1101112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "Cobol"
         ]
     },
     {

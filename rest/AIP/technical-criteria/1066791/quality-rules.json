@@ -1,5 +1,118 @@
 [
     {
+        "id": 678,
+        "name": "Never throw an exception from a Destructor",
+        "href": "AIP/quality-rules/678",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1608,
+        "name": "Avoid cascading Triggers",
+        "href": "AIP/quality-rules/1608",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Forms",
+            "PL/SQL"
+        ]
+    },
+    {
+        "id": 4056,
+        "name": "Avoid recursive Triggers",
+        "href": "AIP/quality-rules/4056",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Microsoft T-SQL",
+            "SQL Server",
+            "Sybase T-SQL"
+        ]
+    },
+    {
+        "id": 4600,
+        "name": "Avoid using Exit and Halt Methods on a Web/Application Server",
+        "href": "AIP/quality-rules/4600",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 4696,
+        "name": "DEPRECATED: Avoid using 'System.err' and 'System.out' within a try catch block",
+        "href": "AIP/quality-rules/4696",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7152,
+        "name": "Avoid Fields in Servlet Classes that are not final static",
+        "href": "AIP/quality-rules/7152",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7202,
+        "name": "Avoid using '==' and '!=' to compare objects",
+        "href": "AIP/quality-rules/7202",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7236,
+        "name": "Avoid recursive calls with PERFORM statements",
+        "href": "AIP/quality-rules/7236",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 7388,
+        "name": "Avoid artifacts having recursive calls",
+        "href": "AIP/quality-rules/7388",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 7438,
+        "name": "Avoid non thread safe singleton",
+        "href": "AIP/quality-rules/7438",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7446,
+        "name": "Avoid double checked locking for JSE 4.x and previous version",
+        "href": "AIP/quality-rules/7446",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 7524,
         "name": "Avoid using BREAK or BREAK-POINT statement",
         "href": "AIP/quality-rules/7524",
@@ -7,6 +120,480 @@
         "weight": 5,
         "technologyNames": [
             "ABAP"
+        ]
+    },
+    {
+        "id": 7714,
+        "name": "Avoid using auto-wiring",
+        "href": "AIP/quality-rules/7714",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7716,
+        "name": "Avoid defining singleton or factory classes when using Spring",
+        "href": "AIP/quality-rules/7716",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7824,
+        "name": "Avoid directly throwing instance of Exception class",
+        "href": "AIP/quality-rules/7824",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7862,
+        "name": "Avoid catching an exception of type Exception, RuntimeException, or Throwable",
+        "href": "AIP/quality-rules/7862",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 7910,
+        "name": "Never exit a finally block with a return, break, continue, or throw statements",
+        "href": "AIP/quality-rules/7910",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 7942,
+        "name": "Avoid EJBs using 'synchronized' qualifier, 'wait', 'notify' and 'notifyAll' Methods",
+        "href": "AIP/quality-rules/7942",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8000,
+        "name": "Avoid 'catch-all' statement",
+        "href": "AIP/quality-rules/8000",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 8054,
+        "name": "Avoid calling blocking functions with an infinite timeout",
+        "href": "AIP/quality-rules/8054",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 8062,
+        "name": "An unconditional 'throw', 'return' or 'break' shall terminate every non-empty switch-clause",
+        "href": "AIP/quality-rules/8062",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C",
+            "C++"
+        ]
+    },
+    {
+        "id": 8100,
+        "name": "Blocking synchronous calls should have associated timeouts",
+        "href": "AIP/quality-rules/8100",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 8400,
+        "name": "Avoid having lock on this object",
+        "href": "AIP/quality-rules/8400",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8412,
+        "name": "\"CX_ROOT\" should not be used in TRY .. CATCH.. ENDTRY block",
+        "href": "AIP/quality-rules/8412",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ABAP"
+        ]
+    },
+    {
+        "id": 8468,
+        "name": "Program semantic should respect the logic of flow execution",
+        "href": "AIP/quality-rules/8468",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 1001038,
+        "name": "Avoid PLI Functions and Procedures declared as RECURSIVE (PL1)",
+        "href": "AIP/quality-rules/1001038",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001040,
+        "name": "Avoid PLC Includes having recursive PLC procedures (PL1)",
+        "href": "AIP/quality-rules/1001040",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PLC"
+        ]
+    },
+    {
+        "id": 1003084,
+        "name": "Avoid recursive StyleManager call (Flex)",
+        "href": "AIP/quality-rules/1003084",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Flex"
+        ]
+    },
+    {
+        "id": 1005068,
+        "name": "Avoid SQL query outside try-on block (EGL)",
+        "href": "AIP/quality-rules/1005068",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1005078,
+        "name": "Avoid program calls outside a try end block (EGL)",
+        "href": "AIP/quality-rules/1005078",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "EGL"
+        ]
+    },
+    {
+        "id": 1007242,
+        "name": "Avoid Methods and Functions having recursive calls (PHP)",
+        "href": "AIP/quality-rules/1007242",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1018540,
+        "name": "Avoid JMS Synchronous Activities (TIBCO BW)",
+        "href": "AIP/quality-rules/1018540",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1020062,
+        "name": "Avoid using non thread-safe Javascript singleton pattern",
+        "href": "AIP/quality-rules/1020062",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020068,
+        "name": "Avoid return statement in finally block (Javascript)",
+        "href": "AIP/quality-rules/1020068",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020450,
+        "name": "Ensure catching Javascript error in React components",
+        "href": "AIP/quality-rules/1020450",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020540,
+        "name": "Avoid using $http success and error function",
+        "href": "AIP/quality-rules/1020540",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020800,
+        "name": "Avoid jump statements in finally",
+        "href": "AIP/quality-rules/1020800",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020802,
+        "name": "Avoid having errors without throwing them",
+        "href": "AIP/quality-rules/1020802",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020856,
+        "name": "Ensure catching Typescript error in React components",
+        "href": "AIP/quality-rules/1020856",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1021024,
+        "name": "Avoid return statement in finally block",
+        "href": "AIP/quality-rules/1021024",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021134,
+        "name": "Avoid Unchecked Input for Loop Condition (Python)",
+        "href": "AIP/quality-rules/1021134",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1024010,
+        "name": "Avoid applying dangerous protection level for signature-based permissions",
+        "href": "AIP/quality-rules/1024010",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1025052,
+        "name": "Avoid using unnormalized input strings",
+        "href": "AIP/quality-rules/1025052",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027014,
+        "name": "Avoid using Thread API (Suspend\\Resume) to manage thread state",
+        "href": "AIP/quality-rules/1027014",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027034,
+        "name": "Never catch NullReferenceException",
+        "href": "AIP/quality-rules/1027034",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027058,
+        "name": "Avoid blocking async methods (.NET, VB)",
+        "href": "AIP/quality-rules/1027058",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027080,
+        "name": "Always use ConfigureAwait(false) in library code awaited tasks",
+        "href": "AIP/quality-rules/1027080",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027090,
+        "name": "Avoid improper instantiation of argument exceptions",
+        "href": "AIP/quality-rules/1027090",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1030020,
+        "name": "Avoid unhandled Exceptions in servlet methods (Kotlin)",
+        "href": "AIP/quality-rules/1030020",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1039008,
+        "name": "Avoid thrown Exceptions in servlet methods",
+        "href": "AIP/quality-rules/1039008",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1040030,
+        "name": "Avoid Using Generic Authentication Exception Class",
+        "href": "AIP/quality-rules/1040030",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1050020,
+        "name": "Avoid return statement in @finally block",
+        "href": "AIP/quality-rules/1050020",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1050026,
+        "name": "Avoid using non thread-safe Objective-C singleton pattern",
+        "href": "AIP/quality-rules/1050026",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1065026,
+        "name": "Ensure exception objects are always caught by reference (C++)",
+        "href": "AIP/quality-rules/1065026",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1101070,
+        "name": "Avoid explicit comparison with NULL",
+        "href": "AIP/quality-rules/1101070",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101082,
+        "name": "Avoid looping chain of synonyms",
+        "href": "AIP/quality-rules/1101082",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
+        "id": 1101112,
+        "name": "Avoid LOCK TABLE statements in SQL code for COBOL Programs",
+        "href": "AIP/quality-rules/1101112",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Cobol"
+        ]
+    },
+    {
+        "id": 1600676,
+        "name": "Put Break statements in your Evaluate statements (PeopleSoft)",
+        "href": "AIP/quality-rules/1600676",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PeopleSoft"
         ]
     }
 ]

@@ -1,5 +1,29 @@
 [
     {
+        "id": 8222,
+        "name": "Avoid hard-coded credentials",
+        "href": "AIP/quality-rules/8222",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8424,
+        "name": "Avoid hard-coded HMAC and cryptographic key",
+        "href": "AIP/quality-rules/8424",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1007276,
         "name": "DEPRECATED: CWE-287: Avoid Cookie Misconfiguration (path) (PHP)",
         "href": "AIP/quality-rules/1007276",
@@ -7,6 +31,26 @@
         "weight": 5,
         "technologyNames": [
             "PHP"
+        ]
+    },
+    {
+        "id": 1018862,
+        "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+        "href": "AIP/quality-rules/1018862",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "TIBCO"
+        ]
+    },
+    {
+        "id": 1018864,
+        "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+        "href": "AIP/quality-rules/1018864",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "TIBCO"
         ]
     },
     {
@@ -23,6 +67,16 @@
         "id": 1020100,
         "name": "Avoid having cookie with an overly broad domain (Javascript)",
         "href": "AIP/quality-rules/1020100",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020104,
+        "name": "Avoid hard-coded passwords (Javascript)",
+        "href": "AIP/quality-rules/1020104",
         "critical": false,
         "weight": 5,
         "technologyNames": [
@@ -70,6 +124,26 @@
         ]
     },
     {
+        "id": 1020736,
+        "name": "Avoid bypassing self-signed ssl certificate (Node.js)",
+        "href": "AIP/quality-rules/1020736",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020738,
+        "name": "Avoid disabling SSL verification in node-curl",
+        "href": "AIP/quality-rules/1020738",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1020740,
         "name": "Avoid creating cookie with overly broad path (Node.js)",
         "href": "AIP/quality-rules/1020740",
@@ -83,6 +157,16 @@
         "id": 1020742,
         "name": "Avoid creating cookie with overly broad domain (Node.js)",
         "href": "AIP/quality-rules/1020742",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020820,
+        "name": "Avoid hard-coded passwords (TypeScript)",
+        "href": "AIP/quality-rules/1020820",
         "critical": false,
         "weight": 5,
         "technologyNames": [
@@ -110,6 +194,66 @@
         ]
     },
     {
+        "id": 1020920,
+        "name": "Avoid disabling SSL verification in node-curl (TypeScript)",
+        "href": "AIP/quality-rules/1020920",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020950,
+        "name": "Avoid providing password in Web Service URL",
+        "href": "AIP/quality-rules/1020950",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1021042,
+        "name": "Avoid hard-coded passwords (Python)",
+        "href": "AIP/quality-rules/1021042",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1021048,
+        "name": "Always protect sensitive data in config files from disclosure",
+        "href": "AIP/quality-rules/1021048",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Python"
+        ]
+    },
+    {
+        "id": 1024010,
+        "name": "Avoid applying dangerous protection level for signature-based permissions",
+        "href": "AIP/quality-rules/1024010",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1024032,
+        "name": "Always manage the BiometricPrompt onAuthenticationFailed method",
+        "href": "AIP/quality-rules/1024032",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1025026,
         "name": "Avoid disabling the expiration time requirement of a JWT token",
         "href": "AIP/quality-rules/1025026",
@@ -134,6 +278,102 @@
         ]
     },
     {
+        "id": 1025030,
+        "name": "Avoid hard-coded JWT secret keys",
+        "href": "AIP/quality-rules/1025030",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025032,
+        "name": "Avoid insecure parameters for PBKDF2 password encoder",
+        "href": "AIP/quality-rules/1025032",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025034,
+        "name": "Avoid insecure parameters for BCrypt password encoder",
+        "href": "AIP/quality-rules/1025034",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025036,
+        "name": "Avoid insecure parameters for Argon2 password encoder",
+        "href": "AIP/quality-rules/1025036",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025038,
+        "name": "Avoid insecure parameters for SCrypt password encoder",
+        "href": "AIP/quality-rules/1025038",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025048,
+        "name": "Avoid hard-coded password in connection string",
+        "href": "AIP/quality-rules/1025048",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025054,
+        "name": "Avoid plaintext storage of password",
+        "href": "AIP/quality-rules/1025054",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025064,
+        "name": "Avoid weak encoding for password",
+        "href": "AIP/quality-rules/1025064",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1027022,
         "name": "Avoid using \"new Guid()\"",
         "href": "AIP/quality-rules/1027022",
@@ -142,6 +382,58 @@
         "technologyNames": [
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1027024,
+        "name": "Avoid comparing passwords against hard-coded strings",
+        "href": "AIP/quality-rules/1027024",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027044,
+        "name": "Avoid using SafeHandle.DangerousGetHandle",
+        "href": "AIP/quality-rules/1027044",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1030016,
+        "name": "Avoid hard-coded passwords and credentials (Kotlin)",
+        "href": "AIP/quality-rules/1030016",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Kotlin"
+        ]
+    },
+    {
+        "id": 1034056,
+        "name": "Avoid using hard-coded HMAC keys (PHP)",
+        "href": "AIP/quality-rules/1034056",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PHP"
+        ]
+    },
+    {
+        "id": 1039012,
+        "name": "Avoid using referer header field in HTTP request",
+        "href": "AIP/quality-rules/1039012",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {
@@ -158,6 +450,16 @@
         "id": 1039066,
         "name": "Avoid creating cookie with an overly broad path (JEE)",
         "href": "AIP/quality-rules/1039066",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1039120,
+        "name": "Avoid weak password requirements (JEE)",
+        "href": "AIP/quality-rules/1039120",
         "critical": false,
         "weight": 5,
         "technologyNames": [
@@ -185,6 +487,17 @@
         ]
     },
     {
+        "id": 1043018,
+        "name": "Avoid storing passwords in the config files",
+        "href": "AIP/quality-rules/1043018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ASP.NET",
+            "C#"
+        ]
+    },
+    {
         "id": 1043046,
         "name": "Avoid creating cookie with overly broad path (C#)",
         "href": "AIP/quality-rules/1043046",
@@ -204,6 +517,66 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1043066,
+        "name": "Always use HTTPS Redirection Middleware and HSTS Middleware in your ASP.NET Core application",
+        "href": "AIP/quality-rules/1043066",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1043080,
+        "name": "Avoid disabling OR not defining encryption behavior for encryption when connecting with Database",
+        "href": "AIP/quality-rules/1043080",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ASP.NET"
+        ]
+    },
+    {
+        "id": 1050028,
+        "name": "Always use LAContext canEvaluatePolicy: before using evaluatePolicy: (Objective-C)",
+        "href": "AIP/quality-rules/1050028",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Objective-C"
+        ]
+    },
+    {
+        "id": 1055018,
+        "name": "Always use LAContext canEvaluatePolicy before using evaluatePolicy (Swift)",
+        "href": "AIP/quality-rules/1055018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1055036,
+        "name": "Avoid hard-coded passwords (Swift)",
+        "href": "AIP/quality-rules/1055036",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "Swift"
+        ]
+    },
+    {
+        "id": 1600840,
+        "name": "Avoid using hard-coded usernames (PeopleSoft)",
+        "href": "AIP/quality-rules/1600840",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "PeopleSoft"
         ]
     }
 ]
