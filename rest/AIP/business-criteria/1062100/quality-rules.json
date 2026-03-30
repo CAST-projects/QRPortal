@@ -3689,6 +3689,16 @@
         ]
     },
     {
+        "id": 1008128,
+        "name": "Avoid hard-coded IP addresses (RPG400)",
+        "href": "AIP/quality-rules/1008128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG400"
+        ]
+    },
+    {
         "id": 1009020,
         "name": "Avoid Programs with High Fan-Out  (RPG300)",
         "href": "AIP/quality-rules/1009020",
@@ -3799,6 +3809,16 @@
         ]
     },
     {
+        "id": 1009128,
+        "name": "Avoid hard-coded IP addresses (RPG300)",
+        "href": "AIP/quality-rules/1009128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "RPG300"
+        ]
+    },
+    {
         "id": 1011026,
         "name": "Avoid unreferenced Display Files  (DDS400)",
         "href": "AIP/quality-rules/1011026",
@@ -3832,6 +3852,16 @@
         "id": 1012016,
         "name": "Avoid unreferenced CL Programs  (CL400)",
         "href": "AIP/quality-rules/1012016",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "CL400"
+        ]
+    },
+    {
+        "id": 1012028,
+        "name": "Avoid hard-coded IP addresses (CL400)",
+        "href": "AIP/quality-rules/1012028",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -3886,6 +3916,66 @@
         "severity": 10,
         "technologyNames": [
             "TIBCO"
+        ]
+    },
+    {
+        "id": 1019400,
+        "name": "Avoid calling Entity DbContext SaveChanges() inside loops",
+        "href": "AIP/quality-rules/1019400",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019402,
+        "name": "Avoid using Entity DbContext.Update() in loops",
+        "href": "AIP/quality-rules/1019402",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019404,
+        "name": "Avoid calling Add() inside a loop when AddRange() is applicable",
+        "href": "AIP/quality-rules/1019404",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019406,
+        "name": "Avoid using DbSet queries ToList()/ToArray()/ToDictionary() in foreach clause",
+        "href": "AIP/quality-rules/1019406",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019416,
+        "name": "Avoid using Count() when Any() is sufficient",
+        "href": "AIP/quality-rules/1019416",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#"
+        ]
+    },
+    {
+        "id": 1019420,
+        "name": "Avoid doing bulk changes without disabling Entity changes Tracking",
+        "href": "AIP/quality-rules/1019420",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#"
         ]
     },
     {
@@ -4244,6 +4334,46 @@
         "href": "AIP/quality-rules/1020110",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020112,
+        "name": "Avoid setting an event handler like onclick, onmouseover, onsubmit... using element.setAttribute() (Javascript)",
+        "href": "AIP/quality-rules/1020112",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020176,
+        "name": "Avoid empty catch blocks (Javascript)",
+        "href": "AIP/quality-rules/1020176",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020178,
+        "name": "Avoid empty finally blocks (Javascript)",
+        "href": "AIP/quality-rules/1020178",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
+        "id": 1020180,
+        "name": "Avoid missing default in switch statements (Javascript)",
+        "href": "AIP/quality-rules/1020180",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "HTML5"
         ]
@@ -5852,6 +5982,16 @@
         "technologyNames": [
             "ASP.NET",
             "C#"
+        ]
+    },
+    {
+        "id": 1045302,
+        "name": "Ensure specifying fetch size for large queries",
+        "href": "AIP/quality-rules/1045302",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
         ]
     },
     {

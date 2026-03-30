@@ -21,6 +21,11 @@
     "alternativeName": "Ensure you use Any() instead of Count() > 0 into logical checks",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
@@ -37,6 +42,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062190,
+            "name": "ASCSM-CWE-789 - Uncontrolled Memory Allocation",
+            "href": "AIP/technical-criteria/1062190",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61019,
             "name": "Efficiency - SQL and Data Handling Performance",
