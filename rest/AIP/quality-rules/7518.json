@@ -14,7 +14,7 @@
     "remediationSample": "Remediation example:\n\nCASE tp_materialtype.\n  WHEN co_materialtype_raw.\n* Handling of material type RAW starts here\n  WHEN co_materialtype_semi.\n* Handling of material type SEMI starts here\n  WHEN OTHERS\n* The exception is caught here\nENDCASE.",
     "sample": "CASE tp_materialtype.\n  WHEN co_materialtype_raw.\n* Handling of material type RAW starts here\n  WHEN co_materialtype_semi.\n* Handling of material type SEMI starts here\nENDCASE.",
     "total": "Number of ABAP Artifacts",
-    "alternativeName": "Avoid missing WHEN OTHERS in CASE statements",
+    "alternativeName": "Avoid missing WHEN OTHERS in CASE statements or ELSE in COND expressions",
     "businessCriteria": [
         {
             "id": 1062100,
