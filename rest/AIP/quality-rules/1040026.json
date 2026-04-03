@@ -10,13 +10,13 @@
         "href": "AIP/extensions/com.castsoftware.springsecurity"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This rule will check is a single HTTP method, with which you expect @RequestMapping Java method to be called, is explicitly listed.",
+    "description": "This rule will check if a single HTTP method, with which you expect @RequestMapping Java method to be called, is explicitly listed.",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
-    "rationale": "The web application does not, or can not, sufficiently verify whether a well-formed, valid, consistent request was intentionally provided by the user who submitted the request.\n\nThe first step to protecting against CSRF attacks is to ensure your website uses proper HTTP verbs. Specifically, before Spring Security\u2019s CSRF support can be of use, you need to be certain that your application is using PATCH, POST, PUT, and/or DELETE for anything that modifies state.",
+    "rationale": "If you do not provide an explicit HTTP method in a @RequestMapping annotation (e.g., method = RequestMethod.GET),  ([AGR] or specific annotation like @GetMapping(\"/myurl\")) the consequence is that Spring maps the endpoint to all standard HTTP verbs.\n\nThis means the handler method will process requests sent via GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH, and TRACE.\n\nThis configuration oversight primarily triggers a vulnerability known as HTTP Verb Tampering.",
     "reference": "https://cwe.mitre.org/data/definitions/352.html\nhttps://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/csrf.html#csrf-use-proper-verbs",
     "remediation": "Specify HTTP method with which you expect your @RequestMapping Java method to be called. \nExample: @RequestMapping(\"/greet\", method = GET)",
-    "remediationSample": "@RequestMapping(\"/api/data\", method = GET)\npublic String getData(String input) {...",
-    "sample": "@RequestMapping(\"/api/data\", )\npublic String getData(String input) { ....",
+    "remediationSample": "// Remediation sample 1\n\n@RequestMapping(\"/api/data\", method = GET)\npublic String getData(String input) { [...] }\n\n\n// Remediation sample 2\n\n@GetMapping(\"/api/data\")\npublic String getData(String input) { [...] }",
+    "sample": "@RequestMapping(\"/api/data\")\npublic String getData(String input) { [...] }",
     "total": "Number of Java methods having @RequestMapping",
     "alternativeName": "Ensure explicitly specifying single HTTP method in @RequestMapping methods to avoid information leakage",
     "businessCriteria": [
