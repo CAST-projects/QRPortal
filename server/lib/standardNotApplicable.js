@@ -7,13 +7,18 @@ const Item = new Struct('id', 'name', 'href', 'count', 'notapplicable');
 
 
 function isApplicable( list ){
-  const validationData = fs.readFileSync(path.resolve(__dirname,'validation', 'standards-validation.json'));
-  const v_data = JSON.parse(validationData);
-  return list.map( e => {
-    const idFound = v_data.find( a => a === e.id );
-
-    return new Item(e.id, e.name, e.href, e.count, idFound ? true : false);
-  });
+  try {
+    const validationData = fs.readFileSync(path.resolve(__dirname,'validation', 'standards-validation.json'));
+    const v_data = JSON.parse(validationData);
+    return list.map( e => {
+      const idFound = v_data.find( a => a === e.id );
+  
+      return new Item(e.id, e.name, e.href, e.count, idFound ? true : false);
+    });
+    
+  } catch (error) {
+    console.log(error.stack);
+  }
 }
 
 function handler( req, res, errorHandler ){
