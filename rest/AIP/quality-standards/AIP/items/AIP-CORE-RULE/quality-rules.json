@@ -8953,9 +8953,29 @@
         ]
     },
     {
+        "id": 1001126,
+        "name": "Avoid Main Procedures having SQL queries using NOT EXISTS (PL1)",
+        "href": "AIP/quality-rules/1001126",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
         "id": 1001128,
         "name": "Avoid Main Procedures having queries with joins on more than 4 Tables (PL1)",
         "href": "AIP/quality-rules/1001128",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001130,
+        "name": "Avoid Main Procedures with High Raw SQL Complexity (SQL complexity greater than X) (PL1)",
+        "href": "AIP/quality-rules/1001130",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -8998,6 +9018,26 @@
         "href": "AIP/quality-rules/1001138",
         "critical": true,
         "severity": 20,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001140,
+        "name": "Avoid Functions and Procedures with DB2 SQL containing the builtin function UPPER, LOWER or SUBSTR in the WHERE clause (PL1)",
+        "href": "AIP/quality-rules/1001140",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "PLI"
+        ]
+    },
+    {
+        "id": 1001142,
+        "name": "Avoid Functions and Procedures with DB2 SQL containing \"UNION\" clause without \"ALL\" option (PL1)",
+        "href": "AIP/quality-rules/1001142",
+        "critical": false,
+        "severity": 10,
         "technologyNames": [
             "PLI"
         ]
