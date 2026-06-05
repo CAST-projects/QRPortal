@@ -1,6 +1,6 @@
 {
     "id": 1045000,
-    "name": "Lazy fetching should be used for Hibernate collection",
+    "name": "Lazy fetching should be used for JPA/Jakarta Persistence collection",
     "href": "AIP/quality-rules/1045000",
     "critical": true,
     "severity": 20,
@@ -10,7 +10,7 @@
         "href": "AIP/extensions/com.castsoftware.java.hibernate"
     },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This rule reports all collection association (set, list, bag, idbag, map) that don't use lazy fetching strategy. This strategy is set through the lazy property set to \"true\". The rule supports both annotation-based and XML-based configurations.",
+    "description": "This quality rule reports all collection associations that do not use a lazy fetching strategy, across all Jakarta Persistence (formerly JPA) supported implementations and frameworks, including Hibernate, EclipseLink, Apache OpenJPA, EBean ORM, Spring Data JPA, and Quarkus Hibernate ORM with Panache.\n\nThe rule supports annotation-based configurations as well as XML-based configurations (Hibernate's hbm.xml and JPA's orm.xml).",
     "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
     "rationale": "In a lazy association, the associated object or collection is fetched when it's first accessed. This results in a new request to the database (unless the associated object is cached). This option is almost always used for collection mappings (it should be the default, and we recommend that you consider it as a default for all your collection mappings). Generally, the performance benefits are such that you will want to use lazy instantiation wherever possible (compared with the massive task of reading in all of the entities concerned)\n\nWhen eager fetching is used, the associated object or collection is fetched together with the owning object, using an SQL outer join, and no further database request is required. But the issue is that it will always be done like this and if the number of rows is high, the performance will be affected.",
     "reference": "Hibernate in Action (ISBN 1932394-15-X) p 148\nhttps://thoughts-on-java.org/entity-mappings-introduction-jpa-fetchtypes/\nhttps://howtodoinjava.com/hibernate/lazy-loading-in-hibernate/",
