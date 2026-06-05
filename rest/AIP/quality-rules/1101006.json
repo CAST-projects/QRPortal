@@ -14,7 +14,7 @@
     "output": "Associated to each Artifact with violations, the Quality Rule provides:\n- The number of violation patterns.\n- Each violation pattern shows :\n- the query \n- each XXL table accessed on non-indexed columns\n- the XXL table's indexes",
     "rationale": "Non-indexed SQL Queries are potentially performance killers.\nIndeed, each execution of the query will result in a full table scan which is extremely time consuming especially if the table contains an extremely large amount of data (XXL table).",
     "reference": "Enhancing the Quality of ABAP Development\nMeijs - Krouwels - Heuvelmans - Sommen\nSAP Press\nISBN 1-59229-030-2",
-    "remediation": "Check the statement and if so, add seconday index on queried columns.",
+    "remediation": "Add an index on frequently filtered, joined, or sorted columns to avoid full table scans.",
     "remediationSample": "The remediation is to add index on TABLE1 (COL3, COL1).",
     "sample": "TABLE1 is indexed on (COL2, COL1) and TABLE2 on COL3. Both tables are XXL.\nFor the following statement :\nSelect O.COL1, O.COL2, O.COL2, 1, 0, 0, 1\nFrom TABLE1 O, TABLE2 OT\nWhere O.COL3       = OT.COL3\nAnd O.COL1      in (1, 2)\nAnd OT.COL4    = 1;\nTABLE2's index cover the statement.\nTABLE1 is reported in violation.",
     "total": "Number of Artifacts with SQL code from schemas containing XXL tables or views.",

@@ -1,0 +1,136 @@
+{
+    "id": 1101118,
+    "name": "Avoid redundant indexes (SQL)",
+    "href": "AIP/quality-rules/1101118",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sqlanalyzer",
+        "href": "AIP/extensions/com.castsoftware.sqlanalyzer"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all indexes that are redundant, i.e., indexes on the same column(s) or included in another composite index.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "It is useless to have several indexes on the same column(s) or to have an index on columns already covered by a composite index.\nThis will not improve read performance and will decrease update/insert/delete performance because of index maintenance.",
+    "reference": "https://www.mssqltips.com/sqlservertip/1449/avoid-index-redundancy-in-sql-server-tables/",
+    "remediation": "Drop the indexes that are not necessary.",
+    "remediationSample": "-- SQL Sample\n\ncreate table MyTable (C1 int identity, C2 int)\n\n-- create index MyTable_I1 on MyTable(C1)\n-- This index is useless as it is the same as MyTable_I2.\n\n-- create index MyTable_I2 on MyTable(C1)\n-- This index is nearly useless, as queries using C1 will be covered by the index MyTable_I3. It can then be dropped.\n\ncreate index MyTable_I3 on MyTable(C1, C2)",
+    "sample": "-- SQL Sample\ncreate table MyTable (C1 int identity, C2 int)\n\ncreate index MyTable_I1 on MyTable(C1)\ncreate index MyTable_I2 on MyTable(C1)\ncreate index MyTable_I3 on MyTable(C1, C2)",
+    "total": "Number of Tables.",
+    "alternativeName": "Avoid redundant indexes (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067189,
+            "name": "CWE-1089 - Large Data Table with Excessive Number of Indices [Base]",
+            "href": "AIP/technical-criteria/1067189",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066500,
+            "name": "CWE-400 - Uncontrolled Resource Consumption [Class]",
+            "href": "AIP/technical-criteria/1066500",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066505,
+            "name": "CWE-405 - Asymmetric Resource Consumption (Amplification) [Class]",
+            "href": "AIP/technical-criteria/1066505",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066764,
+            "name": "CWE-664 - Improper Control of a Resource Through its Lifetime [Pillar]",
+            "href": "AIP/technical-criteria/1066764",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "href": "AIP/technical-criteria/61019",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQL",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCPEM-PRF-6",
+            "name": "Large Data Resource ColumnSet Excessive Number of Index Elements",
+            "href": "AIP/quality-standards/CISQ/items/ASCPEM-PRF-6",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-400",
+            "name": "Uncontrolled Resource Consumption [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-400",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-405",
+            "name": "Asymmetric Resource Consumption (Amplification) [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-405",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-664",
+            "name": "Improper Control of a Resource Through its Lifetime [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-664",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1089",
+            "name": "Large Data Table with Excessive Number of Indices [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1089",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1089",
+            "name": "Large Data Table with Excessive Number of Indices [Base]",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1089",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1089",
+            "name": "Large Data Table with Excessive Number of Indices [Base]",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1089",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
