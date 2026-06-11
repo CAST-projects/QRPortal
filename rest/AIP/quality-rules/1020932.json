@@ -1,0 +1,61 @@
+{
+    "id": 1020932,
+    "name": "Avoid hard-coded API keys (TypeScript)",
+    "href": "AIP/quality-rules/1020932",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.typescript",
+        "href": "AIP/extensions/com.castsoftware.typescript"
+    },
+    "description": "This quality rule detects potential hard-coded API keys in the codebase.\n\nIt operates using a two-step heuristic approach. First, it analyzes variable names and object property names to identify those that are likely to store sensitive credentials (e.g., API keys, tokens, or secrets).\n\nSecond, it evaluates the values assigned to these variables and applies additional heuristics to determine whether the assigned value matches the characteristics of an API key (such as length, format, or known patterns).\n\nBy combining naming analysis with value inspection, this rule helps identify potentially exposed API keys directly embedded in source code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Hard-coding API keys directly in source code is a critical security vulnerability. When API keys are embedded in TypeScript files, they are easily exposed through version control history (e.g., Git), public repositories, compiled JavaScript bundles, client-side code shipped to browsers, and log files or error messages. Attackers who obtain these keys can abuse third-party services, incur financial charges on your accounts, access sensitive data, or escalate privileges. Secrets should always be externalized and managed through secure mechanisms.",
+    "reference": "CWE-547: Use of Hard-coded, Security-relevant Constants\nhttps://cwe.mitre.org/data/definitions/547.html\n\nCWE-798: Use of Hard-coded Credentials\nhttps://cwe.mitre.org/data/definitions/798.html\n\nOWASP \u2013 Secrets Management Cheat Sheet \u2013 Secrets Management Cheat Sheet\nhttps://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html\n\nOWASP Top Ten 2021 \u2013 A02:2021 Cryptographic Failures\nhttps://owasp.org/Top10/2021/A02_2021-Cryptographic_Failures/\n\nOWASP Top Ten 2025 - A07:2025 - Authentication Failures\nhttps://owasp.org/Top10/2025/A07_2025-Authentication_Failures/\n\nNode.js dotenv package\nhttps://nodejs.org/api/environment_variables.html#dotenv\n\n12-Factor App \u2013 Config \u2014 industry standard for externalizing configuration from code",
+    "remediation": "Replace any hard-coded API key with an environment variable or a secrets management solution. In TypeScript/Node.js, use process.env to read secrets at runtime. For frontend applications, use build-time environment variable injection (e.g., via .env files with tools like Vite or Next.js), while ensuring keys are never committed to source control. Add .env files to .gitignore and consider using a dedicated secrets manager (AWS Secrets Manager, HashiCorp Vault, Azure Key Vault) for production environments.",
+    "remediationSample": "import Stripe from 'stripe';\nimport dotenv from 'dotenv';\n\ndotenv.config(); // loads variables from .env file (never commit .env to git)\n\nconst stripeApiKey = process.env.STRIPE_SECRET_KEY;  // \u2705 Fixed : Load secrets from environment variable\nconst openAiApiKey = process.env.OPENAI_API_KEY;     // \u2705 Fixed : Load secrets from environment variable\n\nif (!stripeApiKey || !openAiApiKey) {\n  throw new Error('Missing required API keys in environment variables.');\n}\n\nconst stripe = new Stripe(stripeApiKey, {\n  apiVersion: '2023-10-16',\n});\n\nconst openAiHeaders = {\n  'Authorization': `Bearer ${openAiApiKey}`,\n  'Content-Type': 'application/json',\n};\n```\n\n**`.env` file (local only \u2014 add to `.gitignore`):**\n```\nSTRIPE_SECRET_KEY=...\nOPENAI_API_KEY=...\n```\n\n**`.gitignore`:**\n```\n.env\n.env.local\n.env.production",
+    "sample": "const openAiHeaders = {\n  'Authorization': 'Bearer sk-AbCdEf123456GhIjKlMnOpQrStUvWxYz',  // \u274c Violation : Hard-coded API key\n  'Content-Type': 'application/json',\n};",
+    "total": "Number of TypeScript artifacts",
+    "alternativeName": "Ensure you don't hard-code API keys in the source file, hackers can steal the information by retro-engineering your application (Typescript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
