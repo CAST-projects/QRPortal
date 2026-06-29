@@ -1,0 +1,179 @@
+{
+    "id": 1045306,
+    "name": "Ensure calling getWarnings() after JDBC write operations",
+    "href": "AIP/quality-rules/1045306",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.java.sql",
+        "href": "AIP/extensions/com.castsoftware.java.sql"
+    },
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule applies when the write operation via following methods are used:\n\nStatement/PreparedStatement/CallableStatement\n1.Execute()\n2.ExecuteUpdate()\n3.ExecuteBatch()\n4.ExecuteLargeUpdate()\n\nResultSet\n1.UpdateRow()\n2.InsertRow()\n3.DeleteRow()",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "JDBC drivers report non-fatal conditions as SQLWarning objects instead of throwing exceptions, so they never interrupt execution and are discarded unless the code explicitly calls getWarnings(). After an INSERT, UPDATE, or DELETE, this channel commonly carries data-truncation notices (a value silently cut to fit its column), stored-procedure \"success with info\" messages, and \u2014 on DELETE \u2014 cascade or trigger side-effect warnings reporting rows affected beyond the direct delete.\n\nBecause the operation still reports success, skipping getWarnings() lets these signals vanish unnoticed \u2014 resulting in silent data corruption, incorrect row-count assertions, and lost audit trail entries that surface only later, when the damage is hard to trace.",
+    "reference": "IBM Db2 for Linux, UNIX and Windows - Handling an SQLWarning under the IBM Data Server Driver for JDBC and SQLJ\nhttps://www.ibm.com/docs/en/db2/12.1.x?topic=ewudsdjs-handling-sqlwarning-under-data-server-driver-jdbc-sqlj\n\nOracle - The Java\u2122 Tutorials - Retrieving Warnings\nhttps://docs.oracle.com/javase/tutorial/jdbc/basics/sqlexception.html#retrieving_warnings\n\nMicrosoft JDBC Driver for SQL Server - SQLServerConnection methods\nhttps://learn.microsoft.com/en-us/sql/connect/jdbc/reference/getwarnings-method-sqlserverconnection?view=sql-server-ver17\n\nStack Overflow - When to call getWarnings() on Connections, Statements, and ResultSets with JDBC?\nhttps://stackoverflow.com/questions/6434338/when-to-call-getwarnings-on-connections-statements-and-resultsets-with-jdbc",
+    "remediation": "Regularly check conn.getWarnings() or stmt.getWarnings() after execution if data integrity is critical.",
+    "remediationSample": "public void updateProductDescriptionSafe(Connection conn, int productId, String newDescription) throws SQLException {\n    String sql = \"UPDATE products SET description = ? WHERE id = ?\";\n    \n    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {\n        pstmt.setString(1, newDescription);\n        pstmt.setInt(2, productId);\n        \n        int rowsAffected = pstmt.executeUpdate();\n        \n        SQLWarning warning = pstmt.getWarnings();   // \u2705 FIXED : Check for warnings immediately after execution\n        while (warning != null) {\n            // Log the specific issue (e.g., \"Data truncation\")\n            System.err.println(\"SQL Warning:\");\n            System.err.println(\"  Message: \" + warning.getMessage());\n            System.err.println(\"  SQLState: \" + warning.getSQLState());\n            System.err.println(\"  VendorCode: \" + warning.getErrorCode());\n            \n            // Warnings can be chained; ensure we get all of them\n            warning = warning.getNextWarning();\n        }\n        \n        System.out.println(\"Update complete. Rows affected: \" + rowsAffected);\n    }\n}",
+    "sample": "public void updateProductDescription(Connection conn, int productId, String newDescription) throws SQLException {\n    String sql = \"UPDATE products SET description = ? WHERE id = ?\";\n    \n    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {\n        pstmt.setString(1, newDescription);\n        pstmt.setInt(2, productId);\n        \n        // Anti-Pattern: Executing without checking warnings\n        int rowsAffected = pstmt.executeUpdate();\n        \n        System.out.println(\"Update complete. Rows affected: \" + rowsAffected);\n    }\n    // \u26a0\ufe0f VIOLATION: \u274c Warnings are cleared/lost as soon as the PreparedStatement is closed here\n}",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure calling getWarnings() after JDBC write operations",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "href": "AIP/technical-criteria/61014",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCRM-CWE-252-data",
+            "name": "Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "href": "AIP/quality-standards/CISQ/items/ASCRM-CWE-252-data",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-252",
+            "name": "Unchecked Return Value [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-252",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-390",
+            "name": "Detection of Error Condition Without Action [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-390",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-703",
+            "name": "Improper Check or Handling of Exceptional Conditions [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-703",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-754",
+            "name": "Improper Check for Unusual or Exceptional Conditions [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-754",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-755",
+            "name": "Improper Handling of Exceptional Conditions [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-755",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-252",
+            "name": "Unchecked Return Value [Base]",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-252",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-390",
+            "name": "Detection of Error Condition Without Action [Base]",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-390",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-703",
+            "name": "Improper Check or Handling of Exceptional Conditions [Pillar]",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-703",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-11",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "CWE-252",
+            "name": "Unchecked Return Value [Base]",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-252",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-390",
+            "name": "Detection of Error Condition Without Action [Base]",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-390",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "CWE-703",
+            "name": "Improper Check or Handling of Exceptional Conditions [Pillar]",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-703",
+            "standard": "OMG-ASCQM"
+        },
+        {
+            "id": "A10-2025",
+            "name": "Mishandling of Exceptional Conditions",
+            "href": "AIP/quality-standards/OWASP/items/A10-2025",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.5",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
