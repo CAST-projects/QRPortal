@@ -18,7 +18,7 @@
     "remediationSample": "@Entity\npublic class ABean implements Serializable { // FIXED\n    private String str;\n    private aClass field;\n\n}\n\n--------------------------------------\n@Entity\npublic class ABean extends Bbean { \n    private String str;\n    private aClass field; // FIXED\n\n}\n\npublic class Bbean implements serializable {\n \n}",
     "sample": "@Entity\npublic class ABean  { // VIOLATION\n    private String str;\n    private aClass field;\n}\n\n--------------------------------------\n@Entity\npublic class ABean extends Bbean { \n    private String str;\n    private aClass field;\n    // violation as this class extends a class which doesnt implement serializable \n\n}\n\npublic class Bbean {\n \n}",
     "total": "Number of entities",
-    "alternativeName": "Ensure implementing the Serializable interface for all Entity beans",
+    "alternativeName": "Ensure implementing the Serializable interface for all Entity classes",
     "businessCriteria": [
         {
             "id": 20140522,
