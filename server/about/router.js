@@ -20,12 +20,16 @@ aboutRouter.get(main, (req,res)=>{
           errLogger.error( err );
           res.status(500).send({error: 'a problem occured'});
         }
-        const changeLog = JSON.parse(data);
-        res.json({
-          licence: fileContents, 
-          version: jsonData.version, 
-          news: changeLog[jsonData.version] || []
-        });
+        try {
+          const changeLog = JSON.parse(data);
+          res.json({
+            licence: fileContents, 
+            version: jsonData.version, 
+            news: changeLog[jsonData.version] || []
+          });
+        } catch (error) {
+          res.sendStatus(502);
+        }
       });
     }, undefined, (e) => {
       errLogger.error( e );
