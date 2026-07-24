@@ -1,10 +1,10 @@
 {
     "id": 1060110,
-    "name": "Avoid filtering sensitive data using front-end",
+    "name": "DELETED: Avoid filtering sensitive data using front-end",
     "href": "AIP/quality-rules/1060110",
     "critical": false,
     "severity": 10,
-    "maxWeight": 7,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.systemlevelrules",
         "href": "AIP/extensions/com.castsoftware.systemlevelrules"
@@ -17,16 +17,7 @@
     "total": "All Jquery selectors and HTML functions with name like %filter%",
     "alternativeName": "DELETED: Avoid filtering sensitive data using front-end",
     "businessCriteria": [
-        {
-            "id": 66031,
-            "name": "Programming Practices",
-            "href": "AIP/business-criteria/66031"
-        },
-        {
-            "id": 60016,
-            "name": "Security",
-            "href": "AIP/business-criteria/60016"
-        }
+        
     ],
     "technicalCriteria": [
         {
@@ -111,13 +102,6 @@
             "name": "PCI-Requirement-6.5.8 - Improper access control",
             "href": "AIP/technical-criteria/1063122",
             "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 66063,
-            "name": "Secure Coding - API Abuse",
-            "href": "AIP/technical-criteria/66063",
-            "weight": 7,
             "critical": false
         }
     ],

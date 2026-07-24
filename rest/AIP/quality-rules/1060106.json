@@ -1,10 +1,10 @@
 {
     "id": 1060106,
-    "name": "Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
+    "name": "DELETED: Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
     "href": "AIP/quality-rules/1060106",
     "critical": false,
     "severity": 10,
-    "maxWeight": 8,
+    "maxWeight": 5,
     "extension": {
         "name": "com.castsoftware.systemlevelrules",
         "href": "AIP/extensions/com.castsoftware.systemlevelrules"
@@ -17,16 +17,7 @@
     "total": "All Methods with the function of saving data that can contain acess/authorization/sensitive information",
     "alternativeName": "DELETED: Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
     "businessCriteria": [
-        {
-            "id": 66031,
-            "name": "Programming Practices",
-            "href": "AIP/business-criteria/66031"
-        },
-        {
-            "id": 60016,
-            "name": "Security",
-            "href": "AIP/business-criteria/60016"
-        }
+        
     ],
     "technicalCriteria": [
         {
@@ -90,13 +81,6 @@
             "name": "PCI-Requirement-6.5.8 - Improper access control",
             "href": "AIP/technical-criteria/1063122",
             "weight": 5,
-            "critical": false
-        },
-        {
-            "id": 66063,
-            "name": "Secure Coding - API Abuse",
-            "href": "AIP/technical-criteria/66063",
-            "weight": 8,
             "critical": false
         }
     ],
