@@ -1,0 +1,76 @@
+{
+    "id": 1104010,
+    "name": "Avoid Classes with a very low comment/code ratio (ABAP)",
+    "href": "AIP/quality-rules/1104010",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "Classes should have at least a ratio comment/code > X %.\nOnly local classes are taken into account (classes not defined in classpools).\nThe threshold is a parameter and can be changed at will.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact",
+    "remediation": "Enrich Artifact code with comments",
+    "total": "Number of ABAP Local Classes",
+    "alternativeName": "Ensure you provide enough comment for your Classes",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Min % ratio comment/code for classes",
+            "technologies": [
+                {
+                    "id": -15,
+                    "name": "ABAP",
+                    "href": "AIP/technologies/-15",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

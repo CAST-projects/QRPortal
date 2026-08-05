@@ -1,0 +1,76 @@
+{
+    "id": 1104012,
+    "name": "Avoid Interfaces with a low comment/code ratio (ABAP)",
+    "href": "AIP/quality-rules/1104012",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "ABAP interfaces should be documented. This reports shows all the ABAP interfaces with less than a defined comment / code ratio. This ratio is a parameter of the rule and can be changed at will.\nOnly local interfaces are taken into account (interfaces not defined in interfacepools).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact.",
+    "remediation": "Enrich Artifact code with comments.",
+    "total": "Number of ABAP Local Interfaces",
+    "alternativeName": "Avoid Interfaces with a low comment/code ratio (ABAP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "min",
+            "description": "Min % ratio comment/code for interfaces",
+            "technologies": [
+                {
+                    "id": -15,
+                    "name": "ABAP",
+                    "href": "AIP/technologies/-15",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

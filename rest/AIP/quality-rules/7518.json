@@ -1,18 +1,22 @@
 {
     "id": 7518,
-    "name": "Avoid missing WHEN OTHERS in CASE statements",
+    "name": "Avoid missing WHEN OTHERS in CASE statements or ELSE in COND expressions",
     "href": "AIP/quality-rules/7518",
     "critical": false,
     "severity": 10,
     "maxWeight": 8,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
     "associatedValueName": "Number of violation occurrences",
-    "description": "This metric retrieves all ABAP Artifacts that contain a CASE statement with no or with an empty WHEN OTHERS clause.",
+    "description": "This metric retrieves all ABAP Artifacts that contain a CASE statement with no or with an empty WHEN OTHERS clause or COND expression a whithout ELSE.",
     "output": "Associated to each ABAP Artifact with violations, the Quality Rule provides:\n- The number of violation occurrences",
-    "rationale": "The keyword WHEN OTHERS is executed when none of the conditions being tested for in the CASE statement are met or executed. Having no WHEN OTHERS means that there is a strong assumption about the value of data.\nThe cases that are \"impossible\" today are the ones most likely to be the causes of untraceable bugs in the future, when the impossible changes to the standard.",
+    "rationale": "The keyword WHEN OTHERS/ELSE is executed when none of the conditions being tested for in the CASE statement/COND expression are met or executed. Having no WHEN OTHERS/ELSE means that there is a strong assumption about the value of data.\nThe cases that are \"impossible\" today are the ones most likely to be the causes of untraceable bugs in the future, when the impossible changes to the standard.",
     "reference": "Enhancing the Quality of ABAP Development, \nMeijs-Krouwels-Heulmans-Sommen, SAP Press\nISBN 1-59229-030-2\nPage 223",
-    "remediation": "Add the proper exception handling code in the WHEN OTHERS clause.",
-    "remediationSample": "Remediation example:\n\nCASE tp_materialtype.\n  WHEN co_materialtype_raw.\n* Handling of material type RAW starts here\n  WHEN co_materialtype_semi.\n* Handling of material type SEMI starts here\n  WHEN OTHERS\n* The exception is caught here\nENDCASE.",
-    "sample": "CASE tp_materialtype.\n  WHEN co_materialtype_raw.\n* Handling of material type RAW starts here\n  WHEN co_materialtype_semi.\n* Handling of material type SEMI starts here\nENDCASE.",
+    "remediation": "Add the proper exception handling code in the WHEN OTHERS/ELSE clause.",
+    "remediationSample": "Remediation example:\n\nCASE tp_materialtype.\n  WHEN co_materialtype_raw.\n* Handling of material type RAW starts here\n  WHEN co_materialtype_semi.\n* Handling of material type SEMI starts here\n  WHEN OTHERS\n* The exception is caught here\nENDCASE.\n--------------------------------\nDATA(lv_cond) = COND string( WHEN p_mod = 'A' THEN 'Read' ELSE 'Write' ).",
+    "sample": "CASE tp_materialtype.\n  WHEN co_materialtype_raw.\n* Handling of material type RAW starts here\n  WHEN co_materialtype_semi.\n* Handling of material type SEMI starts here\nENDCASE.\n-------------------------------\nDATA(lv_cond) = COND string( WHEN p_mod = 'A' THEN 'Read' ).",
     "total": "Number of ABAP Artifacts",
     "alternativeName": "Avoid missing WHEN OTHERS in CASE statements or ELSE in COND expressions",
     "businessCriteria": [

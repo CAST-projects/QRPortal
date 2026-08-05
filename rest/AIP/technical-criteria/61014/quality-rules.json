@@ -196,7 +196,7 @@
     },
     {
         "id": 7518,
-        "name": "Avoid missing WHEN OTHERS in CASE statements",
+        "name": "Avoid missing WHEN OTHERS in CASE statements or ELSE in COND expressions",
         "href": "AIP/quality-rules/7518",
         "critical": false,
         "weight": 8,
@@ -1505,6 +1505,16 @@
         "weight": 6,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1104018,
+        "name": "Avoid empty catch blocks (ABAP)",
+        "href": "AIP/quality-rules/1104018",
+        "critical": true,
+        "weight": 7,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {

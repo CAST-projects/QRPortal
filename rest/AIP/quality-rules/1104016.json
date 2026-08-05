@@ -1,0 +1,101 @@
+{
+    "id": 1104016,
+    "name": "Avoid undocumented Interfaces (ABAP)",
+    "href": "AIP/quality-rules/1104016",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.sap",
+        "href": "AIP/extensions/com.castsoftware.sap"
+    },
+    "description": "Interfaces must be documented. Documenting interfaces is extremely important as the interfaces define a contract that will be implemented and used by others.\nThis rule reports all the interfaces with no comments.\nOnly local interfaces are taken into account (interfaces not defined in interfacepools).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact.",
+    "remediation": "Add comments into interface defintion to explain what is their goal and how they work.",
+    "total": "Number of ABAP Local Interfaces",
+    "alternativeName": "Add comments into interface defintion to explain what is their goal and how they work.",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1067153,
+            "name": "CWE-1053 - Missing Documentation for Design [Base]",
+            "href": "AIP/technical-criteria/1067153",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067159,
+            "name": "CWE-1059 - Insufficient Technical Documentation [Class]",
+            "href": "AIP/technical-criteria/1067159",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066810,
+            "name": "CWE-710 - Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/technical-criteria/1066810",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-710",
+            "name": "Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-710",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1053",
+            "name": "Missing Documentation for Design [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1053",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1059",
+            "name": "Insufficient Technical Documentation [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1059",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
