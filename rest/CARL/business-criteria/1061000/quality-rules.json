@@ -1905,6 +1905,42 @@
         ]
     },
     {
+        "id": 8518,
+        "name": "Ensure you don't have unsanitized regular expressions",
+        "href": "AIP/quality-rules/8518",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8520,
+        "name": "Ensure you don't have unsanitized regular expressions",
+        "href": "AIP/quality-rules/8520",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8522,
+        "name": "Ensure you don't have unsanitized regular expressions",
+        "href": "AIP/quality-rules/8522",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8524,
         "name": "Avoid deserialization injection",
         "href": "AIP/quality-rules/8524",
@@ -3305,6 +3341,18 @@
         ]
     },
     {
+        "id": 1025020,
+        "name": "Ensure your application does not run data filter expressions without sanitization",
+        "href": "AIP/quality-rules/1025020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1025024,
         "name": "Ensure your application does not disable the expiration time validation of a JWT token",
         "href": "AIP/quality-rules/1025024",
@@ -4066,9 +4114,49 @@
         ]
     },
     {
+        "id": 1045000,
+        "name": "Lazy fetching should be used for JPA/Jakarta Persistence collection",
+        "href": "AIP/quality-rules/1045000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045002,
+        "name": "Ensure setting 'select-before-update' to true only for Hibernate Entity associated to table that fires an UPDATE trigger.",
+        "href": "AIP/quality-rules/1045002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045006,
+        "name": "Ensure to use  lists, maps, bags, idbags and sets depending on your case to map a collection instead of using array to Map Collection",
+        "href": "AIP/quality-rules/1045006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1045008,
         "name": "Ensure implementing the Serializable interface for all Entity classes",
         "href": "AIP/quality-rules/1045008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045010,
+        "name": "Ensure to use version attribute instead of timestamp for JPA entities",
+        "href": "AIP/quality-rules/1045010",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -4451,6 +4539,16 @@
         "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101118,
+        "name": "Avoid redundant indexes (SQL)",
+        "href": "AIP/quality-rules/1101118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
         ]
     },
     {

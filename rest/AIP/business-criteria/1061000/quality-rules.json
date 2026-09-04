@@ -2635,6 +2635,42 @@
         ]
     },
     {
+        "id": 8518,
+        "name": "Avoid regular expression injection",
+        "href": "AIP/quality-rules/8518",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8520,
+        "name": "Avoid second order regular expression injection",
+        "href": "AIP/quality-rules/8520",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 8522,
+        "name": "Avoid regular expression injection through API requests",
+        "href": "AIP/quality-rules/8522",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 8524,
         "name": "Avoid deserialization injection",
         "href": "AIP/quality-rules/8524",
@@ -6187,6 +6223,16 @@
         ]
     },
     {
+        "id": 1020932,
+        "name": "Avoid hard-coded API keys (TypeScript)",
+        "href": "AIP/quality-rules/1020932",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "HTML5"
+        ]
+    },
+    {
         "id": 1021000,
         "name": "Avoid Artifacts with High Cyclomatic Complexity (Python)",
         "href": "AIP/quality-rules/1021000",
@@ -6596,6 +6642,18 @@
         "id": 1025016,
         "name": "Avoid using cookie without the HttpOnly flag",
         "href": "AIP/quality-rules/1025016",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1025020,
+        "name": "Avoid data filter injection",
+        "href": "AIP/quality-rules/1025020",
         "critical": true,
         "severity": 30,
         "technologyNames": [
@@ -7789,6 +7847,36 @@
         ]
     },
     {
+        "id": 1045000,
+        "name": "Lazy fetching should be used for JPA/Jakarta Persistence collection",
+        "href": "AIP/quality-rules/1045000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045002,
+        "name": "Avoid Hibernate Entity with 'select-before-update' set to true if not associated to table that fires an UPDATE trigger",
+        "href": "AIP/quality-rules/1045002",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045006,
+        "name": "Never use an array to map Hibernate collection",
+        "href": "AIP/quality-rules/1045006",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1045008,
         "name": "Avoid non serializable Entity beans",
         "href": "AIP/quality-rules/1045008",
@@ -7799,9 +7887,29 @@
         ]
     },
     {
+        "id": 1045010,
+        "name": "Prefer using version number instead of timestamp for Hibernate Entity",
+        "href": "AIP/quality-rules/1045010",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1045302,
         "name": "Ensure specifying fetch size for large queries",
         "href": "AIP/quality-rules/1045302",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045306,
+        "name": "Ensure calling getWarnings() after JDBC write operations",
+        "href": "AIP/quality-rules/1045306",
         "critical": false,
         "severity": 10,
         "technologyNames": [
@@ -8144,16 +8252,6 @@
         ]
     },
     {
-        "id": 1060112,
-        "name": "DELETED: Review APIs not accessed by frontend functions",
-        "href": "AIP/quality-rules/1060112",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1060114,
         "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
         "href": "AIP/quality-rules/1060114",
@@ -8161,18 +8259,6 @@
         "severity": 20,
         "technologyNames": [
             "JEE"
-        ]
-    },
-    {
-        "id": 1060116,
-        "name": "DELETED: Always avoid http redirects to unknown or untrusted URLs",
-        "href": "AIP/quality-rules/1060116",
-        "critical": false,
-        "severity": 10,
-        "technologyNames": [
-            "JEE",
-            "JavaScript",
-            "JavaScript Server"
         ]
     },
     {
@@ -8576,6 +8662,16 @@
         ]
     },
     {
+        "id": 1101118,
+        "name": "Avoid redundant indexes (SQL)",
+        "href": "AIP/quality-rules/1101118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
+        ]
+    },
+    {
         "id": 1101922,
         "name": "Avoid having multiple Artifacts updating data on the same NoSQL Collection (JEE)",
         "href": "AIP/quality-rules/1101922",
@@ -8639,6 +8735,16 @@
             "ASP.NET",
             "C#",
             "VB.NET"
+        ]
+    },
+    {
+        "id": 1104018,
+        "name": "Avoid empty catch blocks (ABAP)",
+        "href": "AIP/quality-rules/1104018",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {

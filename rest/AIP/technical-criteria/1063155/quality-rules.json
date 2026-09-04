@@ -5879,6 +5879,16 @@
         ]
     },
     {
+        "id": 1045306,
+        "name": "Ensure calling getWarnings() after JDBC write operations",
+        "href": "AIP/quality-rules/1045306",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1050002,
         "name": "Avoid using NSString stringWithFormat on behalf of NSURL instance",
         "href": "AIP/quality-rules/1050002",
@@ -6232,56 +6242,6 @@
         ]
     },
     {
-        "id": 1060104,
-        "name": "DELETED: Review APIs returning sensitive data fields",
-        "href": "AIP/quality-rules/1060104",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060106,
-        "name": "DELETED: Avoid using generic methods such as 'ToJson' or 'ToString' to save sensitive or PII data",
-        "href": "AIP/quality-rules/1060106",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060108,
-        "name": "DELETED: Avoid data fields binded to columns to return sensitive data via APIs",
-        "href": "AIP/quality-rules/1060108",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060110,
-        "name": "DELETED: Avoid filtering sensitive data using front-end",
-        "href": "AIP/quality-rules/1060110",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
-        "id": 1060112,
-        "name": "DELETED: Review APIs not accessed by frontend functions",
-        "href": "AIP/quality-rules/1060112",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE"
-        ]
-    },
-    {
         "id": 1060114,
         "name": "Always enable authorization checks at function level for functions called on by APIs based with Spring Application",
         "href": "AIP/quality-rules/1060114",
@@ -6289,18 +6249,6 @@
         "weight": 5,
         "technologyNames": [
             "JEE"
-        ]
-    },
-    {
-        "id": 1060116,
-        "name": "DELETED: Always avoid http redirects to unknown or untrusted URLs",
-        "href": "AIP/quality-rules/1060116",
-        "critical": false,
-        "weight": 5,
-        "technologyNames": [
-            "JEE",
-            "JavaScript",
-            "JavaScript Server"
         ]
     },
     {
@@ -6497,6 +6445,16 @@
         "weight": 5,
         "technologyNames": [
             "SQL"
+        ]
+    },
+    {
+        "id": 1104018,
+        "name": "Avoid empty catch blocks (ABAP)",
+        "href": "AIP/quality-rules/1104018",
+        "critical": false,
+        "weight": 5,
+        "technologyNames": [
+            "ABAP"
         ]
     },
     {
