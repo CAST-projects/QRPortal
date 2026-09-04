@@ -21,6 +21,11 @@
     "alternativeName": "Ensure your application does not run data filter expressions without sanitization",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 66031,
             "name": "Programming Practices",
             "href": "AIP/business-criteria/66031"
@@ -32,6 +37,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062194,
+            "name": "ASCSM-CWE-89 - SQL Injection Improper Input Neutralization",
+            "href": "AIP/technical-criteria/1062194",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1066213,
             "name": "CWE-113 - Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting') [Variant]",

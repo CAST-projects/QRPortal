@@ -17,7 +17,7 @@
     "remediationSample": "[Serializable]\npublic class MyObject\n{\n    public int n1 = 0;\n    public int n2 = 0;\n    public String str = null;\n\n    public override int GetHashCode()\n    {\n        return n1;\n    }\n\n    public override bool Equals(Object obj)\n    {\n        if (obj == null || !(obj is MyObject))\n            return false;\n        else\n            return n1 == ((MyObject)obj).n1;\n    }\n\n}",
     "sample": "[Serializable]\npublic class MyObject\n{\n    public int n1 = 0;\n    public int n2 = 0;\n    public String str = null;\n}",
     "total": "Number of persistent classes",
-    "alternativeName": "Persistent classes should implement GetHashCode() and Equals()",
+    "alternativeName": "DEPRECATED: Persistent classes should implement GetHashCode() and Equals()",
     "businessCriteria": [
         {
             "id": 1062100,

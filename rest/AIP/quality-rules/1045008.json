@@ -21,6 +21,11 @@
     "alternativeName": "Ensure implementing the Serializable interface for all Entity classes",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "Green",
             "href": "AIP/business-criteria/20140522"
@@ -42,6 +47,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062166,
+            "name": "ASCRM-RLB-2 - Serializable Storable Data Element without Serialization Control Element",
+            "href": "AIP/technical-criteria/1062166",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1061123,
             "name": "CWE-1066 - Missing Serialization Control Element [Base]",

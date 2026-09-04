@@ -1401,7 +1401,7 @@
     },
     {
         "id": 8156,
-        "name": "Persistent classes should implement GetHashCode() and Equals()",
+        "name": "DEPRECATED: Persistent classes should implement GetHashCode() and Equals()",
         "href": "AIP/quality-rules/8156",
         "critical": true,
         "severity": 20,
@@ -2914,6 +2914,18 @@
         ]
     },
     {
+        "id": 1025020,
+        "name": "Ensure your application does not run data filter expressions without sanitization",
+        "href": "AIP/quality-rules/1025020",
+        "critical": true,
+        "severity": 30,
+        "technologyNames": [
+            "C#",
+            "JEE",
+            "VB.NET"
+        ]
+    },
+    {
         "id": 1025030,
         "name": "Ensure you don't have hard-coded JWT secret keys in your source code",
         "href": "AIP/quality-rules/1025030",
@@ -3245,6 +3257,26 @@
         ]
     },
     {
+        "id": 1045000,
+        "name": "Lazy fetching should be used for JPA/Jakarta Persistence collection",
+        "href": "AIP/quality-rules/1045000",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1045008,
+        "name": "Ensure implementing the Serializable interface for all Entity classes",
+        "href": "AIP/quality-rules/1045008",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 1065008,
         "name": "Avoid use of unvalidated input in array indexing and memory allocation",
         "href": "AIP/quality-rules/1065008",
@@ -3417,6 +3449,16 @@
         "severity": 30,
         "technologyNames": [
             "ALL TECHNOLOGIES"
+        ]
+    },
+    {
+        "id": 1101118,
+        "name": "Avoid redundant indexes (SQL)",
+        "href": "AIP/quality-rules/1101118",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "SQL"
         ]
     },
     {

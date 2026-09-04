@@ -21,6 +21,11 @@
     "alternativeName": "Avoid redundant indexes (SQL)",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 60014,
             "name": "Efficiency",
             "href": "AIP/business-criteria/60014"
@@ -37,6 +42,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062141,
+            "name": "ASCPEM-PRF-6 - Large Data Resource ColumnSet Excessive Number of Index Elements",
+            "href": "AIP/technical-criteria/1062141",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 1067189,
             "name": "CWE-1089 - Large Data Table with Excessive Number of Indices [Base]",

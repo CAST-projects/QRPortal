@@ -21,6 +21,11 @@
     "alternativeName": "Ensure calling getWarnings() after JDBC write operations",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "Green",
             "href": "AIP/business-criteria/20140522"
@@ -42,6 +47,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062146,
+            "name": "ASCRM-CWE-252-data - Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "href": "AIP/technical-criteria/1062146",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 61014,
             "name": "Programming Practices - Error and Exception Handling",

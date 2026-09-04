@@ -20,6 +20,11 @@
     "alternativeName": "Ensure you don't hard-code API keys in the source file, hackers can steal the information by retro-engineering your application (Typescript)",
     "businessCriteria": [
         {
+            "id": 1062100,
+            "name": "CISQ-Index",
+            "href": "AIP/business-criteria/1062100"
+        },
+        {
             "id": 20140522,
             "name": "Green",
             "href": "AIP/business-criteria/20140522"
@@ -31,6 +36,13 @@
         }
     ],
     "technicalCriteria": [
+        {
+            "id": 1062192,
+            "name": "ASCSM-CWE-798 - Hard-Coded Credentials Usage for Remote Authentication",
+            "href": "AIP/technical-criteria/1062192",
+            "weight": 5,
+            "critical": false
+        },
         {
             "id": 66064,
             "name": "Secure Coding - Weak Security Features",
