@@ -17,14 +17,19 @@ function getQualityStandardsMap ( response, sync = false, echo ){
     if (err) {
       console.log(err);
     }
-    const ret = JSON.parse(data).map( e => {
-      return Object.assign( {}, e, {
-        standard: 'CAST',
-        icon: 'img/' + e.name.toLowerCase().replace(/\s/, '') + '.svg'
-      } );
-    });
 
-    response.json(ret);
+    try {
+      const ret = JSON.parse(data).map( e => {
+        return Object.assign( {}, e, {
+          standard: 'CAST',
+          icon: 'img/' + e.name.toLowerCase().replace(/\s/, '') + '.svg'
+        } );
+      });
+  
+      response.json(ret);
+    } catch (error) {
+      response.sendStatus(404);
+    }
   });
 }
 
