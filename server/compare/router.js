@@ -31,9 +31,12 @@ compareRouter.get('/extensions/:extID/:ver1/:ver2', (req, res) => {
     }
     
     logger.info(params);
-
-    if( params.isValid ) res.json(compareOnId( JSON.parse(fs.readFileSync(verPath(params.version1))), JSON.parse(fs.readFileSync(verPath(params.version2))), params.version1, params.version2, sortAndRemoveDeprecated ));
-    else res.sendStatus(404);
+    try {
+      if( params.isValid ) res.json(compareOnId( JSON.parse(fs.readFileSync(verPath(params.version1))), JSON.parse(fs.readFileSync(verPath(params.version2))), params.version1, params.version2, sortAndRemoveDeprecated ));
+      else res.sendStatus(404);
+    } catch (error) {
+      res.sendStatus(404);
+    }
   } else {
     const AIPPath = ( version ) => root.resolve(`rest/AIP/versions/${version}/quality-rules.json`);
     res.json(compareOnId( JSON.parse(fs.readFileSync(AIPPath(params.version1))), JSON.parse(fs.readFileSync(AIPPath(params.version2))), params.version1, params.version2, sortAndRemoveDeprecated ));

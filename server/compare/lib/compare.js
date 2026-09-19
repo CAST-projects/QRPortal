@@ -23,7 +23,13 @@ function compareOnId( arr1, arr2, arr1Name, arr2Name, middleware ){
 }
 
 function compareOnJSON( arr1, arr2, arr1Name, arr2Name, middleware ){
-  const compareValueConverter = ( item ) => JSON.stringify(item),
+  const compareValueConverter = ( item ) => {
+      try {
+        return JSON.stringify(item);
+      } catch (error) {
+        return;
+      }
+    },
     data = compareArrays( arr1, arr2, arr1Name, arr2Name, compareValueConverter );
 
   return middleware ? middleware(data) : data ;
