@@ -15,8 +15,14 @@ function Glob( dirName, onFileContent, onError, onComplete ){
           onError( err );
           return;
         }
-        onFileContent( fileName, JSON.parse(fileContents), index, PATH.toString() );
-        if ( index === len -1 && onComplete) onComplete();
+        try {
+          
+          onFileContent( fileName, JSON.parse(fileContents), index, PATH.toString() );
+          if ( index === len -1 && onComplete) onComplete();
+        } catch (error) {
+          console.log(error.stack);
+          onComplete();
+        }
       });
     });
   });
