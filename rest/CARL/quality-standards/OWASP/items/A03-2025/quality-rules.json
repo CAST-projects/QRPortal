@@ -1,5 +1,15 @@
 [
     {
+        "id": 4574,
+        "name": "Ensure to not use the deprecated objects",
+        "href": "AIP/quality-rules/4574",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
         "id": 8220,
         "name": "Prefer not using deprecated methods, constructors, fields, type or packages",
         "href": "AIP/quality-rules/8220",
@@ -394,6 +404,17 @@
         "id": 1027004,
         "name": "Use XmlReader instead of XmlTextReader since it is deprecated and may lead to security issues",
         "href": "AIP/quality-rules/1027004",
+        "critical": false,
+        "severity": 10,
+        "technologyNames": [
+            "C#",
+            "VB.NET"
+        ]
+    },
+    {
+        "id": 1027014,
+        "name": "Do not use the Thread.resume or Thread.suspend APIs.",
+        "href": "AIP/quality-rules/1027014",
         "critical": false,
         "severity": 10,
         "technologyNames": [
