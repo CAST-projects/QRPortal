@@ -1,0 +1,112 @@
+{
+    "id": 1014204,
+    "name": "Avoid Artifacts with High Cyclomatic Complexity (Rexx)",
+    "href": "AIP/quality-rules/1014204",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.rexx",
+        "href": "AIP/extensions/com.castsoftware.rexx"
+    },
+    "associatedValueName": "Cyclomatic complexity",
+    "description": "Avoid Artifacts with High Cyclomatic Complexity (CC > 20). Complex Artifacts are difficult to maintain. Keeping Artifacts small and simple ensures good readability of the code.  The threshold level is a parameter that can be changed at will.",
+    "output": "Associated to each Rexx Routine or Rexx Program with violations, the Quality Rule provides:\n- The Cyclomatic complexity",
+    "rationale": "The effort and time for diagnosis of deficiencies or causes of failures, or for identification of parts to be modified is directly related to the number of execution paths, i.e. the complexity of the control flow.\nAnalyzability declines with increasing Cyclomatic Complexity.\nEach modification must be correct for all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations.\nChangeability declines with increasing Cyclomatic Complexity.\nComplete testing requires coverage of all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations.\nTestability declines with increasing Cyclomatic Complexity.",
+    "reference": "CWE-1121: Excessive McCabe Cyclomatic Complexity\nhttps://cwe.mitre.org/data/definitions/1121.html\n\nCarnegie Mellon's Software Engineering Institute on Cyclomatic Complexity\nhttp://www.sei.cmu.edu/reports/95cm028.pdf\n\nNIST (National Institute of Standards and Technology)\nStructured Testing: A Testing Methodology Using the Cyclomatic Complexity Metric\nhttps://www.nist.gov/publications/structured-testing-testing-methodology-using-cyclomatic-complexity-metric",
+    "remediation": "Review the design of the Artifact to reduce the number of independent paths. E.g.: Reduce the number of conditional statements.",
+    "total": "Number of Rexx Routines and Rexx Programs",
+    "alternativeName": "Ensure you keep simple the design of the component/module to reduce number of independent paths",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014200,
+            "name": "Rexx",
+            "href": "AIP/technologies/1014200"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-710",
+            "name": "Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-710",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1120",
+            "name": "Excessive Code Complexity [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1120",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1121",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity [Base]",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1121",
+            "standard": "ISO-5055"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max Cyclomatic Complexity",
+            "description": "Max Cyclomatic Complexity per artifact",
+            "technologies": [
+                {
+                    "id": 1014200,
+                    "name": "Rexx",
+                    "href": "AIP/technologies/1014200",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
