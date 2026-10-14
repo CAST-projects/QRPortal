@@ -1,0 +1,81 @@
+{
+    "id": 1014106,
+    "name": "Avoid undocumented Programs (Easytrieve)",
+    "href": "AIP/quality-rules/1014106",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.easytrieve",
+        "href": "AIP/extensions/com.castsoftware.easytrieve"
+    },
+    "description": "This quality rule reports all Easytrieve Programs with no comments.\nThe code and the comments of a Program are those outside its Procedures, Files and Reports: a Program with no such code is not checked.",
+    "output": "This rule lists all undocumented Easytrieve Programs.\nIt provides the following information:\n- Program full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Programs.",
+    "reference": "CWE-1053: Missing Documentation for Design\nhttps://cwe.mitre.org/data/definitions/1053.html",
+    "remediation": "Add comments into programs to explain what is their goal and how they work.",
+    "total": "Number of Easytrieve Programs",
+    "alternativeName": "Make sure to explain the goal, objective that a function achieves to improve its maintainability",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014100,
+            "name": "Easytrieve",
+            "href": "AIP/technologies/1014100"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-710",
+            "name": "Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-710",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1053",
+            "name": "Missing Documentation for Design [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1053",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1059",
+            "name": "Insufficient Technical Documentation [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1059",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "id": 1014104,
+    "name": "Avoid Procedures having a very low Comment/Code ratio (Easytrieve)",
+    "href": "AIP/quality-rules/1014104",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.easytrieve",
+        "href": "AIP/extensions/com.castsoftware.easytrieve"
+    },
+    "associatedValueName": "Comment/Code ratio",
+    "description": "This quality rule reports all Easytrieve Procedures with a comment/code ratio lower than X % (by default X=5)\nThe threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Easytrieve Procedures with a comment/code ratio lower than X %\nIt provides the following information:\n- Procedure full name, comment/code ratio",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Procedures.",
+    "remediation": "Enrich the code of the Procedures with comments.",
+    "total": "Number of Easytrieve Procedures",
+    "alternativeName": "Enrich your code with comments to give an overview of the code to improve maintainability",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014100,
+            "name": "Easytrieve",
+            "href": "AIP/technologies/1014100"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Minimum % Comment / Code Ratio for Procedures",
+            "technologies": [
+                {
+                    "id": 1014100,
+                    "name": "Easytrieve",
+                    "href": "AIP/technologies/1014100",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

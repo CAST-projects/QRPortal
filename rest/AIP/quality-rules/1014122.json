@@ -1,0 +1,83 @@
+{
+    "id": 1014122,
+    "name": "Avoid Macros with High Fan-In (Easytrieve)",
+    "href": "AIP/quality-rules/1014122",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.easytrieve",
+        "href": "AIP/extensions/com.castsoftware.easytrieve"
+    },
+    "associatedValueName": "Fan-In",
+    "description": "Avoid Macros with High Fan-In (Fan-In > X). The Fan-In of an Artifact is the number of other Artifacts that are referencing it. When computing the Fan-In of an Artifact, multiple accesses to it from the same Artifact are counted as one access.\nThe threshold level is a parameter that can be changed at will.\nFor an Easytrieve Macro, these Artifacts are the Programs that include it with %NAME. A Macro shared on purpose, such as a record layout, can be included by many Programs: the default threshold is higher than for Procedures and Programs.",
+    "output": "Associated to each Easytrieve Macro with violations, the Quality Rule provides:\n- The Fan-In",
+    "rationale": "An Artifact referenced by many other Artifacts is costly to change: a change can impact all of them, and all of them have to be tested again.\nChangeability and testability decline with increasing Fan-In.",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Check that the Macro is shared on purpose. Otherwise split it into smaller Macros, so that each Program includes only what it uses.",
+    "total": "Number of Easytrieve Macros",
+    "alternativeName": "Avoid Macros with High Fan-In (Easytrieve)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "href": "AIP/technical-criteria/61013",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014100,
+            "name": "Easytrieve",
+            "href": "AIP/technologies/1014100"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Fan-In",
+            "description": "Maximum Fan-In for Macros",
+            "technologies": [
+                {
+                    "id": 1014100,
+                    "name": "Easytrieve",
+                    "href": "AIP/technologies/1014100",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

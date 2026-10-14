@@ -1,0 +1,112 @@
+{
+    "id": 1014116,
+    "name": "Avoid Procedures with High Fan-Out (Easytrieve)",
+    "href": "AIP/quality-rules/1014116",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 1,
+    "extension": {
+        "name": "com.castsoftware.easytrieve",
+        "href": "AIP/extensions/com.castsoftware.easytrieve"
+    },
+    "associatedValueName": "Fan-Out",
+    "description": "Avoid Procedures with High Fan-Out (Fan-Out > X). The Fan-Out of an Artifact is the number of other Artifacts that are referenced in it. When computing the Fan-Out of an Artifact, multiple accesses to the same component of an Artifact are counted as one access.\nThe threshold is a parameter and can be changed at will.\nFor an Easytrieve Procedure, these Artifacts are the Procedures it performs and the Programs it calls with CALL or LINK.",
+    "output": "Associated to each Easytrieve Procedure with violations, the Quality Rule provides:\n- The Fan-Out",
+    "rationale": "An Artifact that references many other Artifacts depends on all of them: it is harder to understand, to test in isolation and to reuse, and a change in any of them can break it.\nAnalyzability, changeability and testability decline with increasing Fan-Out.",
+    "reference": "CWE-1048: Invokable Control Element with Large Number of Outward Calls\nhttps://cwe.mitre.org/data/definitions/1048.html\n\nAutomated Source Code Maintainability Measure (ASCMMTM) V1.0\nASCMM-MNT-4 Callable and Method Control Element Number of Outward Calls\nhttps://www.omg.org/spec/ASCMM/1.0/PDF",
+    "remediation": "Review the design of the Procedure: move groups of related references into separate Procedures, so that each one depends on fewer Artifacts.",
+    "total": "Number of Easytrieve Procedures",
+    "alternativeName": "Avoid Procedures with High Fan-Out (Easytrieve)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "href": "AIP/technical-criteria/61013",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014100,
+            "name": "Easytrieve",
+            "href": "AIP/technologies/1014100"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-4",
+            "name": "Callable and Method Control Element Number of Outward Calls",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-4",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-710",
+            "name": "Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-710",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1048",
+            "name": "Invokable Control Element with Large Number of Outward Calls [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1048",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1048",
+            "name": "Invokable Control Element with Large Number of Outward Calls [Base]",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1048",
+            "standard": "ISO-5055"
+        },
+        {
+            "id": "CWE-1048",
+            "name": "Invokable Control Element with Large Number of Outward Calls [Base]",
+            "href": "AIP/quality-standards/OMG-ASCQM/items/CWE-1048",
+            "standard": "OMG-ASCQM"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max Fan-Out",
+            "description": "Maximum Fan-Out for Procedures",
+            "technologies": [
+                {
+                    "id": 1014100,
+                    "name": "Easytrieve",
+                    "href": "AIP/technologies/1014100",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
