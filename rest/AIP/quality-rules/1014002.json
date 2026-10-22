@@ -1,0 +1,78 @@
+{
+    "id": 1014002,
+    "name": "Avoid Programs having a very low Comment/Code ratio (z/OS Assembler)",
+    "href": "AIP/quality-rules/1014002",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 3,
+    "extension": {
+        "name": "com.castsoftware.asmzos",
+        "href": "AIP/extensions/com.castsoftware.asmzos"
+    },
+    "associatedValueName": "Comment/Code ratio",
+    "description": "This quality rule reports all z/OS Assembler Programs with a comment/code ratio lower than X % (by default X=5).\nThe threshold is a parameter and can be changed at will.\nA z/OS Assembler Program is one .asm or .mlc source file. Its comment lines are the comment lines starting with '*' or '.*' and the lines holding remarks written after the operands of a statement.",
+    "output": "This report lists all z/OS Assembler Programs with a comment/code ratio lower than X %.\nIt provides the following information:\n- Program full name, comment/code ratio",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Programs.",
+    "reference": "CWE-1053: Missing Documentation for Design\nhttps://cwe.mitre.org/data/definitions/1053.html",
+    "remediation": "Enrich the code of the Programs with comments.",
+    "total": "Number of z/OS Assembler Programs",
+    "alternativeName": "Avoid Programs having a very low Comment/Code ratio (z/OS Assembler)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014000,
+            "name": "z/OS Assembler",
+            "href": "AIP/technologies/1014000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Minimum % Comment / Code Ratio for Programs",
+            "technologies": [
+                {
+                    "id": 1014000,
+                    "name": "z/OS Assembler",
+                    "href": "AIP/technologies/1014000",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

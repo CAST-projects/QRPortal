@@ -1,0 +1,81 @@
+{
+    "id": 1014000,
+    "name": "Avoid undocumented Programs (z/OS Assembler)",
+    "href": "AIP/quality-rules/1014000",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.asmzos",
+        "href": "AIP/extensions/com.castsoftware.asmzos"
+    },
+    "description": "This quality rule reports all z/OS Assembler Programs with no comments.\nA z/OS Assembler Program is one .asm or .mlc source file. Its comment lines are the comment lines starting with '*' or '.*' and the lines holding remarks written after the operands of a statement.",
+    "output": "This rule lists all undocumented z/OS Assembler Programs.\nIt provides the following information:\n- Program full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Programs.",
+    "reference": "CWE-1053: Missing Documentation for Design\nhttps://cwe.mitre.org/data/definitions/1053.html",
+    "remediation": "Add comments into the Programs to explain their goal and how they work.",
+    "total": "Number of z/OS Assembler Programs",
+    "alternativeName": "Avoid undocumented Programs (z/OS Assembler)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "href": "AIP/technical-criteria/61028",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014000,
+            "name": "z/OS Assembler",
+            "href": "AIP/technologies/1014000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-710",
+            "name": "Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-710",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1053",
+            "name": "Missing Documentation for Design [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1053",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1059",
+            "name": "Insufficient Technical Documentation [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1059",
+            "standard": "CWE"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "id": 1014008,
+    "name": "Avoid Artifacts with High Cyclomatic Complexity (z/OS Assembler)",
+    "href": "AIP/quality-rules/1014008",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 5,
+    "extension": {
+        "name": "com.castsoftware.asmzos",
+        "href": "AIP/extensions/com.castsoftware.asmzos"
+    },
+    "associatedValueName": "Cyclomatic complexity",
+    "description": "Avoid Artifacts with High Cyclomatic Complexity (CC > 20). Complex Artifacts are difficult to maintain. Keeping Artifacts small and simple ensures good readability of the code. The threshold level is a parameter that can be changed at will.\nAn Artifact is a z/OS Assembler Program, one .asm or .mlc source file, or a z/OS Assembler Macro, one .asmacro source file or a source file whose first statement is MACRO.\nThe Cyclomatic Complexity of an Artifact is 1, plus:\n- one per conditional branch: a conditional extended mnemonic such as BE, BNE, BZ, JE or JNE, or a BC, BCR, BRC or BRCL instruction with a mask other than 0 and 15,\n- one per loop branch: BCT, BCTR, BRCT, BXH, BXLE, BRXH, BRXLE and their variants,\n- one per target of an AIF conditional assembly instruction.\nA BCTR or BCR instruction with register 0 as second operand does not branch and is not counted.",
+    "output": "Associated to each z/OS Assembler Program or Macro with violations, the Quality Rule provides:\n- The Cyclomatic complexity",
+    "rationale": "The effort and time for diagnosis of deficiencies or causes of failures, or for identification of parts to be modified is directly related to the number of execution paths, i.e. the complexity of the control flow.\nAnalyzability declines with increasing Cyclomatic Complexity.\nEach modification must be correct for all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations.\nChangeability declines with increasing Cyclomatic Complexity.\nComplete testing requires coverage of all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations.\nTestability declines with increasing Cyclomatic Complexity.",
+    "reference": "CWE-1121: Excessive McCabe Cyclomatic Complexity\nhttps://cwe.mitre.org/data/definitions/1121.html\n\nCarnegie Mellon's Software Engineering Institute on Cyclomatic Complexity\nhttp://www.sei.cmu.edu/reports/95cm028.pdf\n\nNIST (National Institute of Standards and Technology)\nStructured Testing: A Testing Methodology Using the Cyclomatic Complexity Metric\nhttps://www.nist.gov/publications/structured-testing-testing-methodology-using-cyclomatic-complexity-metric",
+    "remediation": "Review the design of the Artifact to reduce the number of independent paths. E.g.: Reduce the number of conditional statements.",
+    "total": "Number of z/OS Assembler Programs and Macros",
+    "alternativeName": "Avoid Artifacts with High Cyclomatic Complexity (z/OS Assembler)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "href": "AIP/technical-criteria/61009",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1014000,
+            "name": "z/OS Assembler",
+            "href": "AIP/technologies/1014000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "href": "AIP/quality-standards/CISQ/items/ASCMM-MNT-11",
+            "standard": "CISQ"
+        },
+        {
+            "id": "CWE-710",
+            "name": "Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-710",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1120",
+            "name": "Excessive Code Complexity [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1120",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-1121",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-1121",
+            "name": "Excessive McCabe Cyclomatic Complexity [Base]",
+            "href": "AIP/quality-standards/ISO-5055/items/CWE-1121",
+            "standard": "ISO-5055"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max Cyclomatic Complexity",
+            "description": "Max Cyclomatic Complexity per artifact",
+            "technologies": [
+                {
+                    "id": 1014000,
+                    "name": "z/OS Assembler",
+                    "href": "AIP/technologies/1014000",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}
