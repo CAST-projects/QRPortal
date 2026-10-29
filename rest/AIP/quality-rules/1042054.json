@@ -1,0 +1,233 @@
+{
+    "id": 1042054,
+    "name": "Avoid Struts development mode enabled",
+    "href": "AIP/quality-rules/1042054",
+    "critical": false,
+    "severity": 10,
+    "maxWeight": 7,
+    "extension": {
+        "name": "com.castsoftware.struts",
+        "href": "AIP/extensions/com.castsoftware.struts"
+    },
+    "description": "This rule will check if Struts development mode is enabled in struts.xml or default.properties files.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "It exposes a built-in OGNL expression evaluator via HTTP parameters, enabling Remote Code Execution. It also disables security filters and leaks internal config \u2014 the exact class of flaw behind the 2017 Equifax breach.\n\nIt also has a significant impact on performance, since the entire configuration will be reloaded on every request.",
+    "reference": "CWE-489: Active Debug Code\nhttps://cwe.mitre.org/data/definitions/489.html\n\nCWE-94 \u2014 Improper Control of Generation of Code (Code Injection)\ncwe.mitre.org/data/definitions/94.html \u00b7 OGNL expression evaluation maps directly to this weakness class.\n\nOWASP Top Ten 2025 Category A05:2021 - Security Misconfiguration\nhttps://owasp.org/Top10/2021/A05_2021-Security_Misconfiguration/\n\nOWASP Top Ten 2025 Category A02:2025 - Security Misconfiguration\nhttps://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/\n\nCVE-2012-0394\nCVE-2017-5638 (Equifax)\n\nApache Struts Security Guide - Development Mode (aka \u201cdevMode\u201d)\nhttps://struts.apache.org/core-developers/development-mode",
+    "remediation": "Disabling DMI, using build profiles to prevent devMode leaking into production, adding a CI/CD gate, and WAF defence-in-depth.\n\nTurn off Struts Development Mode by modifying your struts.xml file (or set devMode to false in the file default.properties).",
+    "remediationSample": "Turn this option off before deploying application to a production environment.\n\nin struts.xml file:\n<constant name=\"struts.devMode\" value=\"false\" />    // \u2705 FIXED : Devmode disabled\n\nor in default.properties file:\nstruts.devMode = false                              // \u2705 FIXED : Devmode disabled",
+    "sample": "in struts.xml file:\n<constant name=\"struts.devMode\" value=\"true\" />    // \u274c Devmode enabled\n\nor in default.properties file:\nstruts.devMode = true                              // \u274c Devmode enabled",
+    "total": "Number of Struts config XML file and Struts properties files",
+    "alternativeName": "Ensure Struts development mode is not enabled",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 1066589,
+            "name": "CWE-489 - Active Debug Code [Base]",
+            "href": "AIP/technical-criteria/1066589",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066764,
+            "name": "CWE-664 - Improper Control of a Resource Through its Lifetime [Pillar]",
+            "href": "AIP/technical-criteria/1066764",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066807,
+            "name": "CWE-707 - Improper Neutralization [Pillar]",
+            "href": "AIP/technical-criteria/1066807",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066810,
+            "name": "CWE-710 - Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/technical-criteria/1066810",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066174,
+            "name": "CWE-74 - Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') [Class]",
+            "href": "AIP/technical-criteria/1066174",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1067013,
+            "name": "CWE-913 - Improper Control of Dynamically-Managed Code Resources [Class]",
+            "href": "AIP/technical-criteria/1067013",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1066194,
+            "name": "CWE-94 - Improper Control of Generation of Code ('Code Injection') [Base]",
+            "href": "AIP/technical-criteria/1066194",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062343,
+            "name": "OWASP-2021-A03 - Injection",
+            "href": "AIP/technical-criteria/1062343",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1062362,
+            "name": "OWASP-2025-A02 - Security Misconfiguration",
+            "href": "AIP/technical-criteria/1062362",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063155,
+            "name": "PCI-DSS4-Requirement-6.2.4 - Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/technical-criteria/1063155",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 1063114,
+            "name": "PCI-Requirement-6.5.1 - Injection flaws, particularly SQL injection",
+            "href": "AIP/technical-criteria/1063114",
+            "weight": 5,
+            "critical": false
+        },
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "href": "AIP/technical-criteria/66064",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "id": "CWE-74",
+            "name": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-74",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-94",
+            "name": "Improper Control of Generation of Code ('Code Injection') [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-94",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-489",
+            "name": "Active Debug Code [Base]",
+            "href": "AIP/quality-standards/CWE/items/CWE-489",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-664",
+            "name": "Improper Control of a Resource Through its Lifetime [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-664",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-707",
+            "name": "Improper Neutralization [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-707",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-710",
+            "name": "Improper Adherence to Coding Standards [Pillar]",
+            "href": "AIP/quality-standards/CWE/items/CWE-710",
+            "standard": "CWE"
+        },
+        {
+            "id": "CWE-913",
+            "name": "Improper Control of Dynamically-Managed Code Resources [Class]",
+            "href": "AIP/quality-standards/CWE/items/CWE-913",
+            "standard": "CWE"
+        },
+        {
+            "id": "NIST-CM-6",
+            "name": "Configuration Settings",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-CM-6",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53"
+        },
+        {
+            "id": "NIST-CM-6",
+            "name": "Configuration Settings",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-CM-6",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "href": "AIP/quality-standards/NIST-SP-800-53R4/items/NIST-SI-10",
+            "standard": "NIST-SP-800-53R4"
+        },
+        {
+            "id": "A02-2025",
+            "name": "Security Misconfiguration",
+            "href": "AIP/quality-standards/OWASP/items/A02-2025",
+            "standard": "OWASP"
+        },
+        {
+            "id": "A03-2021",
+            "name": "Injection",
+            "href": "AIP/quality-standards/OWASP/items/A03-2021",
+            "standard": "OWASP"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.1"
+        },
+        {
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection",
+            "href": "AIP/quality-standards/PCI-DSS-V3.2.1/items/PCI-Requirement-6.5.1",
+            "standard": "PCI-DSS-V3.2.1"
+        },
+        {
+            "id": "PCI-DSS4-Requirement-6.2.4",
+            "name": "Software engineering techniques or other methods are defined and in use by software development personnel to prevent or mitigate common software attacks and related vulnerabilities",
+            "href": "AIP/quality-standards/PCI-DSS-V4/items/PCI-DSS4-Requirement-6.2.4",
+            "standard": "PCI-DSS-V4"
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

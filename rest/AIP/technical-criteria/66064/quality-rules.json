@@ -1461,7 +1461,7 @@
         "id": 1042030,
         "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
         "href": "AIP/quality-rules/1042030",
-        "critical": false,
+        "critical": true,
         "weight": 3,
         "technologyNames": [
             "JEE"
@@ -1471,7 +1471,7 @@
         "id": 1042036,
         "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
         "href": "AIP/quality-rules/1042036",
-        "critical": false,
+        "critical": true,
         "weight": 1,
         "technologyNames": [
             "JEE"
@@ -1513,6 +1513,16 @@
         "href": "AIP/quality-rules/1042052",
         "critical": true,
         "weight": 8,
+        "technologyNames": [
+            "JEE"
+        ]
+    },
+    {
+        "id": 1042054,
+        "name": "Avoid Struts development mode enabled",
+        "href": "AIP/quality-rules/1042054",
+        "critical": false,
+        "weight": 7,
         "technologyNames": [
             "JEE"
         ]
