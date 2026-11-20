@@ -106,7 +106,7 @@ export npm_config_cache=$WORKSPACE/.npm
 echo "=============================================="
 echo "=============================================="
 echo "Installing ...."
-npm install --loglevel verbose --registry http://jnk-maven:8081/artifactory/api/npm/npm || exit 1
+npm install --loglevel verbose --registry https://artifactory.castsoftware.com/artifactory/api/npm/npm-remote/ || exit 1
 
 echo "=============================================="
 echo "=============================================="
