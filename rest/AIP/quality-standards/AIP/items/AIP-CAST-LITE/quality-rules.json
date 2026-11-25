@@ -13823,7 +13823,7 @@
     },
     {
         "id": 1065112,
-        "name": "Avoid passing empty container iterators to std algorithms as destinations",
+        "name": "DELETED:Avoid passing empty container iterators to std algorithms as destinations",
         "href": "AIP/quality-rules/1065112",
         "critical": false,
         "severity": 10,
@@ -13926,6 +13926,17 @@
         "critical": false,
         "severity": 10,
         "technologyNames": [
+            "C++"
+        ]
+    },
+    {
+        "id": 1065134,
+        "name": "Avoid returning address of local variable",
+        "href": "AIP/quality-rules/1065134",
+        "critical": true,
+        "severity": 20,
+        "technologyNames": [
+            "C",
             "C++"
         ]
     },
